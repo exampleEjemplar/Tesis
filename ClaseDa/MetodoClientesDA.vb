@@ -16,7 +16,6 @@ Public Class MetodoClientesDA
     End Sub
 
     Public Function CargaGrillaclientes(ByVal busqDNI As String, ByVal busqape As String) As DataSet
-
         Dim sqlStr As String
         ds1 = New DataSet
         sqlStr = "select  p.ID, t.Descripcion , p.NumeroDocumento,  rtrim(p.NOMBRE), rtrim(p.APELLIDO), " &
@@ -40,10 +39,8 @@ Public Class MetodoClientesDA
     End Function
 
     Public Sub grabarClientes(ByVal cli As ClientesNE)
-        'Dim sel As SqlCommand
         Try
-            Dim usuarioId As Integer = 1 'TODO Cambiarlo, lo hice para que no rompa (son las 3:41 del 30/4)
-            Dim insert As New SqlCommand("insert into Clientes values (" & cli.TipoDocumentoId & "," & cli.NumeroDocumento & ",'" & cli.Nombre & "','" & cli.Apellido & "','" & cli.FechaNacimiento & "', getdate(), '" & cli.Calle & "', '" & cli.NumeroCalle & "', '" & cli.Departamento & "','" & cli.Barrio & "'," & cli.Piso & "," & cli.Manzana & "," & cli.Lote & "," & cli.CiudadId & " ," & cli.Car_Telefono & "," & cli.NumeroTelefono & "," & cli.Car_Celular & "," & cli.NumeroCelular & ", 'S'," & usuarioId & ",'" & cli.Email & "','" & cli.FisicaOJuridica & "')", db)
+            Dim insert As New SqlCommand("insert into Clientes values (" & cli.TipoDocumentoId & "," & cli.NumeroDocumento & ",'" & cli.Nombre & "','" & cli.Apellido & "','" & cli.FechaNacimiento & "', getdate(), '" & cli.Calle & "', '" & cli.NumeroCalle & "', '" & cli.Departamento & "','" & cli.Barrio & "'," & cli.Piso & "," & cli.Manzana & "," & cli.Lote & "," & cli.CiudadId & " ," & cli.Car_Telefono & "," & cli.NumeroTelefono & "," & cli.Car_Celular & "," & cli.NumeroCelular & ", 'S'," & cli.UsuarioId & ",'" & cli.Email & "','" & cli.FisicaOJuridica & "')", db)
             insert.CommandType = CommandType.Text
             db.Open()
             insert.ExecuteNonQuery()

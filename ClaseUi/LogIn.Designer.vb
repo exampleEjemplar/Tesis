@@ -23,11 +23,11 @@ Partial Class LogIn
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.panel1 = New System.Windows.Forms.Panel()
+        Me.pictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btncerrar = New System.Windows.Forms.Button()
         Me.lblFecha = New System.Windows.Forms.Label()
         Me.txtContrasena = New System.Windows.Forms.TextBox()
         Me.txtUsuario = New System.Windows.Forms.TextBox()
-        Me.pictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btncerrar = New System.Windows.Forms.Button()
         Me.panel1.SuspendLayout()
         CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -48,6 +48,27 @@ Partial Class LogIn
         Me.panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.panel1.Size = New System.Drawing.Size(667, 345)
         Me.panel1.TabIndex = 11
+        '
+        'pictureBox1
+        '
+        Me.pictureBox1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.btn_ingresar
+        Me.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pictureBox1.Location = New System.Drawing.Point(489, 118)
+        Me.pictureBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.pictureBox1.Name = "pictureBox1"
+        Me.pictureBox1.Size = New System.Drawing.Size(120, 105)
+        Me.pictureBox1.TabIndex = 6
+        Me.pictureBox1.TabStop = False
+        '
+        'btncerrar
+        '
+        Me.btncerrar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.btn_cerrar
+        Me.btncerrar.Location = New System.Drawing.Point(27, 289)
+        Me.btncerrar.Margin = New System.Windows.Forms.Padding(4)
+        Me.btncerrar.Name = "btncerrar"
+        Me.btncerrar.Size = New System.Drawing.Size(47, 37)
+        Me.btncerrar.TabIndex = 5
+        Me.btncerrar.UseVisualStyleBackColor = True
         '
         'lblFecha
         '
@@ -92,33 +113,14 @@ Partial Class LogIn
         Me.txtUsuario.Size = New System.Drawing.Size(299, 23)
         Me.txtUsuario.TabIndex = 0
         '
-        'pictureBox1
-        '
-        Me.pictureBox1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.btn_ingresar
-        Me.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.pictureBox1.Location = New System.Drawing.Point(489, 118)
-        Me.pictureBox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.pictureBox1.Name = "pictureBox1"
-        Me.pictureBox1.Size = New System.Drawing.Size(120, 105)
-        Me.pictureBox1.TabIndex = 6
-        Me.pictureBox1.TabStop = False
-        '
-        'btncerrar
-        '
-        Me.btncerrar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.btn_cerrar
-        Me.btncerrar.Location = New System.Drawing.Point(27, 289)
-        Me.btncerrar.Margin = New System.Windows.Forms.Padding(4)
-        Me.btncerrar.Name = "btncerrar"
-        Me.btncerrar.Size = New System.Drawing.Size(47, 37)
-        Me.btncerrar.TabIndex = 5
-        Me.btncerrar.UseVisualStyleBackColor = True
-        '
         'LogIn
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(671, 348)
+        Me.ControlBox = False
         Me.Controls.Add(Me.panel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "LogIn"
         Me.Text = "LogIn"
         Me.panel1.ResumeLayout(False)

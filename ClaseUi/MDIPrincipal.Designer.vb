@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MDIPrincipal
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -21,11 +21,10 @@ Partial Class MDIPrincipal
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FileMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditMenu = New System.Windows.Forms.ToolStripMenuItem()
@@ -41,31 +40,14 @@ Partial Class MDIPrincipal
         Me.HelpMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.btnSalir = New System.Windows.Forms.Button()
+        Me.btnAjustes = New System.Windows.Forms.Button()
+        Me.btnCaja = New System.Windows.Forms.Button()
+        Me.btnArticulos = New System.Windows.Forms.Button()
+        Me.btnCompras = New System.Windows.Forms.Button()
+        Me.btnVentas = New System.Windows.Forms.Button()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Button6
-        '
-        Me.Button6.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.Button6.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_services_62
-        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button6.FlatAppearance.BorderSize = 0
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(13, 452)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(165, 97)
-        Me.Button6.TabIndex = 20
-        Me.Button6.Text = "Ajustes"
-        Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button6.UseVisualStyleBackColor = False
         '
         'MenuStrip
         '
@@ -167,108 +149,128 @@ Partial Class MDIPrincipal
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(163, 26)
         Me.AboutToolStripMenuItem.Text = "&Acerca de..."
         '
-        'Button4
+        'btnSalir
         '
-        Me.Button4.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.Button4.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_paper_money_62
-        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(13, 348)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(165, 97)
-        Me.Button4.TabIndex = 19
-        Me.Button4.Text = "Caja"
-        Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.btnSalir.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_services_62
+        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnSalir.FlatAppearance.BorderSize = 0
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.Location = New System.Drawing.Point(917, 616)
+        Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(165, 97)
+        Me.btnSalir.TabIndex = 22
+        Me.btnSalir.Text = "SALIR"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnSalir.UseVisualStyleBackColor = False
         '
-        'Button3
+        'btnAjustes
         '
-        Me.Button3.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.Button3.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_jewelry_62
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(13, 243)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(165, 97)
-        Me.Button3.TabIndex = 18
-        Me.Button3.Text = "Articulos"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.btnAjustes.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.btnAjustes.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_services_62
+        Me.btnAjustes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnAjustes.FlatAppearance.BorderSize = 0
+        Me.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAjustes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAjustes.Location = New System.Drawing.Point(13, 524)
+        Me.btnAjustes.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnAjustes.Name = "btnAjustes"
+        Me.btnAjustes.Size = New System.Drawing.Size(165, 111)
+        Me.btnAjustes.TabIndex = 20
+        Me.btnAjustes.Text = "Ajustes"
+        Me.btnAjustes.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAjustes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnAjustes.UseVisualStyleBackColor = False
         '
-        'Button2
+        'btnCaja
         '
-        Me.Button2.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.Button2.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shop_62
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(13, 138)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(165, 97)
-        Me.Button2.TabIndex = 17
-        Me.Button2.Text = "Compras"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btnCaja.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.btnCaja.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_paper_money_62
+        Me.btnCaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnCaja.FlatAppearance.BorderSize = 0
+        Me.btnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCaja.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCaja.Location = New System.Drawing.Point(13, 405)
+        Me.btnCaja.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnCaja.Name = "btnCaja"
+        Me.btnCaja.Size = New System.Drawing.Size(165, 111)
+        Me.btnCaja.TabIndex = 19
+        Me.btnCaja.Text = "Caja"
+        Me.btnCaja.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnCaja.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnCaja.UseVisualStyleBackColor = False
         '
-        'Button1
+        'btnArticulos
         '
-        Me.Button1.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_supplier_62
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(13, 34)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(165, 97)
-        Me.Button1.TabIndex = 16
-        Me.Button1.Text = "Ventas"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnArticulos.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.btnArticulos.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_jewelry_62
+        Me.btnArticulos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnArticulos.FlatAppearance.BorderSize = 0
+        Me.btnArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnArticulos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnArticulos.Location = New System.Drawing.Point(13, 286)
+        Me.btnArticulos.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnArticulos.Name = "btnArticulos"
+        Me.btnArticulos.Size = New System.Drawing.Size(165, 111)
+        Me.btnArticulos.TabIndex = 18
+        Me.btnArticulos.Text = "Articulos"
+        Me.btnArticulos.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnArticulos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnArticulos.UseVisualStyleBackColor = False
         '
-        'Button5
+        'btnCompras
         '
-        Me.Button5.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.Button5.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_services_62
-        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(796, 291)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(165, 97)
-        Me.Button5.TabIndex = 22
-        Me.Button5.Text = "SALIR"
-        Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button5.UseVisualStyleBackColor = False
+        Me.btnCompras.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.btnCompras.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shop_62
+        Me.btnCompras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnCompras.FlatAppearance.BorderSize = 0
+        Me.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCompras.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCompras.Location = New System.Drawing.Point(13, 167)
+        Me.btnCompras.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnCompras.Name = "btnCompras"
+        Me.btnCompras.Size = New System.Drawing.Size(165, 111)
+        Me.btnCompras.TabIndex = 17
+        Me.btnCompras.Text = "Compras"
+        Me.btnCompras.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnCompras.UseVisualStyleBackColor = False
+        '
+        'btnVentas
+        '
+        Me.btnVentas.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.btnVentas.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_supplier_62
+        Me.btnVentas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnVentas.FlatAppearance.BorderSize = 0
+        Me.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVentas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVentas.Location = New System.Drawing.Point(13, 48)
+        Me.btnVentas.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnVentas.Name = "btnVentas"
+        Me.btnVentas.Size = New System.Drawing.Size(165, 111)
+        Me.btnVentas.TabIndex = 16
+        Me.btnVentas.Text = "Ventas"
+        Me.btnVentas.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnVentas.UseVisualStyleBackColor = False
         '
         'MDIPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1109, 756)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.btnSalir)
+        Me.Controls.Add(Me.btnAjustes)
+        Me.Controls.Add(Me.btnCaja)
+        Me.Controls.Add(Me.btnArticulos)
+        Me.Controls.Add(Me.btnCompras)
+        Me.Controls.Add(Me.btnVentas)
         Me.Controls.Add(Me.MenuStrip)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.IsMdiContainer = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "MDIPrincipal"
@@ -280,11 +282,11 @@ Partial Class MDIPrincipal
 
     End Sub
     Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
-    Friend WithEvents Button6 As Windows.Forms.Button
-    Friend WithEvents Button4 As Windows.Forms.Button
-    Friend WithEvents Button3 As Windows.Forms.Button
-    Friend WithEvents Button2 As Windows.Forms.Button
-    Friend WithEvents Button1 As Windows.Forms.Button
+    Friend WithEvents btnAjustes As Windows.Forms.Button
+    Friend WithEvents btnCaja As Windows.Forms.Button
+    Friend WithEvents btnArticulos As Windows.Forms.Button
+    Friend WithEvents btnCompras As Windows.Forms.Button
+    Friend WithEvents btnVentas As Windows.Forms.Button
     Friend WithEvents MenuStrip As Windows.Forms.MenuStrip
     Friend WithEvents FileMenu As Windows.Forms.ToolStripMenuItem
     Friend WithEvents EditMenu As Windows.Forms.ToolStripMenuItem
@@ -300,5 +302,5 @@ Partial Class MDIPrincipal
     Friend WithEvents HelpMenu As Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator8 As Windows.Forms.ToolStripSeparator
     Friend WithEvents AboutToolStripMenuItem As Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Button5 As Windows.Forms.Button
+    Friend WithEvents btnSalir As Windows.Forms.Button
 End Class

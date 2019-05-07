@@ -3,26 +3,54 @@ Imports ClaseLn
 Imports ClaseNe
 
 
-Public Class FrmGestionProveedor
+Public Class FrmGestionCliente
 
     Private clientemetodo As New ClientesLN
     Private cli As New ClientesNE
     Private helpersLN As New HelpersLN
+    Private helpersUI As New HelpersUI
     Private busqdni As String
     Private busqape As String
-    Public idcliente As Integer
     Public usuarioid As Integer
     Public IdProvincia As Integer
+    Private fisicaOJuridica As Char
 
     Private Sub FrmGestionCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         cmbProvincias.SelectedValue = 0
         cbtipodni.SelectedValue = 0
-        LlenarCMBDoc()
-        'llenarCMBLocalidades()
-        LlenarCMBProvincias()
-        DgvclientesSet()
+        IdProvincia = LlenarCMBProvincias()
+        LlenarCMBLocalidades()
+        dtpfechanac.MinDate = Date.Today.AddYears(-18)
+        Block()
+        'TODO : Descomentar cuando se busque
+        'DgvclientesSet()
 
+    End Sub
+
+    Public Sub Block()
+        GroupBox4.Visible = False
+        GroupBox2.Visible = False
+        GroupBox3.Visible = False
+        btnGuardar.Enabled = False
+        btnModificar.Enabled = False
+        btnNuevo.Enabled = False
+        cboTipoPersona.Enabled = True
+        cbtipodni.Enabled = True
+        tbNroDoc.ReadOnly = False
+        btnValidarDNI.Enabled = True
+    End Sub
+
+    Public Sub Unblock()
+        GroupBox4.Visible = True
+        GroupBox2.Visible = True
+        GroupBox3.Visible = True
+        btnGuardar.Enabled = True
+        btnModificar.Enabled = True
+        cboTipoPersona.Enabled = False
+        cbtipodni.Enabled = False
+        tbNroDoc.ReadOnly = True
+        btnValidarDNI.Enabled = False
     End Sub
 
     Public Sub DgvclientesSet()
@@ -61,109 +89,120 @@ Public Class FrmGestionProveedor
 
     End Sub
 
-    Public Sub LlenarCMBProvincias()
+    Public Function LlenarCMBProvincias()
         Try
             Dim ds1 As DataSet
             ds1 = helpersLN.CargarCMBProvincias()
             cmbProvincias.DataSource = ds1.Tables(0)
-            cmbProvincias.DisplayMember = "nombre_prov"
-            cmbProvincias.ValueMember = "idprovincia"
-
+            cmbProvincias.DisplayMember = "nombre"
+            cmbProvincias.ValueMember = "id"
+            cmbProvincias.SelectedValue = 1
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
-    End Sub
+        Return cmbProvincias.SelectedValue
+    End Function
 
     Public Sub LlenarCMBLocalidades()
         Try
             Dim ds1 As DataSet
-            ds1 = helpersLN.CargarCMBLocalidades()
+            ds1 = helpersLN.CargarCMBLocalidades(IdProvincia)
             cmbLocalidades.DataSource = ds1.Tables(0)
-            cmbLocalidades.DisplayMember = "loc_nombre"
-            cmbLocalidades.ValueMember = "loc_id"
+            cmbLocalidades.DisplayMember = "nombre"
+            cmbLocalidades.ValueMember = "id"
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Sub
 
-    'Llena ComboBox Tipo DNI
-    Public Sub LlenarCMBDoc()
+    Public Sub LlenarCMBDoc(ByVal FoJ As Char)
         Try
             Dim ds1 As DataSet
-            ds1 = helpersLN.CargarCMBDoc()
+            ds1 = helpersLN.CargarCMBDoc(FoJ)
             cbtipodni.DataSource = ds1.Tables(0)
-            cbtipodni.DisplayMember = "nombretipodni"
-            cbtipodni.ValueMember = "id_tipodni"
+            cbtipodni.DisplayMember = "descripcion"
+            cbtipodni.ValueMember = "id"
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Sub
 
     Private Sub CmbProvincias_SelectionChangeCommitted(sender As System.Object, e As System.EventArgs) Handles cmbProvincias.SelectionChangeCommitted
-
-        helpersLN.idprov = cmbProvincias.SelectedValue.ToString
+        IdProvincia = cmbProvincias.SelectedValue
         LlenarCMBLocalidades()
-
     End Sub
 
-    Public Sub MoverDatosClientes()
+    Public Function ValidarDatos()
+
+        If helpersUI.Validar_Mail(tbmail.Text) = False Then
+            MsgBox("Debe ingresar correctamente el campo email", MsgBoxStyle.Critical, "Error")
+            Return False
+        End If
+
+
+        'Agrego todos los txt y cbo a un diccionario para validarlos despues genericamente y no uno por uno
+        Dim dictionaryOfTexts As Dictionary(Of String, String) = New Dictionary(Of String, String) From
+        {{"Numero de calle", tbNro.Text}, {"Email", tbmail.Text}, {"Calle", tbcalle.Text},
+        {"Localidad", cmbLocalidades.SelectedValue},
+        {"Provincia", cmbProvincias.SelectedValue}}
+
+        If fisicaOJuridica = "F" Then
+            dictionaryOfTexts.Add("Nombre", tbNombre.Text)
+            dictionaryOfTexts.Add("Apellido", tbApellido.Text)
+        Else
+            dictionaryOfTexts.Add("Nombre de Fantasía", tbNombre.Text)
+            dictionaryOfTexts.Add("Razon Social", tbApellido.Text)
+        End If
+
+        For Each texts As KeyValuePair(Of String, String) In dictionaryOfTexts
+            If helpersUI.TextValidator(texts.Key, texts.Value) = False Then
+                Return False
+            End If
+        Next
+
+        If String.IsNullOrWhiteSpace(tbcodcel.Text) = False And String.IsNullOrWhiteSpace(tbcel.Text) = True Then
+            MsgBox("Ingrese el número de celular correspondiente", MsgBoxStyle.Critical, "Celular")
+            Return False
+        End If
+        If String.IsNullOrWhiteSpace(tbcodcel.Text) = True And String.IsNullOrWhiteSpace(tbcel.Text) = False Then
+            MsgBox("Ingrese la característica de celular correspondiente", MsgBoxStyle.Critical, "Celular")
+            Return False
+        End If
+        If String.IsNullOrWhiteSpace(tbcodtel.Text) = False And String.IsNullOrWhiteSpace(tbtelefono.Text) = True Then
+            MsgBox("Ingrese el número de teléfono correspondiente", MsgBoxStyle.Critical, "Teléfono")
+            Return False
+        End If
+        If String.IsNullOrWhiteSpace(tbcodtel.Text) = True And String.IsNullOrWhiteSpace(tbtelefono.Text) = False Then
+            MsgBox("Ingrese la característica de teléfono correspondiente", MsgBoxStyle.Critical, "Teléfono")
+            Return False
+        End If
+
         cli = New ClientesNE With {
-            .Id = idcliente,
+            .FisicaOJuridica = fisicaOJuridica,
             .TipoDocumentoId = cbtipodni.SelectedValue,
             .NumeroDocumento = tbNroDoc.Text,
+            .Email = tbmail.Text,
             .Nombre = tbNombre.Text,
             .Apellido = tbApellido.Text,
             .FechaNacimiento = dtpfechanac.Value,
-            .Email = tbmail.Text,
-            .UsuarioId = usuarioid
+            .UsuarioId = usuarioid,
+            .Calle = tbcalle.Text,
+            .NumeroCalle = tbNro.Text,
+            .Piso = txtPiso.Text,
+            .Departamento = tbDpto.Text,
+            .Manzana = txtManzana.Text,
+            .CiudadId = cmbLocalidades.SelectedValue,
+            .Lote = txtLote.Text,
+            .Barrio = txtBarrio.Text,
+            .Car_Telefono = tbcodtel.Text,
+            .NumeroTelefono = tbtelefono.Text,
+            .Car_Celular = tbcodcel.Text,
+            .NumeroCelular = tbcel.Text
         }
+        Return True
+    End Function
 
-        If tbcalle.Text <> "" Then
-            cli.Calle = tbcalle.Text
-        Else
-            cli.Calle = "S/D"
-        End If
-
-        If tbNro.Text <> "" Then
-            cli.NumeroCalle = tbNro.Text
-        Else
-            cli.NumeroCalle = "S/N"
-        End If
-
-        If tbDpto.Text <> "" Then
-            cli.Departamento = tbDpto.Text
-        Else
-            cli.Departamento = "S/N"
-        End If
-        cli.CiudadId = cmbProvincias.SelectedValue
-
-        If tbtelefono.Text <> "" Then
-            cli.NumeroTelefono = tbtelefono.Text
-        Else
-            cli.NumeroTelefono = "NULL"
-        End If
-
-        If tbcel.Text <> "" Then
-            cli.NumeroCelular = tbcel.Text
-        Else
-            cli.NumeroCelular = "NULL"
-        End If
-
-        If tbcodcel.Text <> "" Then
-            cli.Car_Celular = tbcodcel.Text
-        Else
-            cli.Car_Celular = "NULL"
-        End If
-
-        If tbcodtel.Text <> "" Then
-            cli.Car_Telefono = tbcodtel.Text
-        Else
-            cli.Car_Telefono = "NULL"
-        End If
-
-    End Sub
-
-    Private Sub TxbTelNumero_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles tbcodcel.KeyPress, tbcodtel.KeyPress, tbcel.KeyPress, tbNroDoc.KeyPress, tbNro.KeyPress
+    Private Sub TxbTelNumero_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles tbcodcel.KeyPress, tbcodtel.KeyPress, tbcel.KeyPress, tbNroDoc.KeyPress, tbNro.KeyPress, txtPiso.KeyPress, txtManzana.KeyPress, txtLote.KeyPress
         If Char.IsNumber(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -175,7 +214,7 @@ Public Class FrmGestionProveedor
         End If
     End Sub
 
-    Private Sub TbNombre_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles tbNombre.KeyPress, tbApellido.KeyPress
+    Private Sub TbNombre_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles tbNombre.KeyPress, tbApellido.KeyPress, txtBarrio.KeyPress
         If Char.IsLetter(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -200,21 +239,25 @@ Public Class FrmGestionProveedor
     '    End If
     'End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
-        MoverDatosClientes()
+        If ValidarDatos() = False Then
+            Return
+        End If
         clientemetodo.GrabarClientes(cli)
+        MsgBox("Cliente agregado con exito!", MsgBoxStyle.OkOnly, "Exito")
         DgvclientesSet()
 
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Close()
+        MDIPrincipal.Show()
     End Sub
 
     Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs) Handles dgvclientes.DoubleClick
 
-        idcliente = (dgvclientes.Item(0, dgvclientes.CurrentRow.Index).Value)
+        'idcliente = (dgvclientes.Item(0, dgvclientes.CurrentRow.Index).Value)
         cbtipodni.SelectedValue = (dgvclientes.Item(1, dgvclientes.CurrentRow.Index).Value)
         tbNroDoc.Text = (dgvclientes.Item(2, dgvclientes.CurrentRow.Index).Value)
         dtpfechanac.Value = (dgvclientes.Item(5, dgvclientes.CurrentRow.Index).Value)
@@ -226,7 +269,7 @@ Public Class FrmGestionProveedor
         ' cmbLocalidades.SelectedValue = (dgvclientes.Item(10, dgvclientes.CurrentRow.Index).Value)
         'cmbProvincias.SelectedValue = (dgvclientes.Item(1, dgvclientes.CurrentRow.Index).Value)
         IdProvincia = Convert.ToString((dgvclientes.Item(10, dgvclientes.CurrentRow.Index).Value))
-        helpersLN.idprov = IdProvincia 'TODO Aca esto se puede evitar pasando como parametro el int directamente 
+        'helpersLN.idprov = IdProvincia 'TODO Aca esto se puede evitar pasando como parametro el int directamente 
         LlenarCMBLocalidades()
         tbcodtel.Text = (dgvclientes.Item(14, dgvclientes.CurrentRow.Index).Value)
         tbtelefono.Text = (dgvclientes.Item(12, dgvclientes.CurrentRow.Index).Value)
@@ -234,5 +277,38 @@ Public Class FrmGestionProveedor
         tbcodcel.Text = (dgvclientes.Item(13, dgvclientes.CurrentRow.Index).Value)
         tbmail.Text = (dgvclientes.Item(16, dgvclientes.CurrentRow.Index).Value)
 
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btnValidarDNI.Click
+        If helpersUI.TextValidator("Tipo de persona", cboTipoPersona.SelectedItem) = False Or
+            helpersUI.TextValidator("Tipo de identificacion", cbtipodni.Text) = False Or
+            helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
+            Return
+        End If
+        If helpersLN.ValidarSiExisteDni(Convert.ToInt64(tbNroDoc.Text), "Clientes") = False Then
+            MsgBox("La identificación puede ser utilizada!", MsgBoxStyle.OkOnly, "Ok")
+            Unblock()
+            If cboTipoPersona.SelectedItem = "Física" Then
+                lblRazonSoc.Visible = False
+                lblNombreFanta.Visible = False
+                lblInicioAct.Visible = False
+                fisicaOJuridica = "F"
+            Else
+                lblNombre.Visible = False
+                lblApellido.Visible = False
+                lblFechaNac.Visible = False
+                fisicaOJuridica = "J"
+            End If
+        Else
+                MsgBox("La identificación ingresada ya existe en la base de datos", MsgBoxStyle.Critical, "Ya existente")
+        End If
+    End Sub
+
+    Private Sub CboTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoPersona.SelectedIndexChanged
+        If cboTipoPersona.SelectedText = "Física" Then
+            LlenarCMBDoc("F")
+        Else
+            LlenarCMBDoc("J")
+        End If
     End Sub
 End Class

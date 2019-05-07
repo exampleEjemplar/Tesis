@@ -44,11 +44,11 @@ Public Class HelpersDA
 
     End Function
 
-    Public Function CargarCMBDoc() As DataSet
+    Public Function CargarCMBDoc(ByVal FoJ As Char) As DataSet
 
         Dim sqlStr As String
         ds = New DataSet
-        sqlStr = "SELECT * FROM TipoDocumentos Order by Descripcion"
+        sqlStr = "SELECT * FROM TipoDocumentos where FisicaOJuridica = " & FoJ & "Order by Descripcion"
         Try
             Dim da As New SqlDataAdapter(sqlStr, db)
             da.Fill(ds)
@@ -57,6 +57,27 @@ Public Class HelpersDA
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
         Return ds
+    End Function
+
+    Public Function ValidarSiExisteDni(ByVal numero As Double, ByVal entidad As String) As Boolean
+
+        Dim sqlStr As String
+        Dim dt = New DataTable
+        sqlStr = "SELECT * FROM " & entidad & " where NumeroDocumento =" & numero
+        Try
+            Dim da As New SqlDataAdapter(sqlStr, db)
+            da.Fill(dt)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return True
+        End Try
+        If dt.Rows.Count = 0 Then
+            Return False
+        Else
+            Return True
+        End If
+        Return False
     End Function
 
 End Class

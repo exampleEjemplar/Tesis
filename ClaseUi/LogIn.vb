@@ -64,9 +64,6 @@ Public Class LogIn
     Private Sub LogIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtUsuario.Text = ""
         txtContrasena.Text = ""
-
-        loginMetodo.abrir()
-
         'Mostrar Fecha y Hora
         lblFecha.Text = DateTime.Now.ToLongDateString()
     End Sub

@@ -11,15 +11,6 @@ Public Class MetodoLoginDA
         con = objcon.Abrir
         com.Connection = con
     End Sub
-    Sub Abrir()
-        Try
-
-            con.Open()
-
-        Catch ex As Exception
-            MsgBox("No se pudo conectar con la Base de Datos " + ex.ToString)
-        End Try
-    End Sub
 
     Public usr As String
     Public nivelusr As Integer

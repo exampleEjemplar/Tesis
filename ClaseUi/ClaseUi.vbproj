@@ -47,7 +47,7 @@
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>ClaseUi.FrmGestionCliente</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -83,6 +83,13 @@
     <Compile Include="FrmGestionProveedores.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmGestionUsuario.Designer.vb">
+      <DependentUpon>FrmGestionUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpersUI.vb" />
     <Compile Include="LogIn.Designer.vb">
       <DependentUpon>LogIn.vb</DependentUpon>
     </Compile>
@@ -190,6 +197,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question_icon-icons.com_69970.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -1,5 +1,5 @@
 ﻿Imports ClaseDa
-Imports ClaseNE
+Imports ClaseNe
 
 Public Class LoginLN
 
@@ -13,11 +13,6 @@ Public Class LoginLN
         usr = objloginAD.usr
         rolUsuario = objloginAD.nivelusr
         usr_id = objloginAD.usr_id
-    End Sub
-
-    Sub abrir()
-        objloginAD.Abrir()
-
     End Sub
 
 

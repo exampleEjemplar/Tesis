@@ -3,7 +3,7 @@ Imports ClaseLn
 Imports ClaseNe
 
 
-Public Class frmGestionProveedores
+Public Class FrmGestionProveedores
 
     Private proveedormetodo As New ProveedoresLN
     Private pro As New ProveedoresNE
@@ -77,7 +77,7 @@ Public Class frmGestionProveedores
     Public Sub LlenarCMBLocalidades()
         Try
             Dim ds1 As DataSet
-            ds1 = helpersLN.CargarCMBLocalidades()
+            'ds1 = helpersLN.CargarCMBLocalidades()
             cmbLocalidades.DataSource = ds1.Tables(0)
             cmbLocalidades.DisplayMember = "loc_nombre"
             cmbLocalidades.ValueMember = "loc_id"
@@ -100,7 +100,7 @@ Public Class frmGestionProveedores
 
     Private Sub CmbProvincias_SelectionChangeCommitted(sender As System.Object, e As System.EventArgs) Handles cmbProvincias.SelectionChangeCommitted
 
-        helpersLN.idprov = cmbProvincias.SelectedValue.ToString
+        'helpersLN.idprov = cmbProvincias.SelectedValue.ToString
         LlenarCMBLocalidades()
 
     End Sub
@@ -214,7 +214,7 @@ Public Class frmGestionProveedores
         ' cmbLocalidades.SelectedValue = (dgvproveedores.Item(10, dgvproveedores.CurrentRow.Index).Value)
         'cmbProvincias.SelectedValue = (dgvproveedores.Item(1, dgvproveedores.CurrentRow.Index).Value)
         IdProvincia = Convert.ToString((dgvproveedores.Item(10, dgvproveedores.CurrentRow.Index).Value))
-        helpersLN.idprov = IdProvincia
+        'helpersLN.idprov = IdProvincia
         LlenarCMBLocalidades()
         tbcodtel.Text = (dgvproveedores.Item(14, dgvproveedores.CurrentRow.Index).Value)
         tbtelefono.Text = (dgvproveedores.Item(12, dgvproveedores.CurrentRow.Index).Value)

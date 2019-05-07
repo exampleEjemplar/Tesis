@@ -1,10 +1,11 @@
-CREATE DATABASE JoyeriaCrisol
+CREATE DATABASE JoyeriaCrisol3
 GO
-USE JoyeriaCrisol
+USE JoyeriaCrisol3
 GO
 CREATE TABLE TipoDocumentos(
 Id INT IDENTITY PRIMARY KEY,
-Descripcion VARCHAR(MAX)
+Descripcion VARCHAR(MAX),
+FisicaOJuridica CHAR(1)
 )
 GO
 CREATE TABLE TipoProductos(
@@ -70,7 +71,7 @@ GO
 CREATE TABLE Proveedores(
 Id INT IDENTITY PRIMARY KEY,
 TipoDocumentoId INT,
-NumeroDocumento INT,
+NumeroDocumento FLOAT
 Nombre VARCHAR(MAX),
 Apellido VARCHAR(MAX),
 FechaNacimiento DATE,
@@ -99,7 +100,7 @@ GO
 CREATE TABLE Clientes(
 Id INT IDENTITY PRIMARY KEY,
 TipoDocumentoId INT,
-NumeroDocumento INT,
+NumeroDocumento FLOAT
 Nombre VARCHAR(MAX),
 Apellido VARCHAR(MAX),
 FechaNacimiento DATE,
@@ -39946,23 +39947,23 @@ INSERT INTO CIUDADES VALUES ('Zurita',23)
 GO
 INSERT TIPODOCUMENTOS
 VALUES
-('DNI')
+('DNI','F')
 GO
 INSERT TIPODOCUMENTOS
 VALUES
-('Libreta de enrolamiento')
+('Libreta de enrolamiento','F')
 GO
 INSERT TIPODOCUMENTOS
 VALUES
-('Libreta Civica')
+('Libreta Civica','F')
 GO
 INSERT TIPODOCUMENTOS
 VALUES
-('CUIT')
+('CUIT','J')
 GO
 INSERT TIPODOCUMENTOS
 VALUES
-('CUIL')
+('CUIL','J')
 
 --Roles
 
