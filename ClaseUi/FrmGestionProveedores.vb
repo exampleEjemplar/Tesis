@@ -89,7 +89,7 @@ Public Class FrmGestionProveedores
     Public Sub LlenarCMBDoc()
         Try
             Dim ds1 As DataSet
-            ds1 = helpersLN.CargarCMBDoc
+            'ds1 = helpersLN.CargarCMBDoc()
             cbtipodni.DataSource = ds1.Tables(0)
             cbtipodni.DisplayMember = "nombretipodni"
             cbtipodni.ValueMember = "id_tipodni"

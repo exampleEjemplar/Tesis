@@ -9,8 +9,6 @@ Public Class FrmGestionCliente
     Private cli As New ClientesNE
     Private helpersLN As New HelpersLN
     Private helpersUI As New HelpersUI
-    Private busqdni As String
-    Private busqape As String
     Public usuarioid As Integer
     Public IdProvincia As Integer
     Private fisicaOJuridica As Char
@@ -23,8 +21,8 @@ Public Class FrmGestionCliente
         LlenarCMBLocalidades()
         dtpfechanac.MinDate = Date.Today.AddYears(-18)
         Block()
-        'TODO : Descomentar cuando se busque
-        'DgvclientesSet()
+
+        DgvclientesSet(New Dictionary(Of String, String))
 
     End Sub
 
@@ -36,9 +34,11 @@ Public Class FrmGestionCliente
         btnModificar.Enabled = False
         btnNuevo.Enabled = False
         cboTipoPersona.Enabled = True
-        cbtipodni.Enabled = True
+        cbtipodni.Enabled = False
         tbNroDoc.ReadOnly = False
         btnValidarDNI.Enabled = True
+        cboBusTipoPersona.Enabled = True
+        cboBusTipoDNI.Enabled = False
     End Sub
 
     Public Sub Unblock()
@@ -53,34 +53,33 @@ Public Class FrmGestionCliente
         btnValidarDNI.Enabled = False
     End Sub
 
-    Public Sub DgvclientesSet()
+    Public Sub DgvclientesSet(ByVal parametros As Dictionary(Of String, String))
         Dim dsa1 As DataSet
-        dsa1 = clientemetodo.CargaGrillaclientes(busqdni, busqape)
+        dsa1 = clientemetodo.CargaGrillaclientes(parametros)
         dgvclientes.DataSource = dsa1.Tables(0)
-        dgvclientes.Columns(0).Visible = False
-        dgvclientes.Columns(1).Visible = False
-        dgvclientes.Columns(5).Visible = False
-        dgvclientes.Columns(6).Visible = False
-        dgvclientes.Columns(7).Visible = False
-        dgvclientes.Columns(8).Visible = False
-        dgvclientes.Columns(9).Visible = False
-        dgvclientes.Columns(10).Visible = False
-        dgvclientes.Columns(11).Visible = False
-        dgvclientes.Columns(12).Visible = False
-        dgvclientes.Columns(13).Visible = False
-        dgvclientes.Columns(14).Visible = False
-        dgvclientes.Columns(15).Visible = False
-        ' dgvclientes.Columns(16).Visible = False
-        ' dgvclientes.Columns(17).Visible = False
+        'dgvclientes.Columns(0).Visible = False
+        'dgvclientes.Columns(1).Visible = False
+        'dgvclientes.Columns(5).Visible = False
+        'dgvclientes.Columns(6).Visible = False
+        'dgvclientes.Columns(7).Visible = False
+        'dgvclientes.Columns(8).Visible = False
+        'dgvclientes.Columns(9).Visible = False
+        'dgvclientes.Columns(10).Visible = False
+        'dgvclientes.Columns(11).Visible = False
+        'dgvclientes.Columns(12).Visible = False
+        'dgvclientes.Columns(13).Visible = False
+        'dgvclientes.Columns(14).Visible = False
+        'dgvclientes.Columns(15).Visible = False
+        'dgvclientes.Columns(16).Visible = False
+        'dgvclientes.Columns(17).Visible = False
         dgvclientes.Columns(2).HeaderText = "Nro. Doc."
         dgvclientes.Columns(4).HeaderText = "Apellido"
         dgvclientes.Columns(3).HeaderText = "Nombre"
-        dgvclientes.Columns(3).HeaderText = "Nombre"
-        dgvclientes.Columns(16).HeaderText = "E-Mail"
+        'dgvclientes.Columns(16).HeaderText = "E-Mail"
         dgvclientes.Columns(2).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
         dgvclientes.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        dgvclientes.Columns(16).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        dgvclientes.Columns(16).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        'dgvclientes.Columns(16).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+        'dgvclientes.Columns(16).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         dgvclientes.Columns(3).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
         dgvclientes.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         dgvclientes.Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
@@ -116,15 +115,28 @@ Public Class FrmGestionCliente
     End Sub
 
     Public Sub LlenarCMBDoc(ByVal FoJ As Char)
-        Try
-            Dim ds1 As DataSet
-            ds1 = helpersLN.CargarCMBDoc(FoJ)
-            cbtipodni.DataSource = ds1.Tables(0)
-            cbtipodni.DisplayMember = "descripcion"
-            cbtipodni.ValueMember = "id"
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
+        If FoJ = "" Then
+            Try
+                Dim ds1 As DataSet
+                ds1 = helpersLN.CargarCMBDoc(FoJ)
+                cboBusTipoDNI.DataSource = ds1.Tables(0)
+                cboBusTipoDNI.DisplayMember = "descripcion"
+                cboBusTipoDNI.ValueMember = "id"
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        Else
+            Try
+                Dim ds1 As DataSet
+                ds1 = helpersLN.CargarCMBDoc(FoJ)
+                cbtipodni.DataSource = ds1.Tables(0)
+                cbtipodni.DisplayMember = "descripcion"
+                cbtipodni.ValueMember = "id"
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+
+        End If
     End Sub
 
     Private Sub CmbProvincias_SelectionChangeCommitted(sender As System.Object, e As System.EventArgs) Handles cmbProvincias.SelectionChangeCommitted
@@ -227,18 +239,6 @@ Public Class FrmGestionCliente
 
     End Sub
 
-    'Private Sub txbBusquedaNombre_KeyPress(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txbBusquedaNombre.KeyPress
-    '    If Char.IsLetter(e.KeyChar) Then
-    '        e.Handled = False
-    '    ElseIf Char.IsControl(e.KeyChar) Then
-    '        e.Handled = False
-    '    ElseIf Char.IsSeparator(e.KeyChar) Then
-    '        e.Handled = False
-    '    Else
-    '        e.Handled = True
-    '    End If
-    'End Sub
-
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
         If ValidarDatos() = False Then
@@ -246,7 +246,7 @@ Public Class FrmGestionCliente
         End If
         clientemetodo.GrabarClientes(cli)
         MsgBox("Cliente agregado con exito!", MsgBoxStyle.OkOnly, "Exito")
-        DgvclientesSet()
+        'DgvclientesSet()
 
     End Sub
 
@@ -257,25 +257,25 @@ Public Class FrmGestionCliente
 
     Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs) Handles dgvclientes.DoubleClick
 
-        'idcliente = (dgvclientes.Item(0, dgvclientes.CurrentRow.Index).Value)
-        cbtipodni.SelectedValue = (dgvclientes.Item(1, dgvclientes.CurrentRow.Index).Value)
-        tbNroDoc.Text = (dgvclientes.Item(2, dgvclientes.CurrentRow.Index).Value)
-        dtpfechanac.Value = (dgvclientes.Item(5, dgvclientes.CurrentRow.Index).Value)
-        tbNombre.Text = (dgvclientes.Item(3, dgvclientes.CurrentRow.Index).Value)
-        tbApellido.Text = (dgvclientes.Item(4, dgvclientes.CurrentRow.Index).Value)
-        tbcalle.Text = (dgvclientes.Item(7, dgvclientes.CurrentRow.Index).Value)
-        tbNro.Text = (dgvclientes.Item(8, dgvclientes.CurrentRow.Index).Value)
-        tbDpto.Text = (dgvclientes.Item(9, dgvclientes.CurrentRow.Index).Value)
-        ' cmbLocalidades.SelectedValue = (dgvclientes.Item(10, dgvclientes.CurrentRow.Index).Value)
-        'cmbProvincias.SelectedValue = (dgvclientes.Item(1, dgvclientes.CurrentRow.Index).Value)
-        IdProvincia = Convert.ToString((dgvclientes.Item(10, dgvclientes.CurrentRow.Index).Value))
-        'helpersLN.idprov = IdProvincia 'TODO Aca esto se puede evitar pasando como parametro el int directamente 
-        LlenarCMBLocalidades()
-        tbcodtel.Text = (dgvclientes.Item(14, dgvclientes.CurrentRow.Index).Value)
-        tbtelefono.Text = (dgvclientes.Item(12, dgvclientes.CurrentRow.Index).Value)
-        tbcel.Text = (dgvclientes.Item(11, dgvclientes.CurrentRow.Index).Value)
-        tbcodcel.Text = (dgvclientes.Item(13, dgvclientes.CurrentRow.Index).Value)
-        tbmail.Text = (dgvclientes.Item(16, dgvclientes.CurrentRow.Index).Value)
+        ''idcliente = (dgvclientes.Item(0, dgvclientes.CurrentRow.Index).Value)
+        'cbtipodni.SelectedValue = (dgvclientes.Item(1, dgvclientes.CurrentRow.Index).Value)
+        'tbNroDoc.Text = (dgvclientes.Item(2, dgvclientes.CurrentRow.Index).Value)
+        'dtpfechanac.Value = (dgvclientes.Item(5, dgvclientes.CurrentRow.Index).Value)
+        'tbNombre.Text = (dgvclientes.Item(3, dgvclientes.CurrentRow.Index).Value)
+        'tbApellido.Text = (dgvclientes.Item(4, dgvclientes.CurrentRow.Index).Value)
+        'tbcalle.Text = (dgvclientes.Item(7, dgvclientes.CurrentRow.Index).Value)
+        'tbNro.Text = (dgvclientes.Item(8, dgvclientes.CurrentRow.Index).Value)
+        'tbDpto.Text = (dgvclientes.Item(9, dgvclientes.CurrentRow.Index).Value)
+        '' cmbLocalidades.SelectedValue = (dgvclientes.Item(10, dgvclientes.CurrentRow.Index).Value)
+        ''cmbProvincias.SelectedValue = (dgvclientes.Item(1, dgvclientes.CurrentRow.Index).Value)
+        'IdProvincia = Convert.ToString((dgvclientes.Item(10, dgvclientes.CurrentRow.Index).Value))
+        ''helpersLN.idprov = IdProvincia 'TODO Aca esto se puede evitar pasando como parametro el int directamente 
+        'LlenarCMBLocalidades()
+        'tbcodtel.Text = (dgvclientes.Item(14, dgvclientes.CurrentRow.Index).Value)
+        'tbtelefono.Text = (dgvclientes.Item(12, dgvclientes.CurrentRow.Index).Value)
+        'tbcel.Text = (dgvclientes.Item(11, dgvclientes.CurrentRow.Index).Value)
+        'tbcodcel.Text = (dgvclientes.Item(13, dgvclientes.CurrentRow.Index).Value)
+        'tbmail.Text = (dgvclientes.Item(16, dgvclientes.CurrentRow.Index).Value)
 
     End Sub
 
@@ -300,7 +300,7 @@ Public Class FrmGestionCliente
                 fisicaOJuridica = "J"
             End If
         Else
-                MsgBox("La identificación ingresada ya existe en la base de datos", MsgBoxStyle.Critical, "Ya existente")
+            MsgBox("La identificación ingresada ya existe en la base de datos", MsgBoxStyle.Critical, "Ya existente")
         End If
     End Sub
 
@@ -310,5 +310,15 @@ Public Class FrmGestionCliente
         Else
             LlenarCMBDoc("J")
         End If
+        cbtipodni.Enabled = True
+    End Sub
+
+    Private Sub cboBusTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboBusTipoPersona.SelectedIndexChanged
+        If cboBusTipoPersona.SelectedText = "Física" Then
+            LlenarCMBDoc("F")
+        Else
+            LlenarCMBDoc("J")
+        End If
+        cboBusTipoDNI.Enabled = True
     End Sub
 End Class

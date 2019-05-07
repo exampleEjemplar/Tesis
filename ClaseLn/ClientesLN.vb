@@ -14,8 +14,8 @@ Public Class ClientesLN
     End Sub
 
 
-    Public Function CargaGrillaclientes(ByVal busqdni As String, ByVal busqape As String) As DataSet
-        Return objclientesAD.CargaGrillaclientes(busqdni, busqape)
+    Public Function CargaGrillaclientes(ByVal parametros As Dictionary(Of String, String)) As DataSet
+        Return objclientesAD.CargaGrillaclientes(parametros)
     End Function
 
     Public Sub GrabarClientes(ByVal cli As ClientesNE)

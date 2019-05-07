@@ -48,7 +48,11 @@ Public Class HelpersDA
 
         Dim sqlStr As String
         ds = New DataSet
-        sqlStr = "SELECT * FROM TipoDocumentos where FisicaOJuridica = " & FoJ & "Order by Descripcion"
+        If FoJ = "" Then
+            sqlStr = "SELECT * FROM TipoDocumentos where FisicaOJuridica = " & FoJ & "Order by Descripcion"
+        Else
+            sqlStr = "SELECT * FROM TipoDocumentos Order by Descripcion"
+        End If
         Try
             Dim da As New SqlDataAdapter(sqlStr, db)
             da.Fill(ds)

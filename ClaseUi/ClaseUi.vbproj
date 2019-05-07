@@ -201,5 +201,8 @@
   <ItemGroup>
     <None Include="Resources\question_icon-icons.com_69970.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loupe_78956 %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

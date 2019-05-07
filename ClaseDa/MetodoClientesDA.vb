@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Imports ClaseNE
+Imports ClaseNe
 
 Public Class MetodoClientesDA
 
@@ -15,18 +15,31 @@ Public Class MetodoClientesDA
         com.Connection = db
     End Sub
 
-    Public Function CargaGrillaclientes(ByVal busqDNI As String, ByVal busqape As String) As DataSet
+    Public Function CargaGrillaclientes(ByVal parametros As Dictionary(Of String, String)) As DataSet
         Dim sqlStr As String
         ds1 = New DataSet
-        sqlStr = "select  p.ID, t.Descripcion , p.NumeroDocumento,  rtrim(p.NOMBRE), rtrim(p.APELLIDO), " &
-        "rtrim(p.FechaNacimiento), rtrim(p.FechaAlta), rtrim(p.Calle), rtrim(p.NumeroCalle), rtrim(p.Departamento), p.CiudadId," &
-        " rtrim(p.Car_Celular), rtrim(p.NumeroCelular), rtrim(p.Car_Telefono), rtrim(p.NumeroTelefono),  pro.Nombre, " &
+        sqlStr = "select p.FisicaOJuridica, t.Descripcion , p.NumeroDocumento,  rtrim(p.NOMBRE), rtrim(p.APELLIDO), " &
+        "rtrim(p.FechaNacimiento), rtrim(p.FechaAlta), rtrim(p.Calle), rtrim(p.NumeroCalle),  ciu.Nombre, pro.Nombre, " &
+        " p.Car_celular +' '+ p.NumeroCelular as Celular, p.Car_telefono+' '+ p.NumeroTelefono as Telefono," &
         "p.EMAIL " &
         "from Clientes p " &
         "inner join TipoDocumentos t on t.Id = p.TipoDocumentoId " &
         "inner join Ciudades ciu on p.CiudadId = Ciu.Id " &
-        "inner join Provincias Pro on p.Id = Ciu.ProvinciaId " &
-        "where p.NumeroDocumento like '%" & busqDNI & "%' and rtrim(p.apellido) like '%" & busqape & "%'"
+        "inner join Provincias Pro on p.Id = Ciu.ProvinciaId "
+
+        If parametros.Count > 0 Then
+            Dim extraText As String = String.Empty
+            Dim count As Integer = 0
+            For Each parametro As KeyValuePair(Of String, String) In parametros
+                If count <> 0 Then
+                    extraText = extraText & ", "
+                End If
+                extraText = extraText & "where p." & parametro.Key & " like '%" & parametro.Value & "%'"
+                count = count + 1
+            Next
+            sqlStr = sqlStr & extraText
+        End If
+
         Try
             da = New SqlDataAdapter(sqlStr, db)
             da.Fill(ds1)
