@@ -1,6 +1,6 @@
-CREATE DATABASE JoyeriaCrisol3
+CREATE DATABASE JoyeriaCrisol
 GO
-USE JoyeriaCrisol3
+USE JoyeriaCrisol
 GO
 CREATE TABLE TipoDocumentos(
 Id INT IDENTITY PRIMARY KEY,

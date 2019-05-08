@@ -22,7 +22,7 @@ Partial Class FrmGestionCliente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvclientes = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -79,7 +79,7 @@ Partial Class FrmGestionCliente
         Me.lblBusApellido = New System.Windows.Forms.Label()
         Me.txtBusNombre = New System.Windows.Forms.TextBox()
         Me.lblBusNombre = New System.Windows.Forms.Label()
-        Me.cboBusDocNro = New System.Windows.Forms.TextBox()
+        Me.txtBusDocNro = New System.Windows.Forms.TextBox()
         Me.cboBusTipoDNI = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -110,8 +110,8 @@ Partial Class FrmGestionCliente
         Me.dgvclientes.ReadOnly = True
         Me.dgvclientes.RowHeadersVisible = False
         Me.dgvclientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.dgvclientes.RowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.dgvclientes.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvclientes.Size = New System.Drawing.Size(982, 200)
         Me.dgvclientes.TabIndex = 12
         '
@@ -650,7 +650,7 @@ Partial Class FrmGestionCliente
         Me.GroupBox5.Controls.Add(Me.lblBusApellido)
         Me.GroupBox5.Controls.Add(Me.txtBusNombre)
         Me.GroupBox5.Controls.Add(Me.lblBusNombre)
-        Me.GroupBox5.Controls.Add(Me.cboBusDocNro)
+        Me.GroupBox5.Controls.Add(Me.txtBusDocNro)
         Me.GroupBox5.Controls.Add(Me.cboBusTipoDNI)
         Me.GroupBox5.Controls.Add(Me.Label15)
         Me.GroupBox5.Controls.Add(Me.Label16)
@@ -727,14 +727,14 @@ Partial Class FrmGestionCliente
         Me.lblBusNombre.TabIndex = 25
         Me.lblBusNombre.Text = "Nombre - Nombre de fantasía"
         '
-        'cboBusDocNro
+        'txtBusDocNro
         '
-        Me.cboBusDocNro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboBusDocNro.Location = New System.Drawing.Point(257, 87)
-        Me.cboBusDocNro.Margin = New System.Windows.Forms.Padding(4)
-        Me.cboBusDocNro.Name = "cboBusDocNro"
-        Me.cboBusDocNro.Size = New System.Drawing.Size(186, 23)
-        Me.cboBusDocNro.TabIndex = 24
+        Me.txtBusDocNro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBusDocNro.Location = New System.Drawing.Point(257, 87)
+        Me.txtBusDocNro.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtBusDocNro.Name = "txtBusDocNro"
+        Me.txtBusDocNro.Size = New System.Drawing.Size(186, 23)
+        Me.txtBusDocNro.TabIndex = 24
         '
         'cboBusTipoDNI
         '
@@ -957,7 +957,7 @@ Partial Class FrmGestionCliente
     Friend WithEvents lblBusApellido As Windows.Forms.Label
     Friend WithEvents txtBusNombre As Windows.Forms.TextBox
     Friend WithEvents lblBusNombre As Windows.Forms.Label
-    Friend WithEvents cboBusDocNro As Windows.Forms.TextBox
+    Friend WithEvents txtBusDocNro As Windows.Forms.TextBox
     Friend WithEvents cboBusTipoDNI As Windows.Forms.ComboBox
     Friend WithEvents Label15 As Windows.Forms.Label
     Friend WithEvents Label16 As Windows.Forms.Label

@@ -18,23 +18,25 @@ Public Class MetodoClientesDA
     Public Function CargaGrillaclientes(ByVal parametros As Dictionary(Of String, String)) As DataSet
         Dim sqlStr As String
         ds1 = New DataSet
-        sqlStr = "select p.FisicaOJuridica, t.Descripcion , p.NumeroDocumento,  rtrim(p.NOMBRE), rtrim(p.APELLIDO), " &
-        "rtrim(p.FechaNacimiento), rtrim(p.FechaAlta), rtrim(p.Calle), rtrim(p.NumeroCalle),  ciu.Nombre, pro.Nombre, " &
-        " p.Car_celular +' '+ p.NumeroCelular as Celular, p.Car_telefono+' '+ p.NumeroTelefono as Telefono," &
-        "p.EMAIL " &
-        "from Clientes p " &
+        sqlStr = "select p.FisicaOJuridica as TipoDePersona, t.Descripcion as TipoDni, p.NumeroDocumento as NroDoc, " &
+        "p.Nombre as 'Nombre_NombreFantasia', p.Apellido as 'Apellido_RazonSocial', " &
+        "p.FechaNacimiento, p.FechaAlta, p.Calle, p.NumeroCalle, ciu.Nombre As Ciudad," &
+        "p.Car_celular +' '+ p.NumeroCelular as Celular, p.Car_telefono+' '+ p.NumeroTelefono as Telefono," &
+        "p.Email " &
+        "from Clientes as p " &
         "inner join TipoDocumentos t on t.Id = p.TipoDocumentoId " &
-        "inner join Ciudades ciu on p.CiudadId = Ciu.Id " &
-        "inner join Provincias Pro on p.Id = Ciu.ProvinciaId "
+        "inner join Ciudades ciu on p.CiudadId = Ciu.Id  "
 
         If parametros.Count > 0 Then
             Dim extraText As String = String.Empty
             Dim count As Integer = 0
             For Each parametro As KeyValuePair(Of String, String) In parametros
                 If count <> 0 Then
-                    extraText = extraText & ", "
+                    extraText = extraText & " and "
+                Else
+                    extraText = " where "
                 End If
-                extraText = extraText & "where p." & parametro.Key & " like '%" & parametro.Value & "%'"
+                extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'"
                 count = count + 1
             Next
             sqlStr = sqlStr & extraText

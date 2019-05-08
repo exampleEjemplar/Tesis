@@ -15,7 +15,7 @@ Public Class HelpersLN
         Return helpersDA.CargarCMBLocalidades(idprov)
     End Function
 
-    Public Function CargarCMBDoc(ByVal FoJ As Char)
+    Public Function CargarCMBDoc(ByVal FoJ As String)
         Return helpersDA.CargarCMBDoc(FoJ)
     End Function
 

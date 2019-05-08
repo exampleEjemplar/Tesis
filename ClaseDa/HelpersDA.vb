@@ -44,15 +44,11 @@ Public Class HelpersDA
 
     End Function
 
-    Public Function CargarCMBDoc(ByVal FoJ As Char) As DataSet
+    Public Function CargarCMBDoc(ByVal FoJ As String) As DataSet
 
         Dim sqlStr As String
         ds = New DataSet
-        If FoJ = "" Then
-            sqlStr = "SELECT * FROM TipoDocumentos where FisicaOJuridica = " & FoJ & "Order by Descripcion"
-        Else
-            sqlStr = "SELECT * FROM TipoDocumentos Order by Descripcion"
-        End If
+        sqlStr = "SELECT * FROM TipoDocumentos where FisicaOJuridica = '" & FoJ & "'Order by Descripcion"
         Try
             Dim da As New SqlDataAdapter(sqlStr, db)
             da.Fill(ds)

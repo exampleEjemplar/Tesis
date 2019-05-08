@@ -57,34 +57,34 @@ Public Class FrmGestionCliente
         Dim dsa1 As DataSet
         dsa1 = clientemetodo.CargaGrillaclientes(parametros)
         dgvclientes.DataSource = dsa1.Tables(0)
-        'dgvclientes.Columns(0).Visible = False
-        'dgvclientes.Columns(1).Visible = False
-        'dgvclientes.Columns(5).Visible = False
-        'dgvclientes.Columns(6).Visible = False
-        'dgvclientes.Columns(7).Visible = False
-        'dgvclientes.Columns(8).Visible = False
-        'dgvclientes.Columns(9).Visible = False
-        'dgvclientes.Columns(10).Visible = False
-        'dgvclientes.Columns(11).Visible = False
-        'dgvclientes.Columns(12).Visible = False
-        'dgvclientes.Columns(13).Visible = False
-        'dgvclientes.Columns(14).Visible = False
-        'dgvclientes.Columns(15).Visible = False
-        'dgvclientes.Columns(16).Visible = False
-        'dgvclientes.Columns(17).Visible = False
-        dgvclientes.Columns(2).HeaderText = "Nro. Doc."
-        dgvclientes.Columns(4).HeaderText = "Apellido"
-        dgvclientes.Columns(3).HeaderText = "Nombre"
-        'dgvclientes.Columns(16).HeaderText = "E-Mail"
-        dgvclientes.Columns(2).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        dgvclientes.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        'dgvclientes.Columns(16).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        'dgvclientes.Columns(16).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        dgvclientes.Columns(3).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        dgvclientes.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        dgvclientes.Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        dgvclientes.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        dgvclientes.Sort(dgvclientes.Columns(4), System.ComponentModel.ListSortDirection.Ascending)
+        ''dgvclientes.Columns(0).Visible = False
+        ''dgvclientes.Columns(1).Visible = False
+        ''dgvclientes.Columns(5).Visible = False
+        ''dgvclientes.Columns(6).Visible = False
+        ''dgvclientes.Columns(7).Visible = False
+        ''dgvclientes.Columns(8).Visible = False
+        ''dgvclientes.Columns(9).Visible = False
+        ''dgvclientes.Columns(10).Visible = False
+        ''dgvclientes.Columns(11).Visible = False
+        ''dgvclientes.Columns(12).Visible = False
+        ''dgvclientes.Columns(13).Visible = False
+        ''dgvclientes.Columns(14).Visible = False
+        ''dgvclientes.Columns(15).Visible = False
+        ''dgvclientes.Columns(16).Visible = False
+        ''dgvclientes.Columns(17).Visible = False
+        'dgvclientes.Columns(2).HeaderText = "Nro. Doc."
+        'dgvclientes.Columns(4).HeaderText = "Apellido"
+        'dgvclientes.Columns(3).HeaderText = "Nombre"
+        ''dgvclientes.Columns(16).HeaderText = "E-Mail"
+        'dgvclientes.Columns(2).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+        'dgvclientes.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        ''dgvclientes.Columns(16).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+        ''dgvclientes.Columns(16).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        'dgvclientes.Columns(3).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+        'dgvclientes.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        'dgvclientes.Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+        'dgvclientes.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        'dgvclientes.Sort(dgvclientes.Columns(4), System.ComponentModel.ListSortDirection.Ascending)
 
     End Sub
 
@@ -114,8 +114,8 @@ Public Class FrmGestionCliente
         End Try
     End Sub
 
-    Public Sub LlenarCMBDoc(ByVal FoJ As Char)
-        If FoJ = "" Then
+    Public Sub LlenarCMBDoc(ByVal FoJ As String, ByVal type As String)
+        If type = "busqueda" Then
             Try
                 Dim ds1 As DataSet
                 ds1 = helpersLN.CargarCMBDoc(FoJ)
@@ -305,20 +305,37 @@ Public Class FrmGestionCliente
     End Sub
 
     Private Sub CboTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoPersona.SelectedIndexChanged
-        If cboTipoPersona.SelectedText = "Física" Then
-            LlenarCMBDoc("F")
+        If cboTipoPersona.SelectedItem = "Física" Then
+            LlenarCMBDoc("F", "nuevo")
         Else
-            LlenarCMBDoc("J")
+            LlenarCMBDoc("J", "nuevo")
         End If
         cbtipodni.Enabled = True
     End Sub
 
     Private Sub cboBusTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboBusTipoPersona.SelectedIndexChanged
-        If cboBusTipoPersona.SelectedText = "Física" Then
-            LlenarCMBDoc("F")
+        If cboBusTipoPersona.SelectedItem = "Física" Then
+            LlenarCMBDoc("F", "busqueda")
         Else
-            LlenarCMBDoc("J")
+            LlenarCMBDoc("J", "busqueda")
         End If
         cboBusTipoDNI.Enabled = True
+    End Sub
+
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        Dim parametros As New Dictionary(Of String, String)
+        If String.IsNullOrWhiteSpace(cboBusTipoDNI.SelectedValue) = False Then
+            parametros.Add("TipoDocumentoId", cboBusTipoDNI.SelectedValue)
+        End If
+        If String.IsNullOrWhiteSpace(txtBusDocNro.Text) = False Then
+            parametros.Add("NumeroDocumento", txtBusDocNro.Text)
+        End If
+        If String.IsNullOrWhiteSpace(txtBusNombre.Text) = False Then
+            parametros.Add("Nombre", txtBusNombre.Text)
+        End If
+        If String.IsNullOrWhiteSpace(txtBusApellido.Text) = False Then
+            parametros.Add("Apellido", txtBusApellido.Text)
+        End If
+        DgvclientesSet(parametros)
     End Sub
 End Class
