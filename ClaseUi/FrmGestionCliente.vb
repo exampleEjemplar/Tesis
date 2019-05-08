@@ -11,6 +11,7 @@ Public Class FrmGestionCliente
     Private helpersUI As New HelpersUI
     Public IdProvincia As Integer
     Private fisicaOJuridica As String
+    Private ClienteID As Integer
 
 
     Private Sub FrmGestionCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -246,8 +247,13 @@ Public Class FrmGestionCliente
         If ValidarDatos() = False Then
             Return
         End If
-        clientemetodo.GrabarClientes(cli)
-        MsgBox("Cliente agregado con exito!", MsgBoxStyle.OkOnly, "Exito")
+        If ClienteID = 0 Then
+            clientemetodo.GrabarClientes(cli)
+            MsgBox("Cliente agregado con exito!", MsgBoxStyle.OkOnly, "Exito")
+        Else
+            clientemetodo.ActualizarClientes(cli)
+            MsgBox("Cliente actualizado con exito!", MsgBoxStyle.OkOnly, "Exito")
+        End If
         'DgvclientesSet()
         Limpiar()
         Block()

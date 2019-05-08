@@ -18,7 +18,7 @@ Public Class MetodoClientesDA
     Public Function ConsultaModificacion(ByVal nroDoc As Integer) As DataSet
         Dim sqlStr As String
         ds1 = New DataSet
-        sqlStr = "select c.FisicaOJuridica , t.Descripcion, c.NumeroDocumento,         c.Nombre, c.Apellido,         c.FechaNacimiento, c.Calle, c.NumeroCalle, ciu.Nombre,        c.Car_celular, c.NumeroCelular, c.Car_telefono,c.NumeroTelefono,        c.Email ,c.piso , c.Departamento, c.manzana,c.lote,c.barrio        from Clientes as c        inner join TipoDocumentos t on t.Id = c.TipoDocumentoId        inner join Ciudades ciu on c.CiudadId = Ciu.Id  where c.NumeroDocumento = " & nroDoc
+        sqlStr = "select c.FisicaOJuridica , t.Descripcion, c.NumeroDocumento,         c.Nombre, c.Apellido,         c.FechaNacimiento, c.Calle, c.NumeroCalle, ciu.Nombre,        c.Car_celular, c.NumeroCelular, c.Car_telefono,c.NumeroTelefono,        c.Email ,c.piso , c.Departamento, c.manzana,c.lote,c.barrio,c.Id        from Clientes as c        inner join TipoDocumentos t on t.Id = c.TipoDocumentoId        inner join Ciudades ciu on c.CiudadId = Ciu.Id  where c.NumeroDocumento = " & nroDoc
         Try
             da = New SqlDataAdapter(sqlStr, db)
             da.Fill(ds1)
@@ -76,6 +76,22 @@ Public Class MetodoClientesDA
             "'" & cli.Barrio & "'," & cli.Piso & "," & cli.Manzana & "," & cli.Lote & "," & cli.CiudadId & " ," & cli.Car_Telefono &
             "," & cli.NumeroTelefono & "," & cli.Car_Celular & "," & cli.NumeroCelular & ", 'S'," & cli.UsuarioId & ",'" & cli.Email &
             "','" & cli.FisicaOJuridica & "')", db)
+            insert.CommandType = CommandType.Text
+            db.Open()
+            insert.ExecuteNonQuery()
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Public Sub ActualizarClientes(ByVal cli As ClientesNE)
+        Try
+            Dim insert As New SqlCommand("set dateformat dmy Update Clientes as c set  c.TipoDocumentoId = " & cli.TipoDocumentoId & ",c.NumeroDocumento = " & cli.NumeroDocumento & ",c.Nombre = '" & cli.Nombre & "'," &
+            "c.Apellido = '" & cli.Apellido & "',c.FechaNacimiento = '" & cli.FechaNacimiento & "',c.calle =  '" & cli.Calle & "', c.NumeroCalle = '" & cli.NumeroCalle & "',c.Departamento =  '" & cli.Departamento & "'," &
+            "c.Barrio = '" & cli.Barrio & "',c.Piso = " & cli.Piso & ",c.Manzana = " & cli.Manzana & ",c.Lote = " & cli.Lote & ",c.CiudadId = " & cli.CiudadId & " ,c.Car_Telefono = " & cli.Car_Telefono &
+            ",c.NumeroTelefono = " & cli.NumeroTelefono & ",c.Car_Celular = " & cli.Car_Celular & ",c.NumeroCelular = " & cli.NumeroCelular & ",c.Email = '" & cli.Email &
+            "','" & cli.FisicaOJuridica & "'", db)
             insert.CommandType = CommandType.Text
             db.Open()
             insert.ExecuteNonQuery()

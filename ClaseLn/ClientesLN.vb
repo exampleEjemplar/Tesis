@@ -25,5 +25,9 @@ Public Class ClientesLN
         objclientesAD.grabarClientes(cli)
     End Sub
 
+    Public Sub ActualizarClientes(ByVal cli As ClientesNE)
+        objclientesAD.ActualizarClientes(cli)
+    End Sub
+
 End Class
 
