@@ -46,6 +46,7 @@ Partial Class MDIPrincipal
         Me.btnArticulos = New System.Windows.Forms.Button()
         Me.btnCompras = New System.Windows.Forms.Button()
         Me.btnVentas = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -257,12 +258,31 @@ Partial Class MDIPrincipal
         Me.btnVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnVentas.UseVisualStyleBackColor = False
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_supplier_62
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(634, 135)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(165, 111)
+        Me.Button1.TabIndex = 24
+        Me.Button1.Text = "Clientes"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'MDIPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1109, 756)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnAjustes)
         Me.Controls.Add(Me.btnCaja)
@@ -303,4 +323,5 @@ Partial Class MDIPrincipal
     Friend WithEvents ToolStripSeparator8 As Windows.Forms.ToolStripSeparator
     Friend WithEvents AboutToolStripMenuItem As Windows.Forms.ToolStripMenuItem
     Friend WithEvents btnSalir As Windows.Forms.Button
+    Friend WithEvents Button1 As Windows.Forms.Button
 End Class

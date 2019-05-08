@@ -32,5 +32,7 @@ Public Class LoginLN
         Return objloginAD.ConsultarIDUsuario(nombreUsuario)
     End Function
 
-
+    Sub EnSesion(ByVal usrId As Integer)
+        objloginAD.EnSesion(usrId)
+    End Sub
 End Class

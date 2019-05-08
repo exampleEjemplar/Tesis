@@ -13,6 +13,9 @@ Public Class ClientesLN
         objclientesAD = New MetodoClientesDA
     End Sub
 
+    Public Function ConsultaModificacion(ByVal nroDoc As Integer)
+        Return objclientesAD.ConsultaModificacion(nroDoc)
+    End Function
 
     Public Function CargaGrillaclientes(ByVal parametros As Dictionary(Of String, String)) As DataSet
         Return objclientesAD.CargaGrillaclientes(parametros)

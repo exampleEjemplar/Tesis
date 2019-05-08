@@ -5,6 +5,7 @@ Public Class HelpersDA
     Private db As New SqlConnection
     Private com As New SqlCommand
     Private ds As DataSet
+    Public respuesta As SqlDataReader
 
     Public Sub New()
         Dim objcon As New ConexionDA
@@ -78,6 +79,26 @@ Public Class HelpersDA
             Return True
         End If
         Return False
+    End Function
+    Public Function EnSesion() As Integer
+        Dim resultado As Integer
+        Try
+            Dim sqlStr As New SqlCommand("Select * from Ensesion", db)
+            db.Open()
+            sqlStr.CommandType = CommandType.Text
+            sqlStr.ExecuteNonQuery()
+            respuesta = sqlStr.ExecuteReader
+
+            If respuesta.Read Then
+                resultado = CInt(respuesta.Item("UsuarioId"))
+            End If
+            respuesta.Close()
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+        db.Close()
+        Return resultado
     End Function
 
 End Class

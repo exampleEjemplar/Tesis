@@ -98,5 +98,16 @@ Public Class MetodoLoginDA
         Return resultado2
         con.Close()
     End Function
+    Public Sub EnSesion(ByVal usrId As Integer)
+        Try
+            Dim insert As New SqlCommand("Update EnSesion set UsuarioId = " & usrId, con)
+            insert.CommandType = CommandType.Text
+            insert.ExecuteNonQuery()
+            Dim respuesta = insert.ExecuteReader
+            con.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
 
 End Class

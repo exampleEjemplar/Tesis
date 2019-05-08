@@ -22,9 +22,17 @@ Partial Class FrmGestionCliente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvclientes = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.btnValidarDNI = New System.Windows.Forms.Button()
+        Me.lblTipoIdentificacion = New System.Windows.Forms.Label()
+        Me.cboTipoPersona = New System.Windows.Forms.ComboBox()
+        Me.cbtipodni = New System.Windows.Forms.ComboBox()
+        Me.lblTipoDePersona = New System.Windows.Forms.Label()
+        Me.lblNumIdent = New System.Windows.Forms.Label()
+        Me.tbNroDoc = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.lblInicioAct = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -37,11 +45,6 @@ Partial Class FrmGestionCliente
         Me.lblFechaNac = New System.Windows.Forms.Label()
         Me.tbApellido = New System.Windows.Forms.TextBox()
         Me.lblRazonSoc = New System.Windows.Forms.Label()
-        Me.btnValidarDNI = New System.Windows.Forms.Button()
-        Me.cboTipoPersona = New System.Windows.Forms.ComboBox()
-        Me.lblTipoDePersona = New System.Windows.Forms.Label()
-        Me.tbNroDoc = New System.Windows.Forms.TextBox()
-        Me.lblNumIdent = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.tbtelefono = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -70,8 +73,6 @@ Partial Class FrmGestionCliente
         Me.tbcalle = New System.Windows.Forms.TextBox()
         Me.tbNro = New System.Windows.Forms.TextBox()
         Me.tbDpto = New System.Windows.Forms.TextBox()
-        Me.cbtipodni = New System.Windows.Forms.ComboBox()
-        Me.lblTipoIdentificacion = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.cboBusTipoPersona = New System.Windows.Forms.ComboBox()
         Me.txtBusApellido = New System.Windows.Forms.TextBox()
@@ -86,11 +87,10 @@ Partial Class FrmGestionCliente
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         CType(Me.dgvclientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -110,23 +110,17 @@ Partial Class FrmGestionCliente
         Me.dgvclientes.ReadOnly = True
         Me.dgvclientes.RowHeadersVisible = False
         Me.dgvclientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.dgvclientes.RowsDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgvclientes.Size = New System.Drawing.Size(982, 200)
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.dgvclientes.RowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvclientes.Size = New System.Drawing.Size(1423, 200)
         Me.dgvclientes.TabIndex = 12
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.GroupBox6)
         Me.GroupBox1.Controls.Add(Me.GroupBox4)
-        Me.GroupBox1.Controls.Add(Me.btnValidarDNI)
-        Me.GroupBox1.Controls.Add(Me.cboTipoPersona)
-        Me.GroupBox1.Controls.Add(Me.lblTipoDePersona)
-        Me.GroupBox1.Controls.Add(Me.tbNroDoc)
-        Me.GroupBox1.Controls.Add(Me.lblNumIdent)
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
-        Me.GroupBox1.Controls.Add(Me.cbtipodni)
-        Me.GroupBox1.Controls.Add(Me.lblTipoIdentificacion)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(57, 13)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
@@ -137,6 +131,105 @@ Partial Class FrmGestionCliente
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Tag = ""
         Me.GroupBox1.Text = "Gestión de Cliente"
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.btnValidarDNI)
+        Me.GroupBox6.Controls.Add(Me.lblTipoIdentificacion)
+        Me.GroupBox6.Controls.Add(Me.cboTipoPersona)
+        Me.GroupBox6.Controls.Add(Me.cbtipodni)
+        Me.GroupBox6.Controls.Add(Me.lblTipoDePersona)
+        Me.GroupBox6.Controls.Add(Me.lblNumIdent)
+        Me.GroupBox6.Controls.Add(Me.tbNroDoc)
+        Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox6.ForeColor = System.Drawing.Color.Black
+        Me.GroupBox6.Location = New System.Drawing.Point(12, 27)
+        Me.GroupBox6.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox6.Size = New System.Drawing.Size(961, 75)
+        Me.GroupBox6.TabIndex = 24
+        Me.GroupBox6.TabStop = False
+        '
+        'btnValidarDNI
+        '
+        Me.btnValidarDNI.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.btnValidarDNI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnValidarDNI.FlatAppearance.BorderSize = 0
+        Me.btnValidarDNI.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnValidarDNI.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.75!, System.Drawing.FontStyle.Bold)
+        Me.btnValidarDNI.Location = New System.Drawing.Point(806, 10)
+        Me.btnValidarDNI.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnValidarDNI.Name = "btnValidarDNI"
+        Me.btnValidarDNI.Size = New System.Drawing.Size(147, 65)
+        Me.btnValidarDNI.TabIndex = 18
+        Me.btnValidarDNI.Text = "Validar Identificación"
+        Me.btnValidarDNI.UseVisualStyleBackColor = False
+        '
+        'lblTipoIdentificacion
+        '
+        Me.lblTipoIdentificacion.AutoSize = True
+        Me.lblTipoIdentificacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTipoIdentificacion.Location = New System.Drawing.Point(5, 50)
+        Me.lblTipoIdentificacion.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTipoIdentificacion.Name = "lblTipoIdentificacion"
+        Me.lblTipoIdentificacion.Size = New System.Drawing.Size(152, 17)
+        Me.lblTipoIdentificacion.TabIndex = 9
+        Me.lblTipoIdentificacion.Text = "Tipo Identificación *"
+        '
+        'cboTipoPersona
+        '
+        Me.cboTipoPersona.AccessibleDescription = ""
+        Me.cboTipoPersona.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboTipoPersona.FormattingEnabled = True
+        Me.cboTipoPersona.Items.AddRange(New Object() {"Física", "Jurídica"})
+        Me.cboTipoPersona.Location = New System.Drawing.Point(169, 17)
+        Me.cboTipoPersona.Margin = New System.Windows.Forms.Padding(4)
+        Me.cboTipoPersona.Name = "cboTipoPersona"
+        Me.cboTipoPersona.Size = New System.Drawing.Size(100, 25)
+        Me.cboTipoPersona.TabIndex = 20
+        '
+        'cbtipodni
+        '
+        Me.cbtipodni.AccessibleDescription = ""
+        Me.cbtipodni.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbtipodni.FormattingEnabled = True
+        Me.cbtipodni.Location = New System.Drawing.Point(169, 47)
+        Me.cbtipodni.Margin = New System.Windows.Forms.Padding(4)
+        Me.cbtipodni.Name = "cbtipodni"
+        Me.cbtipodni.Size = New System.Drawing.Size(197, 25)
+        Me.cbtipodni.TabIndex = 10
+        '
+        'lblTipoDePersona
+        '
+        Me.lblTipoDePersona.AutoSize = True
+        Me.lblTipoDePersona.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTipoDePersona.Location = New System.Drawing.Point(6, 17)
+        Me.lblTipoDePersona.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTipoDePersona.Name = "lblTipoDePersona"
+        Me.lblTipoDePersona.Size = New System.Drawing.Size(138, 17)
+        Me.lblTipoDePersona.TabIndex = 19
+        Me.lblTipoDePersona.Text = "Tipo de persona *"
+        '
+        'lblNumIdent
+        '
+        Me.lblNumIdent.AutoSize = True
+        Me.lblNumIdent.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNumIdent.Location = New System.Drawing.Point(391, 50)
+        Me.lblNumIdent.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblNumIdent.Name = "lblNumIdent"
+        Me.lblNumIdent.Size = New System.Drawing.Size(176, 17)
+        Me.lblNumIdent.TabIndex = 15
+        Me.lblNumIdent.Text = "Numero Identificacion *"
+        '
+        'tbNroDoc
+        '
+        Me.tbNroDoc.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbNroDoc.Location = New System.Drawing.Point(575, 47)
+        Me.tbNroDoc.Margin = New System.Windows.Forms.Padding(4)
+        Me.tbNroDoc.Name = "tbNroDoc"
+        Me.tbNroDoc.Size = New System.Drawing.Size(176, 23)
+        Me.tbNroDoc.TabIndex = 16
         '
         'GroupBox4
         '
@@ -274,64 +367,6 @@ Partial Class FrmGestionCliente
         Me.lblRazonSoc.Size = New System.Drawing.Size(114, 17)
         Me.lblRazonSoc.TabIndex = 11
         Me.lblRazonSoc.Text = "Razón Social *"
-        '
-        'btnValidarDNI
-        '
-        Me.btnValidarDNI.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.btnValidarDNI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnValidarDNI.FlatAppearance.BorderSize = 0
-        Me.btnValidarDNI.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnValidarDNI.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.75!, System.Drawing.FontStyle.Bold)
-        Me.btnValidarDNI.Location = New System.Drawing.Point(834, 27)
-        Me.btnValidarDNI.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnValidarDNI.Name = "btnValidarDNI"
-        Me.btnValidarDNI.Size = New System.Drawing.Size(147, 65)
-        Me.btnValidarDNI.TabIndex = 18
-        Me.btnValidarDNI.Text = "Validar Identificación"
-        Me.btnValidarDNI.UseVisualStyleBackColor = False
-        '
-        'cboTipoPersona
-        '
-        Me.cboTipoPersona.AccessibleDescription = ""
-        Me.cboTipoPersona.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboTipoPersona.FormattingEnabled = True
-        Me.cboTipoPersona.Items.AddRange(New Object() {"Física", "Jurídica"})
-        Me.cboTipoPersona.Location = New System.Drawing.Point(177, 34)
-        Me.cboTipoPersona.Margin = New System.Windows.Forms.Padding(4)
-        Me.cboTipoPersona.Name = "cboTipoPersona"
-        Me.cboTipoPersona.Size = New System.Drawing.Size(100, 25)
-        Me.cboTipoPersona.TabIndex = 20
-        '
-        'lblTipoDePersona
-        '
-        Me.lblTipoDePersona.AutoSize = True
-        Me.lblTipoDePersona.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTipoDePersona.Location = New System.Drawing.Point(7, 34)
-        Me.lblTipoDePersona.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblTipoDePersona.Name = "lblTipoDePersona"
-        Me.lblTipoDePersona.Size = New System.Drawing.Size(138, 17)
-        Me.lblTipoDePersona.TabIndex = 19
-        Me.lblTipoDePersona.Text = "Tipo de persona *"
-        '
-        'tbNroDoc
-        '
-        Me.tbNroDoc.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNroDoc.Location = New System.Drawing.Point(563, 69)
-        Me.tbNroDoc.Margin = New System.Windows.Forms.Padding(4)
-        Me.tbNroDoc.Name = "tbNroDoc"
-        Me.tbNroDoc.Size = New System.Drawing.Size(176, 23)
-        Me.tbNroDoc.TabIndex = 16
-        '
-        'lblNumIdent
-        '
-        Me.lblNumIdent.AutoSize = True
-        Me.lblNumIdent.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNumIdent.Location = New System.Drawing.Point(390, 68)
-        Me.lblNumIdent.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblNumIdent.Name = "lblNumIdent"
-        Me.lblNumIdent.Size = New System.Drawing.Size(176, 17)
-        Me.lblNumIdent.TabIndex = 15
-        Me.lblNumIdent.Text = "Numero Identificacion *"
         '
         'GroupBox3
         '
@@ -620,28 +655,6 @@ Partial Class FrmGestionCliente
         Me.tbDpto.Size = New System.Drawing.Size(51, 23)
         Me.tbDpto.TabIndex = 7
         '
-        'cbtipodni
-        '
-        Me.cbtipodni.AccessibleDescription = ""
-        Me.cbtipodni.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbtipodni.FormattingEnabled = True
-        Me.cbtipodni.Location = New System.Drawing.Point(156, 67)
-        Me.cbtipodni.Margin = New System.Windows.Forms.Padding(4)
-        Me.cbtipodni.Name = "cbtipodni"
-        Me.cbtipodni.Size = New System.Drawing.Size(197, 25)
-        Me.cbtipodni.TabIndex = 10
-        '
-        'lblTipoIdentificacion
-        '
-        Me.lblTipoIdentificacion.AutoSize = True
-        Me.lblTipoIdentificacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTipoIdentificacion.Location = New System.Drawing.Point(7, 67)
-        Me.lblTipoIdentificacion.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblTipoIdentificacion.Name = "lblTipoIdentificacion"
-        Me.lblTipoIdentificacion.Size = New System.Drawing.Size(152, 17)
-        Me.lblTipoIdentificacion.TabIndex = 9
-        Me.lblTipoIdentificacion.Text = "Tipo Identificación *"
-        '
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.cboBusTipoPersona)
@@ -776,10 +789,10 @@ Partial Class FrmGestionCliente
         Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnBuscar.FlatAppearance.BorderSize = 0
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Location = New System.Drawing.Point(536, 428)
+        Me.btnBuscar.Location = New System.Drawing.Point(536, 420)
         Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(100, 101)
+        Me.btnBuscar.Size = New System.Drawing.Size(137, 109)
         Me.btnBuscar.TabIndex = 23
         Me.btnBuscar.Text = "Buscar"
         Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -792,10 +805,10 @@ Partial Class FrmGestionCliente
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnNuevo.FlatAppearance.BorderSize = 0
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevo.Location = New System.Drawing.Point(641, 381)
+        Me.btnNuevo.Location = New System.Drawing.Point(671, 420)
         Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(100, 87)
+        Me.btnNuevo.Size = New System.Drawing.Size(137, 112)
         Me.btnNuevo.TabIndex = 17
         Me.btnNuevo.Text = "Nuevo"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -808,46 +821,14 @@ Partial Class FrmGestionCliente
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnGuardar.FlatAppearance.BorderSize = 0
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardar.Location = New System.Drawing.Point(946, 387)
+        Me.btnGuardar.Location = New System.Drawing.Point(812, 420)
         Me.btnGuardar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(100, 87)
+        Me.btnGuardar.Size = New System.Drawing.Size(115, 109)
         Me.btnGuardar.TabIndex = 16
         Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnGuardar.UseVisualStyleBackColor = False
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.BackColor = System.Drawing.SystemColors.Control
-        Me.btnCancelar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_cancel_62
-        Me.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCancelar.FlatAppearance.BorderSize = 0
-        Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelar.Location = New System.Drawing.Point(735, 381)
-        Me.btnCancelar.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(100, 87)
-        Me.btnCancelar.TabIndex = 15
-        Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnCancelar.UseVisualStyleBackColor = False
-        '
-        'btnModificar
-        '
-        Me.btnModificar.BackColor = System.Drawing.SystemColors.Control
-        Me.btnModificar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_available_updates_48
-        Me.btnModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnModificar.FlatAppearance.BorderSize = 0
-        Me.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnModificar.Location = New System.Drawing.Point(843, 381)
-        Me.btnModificar.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(100, 87)
-        Me.btnModificar.TabIndex = 14
-        Me.btnModificar.Text = "Modificar"
-        Me.btnModificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnModificar.UseVisualStyleBackColor = False
         '
         'btnSalir
         '
@@ -856,10 +837,10 @@ Partial Class FrmGestionCliente
         Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Location = New System.Drawing.Point(939, 490)
+        Me.btnSalir.Location = New System.Drawing.Point(932, 420)
         Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(100, 87)
+        Me.btnSalir.Size = New System.Drawing.Size(107, 109)
         Me.btnSalir.TabIndex = 13
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -869,14 +850,12 @@ Partial Class FrmGestionCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1201, 814)
+        Me.ClientSize = New System.Drawing.Size(1642, 814)
         Me.ControlBox = False
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnGuardar)
-        Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.dgvclientes)
         Me.Controls.Add(Me.GroupBox1)
@@ -885,7 +864,8 @@ Partial Class FrmGestionCliente
         Me.Text = "FrmGestionCliente"
         CType(Me.dgvclientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
@@ -900,8 +880,6 @@ Partial Class FrmGestionCliente
 
     Friend WithEvents btnNuevo As Windows.Forms.Button
     Friend WithEvents btnGuardar As Windows.Forms.Button
-    Friend WithEvents btnCancelar As Windows.Forms.Button
-    Friend WithEvents btnModificar As Windows.Forms.Button
     Friend WithEvents btnSalir As Windows.Forms.Button
     Friend WithEvents dgvclientes As Windows.Forms.DataGridView
     Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
@@ -964,4 +942,5 @@ Partial Class FrmGestionCliente
     Friend WithEvents btnBuscar As Windows.Forms.Button
     Friend WithEvents cboBusTipoPersona As Windows.Forms.ComboBox
     Friend WithEvents Label17 As Windows.Forms.Label
+    Friend WithEvents GroupBox6 As Windows.Forms.GroupBox
 End Class

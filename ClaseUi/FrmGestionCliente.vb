@@ -9,44 +9,44 @@ Public Class FrmGestionCliente
     Private cli As New ClientesNE
     Private helpersLN As New HelpersLN
     Private helpersUI As New HelpersUI
-    Public usuarioid As Integer
     Public IdProvincia As Integer
-    Private fisicaOJuridica As Char
+    Private fisicaOJuridica As String
+
 
     Private Sub FrmGestionCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        helpersUI.TextValidator("a", "a")
         cmbProvincias.SelectedValue = 0
         cbtipodni.SelectedValue = 0
         IdProvincia = LlenarCMBProvincias()
         LlenarCMBLocalidades()
         dtpfechanac.MinDate = Date.Today.AddYears(-18)
         Block()
-
         DgvclientesSet(New Dictionary(Of String, String))
 
     End Sub
 
     Public Sub Block()
         GroupBox4.Visible = False
+        GroupBox6.Visible = False
         GroupBox2.Visible = False
         GroupBox3.Visible = False
         btnGuardar.Enabled = False
-        btnModificar.Enabled = False
-        btnNuevo.Enabled = False
         cboTipoPersona.Enabled = True
         cbtipodni.Enabled = False
         tbNroDoc.ReadOnly = False
         btnValidarDNI.Enabled = True
         cboBusTipoPersona.Enabled = True
         cboBusTipoDNI.Enabled = False
+        btnNuevo.Enabled = True
     End Sub
 
     Public Sub Unblock()
+        btnNuevo.Enabled = False
         GroupBox4.Visible = True
         GroupBox2.Visible = True
         GroupBox3.Visible = True
         btnGuardar.Enabled = True
-        btnModificar.Enabled = True
         cboTipoPersona.Enabled = False
         cbtipodni.Enabled = False
         tbNroDoc.ReadOnly = True
@@ -57,35 +57,6 @@ Public Class FrmGestionCliente
         Dim dsa1 As DataSet
         dsa1 = clientemetodo.CargaGrillaclientes(parametros)
         dgvclientes.DataSource = dsa1.Tables(0)
-        ''dgvclientes.Columns(0).Visible = False
-        ''dgvclientes.Columns(1).Visible = False
-        ''dgvclientes.Columns(5).Visible = False
-        ''dgvclientes.Columns(6).Visible = False
-        ''dgvclientes.Columns(7).Visible = False
-        ''dgvclientes.Columns(8).Visible = False
-        ''dgvclientes.Columns(9).Visible = False
-        ''dgvclientes.Columns(10).Visible = False
-        ''dgvclientes.Columns(11).Visible = False
-        ''dgvclientes.Columns(12).Visible = False
-        ''dgvclientes.Columns(13).Visible = False
-        ''dgvclientes.Columns(14).Visible = False
-        ''dgvclientes.Columns(15).Visible = False
-        ''dgvclientes.Columns(16).Visible = False
-        ''dgvclientes.Columns(17).Visible = False
-        'dgvclientes.Columns(2).HeaderText = "Nro. Doc."
-        'dgvclientes.Columns(4).HeaderText = "Apellido"
-        'dgvclientes.Columns(3).HeaderText = "Nombre"
-        ''dgvclientes.Columns(16).HeaderText = "E-Mail"
-        'dgvclientes.Columns(2).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        'dgvclientes.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        ''dgvclientes.Columns(16).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        ''dgvclientes.Columns(16).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        'dgvclientes.Columns(3).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        'dgvclientes.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        'dgvclientes.Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        'dgvclientes.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        'dgvclientes.Sort(dgvclientes.Columns(4), System.ComponentModel.ListSortDirection.Ascending)
-
     End Sub
 
     Public Function LlenarCMBProvincias()
@@ -189,28 +160,59 @@ Public Class FrmGestionCliente
             Return False
         End If
 
-        cli = New ClientesNE With {
-            .FisicaOJuridica = fisicaOJuridica,
-            .TipoDocumentoId = cbtipodni.SelectedValue,
-            .NumeroDocumento = tbNroDoc.Text,
-            .Email = tbmail.Text,
-            .Nombre = tbNombre.Text,
-            .Apellido = tbApellido.Text,
-            .FechaNacimiento = dtpfechanac.Value,
-            .UsuarioId = usuarioid,
-            .Calle = tbcalle.Text,
-            .NumeroCalle = tbNro.Text,
-            .Piso = txtPiso.Text,
-            .Departamento = tbDpto.Text,
-            .Manzana = txtManzana.Text,
-            .CiudadId = cmbLocalidades.SelectedValue,
-            .Lote = txtLote.Text,
-            .Barrio = txtBarrio.Text,
-            .Car_Telefono = tbcodtel.Text,
-            .NumeroTelefono = tbtelefono.Text,
-            .Car_Celular = tbcodcel.Text,
-            .NumeroCelular = tbcel.Text
-        }
+        cli.FisicaOJuridica = fisicaOJuridica
+        cli.TipoDocumentoId = cbtipodni.SelectedValue
+        cli.NumeroDocumento = Convert.ToInt32(tbNroDoc.Text)
+        cli.Email = tbmail.Text
+        cli.Nombre = tbNombre.Text
+        cli.Apellido = tbApellido.Text
+        cli.FechaNacimiento = dtpfechanac.Value
+        cli.Calle = tbcalle.Text
+        cli.NumeroCalle = Convert.ToInt32(tbNro.Text)
+        Dim value As Integer
+        If Integer.TryParse(txtPiso.Text, value) = True Then
+            cli.Piso = value
+        Else
+            cli.Piso = Nothing
+        End If
+        cli.Departamento = tbDpto.Text
+        If Integer.TryParse(txtManzana.Text, value) = True Then
+            cli.Manzana = value
+        Else
+            cli.Manzana = Nothing
+        End If
+        cli.CiudadId = cmbLocalidades.SelectedValue
+        If Integer.TryParse(txtLote.Text, value) = True Then
+            cli.Lote = value
+        Else
+            cli.Lote = Nothing
+        End If
+        cli.Barrio = txtBarrio.Text
+        If Integer.TryParse(tbcodtel.Text, value) = True Then
+            cli.Car_Telefono = value
+        Else
+            cli.Car_Telefono = Nothing
+        End If
+        If Integer.TryParse(tbtelefono.Text, value) = True Then
+            cli.NumeroTelefono = value
+        Else
+            cli.NumeroTelefono = Nothing
+        End If
+        If Integer.TryParse(tbcodcel.Text, value) = True Then
+            cli.Car_Celular = value
+        Else
+            cli.Car_Celular = Nothing
+        End If
+        If Integer.TryParse(tbcel.Text, value) = True Then
+            cli.NumeroCelular = value
+        Else
+            cli.NumeroCelular = Nothing
+        End If
+        If Integer.TryParse(helpersLN.EnSesion, value) = True Then
+            cli.UsuarioId = value
+        Else
+            cli.UsuarioId = Nothing
+        End If
         Return True
     End Function
 
@@ -247,7 +249,32 @@ Public Class FrmGestionCliente
         clientemetodo.GrabarClientes(cli)
         MsgBox("Cliente agregado con exito!", MsgBoxStyle.OkOnly, "Exito")
         'DgvclientesSet()
+        Limpiar()
+        Block()
+        DgvclientesSet(New Dictionary(Of String, String))
 
+    End Sub
+
+    Private Sub Limpiar()
+        tbNombre.Text = ""
+        tbApellido.Text = ""
+        cbtipodni.SelectedItem = Nothing
+        tbNroDoc.Text = ""
+        dtpfechanac.Value.ToString("dd-MM-yyyy HH:mm:ss")
+        tbmail.Text = ""
+        tbcalle.Text = ""
+        txtLote.Text = ""
+        txtManzana.Text = ""
+        tbNro.Text = ""
+        tbtelefono.Text = ""
+        tbcodtel.Text = ""
+        tbcel.Text = ""
+        tbcodtel.Text = ""
+        txtPiso.Text = ""
+        tbDpto.Text = ""
+        txtBarrio.Text = ""
+        cmbProvincias.SelectedItem = Nothing
+        cmbLocalidades.SelectedItem = Nothing
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
@@ -257,25 +284,26 @@ Public Class FrmGestionCliente
 
     Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs) Handles dgvclientes.DoubleClick
 
-        ''idcliente = (dgvclientes.Item(0, dgvclientes.CurrentRow.Index).Value)
-        'cbtipodni.SelectedValue = (dgvclientes.Item(1, dgvclientes.CurrentRow.Index).Value)
-        'tbNroDoc.Text = (dgvclientes.Item(2, dgvclientes.CurrentRow.Index).Value)
-        'dtpfechanac.Value = (dgvclientes.Item(5, dgvclientes.CurrentRow.Index).Value)
-        'tbNombre.Text = (dgvclientes.Item(3, dgvclientes.CurrentRow.Index).Value)
-        'tbApellido.Text = (dgvclientes.Item(4, dgvclientes.CurrentRow.Index).Value)
-        'tbcalle.Text = (dgvclientes.Item(7, dgvclientes.CurrentRow.Index).Value)
-        'tbNro.Text = (dgvclientes.Item(8, dgvclientes.CurrentRow.Index).Value)
-        'tbDpto.Text = (dgvclientes.Item(9, dgvclientes.CurrentRow.Index).Value)
-        '' cmbLocalidades.SelectedValue = (dgvclientes.Item(10, dgvclientes.CurrentRow.Index).Value)
-        ''cmbProvincias.SelectedValue = (dgvclientes.Item(1, dgvclientes.CurrentRow.Index).Value)
-        'IdProvincia = Convert.ToString((dgvclientes.Item(10, dgvclientes.CurrentRow.Index).Value))
-        ''helpersLN.idprov = IdProvincia 'TODO Aca esto se puede evitar pasando como parametro el int directamente 
-        'LlenarCMBLocalidades()
-        'tbcodtel.Text = (dgvclientes.Item(14, dgvclientes.CurrentRow.Index).Value)
-        'tbtelefono.Text = (dgvclientes.Item(12, dgvclientes.CurrentRow.Index).Value)
-        'tbcel.Text = (dgvclientes.Item(11, dgvclientes.CurrentRow.Index).Value)
-        'tbcodcel.Text = (dgvclientes.Item(13, dgvclientes.CurrentRow.Index).Value)
-        'tbmail.Text = (dgvclientes.Item(16, dgvclientes.CurrentRow.Index).Value)
+        Dim ds As DataSet = clientemetodo.ConsultaModificacion((dgvclientes.Item(2, dgvclientes.CurrentRow.Index).Value))
+        'idcliente = (dgvclientes.Item(0, dgvclientes.CurrentRow.Index).Value)
+        cboTipoPersona.SelectedItem = (dgvclientes.Item(0, dgvclientes.CurrentRow.Index).Value)
+        cbtipodni.SelectedValue = (dgvclientes.Item(1, dgvclientes.CurrentRow.Index).Value)
+        tbNroDoc.Text = (dgvclientes.Item(2, dgvclientes.CurrentRow.Index).Value)
+        tbNombre.Text = (dgvclientes.Item(3, dgvclientes.CurrentRow.Index).Value)
+        tbApellido.Text = (dgvclientes.Item(4, dgvclientes.CurrentRow.Index).Value)
+        dtpfechanac.Value = (dgvclientes.Item(5, dgvclientes.CurrentRow.Index).Value)
+        tbcalle.Text = (dgvclientes.Item(7, dgvclientes.CurrentRow.Index).Value)
+        tbNro.Text = (dgvclientes.Item(8, dgvclientes.CurrentRow.Index).Value)
+        tbDpto.Text = (dgvclientes.Item(9, dgvclientes.CurrentRow.Index).Value)
+        cmbLocalidades.SelectedValue = (dgvclientes.Item(10, dgvclientes.CurrentRow.Index).Value)
+        cmbProvincias.SelectedValue = (dgvclientes.Item(1, dgvclientes.CurrentRow.Index).Value)
+        IdProvincia = Convert.ToString((dgvclientes.Item(10, dgvclientes.CurrentRow.Index).Value))
+        LlenarCMBLocalidades()
+        tbcodtel.Text = (dgvclientes.Item(14, dgvclientes.CurrentRow.Index).Value)
+        tbtelefono.Text = (dgvclientes.Item(12, dgvclientes.CurrentRow.Index).Value)
+        tbcel.Text = (dgvclientes.Item(11, dgvclientes.CurrentRow.Index).Value)
+        tbcodcel.Text = (dgvclientes.Item(13, dgvclientes.CurrentRow.Index).Value)
+        tbmail.Text = (dgvclientes.Item(16, dgvclientes.CurrentRow.Index).Value)
 
     End Sub
 
@@ -337,5 +365,10 @@ Public Class FrmGestionCliente
             parametros.Add("Apellido", txtBusApellido.Text)
         End If
         DgvclientesSet(parametros)
+    End Sub
+
+    Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+        GroupBox6.Visible = True
+        btnNuevo.Enabled = False
     End Sub
 End Class

@@ -15,6 +15,22 @@ Public Class MetodoClientesDA
         com.Connection = db
     End Sub
 
+    Public Function ConsultaModificacion(ByVal nroDoc As Integer) As DataSet
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "select c.FisicaOJuridica , t.Descripcion, c.NumeroDocumento,         c.Nombre, c.Apellido,         c.FechaNacimiento, c.Calle, c.NumeroCalle, ciu.Nombre,        c.Car_celular, c.NumeroCelular, c.Car_telefono,c.NumeroTelefono,        c.Email ,c.piso , c.Departamento, c.manzana,c.lote,c.barrio        from Clientes as c        inner join TipoDocumentos t on t.Id = c.TipoDocumentoId        inner join Ciudades ciu on c.CiudadId = Ciu.Id  where c.NumeroDocumento = " & nroDoc
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return ds1
+        db.Close()
+    End Function
+
+
     Public Function CargaGrillaclientes(ByVal parametros As Dictionary(Of String, String)) As DataSet
         Dim sqlStr As String
         ds1 = New DataSet
@@ -55,7 +71,11 @@ Public Class MetodoClientesDA
 
     Public Sub grabarClientes(ByVal cli As ClientesNE)
         Try
-            Dim insert As New SqlCommand("insert into Clientes values (" & cli.TipoDocumentoId & "," & cli.NumeroDocumento & ",'" & cli.Nombre & "','" & cli.Apellido & "','" & cli.FechaNacimiento & "', getdate(), '" & cli.Calle & "', '" & cli.NumeroCalle & "', '" & cli.Departamento & "','" & cli.Barrio & "'," & cli.Piso & "," & cli.Manzana & "," & cli.Lote & "," & cli.CiudadId & " ," & cli.Car_Telefono & "," & cli.NumeroTelefono & "," & cli.Car_Celular & "," & cli.NumeroCelular & ", 'S'," & cli.UsuarioId & ",'" & cli.Email & "','" & cli.FisicaOJuridica & "')", db)
+            Dim insert As New SqlCommand("set dateformat dmy insert into Clientes values (" & cli.TipoDocumentoId & "," & cli.NumeroDocumento & ",'" & cli.Nombre & "'," &
+            "'" & cli.Apellido & "','" & cli.FechaNacimiento & "', getdate(), '" & cli.Calle & "', '" & cli.NumeroCalle & "', '" & cli.Departamento & "'," &
+            "'" & cli.Barrio & "'," & cli.Piso & "," & cli.Manzana & "," & cli.Lote & "," & cli.CiudadId & " ," & cli.Car_Telefono &
+            "," & cli.NumeroTelefono & "," & cli.Car_Celular & "," & cli.NumeroCelular & ", 'S'," & cli.UsuarioId & ",'" & cli.Email &
+            "','" & cli.FisicaOJuridica & "')", db)
             insert.CommandType = CommandType.Text
             db.Open()
             insert.ExecuteNonQuery()

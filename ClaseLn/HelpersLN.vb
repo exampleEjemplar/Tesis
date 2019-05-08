@@ -23,4 +23,8 @@ Public Class HelpersLN
         Return helpersDA.ValidarSiExisteDni(numero, entidad)
     End Function
 
+    Public Function EnSesion() As Integer
+        Return helpersDA.EnSesion()
+    End Function
+
 End Class

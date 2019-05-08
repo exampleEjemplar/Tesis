@@ -6,8 +6,7 @@ Imports ClaseNe
 
 Public Class LogIn
     Public nivelusr As Integer
-    Public idusuario As Integer
-
+    Private helpersUI As New HelpersUI
 
     Dim loginMetodo As New LoginLN
 
@@ -22,7 +21,8 @@ Public Class LogIn
                 If contra.Equals(txtContrasena.Text) = True Then
                     loginMetodo.rolUsuario = loginMetodo.ConsultarRolUsuario(txtUsuario.Text)
                     loginMetodo.usr_id = loginMetodo.ConsultarIDUsuario(txtUsuario.Text)
-                    idusuario = loginMetodo.usr_id
+                    loginMetodo.EnSesion(loginMetodo.usr_id)
+                    helpersUI.TextValidator("a", "a")
                     nivelusr = loginMetodo.rolUsuario
 
                     Me.Hide()
@@ -60,6 +60,9 @@ Public Class LogIn
 
 #Region "Metodos"
 
+    Public Function ObtainUserId()
+
+    End Function
 
     Private Sub LogIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtUsuario.Text = ""

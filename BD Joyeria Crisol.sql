@@ -1,6 +1,11 @@
-CREATE DATABASE JoyeriaCrisol
+CREATE DATABASE JoyeriaCrisol6
 GO
-USE JoyeriaCrisol
+USE JoyeriaCrisol6
+GO
+CREATE TABLE EnSesion(
+Id INT IDENTITY PRIMARY KEY,
+UsuarioId INT
+)
 GO
 CREATE TABLE TipoDocumentos(
 Id INT IDENTITY PRIMARY KEY,
@@ -71,7 +76,7 @@ GO
 CREATE TABLE Proveedores(
 Id INT IDENTITY PRIMARY KEY,
 TipoDocumentoId INT,
-NumeroDocumento FLOAT
+NumeroDocumento FLOAT,
 Nombre VARCHAR(MAX),
 Apellido VARCHAR(MAX),
 FechaNacimiento DATE,
@@ -100,7 +105,7 @@ GO
 CREATE TABLE Clientes(
 Id INT IDENTITY PRIMARY KEY,
 TipoDocumentoId INT,
-NumeroDocumento FLOAT
+NumeroDocumento FLOAT,
 Nombre VARCHAR(MAX),
 Apellido VARCHAR(MAX),
 FechaNacimiento DATE,
@@ -39985,3 +39990,7 @@ GO
 INSERT Usuarios
 VALUES
 ('testing','testing',1,'S')
+GO
+INSERT EnSesion
+VALUES
+(1)
