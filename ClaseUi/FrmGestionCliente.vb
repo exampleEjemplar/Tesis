@@ -10,112 +10,166 @@ Public Class FrmGestionCliente
     Private helpersLN As New HelpersLN
     Private helpersUI As New HelpersUI
     Public IdProvincia As Integer
+    Public IdLocalidad As Integer
     Private fisicaOJuridica As String
     Private ClienteID As Integer
 
+#Region "Eventos"
 
     Private Sub FrmGestionCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        helpersUI.TextValidator("a", "a")
         cmbProvincias.SelectedValue = 0
         cbtipodni.SelectedValue = 0
-        IdProvincia = LlenarCMBProvincias()
-        LlenarCMBLocalidades()
-        dtpfechanac.MinDate = Date.Today.AddYears(-18)
+        cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
+        IdProvincia = LlenarCMBProvincias("general")
+        LlenarCMBLocalidades("general")
+        dtpfechanac.MinDate = Date.Today.AddYears(-100)
         Block()
         DgvclientesSet(New Dictionary(Of String, String))
 
     End Sub
 
-    Public Sub Block()
-        GroupBox4.Visible = False
-        GroupBox6.Visible = False
-        GroupBox2.Visible = False
-        GroupBox3.Visible = False
-        btnGuardar.Enabled = False
-        cboTipoPersona.Enabled = True
-        cbtipodni.Enabled = False
-        tbNroDoc.ReadOnly = False
-        btnValidarDNI.Enabled = True
-        cboBusTipoPersona.Enabled = True
-        cboBusTipoDNI.Enabled = False
-        btnNuevo.Enabled = True
+    Private Sub CmbProvincias_SelectionChangeCommitted(sender As System.Object, e As System.EventArgs) Handles cmbProvincias.SelectionChangeCommitted
+        IdProvincia = cmbProvincias.SelectedValue
+        LlenarCMBLocalidades("general")
     End Sub
 
-    Public Sub Unblock()
-        btnNuevo.Enabled = False
-        GroupBox4.Visible = True
-        GroupBox2.Visible = True
-        GroupBox3.Visible = True
-        btnGuardar.Enabled = True
-        cboTipoPersona.Enabled = False
-        cbtipodni.Enabled = False
-        tbNroDoc.ReadOnly = True
-        btnValidarDNI.Enabled = False
-    End Sub
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
-    Public Sub DgvclientesSet(ByVal parametros As Dictionary(Of String, String))
-        Dim dsa1 As DataSet
-        dsa1 = clientemetodo.CargaGrillaclientes(parametros)
-        dgvclientes.DataSource = dsa1.Tables(0)
-    End Sub
-
-    Public Function LlenarCMBProvincias()
-        Try
-            Dim ds1 As DataSet
-            ds1 = helpersLN.CargarCMBProvincias()
-            cmbProvincias.DataSource = ds1.Tables(0)
-            cmbProvincias.DisplayMember = "nombre"
-            cmbProvincias.ValueMember = "id"
-            cmbProvincias.SelectedValue = 1
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-        Return cmbProvincias.SelectedValue
-    End Function
-
-    Public Sub LlenarCMBLocalidades()
-        Try
-            Dim ds1 As DataSet
-            ds1 = helpersLN.CargarCMBLocalidades(IdProvincia)
-            cmbLocalidades.DataSource = ds1.Tables(0)
-            cmbLocalidades.DisplayMember = "nombre"
-            cmbLocalidades.ValueMember = "id"
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-    End Sub
-
-    Public Sub LlenarCMBDoc(ByVal FoJ As String, ByVal type As String)
-        If type = "busqueda" Then
-            Try
-                Dim ds1 As DataSet
-                ds1 = helpersLN.CargarCMBDoc(FoJ)
-                cboBusTipoDNI.DataSource = ds1.Tables(0)
-                cboBusTipoDNI.DisplayMember = "descripcion"
-                cboBusTipoDNI.ValueMember = "id"
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            End Try
+        If ValidarDatos() = False Then
+            Return
+        End If
+        If ClienteID = 0 Then
+            clientemetodo.GrabarClientes(cli)
+            MsgBox("Cliente agregado con exito!", MsgBoxStyle.OkOnly, "Exito")
         Else
-            Try
-                Dim ds1 As DataSet
-                ds1 = helpersLN.CargarCMBDoc(FoJ)
-                cbtipodni.DataSource = ds1.Tables(0)
-                cbtipodni.DisplayMember = "descripcion"
-                cbtipodni.ValueMember = "id"
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            End Try
+            clientemetodo.ActualizarClientes(cli)
+            MsgBox("Cliente actualizado con exito!", MsgBoxStyle.OkOnly, "Exito")
+        End If
+        'DgvclientesSet()
+        Limpiar()
+        Block()
+        DgvclientesSet(New Dictionary(Of String, String))
 
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Me.Close()
+        MDIPrincipal.Show()
+    End Sub
+
+    Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs) Handles dgvclientes.DoubleClick
+
+        Dim ds As DataSet = clientemetodo.ConsultaModificacion((dgvclientes.Item(2, dgvclientes.CurrentRow.Index).Value))
+        'idcliente = (dgvclientes.Item(0, dgvclientes.CurrentRow.Index).Value)
+        For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+            'cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
+            If ds.Tables(0).Rows(i)(0).ToString() = "F" Then
+                cboTipoPersona.SelectionStart = 0
+                lblInicioAct.Visible = False
+                lblNombreFanta.Visible = False
+                lblRazonSoc.Visible = False
+            Else
+                cboTipoPersona.SelectionStart = 1
+                lblFechaNac.Visible = False
+                lblNombre.Visible = False
+                lblApellido.Visible = False
+            End If
+            LlenarCMBDoc(ds.Tables(0).Rows(i)(0).ToString(), "nuevo")
+            tbNroDoc.Text = ds.Tables(0).Rows(i)(2).ToString()
+            tbNombre.Text = ds.Tables(0).Rows(i)(3).ToString()
+            tbApellido.Text = ds.Tables(0).Rows(i)(4).ToString()
+            dtpfechanac.Value = ds.Tables(0).Rows(i)(5).ToString()
+            tbcalle.Text = ds.Tables(0).Rows(i)(6).ToString()
+            tbNro.Text = ds.Tables(0).Rows(i)(7).ToString()
+            IdLocalidad = ds.Tables(0).Rows(i)(8).ToString()
+            LlenarCMBLocalidades("unico")
+            LlenarCMBProvincias("unico")
+            tbcodcel.Text = ds.Tables(0).Rows(i)(9).ToString()
+            tbcel.Text = ds.Tables(0).Rows(i)(10).ToString()
+            tbcodtel.Text = ds.Tables(0).Rows(i)(11).ToString()
+            tbtelefono.Text = ds.Tables(0).Rows(i)(12).ToString()
+            tbmail.Text = ds.Tables(0).Rows(i)(13).ToString()
+            txtPiso.Text = ds.Tables(0).Rows(i)(14).ToString()
+            tbDpto.Text = ds.Tables(0).Rows(i)(15).ToString()
+            txtManzana.Text = ds.Tables(0).Rows(i)(16).ToString()
+            txtLote.Text = ds.Tables(0).Rows(i)(17).ToString()
+            txtBarrio.Text = ds.Tables(0).Rows(i)(18).ToString()
+            Unblock()
+            GroupBox6.Visible = True
+        Next
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btnValidarDNI.Click
+        If helpersUI.TextValidator("Tipo de persona", cboTipoPersona.SelectedItem) = False Or
+            helpersUI.TextValidator("Tipo de identificacion", cbtipodni.Text) = False Or
+            helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
+            Return
+        End If
+        If helpersLN.ValidarSiExisteDni(Convert.ToInt64(tbNroDoc.Text), "Clientes") = False Then
+            MsgBox("La identificación puede ser utilizada!", MsgBoxStyle.OkOnly, "Ok")
+            Unblock()
+            If cboTipoPersona.SelectedItem = "Física" Then
+                lblRazonSoc.Visible = False
+                lblNombreFanta.Visible = False
+                lblInicioAct.Visible = False
+                fisicaOJuridica = "F"
+            Else
+                lblNombre.Visible = False
+                lblApellido.Visible = False
+                lblFechaNac.Visible = False
+                fisicaOJuridica = "J"
+            End If
+        Else
+            MsgBox("La identificación ingresada ya existe en la base de datos", MsgBoxStyle.Critical, "Ya existente")
         End If
     End Sub
 
-    Private Sub CmbProvincias_SelectionChangeCommitted(sender As System.Object, e As System.EventArgs) Handles cmbProvincias.SelectionChangeCommitted
-        IdProvincia = cmbProvincias.SelectedValue
-        LlenarCMBLocalidades()
+    Private Sub CboTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoPersona.SelectedIndexChanged
+        If cboTipoPersona.SelectedItem = "Física" Then
+            LlenarCMBDoc("F", "nuevo")
+        Else
+            LlenarCMBDoc("J", "nuevo")
+        End If
+        cbtipodni.Enabled = True
     End Sub
 
+    Private Sub cboBusTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboBusTipoPersona.SelectedIndexChanged
+        If cboBusTipoPersona.SelectedItem = "Física" Then
+            LlenarCMBDoc("F", "busqueda")
+        Else
+            LlenarCMBDoc("J", "busqueda")
+        End If
+        cboBusTipoDNI.Enabled = True
+    End Sub
+
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        Dim parametros As New Dictionary(Of String, String)
+        If String.IsNullOrWhiteSpace(cboBusTipoDNI.SelectedValue) = False Then
+            parametros.Add("TipoDocumentoId", cboBusTipoDNI.SelectedValue)
+        End If
+        If String.IsNullOrWhiteSpace(txtBusDocNro.Text) = False Then
+            parametros.Add("NumeroDocumento", txtBusDocNro.Text)
+        End If
+        If String.IsNullOrWhiteSpace(txtBusNombre.Text) = False Then
+            parametros.Add("Nombre", txtBusNombre.Text)
+        End If
+        If String.IsNullOrWhiteSpace(txtBusApellido.Text) = False Then
+            parametros.Add("Apellido", txtBusApellido.Text)
+        End If
+        DgvclientesSet(parametros)
+    End Sub
+
+    Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+        GroupBox6.Visible = True
+        btnNuevo.Enabled = False
+    End Sub
+
+#End Region
+
+#Region "Validadores"
+
+    'Valida datos antes de insertarlos en la BD
     Public Function ValidarDatos()
 
         If helpersUI.Validar_Mail(tbmail.Text) = False Then
@@ -217,6 +271,7 @@ Public Class FrmGestionCliente
         Return True
     End Function
 
+    'Valida que el texto sea solo numeros
     Private Sub TxbTelNumero_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles tbcodcel.KeyPress, tbcodtel.KeyPress, tbcel.KeyPress, tbNroDoc.KeyPress, tbNro.KeyPress, txtPiso.KeyPress, txtManzana.KeyPress, txtLote.KeyPress
         If Char.IsNumber(e.KeyChar) Then
             e.Handled = False
@@ -229,6 +284,7 @@ Public Class FrmGestionCliente
         End If
     End Sub
 
+    'Valida que el texto sea solo letras
     Private Sub TbNombre_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles tbNombre.KeyPress, tbApellido.KeyPress, txtBarrio.KeyPress
         If Char.IsLetter(e.KeyChar) Then
             e.Handled = False
@@ -242,25 +298,40 @@ Public Class FrmGestionCliente
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+#End Region
 
-        If ValidarDatos() = False Then
-            Return
-        End If
-        If ClienteID = 0 Then
-            clientemetodo.GrabarClientes(cli)
-            MsgBox("Cliente agregado con exito!", MsgBoxStyle.OkOnly, "Exito")
-        Else
-            clientemetodo.ActualizarClientes(cli)
-            MsgBox("Cliente actualizado con exito!", MsgBoxStyle.OkOnly, "Exito")
-        End If
-        'DgvclientesSet()
-        Limpiar()
-        Block()
-        DgvclientesSet(New Dictionary(Of String, String))
+#Region "Acciones"
 
+    'Deshabilita los buttons,tb,etc necesarios
+    Public Sub Block()
+        GroupBox4.Visible = False
+        GroupBox6.Visible = False
+        GroupBox2.Visible = False
+        GroupBox3.Visible = False
+        btnGuardar.Enabled = False
+        cboTipoPersona.Enabled = True
+        cbtipodni.Enabled = False
+        tbNroDoc.ReadOnly = False
+        btnValidarDNI.Enabled = True
+        cboBusTipoPersona.Enabled = True
+        cboBusTipoDNI.Enabled = False
+        btnNuevo.Enabled = True
     End Sub
 
+    'Habilita los buttons,tb,etc necesarios
+    Public Sub Unblock()
+        btnNuevo.Enabled = False
+        GroupBox4.Visible = True
+        GroupBox2.Visible = True
+        GroupBox3.Visible = True
+        btnGuardar.Enabled = True
+        cboTipoPersona.Enabled = False
+        cbtipodni.Enabled = False
+        tbNroDoc.ReadOnly = True
+        btnValidarDNI.Enabled = False
+    End Sub
+
+    'Limpia los campos para una nueva inserción
     Private Sub Limpiar()
         tbNombre.Text = ""
         tbApellido.Text = ""
@@ -282,99 +353,94 @@ Public Class FrmGestionCliente
         cmbProvincias.SelectedItem = Nothing
         cmbLocalidades.SelectedItem = Nothing
     End Sub
+#End Region
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        Me.Close()
-        MDIPrincipal.Show()
-    End Sub
+#Region "Rellenado"
 
-    Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs) Handles dgvclientes.DoubleClick
+    ''Carga el combo Provincias
+    'Public Function LlenarCMBProvincias()
+    '    Try
+    '        Dim ds1 As DataSet
+    '        ds1 = helpersLN.CargarCMBProvincias()
+    '        cmbProvincias.DataSource = ds1.Tables(0)
+    '        cmbProvincias.DisplayMember = "nombre"
+    '        cmbProvincias.ValueMember = "id"
+    '        cmbProvincias.SelectedValue = 1
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message)
+    '    End Try
+    '    Return cmbProvincias.SelectedValue
+    'End Function
 
-        Dim ds As DataSet = clientemetodo.ConsultaModificacion((dgvclientes.Item(2, dgvclientes.CurrentRow.Index).Value))
-        'idcliente = (dgvclientes.Item(0, dgvclientes.CurrentRow.Index).Value)
-        cboTipoPersona.SelectedItem = (dgvclientes.Item(0, dgvclientes.CurrentRow.Index).Value)
-        cbtipodni.SelectedValue = (dgvclientes.Item(1, dgvclientes.CurrentRow.Index).Value)
-        tbNroDoc.Text = (dgvclientes.Item(2, dgvclientes.CurrentRow.Index).Value)
-        tbNombre.Text = (dgvclientes.Item(3, dgvclientes.CurrentRow.Index).Value)
-        tbApellido.Text = (dgvclientes.Item(4, dgvclientes.CurrentRow.Index).Value)
-        dtpfechanac.Value = (dgvclientes.Item(5, dgvclientes.CurrentRow.Index).Value)
-        tbcalle.Text = (dgvclientes.Item(7, dgvclientes.CurrentRow.Index).Value)
-        tbNro.Text = (dgvclientes.Item(8, dgvclientes.CurrentRow.Index).Value)
-        tbDpto.Text = (dgvclientes.Item(9, dgvclientes.CurrentRow.Index).Value)
-        cmbLocalidades.SelectedValue = (dgvclientes.Item(10, dgvclientes.CurrentRow.Index).Value)
-        cmbProvincias.SelectedValue = (dgvclientes.Item(1, dgvclientes.CurrentRow.Index).Value)
-        IdProvincia = Convert.ToString((dgvclientes.Item(10, dgvclientes.CurrentRow.Index).Value))
-        LlenarCMBLocalidades()
-        tbcodtel.Text = (dgvclientes.Item(14, dgvclientes.CurrentRow.Index).Value)
-        tbtelefono.Text = (dgvclientes.Item(12, dgvclientes.CurrentRow.Index).Value)
-        tbcel.Text = (dgvclientes.Item(11, dgvclientes.CurrentRow.Index).Value)
-        tbcodcel.Text = (dgvclientes.Item(13, dgvclientes.CurrentRow.Index).Value)
-        tbmail.Text = (dgvclientes.Item(16, dgvclientes.CurrentRow.Index).Value)
-
-    End Sub
-
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btnValidarDNI.Click
-        If helpersUI.TextValidator("Tipo de persona", cboTipoPersona.SelectedItem) = False Or
-            helpersUI.TextValidator("Tipo de identificacion", cbtipodni.Text) = False Or
-            helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
-            Return
-        End If
-        If helpersLN.ValidarSiExisteDni(Convert.ToInt64(tbNroDoc.Text), "Clientes") = False Then
-            MsgBox("La identificación puede ser utilizada!", MsgBoxStyle.OkOnly, "Ok")
-            Unblock()
-            If cboTipoPersona.SelectedItem = "Física" Then
-                lblRazonSoc.Visible = False
-                lblNombreFanta.Visible = False
-                lblInicioAct.Visible = False
-                fisicaOJuridica = "F"
+    Public Function LlenarCMBProvincias(ByVal type As String)
+        Try
+            Dim ds1 As DataSet
+            ds1 = helpersLN.CargarCMBProvincias()
+            cmbProvincias.DataSource = ds1.Tables(0)
+            cmbProvincias.DisplayMember = "nombre"
+            cmbProvincias.ValueMember = "id"
+            cmbProvincias.SelectedValue = 1
+            If type = "unico" Then
+                cmbProvincias.SelectionStart = IdProvincia
+                cmbProvincias.SelectedValue = IdProvincia
             Else
-                lblNombre.Visible = False
-                lblApellido.Visible = False
-                lblFechaNac.Visible = False
-                fisicaOJuridica = "J"
             End If
+            Return cmbProvincias.SelectedValue
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Function
+
+    'Carga el combo Localidades
+    Public Sub LlenarCMBLocalidades(ByVal type As String)
+        Try
+            Dim ds1 As DataSet
+            ds1 = helpersLN.CargarCMBLocalidades(IdProvincia)
+            cmbLocalidades.DataSource = ds1.Tables(0)
+            cmbLocalidades.DisplayMember = "nombre"
+            cmbLocalidades.ValueMember = "id"
+            If type = "unico" Then
+                cmbLocalidades.SelectionStart = IdLocalidad
+                cmbProvincias.SelectedValue = IdLocalidad
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    'Carga el combo tipo de documento
+    Public Sub LlenarCMBDoc(ByVal FoJ As String, ByVal type As String)
+        If type = "busqueda" Then
+            Try
+                Dim ds1 As DataSet
+                ds1 = helpersLN.CargarCMBDoc(FoJ)
+                cboBusTipoDNI.DataSource = ds1.Tables(0)
+                cboBusTipoDNI.DisplayMember = "descripcion"
+                cboBusTipoDNI.ValueMember = "id"
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
         Else
-            MsgBox("La identificación ingresada ya existe en la base de datos", MsgBoxStyle.Critical, "Ya existente")
+            Try
+                Dim ds1 As DataSet
+                ds1 = helpersLN.CargarCMBDoc(FoJ)
+                cbtipodni.DataSource = ds1.Tables(0)
+                cbtipodni.DisplayMember = "descripcion"
+                cbtipodni.ValueMember = "id"
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+
         End If
     End Sub
 
-    Private Sub CboTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoPersona.SelectedIndexChanged
-        If cboTipoPersona.SelectedItem = "Física" Then
-            LlenarCMBDoc("F", "nuevo")
-        Else
-            LlenarCMBDoc("J", "nuevo")
-        End If
-        cbtipodni.Enabled = True
+    'Carga DataGridView con datos
+    Public Sub DgvclientesSet(ByVal parametros As Dictionary(Of String, String))
+        Dim dsa1 As DataSet
+        dsa1 = clientemetodo.CargaGrillaclientes(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
+        dgvclientes.DataSource = dsa1.Tables(0)
     End Sub
 
-    Private Sub cboBusTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboBusTipoPersona.SelectedIndexChanged
-        If cboBusTipoPersona.SelectedItem = "Física" Then
-            LlenarCMBDoc("F", "busqueda")
-        Else
-            LlenarCMBDoc("J", "busqueda")
-        End If
-        cboBusTipoDNI.Enabled = True
-    End Sub
 
-    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-        Dim parametros As New Dictionary(Of String, String)
-        If String.IsNullOrWhiteSpace(cboBusTipoDNI.SelectedValue) = False Then
-            parametros.Add("TipoDocumentoId", cboBusTipoDNI.SelectedValue)
-        End If
-        If String.IsNullOrWhiteSpace(txtBusDocNro.Text) = False Then
-            parametros.Add("NumeroDocumento", txtBusDocNro.Text)
-        End If
-        If String.IsNullOrWhiteSpace(txtBusNombre.Text) = False Then
-            parametros.Add("Nombre", txtBusNombre.Text)
-        End If
-        If String.IsNullOrWhiteSpace(txtBusApellido.Text) = False Then
-            parametros.Add("Apellido", txtBusApellido.Text)
-        End If
-        DgvclientesSet(parametros)
-    End Sub
-
-    Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
-        GroupBox6.Visible = True
-        btnNuevo.Enabled = False
-    End Sub
+#End Region
 End Class

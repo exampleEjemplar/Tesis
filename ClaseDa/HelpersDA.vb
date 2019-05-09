@@ -29,6 +29,22 @@ Public Class HelpersDA
 
     End Function
 
+    Public Function CargarCMBLocalidadesUnico(ByVal idLoc As Integer)
+
+        Dim sqlStr As String
+        ds = New DataSet
+        sqlStr = "select Id, Nombre, ProvinciaId from Ciudades where Id= " & idLoc
+        Try
+            Dim da As New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return ds
+
+    End Function
+
     Public Function CargarCMBLocalidades(ByVal idprov As Integer)
 
         Dim sqlStr As String

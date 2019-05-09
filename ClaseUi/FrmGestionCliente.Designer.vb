@@ -182,7 +182,6 @@ Partial Class FrmGestionCliente
         Me.cboTipoPersona.AccessibleDescription = ""
         Me.cboTipoPersona.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboTipoPersona.FormattingEnabled = True
-        Me.cboTipoPersona.Items.AddRange(New Object() {"Física", "Jurídica"})
         Me.cboTipoPersona.Location = New System.Drawing.Point(169, 17)
         Me.cboTipoPersona.Margin = New System.Windows.Forms.Padding(4)
         Me.cboTipoPersona.Name = "cboTipoPersona"
