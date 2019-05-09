@@ -82,6 +82,7 @@ Public Class FrmGestionCliente
             dtpfechanac.Value = ds.Tables(0).Rows(i)(5).ToString()
             tbcalle.Text = ds.Tables(0).Rows(i)(6).ToString()
             tbNro.Text = ds.Tables(0).Rows(i)(7).ToString()
+            IdProvincia = ds.Tables(0).Rows(i)(20).ToString()
             IdLocalidad = ds.Tables(0).Rows(i)(8).ToString()
             LlenarCMBLocalidades("unico")
             LlenarCMBProvincias("unico")
@@ -179,24 +180,25 @@ Public Class FrmGestionCliente
 
 
         'Agrego todos los txt y cbo a un diccionario para validarlos despues genericamente y no uno por uno
-        Dim dictionaryOfTexts As Dictionary(Of String, String) = New Dictionary(Of String, String) From
+        Dim dictionaryOfMandatoriesTexts As Dictionary(Of String, String) = New Dictionary(Of String, String) From
         {{"Numero de calle", tbNro.Text}, {"Email", tbmail.Text}, {"Calle", tbcalle.Text},
         {"Localidad", cmbLocalidades.SelectedValue},
         {"Provincia", cmbProvincias.SelectedValue}}
 
         If fisicaOJuridica = "F" Then
-            dictionaryOfTexts.Add("Nombre", tbNombre.Text)
-            dictionaryOfTexts.Add("Apellido", tbApellido.Text)
+            dictionaryOfMandatoriesTexts.Add("Nombre", tbNombre.Text)
+            dictionaryOfMandatoriesTexts.Add("Apellido", tbApellido.Text)
         Else
-            dictionaryOfTexts.Add("Nombre de Fantasía", tbNombre.Text)
-            dictionaryOfTexts.Add("Razon Social", tbApellido.Text)
+            dictionaryOfMandatoriesTexts.Add("Nombre de Fantasía", tbNombre.Text)
+            dictionaryOfMandatoriesTexts.Add("Razon Social", tbApellido.Text)
         End If
 
-        For Each texts As KeyValuePair(Of String, String) In dictionaryOfTexts
+        For Each texts As KeyValuePair(Of String, String) In dictionaryOfMandatoriesTexts
             If helpersUI.TextValidator(texts.Key, texts.Value) = False Then
                 Return False
             End If
         Next
+
 
         If String.IsNullOrWhiteSpace(tbcodcel.Text) = False And String.IsNullOrWhiteSpace(tbcel.Text) = True Then
             MsgBox("Ingrese el número de celular correspondiente", MsgBoxStyle.Critical, "Celular")
@@ -215,58 +217,76 @@ Public Class FrmGestionCliente
             Return False
         End If
 
-        cli.FisicaOJuridica = fisicaOJuridica
-        cli.TipoDocumentoId = cbtipodni.SelectedValue
-        cli.NumeroDocumento = Convert.ToInt32(tbNroDoc.Text)
-        cli.Email = tbmail.Text
-        cli.Nombre = tbNombre.Text
-        cli.Apellido = tbApellido.Text
-        cli.FechaNacimiento = dtpfechanac.Value
-        cli.Calle = tbcalle.Text
-        cli.NumeroCalle = Convert.ToInt32(tbNro.Text)
         Dim value As Integer
-        If Integer.TryParse(txtPiso.Text, value) = True Then
-            cli.Piso = value
-        Else
-            cli.Piso = Nothing
-        End If
-        cli.Departamento = tbDpto.Text
-        If Integer.TryParse(txtManzana.Text, value) = True Then
-            cli.Manzana = value
-        Else
-            cli.Manzana = Nothing
-        End If
-        cli.CiudadId = cmbLocalidades.SelectedValue
-        If Integer.TryParse(txtLote.Text, value) = True Then
-            cli.Lote = value
-        Else
-            cli.Lote = Nothing
-        End If
-        cli.Barrio = txtBarrio.Text
-        If Integer.TryParse(tbcodtel.Text, value) = True Then
-            cli.Car_Telefono = value
-        Else
-            cli.Car_Telefono = Nothing
-        End If
-        If Integer.TryParse(tbtelefono.Text, value) = True Then
-            cli.NumeroTelefono = value
-        Else
-            cli.NumeroTelefono = Nothing
-        End If
-        If Integer.TryParse(tbcodcel.Text, value) = True Then
-            cli.Car_Celular = value
-        Else
-            cli.Car_Celular = Nothing
-        End If
-        If Integer.TryParse(tbcel.Text, value) = True Then
-            cli.NumeroCelular = value
-        Else
-            cli.NumeroCelular = Nothing
-        End If
         If Integer.TryParse(helpersLN.EnSesion, value) = True Then
             cli.UsuarioId = value
         Else
             cli.UsuarioId = Nothing
+        End If
+        cli.FisicaOJuridica = fisicaOJuridica
+        cli.TipoDocumentoId = cbtipodni.SelectedValue
+        cli.NumeroDocumento = tbNroDoc.Text
+        cli.Email = tbmail.Text
+        cli.Nombre = tbNombre.Text
+        cli.Apellido = tbApellido.Text
+        cli.FechaNacimiento = dtpfechanac.Value
+        cli.CiudadId = cmbLocalidades.SelectedValue
+
+
+        If String.IsNullOrEmpty(txtLote.Text) Then
+            cli.Lote = "NULL"
+        Else
+            cli.Lote = txtLote.Text
+        End If
+        If String.IsNullOrEmpty(txtBarrio.Text) Then
+            cli.Barrio = "NULL"
+        Else
+            cli.Barrio = txtBarrio.Text
+        End If
+        If String.IsNullOrEmpty(tbcodtel.Text) Then
+            cli.Car_Telefono = "NULL"
+        Else
+            cli.Car_Telefono = tbcodtel.Text
+        End If
+        If String.IsNullOrEmpty(tbtelefono.Text) Then
+            cli.NumeroTelefono = "NULL"
+        Else
+            cli.NumeroTelefono = tbtelefono.Text
+        End If
+        If String.IsNullOrEmpty(tbcodcel.Text) Then
+            cli.Car_Celular = "NULL"
+        Else
+            cli.Car_Celular = tbcodcel.Text
+        End If
+        If String.IsNullOrEmpty(tbcel.Text) Then
+            cli.NumeroCelular = "NULL"
+        Else
+            cli.NumeroCelular = tbcel.Text
+        End If
+        If String.IsNullOrEmpty(tbcalle.Text) Then
+            cli.Calle = "NULL"
+        Else
+            cli.Calle = tbcalle.Text
+        End If
+        If String.IsNullOrEmpty(tbNro.Text) Then
+            cli.NumeroCalle = "NULL"
+        Else
+            cli.NumeroCalle = tbNro.Text
+        End If
+        If String.IsNullOrEmpty(tbDpto.Text) Then
+            cli.Departamento = "NULL"
+        Else
+            cli.Departamento = tbDpto.Text
+        End If
+        If String.IsNullOrEmpty(txtManzana.Text) Then
+            cli.Manzana = "NULL"
+        Else
+            cli.Manzana = txtManzana.Text
+        End If
+        If String.IsNullOrEmpty(txtPiso.Text) Then
+            cli.Piso = "NULL"
+        Else
+            cli.Piso = txtPiso.Text
         End If
         Return True
     End Function
@@ -357,21 +377,6 @@ Public Class FrmGestionCliente
 
 #Region "Rellenado"
 
-    ''Carga el combo Provincias
-    'Public Function LlenarCMBProvincias()
-    '    Try
-    '        Dim ds1 As DataSet
-    '        ds1 = helpersLN.CargarCMBProvincias()
-    '        cmbProvincias.DataSource = ds1.Tables(0)
-    '        cmbProvincias.DisplayMember = "nombre"
-    '        cmbProvincias.ValueMember = "id"
-    '        cmbProvincias.SelectedValue = 1
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message)
-    '    End Try
-    '    Return cmbProvincias.SelectedValue
-    'End Function
-
     Public Function LlenarCMBProvincias(ByVal type As String)
         Try
             Dim ds1 As DataSet
@@ -400,8 +405,7 @@ Public Class FrmGestionCliente
             cmbLocalidades.DisplayMember = "nombre"
             cmbLocalidades.ValueMember = "id"
             If type = "unico" Then
-                cmbLocalidades.SelectionStart = IdLocalidad
-                cmbProvincias.SelectedValue = IdLocalidad
+                cmbLocalidades.SelectedValue = IdLocalidad
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
