@@ -36,18 +36,20 @@ Public Class FrmGestionCliente
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
+        'Los MsgBox de error ya estan dentro del metodo
         If ValidarDatos() = False Then
             Return
         End If
+        'Si es un nuevo cliente lo agrega
         If ClienteID = 0 Then
             clientemetodo.GrabarClientes(cli)
             MsgBox("Cliente agregado con exito!", MsgBoxStyle.OkOnly, "Exito")
         Else
+            'Si es uno ya creado lo actualiza
             cli.Id = ClienteID
             clientemetodo.ActualizarClientes(cli)
             MsgBox("Cliente actualizado con exito!", MsgBoxStyle.OkOnly, "Exito")
         End If
-        'DgvclientesSet()
         Limpiar()
         Block()
         DgvclientesSet(New Dictionary(Of String, String))
@@ -62,9 +64,7 @@ Public Class FrmGestionCliente
     Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs) Handles dgvclientes.DoubleClick
 
         Dim ds As DataSet = clientemetodo.ConsultaModificacion((dgvclientes.Item(2, dgvclientes.CurrentRow.Index).Value))
-        'idcliente = (dgvclientes.Item(0, dgvclientes.CurrentRow.Index).Value)
         For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
-            'cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
             If ds.Tables(0).Rows(i)(0).ToString() = "F" Then
                 cboTipoPersona.SelectionStart = 0
                 lblInicioAct.Visible = False
@@ -87,6 +87,8 @@ Public Class FrmGestionCliente
             IdLocalidad = ds.Tables(0).Rows(i)(8).ToString()
             LlenarCMBLocalidades("unico")
             LlenarCMBProvincias("unico")
+
+            'Si detecta que el texto es null lo transforma en ""
 
             If ds.Tables(0).Rows(i)(9).ToString() <> "NULL" Then
                 tbcodcel.Text = ds.Tables(0).Rows(i)(9).ToString()
@@ -458,6 +460,7 @@ Public Class FrmGestionCliente
             cmbLocalidades.DataSource = ds1.Tables(0)
             cmbLocalidades.DisplayMember = "nombre"
             cmbLocalidades.ValueMember = "id"
+            'Type unico, le setea el valor del Idlocalidad que fue encontrado en la bd
             If type = "unico" Then
                 cmbLocalidades.SelectedValue = IdLocalidad
             End If
