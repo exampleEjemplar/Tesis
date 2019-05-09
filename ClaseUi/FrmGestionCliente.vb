@@ -43,6 +43,7 @@ Public Class FrmGestionCliente
             clientemetodo.GrabarClientes(cli)
             MsgBox("Cliente agregado con exito!", MsgBoxStyle.OkOnly, "Exito")
         Else
+            cli.Id = ClienteID
             clientemetodo.ActualizarClientes(cli)
             MsgBox("Cliente actualizado con exito!", MsgBoxStyle.OkOnly, "Exito")
         End If
@@ -86,16 +87,69 @@ Public Class FrmGestionCliente
             IdLocalidad = ds.Tables(0).Rows(i)(8).ToString()
             LlenarCMBLocalidades("unico")
             LlenarCMBProvincias("unico")
-            tbcodcel.Text = ds.Tables(0).Rows(i)(9).ToString()
-            tbcel.Text = ds.Tables(0).Rows(i)(10).ToString()
-            tbcodtel.Text = ds.Tables(0).Rows(i)(11).ToString()
-            tbtelefono.Text = ds.Tables(0).Rows(i)(12).ToString()
-            tbmail.Text = ds.Tables(0).Rows(i)(13).ToString()
-            txtPiso.Text = ds.Tables(0).Rows(i)(14).ToString()
-            tbDpto.Text = ds.Tables(0).Rows(i)(15).ToString()
-            txtManzana.Text = ds.Tables(0).Rows(i)(16).ToString()
-            txtLote.Text = ds.Tables(0).Rows(i)(17).ToString()
-            txtBarrio.Text = ds.Tables(0).Rows(i)(18).ToString()
+
+            If ds.Tables(0).Rows(i)(9).ToString() <> "NULL" Then
+                tbcodcel.Text = ds.Tables(0).Rows(i)(9).ToString()
+            Else
+                tbcodcel.Text = ""
+            End If
+
+            If ds.Tables(0).Rows(i)(10).ToString() <> "NULL" Then
+                tbcel.Text = ds.Tables(0).Rows(i)(10).ToString()
+            Else
+                tbcel.Text = ""
+            End If
+
+            If ds.Tables(0).Rows(i)(11).ToString() <> "NULL" Then
+                tbcodtel.Text = ds.Tables(0).Rows(i)(11).ToString()
+            Else
+                tbcodtel.Text = ""
+            End If
+
+            If ds.Tables(0).Rows(i)(12).ToString() <> "NULL" Then
+                tbtelefono.Text = ds.Tables(0).Rows(i)(12).ToString()
+            Else
+                tbtelefono.Text = ""
+            End If
+
+            If ds.Tables(0).Rows(i)(13).ToString() <> "NULL" Then
+                tbmail.Text = ds.Tables(0).Rows(i)(13).ToString()
+            Else
+                tbmail.Text = ""
+            End If
+
+            If ds.Tables(0).Rows(i)(14).ToString() <> "NULL" Then
+                txtPiso.Text = ds.Tables(0).Rows(i)(14).ToString()
+            Else
+                txtPiso.Text = ""
+            End If
+
+            If ds.Tables(0).Rows(i)(15).ToString() <> "NULL" Then
+                tbDpto.Text = ds.Tables(0).Rows(i)(15).ToString()
+            Else
+                tbDpto.Text = ""
+            End If
+
+            If ds.Tables(0).Rows(i)(16).ToString() <> "NULL" Then
+                txtManzana.Text = ds.Tables(0).Rows(i)(16).ToString()
+            Else
+                txtManzana.Text = ""
+            End If
+
+            If ds.Tables(0).Rows(i)(17).ToString() <> "NULL" Then
+                txtLote.Text = ds.Tables(0).Rows(i)(17).ToString()
+            Else
+                txtLote.Text = ""
+            End If
+
+            If ds.Tables(0).Rows(i)(18).ToString() <> "NULL" Then
+                txtBarrio.Text = ds.Tables(0).Rows(i)(18).ToString()
+            Else
+                txtBarrio.Text = ""
+            End If
+
+            ClienteID = ds.Tables(0).Rows(i)(19).ToString()
+
             Unblock()
             GroupBox6.Visible = True
         Next

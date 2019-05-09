@@ -87,11 +87,7 @@ Public Class MetodoClientesDA
 
     Public Sub ActualizarClientes(ByVal cli As ClientesNE)
         Try
-            Dim insert As New SqlCommand("set dateformat dmy Update Clientes as c set  c.TipoDocumentoId = " & cli.TipoDocumentoId & ",c.NumeroDocumento = " & cli.NumeroDocumento & ",c.Nombre = '" & cli.Nombre & "'," &
-            "c.Apellido = '" & cli.Apellido & "',c.FechaNacimiento = '" & cli.FechaNacimiento & "',c.calle =  '" & cli.Calle & "', c.NumeroCalle = '" & cli.NumeroCalle & "',c.Departamento =  '" & cli.Departamento & "'," &
-            "c.Barrio = '" & cli.Barrio & "',c.Piso = " & cli.Piso & ",c.Manzana = " & cli.Manzana & ",c.Lote = " & cli.Lote & ",c.CiudadId = " & cli.CiudadId & " ,c.Car_Telefono = " & cli.Car_Telefono &
-            ",c.NumeroTelefono = " & cli.NumeroTelefono & ",c.Car_Celular = " & cli.Car_Celular & ",c.NumeroCelular = " & cli.NumeroCelular & ",c.Email = '" & cli.Email &
-            "','" & cli.FisicaOJuridica & "'", db)
+            Dim insert As New SqlCommand("set dateformat dmy Update Clientes set  TipoDocumentoId = " & cli.TipoDocumentoId & ",NumeroDocumento = " & cli.NumeroDocumento & ",Nombre = '" & cli.Nombre & "',Apellido = '" & cli.Apellido & "',FechaNacimiento = '" & cli.FechaNacimiento & "',calle =  '" & cli.Calle & "',NumeroCalle = '" & cli.NumeroCalle & "',Departamento =  '" & cli.Departamento & "',Barrio = '" & cli.Barrio & "',Piso = " & cli.Piso & ",Manzana = " & cli.Manzana & ",Lote = " & cli.Lote & ",CiudadId = " & cli.CiudadId & " ,Car_Telefono = " & cli.Car_Telefono & ",NumeroTelefono = " & cli.NumeroTelefono & ",Car_Celular = " & cli.Car_Celular & ",NumeroCelular = " & cli.NumeroCelular & ",Email = '" & cli.Email & "' where Id = " & cli.Id, db)
             insert.CommandType = CommandType.Text
             db.Open()
             insert.ExecuteNonQuery()
