@@ -18,7 +18,7 @@ Public Class UsuariosLN
     End Function
 
     Public Function CargarGrillaUsuarios(ByVal parametros As Dictionary(Of String, String)) As DataSet
-        Return usuariosDA.CargaGrillaUsuarios(parametros)
+        Return usuariosDA.CargarGrillaUsuario(parametros)
     End Function
 
     Public Sub GrabarUsuarios(ByVal usu As UsuariosNE)
@@ -28,6 +28,10 @@ Public Class UsuariosLN
     Public Sub ActualizarUsuarios(ByVal usu As UsuariosNE)
         usuariosDA.ActualizarUsuarios(usu)
     End Sub
+
+    Public Function CargarRoles() As DataSet
+        Return usuariosDA.CargarRoles()
+    End Function
 
 End Class
 
