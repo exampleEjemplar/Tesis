@@ -25,6 +25,8 @@ Public Class FrmGestionUsuario
         cboActivoSN.DataSource = New List(Of String) From {"Si", "No"}
         cboBusActivoSN.DataSource = New List(Of String) From {"Si", "No"}
         Block()
+        LlenarCboRoles("comun")
+        LlenarCboRoles("bus")
         DgvUSuariosSet(New Dictionary(Of String, String))
 
     End Sub
@@ -155,14 +157,14 @@ Public Class FrmGestionUsuario
     Public Sub LlenarCboRoles(ByVal type As String)
         Dim ds1 As DataSet
         ds1 = UsuariosMetodo.CargarRoles()
-        If type <> "Bus" Then
+        If type <> "bus" Then
             cboRol.DataSource = ds1.Tables(0)
             cboRol.DisplayMember = "descripcion"
             cboRol.ValueMember = "id"
         Else
-            cboRol.DataSource = ds1.Tables(0)
-            cboRol.DisplayMember = "descripcion"
-            cboRol.ValueMember = "id"
+            cboBusRol.DataSource = ds1.Tables(0)
+            cboBusRol.DisplayMember = "descripcion"
+            cboBusRol.ValueMember = "id"
         End If
     End Sub
 

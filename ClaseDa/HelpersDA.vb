@@ -96,6 +96,26 @@ Public Class HelpersDA
         End If
         Return False
     End Function
+    Public Function ValidarSiExisteUserName(ByVal usrName As String) As Boolean
+
+        Dim sqlStr As String
+        Dim dt = New DataTable
+        sqlStr = "SELECT * FROM usuarios where username = '" & usrName & "'"
+        Try
+            Dim da As New SqlDataAdapter(sqlStr, db)
+            da.Fill(dt)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return True
+        End Try
+        If dt.Rows.Count = 0 Then
+            Return False
+        Else
+            Return True
+        End If
+        Return False
+    End Function
     Public Function EnSesion() As Integer
         Dim resultado As Integer
         Try
