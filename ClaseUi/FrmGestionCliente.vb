@@ -191,7 +191,7 @@ Public Class FrmGestionCliente
         cbtipodni.Enabled = True
     End Sub
 
-    Private Sub cboBusTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboBusTipoPersona.SelectedIndexChanged
+    Private Sub CboBusTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboBusTipoPersona.SelectedIndexChanged
         If cboBusTipoPersona.SelectedItem = "Física" Then
             LlenarCMBDoc("F", "busqueda")
         Else
@@ -200,7 +200,7 @@ Public Class FrmGestionCliente
         cboBusTipoDNI.Enabled = True
     End Sub
 
-    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+    Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         Dim parametros As New Dictionary(Of String, String)
         If String.IsNullOrWhiteSpace(cboBusTipoDNI.SelectedValue) = False Then
             parametros.Add("TipoDocumentoId", cboBusTipoDNI.SelectedValue)
@@ -217,7 +217,7 @@ Public Class FrmGestionCliente
         DgvclientesSet(parametros)
     End Sub
 
-    Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
         GroupBox6.Visible = True
         btnNuevo.Enabled = False
     End Sub
@@ -444,7 +444,6 @@ Public Class FrmGestionCliente
             If type = "unico" Then
                 cmbProvincias.SelectionStart = IdProvincia
                 cmbProvincias.SelectedValue = IdProvincia
-            Else
             End If
             Return cmbProvincias.SelectedValue
         Catch ex As Exception

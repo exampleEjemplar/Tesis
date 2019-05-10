@@ -22,57 +22,57 @@
         End Set
     End Property
 
-    Private _NumeroDocumento As Integer
+    Private _NumeroDocumento As String
 
-    Public Property NumeroDocumento As Integer
+    Public Property NumeroDocumento As String
         Get
             Return _NumeroDocumento
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _NumeroDocumento = CStr(value)
         End Set
     End Property
 
-    Private _NumeroCalle As Integer
+    Private _NumeroCalle As String
 
-    Public Property NumeroCalle As Integer
+    Public Property NumeroCalle As String
         Get
             Return _NumeroCalle
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _NumeroCalle = CStr(value)
         End Set
     End Property
 
-    Private _Piso As Integer
+    Private _Piso As String
 
-    Public Property Piso As Integer
+    Public Property Piso As String
         Get
             Return _Piso
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _Piso = CStr(value)
         End Set
     End Property
 
-    Private _Manzana As Integer
+    Private _Manzana As String
 
-    Public Property Manzana As Integer
+    Public Property Manzana As String
         Get
             Return _Manzana
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _Manzana = CStr(value)
         End Set
     End Property
 
-    Private _Lote As Integer
+    Private _Lote As String
 
-    Public Property Lote As Integer
+    Public Property Lote As String
         Get
             Return _Lote
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _Lote = CStr(value)
         End Set
     End Property
@@ -88,46 +88,46 @@
         End Set
     End Property
 
-    Private _Car_Telefono As Integer
+    Private _Car_Telefono As String
 
-    Public Property Car_Telefono As Integer
+    Public Property Car_Telefono As String
         Get
             Return _Car_Telefono
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _Car_Telefono = CStr(value)
         End Set
     End Property
 
-    Private _NumeroTelefono As Integer
+    Private _NumeroTelefono As String
 
-    Public Property NumeroTelefono As Integer
+    Public Property NumeroTelefono As String
         Get
             Return _NumeroTelefono
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _NumeroTelefono = CStr(value)
         End Set
     End Property
 
-    Private _Car_Celular As Integer
+    Private _Car_Celular As String
 
-    Public Property Car_Celular As Integer
+    Public Property Car_Celular As String
         Get
             Return _Car_Celular
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _Car_Celular = CStr(value)
         End Set
     End Property
 
-    Private _NumeroCelular As Integer
+    Private _NumeroCelular As String
 
-    Public Property NumeroCelular As Integer
+    Public Property NumeroCelular As String
         Get
             Return _NumeroCelular
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _NumeroCelular = CStr(value)
         End Set
     End Property

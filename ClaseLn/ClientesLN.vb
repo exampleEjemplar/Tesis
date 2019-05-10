@@ -22,7 +22,7 @@ Public Class ClientesLN
     End Function
 
     Public Sub GrabarClientes(ByVal cli As ClientesNE)
-        objclientesAD.grabarClientes(cli)
+        objclientesAD.GrabarClientes(cli)
     End Sub
 
     Public Sub ActualizarClientes(ByVal cli As ClientesNE)

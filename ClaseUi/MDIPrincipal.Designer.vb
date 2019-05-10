@@ -47,6 +47,7 @@ Partial Class MDIPrincipal
         Me.btnCompras = New System.Windows.Forms.Button()
         Me.btnVentas = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -276,12 +277,31 @@ Partial Class MDIPrincipal
         Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.Button2.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_supplier_62
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(634, 328)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(165, 111)
+        Me.Button2.TabIndex = 26
+        Me.Button2.Text = "Proveedores"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'MDIPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1109, 756)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnAjustes)
@@ -324,4 +344,5 @@ Partial Class MDIPrincipal
     Friend WithEvents AboutToolStripMenuItem As Windows.Forms.ToolStripMenuItem
     Friend WithEvents btnSalir As Windows.Forms.Button
     Friend WithEvents Button1 As Windows.Forms.Button
+    Friend WithEvents Button2 As Windows.Forms.Button
 End Class

@@ -13,7 +13,7 @@ Public Class LogIn
 
 
 #Region "Eventos"
-    Private Sub pictureBox1_Click(sender As Object, e As EventArgs) Handles pictureBox1.Click
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles pictureBox1.Click
         Try
 
             If loginMetodo.usuarioRegistrado(txtUsuario.Text) = True Then
@@ -49,7 +49,7 @@ Public Class LogIn
             MsgBox(ex.ToString)
         End Try
     End Sub
-    Private Sub btncerrar_Click(sender As Object, e As EventArgs) Handles btncerrar.Click
+    Private Sub Btncerrar_Click(sender As Object, e As EventArgs) Handles btncerrar.Click
         If MessageBox.Show("Estas seguro que desea Salir", "AVISO ", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
             Me.Close()
         End If
@@ -60,9 +60,9 @@ Public Class LogIn
 
 #Region "Metodos"
 
-    Public Function ObtainUserId()
+    'Public Function ObtainUserId()
 
-    End Function
+    'End Function
 
     Private Sub LogIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtUsuario.Text = ""
@@ -73,17 +73,17 @@ Public Class LogIn
 
 
 
-    Private Sub pictureBox1_MouseHover(sender As Object, e As EventArgs) Handles pictureBox1.MouseHover
+    Private Sub PictureBox1_MouseHover(sender As Object, e As EventArgs) Handles pictureBox1.MouseHover
         pictureBox1.Size = New Size(100, 92)
         'pictureBox1.BackgroundImageLayout = ImageLayout.Stretch
     End Sub
 
-    Private Sub pictureBox1_MouseLeave(sender As Object, e As EventArgs) Handles pictureBox1.MouseLeave
+    Private Sub PictureBox1_MouseLeave(sender As Object, e As EventArgs) Handles pictureBox1.MouseLeave
         pictureBox1.Size = New Size(90, 85)
         'pictureBox1.BackgroundImageLayout = ImageLayout.Zoom
     End Sub
 
-    Private Sub panel1_Paint(sender As Object, e As PaintEventArgs) Handles panel1.Paint
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles panel1.Paint
 
     End Sub
 

@@ -7,7 +7,6 @@ Public Class MetodoClientesDA
     Private com As New SqlCommand
     Private da As SqlDataAdapter
     Private ds1 As DataSet
-    Private ds As DataSet
 
     Public Sub New()
         Dim objcon As New ConexionDA
@@ -69,7 +68,7 @@ Public Class MetodoClientesDA
         db.Close()
     End Function
 
-    Public Sub grabarClientes(ByVal cli As ClientesNE)
+    Public Sub GrabarClientes(ByVal cli As ClientesNE)
         Try
             Dim insert As New SqlCommand("set dateformat dmy insert into Clientes values (" & cli.TipoDocumentoId & "," & cli.NumeroDocumento & ",'" & cli.Nombre & "'," &
             "'" & cli.Apellido & "','" & cli.FechaNacimiento & "', getdate(), '" & cli.Calle & "', '" & cli.NumeroCalle & "', '" & cli.Departamento & "'," &
