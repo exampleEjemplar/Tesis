@@ -321,7 +321,7 @@ Partial Class FrmGestionProveedores
         Me.GroupBox1.TabIndex = 24
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Tag = ""
-        Me.GroupBox1.Text = "Gestión de Cliente"
+        Me.GroupBox1.Text = "Gestión de Proveedores"
         '
         'GroupBox6
         '
