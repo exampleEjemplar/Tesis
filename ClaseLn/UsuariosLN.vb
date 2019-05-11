@@ -13,8 +13,8 @@ Public Class UsuariosLN
         usuariosDA = New UsuariosDA
     End Sub
 
-    Public Function ConsultaModificacion(ByVal nroDoc As Integer)
-        Return usuariosDA.ConsultaModificacion(nroDoc)
+    Public Function ConsultaModificacion(ByVal username As String)
+        Return usuariosDA.ConsultaModificacion(username)
     End Function
 
     Public Function CargarGrillaUsuarios(ByVal parametros As Dictionary(Of String, String)) As DataSet

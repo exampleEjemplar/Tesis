@@ -18,12 +18,12 @@ Public Class FrmGestionUsuario
 
     Private Sub FrmGestionProveedor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        cboActivoSN.SelectedValue = 0
-        cboBusActivoSN.SelectedValue = 0
-        cboRol.SelectedValue = 0
-        cboBusRol.SelectedValue = 0
         cboActivoSN.DataSource = New List(Of String) From {"Si", "No"}
         cboBusActivoSN.DataSource = New List(Of String) From {"Si", "No"}
+        cboActivoSN.SelectedItem = "Si"
+        cboBusActivoSN.SelectedItem = "Si"
+        cboRol.SelectedValue = 0
+        cboBusRol.SelectedValue = 0
         Block()
         LlenarCboRoles("comun")
         LlenarCboRoles("bus")
@@ -63,7 +63,13 @@ Public Class FrmGestionUsuario
         MDIPrincipal.Show()
     End Sub
 
-    Private Sub DgvProveedores_DoubleClick(sender As Object, e As System.EventArgs) Handles dgvProveedores.DoubleClick
+    Private Sub DgvProveedores_DoubleClick(sender As Object, e As System.EventArgs) Handles dgvUsuarios.DoubleClick
+        Dim ds As DataSet = UsuariosMetodo.ConsultaModificacion((dgvUsuarios.Item(0, dgvUsuarios.CurrentRow.Index).Value))
+        For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+            txtUserName.Text = ds.Tables(0).Rows(i)(0).ToString(
+            LlenarCboRoles(ds.Tables(0).Rows(i)(0).ToString(), "nuevo")
+            Unblock()
+        Next
 
     End Sub
 
@@ -77,7 +83,8 @@ Public Class FrmGestionUsuario
     End Sub
 
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
-        GroupBox6.Visible = True
+        btnValidarUserName.Enabled = False
+        txtUserName.ReadOnly = True
         btnNuevo.Enabled = False
     End Sub
 #End Region
@@ -101,6 +108,14 @@ Public Class FrmGestionUsuario
             Return False
         End If
 
+        usu.UserName = txtUserName.Text
+        usu.Contrasena = txtContrasena.Text
+        usu.RolId = cboRol.SelectedValue
+        If cboActivoSN.SelectedItem = "Si" Then
+            usu.ActivoSN = "S"
+        Else
+            usu.ActivoSN = "N"
+        End If
         Return True
     End Function
 
@@ -143,6 +158,8 @@ Public Class FrmGestionUsuario
 
     'Deshabilita los buttons,tb,etc necesarios
     Public Sub Block()
+        btnValidarUserName.Enabled = False
+        txtUserName.ReadOnly = True
         GroupBox2.Visible = False
         btnGuardar.Enabled = False
         btnNuevo.Enabled = True
@@ -172,7 +189,26 @@ Public Class FrmGestionUsuario
     Public Sub DgvUSuariosSet(ByVal parametros As Dictionary(Of String, String))
         Dim dsa1 As DataSet
         dsa1 = UsuariosMetodo.CargarGrillaUsuarios(parametros) 'Si parametros esta vacio, busca todos los proveedores en la bd
-        dgvProveedores.DataSource = dsa1.Tables(0)
+        dgvUsuarios.DataSource = dsa1.Tables(0)
+    End Sub
+
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        Dim parametros As New Dictionary(Of String, String)
+        If String.IsNullOrWhiteSpace(cboActivoSN.SelectedItem) = False Then
+            If cboActivoSN.SelectedValue = "Si" Then
+                cboActivoSN.SelectedValue = "S"
+            Else
+                cboActivoSN.SelectedValue = "N"
+            End If
+            parametros.Add("ActivoSN", cboActivoSN.SelectedValue)
+        End If
+        If String.IsNullOrWhiteSpace(txtBusUserName.Text) = False Then
+            parametros.Add("username", txtBusUserName.Text)
+        End If
+        If String.IsNullOrWhiteSpace(cboBusRol.SelectedValue) = False Then
+            parametros.Add("RolId", cboBusRol.SelectedValue)
+        End If
+        DgvUSuariosSet(parametros)
     End Sub
 
 #End Region

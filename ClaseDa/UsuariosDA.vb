@@ -15,10 +15,10 @@ Public Class UsuariosDA
         com.Connection = db
     End Sub
 
-    Public Function ConsultaModificacion(ByVal nroDoc As Integer) As DataSet
+    Public Function ConsultaModificacion(ByVal username As String) As DataSet
         Dim sqlStr As String
         ds1 = New DataSet
-        sqlStr = "select UserName,Contrasena,RolId,ActivoSN from usuarios where username = '" & nroDoc
+        sqlStr = "select UserName,Contrasena,RolId,ActivoSN from usuarios where username = '" & username & "'"
         Try
             da = New SqlDataAdapter(sqlStr, db)
             da.Fill(ds1)
