@@ -18,7 +18,7 @@ Public Class UsuariosDA
     Public Function ConsultaModificacion(ByVal username As String) As DataSet
         Dim sqlStr As String
         ds1 = New DataSet
-        sqlStr = "select UserName,Contrasena,RolId,ActivoSN from usuarios where username = '" & username & "'"
+        sqlStr = "select UserName,Contrasena,RolId,ActivoSN,Id from usuarios where username = '" & username & "'"
         Try
             da = New SqlDataAdapter(sqlStr, db)
             da.Fill(ds1)

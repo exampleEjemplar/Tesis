@@ -170,8 +170,14 @@ Public Class FrmGestionCliente
                 lblRazonSoc.Visible = False
                 lblNombreFanta.Visible = False
                 lblInicioAct.Visible = False
+                lblNombre.Visible = True
+                lblApellido.Visible = True
+                lblFechaNac.Visible = True
                 fisicaOJuridica = "F"
             Else
+                lblRazonSoc.Visible = True
+                lblNombreFanta.Visible = True
+                lblInicioAct.Visible = True
                 lblNombre.Visible = False
                 lblApellido.Visible = False
                 lblFechaNac.Visible = False

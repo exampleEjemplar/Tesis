@@ -9,10 +9,9 @@ Public Class FrmGestionUsuario
     Private usu As New UsuariosNE
     Private helpersLN As New HelpersLN
     Private helpersUI As New HelpersUI
-    Public IdProvincia As Integer
-    Public IdLocalidad As Integer
     Private fisicaOJuridica As String
     Private UsuarioId As Integer
+    Private Cambiando As Boolean = False
 
 #Region "Eventos"
 
@@ -48,6 +47,7 @@ Public Class FrmGestionUsuario
         Limpiar()
         Block()
         DgvUSuariosSet(New Dictionary(Of String, String))
+        Cambiando = False
     End Sub
 
     Public Sub Limpiar()
@@ -64,10 +64,21 @@ Public Class FrmGestionUsuario
     End Sub
 
     Private Sub DgvProveedores_DoubleClick(sender As Object, e As System.EventArgs) Handles dgvUsuarios.DoubleClick
+        If Cambiando Then
+            Return
+        End If
         Dim ds As DataSet = UsuariosMetodo.ConsultaModificacion((dgvUsuarios.Item(0, dgvUsuarios.CurrentRow.Index).Value))
         For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
-            txtUserName.Text = ds.Tables(0).Rows(i)(0).ToString(
-            LlenarCboRoles(ds.Tables(0).Rows(i)(0).ToString(), "nuevo")
+            txtUserName.Text = ds.Tables(0).Rows(i)(0).ToString()
+            txtContrasena.Text = (ds.Tables(0).Rows(i)(1).ToString())
+            txtRepetirContrasena.Text = (ds.Tables(0).Rows(i)(1).ToString())
+            LlenarCboRoles(ds.Tables(0).Rows(i)(2).ToString())
+            If (ds.Tables(0).Rows(i)(3).ToString()) = "S" Then
+                cboActivoSN.SelectionStart = 0
+            Else
+                cboActivoSN.SelectionStart = 1
+            End If
+            UsuarioId = (ds.Tables(0).Rows(i)(4).ToString())
             Unblock()
         Next
 
@@ -86,6 +97,11 @@ Public Class FrmGestionUsuario
         btnValidarUserName.Enabled = False
         txtUserName.ReadOnly = True
         btnNuevo.Enabled = False
+        dgvUsuarios.ReadOnly = True
+        GroupBox6.Visible = True
+        txtUserName.ReadOnly = False
+        btnValidarUserName.Enabled = True
+        Cambiando = True
     End Sub
 #End Region
 #Region "Validadores"
@@ -152,19 +168,22 @@ Public Class FrmGestionUsuario
 
     Public Sub Unblock()
         GroupBox2.Visible = True
+        GroupBox6.Visible = True
         btnGuardar.Enabled = True
         btnNuevo.Enabled = False
     End Sub
 
     'Deshabilita los buttons,tb,etc necesarios
     Public Sub Block()
+        GroupBox6.Visible = False
         btnValidarUserName.Enabled = False
         txtUserName.ReadOnly = True
         GroupBox2.Visible = False
         btnGuardar.Enabled = False
         btnNuevo.Enabled = True
         btnValidarUserName.Enabled = True
-        txtUserName.ReadOnly = False
+        txtUserName.ReadOnly = True
+        dgvUsuarios.ReadOnly = True
     End Sub
 #End Region
 
@@ -174,14 +193,11 @@ Public Class FrmGestionUsuario
     Public Sub LlenarCboRoles(ByVal type As String)
         Dim ds1 As DataSet
         ds1 = UsuariosMetodo.CargarRoles()
+        cboRol.DataSource = ds1.Tables(0)
+        cboRol.DisplayMember = "descripcion"
+        cboRol.ValueMember = "id"
         If type <> "bus" Then
-            cboRol.DataSource = ds1.Tables(0)
-            cboRol.DisplayMember = "descripcion"
-            cboRol.ValueMember = "id"
-        Else
-            cboBusRol.DataSource = ds1.Tables(0)
-            cboBusRol.DisplayMember = "descripcion"
-            cboBusRol.ValueMember = "id"
+            cboRol.SelectionStart = (ds1.Tables(0).Rows(0)(1))
         End If
     End Sub
 
@@ -197,8 +213,10 @@ Public Class FrmGestionUsuario
         If String.IsNullOrWhiteSpace(cboActivoSN.SelectedItem) = False Then
             If cboActivoSN.SelectedValue = "Si" Then
                 cboActivoSN.SelectedValue = "S"
+                cboActivoSN.SelectionStart = 0
             Else
                 cboActivoSN.SelectedValue = "N"
+                cboActivoSN.SelectionStart = 1
             End If
             parametros.Add("ActivoSN", cboActivoSN.SelectedValue)
         End If
