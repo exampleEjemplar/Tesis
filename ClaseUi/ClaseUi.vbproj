@@ -89,6 +89,12 @@
     <Compile Include="FrmGestionUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmGestionProducto.Designer.vb">
+      <DependentUpon>FrmGestionProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HelpersUI.vb" />
     <Compile Include="LogIn.Designer.vb">
       <DependentUpon>LogIn.vb</DependentUpon>
@@ -121,6 +127,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FrmGestionCliente.resx">
       <DependentUpon>FrmGestionCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionProducto.resx">
+      <DependentUpon>FrmGestionProducto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionProveedores.resx">
       <DependentUpon>FrmGestionProveedores.vb</DependentUpon>
@@ -206,6 +215,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\loupe_78956 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-image-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-client-management-62.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-account-62.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-supplier-62 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-rent-64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

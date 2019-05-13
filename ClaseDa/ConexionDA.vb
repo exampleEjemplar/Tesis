@@ -6,7 +6,7 @@ Public Class ConexionDA
     Public Shared scon As New SqlConnection
     Public Function Abrir() As SqlConnection
         Dim con As String
-        con = "Data Source= DESKTOP-PDNSPVO\LOCAL;Initial Catalog=JoyeriaCrisol6;Integrated Security=True"
+        con = "Data Source= DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol6;Integrated Security=True"
         scon = New SqlConnection(con)
         scon.Open()
         Return scon
