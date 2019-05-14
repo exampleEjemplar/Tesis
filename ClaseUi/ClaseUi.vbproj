@@ -47,7 +47,7 @@
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ClaseUi.LogIn</StartupObject>
+    <StartupObject>ClaseUi.FrmCatalogo</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -71,6 +71,18 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCatalogo.Designer.vb">
+      <DependentUpon>FrmCatalogo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCatalogo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetalleProductoCatalogo.Designer.Vb">
+      <DependentUpon>FrmDetalleProductoCatalogo.Vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetalleProductoCatalogo.Vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmGestionCliente.Designer.vb">
       <DependentUpon>FrmGestionCliente.vb</DependentUpon>
     </Compile>
@@ -125,6 +137,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmCatalogo.resx">
+      <DependentUpon>FrmCatalogo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetalleProductoCatalogo.resx">
+      <DependentUpon>FrmDetalleProductoCatalogo.Vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionCliente.resx">
       <DependentUpon>FrmGestionCliente.vb</DependentUpon>
     </EmbeddedResource>
@@ -230,6 +248,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-rent-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-clear-filters-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-clear-filters-60.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -27,7 +27,7 @@
     End Sub
 
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click, Button3.Click
         cargarImagen()
 
     End Sub
@@ -36,7 +36,7 @@
 
     End Sub
 
-    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click, Button2.Click
         Me.Close()
     End Sub
 End Class
