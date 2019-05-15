@@ -16,4 +16,19 @@ Public Class HelpersUI
         Return Regex.IsMatch(sMail,
                 "^([\w-]+\.)*?[\w-]+@[\w-]+\.([\w-]+\.)*?[\w]+$")
     End Function
+    Public Function ValidarTamaño(ByVal text As String, ByVal minLength As Integer, ByVal maxLength As Integer) As Boolean
+        'Pasar en 0 el parametro que no se quiera validar
+        If minLength <> 0 Then
+            If text.Length < minLength Then
+                Return False
+            End If
+        End If
+        If maxLength <> 0 Then
+            If text.Length > maxLength Then
+                Return False
+            End If
+        End If
+        Return True
+    End Function
+
 End Class

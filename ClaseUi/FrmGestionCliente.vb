@@ -13,6 +13,7 @@ Public Class FrmGestionCliente
     Public IdLocalidad As Integer
     Private fisicaOJuridica As String
     Private ClienteID As Integer
+    Private Modificando As Boolean
 
 #Region "Eventos"
 
@@ -23,7 +24,6 @@ Public Class FrmGestionCliente
         cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
         IdProvincia = LlenarCMBProvincias("general")
         LlenarCMBLocalidades("general")
-        dtpfechanac.MinDate = Date.Today.AddYears(-100)
         Block()
         DgvclientesSet(New Dictionary(Of String, String))
 
@@ -41,7 +41,7 @@ Public Class FrmGestionCliente
             Return
         End If
         'Si es un nuevo cliente lo agrega
-        If ClienteID = 0 Then
+        If Not Modificando Then
             clientemetodo.GrabarClientes(cli)
             MsgBox("Cliente agregado con exito!", MsgBoxStyle.OkOnly, "Exito")
         Else
@@ -52,6 +52,7 @@ Public Class FrmGestionCliente
         End If
         Limpiar()
         Block()
+        Modificando = False
         DgvclientesSet(New Dictionary(Of String, String))
 
     End Sub
@@ -61,100 +62,105 @@ Public Class FrmGestionCliente
         MDIPrincipal.Show()
     End Sub
 
-    Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs)
+    Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs) Handles Dgvclientes.DoubleClick
+        Try
+            'Dim prueba As Integer = Dgvclientes.Item(5, Dgvclientes.CurrentRow.Index).Value
+            Dim ds As DataSet = clientemetodo.ConsultaModificacion(ClienteID)
+            For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+                If ds.Tables(0).Rows(i)(0).ToString() = "F" Then
+                    cboTipoPersona.SelectionStart = 0
+                    lblInicioAct.Visible = False
+                    lblNombreFanta.Visible = False
+                    lblRazonSoc.Visible = False
+                    dtpfechanac.MinDate = DateTime.Now.AddYears(-100)
+                    dtpfechanac.MaxDate = DateTime.Now.AddYears(-18)
+                Else
+                    cboTipoPersona.SelectionStart = 1
+                    lblFechaNac.Visible = False
+                    lblNombre.Visible = False
+                    lblApellido.Visible = False
+                    dtpfechanac.MinDate = DateTime.Now.AddYears(-100)
+                    dtpfechanac.MaxDate = DateTime.Now
+                End If
+                LlenarCMBDoc(ds.Tables(0).Rows(i)(0).ToString(), "nuevo")
+                tbNroDoc.Text = ds.Tables(0).Rows(i)(2).ToString()
+                tbNombre.Text = ds.Tables(0).Rows(i)(3).ToString()
+                tbApellido.Text = ds.Tables(0).Rows(i)(4).ToString()
+                dtpfechanac.Value = ds.Tables(0).Rows(i)(5).ToString()
+                tbcalle.Text = ds.Tables(0).Rows(i)(6).ToString()
+                tbNro.Text = ds.Tables(0).Rows(i)(7).ToString()
+                IdProvincia = ds.Tables(0).Rows(i)(20).ToString()
+                IdLocalidad = ds.Tables(0).Rows(i)(8).ToString()
+                LlenarCMBLocalidades("unico")
+                LlenarCMBProvincias("unico")
 
-        Dim ds As DataSet = clientemetodo.ConsultaModificacion((dgvclientes.Item(2, dgvclientes.CurrentRow.Index).Value))
-        For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
-            If ds.Tables(0).Rows(i)(0).ToString() = "F" Then
-                cboTipoPersona.SelectionStart = 0
-                lblInicioAct.Visible = False
-                lblNombreFanta.Visible = False
-                lblRazonSoc.Visible = False
-            Else
-                cboTipoPersona.SelectionStart = 1
-                lblFechaNac.Visible = False
-                lblNombre.Visible = False
-                lblApellido.Visible = False
-            End If
-            LlenarCMBDoc(ds.Tables(0).Rows(i)(0).ToString(), "nuevo")
-            tbNroDoc.Text = ds.Tables(0).Rows(i)(2).ToString()
-            tbNombre.Text = ds.Tables(0).Rows(i)(3).ToString()
-            tbApellido.Text = ds.Tables(0).Rows(i)(4).ToString()
-            dtpfechanac.Value = ds.Tables(0).Rows(i)(5).ToString()
-            tbcalle.Text = ds.Tables(0).Rows(i)(6).ToString()
-            tbNro.Text = ds.Tables(0).Rows(i)(7).ToString()
-            IdProvincia = ds.Tables(0).Rows(i)(20).ToString()
-            IdLocalidad = ds.Tables(0).Rows(i)(8).ToString()
-            LlenarCMBLocalidades("unico")
-            LlenarCMBProvincias("unico")
+                'Si detecta que el texto es null lo transforma en ""
 
-            'Si detecta que el texto es null lo transforma en ""
+                If ds.Tables(0).Rows(i)(9).ToString() <> "NULL" Then
+                    tbcodcel.Text = ds.Tables(0).Rows(i)(9).ToString()
+                Else
+                    tbcodcel.Text = ""
+                End If
 
-            If ds.Tables(0).Rows(i)(9).ToString() <> "NULL" Then
-                tbcodcel.Text = ds.Tables(0).Rows(i)(9).ToString()
-            Else
-                tbcodcel.Text = ""
-            End If
+                If ds.Tables(0).Rows(i)(10).ToString() <> "NULL" Then
+                    tbcel.Text = ds.Tables(0).Rows(i)(10).ToString()
+                Else
+                    tbcel.Text = ""
+                End If
 
-            If ds.Tables(0).Rows(i)(10).ToString() <> "NULL" Then
-                tbcel.Text = ds.Tables(0).Rows(i)(10).ToString()
-            Else
-                tbcel.Text = ""
-            End If
+                If ds.Tables(0).Rows(i)(11).ToString() <> "NULL" Then
+                    tbcodtel.Text = ds.Tables(0).Rows(i)(11).ToString()
+                Else
+                    tbcodtel.Text = ""
+                End If
 
-            If ds.Tables(0).Rows(i)(11).ToString() <> "NULL" Then
-                tbcodtel.Text = ds.Tables(0).Rows(i)(11).ToString()
-            Else
-                tbcodtel.Text = ""
-            End If
+                If ds.Tables(0).Rows(i)(12).ToString() <> "NULL" Then
+                    tbtelefono.Text = ds.Tables(0).Rows(i)(12).ToString()
+                Else
+                    tbtelefono.Text = ""
+                End If
 
-            If ds.Tables(0).Rows(i)(12).ToString() <> "NULL" Then
-                tbtelefono.Text = ds.Tables(0).Rows(i)(12).ToString()
-            Else
-                tbtelefono.Text = ""
-            End If
-
-            If ds.Tables(0).Rows(i)(13).ToString() <> "NULL" Then
                 tbmail.Text = ds.Tables(0).Rows(i)(13).ToString()
-            Else
-                tbmail.Text = ""
-            End If
 
-            If ds.Tables(0).Rows(i)(14).ToString() <> "NULL" Then
-                txtPiso.Text = ds.Tables(0).Rows(i)(14).ToString()
-            Else
-                txtPiso.Text = ""
-            End If
+                If ds.Tables(0).Rows(i)(14).ToString() <> "NULL" Then
+                    txtPiso.Text = ds.Tables(0).Rows(i)(14).ToString()
+                Else
+                    txtPiso.Text = ""
+                End If
 
-            If ds.Tables(0).Rows(i)(15).ToString() <> "NULL" Then
-                tbDpto.Text = ds.Tables(0).Rows(i)(15).ToString()
-            Else
-                tbDpto.Text = ""
-            End If
+                If ds.Tables(0).Rows(i)(15).ToString() <> "NULL" Then
+                    tbDpto.Text = ds.Tables(0).Rows(i)(15).ToString()
+                Else
+                    tbDpto.Text = ""
+                End If
 
-            If ds.Tables(0).Rows(i)(16).ToString() <> "NULL" Then
-                txtManzana.Text = ds.Tables(0).Rows(i)(16).ToString()
-            Else
-                txtManzana.Text = ""
-            End If
+                If ds.Tables(0).Rows(i)(16).ToString() <> "NULL" Then
+                    txtManzana.Text = ds.Tables(0).Rows(i)(16).ToString()
+                Else
+                    txtManzana.Text = ""
+                End If
 
-            If ds.Tables(0).Rows(i)(17).ToString() <> "NULL" Then
-                txtLote.Text = ds.Tables(0).Rows(i)(17).ToString()
-            Else
-                txtLote.Text = ""
-            End If
+                If ds.Tables(0).Rows(i)(17).ToString() <> "NULL" Then
+                    txtLote.Text = ds.Tables(0).Rows(i)(17).ToString()
+                Else
+                    txtLote.Text = ""
+                End If
 
-            If ds.Tables(0).Rows(i)(18).ToString() <> "NULL" Then
-                txtBarrio.Text = ds.Tables(0).Rows(i)(18).ToString()
-            Else
-                txtBarrio.Text = ""
-            End If
+                If ds.Tables(0).Rows(i)(18).ToString() <> "NULL" Then
+                    txtBarrio.Text = ds.Tables(0).Rows(i)(18).ToString()
+                Else
+                    txtBarrio.Text = ""
+                End If
 
-            ClienteID = ds.Tables(0).Rows(i)(19).ToString()
+                ClienteID = ds.Tables(0).Rows(i)(19).ToString()
 
-            Unblock()
-            GroupBox6.Visible = True
-        Next
+                Unblock()
+                GroupBox6.Visible = True
+                Modificando = True
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs)
@@ -220,7 +226,9 @@ Public Class FrmGestionCliente
         If String.IsNullOrWhiteSpace(txtBusApellido.Text) = False Then
             parametros.Add("Apellido", txtBusApellido.Text)
         End If
-        DgvclientesSet(parametros)
+        If DgvclientesSet(parametros).Tables(0).Rows.Count = 0 Then
+            MsgBox("La búsqueda no arrojo resultados", MsgBoxStyle.Critical, "Error")
+        End If
     End Sub
 
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -235,11 +243,10 @@ Public Class FrmGestionCliente
     'Valida datos antes de insertarlos en la BD
     Public Function ValidarDatos()
 
-        If helpersUI.Validar_Mail(tbmail.Text) = False Then
+        If tbmail.Text.Contains("ñ") Or helpersUI.Validar_Mail(tbmail.Text) = False Then
             MsgBox("Debe ingresar correctamente el campo email", MsgBoxStyle.Critical, "Error")
             Return False
         End If
-
 
         'Agrego todos los txt y cbo a un diccionario para validarlos despues genericamente y no uno por uno
         Dim dictionaryOfMandatoriesTexts As Dictionary(Of String, String) = New Dictionary(Of String, String) From
@@ -261,15 +268,28 @@ Public Class FrmGestionCliente
             End If
         Next
 
+        Dim listOfMandatoriesInteger As List(Of Tuple(Of String, Integer, Integer, String)) = New List(Of Tuple(Of String, Integer, Integer, String)) From
+            {New Tuple(Of String, Integer, Integer, String)(tbNombre.Text, 3, 0, "Nombre"),
+            New Tuple(Of String, Integer, Integer, String)(tbApellido.Text, 2, 0, "Apellido"),
+            New Tuple(Of String, Integer, Integer, String)(tbcalle.Text, 5, 0, "Calle"),
+            New Tuple(Of String, Integer, Integer, String)(tbcodcel.Text, 2, 0, "Característica celular"),
+            New Tuple(Of String, Integer, Integer, String)(tbcel.Text, 6, 0, "Número celular")}
 
-        If String.IsNullOrWhiteSpace(tbcodcel.Text) = False And String.IsNullOrWhiteSpace(tbcel.Text) = True Then
-            MsgBox("Ingrese el número de celular correspondiente", MsgBoxStyle.Critical, "Celular")
-            Return False
-        End If
-        If String.IsNullOrWhiteSpace(tbcodcel.Text) = True And String.IsNullOrWhiteSpace(tbcel.Text) = False Then
-            MsgBox("Ingrese la característica de celular correspondiente", MsgBoxStyle.Critical, "Celular")
-            Return False
-        End If
+        For Each items As Tuple(Of String, Integer, Integer, String) In listOfMandatoriesInteger
+            If helpersUI.ValidarTamaño(items.Item1, items.Item2, items.Item3) = False Then
+                MsgBox("El campo " + items.Item4 + " no puede ser menor a " + items.Item2.ToString() + " caracteres", MsgBoxStyle.Critical, "Cantidad de caracteres")
+                Return False
+            End If
+        Next
+
+        'If String.IsNullOrWhiteSpace(tbcodcel.Text) = False And String.IsNullOrWhiteSpace(tbcel.Text) = True Then
+        '    MsgBox("Ingrese el número de celular correspondiente", MsgBoxStyle.Critical, "Celular")
+        '    Return False
+        'End If
+        'If String.IsNullOrWhiteSpace(tbcodcel.Text) = True And String.IsNullOrWhiteSpace(tbcel.Text) = False Then
+        '    MsgBox("Ingrese la característica de celular correspondiente", MsgBoxStyle.Critical, "Celular")
+        '    Return False
+        'End If
         If String.IsNullOrWhiteSpace(tbcodtel.Text) = False And String.IsNullOrWhiteSpace(tbtelefono.Text) = True Then
             MsgBox("Ingrese el número de teléfono correspondiente", MsgBoxStyle.Critical, "Teléfono")
             Return False
@@ -293,7 +313,8 @@ Public Class FrmGestionCliente
         cli.Apellido = tbApellido.Text
         cli.FechaNacimiento = dtpfechanac.Value
         cli.CiudadId = cmbLocalidades.SelectedValue
-
+        cli.Car_Celular = tbcodcel.Text
+        cli.NumeroCelular = tbcel.Text
 
         If String.IsNullOrEmpty(txtLote.Text) Then
             cli.Lote = "NULL"
@@ -315,16 +336,7 @@ Public Class FrmGestionCliente
         Else
             cli.NumeroTelefono = tbtelefono.Text
         End If
-        If String.IsNullOrEmpty(tbcodcel.Text) Then
-            cli.Car_Celular = "NULL"
-        Else
-            cli.Car_Celular = tbcodcel.Text
-        End If
-        If String.IsNullOrEmpty(tbcel.Text) Then
-            cli.NumeroCelular = "NULL"
-        Else
-            cli.NumeroCelular = tbcel.Text
-        End If
+
         If String.IsNullOrEmpty(tbcalle.Text) Then
             cli.Calle = "NULL"
         Else
@@ -364,6 +376,9 @@ Public Class FrmGestionCliente
         Else
             e.Handled = True
         End If
+        If e.Handled = True Then
+            MsgBox("Caracter invalido", MsgBoxStyle.Critical, "Caracter invalido")
+        End If
     End Sub
 
     'Valida que el texto sea solo letras
@@ -377,7 +392,9 @@ Public Class FrmGestionCliente
         Else
             e.Handled = True
         End If
-
+        If e.Handled = True Then
+            MsgBox("Caracter invalido", MsgBoxStyle.Critical, "Caracter invalido")
+        End If
     End Sub
 
 #End Region
@@ -501,11 +518,14 @@ Public Class FrmGestionCliente
     End Sub
 
     'Carga DataGridView con datos
-    Public Sub DgvclientesSet(ByVal parametros As Dictionary(Of String, String))
+    Public Function DgvclientesSet(ByVal parametros As Dictionary(Of String, String)) As DataSet
         Dim dsa1 As DataSet
         dsa1 = clientemetodo.CargaGrillaclientes(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
-        dgvclientes.DataSource = dsa1.Tables(0)
-    End Sub
+        ClienteID = dsa1.Tables(0).Rows(0)(13)
+        Dgvclientes.DataSource = dsa1.Tables(0)
+        Dgvclientes.Columns("Id").Visible = False
+        Return dsa1
+    End Function
 
     Private Sub btnValidarDNI1_Click(sender As Object, e As EventArgs) Handles btnValidarDNI1.Click
         If helpersUI.TextValidator("Tipo de persona", cboTipoPersona.SelectedItem) = False Or
@@ -513,6 +533,20 @@ Public Class FrmGestionCliente
   helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
             Return
         End If
+        Select Case cbtipodni.SelectedValue
+            Case 1 To 3
+                If helpersUI.ValidarTamaño(tbNroDoc.Text, 9, 0) = False Then
+                    MsgBox("El tamaño del campo número de identificación es muy pequeño", MsgBoxStyle.Critical, "Cantidad de caracteres")
+                    Return
+                End If
+            Case 4 To 5
+                If helpersUI.ValidarTamaño(tbNroDoc.Text, 1, 0) = False Then
+                    MsgBox("El tamaño del campo número de identificación es muy pequeño", MsgBoxStyle.Critical, "Cantidad de caracteres")
+                    Return
+                End If
+            Case Else
+                Return
+        End Select
         If helpersLN.ValidarSiExisteDni(Convert.ToInt64(tbNroDoc.Text), "Clientes") = False Then
 
             Unblock()
@@ -521,11 +555,15 @@ Public Class FrmGestionCliente
                 lblNombreFanta.Visible = False
                 lblInicioAct.Visible = False
                 fisicaOJuridica = "F"
+                dtpfechanac.MinDate = DateTime.Now.AddYears(-100)
+                dtpfechanac.MaxDate = DateTime.Now.AddYears(-18)
             Else
                 lblNombre.Visible = False
                 lblApellido.Visible = False
                 lblFechaNac.Visible = False
                 fisicaOJuridica = "J"
+                dtpfechanac.MinDate = DateTime.Now.AddYears(-100)
+                dtpfechanac.MaxDate = DateTime.Now
             End If
         Else
             MsgBox("La identificación ingresada ya existe en la base de datos", MsgBoxStyle.Critical, "Ya existente")
