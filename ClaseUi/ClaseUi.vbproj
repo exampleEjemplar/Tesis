@@ -47,7 +47,7 @@
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ClaseUi.FrmGestionCliente</StartupObject>
+    <StartupObject>ClaseUi.FrmGestionProveedores</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

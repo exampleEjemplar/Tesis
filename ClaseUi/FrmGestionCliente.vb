@@ -64,7 +64,6 @@ Public Class FrmGestionCliente
 
     Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs) Handles Dgvclientes.DoubleClick
         Try
-            'Dim prueba As Integer = Dgvclientes.Item(5, Dgvclientes.CurrentRow.Index).Value
             Dim ds As DataSet = clientemetodo.ConsultaModificacion(ClienteID)
             For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
                 If ds.Tables(0).Rows(i)(0).ToString() = "F" Then
@@ -535,13 +534,13 @@ Public Class FrmGestionCliente
         End If
         Select Case cbtipodni.SelectedValue
             Case 1 To 3
-                If helpersUI.ValidarTamaño(tbNroDoc.Text, 9, 0) = False Then
-                    MsgBox("El tamaño del campo número de identificación es muy pequeño", MsgBoxStyle.Critical, "Cantidad de caracteres")
+                If tbNroDoc.Text.Length <> 9 And tbNroDoc.Text.Length <> 8 Then
+                    MsgBox("El tamaño del campo número de identificación no tiene la cantidad de caracteres correctos", MsgBoxStyle.Critical, "Cantidad de caracteres")
                     Return
                 End If
             Case 4 To 5
-                If helpersUI.ValidarTamaño(tbNroDoc.Text, 1, 0) = False Then
-                    MsgBox("El tamaño del campo número de identificación es muy pequeño", MsgBoxStyle.Critical, "Cantidad de caracteres")
+                If tbNroDoc.Text.Length <> 12 Then
+                    MsgBox("El tamaño del campo número de identificación no tiene la cantidad de caracteres correctos", MsgBoxStyle.Critical, "Cantidad de caracteres")
                     Return
                 End If
             Case Else

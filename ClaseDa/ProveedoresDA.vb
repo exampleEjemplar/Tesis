@@ -38,8 +38,8 @@ Public Class ProveedoresDA
         "p.Nombre as 'Nombre_NombreFantasia', p.Apellido as 'Apellido_RazonSocial', " &
         "p.FechaNacimiento, p.FechaAlta, p.Calle, p.NumeroCalle, ciu.Nombre As Ciudad," &
         "p.Car_celular +' '+ p.NumeroCelular as Celular, p.Car_telefono+' '+ p.NumeroTelefono as Telefono," &
-        "p.Email " &
-        "from Proveedores as p " &
+        "p.Email , p.id " &
+        "from proveedores as p " &
         "inner join TipoDocumentos t on t.Id = p.TipoDocumentoId " &
         "inner join Ciudades ciu on p.CiudadId = Ciu.Id  "
 
