@@ -61,7 +61,7 @@ Public Class FrmGestionCliente
         MDIPrincipal.Show()
     End Sub
 
-    Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs) Handles dgvclientes.DoubleClick
+    Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs)
 
         Dim ds As DataSet = clientemetodo.ConsultaModificacion((dgvclientes.Item(2, dgvclientes.CurrentRow.Index).Value))
         For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
@@ -157,7 +157,7 @@ Public Class FrmGestionCliente
         Next
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btnValidarDNI.Click
+    Private Sub Button6_Click(sender As Object, e As EventArgs)
         If helpersUI.TextValidator("Tipo de persona", cboTipoPersona.SelectedItem) = False Or
             helpersUI.TextValidator("Tipo de identificacion", cbtipodni.Text) = False Or
             helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
@@ -394,7 +394,7 @@ Public Class FrmGestionCliente
         cboTipoPersona.Enabled = True
         cbtipodni.Enabled = False
         tbNroDoc.ReadOnly = False
-        btnValidarDNI.Enabled = True
+        btnValidarDNI1.Enabled = True
         cboBusTipoPersona.Enabled = True
         cboBusTipoDNI.Enabled = False
         btnNuevo.Enabled = True
@@ -410,7 +410,7 @@ Public Class FrmGestionCliente
         cboTipoPersona.Enabled = False
         cbtipodni.Enabled = False
         tbNroDoc.ReadOnly = True
-        btnValidarDNI.Enabled = False
+        btnValidarDNI1.Enabled = False
     End Sub
 
     'Limpia los campos para una nueva inserción
@@ -505,6 +505,31 @@ Public Class FrmGestionCliente
         Dim dsa1 As DataSet
         dsa1 = clientemetodo.CargaGrillaclientes(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
         dgvclientes.DataSource = dsa1.Tables(0)
+    End Sub
+
+    Private Sub btnValidarDNI1_Click(sender As Object, e As EventArgs) Handles btnValidarDNI1.Click
+        If helpersUI.TextValidator("Tipo de persona", cboTipoPersona.SelectedItem) = False Or
+  helpersUI.TextValidator("Tipo de identificacion", cbtipodni.Text) = False Or
+  helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
+            Return
+        End If
+        If helpersLN.ValidarSiExisteDni(Convert.ToInt64(tbNroDoc.Text), "Clientes") = False Then
+
+            Unblock()
+            If cboTipoPersona.SelectedItem = "Física" Then
+                lblRazonSoc.Visible = False
+                lblNombreFanta.Visible = False
+                lblInicioAct.Visible = False
+                fisicaOJuridica = "F"
+            Else
+                lblNombre.Visible = False
+                lblApellido.Visible = False
+                lblFechaNac.Visible = False
+                fisicaOJuridica = "J"
+            End If
+        Else
+            MsgBox("La identificación ingresada ya existe en la base de datos", MsgBoxStyle.Critical, "Ya existente")
+        End If
     End Sub
 
 

@@ -47,7 +47,7 @@
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ClaseUi.FrmCatalogo</StartupObject>
+    <StartupObject>ClaseUi.FrmGestionCliente</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -254,6 +254,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-clear-filters-60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-validation-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-validation-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-validation-35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-approval-69.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-approval-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

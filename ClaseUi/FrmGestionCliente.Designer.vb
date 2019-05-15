@@ -22,11 +22,8 @@ Partial Class FrmGestionCliente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.dgvclientes = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.btnValidarDNI = New System.Windows.Forms.Button()
         Me.lblTipoIdentificacion = New System.Windows.Forms.Label()
         Me.cboTipoPersona = New System.Windows.Forms.ComboBox()
         Me.cbtipodni = New System.Windows.Forms.ComboBox()
@@ -84,35 +81,20 @@ Partial Class FrmGestionCliente
         Me.cboBusTipoDNI = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
+        Me.Dgvclientes = New System.Windows.Forms.DataGridView()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
-        CType(Me.dgvclientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.btnValidarDNI1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
+        CType(Me.Dgvclientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'dgvclientes
-        '
-        Me.dgvclientes.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvclientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
-        Me.dgvclientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        Me.dgvclientes.EnableHeadersVisualStyles = False
-        Me.dgvclientes.Location = New System.Drawing.Point(43, 475)
-        Me.dgvclientes.MultiSelect = False
-        Me.dgvclientes.Name = "dgvclientes"
-        Me.dgvclientes.ReadOnly = True
-        Me.dgvclientes.RowHeadersVisible = False
-        Me.dgvclientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.dgvclientes.RowsDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgvclientes.Size = New System.Drawing.Size(1067, 162)
-        Me.dgvclientes.TabIndex = 12
         '
         'GroupBox1
         '
@@ -121,9 +103,9 @@ Partial Class FrmGestionCliente
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(43, 11)
+        Me.GroupBox1.Location = New System.Drawing.Point(49, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(742, 292)
+        Me.GroupBox1.Size = New System.Drawing.Size(954, 292)
         Me.GroupBox1.TabIndex = 11
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Tag = ""
@@ -131,7 +113,7 @@ Partial Class FrmGestionCliente
         '
         'GroupBox6
         '
-        Me.GroupBox6.Controls.Add(Me.btnValidarDNI)
+        Me.GroupBox6.Controls.Add(Me.btnValidarDNI1)
         Me.GroupBox6.Controls.Add(Me.lblTipoIdentificacion)
         Me.GroupBox6.Controls.Add(Me.cboTipoPersona)
         Me.GroupBox6.Controls.Add(Me.cbtipodni)
@@ -140,31 +122,17 @@ Partial Class FrmGestionCliente
         Me.GroupBox6.Controls.Add(Me.tbNroDoc)
         Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox6.ForeColor = System.Drawing.Color.Black
-        Me.GroupBox6.Location = New System.Drawing.Point(9, 22)
+        Me.GroupBox6.Location = New System.Drawing.Point(9, 15)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(721, 61)
+        Me.GroupBox6.Size = New System.Drawing.Size(924, 68)
         Me.GroupBox6.TabIndex = 24
         Me.GroupBox6.TabStop = False
-        '
-        'btnValidarDNI
-        '
-        Me.btnValidarDNI.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.btnValidarDNI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnValidarDNI.FlatAppearance.BorderSize = 0
-        Me.btnValidarDNI.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnValidarDNI.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.75!, System.Drawing.FontStyle.Bold)
-        Me.btnValidarDNI.Location = New System.Drawing.Point(604, 8)
-        Me.btnValidarDNI.Name = "btnValidarDNI"
-        Me.btnValidarDNI.Size = New System.Drawing.Size(110, 53)
-        Me.btnValidarDNI.TabIndex = 18
-        Me.btnValidarDNI.Text = "Validar Identificación"
-        Me.btnValidarDNI.UseVisualStyleBackColor = False
         '
         'lblTipoIdentificacion
         '
         Me.lblTipoIdentificacion.AutoSize = True
         Me.lblTipoIdentificacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTipoIdentificacion.Location = New System.Drawing.Point(4, 41)
+        Me.lblTipoIdentificacion.Location = New System.Drawing.Point(92, 41)
         Me.lblTipoIdentificacion.Name = "lblTipoIdentificacion"
         Me.lblTipoIdentificacion.Size = New System.Drawing.Size(122, 13)
         Me.lblTipoIdentificacion.TabIndex = 9
@@ -175,7 +143,7 @@ Partial Class FrmGestionCliente
         Me.cboTipoPersona.AccessibleDescription = ""
         Me.cboTipoPersona.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboTipoPersona.FormattingEnabled = True
-        Me.cboTipoPersona.Location = New System.Drawing.Point(127, 14)
+        Me.cboTipoPersona.Location = New System.Drawing.Point(215, 14)
         Me.cboTipoPersona.Name = "cboTipoPersona"
         Me.cboTipoPersona.Size = New System.Drawing.Size(76, 21)
         Me.cboTipoPersona.TabIndex = 20
@@ -185,7 +153,7 @@ Partial Class FrmGestionCliente
         Me.cbtipodni.AccessibleDescription = ""
         Me.cbtipodni.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbtipodni.FormattingEnabled = True
-        Me.cbtipodni.Location = New System.Drawing.Point(127, 38)
+        Me.cbtipodni.Location = New System.Drawing.Point(215, 38)
         Me.cbtipodni.Name = "cbtipodni"
         Me.cbtipodni.Size = New System.Drawing.Size(149, 21)
         Me.cbtipodni.TabIndex = 10
@@ -194,7 +162,7 @@ Partial Class FrmGestionCliente
         '
         Me.lblTipoDePersona.AutoSize = True
         Me.lblTipoDePersona.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTipoDePersona.Location = New System.Drawing.Point(4, 14)
+        Me.lblTipoDePersona.Location = New System.Drawing.Point(92, 14)
         Me.lblTipoDePersona.Name = "lblTipoDePersona"
         Me.lblTipoDePersona.Size = New System.Drawing.Size(108, 13)
         Me.lblTipoDePersona.TabIndex = 19
@@ -204,7 +172,7 @@ Partial Class FrmGestionCliente
         '
         Me.lblNumIdent.AutoSize = True
         Me.lblNumIdent.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNumIdent.Location = New System.Drawing.Point(293, 41)
+        Me.lblNumIdent.Location = New System.Drawing.Point(381, 41)
         Me.lblNumIdent.Name = "lblNumIdent"
         Me.lblNumIdent.Size = New System.Drawing.Size(140, 13)
         Me.lblNumIdent.TabIndex = 15
@@ -213,7 +181,7 @@ Partial Class FrmGestionCliente
         'tbNroDoc
         '
         Me.tbNroDoc.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNroDoc.Location = New System.Drawing.Point(431, 38)
+        Me.tbNroDoc.Location = New System.Drawing.Point(527, 38)
         Me.tbNroDoc.Name = "tbNroDoc"
         Me.tbNroDoc.Size = New System.Drawing.Size(133, 20)
         Me.tbNroDoc.TabIndex = 16
@@ -235,7 +203,7 @@ Partial Class FrmGestionCliente
         Me.GroupBox4.ForeColor = System.Drawing.Color.Black
         Me.GroupBox4.Location = New System.Drawing.Point(6, 81)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(730, 75)
+        Me.GroupBox4.Size = New System.Drawing.Size(927, 75)
         Me.GroupBox4.TabIndex = 14
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Datos"
@@ -244,7 +212,7 @@ Partial Class FrmGestionCliente
         '
         Me.lblInicioAct.AutoSize = True
         Me.lblInicioAct.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblInicioAct.Location = New System.Drawing.Point(382, 28)
+        Me.lblInicioAct.Location = New System.Drawing.Point(523, 22)
         Me.lblInicioAct.Name = "lblInicioAct"
         Me.lblInicioAct.Size = New System.Drawing.Size(117, 13)
         Me.lblInicioAct.TabIndex = 23
@@ -254,7 +222,7 @@ Partial Class FrmGestionCliente
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
-        Me.Label11.Location = New System.Drawing.Point(7, 24)
+        Me.Label11.Location = New System.Drawing.Point(100, 22)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(59, 15)
         Me.Label11.TabIndex = 20
@@ -264,7 +232,7 @@ Partial Class FrmGestionCliente
         '
         Me.lblApellido.AutoSize = True
         Me.lblApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblApellido.Location = New System.Drawing.Point(370, 49)
+        Me.lblApellido.Location = New System.Drawing.Point(493, 49)
         Me.lblApellido.Name = "lblApellido"
         Me.lblApellido.Size = New System.Drawing.Size(61, 13)
         Me.lblApellido.TabIndex = 22
@@ -274,7 +242,7 @@ Partial Class FrmGestionCliente
         '
         Me.lblNombre.AutoSize = True
         Me.lblNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre.Location = New System.Drawing.Point(7, 50)
+        Me.lblNombre.Location = New System.Drawing.Point(100, 48)
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(59, 13)
         Me.lblNombre.TabIndex = 21
@@ -284,7 +252,7 @@ Partial Class FrmGestionCliente
         '
         Me.lblNombreFanta.AutoSize = True
         Me.lblNombreFanta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombreFanta.Location = New System.Drawing.Point(3, 50)
+        Me.lblNombreFanta.Location = New System.Drawing.Point(96, 48)
         Me.lblNombreFanta.Name = "lblNombreFanta"
         Me.lblNombreFanta.Size = New System.Drawing.Size(131, 13)
         Me.lblNombreFanta.TabIndex = 0
@@ -292,7 +260,7 @@ Partial Class FrmGestionCliente
         '
         'tbmail
         '
-        Me.tbmail.Location = New System.Drawing.Point(124, 23)
+        Me.tbmail.Location = New System.Drawing.Point(218, 17)
         Me.tbmail.Name = "tbmail"
         Me.tbmail.Size = New System.Drawing.Size(205, 20)
         Me.tbmail.TabIndex = 19
@@ -300,7 +268,7 @@ Partial Class FrmGestionCliente
         'dtpfechanac
         '
         Me.dtpfechanac.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpfechanac.Location = New System.Drawing.Point(535, 24)
+        Me.dtpfechanac.Location = New System.Drawing.Point(648, 18)
         Me.dtpfechanac.Name = "dtpfechanac"
         Me.dtpfechanac.Size = New System.Drawing.Size(162, 20)
         Me.dtpfechanac.TabIndex = 18
@@ -309,7 +277,7 @@ Partial Class FrmGestionCliente
         'tbNombre
         '
         Me.tbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbNombre.Location = New System.Drawing.Point(128, 48)
+        Me.tbNombre.Location = New System.Drawing.Point(228, 46)
         Me.tbNombre.Name = "tbNombre"
         Me.tbNombre.Size = New System.Drawing.Size(232, 20)
         Me.tbNombre.TabIndex = 1
@@ -318,7 +286,7 @@ Partial Class FrmGestionCliente
         '
         Me.lblFechaNac.AutoSize = True
         Me.lblFechaNac.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaNac.Location = New System.Drawing.Point(382, 28)
+        Me.lblFechaNac.Location = New System.Drawing.Point(519, 22)
         Me.lblFechaNac.Name = "lblFechaNac"
         Me.lblFechaNac.Size = New System.Drawing.Size(118, 13)
         Me.lblFechaNac.TabIndex = 17
@@ -327,7 +295,7 @@ Partial Class FrmGestionCliente
         'tbApellido
         '
         Me.tbApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbApellido.Location = New System.Drawing.Point(454, 49)
+        Me.tbApellido.Location = New System.Drawing.Point(568, 42)
         Me.tbApellido.Name = "tbApellido"
         Me.tbApellido.Size = New System.Drawing.Size(242, 20)
         Me.tbApellido.TabIndex = 8
@@ -336,7 +304,7 @@ Partial Class FrmGestionCliente
         '
         Me.lblRazonSoc.AutoSize = True
         Me.lblRazonSoc.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRazonSoc.Location = New System.Drawing.Point(370, 49)
+        Me.lblRazonSoc.Location = New System.Drawing.Point(471, 48)
         Me.lblRazonSoc.Name = "lblRazonSoc"
         Me.lblRazonSoc.Size = New System.Drawing.Size(91, 13)
         Me.lblRazonSoc.TabIndex = 11
@@ -355,14 +323,14 @@ Partial Class FrmGestionCliente
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(6, 247)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(730, 41)
+        Me.GroupBox3.Size = New System.Drawing.Size(927, 41)
         Me.GroupBox3.TabIndex = 14
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Contacto"
         '
         'tbtelefono
         '
-        Me.tbtelefono.Location = New System.Drawing.Point(178, 16)
+        Me.tbtelefono.Location = New System.Drawing.Point(222, 13)
         Me.tbtelefono.Name = "tbtelefono"
         Me.tbtelefono.Size = New System.Drawing.Size(180, 20)
         Me.tbtelefono.TabIndex = 21
@@ -370,7 +338,7 @@ Partial Class FrmGestionCliente
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(496, 21)
+        Me.Label9.Location = New System.Drawing.Point(540, 18)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(11, 13)
         Me.Label9.TabIndex = 18
@@ -379,7 +347,7 @@ Partial Class FrmGestionCliente
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(390, 20)
+        Me.Label10.Location = New System.Drawing.Point(434, 17)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(46, 13)
         Me.Label10.TabIndex = 17
@@ -387,14 +355,14 @@ Partial Class FrmGestionCliente
         '
         'tbcodcel
         '
-        Me.tbcodcel.Location = New System.Drawing.Point(440, 15)
+        Me.tbcodcel.Location = New System.Drawing.Point(484, 12)
         Me.tbcodcel.Name = "tbcodcel"
         Me.tbcodcel.Size = New System.Drawing.Size(50, 20)
         Me.tbcodcel.TabIndex = 16
         '
         'tbcel
         '
-        Me.tbcel.Location = New System.Drawing.Point(513, 15)
+        Me.tbcel.Location = New System.Drawing.Point(557, 12)
         Me.tbcel.Name = "tbcel"
         Me.tbcel.Size = New System.Drawing.Size(180, 20)
         Me.tbcel.TabIndex = 15
@@ -402,7 +370,7 @@ Partial Class FrmGestionCliente
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(161, 18)
+        Me.Label14.Location = New System.Drawing.Point(205, 15)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(11, 13)
         Me.Label14.TabIndex = 14
@@ -411,7 +379,7 @@ Partial Class FrmGestionCliente
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(51, 19)
+        Me.Label13.Location = New System.Drawing.Point(95, 16)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(57, 13)
         Me.Label13.TabIndex = 7
@@ -419,7 +387,7 @@ Partial Class FrmGestionCliente
         '
         'tbcodtel
         '
-        Me.tbcodtel.Location = New System.Drawing.Point(113, 16)
+        Me.tbcodtel.Location = New System.Drawing.Point(157, 13)
         Me.tbcodtel.Name = "tbcodtel"
         Me.tbcodtel.Size = New System.Drawing.Size(42, 20)
         Me.tbcodtel.TabIndex = 6
@@ -448,7 +416,7 @@ Partial Class FrmGestionCliente
         Me.GroupBox2.ForeColor = System.Drawing.Color.Black
         Me.GroupBox2.Location = New System.Drawing.Point(9, 155)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(727, 86)
+        Me.GroupBox2.Size = New System.Drawing.Size(924, 86)
         Me.GroupBox2.TabIndex = 12
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Domicilio"
@@ -456,7 +424,7 @@ Partial Class FrmGestionCliente
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(578, 43)
+        Me.Label12.Location = New System.Drawing.Point(660, 52)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(40, 13)
         Me.Label12.TabIndex = 21
@@ -464,7 +432,7 @@ Partial Class FrmGestionCliente
         '
         'txtBarrio
         '
-        Me.txtBarrio.Location = New System.Drawing.Point(623, 41)
+        Me.txtBarrio.Location = New System.Drawing.Point(705, 50)
         Me.txtBarrio.Name = "txtBarrio"
         Me.txtBarrio.Size = New System.Drawing.Size(104, 20)
         Me.txtBarrio.TabIndex = 20
@@ -472,7 +440,7 @@ Partial Class FrmGestionCliente
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(407, 15)
+        Me.Label3.Location = New System.Drawing.Point(489, 24)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(31, 13)
         Me.Label3.TabIndex = 19
@@ -480,7 +448,7 @@ Partial Class FrmGestionCliente
         '
         'txtPiso
         '
-        Me.txtPiso.Location = New System.Drawing.Point(437, 12)
+        Me.txtPiso.Location = New System.Drawing.Point(523, 22)
         Me.txtPiso.Name = "txtPiso"
         Me.txtPiso.Size = New System.Drawing.Size(26, 20)
         Me.txtPiso.TabIndex = 18
@@ -488,7 +456,7 @@ Partial Class FrmGestionCliente
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(614, 14)
+        Me.Label2.Location = New System.Drawing.Point(696, 23)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(58, 13)
         Me.Label2.TabIndex = 17
@@ -496,7 +464,7 @@ Partial Class FrmGestionCliente
         '
         'txtManzana
         '
-        Me.txtManzana.Location = New System.Drawing.Point(678, 15)
+        Me.txtManzana.Location = New System.Drawing.Point(765, 24)
         Me.txtManzana.Name = "txtManzana"
         Me.txtManzana.Size = New System.Drawing.Size(44, 20)
         Me.txtManzana.TabIndex = 16
@@ -504,7 +472,7 @@ Partial Class FrmGestionCliente
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(494, 46)
+        Me.Label1.Location = New System.Drawing.Point(576, 55)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(32, 13)
         Me.Label1.TabIndex = 15
@@ -512,7 +480,7 @@ Partial Class FrmGestionCliente
         '
         'txtLote
         '
-        Me.txtLote.Location = New System.Drawing.Point(530, 43)
+        Me.txtLote.Location = New System.Drawing.Point(612, 52)
         Me.txtLote.Name = "txtLote"
         Me.txtLote.Size = New System.Drawing.Size(44, 20)
         Me.txtLote.TabIndex = 14
@@ -520,7 +488,7 @@ Partial Class FrmGestionCliente
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(266, 43)
+        Me.Label8.Location = New System.Drawing.Point(348, 52)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(62, 13)
         Me.Label8.TabIndex = 13
@@ -529,7 +497,7 @@ Partial Class FrmGestionCliente
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(10, 43)
+        Me.Label7.Location = New System.Drawing.Point(92, 52)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(69, 13)
         Me.Label7.TabIndex = 12
@@ -538,7 +506,7 @@ Partial Class FrmGestionCliente
         'cmbLocalidades
         '
         Me.cmbLocalidades.FormattingEnabled = True
-        Me.cmbLocalidades.Location = New System.Drawing.Point(331, 41)
+        Me.cmbLocalidades.Location = New System.Drawing.Point(413, 50)
         Me.cmbLocalidades.Name = "cmbLocalidades"
         Me.cmbLocalidades.Size = New System.Drawing.Size(161, 21)
         Me.cmbLocalidades.TabIndex = 11
@@ -546,7 +514,7 @@ Partial Class FrmGestionCliente
         'cmbProvincias
         '
         Me.cmbProvincias.FormattingEnabled = True
-        Me.cmbProvincias.Location = New System.Drawing.Point(80, 41)
+        Me.cmbProvincias.Location = New System.Drawing.Point(162, 50)
         Me.cmbProvincias.Name = "cmbProvincias"
         Me.cmbProvincias.Size = New System.Drawing.Size(175, 21)
         Me.cmbProvincias.TabIndex = 10
@@ -554,7 +522,7 @@ Partial Class FrmGestionCliente
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(469, 14)
+        Me.Label6.Location = New System.Drawing.Point(551, 23)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(86, 13)
         Me.Label6.TabIndex = 9
@@ -563,7 +531,7 @@ Partial Class FrmGestionCliente
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(297, 15)
+        Me.Label5.Location = New System.Drawing.Point(379, 24)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(59, 13)
         Me.Label5.TabIndex = 8
@@ -572,7 +540,7 @@ Partial Class FrmGestionCliente
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(10, 16)
+        Me.Label4.Location = New System.Drawing.Point(92, 25)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(44, 13)
         Me.Label4.TabIndex = 7
@@ -580,21 +548,21 @@ Partial Class FrmGestionCliente
         '
         'tbcalle
         '
-        Me.tbcalle.Location = New System.Drawing.Point(55, 14)
+        Me.tbcalle.Location = New System.Drawing.Point(137, 23)
         Me.tbcalle.Name = "tbcalle"
         Me.tbcalle.Size = New System.Drawing.Size(237, 20)
         Me.tbcalle.TabIndex = 6
         '
         'tbNro
         '
-        Me.tbNro.Location = New System.Drawing.Point(359, 11)
+        Me.tbNro.Location = New System.Drawing.Point(441, 20)
         Me.tbNro.Name = "tbNro"
         Me.tbNro.Size = New System.Drawing.Size(44, 20)
         Me.tbNro.TabIndex = 5
         '
         'tbDpto
         '
-        Me.tbDpto.Location = New System.Drawing.Point(557, 12)
+        Me.tbDpto.Location = New System.Drawing.Point(639, 21)
         Me.tbDpto.Name = "tbDpto"
         Me.tbDpto.Size = New System.Drawing.Size(39, 20)
         Me.tbDpto.TabIndex = 7
@@ -715,6 +683,14 @@ Partial Class FrmGestionCliente
         Me.Label16.TabIndex = 21
         Me.Label16.Text = "Tipo Identificación"
         '
+        'Dgvclientes
+        '
+        Me.Dgvclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Dgvclientes.Location = New System.Drawing.Point(38, 464)
+        Me.Dgvclientes.Name = "Dgvclientes"
+        Me.Dgvclientes.Size = New System.Drawing.Size(954, 174)
+        Me.Dgvclientes.TabIndex = 23
+        '
         'btnBuscar
         '
         Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
@@ -767,7 +743,7 @@ Partial Class FrmGestionCliente
         Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Location = New System.Drawing.Point(948, 356)
+        Me.btnSalir.Location = New System.Drawing.Point(923, 354)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(80, 89)
         Me.btnSalir.TabIndex = 13
@@ -775,23 +751,37 @@ Partial Class FrmGestionCliente
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnSalir.UseVisualStyleBackColor = False
         '
+        'btnValidarDNI1
+        '
+        Me.btnValidarDNI1.BackColor = System.Drawing.SystemColors.Control
+        Me.btnValidarDNI1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_approval_48
+        Me.btnValidarDNI1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnValidarDNI1.FlatAppearance.BorderSize = 0
+        Me.btnValidarDNI1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnValidarDNI1.Location = New System.Drawing.Point(666, 11)
+        Me.btnValidarDNI1.Name = "btnValidarDNI1"
+        Me.btnValidarDNI1.Size = New System.Drawing.Size(163, 49)
+        Me.btnValidarDNI1.TabIndex = 21
+        Me.btnValidarDNI1.Text = "Verificar "
+        Me.btnValidarDNI1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnValidarDNI1.UseVisualStyleBackColor = False
+        '
         'FrmGestionCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1040, 640)
+        Me.ClientSize = New System.Drawing.Size(1015, 640)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Dgvclientes)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnSalir)
-        Me.Controls.Add(Me.dgvclientes)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmGestionCliente"
         Me.Text = "FrmGestionCliente"
-        CType(Me.dgvclientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
@@ -803,6 +793,7 @@ Partial Class FrmGestionCliente
         Me.GroupBox2.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
+        CType(Me.Dgvclientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -810,7 +801,6 @@ Partial Class FrmGestionCliente
     Friend WithEvents btnNuevo As Windows.Forms.Button
     Friend WithEvents btnGuardar As Windows.Forms.Button
     Friend WithEvents btnSalir As Windows.Forms.Button
-    Friend WithEvents dgvclientes As Windows.Forms.DataGridView
     Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
     Friend WithEvents dtpfechanac As Windows.Forms.DateTimePicker
     Friend WithEvents lblFechaNac As Windows.Forms.Label
@@ -848,7 +838,6 @@ Partial Class FrmGestionCliente
     Friend WithEvents lblTipoDePersona As Windows.Forms.Label
     Friend WithEvents lblNombre As Windows.Forms.Label
     Friend WithEvents lblApellido As Windows.Forms.Label
-    Friend WithEvents btnValidarDNI As Windows.Forms.Button
     Friend WithEvents GroupBox4 As Windows.Forms.GroupBox
     Friend WithEvents lblInicioAct As Windows.Forms.Label
     Friend WithEvents Label12 As Windows.Forms.Label
@@ -872,4 +861,6 @@ Partial Class FrmGestionCliente
     Friend WithEvents cboBusTipoPersona As Windows.Forms.ComboBox
     Friend WithEvents Label17 As Windows.Forms.Label
     Friend WithEvents GroupBox6 As Windows.Forms.GroupBox
+    Friend WithEvents Dgvclientes As Windows.Forms.DataGridView
+    Friend WithEvents btnValidarDNI1 As Windows.Forms.Button
 End Class
