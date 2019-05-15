@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmGestionUsuario
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmGestionUsuario
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionUsuario))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -47,8 +47,8 @@ Partial Class FrmGestionUsuario
         Me.lblTipoIdentificacion = New System.Windows.Forms.Label()
         Me.lable13 = New System.Windows.Forms.Label()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.btnValidarUserName = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.txtUserName = New System.Windows.Forms.TextBox()
         Me.GroupBox5.SuspendLayout()
         CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,7 +64,7 @@ Partial Class FrmGestionUsuario
         Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnBuscar.FlatAppearance.BorderSize = 0
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Location = New System.Drawing.Point(485, 238)
+        Me.btnBuscar.Location = New System.Drawing.Point(315, 38)
         Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(137, 109)
@@ -75,6 +75,7 @@ Partial Class FrmGestionUsuario
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.btnBuscar)
         Me.GroupBox5.Controls.Add(Me.Label5)
         Me.GroupBox5.Controls.Add(Me.cboBusActivoSN)
         Me.GroupBox5.Controls.Add(Me.txtBusUserName)
@@ -86,7 +87,7 @@ Partial Class FrmGestionUsuario
         Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox5.Size = New System.Drawing.Size(322, 174)
+        Me.GroupBox5.Size = New System.Drawing.Size(459, 174)
         Me.GroupBox5.TabIndex = 36
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Búsqueda"
@@ -105,6 +106,7 @@ Partial Class FrmGestionUsuario
         'cboBusActivoSN
         '
         Me.cboBusActivoSN.AccessibleDescription = ""
+        Me.cboBusActivoSN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBusActivoSN.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboBusActivoSN.FormattingEnabled = True
         Me.cboBusActivoSN.Location = New System.Drawing.Point(136, 104)
@@ -118,6 +120,7 @@ Partial Class FrmGestionUsuario
         Me.txtBusUserName.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtBusUserName.Location = New System.Drawing.Point(136, 35)
         Me.txtBusUserName.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtBusUserName.MaxLength = 15
         Me.txtBusUserName.Name = "txtBusUserName"
         Me.txtBusUserName.Size = New System.Drawing.Size(176, 23)
         Me.txtBusUserName.TabIndex = 20
@@ -125,6 +128,7 @@ Partial Class FrmGestionUsuario
         'cboBusRol
         '
         Me.cboBusRol.AccessibleDescription = ""
+        Me.cboBusRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBusRol.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboBusRol.FormattingEnabled = True
         Me.cboBusRol.Location = New System.Drawing.Point(136, 71)
@@ -162,7 +166,7 @@ Partial Class FrmGestionUsuario
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnNuevo.FlatAppearance.BorderSize = 0
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevo.Location = New System.Drawing.Point(616, 236)
+        Me.btnNuevo.Location = New System.Drawing.Point(485, 243)
         Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(137, 112)
@@ -178,7 +182,7 @@ Partial Class FrmGestionUsuario
         Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnGuardar.FlatAppearance.BorderSize = 0
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardar.Location = New System.Drawing.Point(485, 344)
+        Me.btnGuardar.Location = New System.Drawing.Point(616, 243)
         Me.btnGuardar.Margin = New System.Windows.Forms.Padding(4)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(137, 109)
@@ -194,7 +198,7 @@ Partial Class FrmGestionUsuario
         Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Location = New System.Drawing.Point(616, 344)
+        Me.btnSalir.Location = New System.Drawing.Point(616, 360)
         Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(137, 109)
@@ -218,7 +222,7 @@ Partial Class FrmGestionUsuario
         Me.dgvUsuarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         Me.dgvUsuarios.RowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvUsuarios.Size = New System.Drawing.Size(718, 200)
+        Me.dgvUsuarios.Size = New System.Drawing.Size(731, 200)
         Me.dgvUsuarios.TabIndex = 32
         '
         'GroupBox1
@@ -259,6 +263,7 @@ Partial Class FrmGestionUsuario
         'cboActivoSN
         '
         Me.cboActivoSN.AccessibleDescription = ""
+        Me.cboActivoSN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboActivoSN.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboActivoSN.FormattingEnabled = True
         Me.cboActivoSN.Location = New System.Drawing.Point(480, 45)
@@ -272,6 +277,7 @@ Partial Class FrmGestionUsuario
         Me.txtContrasena.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtContrasena.Location = New System.Drawing.Point(189, 13)
         Me.txtContrasena.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtContrasena.MaxLength = 20
         Me.txtContrasena.Name = "txtContrasena"
         Me.txtContrasena.Size = New System.Drawing.Size(176, 23)
         Me.txtContrasena.TabIndex = 23
@@ -293,6 +299,7 @@ Partial Class FrmGestionUsuario
         Me.txtRepetirContrasena.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRepetirContrasena.Location = New System.Drawing.Point(189, 45)
         Me.txtRepetirContrasena.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtRepetirContrasena.MaxLength = 20
         Me.txtRepetirContrasena.Name = "txtRepetirContrasena"
         Me.txtRepetirContrasena.Size = New System.Drawing.Size(176, 23)
         Me.txtRepetirContrasena.TabIndex = 21
@@ -301,6 +308,7 @@ Partial Class FrmGestionUsuario
         'cboRol
         '
         Me.cboRol.AccessibleDescription = ""
+        Me.cboRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboRol.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboRol.FormattingEnabled = True
         Me.cboRol.Location = New System.Drawing.Point(480, 15)
@@ -344,8 +352,8 @@ Partial Class FrmGestionUsuario
         '
         'GroupBox6
         '
-        Me.GroupBox6.Controls.Add(Me.Label3)
         Me.GroupBox6.Controls.Add(Me.btnValidarUserName)
+        Me.GroupBox6.Controls.Add(Me.Label3)
         Me.GroupBox6.Controls.Add(Me.txtUserName)
         Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox6.ForeColor = System.Drawing.Color.Black
@@ -356,6 +364,22 @@ Partial Class FrmGestionUsuario
         Me.GroupBox6.Size = New System.Drawing.Size(702, 75)
         Me.GroupBox6.TabIndex = 24
         Me.GroupBox6.TabStop = False
+        '
+        'btnValidarUserName
+        '
+        Me.btnValidarUserName.BackColor = System.Drawing.SystemColors.Control
+        Me.btnValidarUserName.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_approval_48
+        Me.btnValidarUserName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnValidarUserName.FlatAppearance.BorderSize = 0
+        Me.btnValidarUserName.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnValidarUserName.Location = New System.Drawing.Point(460, 10)
+        Me.btnValidarUserName.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnValidarUserName.Name = "btnValidarUserName"
+        Me.btnValidarUserName.Size = New System.Drawing.Size(217, 60)
+        Me.btnValidarUserName.TabIndex = 17
+        Me.btnValidarUserName.Text = "Verificar "
+        Me.btnValidarUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnValidarUserName.UseVisualStyleBackColor = False
         '
         'Label3
         '
@@ -368,26 +392,12 @@ Partial Class FrmGestionUsuario
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "UserName *"
         '
-        'btnValidarUserName
-        '
-        Me.btnValidarUserName.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.btnValidarUserName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnValidarUserName.FlatAppearance.BorderSize = 0
-        Me.btnValidarUserName.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnValidarUserName.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.75!, System.Drawing.FontStyle.Bold)
-        Me.btnValidarUserName.Location = New System.Drawing.Point(542, 10)
-        Me.btnValidarUserName.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnValidarUserName.Name = "btnValidarUserName"
-        Me.btnValidarUserName.Size = New System.Drawing.Size(147, 65)
-        Me.btnValidarUserName.TabIndex = 18
-        Me.btnValidarUserName.Text = "Validar UserName"
-        Me.btnValidarUserName.UseVisualStyleBackColor = False
-        '
         'txtUserName
         '
         Me.txtUserName.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUserName.Location = New System.Drawing.Point(136, 32)
         Me.txtUserName.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtUserName.MaxLength = 15
         Me.txtUserName.Name = "txtUserName"
         Me.txtUserName.Size = New System.Drawing.Size(176, 23)
         Me.txtUserName.TabIndex = 16
@@ -396,8 +406,7 @@ Partial Class FrmGestionUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(745, 675)
-        Me.Controls.Add(Me.btnBuscar)
+        Me.ClientSize = New System.Drawing.Size(758, 675)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnGuardar)
@@ -427,7 +436,6 @@ Partial Class FrmGestionUsuario
     Friend WithEvents dgvUsuarios As Windows.Forms.DataGridView
     Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
     Friend WithEvents GroupBox6 As Windows.Forms.GroupBox
-    Friend WithEvents btnValidarUserName As Windows.Forms.Button
     Friend WithEvents lblTipoIdentificacion As Windows.Forms.Label
     Friend WithEvents cboRol As Windows.Forms.ComboBox
     Friend WithEvents lable13 As Windows.Forms.Label
@@ -445,4 +453,5 @@ Partial Class FrmGestionUsuario
     Friend WithEvents cboActivoSN As Windows.Forms.ComboBox
     Friend WithEvents txtContrasena As Windows.Forms.TextBox
     Friend WithEvents Label1 As Windows.Forms.Label
+    Friend WithEvents btnValidarUserName As Windows.Forms.Button
 End Class
