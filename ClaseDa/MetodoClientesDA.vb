@@ -46,13 +46,13 @@ Public Class MetodoClientesDA
             Dim extraText As String = String.Empty
             Dim count As Integer = 0
             For Each parametro As KeyValuePair(Of String, String) In parametros
-                If count <> 0 Then
-                    extraText = extraText & " and "
-                Else
-                    extraText = " where "
-                End If
-                extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'"
-                count = count + 1
+				If count <> 0 Then
+					extraText = extraText & " and "
+				Else
+					extraText = " where "
+				End If
+				extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
+				count = count + 1
             Next
             sqlStr = sqlStr & extraText
         End If

@@ -519,10 +519,12 @@ Public Class FrmGestionCliente
     'Carga DataGridView con datos
     Public Function DgvclientesSet(ByVal parametros As Dictionary(Of String, String)) As DataSet
         Dim dsa1 As DataSet
-        dsa1 = clientemetodo.CargaGrillaclientes(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
-        ClienteID = dsa1.Tables(0).Rows(0)(13)
-        Dgvclientes.DataSource = dsa1.Tables(0)
-        Dgvclientes.Columns("Id").Visible = False
+		dsa1 = clientemetodo.CargaGrillaclientes(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
+		If dsa1.Tables(0).Rows.Count() <> 0 Then
+			ClienteID = dsa1.Tables(0).Rows(0)(13)
+		End If
+		Dgvclientes.DataSource = dsa1.Tables(0)
+		Dgvclientes.Columns("Id").Visible = False
         Return dsa1
     End Function
 
