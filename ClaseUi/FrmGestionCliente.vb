@@ -446,16 +446,25 @@ Public Class FrmGestionCliente
             cmbProvincias.DataSource = ds1.Tables(0)
             cmbProvincias.DisplayMember = "nombre"
             cmbProvincias.ValueMember = "id"
-            cmbProvincias.SelectedValue = 1
+            cmbProvincias.SelectedValue = 0
+
             If type = "unico" Then
                 cmbProvincias.SelectionStart = IdProvincia
                 cmbProvincias.SelectedValue = IdProvincia
             End If
-            Return cmbProvincias.SelectedValue
+
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+        Return cmbProvincias.SelectedValue
+        MessageBox.Show(cmbProvincias.SelectedValue)
     End Function
+
+
+
+
+
+
 
     'Carga el combo Localidades
     Public Sub LlenarCMBLocalidades(ByVal type As String)

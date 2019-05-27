@@ -111,4 +111,10 @@ Public Class MDIPrincipal
         FrmGestionProducto.Show()
 
     End Sub
+
+    Private Sub ClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClientesToolStripMenuItem.Click
+        FrmEstadisticacliente.show()
+
+
+    End Sub
 End Class
