@@ -75,8 +75,10 @@ Public Class FrmGestionUsuario
             LlenarCboRoles(ds.Tables(0).Rows(i)(2).ToString())
             If (ds.Tables(0).Rows(i)(3).ToString()) = "S" Then
                 cboActivoSN.SelectionStart = 0
+                cboActivoSN.SelectedItem = "Si"
             Else
                 cboActivoSN.SelectionStart = 1
+                cboActivoSN.SelectedItem = "No"
             End If
             UsuarioId = (ds.Tables(0).Rows(i)(4).ToString())
             Unblock()
@@ -85,11 +87,16 @@ Public Class FrmGestionUsuario
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btnValidarUserName.Click
+        If Not helpersUI.ValidarTamaño(txtUserName.Text, 3, 20) Then
+            MsgBox("El UserName es demasiado corto/largo", MsgBoxStyle.OkOnly, "Ok")
+            Return
+        End If
         If helpersLN.ValidarSiExisteUserName(txtUserName.Text) = False Then
             MsgBox("El userName puede ser utilizado!", MsgBoxStyle.OkOnly, "Ok")
             Unblock()
         Else
             MsgBox("El userName ingresado ya existe en la base de datos", MsgBoxStyle.Critical, "Ya existente")
+            Return
         End If
     End Sub
 
@@ -111,7 +118,9 @@ Public Class FrmGestionUsuario
 
         'Agrego todos los txt y cbo a un diccionario para validarlos despues genericamente y no uno por uno
         Dim dictionaryOfMandatoriesTexts As Dictionary(Of String, String) = New Dictionary(Of String, String) From
-        {{"Contraseña", txtContrasena.Text}, {"Repetir contraseña", txtRepetirContrasena.Text}}
+        {{"Contraseña", txtContrasena.Text}, {"Repetir contraseña", txtRepetirContrasena.Text},
+        {"Activo?", cboActivoSN.SelectedValue},
+        {"Rol", cboRol.SelectedValue}}
 
         For Each texts As KeyValuePair(Of String, String) In dictionaryOfMandatoriesTexts
             If helpersUI.TextValidator(texts.Key, texts.Value) = False Then
@@ -121,6 +130,11 @@ Public Class FrmGestionUsuario
 
         If txtContrasena.Text <> txtRepetirContrasena.Text Then
             MsgBox("Las contraseñas no coinciden", MsgBoxStyle.Critical, "Error")
+            Return False
+        End If
+
+        If Not helpersUI.ValidatePassword(txtContrasena.Text) Then
+            MsgBox("Las contraseña no contiene los parámetros requeridos (1 letra mayúscula, 1 número, 1 letra minúscula)", MsgBoxStyle.Critical, "Error")
             Return False
         End If
 
@@ -193,32 +207,39 @@ Public Class FrmGestionUsuario
     Public Sub LlenarCboRoles(ByVal type As String)
         Dim ds1 As DataSet
         ds1 = UsuariosMetodo.CargarRoles()
-        cboRol.DataSource = ds1.Tables(0)
-        cboRol.DisplayMember = "descripcion"
-        cboRol.ValueMember = "id"
         If type <> "bus" Then
-            cboRol.SelectionStart = (ds1.Tables(0).Rows(0)(1))
+            cboRol.DataSource = ds1.Tables(0)
+            cboRol.DisplayMember = "descripcion"
+            cboRol.ValueMember = "id"
+            cboRol.SelectionStart = (ds1.Tables(0).Rows(0)("id"))
+        Else
+            cboBusRol.DataSource = ds1.Tables(0)
+            cboBusRol.DisplayMember = "descripcion"
+            cboBusRol.ValueMember = "id"
+            cboBusRol.SelectionStart = (ds1.Tables(0).Rows(0)("id"))
         End If
     End Sub
 
     'Carga DataGridView con datos
-    Public Sub DgvUSuariosSet(ByVal parametros As Dictionary(Of String, String))
+    Public Function DgvUSuariosSet(ByVal parametros As Dictionary(Of String, String)) As DataSet
         Dim dsa1 As DataSet
         dsa1 = UsuariosMetodo.CargarGrillaUsuarios(parametros) 'Si parametros esta vacio, busca todos los proveedores en la bd
         dgvUsuarios.DataSource = dsa1.Tables(0)
-    End Sub
+        Return dsa1
+    End Function
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         Dim parametros As New Dictionary(Of String, String)
         If String.IsNullOrWhiteSpace(cboActivoSN.SelectedItem) = False Then
+            Dim activosn As String
             If cboActivoSN.SelectedValue = "Si" Then
-                cboActivoSN.SelectedValue = "S"
+                activosn = "S"
                 cboActivoSN.SelectionStart = 0
             Else
-                cboActivoSN.SelectedValue = "N"
+                activosn = "N"
                 cboActivoSN.SelectionStart = 1
             End If
-            parametros.Add("ActivoSN", cboActivoSN.SelectedValue)
+            parametros.Add("ActivoSN", activosn)
         End If
         If String.IsNullOrWhiteSpace(txtBusUserName.Text) = False Then
             parametros.Add("username", txtBusUserName.Text)
@@ -226,7 +247,9 @@ Public Class FrmGestionUsuario
         If String.IsNullOrWhiteSpace(cboBusRol.SelectedValue) = False Then
             parametros.Add("RolId", cboBusRol.SelectedValue)
         End If
-        DgvUSuariosSet(parametros)
+        If DgvUSuariosSet(parametros).Tables(0).Rows.Count = 0 Then
+            MsgBox("La búsqueda no arrojo resultados", MsgBoxStyle.Critical, "Error")
+        End If
     End Sub
 
 #End Region
