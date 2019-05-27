@@ -121,57 +121,110 @@ Public Class MetodoProductoDA
 
 
     Public Sub Grabarproductos(ByVal pro As ProductosNE)
+        '    Try
+        '        Dim insert As New SqlCommand("insert into productos values (" & pro.CodBarra & ",'" & pro.nombreprducto & "'," & pro.foto & "," &
+        '        pro.precio & "," & pro.utilidad & "," & pro.materialid & "," & pro.peso & "," & pro.tamaño & ",'" &
+        '        pro.color & "'," & pro.proveedorId & "," & pro.stockmin & "," & pro.stockmax & "," & pro.TipodeProductoId & ",'" & pro.Unidad &
+        '        "'," & pro.categoriaId & ")", db)
+        '        insert.CommandType = CommandType.Text
+        '        db.Open()
+        '        insert.ExecuteNonQuery()
+        '        db.Close()
+        '    Catch ex As Exception
+        '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        '    End Try
         Try
-            Dim insert As New SqlCommand("insert into productos values (" & pro.CodBarra & ",'" & pro.nombreprducto & "','" & pro.foto & "'," &
-            pro.precio & "," & pro.utilidad & "," & pro.materialid & "," & pro.peso & "," & pro.tamaño & ",'" &
-            pro.color & "'," & pro.proveedorId & "," & pro.stockmin & "," & pro.stockmax & "," & pro.TipodeProductoId & ",'" & pro.Unidad &
-            "'," & pro.categoriaId & ")", db)
-            insert.CommandType = CommandType.Text
             db.Open()
-            insert.ExecuteNonQuery()
-            db.Close()
+            com = New SqlCommand("SP_RegistrarProducto", db)
+            com.CommandType = CommandType.StoredProcedure
+
+            With com.Parameters
+                .AddWithValue("@Cod_Barra", pro.CodBarra)
+                .AddWithValue("@Nombre", pro.nombreprducto)
+                .AddWithValue("@Foto", pro.foto)
+                .AddWithValue("@Precio", pro.precio)
+                .AddWithValue("@Utilidad", pro.utilidad)
+                .AddWithValue("@MaterialId", pro.materialid)
+                .AddWithValue("@Peso", pro.peso)
+                .AddWithValue("@Tamaño", pro.tamaño)
+                .AddWithValue("@Color", pro.color)
+                .AddWithValue("@ProveedorId", pro.proveedorId)
+                .AddWithValue("@StockMin", pro.stockmin)
+                .AddWithValue("@StockMax", pro.stockmax)
+                .AddWithValue("@TipoProductoId", pro.TipodeProductoId)
+                .AddWithValue("@UnidadDePeso", 1)
+                .AddWithValue("@CategoriaId", pro.categoriaId)
+            End With
+
+            com.ExecuteNonQuery()
+
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message)
+        Finally
+            db.Close()
         End Try
     End Sub
 
 
 
-    Public Function CargaGrillaproductos(ByVal parametros As Dictionary(Of String, String)) As DataSet
-        Dim sqlStr As String
-        ds = New DataSet
-        sqlStr = "select p.id, p.Cod_barra, p.nombre, p.foto, p.precio, m.nombre, p.peso, p.tamaño, p.color, pro.nombre, pro.apellido, p.stockmin," &
-"p.stockmax, t.descripcion, cat.nombre  from productos as p " &
-"inner join Materiales m On p.MaterialId=m.id " &
-"inner join Proveedores pro on p.ProveedorId=pro.Id " &
-"inner Join Categorias cat on p.CategoriaID=cat.id " &
-"inner join TipoProductos t on p.TipoProductoId=t.id"
+    Public Function CargaGrillaproductos(ByVal parametros As Dictionary(Of String, String)) As DataTable
+        '        Dim sqlStr As String
+        '        ds = New DataSet
+        '        sqlStr = "select p.id, p.Cod_barra, p.nombre, p.foto, p.precio, m.nombre, p.peso, p.tamaño, p.color, pro.nombre, pro.apellido, p.stockmin," &
+        '"p.stockmax, t.descripcion, cat.nombre  from productos as p " &
+        '"inner join Materiales m On p.MaterialId=m.id " &
+        '"inner join Proveedores pro on p.ProveedorId=pro.Id " &
+        '"inner Join Categorias cat on p.CategoriaID=cat.id " &
+        '"inner join TipoProductos t on p.TipoProductoId=t.id"
 
 
-        If parametros.Count > 0 Then
-            Dim extraText As String = String.Empty
-            Dim count As Integer = 0
-            For Each parametro As KeyValuePair(Of String, String) In parametros
-                If count <> 0 Then
-                    extraText = extraText & " And "
-                Else
-                    extraText = " where "
-                End If
-                extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'"
-                count = count + 1
-            Next
-            sqlStr = sqlStr & extraText
-        End If
+        '        If parametros.Count > 0 Then
+        '            Dim extraText As String = String.Empty
+        '            Dim count As Integer = 0
+        '            For Each parametro As KeyValuePair(Of String, String) In parametros
+        '                If count <> 0 Then
+        '                    extraText = extraText & " And "
+        '                Else
+        '                    extraText = " where "
+        '                End If
+        '                extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'"
+        '                count = count + 1
+        '            Next
+        '            sqlStr = sqlStr & extraText
+        '        End If
+
+        '        Try
+        '            da = New SqlDataAdapter(sqlStr, db)
+        '            da.Fill(ds)
+        '            db.Close()
+        '        Catch ex As Exception
+        '            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        '        End Try
+        '        Return ds
+        '        db.Close()
 
         Try
-            da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds)
-            db.Close()
+            db.Open()
+            com = New SqlCommand("SP_MostrarProducto", db)
+            com.CommandType = CommandType.StoredProcedure
+
+            If com.ExecuteNonQuery() Then
+                Dim da As New SqlDataAdapter(com)
+                CargaGrillaproductos = New DataTable
+                da.Fill(CargaGrillaproductos)
+
+                Return CargaGrillaproductos
+            Else
+                Return Nothing
+            End If
+
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            db.Close()
         End Try
-        Return ds
-        db.Close()
+
     End Function
 
 

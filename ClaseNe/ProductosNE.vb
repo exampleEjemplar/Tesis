@@ -33,14 +33,14 @@
         End Set
     End Property
 
-    Private _foto As String
+    Private _foto() As Byte
 
-    Public Property foto() As String
+    Public Property foto()
         Get
             Return _foto
         End Get
-        Set(ByVal value As String)
-            _foto = CStr(value)
+        Set(ByVal value)
+            _foto = value
         End Set
     End Property
 

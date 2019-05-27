@@ -48,13 +48,15 @@ Public Class FrmGestionProducto
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
+        Dim ms As New IO.MemoryStream()
 
-        Dim myImg As Image 'Objeto Image para guardar la imagen del Picture 
-        myImg = PBfoto.Image 'Guardar la imagen del PictureBox en el objeto Image
+        PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
+
+
 
         pro.nombreprducto = TbNombreProducto.Text
         pro.CodBarra = tbCodBarra.Text
-        pro.foto = conversionmetodo.bytesToString(conversionmetodo.ImagenToBytes(myImg))
+        pro.foto = ms.GetBuffer
         pro.precio = TbPrecio.Text
         pro.utilidad = TbUtilidad.Text
         pro.materialid = CmbMaterial.SelectedValue
@@ -69,15 +71,6 @@ Public Class FrmGestionProducto
         pro.categoriaId = CmbCategoria.SelectedValue
         productometodo.Grabarproductos(pro)
 
-
-
-
-
-
-
-
-
-
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click, Button2.Click
@@ -85,7 +78,7 @@ Public Class FrmGestionProducto
     End Sub
 
     Private Sub FrmGestionProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DGVProductos.RowTemplate.Height = 45
+        DataGridView1.RowTemplate.Height = 45
 
 
         LlenarCMBTipo()
@@ -98,9 +91,9 @@ Public Class FrmGestionProducto
 
     Public Sub DgvclientesSet(ByVal parametros As Dictionary(Of String, String))
         Try
-            Dim dsa1 As DataSet
+            Dim dsa1 As DataTable
             dsa1 = productometodo.CargaGrillaproductos(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
-            DGVProductos.DataSource = dsa1.Tables(0)
+            DataGridView1.DataSource = dsa1
 
 
         Catch ex As Exception
@@ -184,6 +177,16 @@ Public Class FrmGestionProducto
 
     End Sub
 
+    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+
+
+        PBfoto.BackgroundImage = Nothing
+        Dim i() As Byte = DataGridView1.SelectedCells.Item(3).Value
+        Dim ms As New IO.MemoryStream(i)
+        PBfoto.Image = Image.FromStream(ms)
+        PBfoto.SizeMode = PictureBoxSizeMode.StretchImage
+
+    End Sub
 
 
 

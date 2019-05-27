@@ -64,7 +64,6 @@ Partial Class FrmGestionProducto
         Me.txtBusCodigo = New System.Windows.Forms.TextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.lblBusNombre = New System.Windows.Forms.Label()
-        Me.DGVProductos = New System.Windows.Forms.DataGridView()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
@@ -104,12 +103,13 @@ Partial Class FrmGestionProducto
         Me.tbCodBarra = New System.Windows.Forms.TextBox()
         Me.TbNombreProducto = New System.Windows.Forms.TextBox()
         Me.PBfoto = New System.Windows.Forms.PictureBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
-        CType(Me.DGVProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -536,15 +536,6 @@ Partial Class FrmGestionProducto
         Me.lblBusNombre.TabIndex = 25
         Me.lblBusNombre.Text = "Codigo"
         '
-        'DGVProductos
-        '
-        Me.DGVProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVProductos.Location = New System.Drawing.Point(12, 388)
-        Me.DGVProductos.Name = "DGVProductos"
-        Me.DGVProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-        Me.DGVProductos.Size = New System.Drawing.Size(959, 283)
-        Me.DGVProductos.TabIndex = 37
-        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
@@ -946,13 +937,21 @@ Partial Class FrmGestionProducto
         Me.PBfoto.TabIndex = 0
         Me.PBfoto.TabStop = False
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(23, 399)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(894, 158)
+        Me.DataGridView1.TabIndex = 37
+        '
         'FrmGestionProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(983, 683)
         Me.ControlBox = False
-        Me.Controls.Add(Me.DGVProductos)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -969,10 +968,10 @@ Partial Class FrmGestionProducto
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
-        CType(Me.DGVProductos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -987,7 +986,6 @@ Partial Class FrmGestionProducto
     Friend WithEvents lblBusApellido As Windows.Forms.Label
     Friend WithEvents txtBusCodigo As Windows.Forms.TextBox
     Friend WithEvents lblBusNombre As Windows.Forms.Label
-    Friend WithEvents DGVProductos As Windows.Forms.DataGridView
     Friend WithEvents ComboBox1 As Windows.Forms.ComboBox
     Friend WithEvents Label5 As Windows.Forms.Label
     Friend WithEvents Label4 As Windows.Forms.Label
@@ -1059,4 +1057,5 @@ Partial Class FrmGestionProducto
     Friend WithEvents Label26 As Windows.Forms.Label
     Friend WithEvents Label27 As Windows.Forms.Label
     Friend WithEvents tbCodBarra As Windows.Forms.TextBox
+    Friend WithEvents DataGridView1 As Windows.Forms.DataGridView
 End Class

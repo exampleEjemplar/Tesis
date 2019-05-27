@@ -11,6 +11,7 @@ Public Class ConexionDA
         scon.Open()
         Return scon
     End Function
+
     Public Shared Function Cerrar() As Boolean
         Try
             If scon.State = ConnectionState.Open Then
