@@ -14,6 +14,9 @@ Public Class FrmGestionProducto
     Public idcategoria1 As Integer
 
     Dim IMAGEN As String
+    Dim busqcod As String
+    Dim busqprod As String
+
 
     'Metodo que selecciona una imagen y la carga en un PictureBox'
     Sub cargarImagen()
@@ -70,8 +73,14 @@ Public Class FrmGestionProducto
         pro.Unidad = TbUnidad.SelectedValue
         pro.categoriaId = CmbCategoria.SelectedValue
         productometodo.Grabarproductos(pro)
+        DgvclientesSet()
+
+
 
     End Sub
+
+
+
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click, Button2.Click
         Me.Close()
@@ -79,22 +88,30 @@ Public Class FrmGestionProducto
 
     Private Sub FrmGestionProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DataGridView1.RowTemplate.Height = 45
+        busqcod = ""
+        busqprod = ""
 
 
         LlenarCMBTipo()
         LlenarCMBMaterial()
         LlenarCMBproveerdor()
         LlenarCMBdescripcion()
-        DgvclientesSet(New Dictionary(Of String, String))
+        DgvclientesSet()
 
     End Sub
 
-    Public Sub DgvclientesSet(ByVal parametros As Dictionary(Of String, String))
+    Public Sub DgvclientesSet()
         Try
             Dim dsa1 As DataTable
-            dsa1 = productometodo.CargaGrillaproductos(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
+            dsa1 = productometodo.CargaGrillaproductos(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
             DataGridView1.DataSource = dsa1
-
+            DataGridView1.AllowUserToAddRows = False
+            DataGridView1.AllowUserToDeleteRows = False
+            For X = 0 To DataGridView1.Rows.Count - 1
+                If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
+                    DataGridView1.Rows.Remove(DataGridView1.Rows(X))
+                End If
+            Next
 
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
@@ -173,18 +190,15 @@ Public Class FrmGestionProducto
         Return CmbCategoria.SelectedValue
     End Function
 
-    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
-
-    End Sub
-
-    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
 
 
-        PBfoto.BackgroundImage = Nothing
-        Dim i() As Byte = DataGridView1.SelectedCells.Item(3).Value
-        Dim ms As New IO.MemoryStream(i)
-        PBfoto.Image = Image.FromStream(ms)
-        PBfoto.SizeMode = PictureBoxSizeMode.StretchImage
+
+
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        busqprod = txtBusNombreProd.Text.Trim
+        busqcod = txtBusCodigo.Text.Trim
+        DgvclientesSet()
+
 
     End Sub
 

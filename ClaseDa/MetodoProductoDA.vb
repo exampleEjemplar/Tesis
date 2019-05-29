@@ -121,18 +121,7 @@ Public Class MetodoProductoDA
 
 
     Public Sub Grabarproductos(ByVal pro As ProductosNE)
-        '    Try
-        '        Dim insert As New SqlCommand("insert into productos values (" & pro.CodBarra & ",'" & pro.nombreprducto & "'," & pro.foto & "," &
-        '        pro.precio & "," & pro.utilidad & "," & pro.materialid & "," & pro.peso & "," & pro.tamaño & ",'" &
-        '        pro.color & "'," & pro.proveedorId & "," & pro.stockmin & "," & pro.stockmax & "," & pro.TipodeProductoId & ",'" & pro.Unidad &
-        '        "'," & pro.categoriaId & ")", db)
-        '        insert.CommandType = CommandType.Text
-        '        db.Open()
-        '        insert.ExecuteNonQuery()
-        '        db.Close()
-        '    Catch ex As Exception
-        '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        '    End Try
+        '   
         Try
             db.Open()
             com = New SqlCommand("SP_RegistrarProducto", db)
@@ -167,47 +156,20 @@ Public Class MetodoProductoDA
 
 
 
-    Public Function CargaGrillaproductos(ByVal parametros As Dictionary(Of String, String)) As DataTable
-        '        Dim sqlStr As String
-        '        ds = New DataSet
-        '        sqlStr = "select p.id, p.Cod_barra, p.nombre, p.foto, p.precio, m.nombre, p.peso, p.tamaño, p.color, pro.nombre, pro.apellido, p.stockmin," &
-        '"p.stockmax, t.descripcion, cat.nombre  from productos as p " &
-        '"inner join Materiales m On p.MaterialId=m.id " &
-        '"inner join Proveedores pro on p.ProveedorId=pro.Id " &
-        '"inner Join Categorias cat on p.CategoriaID=cat.id " &
-        '"inner join TipoProductos t on p.TipoProductoId=t.id"
+    Public Function CargaGrillaproductos(ByVal codigo As String, ByVal nombre As String) As DataTable
 
-
-        '        If parametros.Count > 0 Then
-        '            Dim extraText As String = String.Empty
-        '            Dim count As Integer = 0
-        '            For Each parametro As KeyValuePair(Of String, String) In parametros
-        '                If count <> 0 Then
-        '                    extraText = extraText & " And "
-        '                Else
-        '                    extraText = " where "
-        '                End If
-        '                extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'"
-        '                count = count + 1
-        '            Next
-        '            sqlStr = sqlStr & extraText
-        '        End If
-
-        '        Try
-        '            da = New SqlDataAdapter(sqlStr, db)
-        '            da.Fill(ds)
-        '            db.Close()
-        '        Catch ex As Exception
-        '            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        '        End Try
-        '        Return ds
-        '        db.Close()
 
         Try
             db.Open()
-            com = New SqlCommand("SP_MostrarProducto", db)
+            com = New SqlCommand("SP_MostrarProductoconbusqueda", db)
             com.CommandType = CommandType.StoredProcedure
+            With com.Parameters
+                .AddWithValue("@codigo", codigo)
+                .AddWithValue("@Nombre", nombre)
 
+            End With
+
+            com.ExecuteNonQuery()
             If com.ExecuteNonQuery() Then
                 Dim da As New SqlDataAdapter(com)
                 CargaGrillaproductos = New DataTable

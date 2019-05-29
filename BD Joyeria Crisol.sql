@@ -39994,3 +39994,75 @@ GO
 INSERT EnSesion
 VALUES
 (1)
+
+USE [JoyeriaCrisol6]
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_RegistrarProducto]    Script Date: 29/5/2019 19:40:27 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SP_RegistrarProducto]
+@Cod_Barra varchar(max),
+@Nombre varchar(max),
+@Foto image,
+@Precio float,
+@Utilidad float,
+@MaterialId int,
+@Peso float,
+@Tamaño float,
+@Color varchar(max),
+@ProveedorId int,
+@StockMin int,
+@StockMax int,
+@TipoProductoId int,
+@UnidadDePeso int,
+@CategoriaId int
+AS
+begin
+insert into productos  values(@Cod_Barra,
+@Nombre,
+@Foto,
+@Precio,
+@Utilidad,
+@MaterialId,
+@Peso,
+@Tamaño,
+@Color,
+@ProveedorId,
+@StockMin,
+@StockMax,
+@TipoProductoId,
+@UnidadDePeso,
+@CategoriaId)
+end
+GO
+
+USE [JoyeriaCrisol6]
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_MostrarProductoconbusqueda]    Script Date: 29/5/2019 20:45:21 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SP_MostrarProductoconbusqueda]
+@codigo int,
+@Nombre varchar(max)
+
+AS
+SELECT p.id as 'Codigo', p.Cod_Barra as 'Codigo de Barra', p.nombre as 'Producto',(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', t.descripcion as 'Tipo de producto', M.nombre as 'Material' FROM productos as p
+inner join TipoProductos t on p.TipoProductoId=t.id
+inner join Materiales m On p.MaterialId=m.id 
+where p.id like CONCAT('%', @codigo ,'%') and  p.nombre like  CONCAT('%', @nombre ,'%');
+GO
+
+
+
+
+

@@ -52,9 +52,9 @@ Public Class ProductoLN
         objproductosAD.Grabarproductos(pro)
     End Sub
 
-    Public Function CargaGrillaproductos(ByVal parametros As Dictionary(Of String, String)) As DataTable
+    Public Function CargaGrillaproductos(ByVal codigo As String, ByVal nombre As String) As DataTable
 
-        Return objproductosAD.CargaGrillaproductos(parametros)
+        Return objproductosAD.CargaGrillaproductos(codigo, nombre)
     End Function
 
 

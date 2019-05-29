@@ -31,6 +31,8 @@ Partial Class FrmDetalleProductoCatalogo
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -45,7 +47,7 @@ Partial Class FrmDetalleProductoCatalogo
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(88, 139)
+        Me.Label20.Location = New System.Drawing.Point(79, 139)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(58, 13)
         Me.Label20.TabIndex = 42
@@ -65,11 +67,11 @@ Partial Class FrmDetalleProductoCatalogo
         '
         Me.Label34.AutoSize = True
         Me.Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label34.Location = New System.Drawing.Point(19, 84)
+        Me.Label34.Location = New System.Drawing.Point(39, 84)
         Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(118, 13)
+        Me.Label34.Size = New System.Drawing.Size(98, 13)
         Me.Label34.TabIndex = 40
-        Me.Label34.Text = "Codigo de producto"
+        Me.Label34.Text = "Codigo de Barra"
         '
         'TextBox17
         '
@@ -97,7 +99,7 @@ Partial Class FrmDetalleProductoCatalogo
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Stencil", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(9, 9)
+        Me.Label1.Location = New System.Drawing.Point(86, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(276, 29)
         Me.Label1.TabIndex = 45
@@ -118,11 +120,30 @@ Partial Class FrmDetalleProductoCatalogo
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button2.UseVisualStyleBackColor = False
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(19, 58)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(118, 13)
+        Me.Label2.TabIndex = 48
+        Me.Label2.Text = "Codigo de producto"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(143, 58)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(239, 20)
+        Me.TextBox1.TabIndex = 47
+        '
         'FrmDetalleProductoCatalogo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(794, 296)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
@@ -151,4 +172,6 @@ Partial Class FrmDetalleProductoCatalogo
     Friend WithEvents PictureBox1 As Windows.Forms.PictureBox
     Friend WithEvents Label1 As Windows.Forms.Label
     Friend WithEvents Button2 As Windows.Forms.Button
+    Friend WithEvents Label2 As Windows.Forms.Label
+    Friend WithEvents TextBox1 As Windows.Forms.TextBox
 End Class

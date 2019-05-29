@@ -467,10 +467,11 @@ Public Class FrmGestionProveedores
                 cmbProvincias.SelectionStart = IdProvincia
                 cmbProvincias.SelectedValue = IdProvincia
             End If
-            Return cmbProvincias.SelectedValue
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+        Return cmbProvincias.SelectedValue
+
     End Function
 
     'Carga el combo Localidades

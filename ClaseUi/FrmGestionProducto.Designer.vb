@@ -58,11 +58,10 @@ Partial Class FrmGestionProducto
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.gbbusqueda = New System.Windows.Forms.GroupBox()
         Me.txtBusNombreProd = New System.Windows.Forms.TextBox()
         Me.lblBusApellido = New System.Windows.Forms.Label()
         Me.txtBusCodigo = New System.Windows.Forms.TextBox()
-        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.lblBusNombre = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -104,9 +103,10 @@ Partial Class FrmGestionProducto
         Me.TbNombreProducto = New System.Windows.Forms.TextBox()
         Me.PBfoto = New System.Windows.Forms.PictureBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox5.SuspendLayout()
+        Me.gbbusqueda.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -470,20 +470,19 @@ Partial Class FrmGestionProducto
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'GroupBox5
+        'gbbusqueda
         '
-        Me.GroupBox5.Controls.Add(Me.txtBusNombreProd)
-        Me.GroupBox5.Controls.Add(Me.lblBusApellido)
-        Me.GroupBox5.Controls.Add(Me.txtBusCodigo)
-        Me.GroupBox5.Controls.Add(Me.btnBuscar)
-        Me.GroupBox5.Controls.Add(Me.lblBusNombre)
-        Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox5.Location = New System.Drawing.Point(23, 272)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(510, 110)
-        Me.GroupBox5.TabIndex = 36
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Búsqueda"
+        Me.gbbusqueda.Controls.Add(Me.txtBusNombreProd)
+        Me.gbbusqueda.Controls.Add(Me.lblBusApellido)
+        Me.gbbusqueda.Controls.Add(Me.txtBusCodigo)
+        Me.gbbusqueda.Controls.Add(Me.lblBusNombre)
+        Me.gbbusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbbusqueda.Location = New System.Drawing.Point(23, 272)
+        Me.gbbusqueda.Name = "gbbusqueda"
+        Me.gbbusqueda.Size = New System.Drawing.Size(445, 110)
+        Me.gbbusqueda.TabIndex = 36
+        Me.gbbusqueda.TabStop = False
+        Me.gbbusqueda.Text = "Búsqueda"
         '
         'txtBusNombreProd
         '
@@ -510,21 +509,6 @@ Partial Class FrmGestionProducto
         Me.txtBusCodigo.Name = "txtBusCodigo"
         Me.txtBusCodigo.Size = New System.Drawing.Size(141, 20)
         Me.txtBusCodigo.TabIndex = 26
-        '
-        'btnBuscar
-        '
-        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
-        Me.btnBuscar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.loupe_78956__1_
-        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnBuscar.FlatAppearance.BorderSize = 0
-        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Location = New System.Drawing.Point(378, 15)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(103, 89)
-        Me.btnBuscar.TabIndex = 34
-        Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnBuscar.UseVisualStyleBackColor = False
         '
         'lblBusNombre
         '
@@ -939,11 +923,29 @@ Partial Class FrmGestionProducto
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowDrop = True
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(23, 399)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(894, 158)
         Me.DataGridView1.TabIndex = 37
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
+        Me.btnBuscar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.loupe_78956__1_
+        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnBuscar.FlatAppearance.BorderSize = 0
+        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscar.Location = New System.Drawing.Point(474, 289)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(103, 89)
+        Me.btnBuscar.TabIndex = 34
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnBuscar.UseVisualStyleBackColor = False
         '
         'FrmGestionProducto
         '
@@ -952,8 +954,9 @@ Partial Class FrmGestionProducto
         Me.ClientSize = New System.Drawing.Size(983, 683)
         Me.ControlBox = False
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.GroupBox5)
+        Me.Controls.Add(Me.gbbusqueda)
         Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Button2)
@@ -966,8 +969,8 @@ Partial Class FrmGestionProducto
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
+        Me.gbbusqueda.ResumeLayout(False)
+        Me.gbbusqueda.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).EndInit()
@@ -975,13 +978,11 @@ Partial Class FrmGestionProducto
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents btnBuscar As Windows.Forms.Button
     Friend WithEvents btnNuevo As Windows.Forms.Button
     Friend WithEvents btnGuardar As Windows.Forms.Button
     Friend WithEvents btnSalir As Windows.Forms.Button
     Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
-    Friend WithEvents GroupBox5 As Windows.Forms.GroupBox
+    Friend WithEvents gbbusqueda As Windows.Forms.GroupBox
     Friend WithEvents txtBusNombreProd As Windows.Forms.TextBox
     Friend WithEvents lblBusApellido As Windows.Forms.Label
     Friend WithEvents txtBusCodigo As Windows.Forms.TextBox
@@ -1058,4 +1059,5 @@ Partial Class FrmGestionProducto
     Friend WithEvents Label27 As Windows.Forms.Label
     Friend WithEvents tbCodBarra As Windows.Forms.TextBox
     Friend WithEvents DataGridView1 As Windows.Forms.DataGridView
+    Friend WithEvents btnBuscar As Windows.Forms.Button
 End Class
