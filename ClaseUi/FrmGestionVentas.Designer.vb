@@ -32,12 +32,20 @@ Partial Class FrmGestionVentas
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.Label1 = New System.Windows.Forms.Label()
+		Me.Label2 = New System.Windows.Forms.Label()
+		Me.cboUsuario = New System.Windows.Forms.ComboBox()
+		Me.rbtEntreFechas = New System.Windows.Forms.RadioButton()
+		Me.dtpFechaComp2 = New System.Windows.Forms.DateTimePicker()
 		Me.GroupBox5.SuspendLayout()
 		CType(Me.dgvProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'GroupBox5
 		'
+		Me.GroupBox5.Controls.Add(Me.dtpFechaComp2)
+		Me.GroupBox5.Controls.Add(Me.rbtEntreFechas)
+		Me.GroupBox5.Controls.Add(Me.cboUsuario)
+		Me.GroupBox5.Controls.Add(Me.Label2)
 		Me.GroupBox5.Controls.Add(Me.dtpFechaComp)
 		Me.GroupBox5.Controls.Add(Me.btnBuscar)
 		Me.GroupBox5.Controls.Add(Me.cboCliente)
@@ -59,7 +67,7 @@ Partial Class FrmGestionVentas
 		Me.dtpFechaComp.Location = New System.Drawing.Point(187, 52)
 		Me.dtpFechaComp.Margin = New System.Windows.Forms.Padding(4)
 		Me.dtpFechaComp.Name = "dtpFechaComp"
-		Me.dtpFechaComp.Size = New System.Drawing.Size(367, 23)
+		Me.dtpFechaComp.Size = New System.Drawing.Size(151, 23)
 		Me.dtpFechaComp.TabIndex = 22
 		Me.dtpFechaComp.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
 		'
@@ -166,6 +174,51 @@ Partial Class FrmGestionVentas
 		Me.Label1.TabIndex = 23
 		Me.Label1.Text = "Gestión ventas"
 		'
+		'Label2
+		'
+		Me.Label2.AutoSize = True
+		Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label2.Location = New System.Drawing.Point(11, 86)
+		Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label2.Name = "Label2"
+		Me.Label2.Size = New System.Drawing.Size(64, 17)
+		Me.Label2.TabIndex = 23
+		Me.Label2.Text = "Usuario"
+		'
+		'cboUsuario
+		'
+		Me.cboUsuario.AccessibleDescription = ""
+		Me.cboUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cboUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.cboUsuario.FormattingEnabled = True
+		Me.cboUsuario.Items.AddRange(New Object() {"Física", "Jurídica"})
+		Me.cboUsuario.Location = New System.Drawing.Point(187, 83)
+		Me.cboUsuario.Margin = New System.Windows.Forms.Padding(4)
+		Me.cboUsuario.Name = "cboUsuario"
+		Me.cboUsuario.Size = New System.Drawing.Size(367, 25)
+		Me.cboUsuario.TabIndex = 24
+		'
+		'rbtEntreFechas
+		'
+		Me.rbtEntreFechas.AutoSize = True
+		Me.rbtEntreFechas.Location = New System.Drawing.Point(354, 52)
+		Me.rbtEntreFechas.Name = "rbtEntreFechas"
+		Me.rbtEntreFechas.Size = New System.Drawing.Size(197, 21)
+		Me.rbtEntreFechas.TabIndex = 36
+		Me.rbtEntreFechas.TabStop = True
+		Me.rbtEntreFechas.Text = "Busqueda entre fechas"
+		Me.rbtEntreFechas.UseVisualStyleBackColor = True
+		'
+		'dtpFechaComp2
+		'
+		Me.dtpFechaComp2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+		Me.dtpFechaComp2.Location = New System.Drawing.Point(577, 52)
+		Me.dtpFechaComp2.Margin = New System.Windows.Forms.Padding(4)
+		Me.dtpFechaComp2.Name = "dtpFechaComp2"
+		Me.dtpFechaComp2.Size = New System.Drawing.Size(151, 23)
+		Me.dtpFechaComp2.TabIndex = 37
+		Me.dtpFechaComp2.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
+		'
 		'FrmGestionVentas
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -196,4 +249,8 @@ Partial Class FrmGestionVentas
 	Friend WithEvents btnSalir As Windows.Forms.Button
 	Friend WithEvents dtpFechaComp As Windows.Forms.DateTimePicker
 	Friend WithEvents Label1 As Windows.Forms.Label
+	Friend WithEvents cboUsuario As Windows.Forms.ComboBox
+	Friend WithEvents Label2 As Windows.Forms.Label
+	Friend WithEvents dtpFechaComp2 As Windows.Forms.DateTimePicker
+	Friend WithEvents rbtEntreFechas As Windows.Forms.RadioButton
 End Class
