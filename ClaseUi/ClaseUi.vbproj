@@ -79,6 +79,12 @@
     <Compile Include="Formprueba1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmArmadoCompra.Designer.vb">
+      <DependentUpon>FrmArmadoCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmArmadoCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmArmadoVenta.Designer.vb">
       <DependentUpon>FrmArmadoVenta.vb</DependentUpon>
     </Compile>
@@ -107,6 +113,12 @@
       <DependentUpon>FrmGestionCliente.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmGestionCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionCompras.Designer.vb">
+      <DependentUpon>FrmGestionCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionCompras.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmGestionProveedores.Designer.vb">
@@ -172,6 +184,9 @@
     <EmbeddedResource Include="Formprueba1.resx">
       <DependentUpon>Formprueba1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmArmadoCompra.resx">
+      <DependentUpon>FrmArmadoCompra.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmArmadoVenta.resx">
       <DependentUpon>FrmArmadoVenta.vb</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionCliente.resx">
       <DependentUpon>FrmGestionCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionCompras.resx">
+      <DependentUpon>FrmGestionCompras.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionProducto.resx">
       <DependentUpon>FrmGestionProducto.vb</DependentUpon>
