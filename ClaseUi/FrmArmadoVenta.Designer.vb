@@ -39,11 +39,11 @@ Partial Class FrmArmadoVenta
 		Me.Label6 = New System.Windows.Forms.Label()
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
 		Me.lstProdDispo = New System.Windows.Forms.ListView()
-		Me.btnAgregar = New System.Windows.Forms.Button()
-		Me.btnQuitar = New System.Windows.Forms.Button()
 		Me.GroupBox4 = New System.Windows.Forms.GroupBox()
 		Me.dgvProdSelec = New System.Windows.Forms.DataGridView()
 		Me.btnSalir = New System.Windows.Forms.Button()
+		Me.btnAgregar = New System.Windows.Forms.Button()
+		Me.btnQuitar = New System.Windows.Forms.Button()
 		Me.GroupBox1.SuspendLayout()
 		Me.GroupBox2.SuspendLayout()
 		Me.GroupBox3.SuspendLayout()
@@ -244,38 +244,6 @@ Partial Class FrmArmadoVenta
 		Me.lstProdDispo.TabIndex = 0
 		Me.lstProdDispo.UseCompatibleStateImageBehavior = False
 		'
-		'btnAgregar
-		'
-		Me.btnAgregar.BackColor = System.Drawing.SystemColors.Control
-		Me.btnAgregar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
-		Me.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnAgregar.FlatAppearance.BorderSize = 0
-		Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnAgregar.Location = New System.Drawing.Point(574, 320)
-		Me.btnAgregar.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnAgregar.Name = "btnAgregar"
-		Me.btnAgregar.Size = New System.Drawing.Size(106, 100)
-		Me.btnAgregar.TabIndex = 33
-		Me.btnAgregar.Text = "Agregar"
-		Me.btnAgregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnAgregar.UseVisualStyleBackColor = False
-		'
-		'btnQuitar
-		'
-		Me.btnQuitar.BackColor = System.Drawing.SystemColors.Control
-		Me.btnQuitar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
-		Me.btnQuitar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnQuitar.FlatAppearance.BorderSize = 0
-		Me.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnQuitar.Location = New System.Drawing.Point(574, 428)
-		Me.btnQuitar.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnQuitar.Name = "btnQuitar"
-		Me.btnQuitar.Size = New System.Drawing.Size(106, 98)
-		Me.btnQuitar.TabIndex = 32
-		Me.btnQuitar.Text = "Quitar"
-		Me.btnQuitar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnQuitar.UseVisualStyleBackColor = False
-		'
 		'GroupBox4
 		'
 		Me.GroupBox4.Controls.Add(Me.dgvProdSelec)
@@ -311,14 +279,46 @@ Partial Class FrmArmadoVenta
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnSalir.UseVisualStyleBackColor = False
 		'
+		'btnAgregar
+		'
+		Me.btnAgregar.BackColor = System.Drawing.SystemColors.Control
+		Me.btnAgregar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.plus1
+		Me.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnAgregar.FlatAppearance.BorderSize = 0
+		Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnAgregar.Location = New System.Drawing.Point(571, 320)
+		Me.btnAgregar.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnAgregar.Name = "btnAgregar"
+		Me.btnAgregar.Size = New System.Drawing.Size(113, 113)
+		Me.btnAgregar.TabIndex = 33
+		Me.btnAgregar.Text = "Agregar"
+		Me.btnAgregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnAgregar.UseVisualStyleBackColor = False
+		'
+		'btnQuitar
+		'
+		Me.btnQuitar.BackColor = System.Drawing.SystemColors.Control
+		Me.btnQuitar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.minus
+		Me.btnQuitar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnQuitar.FlatAppearance.BorderSize = 0
+		Me.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnQuitar.Location = New System.Drawing.Point(568, 441)
+		Me.btnQuitar.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnQuitar.Name = "btnQuitar"
+		Me.btnQuitar.Size = New System.Drawing.Size(119, 113)
+		Me.btnQuitar.TabIndex = 32
+		Me.btnQuitar.Text = "Quitar"
+		Me.btnQuitar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnQuitar.UseVisualStyleBackColor = False
+		'
 		'FrmArmadoVenta
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(1211, 950)
 		Me.Controls.Add(Me.btnSalir)
-		Me.Controls.Add(Me.GroupBox4)
 		Me.Controls.Add(Me.btnAgregar)
+		Me.Controls.Add(Me.GroupBox4)
 		Me.Controls.Add(Me.btnQuitar)
 		Me.Controls.Add(Me.GroupBox3)
 		Me.Controls.Add(Me.GroupBox2)
