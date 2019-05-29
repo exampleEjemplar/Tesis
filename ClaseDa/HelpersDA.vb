@@ -140,7 +140,7 @@ Public Class HelpersDA
 
 		Dim sqlStr As String
 		ds = New DataSet
-		sqlStr = "select Id,Nombre from Clientes Order By Nombre "
+		sqlStr = "select Id,Nombre +' '+ Apellido as Nombre from Clientes Order By Nombre  "
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)

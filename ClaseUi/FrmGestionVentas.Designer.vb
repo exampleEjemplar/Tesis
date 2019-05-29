@@ -23,7 +23,7 @@ Partial Class FrmGestionVentas
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-		Me.dtpfechanac = New System.Windows.Forms.DateTimePicker()
+		Me.dtpFechaComp = New System.Windows.Forms.DateTimePicker()
 		Me.btnBuscar = New System.Windows.Forms.Button()
 		Me.cboCliente = New System.Windows.Forms.ComboBox()
 		Me.Label17 = New System.Windows.Forms.Label()
@@ -38,7 +38,7 @@ Partial Class FrmGestionVentas
 		'
 		'GroupBox5
 		'
-		Me.GroupBox5.Controls.Add(Me.dtpfechanac)
+		Me.GroupBox5.Controls.Add(Me.dtpFechaComp)
 		Me.GroupBox5.Controls.Add(Me.btnBuscar)
 		Me.GroupBox5.Controls.Add(Me.cboCliente)
 		Me.GroupBox5.Controls.Add(Me.Label17)
@@ -48,20 +48,20 @@ Partial Class FrmGestionVentas
 		Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4)
 		Me.GroupBox5.Name = "GroupBox5"
 		Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4)
-		Me.GroupBox5.Size = New System.Drawing.Size(608, 133)
+		Me.GroupBox5.Size = New System.Drawing.Size(1012, 133)
 		Me.GroupBox5.TabIndex = 34
 		Me.GroupBox5.TabStop = False
 		Me.GroupBox5.Text = "Búsqueda"
 		'
-		'dtpfechanac
+		'dtpFechaComp
 		'
-		Me.dtpfechanac.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-		Me.dtpfechanac.Location = New System.Drawing.Point(228, 54)
-		Me.dtpfechanac.Margin = New System.Windows.Forms.Padding(4)
-		Me.dtpfechanac.Name = "dtpfechanac"
-		Me.dtpfechanac.Size = New System.Drawing.Size(215, 23)
-		Me.dtpfechanac.TabIndex = 22
-		Me.dtpfechanac.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
+		Me.dtpFechaComp.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+		Me.dtpFechaComp.Location = New System.Drawing.Point(187, 52)
+		Me.dtpFechaComp.Margin = New System.Windows.Forms.Padding(4)
+		Me.dtpFechaComp.Name = "dtpFechaComp"
+		Me.dtpFechaComp.Size = New System.Drawing.Size(367, 23)
+		Me.dtpFechaComp.TabIndex = 22
+		Me.dtpFechaComp.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
 		'
 		'btnBuscar
 		'
@@ -70,7 +70,7 @@ Partial Class FrmGestionVentas
 		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnBuscar.FlatAppearance.BorderSize = 0
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(466, 9)
+		Me.btnBuscar.Location = New System.Drawing.Point(867, 19)
 		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(137, 110)
@@ -86,10 +86,10 @@ Partial Class FrmGestionVentas
 		Me.cboCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.cboCliente.FormattingEnabled = True
 		Me.cboCliente.Items.AddRange(New Object() {"Física", "Jurídica"})
-		Me.cboCliente.Location = New System.Drawing.Point(228, 21)
+		Me.cboCliente.Location = New System.Drawing.Point(187, 19)
 		Me.cboCliente.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboCliente.Name = "cboCliente"
-		Me.cboCliente.Size = New System.Drawing.Size(215, 25)
+		Me.cboCliente.Size = New System.Drawing.Size(367, 25)
 		Me.cboCliente.TabIndex = 0
 		'
 		'Label17
@@ -130,7 +130,7 @@ Partial Class FrmGestionVentas
 		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnNuevo.FlatAppearance.BorderSize = 0
 		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnNuevo.Location = New System.Drawing.Point(627, 74)
+		Me.btnNuevo.Location = New System.Drawing.Point(1033, 83)
 		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(137, 112)
@@ -194,6 +194,6 @@ Partial Class FrmGestionVentas
 	Friend WithEvents dgvProveedores As Windows.Forms.DataGridView
 	Friend WithEvents btnNuevo As Windows.Forms.Button
 	Friend WithEvents btnSalir As Windows.Forms.Button
-	Friend WithEvents dtpfechanac As Windows.Forms.DateTimePicker
+	Friend WithEvents dtpFechaComp As Windows.Forms.DateTimePicker
 	Friend WithEvents Label1 As Windows.Forms.Label
 End Class

@@ -7,4 +7,8 @@ Public Class VentasLN
 	Public Sub New()
 		ventasDA = New VentasDA
 	End Sub
+
+	Public Function CargarGrillaVentas(ByVal parametros As Dictionary(Of String, String))
+		Return ventasDA.CargarGrillaVentas(parametros)
+	End Function
 End Class
