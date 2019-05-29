@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CajaNE.vb" />
+    <Compile Include="MovimientoStockNE.vb" />
     <Compile Include="ProductosNE.vb" />
     <Compile Include="UsuariosNE.vb" />
     <Compile Include="ProveedoresNE.vb" />

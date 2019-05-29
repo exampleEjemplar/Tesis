@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="CajaLN.vb" />
     <Compile Include="ConversionLN.vb" />
+    <Compile Include="MovimientoStockLN.vb" />
     <Compile Include="ProductoLN.vb" />
     <Compile Include="UsuariosLN.vb" />
     <Compile Include="ProveedoresLN.vb" />

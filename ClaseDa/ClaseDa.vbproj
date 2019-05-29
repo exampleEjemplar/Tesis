@@ -66,6 +66,7 @@
     <Compile Include="CajaDA.vb" />
     <Compile Include="ConversionDA.vb" />
     <Compile Include="MetodoProductoDA.vb" />
+    <Compile Include="MovimientoStockDA.vb" />
     <Compile Include="UsuariosDA.vb" />
     <Compile Include="ProveedoresDA.vb" />
     <Compile Include="MetodoLoginDA.vb" />
