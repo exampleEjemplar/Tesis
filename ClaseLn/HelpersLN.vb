@@ -27,12 +27,16 @@ Public Class HelpersLN
         Return helpersDA.ValidarSiExisteDni(numero, entidad)
     End Function
 
-    Public Function ValidarSiExisteUserName(ByVal userName As String)
-        Return helpersDA.ValidarSiExisteUserName(userName)
-    End Function
+	Public Function ValidarSiExisteUserName(ByVal userName As String)
+		Return helpersDA.ValidarSiExisteUserName(userName)
+	End Function
+
+	Public Function CargarCboTodosClientes()
+		Return helpersDA.CargarCboTodosClientes()
+	End Function
 
 
-    Public Function EnSesion() As Integer
+	Public Function EnSesion() As Integer
         Return helpersDA.EnSesion()
     End Function
 

@@ -22,14 +22,14 @@
 		End Set
 	End Property
 
-	Private _ClienteId As Integer
+	Private _ProveedorId As Integer
 
-	Public Property ClienteId As Integer
+	Public Property ProveedorId As Integer
 		Get
-			Return _ClienteId
+			Return _ProveedorId
 		End Get
 		Set(ByVal value As Integer)
-			_ClienteId = CStr(value)
+			_ProveedorId = CStr(value)
 		End Set
 	End Property
 
