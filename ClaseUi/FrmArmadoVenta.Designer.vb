@@ -44,6 +44,7 @@ Partial Class FrmArmadoVenta
 		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.btnAgregar = New System.Windows.Forms.Button()
 		Me.btnQuitar = New System.Windows.Forms.Button()
+		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.GroupBox1.SuspendLayout()
 		Me.GroupBox2.SuspendLayout()
 		Me.GroupBox3.SuspendLayout()
@@ -164,9 +165,9 @@ Partial Class FrmArmadoVenta
 		Me.GroupBox2.Controls.Add(Me.Label4)
 		Me.GroupBox2.Controls.Add(Me.Label5)
 		Me.GroupBox2.Controls.Add(Me.Label6)
-		Me.GroupBox2.Location = New System.Drawing.Point(687, 53)
+		Me.GroupBox2.Location = New System.Drawing.Point(687, 110)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Size = New System.Drawing.Size(512, 239)
+		Me.GroupBox2.Size = New System.Drawing.Size(512, 182)
 		Me.GroupBox2.TabIndex = 31
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "Local"
@@ -175,7 +176,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.Label2.AutoSize = True
 		Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label2.Location = New System.Drawing.Point(24, 117)
+		Me.Label2.Location = New System.Drawing.Point(23, 66)
 		Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label2.Name = "Label2"
 		Me.Label2.Size = New System.Drawing.Size(155, 20)
@@ -186,7 +187,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.Label3.AutoSize = True
 		Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label3.Location = New System.Drawing.Point(188, 156)
+		Me.Label3.Location = New System.Drawing.Point(187, 105)
 		Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label3.Name = "Label3"
 		Me.Label3.Size = New System.Drawing.Size(54, 20)
@@ -197,7 +198,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.Label4.AutoSize = True
 		Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label4.Location = New System.Drawing.Point(24, 156)
+		Me.Label4.Location = New System.Drawing.Point(23, 105)
 		Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label4.Name = "Label4"
 		Me.Label4.Size = New System.Drawing.Size(88, 20)
@@ -208,7 +209,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.Label5.AutoSize = True
 		Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label5.Location = New System.Drawing.Point(24, 199)
+		Me.Label5.Location = New System.Drawing.Point(23, 148)
 		Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label5.Name = "Label5"
 		Me.Label5.Size = New System.Drawing.Size(93, 20)
@@ -219,7 +220,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.Label6.AutoSize = True
 		Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
-		Me.Label6.Location = New System.Drawing.Point(188, 69)
+		Me.Label6.Location = New System.Drawing.Point(187, 18)
 		Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label6.Name = "Label6"
 		Me.Label6.Size = New System.Drawing.Size(175, 24)
@@ -270,10 +271,10 @@ Partial Class FrmArmadoVenta
 		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnSalir.FlatAppearance.BorderSize = 0
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalir.Location = New System.Drawing.Point(574, 794)
+		Me.btnSalir.Location = New System.Drawing.Point(1093, 7)
 		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
-		Me.btnSalir.Size = New System.Drawing.Size(106, 95)
+		Me.btnSalir.Size = New System.Drawing.Size(106, 100)
 		Me.btnSalir.TabIndex = 34
 		Me.btnSalir.Text = "Salir"
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -311,11 +312,28 @@ Partial Class FrmArmadoVenta
 		Me.btnQuitar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnQuitar.UseVisualStyleBackColor = False
 		'
+		'btnNuevo
+		'
+		Me.btnNuevo.BackColor = System.Drawing.SystemColors.Control
+		Me.btnNuevo.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
+		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnNuevo.FlatAppearance.BorderSize = 0
+		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnNuevo.Location = New System.Drawing.Point(963, 7)
+		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnNuevo.Name = "btnNuevo"
+		Me.btnNuevo.Size = New System.Drawing.Size(122, 98)
+		Me.btnNuevo.TabIndex = 35
+		Me.btnNuevo.Text = "Finalizar"
+		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnNuevo.UseVisualStyleBackColor = False
+		'
 		'FrmArmadoVenta
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(1211, 950)
+		Me.Controls.Add(Me.btnNuevo)
 		Me.Controls.Add(Me.btnSalir)
 		Me.Controls.Add(Me.btnAgregar)
 		Me.Controls.Add(Me.GroupBox4)
@@ -360,4 +378,5 @@ Partial Class FrmArmadoVenta
 	Friend WithEvents GroupBox4 As Windows.Forms.GroupBox
 	Friend WithEvents dgvProdSelec As Windows.Forms.DataGridView
 	Friend WithEvents btnSalir As Windows.Forms.Button
+	Friend WithEvents btnNuevo As Windows.Forms.Button
 End Class
