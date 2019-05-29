@@ -63,6 +63,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CajaLN.vb" />
     <Compile Include="ConversionLN.vb" />
     <Compile Include="ProductoLN.vb" />
     <Compile Include="UsuariosLN.vb" />
