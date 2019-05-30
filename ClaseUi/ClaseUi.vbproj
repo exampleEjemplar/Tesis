@@ -47,7 +47,7 @@
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ClaseUi.MDIPrincipal</StartupObject>
+    <StartupObject>ClaseUi.FrmGestionProducto</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
