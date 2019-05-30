@@ -47,7 +47,7 @@
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ClaseUi.FrmGestionProducto</StartupObject>
+    <StartupObject>ClaseUi.FrmGestionVentas</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -79,6 +79,18 @@
     <Compile Include="Formprueba1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmArmadoCompra.Designer.vb">
+      <DependentUpon>FrmArmadoCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmArmadoCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmArmadoVenta.Designer.vb">
+      <DependentUpon>FrmArmadoVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmArmadoVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmEstadisticacliente.Designer.vb">
       <DependentUpon>FrmEstadisticacliente.vb</DependentUpon>
     </Compile>
@@ -103,6 +115,12 @@
     <Compile Include="FrmGestionCliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmGestionCompras.Designer.vb">
+      <DependentUpon>FrmGestionCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmGestionProveedores.Designer.vb">
       <DependentUpon>FrmGestionProveedores.vb</DependentUpon>
     </Compile>
@@ -119,6 +137,12 @@
       <DependentUpon>FrmGestionProducto.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmGestionProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionVentas.Designer.vb">
+      <DependentUpon>FrmGestionVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionVentas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HelpersUI.vb" />
@@ -149,10 +173,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PRUEBA.Designer.vb">
+      <DependentUpon>PRUEBA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PRUEBA.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Formprueba1.resx">
       <DependentUpon>Formprueba1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmArmadoCompra.resx">
+      <DependentUpon>FrmArmadoCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmArmadoVenta.resx">
+      <DependentUpon>FrmArmadoVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCatalogo.resx">
       <DependentUpon>FrmCatalogo.vb</DependentUpon>
@@ -166,6 +202,9 @@
     <EmbeddedResource Include="FrmGestionCliente.resx">
       <DependentUpon>FrmGestionCliente.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionCompras.resx">
+      <DependentUpon>FrmGestionCompras.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionProducto.resx">
       <DependentUpon>FrmGestionProducto.vb</DependentUpon>
     </EmbeddedResource>
@@ -174,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionUsuario.resx">
       <DependentUpon>FrmGestionUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionVentas.resx">
+      <DependentUpon>FrmGestionVentas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.vb</DependentUpon>
@@ -186,6 +228,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRUEBA.resx">
+      <DependentUpon>PRUEBA.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -291,7 +336,10 @@
     <None Include="Resources\icons8-approval-48.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-send-to-printer-60.png" />
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
