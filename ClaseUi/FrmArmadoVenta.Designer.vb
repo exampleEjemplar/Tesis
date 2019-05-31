@@ -28,7 +28,6 @@ Partial Class FrmArmadoVenta
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.lblClienteDireccion = New System.Windows.Forms.Label()
 		Me.lblClienteDNI = New System.Windows.Forms.Label()
-		Me.lblClienteTipoDNI = New System.Windows.Forms.Label()
 		Me.lblClienteTelefono = New System.Windows.Forms.Label()
 		Me.lblNombre = New System.Windows.Forms.Label()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -59,7 +58,7 @@ Partial Class FrmArmadoVenta
 		Me.cboCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.cboCliente.FormattingEnabled = True
 		Me.cboCliente.Items.AddRange(New Object() {"Física", "Jurídica"})
-		Me.cboCliente.Location = New System.Drawing.Point(91, 29)
+		Me.cboCliente.Location = New System.Drawing.Point(102, 53)
 		Me.cboCliente.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboCliente.Name = "cboCliente"
 		Me.cboCliente.Size = New System.Drawing.Size(367, 25)
@@ -69,7 +68,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.Label17.AutoSize = True
 		Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label17.Location = New System.Drawing.Point(9, 32)
+		Me.Label17.Location = New System.Drawing.Point(20, 56)
 		Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label17.Name = "Label17"
 		Me.Label17.Size = New System.Drawing.Size(58, 17)
@@ -91,14 +90,11 @@ Partial Class FrmArmadoVenta
 		'
 		Me.GroupBox1.Controls.Add(Me.lblClienteDireccion)
 		Me.GroupBox1.Controls.Add(Me.lblClienteDNI)
-		Me.GroupBox1.Controls.Add(Me.lblClienteTipoDNI)
 		Me.GroupBox1.Controls.Add(Me.lblClienteTelefono)
 		Me.GroupBox1.Controls.Add(Me.lblNombre)
-		Me.GroupBox1.Controls.Add(Me.cboCliente)
-		Me.GroupBox1.Controls.Add(Me.Label17)
-		Me.GroupBox1.Location = New System.Drawing.Point(12, 53)
+		Me.GroupBox1.Location = New System.Drawing.Point(12, 95)
 		Me.GroupBox1.Name = "GroupBox1"
-		Me.GroupBox1.Size = New System.Drawing.Size(555, 239)
+		Me.GroupBox1.Size = New System.Drawing.Size(555, 197)
 		Me.GroupBox1.TabIndex = 27
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "Cliente"
@@ -107,7 +103,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.lblClienteDireccion.AutoSize = True
 		Me.lblClienteDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.lblClienteDireccion.Location = New System.Drawing.Point(24, 117)
+		Me.lblClienteDireccion.Location = New System.Drawing.Point(24, 78)
 		Me.lblClienteDireccion.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblClienteDireccion.Name = "lblClienteDireccion"
 		Me.lblClienteDireccion.Size = New System.Drawing.Size(98, 20)
@@ -118,29 +114,18 @@ Partial Class FrmArmadoVenta
 		'
 		Me.lblClienteDNI.AutoSize = True
 		Me.lblClienteDNI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.lblClienteDNI.Location = New System.Drawing.Point(188, 156)
+		Me.lblClienteDNI.Location = New System.Drawing.Point(24, 123)
 		Me.lblClienteDNI.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblClienteDNI.Name = "lblClienteDNI"
 		Me.lblClienteDNI.Size = New System.Drawing.Size(54, 20)
 		Me.lblClienteDNI.TabIndex = 29
 		Me.lblClienteDNI.Text = "*DNI*"
 		'
-		'lblClienteTipoDNI
-		'
-		Me.lblClienteTipoDNI.AutoSize = True
-		Me.lblClienteTipoDNI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.lblClienteTipoDNI.Location = New System.Drawing.Point(24, 156)
-		Me.lblClienteTipoDNI.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.lblClienteTipoDNI.Name = "lblClienteTipoDNI"
-		Me.lblClienteTipoDNI.Size = New System.Drawing.Size(88, 20)
-		Me.lblClienteTipoDNI.TabIndex = 28
-		Me.lblClienteTipoDNI.Text = "*TipoDNI*"
-		'
 		'lblClienteTelefono
 		'
 		Me.lblClienteTelefono.AutoSize = True
 		Me.lblClienteTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.lblClienteTelefono.Location = New System.Drawing.Point(24, 199)
+		Me.lblClienteTelefono.Location = New System.Drawing.Point(24, 160)
 		Me.lblClienteTelefono.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblClienteTelefono.Name = "lblClienteTelefono"
 		Me.lblClienteTelefono.Size = New System.Drawing.Size(93, 20)
@@ -151,7 +136,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.lblNombre.AutoSize = True
 		Me.lblNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
-		Me.lblNombre.Location = New System.Drawing.Point(188, 69)
+		Me.lblNombre.Location = New System.Drawing.Point(188, 30)
 		Me.lblNombre.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblNombre.Name = "lblNombre"
 		Me.lblNombre.Size = New System.Drawing.Size(115, 24)
@@ -337,6 +322,8 @@ Partial Class FrmArmadoVenta
 		Me.Controls.Add(Me.btnSalir)
 		Me.Controls.Add(Me.btnAgregar)
 		Me.Controls.Add(Me.GroupBox4)
+		Me.Controls.Add(Me.cboCliente)
+		Me.Controls.Add(Me.Label17)
 		Me.Controls.Add(Me.btnQuitar)
 		Me.Controls.Add(Me.GroupBox3)
 		Me.Controls.Add(Me.GroupBox2)
@@ -362,7 +349,6 @@ Partial Class FrmArmadoVenta
 	Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
 	Friend WithEvents lblClienteDireccion As Windows.Forms.Label
 	Friend WithEvents lblClienteDNI As Windows.Forms.Label
-	Friend WithEvents lblClienteTipoDNI As Windows.Forms.Label
 	Friend WithEvents lblClienteTelefono As Windows.Forms.Label
 	Friend WithEvents lblNombre As Windows.Forms.Label
 	Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
