@@ -25,37 +25,22 @@ Partial Class FrmEstadisticacliente
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Me.btnSalir = New System.Windows.Forms.Button()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.gbFiltro = New System.Windows.Forms.GroupBox()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtphasta = New System.Windows.Forms.DateTimePicker()
+        Me.dtpdesde = New System.Windows.Forms.DateTimePicker()
+        Me.btnSalir = New System.Windows.Forms.Button()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
+        Me.gbFiltro.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnSalir
-        '
-        Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
-        Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
-        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnSalir.FlatAppearance.BorderSize = 0
-        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Location = New System.Drawing.Point(686, 357)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(80, 89)
-        Me.btnSalir.TabIndex = 14
-        Me.btnSalir.Text = "Salir"
-        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnSalir.UseVisualStyleBackColor = False
         '
         'Chart1
         '
@@ -75,11 +60,12 @@ Partial Class FrmEstadisticacliente
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.GroupBox2)
+        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.gbFiltro)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.DateTimePicker2)
-        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox1.Controls.Add(Me.dtphasta)
+        Me.GroupBox1.Controls.Add(Me.dtpdesde)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
@@ -88,18 +74,35 @@ Partial Class FrmEstadisticacliente
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Gráfica cantidad de altas de clientes"
         '
-        'GroupBox2
+        'Button1
         '
-        Me.GroupBox2.Controls.Add(Me.RadioButton2)
-        Me.GroupBox2.Controls.Add(Me.RadioButton3)
-        Me.GroupBox2.Controls.Add(Me.RadioButton1)
-        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(76, 63)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(542, 51)
-        Me.GroupBox2.TabIndex = 7
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Filtro"
+        Me.Button1.BackColor = System.Drawing.SystemColors.Control
+        Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_search_48
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(423, 17)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(151, 52)
+        Me.Button1.TabIndex = 17
+        Me.Button1.Tag = ""
+        Me.Button1.Text = "Buscar"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'gbFiltro
+        '
+        Me.gbFiltro.Controls.Add(Me.RadioButton2)
+        Me.gbFiltro.Controls.Add(Me.RadioButton3)
+        Me.gbFiltro.Controls.Add(Me.RadioButton1)
+        Me.gbFiltro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbFiltro.Location = New System.Drawing.Point(76, 63)
+        Me.gbFiltro.Name = "gbFiltro"
+        Me.gbFiltro.Size = New System.Drawing.Size(542, 51)
+        Me.gbFiltro.TabIndex = 7
+        Me.gbFiltro.TabStop = False
+        Me.gbFiltro.Text = "Filtro"
         '
         'RadioButton2
         '
@@ -140,7 +143,7 @@ Partial Class FrmEstadisticacliente
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(377, 43)
+        Me.Label2.Location = New System.Drawing.Point(244, 43)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(40, 13)
         Me.Label2.TabIndex = 6
@@ -150,27 +153,43 @@ Partial Class FrmEstadisticacliente
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(73, 37)
+        Me.Label1.Location = New System.Drawing.Point(73, 43)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 13)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Desde"
         '
-        'DateTimePicker2
+        'dtphasta
         '
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Location = New System.Drawing.Point(418, 37)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker2.TabIndex = 4
+        Me.dtphasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtphasta.Location = New System.Drawing.Point(290, 37)
+        Me.dtphasta.Name = "dtphasta"
+        Me.dtphasta.Size = New System.Drawing.Size(111, 20)
+        Me.dtphasta.TabIndex = 4
         '
-        'DateTimePicker1
+        'dtpdesde
         '
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(117, 37)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 3
+        Me.dtpdesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpdesde.Location = New System.Drawing.Point(117, 37)
+        Me.dtpdesde.Name = "dtpdesde"
+        Me.dtpdesde.Size = New System.Drawing.Size(106, 20)
+        Me.dtpdesde.TabIndex = 3
+        '
+        'btnSalir
+        '
+        Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
+        Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnSalir.FlatAppearance.BorderSize = 0
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.Location = New System.Drawing.Point(686, 357)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(80, 89)
+        Me.btnSalir.TabIndex = 14
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSalir.UseVisualStyleBackColor = False
         '
         'FrmEstadisticacliente
         '
@@ -187,8 +206,8 @@ Partial Class FrmEstadisticacliente
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.gbFiltro.ResumeLayout(False)
+        Me.gbFiltro.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -198,10 +217,11 @@ Partial Class FrmEstadisticacliente
     Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
     Friend WithEvents Label2 As Windows.Forms.Label
     Friend WithEvents Label1 As Windows.Forms.Label
-    Friend WithEvents DateTimePicker2 As Windows.Forms.DateTimePicker
-    Friend WithEvents DateTimePicker1 As Windows.Forms.DateTimePicker
+    Friend WithEvents dtphasta As Windows.Forms.DateTimePicker
+    Friend WithEvents dtpdesde As Windows.Forms.DateTimePicker
     Friend WithEvents RadioButton3 As Windows.Forms.RadioButton
     Friend WithEvents RadioButton2 As Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As Windows.Forms.RadioButton
-    Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
+    Friend WithEvents gbFiltro As Windows.Forms.GroupBox
+    Friend WithEvents Button1 As Windows.Forms.Button
 End Class
