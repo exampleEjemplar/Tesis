@@ -316,49 +316,49 @@ Public Class FrmGestionProveedores
         pro.NumeroCelular = tbcel.Text
 
         If String.IsNullOrEmpty(txtLote.Text) Then
-            pro.Lote = "NULL"
-        Else
+			pro.Lote = ""
+		Else
             pro.Lote = txtLote.Text
         End If
         If String.IsNullOrEmpty(txtBarrio.Text) Then
-            pro.Barrio = "NULL"
-        Else
+			pro.Barrio = ""
+		Else
             pro.Barrio = txtBarrio.Text
         End If
         If String.IsNullOrEmpty(tbcodtel.Text) Then
-            pro.Car_Telefono = "NULL"
-        Else
+			pro.Car_Telefono = ""
+		Else
             pro.Car_Telefono = tbcodtel.Text
         End If
         If String.IsNullOrEmpty(tbtelefono.Text) Then
-            pro.NumeroTelefono = "NULL"
-        Else
+			pro.NumeroTelefono = ""
+		Else
             pro.NumeroTelefono = tbtelefono.Text
         End If
 
         If String.IsNullOrEmpty(tbcalle.Text) Then
-            pro.Calle = "NULL"
-        Else
+			pro.Calle = ""
+		Else
             pro.Calle = tbcalle.Text
         End If
         If String.IsNullOrEmpty(tbNro.Text) Then
-            pro.NumeroCalle = "NULL"
-        Else
+			pro.NumeroCalle = ""
+		Else
             pro.NumeroCalle = tbNro.Text
         End If
         If String.IsNullOrEmpty(tbDpto.Text) Then
-            pro.Departamento = "NULL"
-        Else
+			pro.Departamento = ""
+		Else
             pro.Departamento = tbDpto.Text
         End If
         If String.IsNullOrEmpty(txtManzana.Text) Then
-            pro.Manzana = "NULL"
-        Else
+			pro.Manzana = ""
+		Else
             pro.Manzana = txtManzana.Text
         End If
         If String.IsNullOrEmpty(txtPiso.Text) Then
-            pro.Piso = "NULL"
-        Else
+			pro.Piso = ""
+		Else
             pro.Piso = txtPiso.Text
         End If
         Return True

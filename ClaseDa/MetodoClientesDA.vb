@@ -69,18 +69,18 @@ Public Class MetodoClientesDA
     End Function
 
     Public Sub GrabarClientes(ByVal cli As ClientesNE)
-        Try
-            Dim insert As New SqlCommand("set dateformat dmy insert into Clientes values (" & cli.TipoDocumentoId & "," & cli.NumeroDocumento & ",'" & cli.Nombre & "'," &
-            "'" & cli.Apellido & "','" & cli.FechaNacimiento & "', getdate(), '" & cli.Calle & "', '" & cli.NumeroCalle & "', '" & cli.Departamento & "'," &
-            "'" & cli.Barrio & "'," & cli.Piso & "," & cli.Manzana & "," & cli.Lote & "," & cli.CiudadId & " ," & cli.Car_Telefono &
-            "," & cli.NumeroTelefono & "," & cli.Car_Celular & "," & cli.NumeroCelular & ", 'S'," & cli.UsuarioId & ",'" & cli.Email &
-            "','" & cli.FisicaOJuridica & "')", db)
-            insert.CommandType = CommandType.Text
-            db.Open()
-            insert.ExecuteNonQuery()
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+		Try
+			Dim insert As New SqlCommand("set dateformat dmy insert into Clientes values (" & cli.TipoDocumentoId & "," & cli.NumeroDocumento & ",'" & cli.Nombre & "'," &
+			"'" & cli.Apellido & "','" & cli.FechaNacimiento & "', getdate(), '" & cli.Calle & "', '" & cli.NumeroCalle & "', '" & cli.Departamento & "'," &
+			"'" & cli.Barrio & "','" & cli.Piso & "','" & cli.Manzana & "','" & cli.Lote & "','" & cli.CiudadId & "' ,'" & cli.Car_Telefono &
+			"','" & cli.NumeroTelefono & "','" & cli.Car_Celular & "','" & cli.NumeroCelular & "', 'S','" & cli.UsuarioId & "','" & cli.Email &
+			"','" & cli.FisicaOJuridica & "')", db)
+			insert.CommandType = CommandType.Text
+			db.Open()
+			insert.ExecuteNonQuery()
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
