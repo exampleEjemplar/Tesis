@@ -32,5 +32,12 @@ Public Class ClientesLN
         Return objclientesAD.GeneraGrafico(fechadesde, fechahasta)
     End Function
 
+    Public Function GeneraGraficopersoneria(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return objclientesAD.GeneraGraficopersoneria(fechadesde, fechahasta)
+    End Function
+
+    Public Function GeneraGraficousuario(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return objclientesAD.GeneraGraficousuario(fechadesde, fechahasta)
+    End Function
 End Class
 

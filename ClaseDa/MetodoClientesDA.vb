@@ -1,4 +1,7 @@
-﻿Imports System.Data.SqlClient
+﻿
+
+
+Imports System.Data.SqlClient
 Imports ClaseNe
 
 Public Class MetodoClientesDA
@@ -46,13 +49,13 @@ Public Class MetodoClientesDA
             Dim extraText As String = String.Empty
             Dim count As Integer = 0
             For Each parametro As KeyValuePair(Of String, String) In parametros
-				If count <> 0 Then
-					extraText = extraText & " and "
-				Else
-					extraText = " where "
-				End If
-				extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
-				count = count + 1
+                If count <> 0 Then
+                    extraText = extraText & " and "
+                Else
+                    extraText = " where "
+                End If
+                extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
+                count = count + 1
             Next
             sqlStr = sqlStr & extraText
         End If
@@ -102,7 +105,7 @@ Public Class MetodoClientesDA
 
         Dim sqlStr As String
         ds1 = New DataSet
-        sqlStr = "select p.nombre, count(c.NumeroDocumento) as Cantidad from Clientes c" &
+        sqlStr = "select p.nombre as nombre, count(c.NumeroDocumento) as Cantidad from Clientes c " &
                   "inner join Ciudades ciu on c.CiudadId = Ciu.Id " &
                   "inner Join Provincias p on ciu.ProvinciaID = p.Id " &
                   "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "'" &
@@ -119,4 +122,59 @@ Public Class MetodoClientesDA
         db.Close()
     End Function
 
+
+
+
+    Public Function GeneraGraficopersoneria(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "select count(id) as Cantidad, FisicaOJuridica from Clientes " &
+"where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+"group by FisicaOJuridica"
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return ds1
+        db.Close()
+
+    End Function
+
+
+
+    Public Function GeneraGraficousuario(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = " Select  COUNT(*) As contador, u.UserName as nombre FROM clientes c " &
+                  "inner join Usuarios u on c.UsuarioId=u.id " &
+                  "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+                  "GROUP BY u.UserName"
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return ds1
+        db.Close()
+
+    End Function
+
+
+
+
+
 End Class
+
+
+
+
+
