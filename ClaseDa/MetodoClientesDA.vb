@@ -96,4 +96,27 @@ Public Class MetodoClientesDA
         End Try
     End Sub
 
+
+
+    Public Function GeneraGrafico(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "select p.nombre, count(c.NumeroDocumento) as Cantidad from Clientes c" &
+                  "inner join Ciudades ciu on c.CiudadId = Ciu.Id " &
+                  "inner Join Provincias p on ciu.ProvinciaID = p.Id " &
+                  "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "'" &
+                  "group by p.nombre"
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return ds1
+        db.Close()
+    End Function
+
 End Class
