@@ -35,6 +35,10 @@ Public Class HelpersLN
 		Return helpersDA.CargarCboTodosClientes()
 	End Function
 
+	Public Function CargarTodosProductos()
+		Return helpersDA.CargarTodosProductos()
+	End Function
+
 
 	Public Function EnSesion() As Integer
         Return helpersDA.EnSesion()

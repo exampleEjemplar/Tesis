@@ -152,5 +152,19 @@ Public Class HelpersDA
 
 	End Function
 
+	Public Function CargarTodosProductos()
 
+		Dim sqlStr As String
+		ds = New DataSet
+		sqlStr = "select p.Id,p.Nombre,p.Foto,p.Precio,prov.Nombre as Proveedor from Productos as p inner join proveedores as prov on prov.id = p.ProveedorId order By ProveedorId "
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+		End Try
+		Return ds
+
+	End Function
 End Class

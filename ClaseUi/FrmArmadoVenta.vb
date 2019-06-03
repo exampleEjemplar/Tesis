@@ -6,6 +6,7 @@ Public Class FrmArmadoVenta
 	Private helpersLN As New HelpersLN
 	Private ventasLN As New VentasLN
 	Private clientesLN As New ClientesLN
+	Dim moveItem As Boolean
 
 
 
@@ -21,9 +22,6 @@ Public Class FrmArmadoVenta
 		FrmGestionVentas.Show()
 	End Sub
 
-	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-
-	End Sub
 #End Region
 #Region "Metodos"
 	Public Function LlenarCboClientes()
@@ -45,6 +43,7 @@ Public Class FrmArmadoVenta
 	Private Sub cboCliente_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCliente.SelectionChangeCommitted
 		Dim ds As DataSet = clientesLN.ConsultaModificacion(cboCliente.SelectedValue)
 		GroupBox1.Visible = True
+		'Datos lbl arriba izquierda
 		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
 			lblNombre.Text = ds.Tables(0).Rows(i)(3).ToString() + " " + ds.Tables(0).Rows(i)(3).ToString()
 
@@ -68,7 +67,49 @@ Public Class FrmArmadoVenta
 			End If
 
 		Next
+		'Productos
+
+		Dim LVI As ListViewItem
+		Dim ds2 As DataSet = helpersLN.CargarTodosProductos()
+
+		For i As Integer = 0 To ds2.Tables(0).Rows.Count - 1
+			LVI = New ListViewItem
+			LVI.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
+			LVI.SubItems.Add(ds2.Tables(0).Rows(i).Item(0))
+			lstProdDispo.Items.Add(LVI)
+		Next
+
 	End Sub
+
+	Private Sub lstProdDispo_MouseDown(sender As Object, e As MouseEventArgs) Handles lstProdDispo.MouseDown
+		moveItem = True
+	End Sub
+
+	Private Sub lstProdDispo_MouseMove(sender As Object, e As MouseEventArgs) Handles lstProdDispo.MouseMove
+		Try
+			If moveItem Then
+				Dim asdas As New Label
+				asdas.Text = lstProdDispo.SelectedItems.Item(0).Text
+				asdas.DoDragDrop(asdas.Text, DragDropEffects.Copy)
+			End If
+			moveItem = False
+		Catch ex As Exception
+			MessageBox.Show(ex.Message)
+		End Try
+	End Sub
+
+	Private Sub ListView1_DragDrop(sender As Object, e As DragEventArgs) Handles ListView1.DragDrop
+		ListView1.Items.Add(e.Data.GetData(DataFormats.Text))
+	End Sub
+
+	Private Sub ListView1_DragEnter(sender As Object, e As DragEventArgs) Handles ListView1.DragEnter
+		If e.Data.GetDataPresent(DataFormats.Text) Then
+			e.Effect = DragDropEffects.Copy
+		Else
+			e.Effect = DragDropEffects.None
+		End If
+	End Sub
+
 #End Region
 
 End Class
