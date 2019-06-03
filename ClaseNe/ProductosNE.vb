@@ -177,4 +177,16 @@
     End Property
 
 
+
+    Private _StockODeTercero As Integer
+    Public Property StockODeTercero As Integer
+        Get
+            Return _StockODeTercero
+        End Get
+        Set(ByVal value As Integer)
+            _StockODeTercero = CStr(value)
+        End Set
+    End Property
+
+
 End Class

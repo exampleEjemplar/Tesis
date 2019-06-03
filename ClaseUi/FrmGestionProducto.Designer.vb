@@ -24,7 +24,6 @@ Partial Class FrmGestionProducto
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TextBox9 = New System.Windows.Forms.TextBox()
@@ -57,22 +56,16 @@ Partial Class FrmGestionProducto
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.gbbusqueda = New System.Windows.Forms.GroupBox()
         Me.txtBusNombreProd = New System.Windows.Forms.TextBox()
         Me.lblBusApellido = New System.Windows.Forms.Label()
         Me.txtBusCodigo = New System.Windows.Forms.TextBox()
         Me.lblBusNombre = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.btnNuevo = New System.Windows.Forms.Button()
-        Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.btnSalir = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.tbCodigo = New System.Windows.Forms.TextBox()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.TbUtilidad = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.TbPrecio = New System.Windows.Forms.TextBox()
@@ -101,15 +94,24 @@ Partial Class FrmGestionProducto
         Me.TbTamaño = New System.Windows.Forms.TextBox()
         Me.tbCodBarra = New System.Windows.Forms.TextBox()
         Me.TbNombreProducto = New System.Windows.Forms.TextBox()
-        Me.PBfoto = New System.Windows.Forms.PictureBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.PBfoto = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnNuevo = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbbusqueda.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -166,20 +168,6 @@ Partial Class FrmGestionProducto
         Me.Label17.Size = New System.Drawing.Size(89, 13)
         Me.Label17.TabIndex = 41
         Me.Label17.Text = "Cargar Imagen"
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.SystemColors.Control
-        Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_add_image_48
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(638, 160)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(84, 48)
-        Me.Button1.TabIndex = 40
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = False
         '
         'TextBox8
         '
@@ -460,26 +448,18 @@ Partial Class FrmGestionProducto
         Me.TextBox1.Size = New System.Drawing.Size(207, 20)
         Me.TextBox1.TabIndex = 1
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.ImageLocation = ""
-        Me.PictureBox1.Location = New System.Drawing.Point(754, 37)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(177, 170)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
         'gbbusqueda
         '
+        Me.gbbusqueda.Controls.Add(Me.Button4)
         Me.gbbusqueda.Controls.Add(Me.txtBusNombreProd)
         Me.gbbusqueda.Controls.Add(Me.lblBusApellido)
         Me.gbbusqueda.Controls.Add(Me.txtBusCodigo)
+        Me.gbbusqueda.Controls.Add(Me.btnBuscar)
         Me.gbbusqueda.Controls.Add(Me.lblBusNombre)
         Me.gbbusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbbusqueda.Location = New System.Drawing.Point(23, 272)
+        Me.gbbusqueda.Location = New System.Drawing.Point(126, 395)
         Me.gbbusqueda.Name = "gbbusqueda"
-        Me.gbbusqueda.Size = New System.Drawing.Size(445, 110)
+        Me.gbbusqueda.Size = New System.Drawing.Size(682, 106)
         Me.gbbusqueda.TabIndex = 36
         Me.gbbusqueda.TabStop = False
         Me.gbbusqueda.Text = "Búsqueda"
@@ -523,66 +503,6 @@ Partial Class FrmGestionProducto
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'btnNuevo
-        '
-        Me.btnNuevo.BackColor = System.Drawing.SystemColors.Control
-        Me.btnNuevo.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
-        Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnNuevo.FlatAppearance.BorderSize = 0
-        Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevo.Location = New System.Drawing.Point(620, 287)
-        Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(103, 91)
-        Me.btnNuevo.TabIndex = 33
-        Me.btnNuevo.Text = "Nuevo"
-        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnNuevo.UseVisualStyleBackColor = False
-        '
-        'btnGuardar
-        '
-        Me.btnGuardar.BackColor = System.Drawing.SystemColors.Control
-        Me.btnGuardar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_save_62
-        Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnGuardar.FlatAppearance.BorderSize = 0
-        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardar.Location = New System.Drawing.Point(726, 287)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(86, 89)
-        Me.btnGuardar.TabIndex = 32
-        Me.btnGuardar.Text = "Guardar"
-        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnGuardar.UseVisualStyleBackColor = False
-        '
-        'btnSalir
-        '
-        Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
-        Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
-        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnSalir.FlatAppearance.BorderSize = 0
-        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Location = New System.Drawing.Point(839, 287)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(132, 89)
-        Me.btnSalir.TabIndex = 31
-        Me.btnSalir.Text = "Salir"
-        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnSalir.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.SystemColors.Control
-        Me.Button2.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(839, 287)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(132, 89)
-        Me.Button2.TabIndex = 31
-        Me.Button2.Text = "Salir"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.UseVisualStyleBackColor = False
         '
         'GroupBox2
         '
@@ -653,20 +573,6 @@ Partial Class FrmGestionProducto
         Me.Label18.Size = New System.Drawing.Size(89, 13)
         Me.Label18.TabIndex = 41
         Me.Label18.Text = "Cargar Imagen"
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.SystemColors.Control
-        Me.Button3.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_add_image_48
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Location = New System.Drawing.Point(638, 160)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(84, 48)
-        Me.Button3.TabIndex = 40
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button3.UseVisualStyleBackColor = False
         '
         'TbUtilidad
         '
@@ -809,7 +715,7 @@ Partial Class FrmGestionProducto
         'CmbCategoria
         '
         Me.CmbCategoria.FormattingEnabled = True
-        Me.CmbCategoria.Location = New System.Drawing.Point(586, 102)
+        Me.CmbCategoria.Location = New System.Drawing.Point(94, 91)
         Me.CmbCategoria.Name = "CmbCategoria"
         Me.CmbCategoria.Size = New System.Drawing.Size(152, 21)
         Me.CmbCategoria.TabIndex = 18
@@ -818,7 +724,7 @@ Partial Class FrmGestionProducto
         '
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(513, 105)
+        Me.Label28.Location = New System.Drawing.Point(21, 94)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(61, 13)
         Me.Label28.TabIndex = 17
@@ -827,7 +733,7 @@ Partial Class FrmGestionProducto
         'CmbMaterial
         '
         Me.CmbMaterial.FormattingEnabled = True
-        Me.CmbMaterial.Location = New System.Drawing.Point(367, 100)
+        Me.CmbMaterial.Location = New System.Drawing.Point(607, 96)
         Me.CmbMaterial.Name = "CmbMaterial"
         Me.CmbMaterial.Size = New System.Drawing.Size(133, 21)
         Me.CmbMaterial.TabIndex = 14
@@ -836,7 +742,7 @@ Partial Class FrmGestionProducto
         '
         Me.Label30.AutoSize = True
         Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(269, 103)
+        Me.Label30.Location = New System.Drawing.Point(509, 99)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(99, 13)
         Me.Label30.TabIndex = 13
@@ -845,7 +751,7 @@ Partial Class FrmGestionProducto
         'CmbTipoprodcuto
         '
         Me.CmbTipoprodcuto.FormattingEnabled = True
-        Me.CmbTipoprodcuto.Location = New System.Drawing.Point(125, 99)
+        Me.CmbTipoprodcuto.Location = New System.Drawing.Point(365, 95)
         Me.CmbTipoprodcuto.Name = "CmbTipoprodcuto"
         Me.CmbTipoprodcuto.Size = New System.Drawing.Size(138, 21)
         Me.CmbTipoprodcuto.TabIndex = 12
@@ -874,7 +780,7 @@ Partial Class FrmGestionProducto
         '
         Me.Label33.AutoSize = True
         Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.Location = New System.Drawing.Point(14, 99)
+        Me.Label33.Location = New System.Drawing.Point(254, 95)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(105, 13)
         Me.Label33.TabIndex = 9
@@ -911,6 +817,76 @@ Partial Class FrmGestionProducto
         Me.TbNombreProducto.Size = New System.Drawing.Size(342, 20)
         Me.TbNombreProducto.TabIndex = 5
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowDrop = True
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(23, 507)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.Size = New System.Drawing.Size(894, 158)
+        Me.DataGridView1.TabIndex = 37
+        '
+        'Button6
+        '
+        Me.Button6.BackColor = System.Drawing.SystemColors.Control
+        Me.Button6.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_delete_62
+        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button6.FlatAppearance.BorderSize = 0
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Location = New System.Drawing.Point(410, 272)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(86, 104)
+        Me.Button6.TabIndex = 39
+        Me.Button6.Text = "Cancelar"
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button6.UseVisualStyleBackColor = False
+        '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.SystemColors.Control
+        Me.Button5.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_downloading_updates_64
+        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Location = New System.Drawing.Point(318, 272)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(86, 104)
+        Me.Button5.TabIndex = 38
+        Me.Button5.Text = "Modificar"
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button5.UseVisualStyleBackColor = False
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
+        Me.btnBuscar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.loupe_78956__1_
+        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnBuscar.FlatAppearance.BorderSize = 0
+        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscar.Location = New System.Drawing.Point(441, 15)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(103, 89)
+        Me.btnBuscar.TabIndex = 34
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnBuscar.UseVisualStyleBackColor = False
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.SystemColors.Control
+        Me.Button3.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_add_image_48
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Location = New System.Drawing.Point(638, 160)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(84, 48)
+        Me.Button3.TabIndex = 40
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button3.UseVisualStyleBackColor = False
+        '
         'PBfoto
         '
         Me.PBfoto.ImageLocation = ""
@@ -921,31 +897,89 @@ Partial Class FrmGestionProducto
         Me.PBfoto.TabIndex = 0
         Me.PBfoto.TabStop = False
         '
-        'DataGridView1
+        'Button1
         '
-        Me.DataGridView1.AllowDrop = True
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(23, 399)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(894, 158)
-        Me.DataGridView1.TabIndex = 37
+        Me.Button1.BackColor = System.Drawing.SystemColors.Control
+        Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_add_image_48
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(638, 160)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(84, 48)
+        Me.Button1.TabIndex = 40
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = False
         '
-        'btnBuscar
+        'PictureBox1
         '
-        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
-        Me.btnBuscar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.loupe_78956__1_
-        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnBuscar.FlatAppearance.BorderSize = 0
-        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Location = New System.Drawing.Point(474, 289)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(103, 89)
-        Me.btnBuscar.TabIndex = 34
-        Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnBuscar.UseVisualStyleBackColor = False
+        Me.PictureBox1.ImageLocation = ""
+        Me.PictureBox1.Location = New System.Drawing.Point(754, 37)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(177, 170)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
+        'btnNuevo
+        '
+        Me.btnNuevo.BackColor = System.Drawing.SystemColors.Control
+        Me.btnNuevo.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
+        Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnNuevo.FlatAppearance.BorderSize = 0
+        Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuevo.Location = New System.Drawing.Point(225, 272)
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(87, 104)
+        Me.btnNuevo.TabIndex = 33
+        Me.btnNuevo.Text = "Nuevo"
+        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnNuevo.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.SystemColors.Control
+        Me.Button2.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Location = New System.Drawing.Point(785, 287)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(132, 89)
+        Me.Button2.TabIndex = 31
+        Me.Button2.Text = "Salir"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.BackColor = System.Drawing.SystemColors.Control
+        Me.btnGuardar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_save_62
+        Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnGuardar.FlatAppearance.BorderSize = 0
+        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuardar.Location = New System.Drawing.Point(495, 272)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(86, 104)
+        Me.btnGuardar.TabIndex = 32
+        Me.btnGuardar.Text = "Guardar"
+        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnGuardar.UseVisualStyleBackColor = False
+        '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.SystemColors.Control
+        Me.Button4.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_delete_62
+        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Location = New System.Drawing.Point(564, 12)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(86, 92)
+        Me.Button4.TabIndex = 40
+        Me.Button4.Text = "Cancelar"
+        Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button4.UseVisualStyleBackColor = False
         '
         'FrmGestionProducto
         '
@@ -953,34 +987,33 @@ Partial Class FrmGestionProducto
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(983, 683)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button6)
+        Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.gbbusqueda)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnGuardar)
-        Me.Controls.Add(Me.btnSalir)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FrmGestionProducto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gestion de Producto"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbbusqueda.ResumeLayout(False)
         Me.gbbusqueda.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents btnNuevo As Windows.Forms.Button
     Friend WithEvents btnGuardar As Windows.Forms.Button
-    Friend WithEvents btnSalir As Windows.Forms.Button
     Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
     Friend WithEvents gbbusqueda As Windows.Forms.GroupBox
     Friend WithEvents txtBusNombreProd As Windows.Forms.TextBox
@@ -1060,4 +1093,7 @@ Partial Class FrmGestionProducto
     Friend WithEvents tbCodBarra As Windows.Forms.TextBox
     Friend WithEvents DataGridView1 As Windows.Forms.DataGridView
     Friend WithEvents btnBuscar As Windows.Forms.Button
+    Friend WithEvents Button5 As Windows.Forms.Button
+    Friend WithEvents Button6 As Windows.Forms.Button
+    Friend WithEvents Button4 As Windows.Forms.Button
 End Class

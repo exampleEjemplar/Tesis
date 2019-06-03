@@ -29,11 +29,18 @@ Public Class ProductoLN
         Return objproductosAD.CargarCMBproveerdor()
 
     End Function
+    Public Function ConsultarCodigo()
 
-    Public Function LlenarCMBdescripcion()
+
+        Return objproductosAD.ConsultarCodigo()
+
+    End Function
 
 
-        Return objproductosAD.LlenarCMBdescripcion()
+    Public Function LlenarCMBCategoria()
+
+
+        Return objproductosAD.LlenarCMBCategoria()
 
     End Function
 
@@ -52,12 +59,16 @@ Public Class ProductoLN
         objproductosAD.Grabarproductos(pro)
     End Sub
 
-    Public Function CargaGrillaproductos(ByVal codigo As String, ByVal nombre As String) As DataTable
+    Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
 
-        Return objproductosAD.CargaGrillaproductos(codigo, nombre)
+        Return objproductosAD.CargaGrillaproductossinbusqueda(codigo, nombre)
     End Function
 
 
+    Public Function CargaGrillaproductosconbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
+
+        Return objproductosAD.CargaGrillaproductosconbusqueda(codigo, nombre)
+    End Function
 
     'Public Function consultarimagen() As Byte()
     '    Return objproductosAD.consultarimagen()
