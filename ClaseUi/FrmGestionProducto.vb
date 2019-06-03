@@ -16,6 +16,7 @@ Public Class FrmGestionProducto
     Dim IMAGEN As String
     Dim busqcod As String
     Dim busqprod As String
+    Dim qidproductos As Integer
 
 
     'Metodo que selecciona una imagen y la carga en un PictureBox'
@@ -73,7 +74,7 @@ Public Class FrmGestionProducto
         pro.Unidad = TbUnidad.SelectedValue
         pro.categoriaId = CmbCategoria.SelectedValue
         productometodo.Grabarproductos(pro)
-        DgvclientesSet()
+        DgvproductosSet()
 
 
 
@@ -82,7 +83,7 @@ Public Class FrmGestionProducto
 
 
 
-    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click, Button2.Click
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Close()
     End Sub
 
@@ -90,20 +91,23 @@ Public Class FrmGestionProducto
         DataGridView1.RowTemplate.Height = 45
         busqcod = ""
         busqprod = ""
+        tbCodigo.Enabled = False
+        qidproductos = productometodo.ConsultarCodigo()
+        tbCodigo.Text = qidproductos
 
 
         LlenarCMBTipo()
         LlenarCMBMaterial()
         LlenarCMBproveerdor()
-        LlenarCMBdescripcion()
-        DgvclientesSet()
+        LlenarCMBCategoria()
+        DgvproductosSet()
 
     End Sub
 
-    Public Sub DgvclientesSet()
+    Public Sub DgvproductosSet()
         Try
             Dim dsa1 As DataTable
-            dsa1 = productometodo.CargaGrillaproductos(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
+            dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
             DataGridView1.DataSource = dsa1
             DataGridView1.AllowUserToAddRows = False
             DataGridView1.AllowUserToDeleteRows = False
@@ -131,7 +135,7 @@ Public Class FrmGestionProducto
             Dim ds1 As DataSet
             ds1 = productometodo.CargarCMBTipo()
             CmbTipoprodcuto.DataSource = ds1.Tables(0)
-            CmbTipoprodcuto.DisplayMember = "descripcion"
+            CmbTipoprodcuto.DisplayMember = "nombre"
             CmbTipoprodcuto.ValueMember = "id"
             CmbTipoprodcuto.SelectedValue = 0
 
@@ -174,10 +178,10 @@ Public Class FrmGestionProducto
     End Function
 
 
-    Public Function LlenarCMBdescripcion()
+    Public Function LlenarCMBCategoria()
         Try
             Dim ds1 As DataSet
-            ds1 = productometodo.LlenarCMBdescripcion
+            ds1 = productometodo.LlenarCMBCategoria
             CmbCategoria.DataSource = ds1.Tables(0)
             CmbCategoria.DisplayMember = "nombre"
             CmbCategoria.ValueMember = "id"
@@ -197,10 +201,14 @@ Public Class FrmGestionProducto
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         busqprod = txtBusNombreProd.Text.Trim
         busqcod = txtBusCodigo.Text.Trim
-        DgvclientesSet()
 
 
     End Sub
+
+    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
+
+    End Sub
+
 
 
 

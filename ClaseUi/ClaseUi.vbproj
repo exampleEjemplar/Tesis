@@ -338,5 +338,11 @@
   <ItemGroup>
     <None Include="Resources\icons8-undo-48.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-downloading-updates-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-delete-62.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
