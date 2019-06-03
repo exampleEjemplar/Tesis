@@ -39,16 +39,15 @@ Partial Class FrmArmadoVenta
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
 		Me.lstProdDispo = New System.Windows.Forms.ListView()
 		Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-		Me.dgvProdSelec = New System.Windows.Forms.DataGridView()
 		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.btnAgregar = New System.Windows.Forms.Button()
 		Me.btnQuitar = New System.Windows.Forms.Button()
 		Me.btnNuevo = New System.Windows.Forms.Button()
+		Me.ListView1 = New System.Windows.Forms.ListView()
 		Me.GroupBox1.SuspendLayout()
 		Me.GroupBox2.SuspendLayout()
 		Me.GroupBox3.SuspendLayout()
 		Me.GroupBox4.SuspendLayout()
-		CType(Me.dgvProdSelec, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'cboCliente
@@ -175,20 +174,20 @@ Partial Class FrmArmadoVenta
 		Me.Label3.Location = New System.Drawing.Point(187, 105)
 		Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label3.Name = "Label3"
-		Me.Label3.Size = New System.Drawing.Size(54, 20)
+		Me.Label3.Size = New System.Drawing.Size(119, 20)
 		Me.Label3.TabIndex = 29
-		Me.Label3.Text = "*DNI*"
+		Me.Label3.Text = "23349892014"
 		'
 		'Label4
 		'
 		Me.Label4.AutoSize = True
 		Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label4.Location = New System.Drawing.Point(23, 105)
+		Me.Label4.Location = New System.Drawing.Point(23, 106)
 		Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label4.Name = "Label4"
-		Me.Label4.Size = New System.Drawing.Size(88, 20)
+		Me.Label4.Size = New System.Drawing.Size(50, 20)
 		Me.Label4.TabIndex = 28
-		Me.Label4.Text = "*TipoDNI*"
+		Me.Label4.Text = "CUIT"
 		'
 		'Label5
 		'
@@ -197,9 +196,9 @@ Partial Class FrmArmadoVenta
 		Me.Label5.Location = New System.Drawing.Point(23, 148)
 		Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label5.Name = "Label5"
-		Me.Label5.Size = New System.Drawing.Size(93, 20)
+		Me.Label5.Size = New System.Drawing.Size(114, 20)
 		Me.Label5.TabIndex = 27
-		Me.Label5.Text = "*Telefono*"
+		Me.Label5.Text = "351 4255463"
 		'
 		'Label6
 		'
@@ -232,22 +231,13 @@ Partial Class FrmArmadoVenta
 		'
 		'GroupBox4
 		'
-		Me.GroupBox4.Controls.Add(Me.dgvProdSelec)
+		Me.GroupBox4.Controls.Add(Me.ListView1)
 		Me.GroupBox4.Location = New System.Drawing.Point(687, 310)
 		Me.GroupBox4.Name = "GroupBox4"
 		Me.GroupBox4.Size = New System.Drawing.Size(512, 579)
 		Me.GroupBox4.TabIndex = 32
 		Me.GroupBox4.TabStop = False
 		Me.GroupBox4.Text = "Productos en la venta"
-		'
-		'dgvProdSelec
-		'
-		Me.dgvProdSelec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.dgvProdSelec.Location = New System.Drawing.Point(7, 22)
-		Me.dgvProdSelec.Name = "dgvProdSelec"
-		Me.dgvProdSelec.RowTemplate.Height = 24
-		Me.dgvProdSelec.Size = New System.Drawing.Size(499, 551)
-		Me.dgvProdSelec.TabIndex = 0
 		'
 		'btnSalir
 		'
@@ -313,6 +303,15 @@ Partial Class FrmArmadoVenta
 		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnNuevo.UseVisualStyleBackColor = False
 		'
+		'ListView1
+		'
+		Me.ListView1.AllowDrop = True
+		Me.ListView1.Location = New System.Drawing.Point(4, 21)
+		Me.ListView1.Name = "ListView1"
+		Me.ListView1.Size = New System.Drawing.Size(502, 552)
+		Me.ListView1.TabIndex = 1
+		Me.ListView1.UseCompatibleStateImageBehavior = False
+		'
 		'FrmArmadoVenta
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -337,7 +336,6 @@ Partial Class FrmArmadoVenta
 		Me.GroupBox2.PerformLayout()
 		Me.GroupBox3.ResumeLayout(False)
 		Me.GroupBox4.ResumeLayout(False)
-		CType(Me.dgvProdSelec, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -362,7 +360,7 @@ Partial Class FrmArmadoVenta
 	Friend WithEvents btnAgregar As Windows.Forms.Button
 	Friend WithEvents btnQuitar As Windows.Forms.Button
 	Friend WithEvents GroupBox4 As Windows.Forms.GroupBox
-	Friend WithEvents dgvProdSelec As Windows.Forms.DataGridView
 	Friend WithEvents btnSalir As Windows.Forms.Button
 	Friend WithEvents btnNuevo As Windows.Forms.Button
+	Friend WithEvents ListView1 As Windows.Forms.ListView
 End Class
