@@ -5,12 +5,13 @@ Public Class ProductoLN
     Private objproductosAD As MetodoProductoDA
 
     Public idProv As Integer
-    Public QPacientes As Integer
+    Public QProducto As Integer
     Public QPacientesMod As Integer
     Public IdPaciente1 As Integer
 
     Public Sub New()
         objproductosAD = New MetodoProductoDA
+
     End Sub
 
     Public Function CargarCMBTipo()
@@ -29,12 +30,11 @@ Public Class ProductoLN
         Return objproductosAD.CargarCMBproveerdor()
 
     End Function
-    Public Function ConsultarCodigo()
+    Public Sub ConsultarCodigo()
 
-
-        Return objproductosAD.ConsultarCodigo()
-
-    End Function
+        objproductosAD.controlID()
+        QProducto = objproductosAD.qidproductos
+    End Sub
 
 
     Public Function LlenarCMBCategoria()

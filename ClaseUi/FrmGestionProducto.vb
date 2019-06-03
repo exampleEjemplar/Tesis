@@ -45,36 +45,68 @@ Public Class FrmGestionProducto
     End Sub
 
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click, Button3.Click
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
         cargarImagen()
 
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
-        Dim ms As New IO.MemoryStream()
-
-        PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
+        If rdpropios.Checked Then
 
 
+            Dim ms As New IO.MemoryStream()
+            PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
+            pro.nombreprducto = TbNombreProducto.Text
+            pro.CodBarra = tbCodBarra.Text
+            pro.foto = ms.GetBuffer
+            pro.precio = TbPrecio.Text
+            pro.utilidad = TbUtilidad.Text
+            pro.materialid = CmbMaterial.SelectedValue
+            pro.peso = 1
+            pro.tamaño = TbTamaño.Text
+            pro.color = TbColor.Text
+            pro.proveedorId = cmbProveedor.SelectedValue
+            pro.stockmin = TbStockmin.Text
+            pro.stockmax = TbStockMax.Text
+            pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
+            pro.Unidad = TbUnidad.SelectedValue
+            pro.categoriaId = CmbCategoria.SelectedValue
+            pro.StockODeTercero = 0
+            productometodo.Grabarproductos(pro)
+            DgvproductosSet()
+            cereacampos()
+            bloquearcampos()
+            btnBuscar.Enabled = True
+            btnmodificar.Enabled = True
+        Else
 
-        pro.nombreprducto = TbNombreProducto.Text
-        pro.CodBarra = tbCodBarra.Text
-        pro.foto = ms.GetBuffer
-        pro.precio = TbPrecio.Text
-        pro.utilidad = TbUtilidad.Text
-        pro.materialid = CmbMaterial.SelectedValue
-        pro.peso = 1
-        pro.tamaño = TbTamaño.Text
-        pro.color = TbColor.Text
-        pro.proveedorId = cmbProveedor.SelectedValue
-        pro.stockmin = TbStockmin.Text
-        pro.stockmax = TbStockMax.Text
-        pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
-        pro.Unidad = TbUnidad.SelectedValue
-        pro.categoriaId = CmbCategoria.SelectedValue
-        productometodo.Grabarproductos(pro)
-        DgvproductosSet()
+            Dim ms As New IO.MemoryStream()
+            PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
+            pro.nombreprducto = TbNombreProducto.Text
+            pro.CodBarra = tbCodBarra.Text
+            pro.foto = ms.GetBuffer
+            pro.precio = TbPrecio.Text
+            pro.utilidad = TbUtilidad.Text
+            pro.materialid = CmbMaterial.SelectedValue
+            pro.peso = 1
+            pro.tamaño = TbTamaño.Text
+            pro.color = TbColor.Text
+            pro.proveedorId = cmbProveedor.SelectedValue
+            pro.stockmin = TbStockmin.Text
+            pro.stockmax = TbStockMax.Text
+            pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
+            pro.Unidad = TbUnidad.SelectedValue
+            pro.categoriaId = CmbCategoria.SelectedValue
+            pro.StockODeTercero = 1
+            productometodo.Grabarproductos(pro)
+            DgvproductosSet()
+            cereacampos()
+            bloquearcampos()
+            btnBuscar.Enabled = True
+            btnmodificar.Enabled = True
+
+        End If
 
 
 
@@ -91,11 +123,8 @@ Public Class FrmGestionProducto
         DataGridView1.RowTemplate.Height = 45
         busqcod = ""
         busqprod = ""
-        tbCodigo.Enabled = False
-        qidproductos = productometodo.ConsultarCodigo()
-        tbCodigo.Text = qidproductos
-
-
+        gbbusqueda.Visible = False
+        bloquearcampos()
         LlenarCMBTipo()
         LlenarCMBMaterial()
         LlenarCMBproveerdor()
@@ -122,10 +151,29 @@ Public Class FrmGestionProducto
             Exit Sub
         End Try
 
-        'PictureBox1.Image = DG2.Rows(DG2.CurrentRow.Index).Cells(2).FormattedValue  PARA CUANDO HACEMOS DOBLE CLICK Y CARGAMOS LA IMAGEN 
+
     End Sub
 
+    Public Sub DgvproductosBusq()
+        Try
+            Dim dsa1 As DataTable
+            dsa1 = productometodo.CargaGrillaproductosconbusqueda(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
+            DataGridView1.DataSource = dsa1
+            DataGridView1.AllowUserToAddRows = False
+            DataGridView1.AllowUserToDeleteRows = False
+            For X = 0 To DataGridView1.Rows.Count - 1
+                If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
+                    DataGridView1.Rows.Remove(DataGridView1.Rows(X))
+                End If
+            Next
 
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+            Exit Sub
+        End Try
+
+
+    End Sub
 
 
 
@@ -194,67 +242,122 @@ Public Class FrmGestionProducto
         Return CmbCategoria.SelectedValue
     End Function
 
-
-
-
-
-    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-        busqprod = txtBusNombreProd.Text.Trim
-        busqcod = txtBusCodigo.Text.Trim
+    Public Sub cargarcodigo()
+        productometodo.ConsultarCodigo()
+        tbCodigo.Text = productometodo.QProducto
 
 
     End Sub
+
+
 
     Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
 
     End Sub
 
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        busqprod = txtBusNombreProd.Text.Trim
+        busqcod = txtBusCodigo.Text.Trim
+        DgvproductosBusq()
+
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        DgvproductosSet()
+        gbbusqueda.Visible = False
+    End Sub
+
+    Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+        cargarcodigo()
+        Habilitarcampos()
+        btnBuscar.Enabled = False
+        btnmodificar.Enabled = False
+
+    End Sub
+
+    Public Sub bloquearcampos()
+        tbCodBarra.Enabled = False
+        tbCodigo.Enabled = False
+        TbColor.Enabled = False
+        TbNombreProducto.Enabled = False
+        TbPeso.Enabled = False
+        TbPrecio.Enabled = False
+        TbStockMax.Enabled = False
+        TbStockmin.Enabled = False
+        TbTamaño.Enabled = False
+        TbUnidad.Enabled = False
+        TbUtilidad.Enabled = False
+        cmbProveedor.Enabled = False
+        CmbTipoprodcuto.Enabled = False
+        CmbCategoria.Enabled = False
+        CmbMaterial.Enabled = False
+        Button3.Enabled = False
+        rdpropios.Enabled = False
+        rdterceros.Enabled = False
+
+    End Sub
+
+    Public Sub Habilitarcampos()
+        tbCodBarra.Enabled = True
+        TbColor.Enabled = True
+        TbNombreProducto.Enabled = True
+        TbPeso.Enabled = True
+        TbPrecio.Enabled = True
+        TbStockMax.Enabled = True
+        TbStockmin.Enabled = True
+        TbTamaño.Enabled = True
+        TbUnidad.Enabled = True
+        TbUtilidad.Enabled = True
+        cmbProveedor.Enabled = True
+        CmbTipoprodcuto.Enabled = True
+        CmbCategoria.Enabled = True
+        CmbMaterial.Enabled = True
+        Button3.Enabled = True
+        rdpropios.Enabled = True
+        rdterceros.Enabled = True
+
+
+    End Sub
+
+
+    Public Sub cereacampos()
+        tbCodBarra.Text = ""
+        TbColor.Text = ""
+        TbNombreProducto.Text = ""
+        TbPeso.Text = ""
+        TbPrecio.Text = ""
+        TbStockMax.Text = ""
+        TbStockmin.Text = ""
+        TbTamaño.Text = ""
+        TbUnidad.Text = ""
+        TbUtilidad.Text = ""
+        cmbProveedor.SelectedValue = 0
+        CmbTipoprodcuto.SelectedValue = 0
+        CmbCategoria.SelectedValue = 0
+        CmbMaterial.SelectedValue = 0
+        PBfoto.Image = Nothing
+        rdpropios.Checked = Nothing
+        rdterceros.Checked = Nothing
 
 
 
-    'Public Function CargarCMBcategoria1()
-    '    Try
-    '        Dim ds1 As DataSet
-    '        ds1 = productometodo.CargarCMBcategoria1(idcategoria)
-    '        CmbCategoria1.DataSource = ds1.Tables(0)
-    '        CmbCategoria1.DisplayMember = "nombre"
-    '        CmbCategoria1.ValueMember = "id"
-    '        CmbCategoria1.SelectedValue = 0
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message)
-
-    '    End Try
-    '    Return CmbCategoria1.SelectedValue
-    'End Function
-
-    'Public Function CargarCMBcategoria2()
-    '    Try
-    '        Dim ds1 As DataSet
-    '        ds1 = productometodo.CargarCMBcategoria2(idcategoria1)
-    '        CmbCategoria2.DataSource = ds1.Tables(0)
-    '        CmbCategoria2.DisplayMember = "nombre"
-    '        CmbCategoria2.ValueMember = "id"
-    '        CmbCategoria2.SelectedValue = 0
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message)
-
-    '    End Try
-    '    Return CmbCategoria2.SelectedValue
-    'End Function
 
 
-    '    Private Sub CmbCategoria_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CmbCategoria.SelectionChangeCommitted
+    End Sub
 
-    '        idcategoria = CmbCategoria.SelectedValue.ToString
-    '        CargarCMBcategoria1()
-    '    End Sub
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btncancelar.Click
+        bloquearcampos()
+        cereacampos()
 
-    '    Private Sub CmbCategoria1_SelectionChangeCommitted(sender As Object, e As EventArgs)
-
-    '        idcategoria1 = CmbCategoria1.SelectedValue.ToString
-    '        CargarCMBcategoria2()
-    '    End Sub
+        btnBuscar.Enabled = True
+        btnmodificar.Enabled = True
+        btnNuevo.Enabled = True
 
 
+    End Sub
 
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        gbbusqueda.Visible = True
+
+    End Sub
 End Class

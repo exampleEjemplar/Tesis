@@ -147,7 +147,7 @@ Public Class MetodoProductoDA
                 .AddWithValue("@categoria2id", pro.TipodeProductoId)
                 .AddWithValue("@UnidadDePeso", 1)
                 .AddWithValue("@CategoriaId", pro.categoriaId)
-                .AddWithValue("@StockODeTercero", 1)
+                .AddWithValue("@StockODeTercero", pro.StockODeTercero)
             End With
 
             com.ExecuteNonQuery()
@@ -230,21 +230,21 @@ Public Class MetodoProductoDA
     End Function
 
 
-    Public Function ConsultarCodigo()
+    Public Sub controlID()
+
         Try
-            Dim control As New SqlCommand("select max(id) from productos", db)
-            control.CommandType = CommandType.Text
             db.Open()
+            Dim control As New SqlCommand("select max(id) +1 from productos", db)
+            control.CommandType = CommandType.Text
             Rs = control.ExecuteReader()
             Rs.Read()
             qidproductos = Rs(0)
             db.Close()
         Catch ex As Exception
-            '  MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
-        Return qidproductos
 
-    End Function
+    End Sub
 
 
     'Public Function consultarimagen() As Byte()
