@@ -138,6 +138,30 @@ Public Class FrmGestionProducto
             Dim dsa1 As DataTable
             dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
             DataGridView1.DataSource = dsa1
+           
+        DataGridView1.Columns(2).Visible = False
+        DataGridView1.Columns(5).Visible = False
+        DataGridView1.Columns(6).Visible = False
+        DataGridView1.Columns(7).Visible = False
+        DataGridView1.Columns(8).Visible = False
+        DataGridView1.Columns(9).Visible = False
+        DataGridView1.Columns(10).Visible = False
+        DataGridView1.Columns(11).Visible = False
+        DataGridView1.Columns(12).Visible = False
+        DataGridView1.Columns(13).Visible = False
+        DataGridView1.Columns(14).Visible = False
+         DataGridView1.Columns(0).HeaderText = "Nro. Doc."
+        DataGridView1.Columns(1).HeaderText = "Nro. Doc."
+        DataGridView1.Columns(3).HeaderText = "Apellido"
+        DataGridView1.Columns(4).HeaderText = "Nombre"
+        DataGridView1.Columns(1).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridView1.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        DataGridView1.Columns(3).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridView1.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        DataGridView1.Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridView1.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        DataGridView1.Sort(dvgListadoPacientes.Columns(3), System.ComponentModel.ListSortDirection.Ascending)
+           
             DataGridView1.AllowUserToAddRows = False
             DataGridView1.AllowUserToDeleteRows = False
             For X = 0 To DataGridView1.Rows.Count - 1
@@ -175,6 +199,9 @@ Public Class FrmGestionProducto
 
     End Sub
 
+                
+                
+                
 
 
 
