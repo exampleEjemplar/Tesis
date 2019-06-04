@@ -91,11 +91,11 @@ Public Class MetodoProductoDA
     End Function
 
 
-    Public Function CargarCMBcategoria1(ByVal idcat As Integer)
+    Public Function Cargargrilladobleclick()
 
         Dim sqlStr As String
         ds = New DataSet
-        sqlStr = "select * from SubCategorias1 where Id= " & idcat
+        sqlStr = "select * from productos"
         Try
             Dim da As New SqlDataAdapter(sqlStr, db)
             da.Fill(ds)

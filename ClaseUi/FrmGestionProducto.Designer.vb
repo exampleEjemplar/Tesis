@@ -38,42 +38,42 @@ Partial Class FrmGestionProducto
         Me.Button2 = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.PBfoto = New System.Windows.Forms.PictureBox()
-        Me.TbNombreProducto = New System.Windows.Forms.TextBox()
-        Me.tbCodBarra = New System.Windows.Forms.TextBox()
-        Me.TbTamaño = New System.Windows.Forms.TextBox()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.CmbTipoprodcuto = New System.Windows.Forms.ComboBox()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.CmbMaterial = New System.Windows.Forms.ComboBox()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.CmbCategoria = New System.Windows.Forms.ComboBox()
-        Me.TbColor = New System.Windows.Forms.TextBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.TbUnidad = New System.Windows.Forms.ComboBox()
-        Me.TbPeso = New System.Windows.Forms.TextBox()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.TbStockmin = New System.Windows.Forms.TextBox()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.cmbProveedor = New System.Windows.Forms.ComboBox()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.TbStockMax = New System.Windows.Forms.TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.TbPrecio = New System.Windows.Forms.TextBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.TbUtilidad = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.tbCodigo = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.rdpropios = New System.Windows.Forms.RadioButton()
         Me.rdterceros = New System.Windows.Forms.RadioButton()
+        Me.rdpropios = New System.Windows.Forms.RadioButton()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.tbCodigo = New System.Windows.Forms.TextBox()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.TbUtilidad = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.TbPrecio = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.TbStockMax = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.cmbProveedor = New System.Windows.Forms.ComboBox()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.TbStockmin = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.TbPeso = New System.Windows.Forms.TextBox()
+        Me.TbUnidad = New System.Windows.Forms.ComboBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.TbColor = New System.Windows.Forms.TextBox()
+        Me.CmbCategoria = New System.Windows.Forms.ComboBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.CmbMaterial = New System.Windows.Forms.ComboBox()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.CmbTipoprodcuto = New System.Windows.Forms.ComboBox()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.TbTamaño = New System.Windows.Forms.TextBox()
+        Me.tbCodBarra = New System.Windows.Forms.TextBox()
+        Me.TbNombreProducto = New System.Windows.Forms.TextBox()
+        Me.PBfoto = New System.Windows.Forms.PictureBox()
         Me.gbbusqueda.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -313,258 +313,64 @@ Partial Class FrmGestionProducto
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Gestion de producto"
         '
-        'PBfoto
+        'rdterceros
         '
-        Me.PBfoto.ImageLocation = ""
-        Me.PBfoto.Location = New System.Drawing.Point(758, 90)
-        Me.PBfoto.Name = "PBfoto"
-        Me.PBfoto.Size = New System.Drawing.Size(177, 170)
-        Me.PBfoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PBfoto.TabIndex = 0
-        Me.PBfoto.TabStop = False
+        Me.rdterceros.AutoSize = True
+        Me.rdterceros.Location = New System.Drawing.Point(569, 39)
+        Me.rdterceros.Name = "rdterceros"
+        Me.rdterceros.Size = New System.Drawing.Size(75, 17)
+        Me.rdterceros.TabIndex = 47
+        Me.rdterceros.TabStop = True
+        Me.rdterceros.Text = "Terceros"
+        Me.rdterceros.UseVisualStyleBackColor = True
         '
-        'TbNombreProducto
+        'rdpropios
         '
-        Me.TbNombreProducto.Location = New System.Drawing.Point(410, 88)
-        Me.TbNombreProducto.Name = "TbNombreProducto"
-        Me.TbNombreProducto.Size = New System.Drawing.Size(342, 20)
-        Me.TbNombreProducto.TabIndex = 5
+        Me.rdpropios.AutoSize = True
+        Me.rdpropios.Location = New System.Drawing.Point(398, 37)
+        Me.rdpropios.Name = "rdpropios"
+        Me.rdpropios.Size = New System.Drawing.Size(67, 17)
+        Me.rdpropios.TabIndex = 46
+        Me.rdpropios.TabStop = True
+        Me.rdpropios.Text = "Propios"
+        Me.rdpropios.UseVisualStyleBackColor = True
         '
-        'tbCodBarra
+        'Label1
         '
-        Me.tbCodBarra.Location = New System.Drawing.Point(133, 126)
-        Me.tbCodBarra.Name = "tbCodBarra"
-        Me.tbCodBarra.Size = New System.Drawing.Size(207, 20)
-        Me.tbCodBarra.TabIndex = 1
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(215, 39)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(150, 13)
+        Me.Label1.TabIndex = 45
+        Me.Label1.Text = "Procedencia de producto"
         '
-        'TbTamaño
+        'tbCodigo
         '
-        Me.TbTamaño.Location = New System.Drawing.Point(75, 210)
-        Me.TbTamaño.Name = "TbTamaño"
-        Me.TbTamaño.Size = New System.Drawing.Size(49, 20)
-        Me.TbTamaño.TabIndex = 6
+        Me.tbCodigo.Location = New System.Drawing.Point(75, 87)
+        Me.tbCodigo.Name = "tbCodigo"
+        Me.tbCodigo.Size = New System.Drawing.Size(145, 20)
+        Me.tbCodigo.TabIndex = 43
         '
-        'Label27
+        'Label29
         '
-        Me.Label27.AutoSize = True
-        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(23, 126)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(104, 13)
-        Me.Label27.TabIndex = 7
-        Me.Label27.Text = "Codigo de Barras"
+        Me.Label29.AutoSize = True
+        Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.Location = New System.Drawing.Point(23, 92)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(46, 13)
+        Me.Label29.TabIndex = 42
+        Me.Label29.Text = "Código"
         '
-        'Label33
+        'Label18
         '
-        Me.Label33.AutoSize = True
-        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.Location = New System.Drawing.Point(258, 170)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(105, 13)
-        Me.Label33.TabIndex = 9
-        Me.Label33.Text = "Tipo de Producto"
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.Location = New System.Drawing.Point(278, 94)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(126, 13)
-        Me.Label32.TabIndex = 10
-        Me.Label32.Text = "Nombre del Producto"
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label31.Location = New System.Drawing.Point(23, 212)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(52, 13)
-        Me.Label31.TabIndex = 11
-        Me.Label31.Text = "Tamaño"
-        '
-        'CmbTipoprodcuto
-        '
-        Me.CmbTipoprodcuto.FormattingEnabled = True
-        Me.CmbTipoprodcuto.Location = New System.Drawing.Point(369, 170)
-        Me.CmbTipoprodcuto.Name = "CmbTipoprodcuto"
-        Me.CmbTipoprodcuto.Size = New System.Drawing.Size(138, 21)
-        Me.CmbTipoprodcuto.TabIndex = 12
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(513, 174)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(99, 13)
-        Me.Label30.TabIndex = 13
-        Me.Label30.Text = "Tipo de Material"
-        '
-        'CmbMaterial
-        '
-        Me.CmbMaterial.FormattingEnabled = True
-        Me.CmbMaterial.Location = New System.Drawing.Point(611, 171)
-        Me.CmbMaterial.Name = "CmbMaterial"
-        Me.CmbMaterial.Size = New System.Drawing.Size(141, 21)
-        Me.CmbMaterial.TabIndex = 14
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(23, 169)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(61, 13)
-        Me.Label28.TabIndex = 17
-        Me.Label28.Text = "Categoria"
-        '
-        'CmbCategoria
-        '
-        Me.CmbCategoria.FormattingEnabled = True
-        Me.CmbCategoria.Location = New System.Drawing.Point(98, 166)
-        Me.CmbCategoria.Name = "CmbCategoria"
-        Me.CmbCategoria.Size = New System.Drawing.Size(152, 21)
-        Me.CmbCategoria.TabIndex = 18
-        '
-        'TbColor
-        '
-        Me.TbColor.Location = New System.Drawing.Point(180, 209)
-        Me.TbColor.Name = "TbColor"
-        Me.TbColor.Size = New System.Drawing.Size(95, 20)
-        Me.TbColor.TabIndex = 23
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(143, 212)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(36, 13)
-        Me.Label25.TabIndex = 24
-        Me.Label25.Text = "Color"
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(513, 214)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(35, 13)
-        Me.Label24.TabIndex = 28
-        Me.Label24.Text = "Peso"
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(292, 214)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(97, 13)
-        Me.Label23.TabIndex = 29
-        Me.Label23.Text = "Unidad de Peso"
-        '
-        'TbUnidad
-        '
-        Me.TbUnidad.FormattingEnabled = True
-        Me.TbUnidad.Location = New System.Drawing.Point(395, 210)
-        Me.TbUnidad.Name = "TbUnidad"
-        Me.TbUnidad.Size = New System.Drawing.Size(93, 21)
-        Me.TbUnidad.TabIndex = 30
-        '
-        'TbPeso
-        '
-        Me.TbPeso.Location = New System.Drawing.Point(555, 212)
-        Me.TbPeso.Name = "TbPeso"
-        Me.TbPeso.Size = New System.Drawing.Size(49, 20)
-        Me.TbPeso.TabIndex = 31
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(33, 268)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(83, 13)
-        Me.Label22.TabIndex = 32
-        Me.Label22.Text = "Stock Minimo"
-        '
-        'TbStockmin
-        '
-        Me.TbStockmin.Location = New System.Drawing.Point(122, 264)
-        Me.TbStockmin.Name = "TbStockmin"
-        Me.TbStockmin.Size = New System.Drawing.Size(36, 20)
-        Me.TbStockmin.TabIndex = 33
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(397, 128)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(65, 13)
-        Me.Label26.TabIndex = 15
-        Me.Label26.Text = "Proveedor"
-        '
-        'cmbProveedor
-        '
-        Me.cmbProveedor.FormattingEnabled = True
-        Me.cmbProveedor.Location = New System.Drawing.Point(499, 123)
-        Me.cmbProveedor.Name = "cmbProveedor"
-        Me.cmbProveedor.Size = New System.Drawing.Size(253, 21)
-        Me.cmbProveedor.TabIndex = 16
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(164, 268)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(86, 13)
-        Me.Label21.TabIndex = 34
-        Me.Label21.Text = "Stock Maximo"
-        '
-        'TbStockMax
-        '
-        Me.TbStockMax.Location = New System.Drawing.Point(256, 265)
-        Me.TbStockMax.Name = "TbStockMax"
-        Me.TbStockMax.Size = New System.Drawing.Size(37, 20)
-        Me.TbStockMax.TabIndex = 35
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(327, 267)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(58, 13)
-        Me.Label20.TabIndex = 36
-        Me.Label20.Text = "Precio  $"
-        '
-        'TbPrecio
-        '
-        Me.TbPrecio.Location = New System.Drawing.Point(395, 265)
-        Me.TbPrecio.Name = "TbPrecio"
-        Me.TbPrecio.Size = New System.Drawing.Size(79, 20)
-        Me.TbPrecio.TabIndex = 37
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(486, 268)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(63, 13)
-        Me.Label19.TabIndex = 38
-        Me.Label19.Text = "Utilidad %"
-        '
-        'TbUtilidad
-        '
-        Me.TbUtilidad.Location = New System.Drawing.Point(555, 265)
-        Me.TbUtilidad.Name = "TbUtilidad"
-        Me.TbUtilidad.Size = New System.Drawing.Size(49, 20)
-        Me.TbUtilidad.TabIndex = 39
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(639, 264)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(89, 13)
+        Me.Label18.TabIndex = 41
+        Me.Label18.Text = "Cargar Imagen"
         '
         'Button3
         '
@@ -580,64 +386,259 @@ Partial Class FrmGestionProducto
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button3.UseVisualStyleBackColor = False
         '
-        'Label18
+        'TbUtilidad
         '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(639, 264)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(89, 13)
-        Me.Label18.TabIndex = 41
-        Me.Label18.Text = "Cargar Imagen"
+        Me.TbUtilidad.Location = New System.Drawing.Point(555, 265)
+        Me.TbUtilidad.Name = "TbUtilidad"
+        Me.TbUtilidad.Size = New System.Drawing.Size(49, 20)
+        Me.TbUtilidad.TabIndex = 39
         '
-        'Label29
+        'Label19
         '
-        Me.Label29.AutoSize = True
-        Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(23, 92)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(46, 13)
-        Me.Label29.TabIndex = 42
-        Me.Label29.Text = "Código"
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(486, 268)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(63, 13)
+        Me.Label19.TabIndex = 38
+        Me.Label19.Text = "Utilidad %"
         '
-        'tbCodigo
+        'TbPrecio
         '
-        Me.tbCodigo.Location = New System.Drawing.Point(75, 87)
-        Me.tbCodigo.Name = "tbCodigo"
-        Me.tbCodigo.Size = New System.Drawing.Size(145, 20)
-        Me.tbCodigo.TabIndex = 43
+        Me.TbPrecio.Location = New System.Drawing.Point(395, 265)
+        Me.TbPrecio.Name = "TbPrecio"
+        Me.TbPrecio.Size = New System.Drawing.Size(79, 20)
+        Me.TbPrecio.TabIndex = 37
         '
-        'Label1
+        'Label20
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(215, 39)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(150, 13)
-        Me.Label1.TabIndex = 45
-        Me.Label1.Text = "Procedencia de producto"
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(327, 267)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(58, 13)
+        Me.Label20.TabIndex = 36
+        Me.Label20.Text = "Precio  $"
         '
-        'rdpropios
+        'TbStockMax
         '
-        Me.rdpropios.AutoSize = True
-        Me.rdpropios.Location = New System.Drawing.Point(398, 37)
-        Me.rdpropios.Name = "rdpropios"
-        Me.rdpropios.Size = New System.Drawing.Size(67, 17)
-        Me.rdpropios.TabIndex = 46
-        Me.rdpropios.TabStop = True
-        Me.rdpropios.Text = "Propios"
-        Me.rdpropios.UseVisualStyleBackColor = True
+        Me.TbStockMax.Location = New System.Drawing.Point(256, 265)
+        Me.TbStockMax.Name = "TbStockMax"
+        Me.TbStockMax.Size = New System.Drawing.Size(37, 20)
+        Me.TbStockMax.TabIndex = 35
         '
-        'rdterceros
+        'Label21
         '
-        Me.rdterceros.AutoSize = True
-        Me.rdterceros.Location = New System.Drawing.Point(569, 39)
-        Me.rdterceros.Name = "rdterceros"
-        Me.rdterceros.Size = New System.Drawing.Size(75, 17)
-        Me.rdterceros.TabIndex = 47
-        Me.rdterceros.TabStop = True
-        Me.rdterceros.Text = "Terceros"
-        Me.rdterceros.UseVisualStyleBackColor = True
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(164, 268)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(86, 13)
+        Me.Label21.TabIndex = 34
+        Me.Label21.Text = "Stock Maximo"
+        '
+        'cmbProveedor
+        '
+        Me.cmbProveedor.FormattingEnabled = True
+        Me.cmbProveedor.Location = New System.Drawing.Point(499, 123)
+        Me.cmbProveedor.Name = "cmbProveedor"
+        Me.cmbProveedor.Size = New System.Drawing.Size(253, 21)
+        Me.cmbProveedor.TabIndex = 16
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(397, 128)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(65, 13)
+        Me.Label26.TabIndex = 15
+        Me.Label26.Text = "Proveedor"
+        '
+        'TbStockmin
+        '
+        Me.TbStockmin.Location = New System.Drawing.Point(122, 264)
+        Me.TbStockmin.Name = "TbStockmin"
+        Me.TbStockmin.Size = New System.Drawing.Size(36, 20)
+        Me.TbStockmin.TabIndex = 33
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(33, 268)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(83, 13)
+        Me.Label22.TabIndex = 32
+        Me.Label22.Text = "Stock Minimo"
+        '
+        'TbPeso
+        '
+        Me.TbPeso.Location = New System.Drawing.Point(555, 212)
+        Me.TbPeso.Name = "TbPeso"
+        Me.TbPeso.Size = New System.Drawing.Size(49, 20)
+        Me.TbPeso.TabIndex = 31
+        '
+        'TbUnidad
+        '
+        Me.TbUnidad.FormattingEnabled = True
+        Me.TbUnidad.Location = New System.Drawing.Point(395, 210)
+        Me.TbUnidad.Name = "TbUnidad"
+        Me.TbUnidad.Size = New System.Drawing.Size(93, 21)
+        Me.TbUnidad.TabIndex = 30
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(281, 213)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(109, 13)
+        Me.Label23.TabIndex = 29
+        Me.Label23.Text = "Unidad/ Magnitud"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(513, 214)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(35, 13)
+        Me.Label24.TabIndex = 28
+        Me.Label24.Text = "Peso"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.Location = New System.Drawing.Point(143, 212)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(36, 13)
+        Me.Label25.TabIndex = 24
+        Me.Label25.Text = "Color"
+        '
+        'TbColor
+        '
+        Me.TbColor.Location = New System.Drawing.Point(180, 209)
+        Me.TbColor.Name = "TbColor"
+        Me.TbColor.Size = New System.Drawing.Size(95, 20)
+        Me.TbColor.TabIndex = 23
+        '
+        'CmbCategoria
+        '
+        Me.CmbCategoria.FormattingEnabled = True
+        Me.CmbCategoria.Location = New System.Drawing.Point(98, 166)
+        Me.CmbCategoria.Name = "CmbCategoria"
+        Me.CmbCategoria.Size = New System.Drawing.Size(152, 21)
+        Me.CmbCategoria.TabIndex = 18
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.Location = New System.Drawing.Point(23, 169)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(61, 13)
+        Me.Label28.TabIndex = 17
+        Me.Label28.Text = "Categoria"
+        '
+        'CmbMaterial
+        '
+        Me.CmbMaterial.FormattingEnabled = True
+        Me.CmbMaterial.Location = New System.Drawing.Point(611, 171)
+        Me.CmbMaterial.Name = "CmbMaterial"
+        Me.CmbMaterial.Size = New System.Drawing.Size(141, 21)
+        Me.CmbMaterial.TabIndex = 14
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.Location = New System.Drawing.Point(513, 174)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(99, 13)
+        Me.Label30.TabIndex = 13
+        Me.Label30.Text = "Tipo de Material"
+        '
+        'CmbTipoprodcuto
+        '
+        Me.CmbTipoprodcuto.FormattingEnabled = True
+        Me.CmbTipoprodcuto.Location = New System.Drawing.Point(369, 170)
+        Me.CmbTipoprodcuto.Name = "CmbTipoprodcuto"
+        Me.CmbTipoprodcuto.Size = New System.Drawing.Size(138, 21)
+        Me.CmbTipoprodcuto.TabIndex = 12
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.Location = New System.Drawing.Point(23, 212)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(52, 13)
+        Me.Label31.TabIndex = 11
+        Me.Label31.Text = "Tamaño"
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.Location = New System.Drawing.Point(278, 94)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(126, 13)
+        Me.Label32.TabIndex = 10
+        Me.Label32.Text = "Nombre del Producto"
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.Location = New System.Drawing.Point(258, 170)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(105, 13)
+        Me.Label33.TabIndex = 9
+        Me.Label33.Text = "Tipo de Producto"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.Location = New System.Drawing.Point(23, 126)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(104, 13)
+        Me.Label27.TabIndex = 7
+        Me.Label27.Text = "Codigo de Barras"
+        '
+        'TbTamaño
+        '
+        Me.TbTamaño.Location = New System.Drawing.Point(75, 210)
+        Me.TbTamaño.Name = "TbTamaño"
+        Me.TbTamaño.Size = New System.Drawing.Size(49, 20)
+        Me.TbTamaño.TabIndex = 6
+        '
+        'tbCodBarra
+        '
+        Me.tbCodBarra.Location = New System.Drawing.Point(133, 126)
+        Me.tbCodBarra.Name = "tbCodBarra"
+        Me.tbCodBarra.Size = New System.Drawing.Size(207, 20)
+        Me.tbCodBarra.TabIndex = 1
+        '
+        'TbNombreProducto
+        '
+        Me.TbNombreProducto.Location = New System.Drawing.Point(410, 88)
+        Me.TbNombreProducto.Name = "TbNombreProducto"
+        Me.TbNombreProducto.Size = New System.Drawing.Size(342, 20)
+        Me.TbNombreProducto.TabIndex = 5
+        '
+        'PBfoto
+        '
+        Me.PBfoto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PBfoto.ImageLocation = ""
+        Me.PBfoto.Location = New System.Drawing.Point(758, 90)
+        Me.PBfoto.Name = "PBfoto"
+        Me.PBfoto.Size = New System.Drawing.Size(184, 187)
+        Me.PBfoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PBfoto.TabIndex = 0
+        Me.PBfoto.TabStop = False
         '
         'FrmGestionProducto
         '

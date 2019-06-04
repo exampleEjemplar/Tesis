@@ -133,26 +133,6 @@ Public Class FrmGestionProducto
 
     End Sub
 
-    Public Sub DgvproductosSet()
-        Try
-            Dim dsa1 As DataTable
-            dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
-            DataGridView1.DataSource = dsa1
-            DataGridView1.AllowUserToAddRows = False
-            DataGridView1.AllowUserToDeleteRows = False
-            For X = 0 To DataGridView1.Rows.Count - 1
-                If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
-                    DataGridView1.Rows.Remove(DataGridView1.Rows(X))
-                End If
-            Next
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
-            Exit Sub
-        End Try
-
-
-    End Sub
 
     Public Sub DgvproductosBusq()
         Try
@@ -360,4 +340,55 @@ Public Class FrmGestionProducto
         gbbusqueda.Visible = True
 
     End Sub
+
+    'Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
+    '    productometodo.Cargargrilladobleclick()
+
+    '    tbCodigo.Text = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
+    '    tbCodBarra.Text = (DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value)
+    '    ''PBfoto.Image = (DataGridView1.Item(3, DataGridView1.CurrentRow.Index).Value)
+    '    TbNombreProducto.Text = (DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value)
+    '    TbPrecio.Text = (DataGridView1.Item(4, DataGridView1.CurrentRow.Index).Value)
+    '    TbUtilidad.Text = (DataGridView1.Item(5, DataGridView1.CurrentRow.Index).Value)
+    '    CmbMaterial.SelectedValue = (DataGridView1.Item(6, DataGridView1.CurrentRow.Index).Value)
+    '    TbPeso.Text = (DataGridView1.Item(7, DataGridView1.CurrentRow.Index).Value)
+    '    TbTamaño.Text = (DataGridView1.Item(8, DataGridView1.CurrentRow.Index).Value)
+    '    TbColor.Text = (DataGridView1.Item(9, DataGridView1.CurrentRow.Index).Value)
+    '    cmbProveedor.SelectedValue = (DataGridView1.Item(10, DataGridView1.CurrentRow.Index).Value)
+    '    TbStockmin.Text = (DataGridView1.Item(11, DataGridView1.CurrentRow.Index).Value)
+    '    TbStockMax.text = (DataGridView1.Item(12, DataGridView1.CurrentRow.Index).Value)
+    '    CmbTipoprodcuto.SelectedValue = (DataGridView1.Item(13, DataGridView1.CurrentRow.Index).Value)
+    '    TbUnidad.Text = (DataGridView1.Item(14, DataGridView1.CurrentRow.Index).Value)
+    '    CmbCategoria.SelectedValue = (DataGridView1.Item(15, DataGridView1.CurrentRow.Index).Value)
+
+    'End Sub
+
+    Public Sub DgvproductosSet()
+        Try
+            Dim dsa1 As DataTable
+            dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
+            DataGridView1.DataSource = dsa1
+            DataGridView1.AllowUserToAddRows = False
+            DataGridView1.AllowUserToDeleteRows = False
+            For X = 0 To DataGridView1.Rows.Count - 1
+                If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
+                    DataGridView1.Rows.Remove(DataGridView1.Rows(X))
+                End If
+            Next
+            DataGridView1.Columns(0).Visible = False
+
+
+
+
+
+
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+            Exit Sub
+        End Try
+
+
+    End Sub
+
 End Class

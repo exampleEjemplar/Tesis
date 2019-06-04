@@ -135,7 +135,7 @@ CREATE TABLE Productos(
 Id INT IDENTITY PRIMARY KEY,
 Cod_Barra VARCHAR(MAX),
 Nombre VARCHAR(MAX),
-Foto VARCHAR(MAX),
+Foto image,
 Precio FLOAT,
 Utilidad FLOAT,
 MaterialId INT,

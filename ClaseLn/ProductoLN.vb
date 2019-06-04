@@ -44,9 +44,9 @@ Public Class ProductoLN
 
     End Function
 
-    Public Function CargarCMBcategoria1(ByVal idcat As Integer)
+    Public Function Cargargrilladobleclick()
 
-        Return objproductosAD.CargarCMBcategoria1(idcat)
+        Return objproductosAD.Cargargrilladobleclick()
 
     End Function
 
