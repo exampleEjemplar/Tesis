@@ -1,30 +1,30 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmGestionCliente
-    Inherits System.Windows.Forms.Form
+	Inherits System.Windows.Forms.Form
 
-    'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
-    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-        Try
-            If disposing AndAlso components IsNot Nothing Then
-                components.Dispose()
-            End If
-        Finally
-            MyBase.Dispose(disposing)
-        End Try
-    End Sub
+	'Form reemplaza a Dispose para limpiar la lista de componentes.
+	<System.Diagnostics.DebuggerNonUserCode()>
+	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+		Try
+			If disposing AndAlso components IsNot Nothing Then
+				components.Dispose()
+			End If
+		Finally
+			MyBase.Dispose(disposing)
+		End Try
+	End Sub
 
-    'Requerido por el Diseñador de Windows Forms
-    Private components As System.ComponentModel.IContainer
+	'Requerido por el Diseñador de Windows Forms
+	Private components As System.ComponentModel.IContainer
 
-    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
-    'Se puede modificar usando el Diseñador de Windows Forms.  
-    'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
-    Private Sub InitializeComponent()
-		Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-		Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-		Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+	'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+	'Se puede modificar usando el Diseñador de Windows Forms.  
+	'No lo modifique con el editor de código.
+	<System.Diagnostics.DebuggerStepThrough()>
+	Private Sub InitializeComponent()
+		Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+		Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+		Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.GroupBox6 = New System.Windows.Forms.GroupBox()
 		Me.btnValidarDNI1 = New System.Windows.Forms.Button()
@@ -871,17 +871,17 @@ Partial Class FrmGestionCliente
 		'
 		'Chart1
 		'
-		ChartArea5.Name = "ChartArea1"
-		Me.Chart1.ChartAreas.Add(ChartArea5)
-		Legend5.Name = "Legend1"
-		Me.Chart1.Legends.Add(Legend5)
+		ChartArea3.Name = "ChartArea1"
+		Me.Chart1.ChartAreas.Add(ChartArea3)
+		Legend3.Name = "Legend1"
+		Me.Chart1.Legends.Add(Legend3)
 		Me.Chart1.Location = New System.Drawing.Point(1157, 528)
 		Me.Chart1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.Chart1.Name = "Chart1"
-		Series5.ChartArea = "ChartArea1"
-		Series5.Legend = "Legend1"
-		Series5.Name = "Series1"
-		Me.Chart1.Series.Add(Series5)
+		Series3.ChartArea = "ChartArea1"
+		Series3.Legend = "Legend1"
+		Series3.Name = "Series1"
+		Me.Chart1.Series.Add(Series3)
 		Me.Chart1.Size = New System.Drawing.Size(12, 10)
 		Me.Chart1.TabIndex = 24
 		Me.Chart1.Text = "Chart1"
@@ -922,69 +922,69 @@ Partial Class FrmGestionCliente
 	End Sub
 
 	Friend WithEvents btnNuevo As Windows.Forms.Button
-    Friend WithEvents btnGuardar As Windows.Forms.Button
-    Friend WithEvents btnSalir As Windows.Forms.Button
-    Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
-    Friend WithEvents dtpfechanac As Windows.Forms.DateTimePicker
-    Friend WithEvents lblFechaNac As Windows.Forms.Label
-    Friend WithEvents tbNroDoc As Windows.Forms.TextBox
-    Friend WithEvents lblNumIdent As Windows.Forms.Label
-    Friend WithEvents GroupBox3 As Windows.Forms.GroupBox
-    Friend WithEvents tbtelefono As Windows.Forms.TextBox
-    Friend WithEvents Label11 As Windows.Forms.Label
-    Friend WithEvents tbmail As Windows.Forms.TextBox
-    Friend WithEvents Label9 As Windows.Forms.Label
-    Friend WithEvents Label10 As Windows.Forms.Label
-    Friend WithEvents tbcodcel As Windows.Forms.TextBox
-    Friend WithEvents tbcel As Windows.Forms.TextBox
-    Friend WithEvents Label14 As Windows.Forms.Label
-    Friend WithEvents Label13 As Windows.Forms.Label
-    Friend WithEvents tbcodtel As Windows.Forms.TextBox
-    Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
-    Friend WithEvents Label8 As Windows.Forms.Label
-    Friend WithEvents Label7 As Windows.Forms.Label
-    Friend WithEvents cmbLocalidades As Windows.Forms.ComboBox
-    Friend WithEvents cmbProvincias As Windows.Forms.ComboBox
-    Friend WithEvents Label6 As Windows.Forms.Label
-    Friend WithEvents Label5 As Windows.Forms.Label
-    Friend WithEvents Label4 As Windows.Forms.Label
-    Friend WithEvents tbcalle As Windows.Forms.TextBox
-    Friend WithEvents tbNro As Windows.Forms.TextBox
-    Friend WithEvents tbDpto As Windows.Forms.TextBox
-    Friend WithEvents lblRazonSoc As Windows.Forms.Label
-    Friend WithEvents cbtipodni As Windows.Forms.ComboBox
-    Friend WithEvents lblTipoIdentificacion As Windows.Forms.Label
-    Friend WithEvents tbApellido As Windows.Forms.TextBox
-    Friend WithEvents tbNombre As Windows.Forms.TextBox
-    Friend WithEvents lblNombreFanta As Windows.Forms.Label
-    Friend WithEvents cboTipoPersona As Windows.Forms.ComboBox
-    Friend WithEvents lblTipoDePersona As Windows.Forms.Label
-    Friend WithEvents lblNombre As Windows.Forms.Label
-    Friend WithEvents lblApellido As Windows.Forms.Label
-    Friend WithEvents GroupBox4 As Windows.Forms.GroupBox
-    Friend WithEvents lblInicioAct As Windows.Forms.Label
-    Friend WithEvents Label12 As Windows.Forms.Label
-    Friend WithEvents txtBarrio As Windows.Forms.TextBox
-    Friend WithEvents Label3 As Windows.Forms.Label
-    Friend WithEvents txtPiso As Windows.Forms.TextBox
-    Friend WithEvents Label2 As Windows.Forms.Label
-    Friend WithEvents txtManzana As Windows.Forms.TextBox
-    Friend WithEvents Label1 As Windows.Forms.Label
-    Friend WithEvents txtLote As Windows.Forms.TextBox
-    Friend WithEvents GroupBox5 As Windows.Forms.GroupBox
-    Friend WithEvents txtBusApellido As Windows.Forms.TextBox
-    Friend WithEvents lblBusApellido As Windows.Forms.Label
-    Friend WithEvents txtBusNombre As Windows.Forms.TextBox
-    Friend WithEvents lblBusNombre As Windows.Forms.Label
-    Friend WithEvents txtBusDocNro As Windows.Forms.TextBox
-    Friend WithEvents cboBusTipoDNI As Windows.Forms.ComboBox
-    Friend WithEvents Label15 As Windows.Forms.Label
-    Friend WithEvents Label16 As Windows.Forms.Label
-    Friend WithEvents btnBuscar As Windows.Forms.Button
-    Friend WithEvents cboBusTipoPersona As Windows.Forms.ComboBox
-    Friend WithEvents Label17 As Windows.Forms.Label
-    Friend WithEvents GroupBox6 As Windows.Forms.GroupBox
-    Friend WithEvents Dgvclientes As Windows.Forms.DataGridView
-    Friend WithEvents btnValidarDNI1 As Windows.Forms.Button
-    Friend WithEvents Chart1 As Windows.Forms.DataVisualization.Charting.Chart
+	Friend WithEvents btnGuardar As Windows.Forms.Button
+	Friend WithEvents btnSalir As Windows.Forms.Button
+	Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
+	Friend WithEvents dtpfechanac As Windows.Forms.DateTimePicker
+	Friend WithEvents lblFechaNac As Windows.Forms.Label
+	Friend WithEvents tbNroDoc As Windows.Forms.TextBox
+	Friend WithEvents lblNumIdent As Windows.Forms.Label
+	Friend WithEvents GroupBox3 As Windows.Forms.GroupBox
+	Friend WithEvents tbtelefono As Windows.Forms.TextBox
+	Friend WithEvents Label11 As Windows.Forms.Label
+	Friend WithEvents tbmail As Windows.Forms.TextBox
+	Friend WithEvents Label9 As Windows.Forms.Label
+	Friend WithEvents Label10 As Windows.Forms.Label
+	Friend WithEvents tbcodcel As Windows.Forms.TextBox
+	Friend WithEvents tbcel As Windows.Forms.TextBox
+	Friend WithEvents Label14 As Windows.Forms.Label
+	Friend WithEvents Label13 As Windows.Forms.Label
+	Friend WithEvents tbcodtel As Windows.Forms.TextBox
+	Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
+	Friend WithEvents Label8 As Windows.Forms.Label
+	Friend WithEvents Label7 As Windows.Forms.Label
+	Friend WithEvents cmbLocalidades As Windows.Forms.ComboBox
+	Friend WithEvents cmbProvincias As Windows.Forms.ComboBox
+	Friend WithEvents Label6 As Windows.Forms.Label
+	Friend WithEvents Label5 As Windows.Forms.Label
+	Friend WithEvents Label4 As Windows.Forms.Label
+	Friend WithEvents tbcalle As Windows.Forms.TextBox
+	Friend WithEvents tbNro As Windows.Forms.TextBox
+	Friend WithEvents tbDpto As Windows.Forms.TextBox
+	Friend WithEvents lblRazonSoc As Windows.Forms.Label
+	Friend WithEvents cbtipodni As Windows.Forms.ComboBox
+	Friend WithEvents lblTipoIdentificacion As Windows.Forms.Label
+	Friend WithEvents tbApellido As Windows.Forms.TextBox
+	Friend WithEvents tbNombre As Windows.Forms.TextBox
+	Friend WithEvents lblNombreFanta As Windows.Forms.Label
+	Friend WithEvents cboTipoPersona As Windows.Forms.ComboBox
+	Friend WithEvents lblTipoDePersona As Windows.Forms.Label
+	Friend WithEvents lblNombre As Windows.Forms.Label
+	Friend WithEvents lblApellido As Windows.Forms.Label
+	Friend WithEvents GroupBox4 As Windows.Forms.GroupBox
+	Friend WithEvents lblInicioAct As Windows.Forms.Label
+	Friend WithEvents Label12 As Windows.Forms.Label
+	Friend WithEvents txtBarrio As Windows.Forms.TextBox
+	Friend WithEvents Label3 As Windows.Forms.Label
+	Friend WithEvents txtPiso As Windows.Forms.TextBox
+	Friend WithEvents Label2 As Windows.Forms.Label
+	Friend WithEvents txtManzana As Windows.Forms.TextBox
+	Friend WithEvents Label1 As Windows.Forms.Label
+	Friend WithEvents txtLote As Windows.Forms.TextBox
+	Friend WithEvents GroupBox5 As Windows.Forms.GroupBox
+	Friend WithEvents txtBusApellido As Windows.Forms.TextBox
+	Friend WithEvents lblBusApellido As Windows.Forms.Label
+	Friend WithEvents txtBusNombre As Windows.Forms.TextBox
+	Friend WithEvents lblBusNombre As Windows.Forms.Label
+	Friend WithEvents txtBusDocNro As Windows.Forms.TextBox
+	Friend WithEvents cboBusTipoDNI As Windows.Forms.ComboBox
+	Friend WithEvents Label15 As Windows.Forms.Label
+	Friend WithEvents Label16 As Windows.Forms.Label
+	Friend WithEvents btnBuscar As Windows.Forms.Button
+	Friend WithEvents cboBusTipoPersona As Windows.Forms.ComboBox
+	Friend WithEvents Label17 As Windows.Forms.Label
+	Friend WithEvents GroupBox6 As Windows.Forms.GroupBox
+	Friend WithEvents Dgvclientes As Windows.Forms.DataGridView
+	Friend WithEvents btnValidarDNI1 As Windows.Forms.Button
+	Friend WithEvents Chart1 As Windows.Forms.DataVisualization.Charting.Chart
 End Class

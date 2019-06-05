@@ -11,12 +11,30 @@ Public Class HelpersUI
         Return True
 
     End Function
-    Public Function Validar_Mail(ByVal sMail As String) As Boolean
-        ' retorna true o false   
-        Return Regex.IsMatch(sMail,
-                "^([\w-]+\.)*?[\w-]+@[\w-]+\.([\w-]+\.)*?[\w]+$")
-    End Function
-    Public Function ValidarTamaño(ByVal text As String, ByVal minLength As Integer, ByVal maxLength As Integer) As Boolean
+	'Public Function Validar_Mail(ByVal sMail As String) As Boolean
+
+	'	Dim lista As List(Of String) = New List(Of String) From {
+	'	"á", "é", "í", "ó", "ú"
+	'	}
+
+	'	For Each letra As String In lista
+	'		If sMail.Contains(letra) Then
+	'			Return False
+	'		End If
+	'	Next
+
+	'	Return Regex.IsMatch(sMail,
+	'				 "^([\w-]+\.)*?[\w-]+@[\w-]+\.([\w-]+\.)*?[\w]+$")
+	'End Function
+
+	Function IsEmail(ByVal email As String) As Boolean
+		Static emailRegex As New Regex("^[_a-z0-9-]+(.[a-z0-9-]+)@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$")
+
+		Return emailRegex.IsMatch(email)
+	End Function
+
+
+	Public Function ValidarTamaño(ByVal text As String, ByVal minLength As Integer, ByVal maxLength As Integer) As Boolean
         'Pasar en 0 el parametro que no se quiera validar
         If minLength <> 0 Then
             If text.Length < minLength Then

@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms
+﻿Imports System.Drawing
+Imports System.Windows.Forms
 Imports ClaseLn
 Imports ClaseNe
 
@@ -14,6 +15,7 @@ Public Class FrmGestionCliente
 	Private fisicaOJuridica As String
 	Private ClienteID As Integer
 	Private Modificando As Boolean
+	Dim cadena As String
 
 #Region "Eventos"
 
@@ -26,6 +28,15 @@ Public Class FrmGestionCliente
 		'LlenarCMBLocalidades("general")
 		Block()
 		DgvclientesSet(New Dictionary(Of String, String))
+
+
+		tbmail.Text = "ejemplo@ejemplo.com"
+
+		tbmail.ForeColor = Color.LightGray
+
+		AddHandler tbmail.GotFocus, AddressOf GotfocusTexto
+		AddHandler tbmail.LostFocus, AddressOf LostfocusTexto
+
 
 	End Sub
 
@@ -242,7 +253,7 @@ Public Class FrmGestionCliente
 	'Valida datos antes de insertarlos en la BD
 	Public Function ValidarDatos()
 
-		If tbmail.Text.Contains("ñ") Or helpersUI.Validar_Mail(tbmail.Text) = False Then
+		If tbmail.Text.Contains("ñ") Or helpersUI.IsEmail(tbmail.Text) = False Then
 			MsgBox("Debe ingresar correctamente el campo email", MsgBoxStyle.Critical, "Error")
 			Return False
 		End If
@@ -424,7 +435,7 @@ Public Class FrmGestionCliente
 		GroupBox3.Visible = True
 		btnGuardar.Enabled = True
 		cboTipoPersona.Enabled = False
-		cbtipodni.Enabled = False
+		'cbtipodni.Enabled = False
 		tbNroDoc.ReadOnly = True
 		btnValidarDNI1.Enabled = False
 	End Sub
@@ -562,6 +573,7 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 		If helpersLN.ValidarSiExisteDni(Convert.ToInt64(tbNroDoc.Text), "Clientes") = False Then
 
 			Unblock()
+			cbtipodni.Enabled = False
 			If cboTipoPersona.SelectedItem = "Física" Then
 				lblRazonSoc.Visible = False
 				lblNombreFanta.Visible = False
@@ -580,8 +592,30 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 		Else
 			MsgBox("La identificación ingresada ya existe en la base de datos", MsgBoxStyle.Critical, "Ya existente")
 		End If
+
+	End Sub
+
+	Private Sub GotfocusTexto(ByVal sender As Object, ByVal e As System.EventArgs)
+		'capturamos el texto que tenia
+		cadena = sender.Text
+		'borramos el texto del textbox
+		sender.Text = ""
+		'ponemos el color de la letra en negro
+		sender.ForeColor = Color.Black
+	End Sub
+
+	Private Sub LostfocusTexto(ByVal sender As Object, ByVal e As System.EventArgs)
+		If sender.Text = "" Then 'si salio del textbox sin poner nada
+			sender.Text = cadena  'volverle a poner el texto que tenia
+			sender.ForeColor = Color.LightGray 'y poner la letra en gris
+		End If
+
 	End Sub
 
 
 #End Region
+
+
+
+
 End Class

@@ -242,13 +242,13 @@ Public Class FrmGestionProveedores
     'Valida datos antes de insertarlos en la BD
     Public Function ValidarDatos()
 
-        If tbmail.Text.Contains("ñ") Or helpersUI.Validar_Mail(tbmail.Text) = False Then
-            MsgBox("Debe ingresar correctamente el campo email", MsgBoxStyle.Critical, "Error")
-            Return False
-        End If
+		If tbmail.Text.Contains("ñ") Or helpersUI.IsEmail(tbmail.Text) = False Then
+			MsgBox("Debe ingresar correctamente el campo email", MsgBoxStyle.Critical, "Error")
+			Return False
+		End If
 
-        'Agrego todos los txt y cbo a un diccionario para validarlos despues genericamente y no uno por uno
-        Dim dictionaryOfMandatoriesTexts As Dictionary(Of String, String) = New Dictionary(Of String, String) From
+		'Agrego todos los txt y cbo a un diccionario para validarlos despues genericamente y no uno por uno
+		Dim dictionaryOfMandatoriesTexts As Dictionary(Of String, String) = New Dictionary(Of String, String) From
         {{"Numero de calle", tbNro.Text}, {"Email", tbmail.Text}, {"Calle", tbcalle.Text},
         {"Localidad", cmbLocalidades.SelectedValue},
         {"Provincia", cmbProvincias.SelectedValue}}
