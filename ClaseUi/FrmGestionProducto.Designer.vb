@@ -74,6 +74,7 @@ Partial Class FrmGestionProducto
         Me.tbCodBarra = New System.Windows.Forms.TextBox()
         Me.TbNombreProducto = New System.Windows.Forms.TextBox()
         Me.PBfoto = New System.Windows.Forms.PictureBox()
+        Me.btnguardarmodificacion = New System.Windows.Forms.Button()
         Me.gbbusqueda.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -169,12 +170,24 @@ Partial Class FrmGestionProducto
         'DataGridView1
         '
         Me.DataGridView1.AllowDrop = True
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(23, 568)
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DataGridView1.EnableHeadersVisualStyles = False
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 568)
+        Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(894, 158)
+        Me.DataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.RowHeadersWidth = 56
+        Me.DataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(892, 158)
         Me.DataGridView1.TabIndex = 37
         '
         'btncancelar
@@ -640,12 +653,28 @@ Partial Class FrmGestionProducto
         Me.PBfoto.TabIndex = 0
         Me.PBfoto.TabStop = False
         '
+        'btnguardarmodificacion
+        '
+        Me.btnguardarmodificacion.BackColor = System.Drawing.SystemColors.Control
+        Me.btnguardarmodificacion.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_save_62
+        Me.btnguardarmodificacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnguardarmodificacion.FlatAppearance.BorderSize = 0
+        Me.btnguardarmodificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnguardarmodificacion.Location = New System.Drawing.Point(502, 333)
+        Me.btnguardarmodificacion.Name = "btnguardarmodificacion"
+        Me.btnguardarmodificacion.Size = New System.Drawing.Size(86, 104)
+        Me.btnguardarmodificacion.TabIndex = 40
+        Me.btnguardarmodificacion.Text = "Guardar"
+        Me.btnguardarmodificacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnguardarmodificacion.UseVisualStyleBackColor = False
+        '
         'FrmGestionProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(983, 738)
         Me.ControlBox = False
+        Me.Controls.Add(Me.btnguardarmodificacion)
         Me.Controls.Add(Me.btncancelar)
         Me.Controls.Add(Me.btnmodificar)
         Me.Controls.Add(Me.DataGridView1)
@@ -720,4 +749,5 @@ Partial Class FrmGestionProducto
     Friend WithEvents tbCodBarra As Windows.Forms.TextBox
     Friend WithEvents TbNombreProducto As Windows.Forms.TextBox
     Friend WithEvents PBfoto As Windows.Forms.PictureBox
+    Friend WithEvents btnguardarmodificacion As Windows.Forms.Button
 End Class

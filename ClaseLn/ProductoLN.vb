@@ -59,6 +59,10 @@ Public Class ProductoLN
         objproductosAD.Grabarproductos(pro)
     End Sub
 
+    Public Sub modificarproductos(ByVal pro As ProductosNE)
+        objproductosAD.modificarproductos(pro)
+    End Sub
+
     Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
 
         Return objproductosAD.CargaGrillaproductossinbusqueda(codigo, nombre)
@@ -70,9 +74,11 @@ Public Class ProductoLN
         Return objproductosAD.CargaGrillaproductosconbusqueda(codigo, nombre)
     End Function
 
-    'Public Function consultarimagen() As Byte()
-    '    Return objproductosAD.consultarimagen()
-    'End Function
+    Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As String) As DataTable
+
+        Return objproductosAD.CargaGrillaproductosCONbusquedaCAT(codigo, nombre, categoria)
+    End Function
+
     ''
     'Public Function ConsultaModificacion(ByVal nroDoc As Integer)
 

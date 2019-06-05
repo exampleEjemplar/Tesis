@@ -46,6 +46,7 @@ Public Class ConversionDA
 
     End Function
 
+
     Function bytesToString(ByVal arreglo As Byte()) As String
         Dim salida As String = ""
         Dim x As Integer = 0
