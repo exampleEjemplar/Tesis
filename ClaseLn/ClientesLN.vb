@@ -7,7 +7,7 @@ Public Class ClientesLN
     Public idProv As Integer
     Public QPacientes As Integer
     Public QPacientesMod As Integer
-    Public IdPaciente1 As Integer
+    Public contador As Integer
 
     Public Sub New()
         objclientesAD = New MetodoClientesDA
@@ -39,5 +39,13 @@ Public Class ClientesLN
     Public Function GeneraGraficousuario(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
         Return objclientesAD.GeneraGraficousuario(fechadesde, fechahasta)
     End Function
+
+    Public Sub controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
+        objclientesAD.controlfecha(fechadesde, fechahasta)
+        contador = objclientesAD.contador
+    End Sub
+
+
+
 End Class
 

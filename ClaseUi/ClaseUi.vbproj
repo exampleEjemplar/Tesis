@@ -347,5 +347,8 @@
   <ItemGroup>
     <None Include="Resources\icons8-checkmark-62.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-moleskine-62.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

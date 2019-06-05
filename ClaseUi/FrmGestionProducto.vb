@@ -74,11 +74,12 @@ Public Class FrmGestionProducto
             pro.categoriaId = CmbCategoria.SelectedValue
             pro.StockODeTercero = 0
             productometodo.Grabarproductos(pro)
-            DgvproductosSet()
+            Dgvproductosset()
             cereacampos()
             bloquearcampos()
             btnBuscar.Enabled = True
             btnmodificar.Enabled = True
+            btnNuevo.Enabled = True
         Else
 
             Dim ms As New IO.MemoryStream()
@@ -100,7 +101,7 @@ Public Class FrmGestionProducto
             pro.categoriaId = CmbCategoria.SelectedValue
             pro.StockODeTercero = 1
             productometodo.Grabarproductos(pro)
-            DgvproductosSet()
+            Dgvproductosset()
             cereacampos()
             bloquearcampos()
             btnBuscar.Enabled = True
@@ -112,6 +113,10 @@ Public Class FrmGestionProducto
 
     End Sub
 
+    Private Sub btnmodificar_Click(sender As Object, e As EventArgs) Handles btnmodificar.Click
+        Habilitarcampos()
+
+    End Sub
 
 
 
@@ -120,49 +125,66 @@ Public Class FrmGestionProducto
     End Sub
 
     Private Sub FrmGestionProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DataGridView1.RowTemplate.Height = 45
+        DataGridView1.RowTemplate.Height = 30
         busqcod = ""
         busqprod = ""
+        btnguardarmodificacion.Visible = False
         gbbusqueda.Visible = False
         bloquearcampos()
         LlenarCMBTipo()
         LlenarCMBMaterial()
         LlenarCMBproveerdor()
         LlenarCMBCategoria()
-        DgvproductosSet()
+        Dgvproductosset()
+        btnmodificar.Enabled = False
+
 
     End Sub
 
-    Public Sub DgvproductosSet()
+    Public Sub Dgvproductosset()
         Try
+
+
             Dim dsa1 As DataTable
             dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
             DataGridView1.DataSource = dsa1
-           
-        DataGridView1.Columns(2).Visible = False
-        DataGridView1.Columns(5).Visible = False
-        DataGridView1.Columns(6).Visible = False
-        DataGridView1.Columns(7).Visible = False
-        DataGridView1.Columns(8).Visible = False
-        DataGridView1.Columns(9).Visible = False
-        DataGridView1.Columns(10).Visible = False
-        DataGridView1.Columns(11).Visible = False
-        DataGridView1.Columns(12).Visible = False
-        DataGridView1.Columns(13).Visible = False
-        DataGridView1.Columns(14).Visible = False
-         DataGridView1.Columns(0).HeaderText = "Nro. Doc."
-        DataGridView1.Columns(1).HeaderText = "Nro. Doc."
-        DataGridView1.Columns(3).HeaderText = "Apellido"
-        DataGridView1.Columns(4).HeaderText = "Nombre"
-        DataGridView1.Columns(1).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridView1.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        DataGridView1.Columns(3).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridView1.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        DataGridView1.Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridView1.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			'DataGridView1.Sort(dvgListadoPacientes.Columns(3), System.ComponentModel.ListSortDirection.Ascending)
+            DataGridView1.Columns(0).HeaderText = "Código"
+            DataGridView1.Columns(1).HeaderText = "Código Barras"
+            DataGridView1.Columns(2).HeaderText = "Nombre de Producto"
+            DataGridView1.Columns(3).HeaderText = "Categoría de Producto"
+            DataGridView1.Columns(4).HeaderText = "Tipo de Produco"
+            DataGridView1.Columns(5).HeaderText = "Material de Producto"
+            DataGridView1.Columns(6).HeaderText = "Precio al Público"
+            DataGridView1.Columns(7).Visible = False
+            DataGridView1.Columns(8).Visible = False
+            DataGridView1.Columns(9).Visible = False
+            DataGridView1.Columns(10).Visible = False
+            DataGridView1.Columns(11).Visible = False
+            DataGridView1.Columns(12).Visible = False
+            DataGridView1.Columns(13).Visible = False
+            DataGridView1.Columns(14).Visible = False
+            DataGridView1.Columns(15).Visible = False
+            DataGridView1.Columns(16).Visible = False
+            DataGridView1.Columns(17).Visible = False
+            DataGridView1.Columns(18).Visible = False
+            DataGridView1.Columns(19).Visible = False
+            DataGridView1.Columns(20).Visible = False
+            DataGridView1.Columns(21).Visible = False
+            DataGridView1.Columns(1).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            DataGridView1.Columns(0).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            DataGridView1.Columns(2).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            DataGridView1.Columns(3).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            DataGridView1.Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            DataGridView1.Columns(5).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            DataGridView1.Sort(DataGridView1.Columns(2), System.ComponentModel.ListSortDirection.Ascending)
 
-			DataGridView1.AllowUserToAddRows = False
+            DataGridView1.AllowUserToAddRows = False
             DataGridView1.AllowUserToDeleteRows = False
             For X = 0 To DataGridView1.Rows.Count - 1
                 If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
@@ -174,9 +196,8 @@ Public Class FrmGestionProducto
             MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
             Exit Sub
         End Try
-
-
     End Sub
+
 
     Public Sub DgvproductosBusq()
         Try
@@ -199,9 +220,51 @@ Public Class FrmGestionProducto
 
     End Sub
 
-                
-                
-                
+
+    Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
+        productometodo.Cargargrilladobleclick()
+        tbCodigo.Text = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
+        tbCodBarra.Text = (DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value)
+
+        Dim ms As MemoryStream = New MemoryStream()
+
+        Dim img As Byte() = CType((DataGridView1.Item(9, DataGridView1.CurrentRow.Index).Value), Byte())
+
+
+        If img Is Nothing Then
+            MessageBox.Show("Imagen no encontrada en la base de datos")
+        End If
+
+        ms.Write(img, 0, img.GetUpperBound(0) + 1)
+        Dim imgImagen As System.Drawing.Image = System.Drawing.Image.FromStream(ms)
+
+        PBfoto.Image = imgImagen
+        TbNombreProducto.Text = (DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value)
+        TbPrecio.Text = (DataGridView1.Item(10, DataGridView1.CurrentRow.Index).Value)
+        TbUtilidad.Text = (DataGridView1.Item(11, DataGridView1.CurrentRow.Index).Value)
+        CmbMaterial.SelectedValue = (DataGridView1.Item(8, DataGridView1.CurrentRow.Index).Value)
+        TbPeso.Text = (DataGridView1.Item(12, DataGridView1.CurrentRow.Index).Value)
+        TbTamaño.Text = (DataGridView1.Item(13, DataGridView1.CurrentRow.Index).Value)
+        TbColor.Text = (DataGridView1.Item(14, DataGridView1.CurrentRow.Index).Value)
+        cmbProveedor.SelectedValue = (DataGridView1.Item(15, DataGridView1.CurrentRow.Index).Value)
+        TbStockmin.Text = (DataGridView1.Item(16, DataGridView1.CurrentRow.Index).Value)
+        TbStockMax.Text = (DataGridView1.Item(17, DataGridView1.CurrentRow.Index).Value)
+        CmbTipoprodcuto.SelectedValue = (DataGridView1.Item(8, DataGridView1.CurrentRow.Index).Value)
+        TbUnidad.Text = (DataGridView1.Item(19, DataGridView1.CurrentRow.Index).Value)
+        CmbCategoria.SelectedValue = (DataGridView1.Item(20, DataGridView1.CurrentRow.Index).Value)
+        If (DataGridView1.Item(21, DataGridView1.CurrentRow.Index).Value) = 0 Then
+            rdpropios.Checked = True
+        Else
+            rdterceros.Checked = True
+        End If
+        btnBuscar.Enabled = False
+        btnNuevo.Enabled = False
+        btnGuardar.Visible = False
+        btnguardarmodificacion.Visible = True
+        btnmodificar.Enabled = True
+
+    End Sub
+
 
 
 
@@ -290,7 +353,7 @@ Public Class FrmGestionProducto
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        DgvproductosSet()
+        Dgvproductosset()
         gbbusqueda.Visible = False
     End Sub
 
@@ -366,20 +429,16 @@ Public Class FrmGestionProducto
         rdpropios.Checked = Nothing
         rdterceros.Checked = Nothing
 
-
-
-
-
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btncancelar.Click
         bloquearcampos()
         cereacampos()
-
         btnBuscar.Enabled = True
-        btnmodificar.Enabled = True
+        btnmodificar.Enabled = False
         btnNuevo.Enabled = True
-
+        btnguardarmodificacion.Visible = False
+        btnGuardar.Visible = True
 
     End Sub
 
@@ -387,4 +446,70 @@ Public Class FrmGestionProducto
         gbbusqueda.Visible = True
 
     End Sub
+
+    Private Sub btnguardarmodificacion_Click(sender As Object, e As EventArgs) Handles btnguardarmodificacion.Click
+
+        If rdpropios.Checked Then
+
+            pro.Id = tbCodigo.Text
+            Dim ms As New IO.MemoryStream()
+            PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
+            pro.nombreprducto = TbNombreProducto.Text
+            pro.CodBarra = tbCodBarra.Text
+            pro.foto = ms.GetBuffer
+            pro.precio = TbPrecio.Text
+            pro.utilidad = TbUtilidad.Text
+            pro.materialid = CmbMaterial.SelectedValue
+            pro.peso = 1
+            pro.tamaño = TbTamaño.Text
+            pro.color = TbColor.Text
+            pro.proveedorId = cmbProveedor.SelectedValue
+            pro.stockmin = TbStockmin.Text
+            pro.stockmax = TbStockMax.Text
+            pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
+            pro.Unidad = TbUnidad.SelectedValue
+            pro.categoriaId = CmbCategoria.SelectedValue
+            pro.StockODeTercero = 0
+            productometodo.modificarproductos(pro)
+            cereacampos()
+            bloquearcampos()
+            btnBuscar.Enabled = True
+            btnmodificar.Enabled = True
+            btnNuevo.Enabled = True
+        Else
+
+            pro.Id = tbCodigo.Text
+            Dim ms As New IO.MemoryStream()
+            PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
+            pro.nombreprducto = TbNombreProducto.Text
+            pro.CodBarra = tbCodBarra.Text
+            pro.foto = ms.GetBuffer
+            pro.precio = TbPrecio.Text
+            pro.utilidad = TbUtilidad.Text
+            pro.materialid = CmbMaterial.SelectedValue
+            pro.peso = 1
+            pro.tamaño = TbTamaño.Text
+            pro.color = TbColor.Text
+            pro.proveedorId = cmbProveedor.SelectedValue
+            pro.stockmin = TbStockmin.Text
+            pro.stockmax = TbStockMax.Text
+            pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
+            pro.Unidad = TbUnidad.SelectedValue
+            pro.categoriaId = CmbCategoria.SelectedValue
+            pro.StockODeTercero = 1
+            productometodo.modificarproductos(pro)
+            cereacampos()
+            bloquearcampos()
+            btnBuscar.Enabled = True
+            btnmodificar.Enabled = True
+
+        End If
+        btnGuardar.Visible = True
+        btnguardarmodificacion.Visible = False
+        btnmodificar.Enabled = False
+        Dgvproductosset()
+    End Sub
+
+
+
 End Class

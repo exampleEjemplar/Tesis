@@ -44,9 +44,9 @@ Public Class ProductoLN
 
     End Function
 
-    Public Function CargarCMBcategoria1(ByVal idcat As Integer)
+    Public Function Cargargrilladobleclick()
 
-        Return objproductosAD.CargarCMBcategoria1(idcat)
+        Return objproductosAD.Cargargrilladobleclick()
 
     End Function
 
@@ -57,6 +57,10 @@ Public Class ProductoLN
     End Function
     Public Sub Grabarproductos(ByVal pro As ProductosNE)
         objproductosAD.Grabarproductos(pro)
+    End Sub
+
+    Public Sub modificarproductos(ByVal pro As ProductosNE)
+        objproductosAD.modificarproductos(pro)
     End Sub
 
     Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
@@ -70,9 +74,11 @@ Public Class ProductoLN
         Return objproductosAD.CargaGrillaproductosconbusqueda(codigo, nombre)
     End Function
 
-    'Public Function consultarimagen() As Byte()
-    '    Return objproductosAD.consultarimagen()
-    'End Function
+    Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As String) As DataTable
+
+        Return objproductosAD.CargaGrillaproductosCONbusquedaCAT(codigo, nombre, categoria)
+    End Function
+
     ''
     'Public Function ConsultaModificacion(ByVal nroDoc As Integer)
 

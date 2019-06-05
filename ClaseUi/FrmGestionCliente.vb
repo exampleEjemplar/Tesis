@@ -28,6 +28,8 @@ Public Class FrmGestionCliente
 		'LlenarCMBLocalidades("general")
 		Block()
 		DgvclientesSet(New Dictionary(Of String, String))
+		cbtipodni.Enabled = False
+		tbNroDoc.Enabled = False
 
 
 		tbmail.Text = "ejemplo@ejemplo.com"
@@ -74,6 +76,8 @@ Public Class FrmGestionCliente
 	End Sub
 
 	Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs) Handles Dgvclientes.DoubleClick
+		Unblock()
+		deshabilitar()
 		Try
 			Dim ds As DataSet = clientemetodo.ConsultaModificacion(ClienteID)
 			For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
@@ -174,44 +178,25 @@ Public Class FrmGestionCliente
 	End Sub
 
 	Private Sub Button6_Click(sender As Object, e As EventArgs)
-		If helpersUI.TextValidator("Tipo de persona", cboTipoPersona.SelectedItem) = False Or
-			 helpersUI.TextValidator("Tipo de identificacion", cbtipodni.Text) = False Or
-			 helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
-			Return
-		End If
-		If helpersLN.ValidarSiExisteDni(Convert.ToInt64(tbNroDoc.Text), "Clientes") = False Then
-			MsgBox("La identificación puede ser utilizada!", MsgBoxStyle.OkOnly, "Ok")
-			Unblock()
-			If cboTipoPersona.SelectedItem = "Física" Then
-				lblRazonSoc.Visible = False
-				lblNombreFanta.Visible = False
-				lblInicioAct.Visible = False
-				lblNombre.Visible = True
-				lblApellido.Visible = True
-				lblFechaNac.Visible = True
-				fisicaOJuridica = "F"
-			Else
-				lblRazonSoc.Visible = True
-				lblNombreFanta.Visible = True
-				lblInicioAct.Visible = True
-				lblNombre.Visible = False
-				lblApellido.Visible = False
-				lblFechaNac.Visible = False
-				fisicaOJuridica = "J"
-			End If
-		Else
-			MsgBox("La identificación ingresada ya existe en la base de datos", MsgBoxStyle.Critical, "Ya existente")
-		End If
+
 	End Sub
 
 	Private Sub CboTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoPersona.SelectedIndexChanged
 		If cboTipoPersona.SelectedItem = "Física" Then
 			LlenarCMBDoc("F", "nuevo")
+			cbtipodni.Enabled = True
+			tbNroDoc.Enabled = False
 		Else
 			LlenarCMBDoc("J", "nuevo")
+			lblNombreFanta.Visible = True
+			lblRazonSoc.Visible = True
+			cbtipodni.Enabled = True
+			tbNroDoc.Enabled = False
+
 		End If
 		cbtipodni.Enabled = True
 	End Sub
+
 
 	Private Sub CboBusTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboBusTipoPersona.SelectedIndexChanged
 		If cboBusTipoPersona.SelectedItem = "Física" Then
@@ -279,11 +264,11 @@ Public Class FrmGestionCliente
 		Next
 
 		Dim listOfMandatoriesInteger As List(Of Tuple(Of String, Integer, Integer, String)) = New List(Of Tuple(Of String, Integer, Integer, String)) From
-			 {New Tuple(Of String, Integer, Integer, String)(tbNombre.Text, 3, 0, "Nombre"),
-			 New Tuple(Of String, Integer, Integer, String)(tbApellido.Text, 2, 0, "Apellido"),
-			 New Tuple(Of String, Integer, Integer, String)(tbcalle.Text, 5, 0, "Calle"),
-			 New Tuple(Of String, Integer, Integer, String)(tbcodcel.Text, 2, 0, "Característica celular"),
-			 New Tuple(Of String, Integer, Integer, String)(tbcel.Text, 6, 0, "Número celular")}
+			  {New Tuple(Of String, Integer, Integer, String)(tbNombre.Text, 3, 0, "Nombre"),
+			  New Tuple(Of String, Integer, Integer, String)(tbApellido.Text, 2, 0, "Apellido"),
+			  New Tuple(Of String, Integer, Integer, String)(tbcalle.Text, 5, 0, "Calle"),
+			  New Tuple(Of String, Integer, Integer, String)(tbcodcel.Text, 2, 0, "Característica celular"),
+			  New Tuple(Of String, Integer, Integer, String)(tbcel.Text, 6, 0, "Número celular")}
 
 		For Each items As Tuple(Of String, Integer, Integer, String) In listOfMandatoriesInteger
 			If helpersUI.ValidarTamaño(items.Item1, items.Item2, items.Item3) = False Then
@@ -376,7 +361,7 @@ Public Class FrmGestionCliente
 	End Function
 
 	'Valida que el texto sea solo numeros
-	Private Sub TxbTelNumero_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles tbcodcel.KeyPress, tbcodtel.KeyPress, tbcel.KeyPress, tbNroDoc.KeyPress, tbNro.KeyPress, txtPiso.KeyPress, txtManzana.KeyPress, txtLote.KeyPress
+	Private Sub TxbTelNumero_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles txtPiso.KeyPress, txtManzana.KeyPress, txtLote.KeyPress, tbNroDoc.KeyPress, tbNro.KeyPress, tbcodtel.KeyPress, tbcodcel.KeyPress, tbcel.KeyPress
 		If Char.IsNumber(e.KeyChar) Then
 			e.Handled = False
 		ElseIf Char.IsControl(e.KeyChar) Then
@@ -392,7 +377,7 @@ Public Class FrmGestionCliente
 	End Sub
 
 	'Valida que el texto sea solo letras
-	Private Sub TbNombre_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles tbNombre.KeyPress, tbApellido.KeyPress, txtBarrio.KeyPress
+	Private Sub TbNombre_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles txtBarrio.KeyPress, tbNombre.KeyPress, tbApellido.KeyPress
 		If Char.IsLetter(e.KeyChar) Then
 			e.Handled = False
 		ElseIf Char.IsControl(e.KeyChar) Then
@@ -461,6 +446,54 @@ Public Class FrmGestionCliente
 		txtBarrio.Text = ""
 		cmbProvincias.SelectedItem = Nothing
 		cmbLocalidades.SelectedItem = Nothing
+	End Sub
+
+	Private Sub deshabilitar()
+		tbNombre.Enabled = False
+		tbApellido.Enabled = False
+		cbtipodni.SelectedItem = False
+		tbNroDoc.Enabled = False
+		dtpfechanac.Enabled = False
+		tbmail.Enabled = False
+		tbcalle.Enabled = False
+		txtLote.Enabled = False
+		txtManzana.Enabled = False
+		tbNro.Enabled = False
+		tbtelefono.Enabled = False
+		tbcodtel.Enabled = False
+		tbcel.Enabled = False
+		tbcodtel.Enabled = False
+		txtPiso.Enabled = False
+		tbDpto.Enabled = False
+		txtBarrio.Enabled = False
+		cmbProvincias.SelectedItem = False
+		cmbLocalidades.SelectedItem = False
+		tbcodcel.Enabled = False
+
+	End Sub
+
+	Private Sub habilitar()
+		tbNombre.Enabled = True
+		tbApellido.Enabled = True
+		cbtipodni.SelectedItem = True
+		tbNroDoc.Enabled = True
+		dtpfechanac.Value.ToString("dd-MM-yyyy HH:mm:ss")
+		tbmail.Enabled = True
+		tbcalle.Enabled = True
+		txtLote.Enabled = True
+		txtManzana.Enabled = True
+		tbNro.Enabled = True
+		tbtelefono.Enabled = True
+		tbcodtel.Enabled = True
+		tbcel.Enabled = True
+		tbcodtel.Enabled = True
+		txtPiso.Enabled = True
+		tbDpto.Enabled = True
+		txtBarrio.Enabled = True
+		cmbProvincias.SelectedItem = True
+		cmbLocalidades.SelectedItem = True
+		tbcodcel.Enabled = True
+		dtpfechanac.Enabled = True
 	End Sub
 #End Region
 
@@ -551,6 +584,8 @@ Public Class FrmGestionCliente
 	End Function
 
 	Private Sub btnValidarDNI1_Click(sender As Object, e As EventArgs) Handles btnValidarDNI1.Click
+
+
 		If helpersUI.TextValidator("Tipo de persona", cboTipoPersona.SelectedItem) = False Or
 helpersUI.TextValidator("Tipo de identificacion", cbtipodni.Text) = False Or
 helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
@@ -558,12 +593,12 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 		End If
 		Select Case cbtipodni.SelectedValue
 			Case 1 To 3
-				If tbNroDoc.Text.Length <> 9 And tbNroDoc.Text.Length <> 8 Then
+				If tbNroDoc.Text.Length > 9 Or tbNroDoc.Text.Length < 8 Then
 					MsgBox("El tamaño del campo número de identificación no tiene la cantidad de caracteres correctos", MsgBoxStyle.Critical, "Cantidad de caracteres")
 					Return
 				End If
 			Case 4 To 5
-				If tbNroDoc.Text.Length <> 11 And tbNroDoc.Text.Length <> 12 Then
+				If tbNroDoc.Text.Length > 11 Or tbNroDoc.Text.Length < 12 Then
 					MsgBox("El tamaño del campo número de identificación no tiene la cantidad de caracteres correctos", MsgBoxStyle.Critical, "Cantidad de caracteres")
 					Return
 				End If
@@ -611,6 +646,32 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 		End If
 
 	End Sub
+
+	Private Sub Dgvclientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvclientes.CellContentClick
+
+	End Sub
+
+	Private Sub btncancelar_Click(sender As Object, e As EventArgs) Handles btncancelar.Click
+		Limpiar()
+
+		Block()
+
+	End Sub
+
+	Private Sub btnmodificar_Click(sender As Object, e As EventArgs) Handles btnmodificar.Click
+		habilitar()
+
+	End Sub
+
+	Private Sub GroupBox6_Enter(sender As Object, e As EventArgs) Handles GroupBox6.Enter
+
+	End Sub
+
+	Private Sub cbtipodni_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbtipodni.SelectedIndexChanged
+		tbNroDoc.Enabled = True
+
+	End Sub
+
 
 
 #End Region

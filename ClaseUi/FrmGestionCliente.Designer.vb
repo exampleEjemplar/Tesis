@@ -22,9 +22,9 @@ Partial Class FrmGestionCliente
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
-		Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-		Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-		Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+		Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+		Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+		Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.GroupBox6 = New System.Windows.Forms.GroupBox()
 		Me.btnValidarDNI1 = New System.Windows.Forms.Button()
@@ -871,17 +871,17 @@ Partial Class FrmGestionCliente
 		'
 		'Chart1
 		'
-		ChartArea3.Name = "ChartArea1"
-		Me.Chart1.ChartAreas.Add(ChartArea3)
-		Legend3.Name = "Legend1"
-		Me.Chart1.Legends.Add(Legend3)
+		ChartArea5.Name = "ChartArea1"
+		Me.Chart1.ChartAreas.Add(ChartArea5)
+		Legend5.Name = "Legend1"
+		Me.Chart1.Legends.Add(Legend5)
 		Me.Chart1.Location = New System.Drawing.Point(1157, 528)
 		Me.Chart1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.Chart1.Name = "Chart1"
-		Series3.ChartArea = "ChartArea1"
-		Series3.Legend = "Legend1"
-		Series3.Name = "Series1"
-		Me.Chart1.Series.Add(Series3)
+		Series5.ChartArea = "ChartArea1"
+		Series5.Legend = "Legend1"
+		Series5.Name = "Series1"
+		Me.Chart1.Series.Add(Series5)
 		Me.Chart1.Size = New System.Drawing.Size(12, 10)
 		Me.Chart1.TabIndex = 24
 		Me.Chart1.Text = "Chart1"

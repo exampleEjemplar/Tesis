@@ -91,11 +91,11 @@ Public Class MetodoProductoDA
     End Function
 
 
-    Public Function CargarCMBcategoria1(ByVal idcat As Integer)
+    Public Function Cargargrilladobleclick()
 
         Dim sqlStr As String
         ds = New DataSet
-        sqlStr = "select * from SubCategorias1 where Id= " & idcat
+        sqlStr = "select * from productos"
         Try
             Dim da As New SqlDataAdapter(sqlStr, db)
             da.Fill(ds)
@@ -198,8 +198,8 @@ Public Class MetodoProductoDA
 
     Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
 
-
         Try
+
             db.Open()
             com = New SqlCommand("SP_MostrarProductosinbusqueda", db)
             com.CommandType = CommandType.StoredProcedure
@@ -230,6 +230,76 @@ Public Class MetodoProductoDA
     End Function
 
 
+    Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As String) As DataTable
+
+        Try
+
+            db.Open()
+            com = New SqlCommand("SP_MostrarProductoconbusquedaCAT", db)
+            com.CommandType = CommandType.StoredProcedure
+            With com.Parameters
+                .AddWithValue("@codigo", codigo)
+                .AddWithValue("@Nombre", nombre)
+                .AddWithValue("@Categoria", categoria)
+            End With
+
+            com.ExecuteNonQuery()
+            If com.ExecuteNonQuery() Then
+                Dim da As New SqlDataAdapter(com)
+                CargaGrillaproductosCONbusquedaCAT = New DataTable
+                da.Fill(CargaGrillaproductosCONbusquedaCAT)
+
+                Return CargaGrillaproductosCONbusquedaCAT
+            Else
+                Return Nothing
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            db.Close()
+        End Try
+
+    End Function
+
+
+    Public Sub Modificarproductos(ByVal pro As ProductosNE)
+        '   
+        Try
+            db.Open()
+            com = New SqlCommand("SP_ModificarProductos", db)
+            com.CommandType = CommandType.StoredProcedure
+
+            With com.Parameters
+                .AddWithValue("@id", pro.Id)
+                .AddWithValue("@Cod_Barra", pro.CodBarra)
+                .AddWithValue("@Nombre", pro.nombreprducto)
+                .AddWithValue("@Foto", pro.foto)
+                .AddWithValue("@Precio", pro.precio)
+                .AddWithValue("@Utilidad", pro.utilidad)
+                .AddWithValue("@MaterialId", pro.materialid)
+                .AddWithValue("@Peso", pro.peso)
+                .AddWithValue("@Tamaño", pro.tamaño)
+                .AddWithValue("@Color", pro.color)
+                .AddWithValue("@ProveedorId", pro.proveedorId)
+                .AddWithValue("@StockMin", pro.stockmin)
+                .AddWithValue("@StockMax", pro.stockmax)
+                .AddWithValue("@categoria2id", pro.TipodeProductoId)
+                .AddWithValue("@UnidadDePeso", 1)
+                .AddWithValue("@CategoriaId", pro.categoriaId)
+                .AddWithValue("@StockODeTercero", pro.StockODeTercero)
+            End With
+
+            com.ExecuteNonQuery()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            db.Close()
+        End Try
+    End Sub
+
     Public Sub controlID()
 
         Try
@@ -247,22 +317,6 @@ Public Class MetodoProductoDA
     End Sub
 
 
-    'Public Function consultarimagen() As Byte()
-    '    Dim arreglo As Byte() = Nothing
-
-    '    Try
-    '        Dim id As New SqlCommand("select foto from productos where Id=1", db)
-    '        id.CommandType = CommandType.Text
-    '        db.Open()
-    '        Rs = id.ExecuteReader()
-    '        Rs.Read()
-    '        arreglo = Rs(0)
-
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-    '    End Try
-    '    Return arreglo
-    'End Function
 
 
 End Class
