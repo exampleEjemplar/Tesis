@@ -23,28 +23,25 @@ Public Class LogIn
                     loginMetodo.usr_id = loginMetodo.ConsultarIDUsuario(txtUsuario.Text)
                     loginMetodo.EnSesion(loginMetodo.usr_id)
                     helpersUI.TextValidator("a", "a")
-                    nivelusr = loginMetodo.rolUsuario
+					nivelusr = loginMetodo.rolUsuario
 
-                    Me.Hide()
+					With MDIPrincipal
+					End With
+					MDIPrincipal.Show()
+					Me.Close()
 
-                    If nivelusr = 3 Then
-                        MDIPrincipal.Show()
-                    Else
-                        MDIPrincipal.Show()
-                    End If
-
-                Else
+				Else
 
                     MessageBox.Show("Contraseña Inválida", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Me.Show()
                 End If
             Else
-                'MsgBox("El Usuario: " + txtUsuario.Text + " no se encuentra registrado")
-                'Me.Show()
 
-                MessageBox.Show("El Usuario: " + txtUsuario.Text + " No se encuentra registrado", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Me.Show()
-            End If
+
+				MessageBox.Show("El usuario no se encuentra registrado", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+				Me.Show()
+
+			End If
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
@@ -83,9 +80,6 @@ Public Class LogIn
         'pictureBox1.BackgroundImageLayout = ImageLayout.Zoom
     End Sub
 
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles panel1.Paint
-
-    End Sub
 
 #End Region
 

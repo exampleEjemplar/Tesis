@@ -23,7 +23,7 @@ Public Class FrmGestionCliente
 		cbtipodni.SelectedValue = 0
 		cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
 		IdProvincia = LlenarCMBProvincias("general")
-		LlenarCMBLocalidades("general")
+		'LlenarCMBLocalidades("general")
 		Block()
 		DgvclientesSet(New Dictionary(Of String, String))
 
@@ -408,7 +408,7 @@ Public Class FrmGestionCliente
 		GroupBox3.Visible = False
 		btnGuardar.Enabled = False
 		cboTipoPersona.Enabled = True
-		cbtipodni.Enabled = False
+		'cbtipodni.Enabled = False
 		tbNroDoc.ReadOnly = False
 		btnValidarDNI1.Enabled = True
 		cboBusTipoPersona.Enabled = True
@@ -534,6 +534,8 @@ Public Class FrmGestionCliente
 		End If
 		Dgvclientes.DataSource = dsa1.Tables(0)
 		Dgvclientes.Columns("Id").Visible = False
+		Dgvclientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+		Dgvclientes.AutoResizeColumns()
 		Return dsa1
 	End Function
 
@@ -550,7 +552,7 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 					Return
 				End If
 			Case 4 To 5
-				If tbNroDoc.Text.Length <> 12 Then
+				If tbNroDoc.Text.Length <> 11 And tbNroDoc.Text.Length <> 12 Then
 					MsgBox("El tamaño del campo número de identificación no tiene la cantidad de caracteres correctos", MsgBoxStyle.Critical, "Cantidad de caracteres")
 					Return
 				End If

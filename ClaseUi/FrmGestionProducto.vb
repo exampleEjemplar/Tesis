@@ -74,7 +74,7 @@ Public Class FrmGestionProducto
             pro.categoriaId = CmbCategoria.SelectedValue
             pro.StockODeTercero = 0
             productometodo.Grabarproductos(pro)
-            DgvproductosSet()
+            Dgvproductosset()
             cereacampos()
             bloquearcampos()
             btnBuscar.Enabled = True
@@ -101,7 +101,7 @@ Public Class FrmGestionProducto
             pro.categoriaId = CmbCategoria.SelectedValue
             pro.StockODeTercero = 1
             productometodo.Grabarproductos(pro)
-            DgvproductosSet()
+            Dgvproductosset()
             cereacampos()
             bloquearcampos()
             btnBuscar.Enabled = True
@@ -353,7 +353,7 @@ Public Class FrmGestionProducto
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        DgvproductosSet()
+        Dgvproductosset()
         gbbusqueda.Visible = False
     End Sub
 
