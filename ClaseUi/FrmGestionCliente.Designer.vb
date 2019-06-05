@@ -40,6 +40,7 @@ Partial Class FrmGestionCliente
         Me.tbmail = New System.Windows.Forms.TextBox()
         Me.dtpfechanac = New System.Windows.Forms.DateTimePicker()
         Me.tbNombre = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.lblFechaNac = New System.Windows.Forms.Label()
         Me.tbApellido = New System.Windows.Forms.TextBox()
         Me.lblRazonSoc = New System.Windows.Forms.Label()
@@ -89,7 +90,6 @@ Partial Class FrmGestionCliente
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btncancelar = New System.Windows.Forms.Button()
         Me.btnmodificar = New System.Windows.Forms.Button()
-        Me.Label18 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -306,6 +306,16 @@ Partial Class FrmGestionCliente
         Me.tbNombre.Name = "tbNombre"
         Me.tbNombre.Size = New System.Drawing.Size(232, 20)
         Me.tbNombre.TabIndex = 6
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(448, 49)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(109, 13)
+        Me.Label18.TabIndex = 17
+        Me.Label18.Text = "Fecha Nacimiento"
         '
         'lblFechaNac
         '
@@ -827,16 +837,6 @@ Partial Class FrmGestionCliente
         Me.btnmodificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnmodificar.UseVisualStyleBackColor = False
         '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(448, 49)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(109, 13)
-        Me.Label18.TabIndex = 17
-        Me.Label18.Text = "Fecha Nacimiento"
-        '
         'FrmGestionCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -852,7 +852,7 @@ Partial Class FrmGestionCliente
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmGestionCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmGestionCliente"

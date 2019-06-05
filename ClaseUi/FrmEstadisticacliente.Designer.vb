@@ -94,9 +94,9 @@ Partial Class FrmEstadisticacliente
         Me.gbFiltro.Controls.Add(Me.RadioButton3)
         Me.gbFiltro.Controls.Add(Me.RadioButton1)
         Me.gbFiltro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbFiltro.Location = New System.Drawing.Point(76, 90)
+        Me.gbFiltro.Location = New System.Drawing.Point(6, 90)
         Me.gbFiltro.Name = "gbFiltro"
-        Me.gbFiltro.Size = New System.Drawing.Size(542, 51)
+        Me.gbFiltro.Size = New System.Drawing.Size(656, 51)
         Me.gbFiltro.TabIndex = 7
         Me.gbFiltro.TabStop = False
         Me.gbFiltro.Text = "Filtro"
@@ -105,7 +105,7 @@ Partial Class FrmEstadisticacliente
         '
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton2.Location = New System.Drawing.Point(217, 19)
+        Me.RadioButton2.Location = New System.Drawing.Point(215, 19)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(108, 17)
         Me.RadioButton2.TabIndex = 1
@@ -129,12 +129,12 @@ Partial Class FrmEstadisticacliente
         '
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton1.Location = New System.Drawing.Point(378, 19)
+        Me.RadioButton1.Location = New System.Drawing.Point(351, 19)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(158, 17)
+        Me.RadioButton1.Size = New System.Drawing.Size(286, 17)
         Me.RadioButton1.TabIndex = 0
         Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = " Por meses trancurridos"
+        Me.RadioButton1.Text = "Cantidad de Registros realizados por Usuarios"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'Label2

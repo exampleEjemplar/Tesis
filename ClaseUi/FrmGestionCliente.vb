@@ -26,6 +26,8 @@ Public Class FrmGestionCliente
         'LlenarCMBLocalidades("general")
         Block()
         DgvclientesSet(New Dictionary(Of String, String))
+        cbtipodni.Enabled = False
+        tbNroDoc.Enabled = False
 
     End Sub
 
@@ -171,10 +173,14 @@ Public Class FrmGestionCliente
     Private Sub CboTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoPersona.SelectedIndexChanged
         If cboTipoPersona.SelectedItem = "Física" Then
             LlenarCMBDoc("F", "nuevo")
+            cbtipodni.Enabled = True
+            tbNroDoc.Enabled = False
         Else
             LlenarCMBDoc("J", "nuevo")
             lblNombreFanta.Visible = True
             lblRazonSoc.Visible = True
+            cbtipodni.Enabled = True
+            tbNroDoc.Enabled = False
 
         End If
         cbtipodni.Enabled = True
@@ -220,6 +226,13 @@ Public Class FrmGestionCliente
 
     'Valida datos antes de insertarlos en la BD
     Public Function ValidarDatos()
+
+        If Len(tbNroDoc.Text) < 8 And fisicaOJuridica = "F" Then
+            MsgBox("Debe ingresar correctamente el numero de Documento (8 digitos)", MsgBoxStyle.Critical, "Error")
+        ElseIf Len(tbNroDoc.Text) < 11 And fisicaOJuridica = "j" Then
+            MsgBox("Debe ingresar correctamente el numero de Identificación (11 digitos sin guiones)", MsgBoxStyle.Critical, "Error")
+
+        End If
 
         If tbmail.Text.Contains("ñ") Or helpersUI.Validar_Mail(tbmail.Text) = False Then
             MsgBox("Debe ingresar correctamente el campo email", MsgBoxStyle.Critical, "Error")
@@ -567,6 +580,8 @@ Public Class FrmGestionCliente
     End Function
 
     Private Sub btnValidarDNI1_Click(sender As Object, e As EventArgs) Handles btnValidarDNI1.Click
+
+
         If helpersUI.TextValidator("Tipo de persona", cboTipoPersona.SelectedItem) = False Or
 helpersUI.TextValidator("Tipo de identificacion", cbtipodni.Text) = False Or
 helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
@@ -574,12 +589,12 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
         End If
         Select Case cbtipodni.SelectedValue
             Case 1 To 3
-                If tbNroDoc.Text.Length <> 9 And tbNroDoc.Text.Length <> 8 Then
+                If tbNroDoc.Text.Length > 9 Or tbNroDoc.Text.Length < 8 Then
                     MsgBox("El tamaño del campo número de identificación no tiene la cantidad de caracteres correctos", MsgBoxStyle.Critical, "Cantidad de caracteres")
                     Return
                 End If
             Case 4 To 5
-                If tbNroDoc.Text.Length <> 11 And tbNroDoc.Text.Length <> 12 Then
+                If tbNroDoc.Text.Length > 11 or tbNroDoc.Text.Length < 12 Then
                     MsgBox("El tamaño del campo número de identificación no tiene la cantidad de caracteres correctos", MsgBoxStyle.Critical, "Cantidad de caracteres")
                     Return
                 End If
@@ -624,6 +639,16 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
         habilitar()
 
     End Sub
+
+    Private Sub GroupBox6_Enter(sender As Object, e As EventArgs) Handles GroupBox6.Enter
+
+    End Sub
+
+    Private Sub cbtipodni_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbtipodni.SelectedIndexChanged
+        tbNroDoc.Enabled = True
+
+    End Sub
+
 
 
 #End Region

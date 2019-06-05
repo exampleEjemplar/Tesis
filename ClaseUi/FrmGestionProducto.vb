@@ -512,34 +512,4 @@ Public Class FrmGestionProducto
 
 
 
-
-
-    'Public Sub DgvproductosSet()
-    '    Try
-    '        Dim dsa1 As DataTable
-    '        dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
-    '        DataGridView1.DataSource = dsa1
-    '        DataGridView1.AllowUserToAddRows = False
-    '        DataGridView1.AllowUserToDeleteRows = False
-    '        For X = 0 To DataGridView1.Rows.Count - 1
-    '            If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
-    '                DataGridView1.Rows.Remove(DataGridView1.Rows(X))
-    '            End If
-    '        Next
-    '        DataGridView1.Columns(0).Visible = False
-
-
-
-
-
-
-
-    'Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
-    '        Exit Sub
-    '    End Try
-
-
-    'End Sub
-
 End Class
