@@ -9,7 +9,7 @@ Public Class FrmEstadisticacliente
 
     Dim fechadesde As String
     Dim fechahasta As String
-
+    Dim contador As Integer
     Private clientemetodo As New ClientesLN
 
 
@@ -23,12 +23,29 @@ Public Class FrmEstadisticacliente
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        gbFiltro.Visible = True
         fechadesde = Format(dtpdesde.Value, "yyyy/MM/dd")
         fechahasta = Format(dtphasta.Value, "yyyy/MM/dd")
+        controlfecha()
+
+        If contador > 0 Then
+            gbFiltro.Visible = True
+        Else
+
+            MsgBox("No existe registro en ese intervalo de fechas", MsgBoxStyle.Critical, "Error")
+
+        End If
+
+
+
+
 
     End Sub
 
+    Public Sub controlfecha()
+        clientemetodo.controlfecha(fechadesde, fechahasta)
+        contador = clientemetodo.contador
+
+    End Sub
 
 
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
@@ -38,9 +55,9 @@ Public Class FrmEstadisticacliente
         GeneraGraficousuario()
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
-        RadioButton3.Enabled = False
-        RadioButton2.Enabled = False
-        RadioButton1.Enabled = False
+        'RadioButton3.Enabled = False
+        'RadioButton2.Enabled = False
+        ' RadioButton1.Enabled = False
     End Sub
 
 
@@ -61,7 +78,7 @@ Public Class FrmEstadisticacliente
             Chart1.Size = New System.Drawing.Size(668, 372)
 
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            ' MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -83,7 +100,7 @@ Public Class FrmEstadisticacliente
             Chart2.Size = New System.Drawing.Size(668, 372)
 
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            '  MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -104,7 +121,7 @@ Public Class FrmEstadisticacliente
             Chart3.Size = New System.Drawing.Size(668, 372)
 
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message)
         End Try
 
     End Sub
@@ -124,20 +141,22 @@ Public Class FrmEstadisticacliente
         GeneraGraficoprovincia()
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
-        RadioButton3.Enabled = False
-        RadioButton2.Enabled = False
-        RadioButton1.Enabled = False
+        'RadioButton3.Enabled = False
+        'RadioButton2.Enabled = False
+        'RadioButton1.Enabled = False
     End Sub
 
     Private Sub RadioButton2_Click(sender As Object, e As EventArgs) Handles RadioButton2.Click
         Chart2.Visible = True
         Chart1.Visible = False
         Chart3.Visible = False
-        RadioButton3.Enabled = False
-        RadioButton2.Enabled = False
-        RadioButton1.Enabled = False
+        'RadioButton3.Enabled = False
+        'RadioButton2.Enabled = False
+        ' RadioButton1.Enabled = False
         GeneraGraficopersoneria()
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
     End Sub
+
+
 End Class

@@ -97,7 +97,7 @@ Partial Class FrmDetalleProductoCatalogo
         '
         Me.PBFOTO.Location = New System.Drawing.Point(435, 18)
         Me.PBFOTO.Name = "PBFOTO"
-        Me.PBFOTO.Size = New System.Drawing.Size(347, 263)
+        Me.PBFOTO.Size = New System.Drawing.Size(350, 250)
         Me.PBFOTO.TabIndex = 44
         Me.PBFOTO.TabStop = False
         '

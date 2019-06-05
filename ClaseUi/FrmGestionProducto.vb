@@ -333,7 +333,7 @@ Public Class FrmGestionProducto
     End Function
 
     Public Sub cargarcodigo()
-        'productometodo.ConsultarCodigo()
+        productometodo.ConsultarCodigo()
         tbCodigo.Text = productometodo.QProducto
 
 

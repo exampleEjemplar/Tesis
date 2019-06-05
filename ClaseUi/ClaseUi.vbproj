@@ -47,7 +47,7 @@
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ClaseUi.FrmCatalogo</StartupObject>
+    <StartupObject>ClaseUi.My.MyApplication</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -346,6 +346,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-checkmark-62.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-moleskine-62.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

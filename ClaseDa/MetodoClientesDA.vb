@@ -10,6 +10,10 @@ Public Class MetodoClientesDA
     Private com As New SqlCommand
     Private da As SqlDataAdapter
     Private ds1 As DataSet
+    Dim Rs As SqlDataReader
+    Public contador As Integer
+
+
 
     Public Sub New()
         Dim objcon As New ConexionDA
@@ -173,7 +177,25 @@ Public Class MetodoClientesDA
 
     End Function
 
+    Public Sub controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
 
+
+        Try
+            db.Open()
+
+            Dim control As New SqlCommand("select count(*) from clientes where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' ", db)
+            control.CommandType = CommandType.Text
+            Rs = control.ExecuteReader()
+            Rs.Read()
+            contador = Rs(0)
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+
+        db.Close()
+
+    End Sub
 
 
 
