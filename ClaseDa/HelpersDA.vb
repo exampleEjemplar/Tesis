@@ -49,8 +49,8 @@ Public Class HelpersDA
 
         Dim sqlStr As String
         ds = New DataSet
-        sqlStr = "select Id, Nombre, ProvinciaId from Ciudades where ProvinciaId= " & idprov
-        Try
+		sqlStr = "select Id, Nombre, ProvinciaId from Ciudades where ProvinciaId= " & idprov & " order by nombre"
+		Try
             Dim da As New SqlDataAdapter(sqlStr, db)
             da.Fill(ds)
             db.Close()

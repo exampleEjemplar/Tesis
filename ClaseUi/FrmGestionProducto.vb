@@ -160,9 +160,9 @@ Public Class FrmGestionProducto
         DataGridView1.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         DataGridView1.Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridView1.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        DataGridView1.Sort(dvgListadoPacientes.Columns(3), System.ComponentModel.ListSortDirection.Ascending)
-           
-            DataGridView1.AllowUserToAddRows = False
+			'DataGridView1.Sort(dvgListadoPacientes.Columns(3), System.ComponentModel.ListSortDirection.Ascending)
+
+			DataGridView1.AllowUserToAddRows = False
             DataGridView1.AllowUserToDeleteRows = False
             For X = 0 To DataGridView1.Rows.Count - 1
                 If DataGridView1.Rows(X).Cells(1).Value = Nothing Then

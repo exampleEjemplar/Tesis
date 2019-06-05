@@ -9,7 +9,7 @@
     <RootNamespace>ClaseUi</RootNamespace>
     <AssemblyName>ClaseUi</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -47,7 +47,7 @@
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ClaseUi.FrmArmadoVenta</StartupObject>
+    <StartupObject>ClaseUi.My.MyApplication</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
