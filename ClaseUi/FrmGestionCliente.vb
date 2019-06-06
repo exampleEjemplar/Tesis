@@ -235,6 +235,11 @@ Public Class FrmGestionCliente
 			Return False
 		End If
 
+		If Not helpersUI.HasStrangerCaracters(tbcalle.Text) Then
+			MsgBox("Caracter invalido en el campo calle", MsgBoxStyle.Critical, "Error")
+			Return False
+		End If
+
 		'Agrego todos los txt y cbo a un diccionario para validarlos despues genericamente y no uno por uno
 		Dim dictionaryOfMandatoriesTexts As Dictionary(Of String, String) = New Dictionary(Of String, String) From
 		{{"Numero de calle", tbNro.Text}, {"Email", tbmail.Text}, {"Calle", tbcalle.Text},

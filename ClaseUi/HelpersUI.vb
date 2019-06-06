@@ -1,36 +1,26 @@
 ﻿Imports System.Text.RegularExpressions
 
 Public Class HelpersUI
-    Public Function TextValidator(ByVal type As String, ByVal text As String)
+	Public Function TextValidator(ByVal type As String, ByVal text As String)
 
-        If String.IsNullOrEmpty(text) Then
-            MsgBox("Debe ingresar correctamente el campo " & type, MsgBoxStyle.Critical, "Error")
-            Return False
-            Exit Function
-        End If
-        Return True
+		If String.IsNullOrEmpty(text) Then
+			MsgBox("Debe ingresar correctamente el campo " & type, MsgBoxStyle.Critical, "Error")
+			Return False
+			Exit Function
+		End If
+		Return True
 
-    End Function
-	'Public Function Validar_Mail(ByVal sMail As String) As Boolean
-
-	'	Dim lista As List(Of String) = New List(Of String) From {
-	'	"á", "é", "í", "ó", "ú"
-	'	}
-
-	'	For Each letra As String In lista
-	'		If sMail.Contains(letra) Then
-	'			Return False
-	'		End If
-	'	Next
-
-	'	Return Regex.IsMatch(sMail,
-	'				 "^([\w-]+\.)*?[\w-]+@[\w-]+\.([\w-]+\.)*?[\w]+$")
-	'End Function
+	End Function
 
 	Function IsEmail(ByVal email As String) As Boolean
 		Static emailRegex As New Regex("^[_a-z0-9-]+(.[a-z0-9-]+)@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$")
 
 		Return emailRegex.IsMatch(email)
+	End Function
+
+	Public Function HasStrangerCaracters(ByVal cadena As String) As Boolean
+		Static regex As New Regex("^[_a-z0-9-]+")
+		Return regex.IsMatch(cadena)
 	End Function
 
 
