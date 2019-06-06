@@ -248,12 +248,12 @@ Partial Class FrmGestionCliente
 		'
 		Me.lblInicioAct.AutoSize = True
 		Me.lblInicioAct.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblInicioAct.Location = New System.Drawing.Point(697, 27)
+		Me.lblInicioAct.Location = New System.Drawing.Point(692, 28)
 		Me.lblInicioAct.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblInicioAct.Name = "lblInicioAct"
-		Me.lblInicioAct.Size = New System.Drawing.Size(145, 17)
+		Me.lblInicioAct.Size = New System.Drawing.Size(139, 17)
 		Me.lblInicioAct.TabIndex = 23
-		Me.lblInicioAct.Text = "Inicio Actividades *"
+		Me.lblInicioAct.Text = "Inicio Actividades "
 		'
 		'Label11
 		'
@@ -262,9 +262,9 @@ Partial Class FrmGestionCliente
 		Me.Label11.Location = New System.Drawing.Point(133, 27)
 		Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label11.Name = "Label11"
-		Me.Label11.Size = New System.Drawing.Size(68, 18)
+		Me.Label11.Size = New System.Drawing.Size(61, 18)
 		Me.Label11.TabIndex = 20
-		Me.Label11.Text = "E-Mail *"
+		Me.Label11.Text = "E-Mail "
 		'
 		'lblApellido
 		'
@@ -284,9 +284,9 @@ Partial Class FrmGestionCliente
 		Me.lblNombre.Location = New System.Drawing.Point(133, 59)
 		Me.lblNombre.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblNombre.Name = "lblNombre"
-		Me.lblNombre.Size = New System.Drawing.Size(75, 17)
+		Me.lblNombre.Size = New System.Drawing.Size(69, 17)
 		Me.lblNombre.TabIndex = 21
-		Me.lblNombre.Text = "Nombre *"
+		Me.lblNombre.Text = "Nombre "
 		'
 		'lblNombreFanta
 		'
@@ -295,9 +295,9 @@ Partial Class FrmGestionCliente
 		Me.lblNombreFanta.Location = New System.Drawing.Point(128, 59)
 		Me.lblNombreFanta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblNombreFanta.Name = "lblNombreFanta"
-		Me.lblNombreFanta.Size = New System.Drawing.Size(165, 17)
+		Me.lblNombreFanta.Size = New System.Drawing.Size(154, 17)
 		Me.lblNombreFanta.TabIndex = 0
-		Me.lblNombreFanta.Text = "Nombre de Fantasía *"
+		Me.lblNombreFanta.Text = "Nombre de Fantasía"
 		'
 		'tbmail
 		'
@@ -336,9 +336,9 @@ Partial Class FrmGestionCliente
 		Me.lblFechaNac.Location = New System.Drawing.Point(692, 27)
 		Me.lblFechaNac.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblFechaNac.Name = "lblFechaNac"
-		Me.lblFechaNac.Size = New System.Drawing.Size(148, 17)
+		Me.lblFechaNac.Size = New System.Drawing.Size(137, 17)
 		Me.lblFechaNac.TabIndex = 17
-		Me.lblFechaNac.Text = "Fecha Nacimiento *"
+		Me.lblFechaNac.Text = "Fecha Nacimiento"
 		'
 		'tbApellido
 		'
@@ -406,9 +406,9 @@ Partial Class FrmGestionCliente
 		Me.Label10.Location = New System.Drawing.Point(131, 21)
 		Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label10.Name = "Label10"
-		Me.Label10.Size = New System.Drawing.Size(70, 17)
+		Me.Label10.Size = New System.Drawing.Size(64, 17)
 		Me.Label10.TabIndex = 17
-		Me.Label10.Text = "Celular *"
+		Me.Label10.Text = "Celular "
 		'
 		'tbcodcel
 		'
@@ -580,9 +580,9 @@ Partial Class FrmGestionCliente
 		Me.Label7.Location = New System.Drawing.Point(123, 64)
 		Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label7.Name = "Label7"
-		Me.Label7.Size = New System.Drawing.Size(86, 17)
+		Me.Label7.Size = New System.Drawing.Size(80, 17)
 		Me.Label7.TabIndex = 12
-		Me.Label7.Text = "Provincia *"
+		Me.Label7.Text = "Provincia "
 		'
 		'cmbLocalidades
 		'
@@ -622,9 +622,9 @@ Partial Class FrmGestionCliente
 		Me.Label5.Location = New System.Drawing.Point(505, 30)
 		Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label5.Name = "Label5"
-		Me.Label5.Size = New System.Drawing.Size(75, 17)
+		Me.Label5.Size = New System.Drawing.Size(69, 17)
 		Me.Label5.TabIndex = 8
-		Me.Label5.Text = "Numero *"
+		Me.Label5.Text = "Numero "
 		'
 		'Label4
 		'
@@ -632,9 +632,9 @@ Partial Class FrmGestionCliente
 		Me.Label4.Location = New System.Drawing.Point(123, 31)
 		Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label4.Name = "Label4"
-		Me.Label4.Size = New System.Drawing.Size(55, 17)
+		Me.Label4.Size = New System.Drawing.Size(49, 17)
 		Me.Label4.TabIndex = 7
-		Me.Label4.Text = "Calle *"
+		Me.Label4.Text = "Calle "
 		'
 		'tbcalle
 		'

@@ -31,7 +31,7 @@ Public Class FrmGestionCliente
 
 		tbmail.Text = "ejemplo@ejemplo.com"
 
-		tbmail.ForeColor = Color.LightGray
+		'tbmail.ForeColor = Color.LightGray
 
 		AddHandler tbmail.GotFocus, AddressOf GotfocusTexto
 		AddHandler tbmail.LostFocus, AddressOf LostfocusTexto
@@ -74,6 +74,7 @@ Public Class FrmGestionCliente
 
 	Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs) Handles Dgvclientes.DoubleClick
 		Unblock()
+		cbtipodni.Enabled = False
 		Try
 			Dim ds As DataSet = clientemetodo.ConsultaModificacion(ClienteID)
 			For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
@@ -105,65 +106,17 @@ Public Class FrmGestionCliente
 				LlenarCMBProvincias("unico")
 
 				'Si detecta que el texto es null lo transforma en ""
-
-				If ds.Tables(0).Rows(i)(9).ToString() <> "NULL" Then
-					tbcodcel.Text = ds.Tables(0).Rows(i)(9).ToString()
-				Else
-					tbcodcel.Text = ""
-				End If
-
-				If ds.Tables(0).Rows(i)(10).ToString() <> "NULL" Then
-					tbcel.Text = ds.Tables(0).Rows(i)(10).ToString()
-				Else
-					tbcel.Text = ""
-				End If
-
-				If ds.Tables(0).Rows(i)(11).ToString() <> "NULL" Then
-					tbcodtel.Text = ds.Tables(0).Rows(i)(11).ToString()
-				Else
-					tbcodtel.Text = ""
-				End If
-
-				If ds.Tables(0).Rows(i)(12).ToString() <> "NULL" Then
-					tbtelefono.Text = ds.Tables(0).Rows(i)(12).ToString()
-				Else
-					tbtelefono.Text = ""
-				End If
-
+				tbcodcel.Text = ds.Tables(0).Rows(i)(9).ToString()
+				tbcel.Text = ds.Tables(0).Rows(i)(10).ToString()
+				tbcodtel.Text = ds.Tables(0).Rows(i)(11).ToString()
+				tbtelefono.Text = ds.Tables(0).Rows(i)(12).ToString()
 				tbmail.Text = ds.Tables(0).Rows(i)(13).ToString()
-
-				If ds.Tables(0).Rows(i)(14).ToString() <> "NULL" Then
-					txtPiso.Text = ds.Tables(0).Rows(i)(14).ToString()
-				Else
-					txtPiso.Text = ""
-				End If
-
-				If ds.Tables(0).Rows(i)(15).ToString() <> "NULL" Then
-					tbDpto.Text = ds.Tables(0).Rows(i)(15).ToString()
-				Else
-					tbDpto.Text = ""
-				End If
-
-				If ds.Tables(0).Rows(i)(16).ToString() <> "NULL" Then
-					txtManzana.Text = ds.Tables(0).Rows(i)(16).ToString()
-				Else
-					txtManzana.Text = ""
-				End If
-
-				If ds.Tables(0).Rows(i)(17).ToString() <> "NULL" Then
-					txtLote.Text = ds.Tables(0).Rows(i)(17).ToString()
-				Else
-					txtLote.Text = ""
-				End If
-
-				If ds.Tables(0).Rows(i)(18).ToString() <> "NULL" Then
-					txtBarrio.Text = ds.Tables(0).Rows(i)(18).ToString()
-				Else
-					txtBarrio.Text = ""
-				End If
-
+				txtPiso.Text = ds.Tables(0).Rows(i)(14).ToString()
+				tbDpto.Text = ds.Tables(0).Rows(i)(15).ToString()
+				txtManzana.Text = ds.Tables(0).Rows(i)(16).ToString()
+				txtLote.Text = ds.Tables(0).Rows(i)(17).ToString()
+				txtBarrio.Text = ds.Tables(0).Rows(i)(18).ToString()
 				ClienteID = ds.Tables(0).Rows(i)(19).ToString()
-
 				Unblock()
 				GroupBox6.Visible = True
 				Modificando = True
@@ -188,7 +141,6 @@ Public Class FrmGestionCliente
 		End If
 		cbtipodni.Enabled = True
 	End Sub
-
 
 	Private Sub CboBusTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboBusTipoPersona.SelectedIndexChanged
 		If cboBusTipoPersona.SelectedItem = "Física" Then
@@ -230,58 +182,165 @@ Public Class FrmGestionCliente
 	'Valida datos antes de insertarlos en la BD
 	Public Function ValidarDatos()
 
-		If helpersUI.IsEmail(tbmail.Text) = False Then
-			MsgBox("Debe ingresar correctamente el campo email", MsgBoxStyle.Critical, "Error")
-			Return False
-		End If
+		'Seccion modificada a partir de pedido de la profe, la dejo comentada a proposito. 6/6/2019
 
-		If Not helpersUI.HasStrangerCaracters(tbcalle.Text) Then
-			MsgBox("Caracter invalido en el campo calle", MsgBoxStyle.Critical, "Error")
-			Return False
-		End If
+		''Agrego todos los txt y cbo a un diccionario para validarlos despues genericamente y no uno por uno
+		'Dim dictionaryOfMandatoriesTexts As Dictionary(Of String, String) = New Dictionary(Of String, String) From
+		'{{"Numero de calle", tbNro.Text}, {"Email", tbmail.Text}, {"Calle", tbcalle.Text},
+		'{"Localidad", cmbLocalidades.SelectedValue},
+		'{"Provincia", cmbProvincias.SelectedValue}}
 
-		'Agrego todos los txt y cbo a un diccionario para validarlos despues genericamente y no uno por uno
-		Dim dictionaryOfMandatoriesTexts As Dictionary(Of String, String) = New Dictionary(Of String, String) From
-		{{"Numero de calle", tbNro.Text}, {"Email", tbmail.Text}, {"Calle", tbcalle.Text},
-		{"Localidad", cmbLocalidades.SelectedValue},
-		{"Provincia", cmbProvincias.SelectedValue}}
+		'If fisicaOJuridica = "F" Then
+		'	dictionaryOfMandatoriesTexts.Add("Nombre", tbNombre.Text)
+		'	dictionaryOfMandatoriesTexts.Add("Apellido", tbApellido.Text)
+		'Else
+		'	dictionaryOfMandatoriesTexts.Add("Nombre de Fantasía", tbNombre.Text)
+		'	dictionaryOfMandatoriesTexts.Add("Razon Social", tbApellido.Text)
+		'End If
 
-		If fisicaOJuridica = "F" Then
-			dictionaryOfMandatoriesTexts.Add("Nombre", tbNombre.Text)
-			dictionaryOfMandatoriesTexts.Add("Apellido", tbApellido.Text)
-		Else
-			dictionaryOfMandatoriesTexts.Add("Nombre de Fantasía", tbNombre.Text)
-			dictionaryOfMandatoriesTexts.Add("Razon Social", tbApellido.Text)
-		End If
+		'For Each texts As KeyValuePair(Of String, String) In dictionaryOfMandatoriesTexts
+		'	If helpersUI.TextValidator(texts.Key, texts.Value) = False Then
+		'		Return False
+		'	End If
+		'Next
 
-		For Each texts As KeyValuePair(Of String, String) In dictionaryOfMandatoriesTexts
-			If helpersUI.TextValidator(texts.Key, texts.Value) = False Then
-				Return False
-			End If
-		Next
+		'Dim listOfMandatoriesInteger As List(Of Tuple(Of String, Integer, Integer, String)) = New List(Of Tuple(Of String, Integer, Integer, String)) From
+		'	  {New Tuple(Of String, Integer, Integer, String)(tbNombre.Text, 3, 0, "Nombre"),
+		'	  New Tuple(Of String, Integer, Integer, String)(tbApellido.Text, 2, 0, "Apellido"),
+		'	  New Tuple(Of String, Integer, Integer, String)(tbcalle.Text, 5, 0, "Calle"),
+		'	  New Tuple(Of String, Integer, Integer, String)(tbcodcel.Text, 2, 0, "Característica celular"),
+		'	  New Tuple(Of String, Integer, Integer, String)(tbcel.Text, 6, 0, "Número celular")}
 
-		Dim listOfMandatoriesInteger As List(Of Tuple(Of String, Integer, Integer, String)) = New List(Of Tuple(Of String, Integer, Integer, String)) From
-			  {New Tuple(Of String, Integer, Integer, String)(tbNombre.Text, 3, 0, "Nombre"),
-			  New Tuple(Of String, Integer, Integer, String)(tbApellido.Text, 2, 0, "Apellido"),
-			  New Tuple(Of String, Integer, Integer, String)(tbcalle.Text, 5, 0, "Calle"),
-			  New Tuple(Of String, Integer, Integer, String)(tbcodcel.Text, 2, 0, "Característica celular"),
-			  New Tuple(Of String, Integer, Integer, String)(tbcel.Text, 6, 0, "Número celular")}
-
-		For Each items As Tuple(Of String, Integer, Integer, String) In listOfMandatoriesInteger
-			If helpersUI.ValidarTamaño(items.Item1, items.Item2, items.Item3) = False Then
-				MsgBox("El campo " + items.Item4 + " no puede ser menor a " + items.Item2.ToString() + " caracteres", MsgBoxStyle.Critical, "Cantidad de caracteres")
-				Return False
-			End If
-		Next
+		'For Each items As Tuple(Of String, Integer, Integer, String) In listOfMandatoriesInteger
+		'	If helpersUI.ValidarTamaño(items.Item1, items.Item2, items.Item3) = False Then
+		'		MsgBox("El campo " + items.Item4 + " no puede ser menor a " + items.Item2.ToString() + " caracteres", MsgBoxStyle.Critical, "Cantidad de caracteres")
+		'		Return False
+		'	End If
+		'Next
 
 		'If String.IsNullOrWhiteSpace(tbcodcel.Text) = False And String.IsNullOrWhiteSpace(tbcel.Text) = True Then
-		'    MsgBox("Ingrese el número de celular correspondiente", MsgBoxStyle.Critical, "Celular")
-		'    Return False
+		'	MsgBox("Ingrese el número de celular correspondiente", MsgBoxStyle.Critical, "Celular")
+		'	Return False
 		'End If
 		'If String.IsNullOrWhiteSpace(tbcodcel.Text) = True And String.IsNullOrWhiteSpace(tbcel.Text) = False Then
-		'    MsgBox("Ingrese la característica de celular correspondiente", MsgBoxStyle.Critical, "Celular")
-		'    Return False
+		'	MsgBox("Ingrese la característica de celular correspondiente", MsgBoxStyle.Critical, "Celular")
+		'	Return False
 		'End If
+		'If String.IsNullOrWhiteSpace(tbcodtel.Text) = False And String.IsNullOrWhiteSpace(tbtelefono.Text) = True Then
+		'	MsgBox("Ingrese el número de teléfono correspondiente", MsgBoxStyle.Critical, "Teléfono")
+		'	Return False
+		'End If
+		'If String.IsNullOrWhiteSpace(tbcodtel.Text) = True And String.IsNullOrWhiteSpace(tbtelefono.Text) = False Then
+		'	MsgBox("Ingrese la característica de teléfono correspondiente", MsgBoxStyle.Critical, "Teléfono")
+		'	Return False
+		'End If
+
+		'Dim value As Integer
+		'If Integer.TryParse(helpersLN.EnSesion, value) = True Then
+		'	cli.UsuarioId = value
+		'Else
+		'	cli.UsuarioId = Nothing
+		'End If
+		'cli.FisicaOJuridica = fisicaOJuridica
+		'cli.TipoDocumentoId = cbtipodni.SelectedValue
+		'cli.NumeroDocumento = tbNroDoc.Text
+		'cli.Email = tbmail.Text
+		'cli.Nombre = tbNombre.Text
+		'cli.Apellido = tbApellido.Text
+		'cli.FechaNacimiento = dtpfechanac.Value
+		'cli.CiudadId = cmbLocalidades.SelectedValue
+		'cli.Car_Celular = tbcodcel.Text
+		'cli.NumeroCelular = tbcel.Text
+
+		'If String.IsNullOrEmpty(txtLote.Text) Then
+		'	cli.Lote = ""
+		'Else
+		'	cli.Lote = txtLote.Text
+		'End If
+		'If String.IsNullOrEmpty(txtBarrio.Text) Then
+		'	cli.Barrio = ""
+		'Else
+		'	cli.Barrio = txtBarrio.Text
+		'End If
+		'If String.IsNullOrEmpty(tbcodtel.Text) Then
+		'	cli.Car_Telefono = ""
+		'Else
+		'	cli.Car_Telefono = tbcodtel.Text
+		'End If
+		'If String.IsNullOrEmpty(tbtelefono.Text) Then
+		'	cli.NumeroTelefono = ""
+		'Else
+		'	cli.NumeroTelefono = tbtelefono.Text
+		'End If
+
+		'If String.IsNullOrEmpty(tbcalle.Text) Then
+		'	cli.Calle = ""
+		'Else
+		'	cli.Calle = tbcalle.Text
+		'End If
+		'If String.IsNullOrEmpty(tbNro.Text) Then
+		'	cli.NumeroCalle = ""
+		'Else
+		'	cli.NumeroCalle = tbNro.Text
+		'End If
+		'If String.IsNullOrEmpty(tbDpto.Text) Then
+		'	cli.Departamento = ""
+		'Else
+		'	cli.Departamento = tbDpto.Text
+		'End If
+		'If String.IsNullOrEmpty(txtManzana.Text) Then
+		'	cli.Manzana = ""
+		'Else
+		'	cli.Manzana = txtManzana.Text
+		'End If
+		'If String.IsNullOrEmpty(txtPiso.Text) Then
+		'	cli.Piso = ""
+		'Else
+		'	cli.Piso = txtPiso.Text
+		'End If
+		'Return True
+
+		'Seccion modificada a partir de pedido de la profe 6/6/2019
+
+		Dim value As Integer
+		If Integer.TryParse(helpersLN.EnSesion, value) = True Then
+			cli.UsuarioId = value
+		Else
+			cli.UsuarioId = Nothing
+		End If
+
+		cli.FisicaOJuridica = fisicaOJuridica
+		cli.TipoDocumentoId = cbtipodni.SelectedValue
+		cli.NumeroDocumento = tbNroDoc.Text
+
+		If Not String.IsNullOrEmpty(tbmail.Text) Then
+			If helpersUI.IsEmail(tbmail.Text) = False Then
+				MsgBox("Debe ingresar correctamente el campo email", MsgBoxStyle.Critical, "Error")
+				Return False
+			End If
+			cli.Email = tbmail.Text
+		Else
+			cli.Email = ""
+		End If
+
+		If Not String.IsNullOrEmpty(tbcalle.Text) Then
+			If Not helpersUI.HasStrangerCaracters(tbcalle.Text) Then
+				MsgBox("Caracter invalido en el campo calle", MsgBoxStyle.Critical, "Error")
+				Return False
+			End If
+			cli.Calle = tbcalle.Text
+		Else
+			cli.Calle = ""
+		End If
+
+		If String.IsNullOrWhiteSpace(tbcodcel.Text) = False And String.IsNullOrWhiteSpace(tbcel.Text) = True Then
+			MsgBox("Ingrese el número de celular correspondiente", MsgBoxStyle.Critical, "Celular")
+			Return False
+		End If
+		If String.IsNullOrWhiteSpace(tbcodcel.Text) = True And String.IsNullOrWhiteSpace(tbcel.Text) = False Then
+			MsgBox("Ingrese la característica de celular correspondiente", MsgBoxStyle.Critical, "Celular")
+			Return False
+		End If
 		If String.IsNullOrWhiteSpace(tbcodtel.Text) = False And String.IsNullOrWhiteSpace(tbtelefono.Text) = True Then
 			MsgBox("Ingrese el número de teléfono correspondiente", MsgBoxStyle.Critical, "Teléfono")
 			Return False
@@ -291,23 +350,26 @@ Public Class FrmGestionCliente
 			Return False
 		End If
 
-		Dim value As Integer
-		If Integer.TryParse(helpersLN.EnSesion, value) = True Then
-			cli.UsuarioId = value
+		If String.IsNullOrEmpty(cmbLocalidades.SelectedValue) Then
+			cli.CiudadId = ""
 		Else
-			cli.UsuarioId = Nothing
+			cli.CiudadId = cmbLocalidades.SelectedValue
 		End If
-		cli.FisicaOJuridica = fisicaOJuridica
-		cli.TipoDocumentoId = cbtipodni.SelectedValue
-		cli.NumeroDocumento = tbNroDoc.Text
-		cli.Email = tbmail.Text
-		cli.Nombre = tbNombre.Text
-		cli.Apellido = tbApellido.Text
-		cli.FechaNacimiento = dtpfechanac.Value
-		cli.CiudadId = cmbLocalidades.SelectedValue
-		cli.Car_Celular = tbcodcel.Text
-		cli.NumeroCelular = tbcel.Text
-
+		If String.IsNullOrEmpty(dtpfechanac.Value.ToString()) Then
+			cli.FechaNacimiento = ""
+		Else
+			cli.FechaNacimiento = dtpfechanac.Value
+		End If
+		If String.IsNullOrEmpty(tbApellido.Text) Then
+			cli.Apellido = ""
+		Else
+			cli.Apellido = tbApellido.Text
+		End If
+		If String.IsNullOrEmpty(tbNombre.Text) Then
+			cli.Nombre = ""
+		Else
+			cli.Nombre = tbNombre.Text
+		End If
 		If String.IsNullOrEmpty(txtLote.Text) Then
 			cli.Lote = ""
 		Else
@@ -328,11 +390,15 @@ Public Class FrmGestionCliente
 		Else
 			cli.NumeroTelefono = tbtelefono.Text
 		End If
-
-		If String.IsNullOrEmpty(tbcalle.Text) Then
-			cli.Calle = ""
+		If String.IsNullOrEmpty(tbcodcel.Text) Then
+			cli.Car_Celular = ""
 		Else
-			cli.Calle = tbcalle.Text
+			cli.Car_Celular = tbcodcel.Text
+		End If
+		If String.IsNullOrEmpty(tbcel.Text) Then
+			cli.NumeroCelular = ""
+		Else
+			cli.NumeroCelular = tbcel.Text
 		End If
 		If String.IsNullOrEmpty(tbNro.Text) Then
 			cli.NumeroCalle = ""
@@ -355,6 +421,7 @@ Public Class FrmGestionCliente
 			cli.Piso = txtPiso.Text
 		End If
 		Return True
+
 	End Function
 
 	'Valida que el texto sea solo numeros
@@ -582,7 +649,6 @@ Public Class FrmGestionCliente
 
 	Private Sub btnValidarDNI1_Click(sender As Object, e As EventArgs) Handles btnValidarDNI1.Click
 
-
 		If helpersUI.TextValidator("Tipo de persona", cboTipoPersona.SelectedItem) = False Or
 helpersUI.TextValidator("Tipo de identificacion", cbtipodni.Text) = False Or
 helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
@@ -595,7 +661,7 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 					Return
 				End If
 			Case 4 To 5
-				If tbNroDoc.Text.Length > 11 Or tbNroDoc.Text.Length < 12 Then
+				If tbNroDoc.Text.Length < 11 Or tbNroDoc.Text.Length > 12 Then
 					MsgBox("El tamaño del campo número de identificación no tiene la cantidad de caracteres correctos", MsgBoxStyle.Critical, "Cantidad de caracteres")
 					Return
 				End If
@@ -639,12 +705,8 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 	Private Sub LostfocusTexto(ByVal sender As Object, ByVal e As System.EventArgs)
 		If sender.Text = "" Then 'si salio del textbox sin poner nada
 			sender.Text = cadena  'volverle a poner el texto que tenia
-			sender.ForeColor = Color.LightGray 'y poner la letra en gris
+			sender.ForeColor = Color.Black 'y poner la letra en gris
 		End If
-
-	End Sub
-
-	Private Sub Dgvclientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvclientes.CellContentClick
 
 	End Sub
 

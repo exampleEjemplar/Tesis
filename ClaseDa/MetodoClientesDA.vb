@@ -82,11 +82,11 @@ Public Class MetodoClientesDA
 
     Public Sub GrabarClientes(ByVal cli As ClientesNE)
 		Try
-			Dim insert As New SqlCommand("set dateformat dmy insert into Clientes values (" & cli.TipoDocumentoId & "," & cli.NumeroDocumento & ",'" & cli.Nombre & "'," &
-			"'" & cli.Apellido & "','" & cli.FechaNacimiento & "', getdate(), '" & cli.Calle & "', '" & cli.NumeroCalle & "'," & If(cli.Departamento <> "", "'" + cli.Departamento + "'", "NULL") & "," &
+			Dim insert As New SqlCommand("set dateformat dmy insert into Clientes values (" & cli.TipoDocumentoId & "," & cli.NumeroDocumento & "," & If(cli.Nombre <> "", "'" + cli.Nombre + "'", "NULL") & "," &
+			If(cli.Apellido <> "", "'" + cli.Apellido + "'", "NULL") & "," & If(cli.FechaNacimiento.ToString("dd/MM/yyyy") <> "", "'" + cli.FechaNacimiento.ToString("dd/MM/yyyy") + "'", "NULL") & ", getdate(), " & If(cli.Calle <> "", "'" + cli.Calle + "'", "NULL") & ", " & If(cli.NumeroCalle <> "", "'" + cli.NumeroCalle + "'", "NULL") & "," & If(cli.Departamento <> "", "'" + cli.Departamento + "'", "NULL") & "," &
 			If(cli.Barrio <> "", "'" + cli.Barrio + "'", "NULL") & "," & If(cli.Piso <> "", "'" + cli.Piso + "'", "NULL") & "," & If(cli.Manzana <> "", "'" + cli.Manzana + "'", "NULL") & "," & If(cli.Lote <> "", "'" + cli.Lote + "'", "NULL") & ",'" & cli.CiudadId & "' ," & If(cli.Car_Telefono <> "", "'" + cli.Car_Telefono + "'", "NULL") &
-			"," & If(cli.NumeroTelefono <> "", "'" + cli.NumeroTelefono + "'", "NULL") & ",'" & cli.Car_Celular & "','" & cli.NumeroCelular & "', 'S','" & cli.UsuarioId & "','" & cli.Email &
-			"','" & cli.FisicaOJuridica & "')", db)
+			"," & If(cli.NumeroTelefono <> "", "'" + cli.NumeroTelefono + "'", "NULL") & "," & If(cli.Car_Celular <> "", "'" + cli.Car_Celular + "'", "NULL") & "," & If(cli.NumeroCelular <> "", "'" + cli.NumeroCelular + "'", "NULL") & ", 'S','" & cli.UsuarioId & "'," & If(cli.Email <> "", "'" + cli.Email + "'", "NULL") &
+			",'" & cli.FisicaOJuridica & "')", db)
 			insert.CommandType = CommandType.Text
 			db.Open()
 			insert.ExecuteNonQuery()
@@ -98,8 +98,8 @@ Public Class MetodoClientesDA
 
     Public Sub ActualizarClientes(ByVal cli As ClientesNE)
         Try
-            Dim insert As New SqlCommand("set dateformat dmy Update Clientes set  TipoDocumentoId = " & cli.TipoDocumentoId & ",NumeroDocumento = " & cli.NumeroDocumento & ",Nombre = '" & cli.Nombre & "',Apellido = '" & cli.Apellido & "',FechaNacimiento = '" & cli.FechaNacimiento & "',calle =  '" & cli.Calle & "',NumeroCalle = '" & cli.NumeroCalle & "',Departamento =  '" & cli.Departamento & "',Barrio = '" & cli.Barrio & "',Piso = " & cli.Piso & ",Manzana = " & cli.Manzana & ",Lote = " & cli.Lote & ",CiudadId = " & cli.CiudadId & " ,Car_Telefono = " & cli.Car_Telefono & ",NumeroTelefono = " & cli.NumeroTelefono & ",Car_Celular = " & cli.Car_Celular & ",NumeroCelular = " & cli.NumeroCelular & ",Email = '" & cli.Email & "' where Id = " & cli.Id, db)
-            insert.CommandType = CommandType.Text
+			Dim insert As New SqlCommand("set dateformat dmy Update Clientes set  TipoDocumentoId = " & cli.TipoDocumentoId & ",NumeroDocumento = " & cli.NumeroDocumento & ",Nombre = " & If(cli.Nombre <> "", "'" + cli.Nombre + "'", "NULL") & ",Apellido = " & If(cli.Apellido <> "", "'" + cli.Apellido + "'", "NULL") & ",FechaNacimiento = " & If(cli.FechaNacimiento.ToString() <> "", "'" + cli.FechaNacimiento.ToString("dd/MM/yyyy") + "'", "NULL") & ",calle =  " & If(cli.Calle <> "", "'" + cli.Calle + "'", "NULL") & ",NumeroCalle = " & If(cli.NumeroCalle.ToString() <> "", "'" + cli.NumeroCalle + "'", "NULL") & ",Departamento =  " & If(cli.Departamento <> "", "'" + cli.Departamento + "'", "NULL") & ",Barrio = " & If(cli.Barrio <> "", "'" + cli.Barrio + "'", "NULL") & ",Piso = " & If(cli.Piso.ToString() <> "", "'" + cli.Piso + "'", "NULL") & ",Manzana = " & If(cli.Manzana <> "", "'" + cli.Manzana + "'", "NULL") & ",Lote = " & If(cli.Lote <> "", "'" + cli.Lote + "'", "NULL") & ",CiudadId = " & If(cli.CiudadId.ToString() <> "", "'" + cli.CiudadId.ToString() + "'", "NULL") & " ,Car_Telefono = " & If(cli.Car_Telefono <> "", "'" + cli.Car_Telefono + "'", "NULL") & ",NumeroTelefono = " & If(cli.NumeroTelefono <> "", "'" + cli.NumeroTelefono + "'", "NULL") & ",Car_Celular = " & If(cli.Car_Celular <> "", "'" + cli.Car_Celular + "'", "NULL") & ",NumeroCelular = " & If(cli.NumeroCelular <> "", "'" + cli.NumeroCelular + "'", "NULL") & ",Email = " & If(cli.Email <> "", "'" + cli.Email + "'", "NULL ") & " where Id = " & cli.Id, db)
+			insert.CommandType = CommandType.Text
             db.Open()
             insert.ExecuteNonQuery()
             db.Close()
