@@ -83,9 +83,9 @@ Public Class MetodoClientesDA
     Public Sub GrabarClientes(ByVal cli As ClientesNE)
 		Try
 			Dim insert As New SqlCommand("set dateformat dmy insert into Clientes values (" & cli.TipoDocumentoId & "," & cli.NumeroDocumento & ",'" & cli.Nombre & "'," &
-			"'" & cli.Apellido & "','" & cli.FechaNacimiento & "', getdate(), '" & cli.Calle & "', '" & cli.NumeroCalle & "', '" & cli.Departamento & "'," &
-			"'" & cli.Barrio & "','" & cli.Piso & "','" & cli.Manzana & "','" & cli.Lote & "','" & cli.CiudadId & "' ,'" & cli.Car_Telefono &
-			"','" & cli.NumeroTelefono & "','" & cli.Car_Celular & "','" & cli.NumeroCelular & "', 'S','" & cli.UsuarioId & "','" & cli.Email &
+			"'" & cli.Apellido & "','" & cli.FechaNacimiento & "', getdate(), '" & cli.Calle & "', '" & cli.NumeroCalle & "'," & If(cli.Departamento <> "", "'" + cli.Departamento + "'", "NULL") & "," &
+			If(cli.Barrio <> "", "'" + cli.Barrio + "'", "NULL") & "," & If(cli.Piso <> "", "'" + cli.Piso + "'", "NULL") & "," & If(cli.Manzana <> "", "'" + cli.Manzana + "'", "NULL") & "," & If(cli.Lote <> "", "'" + cli.Lote + "'", "NULL") & ",'" & cli.CiudadId & "' ," & If(cli.Car_Telefono <> "", "'" + cli.Car_Telefono + "'", "NULL") &
+			"," & If(cli.NumeroTelefono <> "", "'" + cli.NumeroTelefono + "'", "NULL") & ",'" & cli.Car_Celular & "','" & cli.NumeroCelular & "', 'S','" & cli.UsuarioId & "','" & cli.Email &
 			"','" & cli.FisicaOJuridica & "')", db)
 			insert.CommandType = CommandType.Text
 			db.Open()

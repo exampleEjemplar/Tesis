@@ -28,9 +28,6 @@ Public Class FrmGestionCliente
 		'LlenarCMBLocalidades("general")
 		Block()
 		DgvclientesSet(New Dictionary(Of String, String))
-		cbtipodni.Enabled = False
-		tbNroDoc.Enabled = False
-
 
 		tbmail.Text = "ejemplo@ejemplo.com"
 
@@ -77,7 +74,6 @@ Public Class FrmGestionCliente
 
 	Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs) Handles Dgvclientes.DoubleClick
 		Unblock()
-		deshabilitar()
 		Try
 			Dim ds As DataSet = clientemetodo.ConsultaModificacion(ClienteID)
 			For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
@@ -184,14 +180,10 @@ Public Class FrmGestionCliente
 	Private Sub CboTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoPersona.SelectedIndexChanged
 		If cboTipoPersona.SelectedItem = "Física" Then
 			LlenarCMBDoc("F", "nuevo")
-			cbtipodni.Enabled = True
-			tbNroDoc.Enabled = False
 		Else
 			LlenarCMBDoc("J", "nuevo")
 			lblNombreFanta.Visible = True
 			lblRazonSoc.Visible = True
-			cbtipodni.Enabled = True
-			tbNroDoc.Enabled = False
 
 		End If
 		cbtipodni.Enabled = True
@@ -238,7 +230,7 @@ Public Class FrmGestionCliente
 	'Valida datos antes de insertarlos en la BD
 	Public Function ValidarDatos()
 
-		If tbmail.Text.Contains("ñ") Or helpersUI.IsEmail(tbmail.Text) = False Then
+		If helpersUI.IsEmail(tbmail.Text) = False Then
 			MsgBox("Debe ingresar correctamente el campo email", MsgBoxStyle.Critical, "Error")
 			Return False
 		End If
@@ -361,7 +353,7 @@ Public Class FrmGestionCliente
 	End Function
 
 	'Valida que el texto sea solo numeros
-	Private Sub TxbTelNumero_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles txtPiso.KeyPress, txtManzana.KeyPress, txtLote.KeyPress, tbNroDoc.KeyPress, tbNro.KeyPress, tbcodtel.KeyPress, tbcodcel.KeyPress, tbcel.KeyPress
+	Private Sub TxbTelNumero_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles txtPiso.KeyPress, txtManzana.KeyPress, txtLote.KeyPress, tbNroDoc.KeyPress, tbNro.KeyPress, tbcodtel.KeyPress, tbcodcel.KeyPress, tbcel.KeyPress, tbtelefono.KeyPress
 		If Char.IsNumber(e.KeyChar) Then
 			e.Handled = False
 		ElseIf Char.IsControl(e.KeyChar) Then
@@ -377,7 +369,7 @@ Public Class FrmGestionCliente
 	End Sub
 
 	'Valida que el texto sea solo letras
-	Private Sub TbNombre_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles txtBarrio.KeyPress, tbNombre.KeyPress, tbApellido.KeyPress
+	Private Sub TbNombre_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles tbNombre.KeyPress, tbApellido.KeyPress
 		If Char.IsLetter(e.KeyChar) Then
 			e.Handled = False
 		ElseIf Char.IsControl(e.KeyChar) Then
@@ -448,53 +440,53 @@ Public Class FrmGestionCliente
 		cmbLocalidades.SelectedItem = Nothing
 	End Sub
 
-	Private Sub deshabilitar()
-		tbNombre.Enabled = False
-		tbApellido.Enabled = False
-		cbtipodni.SelectedItem = False
-		tbNroDoc.Enabled = False
-		dtpfechanac.Enabled = False
-		tbmail.Enabled = False
-		tbcalle.Enabled = False
-		txtLote.Enabled = False
-		txtManzana.Enabled = False
-		tbNro.Enabled = False
-		tbtelefono.Enabled = False
-		tbcodtel.Enabled = False
-		tbcel.Enabled = False
-		tbcodtel.Enabled = False
-		txtPiso.Enabled = False
-		tbDpto.Enabled = False
-		txtBarrio.Enabled = False
-		cmbProvincias.SelectedItem = False
-		cmbLocalidades.SelectedItem = False
-		tbcodcel.Enabled = False
+	'Private Sub deshabilitar()
+	'	tbNombre.Enabled = False
+	'	tbApellido.Enabled = False
+	'	cbtipodni.SelectedItem = False
+	'	tbNroDoc.Enabled = False
+	'	dtpfechanac.Enabled = False
+	'	tbmail.Enabled = False
+	'	tbcalle.Enabled = False
+	'	txtLote.Enabled = False
+	'	txtManzana.Enabled = False
+	'	tbNro.Enabled = False
+	'	tbtelefono.Enabled = False
+	'	tbcodtel.Enabled = False
+	'	tbcel.Enabled = False
+	'	tbcodtel.Enabled = False
+	'	txtPiso.Enabled = False
+	'	tbDpto.Enabled = False
+	'	txtBarrio.Enabled = False
+	'	cmbProvincias.SelectedItem = False
+	'	cmbLocalidades.SelectedItem = False
+	'	tbcodcel.Enabled = False
 
-	End Sub
+	'End Sub
 
-	Private Sub habilitar()
-		tbNombre.Enabled = True
-		tbApellido.Enabled = True
-		cbtipodni.SelectedItem = True
-		tbNroDoc.Enabled = True
-		dtpfechanac.Value.ToString("dd-MM-yyyy HH:mm:ss")
-		tbmail.Enabled = True
-		tbcalle.Enabled = True
-		txtLote.Enabled = True
-		txtManzana.Enabled = True
-		tbNro.Enabled = True
-		tbtelefono.Enabled = True
-		tbcodtel.Enabled = True
-		tbcel.Enabled = True
-		tbcodtel.Enabled = True
-		txtPiso.Enabled = True
-		tbDpto.Enabled = True
-		txtBarrio.Enabled = True
-		cmbProvincias.SelectedItem = True
-		cmbLocalidades.SelectedItem = True
-		tbcodcel.Enabled = True
-		dtpfechanac.Enabled = True
-	End Sub
+	'Private Sub habilitar()
+	'	tbNombre.Enabled = True
+	'	tbApellido.Enabled = True
+	'	cbtipodni.SelectedItem = True
+	'	tbNroDoc.Enabled = True
+	'	dtpfechanac.Value.ToString("dd-MM-yyyy HH:mm:ss")
+	'	tbmail.Enabled = True
+	'	tbcalle.Enabled = True
+	'	txtLote.Enabled = True
+	'	txtManzana.Enabled = True
+	'	tbNro.Enabled = True
+	'	tbtelefono.Enabled = True
+	'	tbcodtel.Enabled = True
+	'	tbcel.Enabled = True
+	'	tbcodtel.Enabled = True
+	'	txtPiso.Enabled = True
+	'	tbDpto.Enabled = True
+	'	txtBarrio.Enabled = True
+	'	cmbProvincias.SelectedItem = True
+	'	cmbLocalidades.SelectedItem = True
+	'	tbcodcel.Enabled = True
+	'	dtpfechanac.Enabled = True
+	'End Sub
 #End Region
 
 #Region "Rellenado"
@@ -651,17 +643,17 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 
 	End Sub
 
-	Private Sub btncancelar_Click(sender As Object, e As EventArgs) Handles btncancelar.Click
-		Limpiar()
+	'Private Sub btncancelar_Click(sender As Object, e As EventArgs) Handles btncancelar.Click
+	'	Limpiar()
 
-		Block()
+	'	Block()
 
-	End Sub
+	'End Sub
 
-	Private Sub btnmodificar_Click(sender As Object, e As EventArgs) Handles btnmodificar.Click
-		habilitar()
+	'Private Sub btnmodificar_Click(sender As Object, e As EventArgs) Handles btnmodificar.Click
+	'	habilitar()
 
-	End Sub
+	'End Sub
 
 	Private Sub GroupBox6_Enter(sender As Object, e As EventArgs) Handles GroupBox6.Enter
 
