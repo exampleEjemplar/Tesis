@@ -22924,13 +22924,149 @@ VALUES
 (1)
 GO
 
-/****** Object:  StoredProcedure [dbo].[SP_RegistrarProducto]    Script Date: 29/5/2019 19:40:27 ******/
+ USE [JoyeriaCrisol11]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ListadodeClientesPorfecha]    Script Date: 6/6/2019 23:45:38 ******/
 SET ANSI_NULLS ON
 GO
-
 SET QUOTED_IDENTIFIER ON
 GO
+CREATE PROCEDURE [dbo].[SP_ListadodeClientesPorfecha]
+(@fechadesde as datetime,
+@fechahasta as datetime
+)
+as
+begin
 
+SELECT  p.FisicaOJuridica, t.Descripcion, p.NumeroDocumento, 
+p.Nombre, p.Apellido, 
+p.FechaNacimiento, p.FechaAlta, p.Calle, p.NumeroCalle, ciu.Nombre,
+p.Car_celular +' '+ p.NumeroCelular, p.Car_telefono+' '+ p.NumeroTelefono,
+p.Email , p.id 
+from Clientes  p 
+inner join TipoDocumentos t on t.Id = p.TipoDocumentoId 
+inner join Ciudades ciu on p.CiudadId = Ciu.Id  
+where FechaAlta BETWEEN @fechadesde and @fechahasta
+end
+        
+ USE [JoyeriaCrisol11]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ModificarProductos]    Script Date: 7/6/2019 01:36:52 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_ModificarProductos]
+@id int,
+@Cod_Barra varchar(max),
+@Nombre varchar(max),
+@Foto image,
+@Precio float,
+@Utilidad float,
+@MaterialId int,
+@Peso float,
+@Tamaño float,
+@Color varchar(max),
+@ProveedorId int,
+@StockMin int,
+@StockMax int,
+@Categoria2ID int,
+@UnidadDePeso int,
+@CategoriaId int,
+@StockODeTercero int
+AS
+begin
+
+
+Update Productos set Cod_Barra =@Cod_Barra,
+nombre =@Nombre,
+foto =@Foto,
+precio =@Precio,
+utilidad =@Utilidad,
+MaterialId= @MaterialId,
+peso =@Peso,
+tamaño =@Tamaño,
+color =@Color,
+ProveedorId =@ProveedorId,
+StockMin =@StockMin,
+StockMax =@StockMax,
+Categoria2ID = @Categoria2ID,
+UnidadDePeso = @UnidadDePeso,
+CategoriaID =@CategoriaId,
+StockODeTercero =@StockODeTercero
+where Id = @id
+
+end
+
+USE [JoyeriaCrisol11]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MostrarProductoconbusqueda]    Script Date: 7/6/2019 01:37:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_MostrarProductoconbusqueda]
+@codigo int,
+@Nombre varchar(max)
+
+AS
+SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.Categoria2ID , p.MaterialId, p.foto, 
+p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.Categoria2ID, p.UnidadDePeso, 
+p.CategoriaID, p.StockODeTercero FROM productos as p
+inner join Categorias2 t on p.Categoria2ID=t.id
+inner join Materiales m On p.MaterialId=m.id
+inner join categorias ca on p.CategoriaID= ca.Id
+where p.id like CONCAT('%', @codigo ,'%') and  p.nombre like  CONCAT('%', @nombre ,'%');
+
+       
+USE [JoyeriaCrisol11]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MostrarProductoconbusquedaCAT]    Script Date: 7/6/2019 01:38:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[SP_MostrarProductoconbusquedaCAT]
+@codigo int,
+@Nombre varchar(max),
+@Categoria as varchar
+
+AS
+SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.Categoria2ID , p.MaterialId, p.foto, 
+p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.Categoria2ID, p.UnidadDePeso, 
+p.CategoriaID, p.StockODeTercero FROM productos as p
+inner join Categorias2 t on p.Categoria2ID=t.id
+inner join Materiales m On p.MaterialId=m.id
+inner join categorias ca on p.CategoriaID= ca.Id
+where p.id like CONCAT('%', @codigo ,'%') and  p.nombre like  CONCAT('%', @nombre ,'%') and  p.CategoriaID = @categoria;
+
+
+USE [JoyeriaCrisol11]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MostrarProductosinbusqueda]    Script Date: 7/6/2019 01:38:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[SP_MostrarProductosinbusqueda]
+@codigo int,
+@Nombre varchar(max)
+
+AS
+SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.Categoria2ID , p.MaterialId, p.foto, 
+p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.Categoria2ID, p.UnidadDePeso, 
+p.CategoriaID, p.StockODeTercero FROM productos as p
+inner join Categorias2 t on p.Categoria2ID=t.id
+inner join Materiales m On p.MaterialId=m.id
+inner join categorias ca on p.CategoriaID= ca.Id
+
+USE [JoyeriaCrisol11]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_RegistrarProducto]    Script Date: 7/6/2019 01:38:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 CREATE PROCEDURE [dbo].[SP_RegistrarProducto]
 @Cod_Barra varchar(max),
 @Nombre varchar(max),
@@ -22944,9 +23080,10 @@ CREATE PROCEDURE [dbo].[SP_RegistrarProducto]
 @ProveedorId int,
 @StockMin int,
 @StockMax int,
-@TipoProductoId int,
+@Categoria2ID int,
 @UnidadDePeso int,
-@CategoriaId int
+@CategoriaId int,
+@StockODeTercero int
 AS
 begin
 insert into productos  values(@Cod_Barra,
@@ -22961,32 +23098,11 @@ insert into productos  values(@Cod_Barra,
 @ProveedorId,
 @StockMin,
 @StockMax,
-@TipoProductoId,
+@Categoria2ID,
 @UnidadDePeso,
-@CategoriaId)
+@CategoriaId,
+@StockODeTercero)
 end
-GO
-
-USE [JoyeriaCrisol6]
-GO
-
-/****** Object:  StoredProcedure [dbo].[SP_MostrarProductoconbusqueda]    Script Date: 29/5/2019 20:45:21 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE PROCEDURE [dbo].[SP_MostrarProductoconbusqueda]
-@codigo int,
-@Nombre varchar(max)
-
-AS
-SELECT p.id as 'Codigo', p.Cod_Barra as 'Codigo de Barra', p.nombre as 'Producto',(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', t.descripcion as 'Tipo de producto', M.nombre as 'Material' FROM productos as p
-inner join TipoProductos t on p.TipoProductoId=t.id
-inner join Materiales m On p.MaterialId=m.id 
-where p.id like CONCAT('%', @codigo ,'%') and  p.nombre like  CONCAT('%', @nombre ,'%');
-GO
 
 
 

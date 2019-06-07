@@ -40,32 +40,32 @@ Public Class MetodoClientesDA
     Public Function CargaGrillaclientes(ByVal parametros As Dictionary(Of String, String)) As DataSet
         Dim sqlStr As String
         ds1 = New DataSet
-		sqlStr = "select p.FisicaOJuridica as 'Tipo de Persona', t.Descripcion as 'Tipo de Dni', p.NumeroDocumento as 'Numero de identificacion', " &
-		  "p.Nombre as 'Nombre - Nombre de Fantasia', p.Apellido as 'Apellido - Razon Social', " &
-		  "p.FechaNacimiento as 'Nacimiento', p.FechaAlta as 'Fecha de Alta', p.Calle, p.NumeroCalle as 'Numero de calle', ciu.Nombre As Ciudad," &
-		  "p.Car_celular +' '+ p.NumeroCelular as Celular, p.Car_telefono+' '+ p.NumeroTelefono as Telefono," &
-		  "p.Email , p.id " &
-		  "from Clientes as p " &
-		  "inner join TipoDocumentos t on t.Id = p.TipoDocumentoId " &
-		  "inner join Ciudades ciu on p.CiudadId = Ciu.Id  "
+        sqlStr = "select p.FisicaOJuridica as 'Tipo de Persona', t.Descripcion as 'Tipo de Dni', p.NumeroDocumento as 'Numero de identificacion', " &
+          "p.Nombre as 'Nombre - Nombre de Fantasia', p.Apellido as 'Apellido - Razon Social', " &
+          "p.FechaNacimiento as 'Nacimiento', p.FechaAlta as 'Fecha de Alta', p.Calle, p.NumeroCalle as 'Numero de calle', ciu.Nombre As Ciudad," &
+          "p.Car_celular +' '+ p.NumeroCelular as Celular, p.Car_telefono+' '+ p.NumeroTelefono as Telefono," &
+          "p.Email , p.id " &
+          "from Clientes as p " &
+          "inner join TipoDocumentos t on t.Id = p.TipoDocumentoId " &
+          "inner join Ciudades ciu on p.CiudadId = Ciu.Id  "
 
-		If parametros.Count > 0 Then
+        If parametros.Count > 0 Then
             Dim extraText As String = String.Empty
             Dim count As Integer = 0
             For Each parametro As KeyValuePair(Of String, String) In parametros
-				If count <> 0 Then
-					extraText = extraText & " and "
-				Else
-					extraText = " where "
-				End If
-				Dim value As Integer
-				If Integer.TryParse(parametro.Value, value) Then
-					extraText = extraText & " p." & parametro.Key & " = " & parametro.Value 'TODO mejorar busqueda para integers
-				Else
-					extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
-				End If
-				count = count + 1
-			Next
+                If count <> 0 Then
+                    extraText = extraText & " and "
+                Else
+                    extraText = " where "
+                End If
+                Dim value As Integer
+                If Integer.TryParse(parametro.Value, value) Then
+                    extraText = extraText & " p." & parametro.Key & " = " & parametro.Value 'TODO mejorar busqueda para integers
+                Else
+                    extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
+                End If
+                count = count + 1
+            Next
             sqlStr = sqlStr & extraText
         End If
 
@@ -79,6 +79,33 @@ Public Class MetodoClientesDA
         Return ds1
         db.Close()
     End Function
+
+
+    Public Function CargaGrillaclienteslistado(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "select p.FisicaOJuridica as 'Tipo de Persona', t.Descripcion as 'Tipo de Dni', p.NumeroDocumento as 'Numero de identificacion', " &
+          "p.Nombre as 'Nombre - Nombre de Fantasia', p.Apellido as 'Apellido - Razon Social', " &
+          "p.FechaNacimiento as 'Nacimiento', p.FechaAlta as 'Fecha de Alta', p.Calle, p.NumeroCalle as 'Numero de calle', ciu.Nombre As Ciudad," &
+          "p.Car_celular +' '+ p.NumeroCelular as Celular, p.Car_telefono+' '+ p.NumeroTelefono as Telefono," &
+          "p.Email , p.id " &
+          "from Clientes as p " &
+          "inner join TipoDocumentos t on t.Id = p.TipoDocumentoId " &
+          "inner join Ciudades ciu on p.CiudadId = Ciu.Id  " &
+          "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "'"
+
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return ds1
+        db.Close()
+    End Function
+
 
     Public Sub GrabarClientes(ByVal cli As ClientesNE)
 		Try

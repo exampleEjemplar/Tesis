@@ -15,6 +15,10 @@ Public Class FrmEstadisticacliente
 
 
     Private Sub FrmEstadisticacliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dtpdesde.Format = DateTimePickerFormat.Custom
+        dtpdesde.CustomFormat = " dd/MM/yyyy"
+        dtphasta.Format = DateTimePickerFormat.Custom
+        dtphasta.CustomFormat = " dd/MM/yyyy"
         gbFiltro.Visible = False
         Chart1.Visible = False
         Chart2.Visible = False
