@@ -9,7 +9,7 @@ Public Class ConexionDA
 		'con = "Data Source= DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol11;Integrated Security=True"
 		con = "Data Source= DESKTOP-PDNSPVO\LOCAL;Initial Catalog=JoyeriaCrisol2;Integrated Security=True"
 		scon = New SqlConnection(con)
-		'scon.Open()  '---------------------------------- DESHABILITE EL OPEN DE LA BASE AUTOMATICO
+		scon.Open()  '---------------------------------- DESHABILITE EL OPEN DE LA BASE AUTOMATICO
 		Return scon
     End Function
 

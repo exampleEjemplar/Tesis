@@ -140,7 +140,7 @@ Public Class MetodoClientesDA
 
 
 	Public Function GeneraGrafico(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
-		db.Open()
+
 		Dim sqlStr As String
 		ds1 = New DataSet
 		sqlStr = "select p.nombre as nombre, count(c.NumeroDocumento) as Cantidad from Clientes c " &
@@ -164,9 +164,8 @@ Public Class MetodoClientesDA
 
 
 	Public Function GeneraGraficopersoneria(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
-		db.Open()
 
-		Dim sqlStr As String
+        Dim sqlStr As String
         ds1 = New DataSet
         sqlStr = "select count(id) as Cantidad, FisicaOJuridica from Clientes " &
 "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
@@ -187,9 +186,8 @@ Public Class MetodoClientesDA
 
 
     Public Function GeneraGraficousuario(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
-		db.Open()
 
-		Dim sqlStr As String
+        Dim sqlStr As String
         ds1 = New DataSet
         sqlStr = " Select  COUNT(*) As contador, u.UserName as nombre FROM clientes c " &
                   "inner join Usuarios u on c.UsuarioId=u.id " &
@@ -209,9 +207,8 @@ Public Class MetodoClientesDA
 
     Public Sub controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
 
-		db.Open()
 
-		Try
+        Try
 			'db.Open()
 
 			Dim control As New SqlCommand("select count(*) from clientes where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' ", db)

@@ -19,7 +19,7 @@ Public Class HelpersUI
 	End Function
 
 	Public Function HasStrangerCaracters(ByVal cadena As String) As Boolean
-		Static regex As New Regex("^[_a-z0-9-]+")
+		Static regex As New Regex("^[_a-zA-Z0-9-]+")
 		Return regex.IsMatch(cadena)
 	End Function
 
