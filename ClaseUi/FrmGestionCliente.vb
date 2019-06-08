@@ -125,6 +125,7 @@ Public Class FrmGestionCliente
 				Unblock()
 				GroupBox6.Visible = True
 				Modificando = True
+				btnLimpiar.Enabled = False
 			Next
 			cbtipodni.Enabled = False
 		Catch ex As Exception
@@ -481,6 +482,7 @@ Public Class FrmGestionCliente
 		cboBusTipoPersona.Enabled = True
 		cboBusTipoDNI.Enabled = False
 		btnNuevo.Enabled = True
+		btnLimpiar.Enabled = False
 	End Sub
 
 	'Habilita los buttons,tb,etc necesarios
@@ -494,6 +496,7 @@ Public Class FrmGestionCliente
 		'cbtipodni.Enabled = False
 		tbNroDoc.ReadOnly = True
 		btnValidarDNI1.Enabled = False
+		btnLimpiar.Enabled = True
 	End Sub
 
 	'Limpia los campos para una nueva inserción
@@ -744,10 +747,19 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 
 	End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        FrmListadoClientes.Show()
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+		FrmListadoClientes.Show()
 
-    End Sub
+	End Sub
+
+	Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+		Dim resp = MsgBox("Está seguro que desea limpiar los campos?", MsgBoxStyle.YesNo, "Limpiar")
+		If resp = MsgBoxResult.No Then
+			Return
+		End If
+		Limpiar()
+		Block()
+	End Sub
 
 
 
