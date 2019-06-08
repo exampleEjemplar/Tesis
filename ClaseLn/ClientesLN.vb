@@ -44,10 +44,10 @@ Public Class ClientesLN
         Return objclientesAD.CargaGrillaclienteslistado(fechadesde, fechahasta)
     End Function
 
-    Public Sub controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
-        objclientesAD.controlfecha(fechadesde, fechahasta)
-        contador = objclientesAD.contador
-    End Sub
+	Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
+		objclientesAD.Controlfecha(fechadesde, fechahasta)
+		contador = objclientesAD.contador
+	End Sub
 
 
 

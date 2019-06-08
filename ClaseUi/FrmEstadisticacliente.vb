@@ -46,7 +46,7 @@ Public Class FrmEstadisticacliente
     End Sub
 
     Public Sub controlfecha()
-        clientemetodo.controlfecha(fechadesde, fechahasta)
+        clientemetodo.Controlfecha(fechadesde, fechahasta)
         contador = clientemetodo.contador
 
     End Sub

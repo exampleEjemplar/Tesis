@@ -205,13 +205,13 @@ Public Class MetodoClientesDA
 
 	End Function
 
-	Public Sub controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
+	Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
 
 
 		Try
 			'db.Open()
 
-			Dim control As New SqlCommand("select count(*) from clientes where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' ", db)
+			Dim control As New SqlCommand("set dateformat ymd select count(*) from clientes where FechaAlta BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' ", db)
 			control.CommandType = CommandType.Text
 			Rs = control.ExecuteReader()
 			Rs.Read()

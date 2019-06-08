@@ -23,13 +23,14 @@ Public Class FrmGestionCliente
 
 		cmbProvincias.SelectedValue = 0
 		cbtipodni.SelectedValue = 0
-		cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
+		'cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
 		IdProvincia = LlenarCMBProvincias("general")
 		'LlenarCMBLocalidades("general")
 		Block()
 		DgvclientesSet(New Dictionary(Of String, String))
-
-		tbmail.Text = "ejemplo@ejemplo.com"
+		If Not Modificando Then
+			tbmail.Text = "ejemplo@ejemplo.com"
+		End If
 
 		'tbmail.ForeColor = Color.LightGray
 
@@ -72,21 +73,26 @@ Public Class FrmGestionCliente
 		MDIPrincipal.Show()
 	End Sub
 
-	Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs) Handles Dgvclientes.DoubleClick
+	'Private Sub Dgvcliente_DoubleClick(sender As Object, e As System.EventArgs) Handles Dgvclientes.DoubleClick
+	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles Dgvclientes.CellMouseDoubleClick
 		Unblock()
-		cbtipodni.Enabled = False
+		Dim selectedRow As DataGridViewRow
+		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+			selectedRow = Dgvclientes.Rows(e.RowIndex)
+		End If
 		Try
-			Dim ds As DataSet = clientemetodo.ConsultaModificacion(ClienteID)
-			For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+			Dim ds As DataSet = clientemetodo.ConsultaModificacion(selectedRow.Cells("id").Value)
+		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
 				If ds.Tables(0).Rows(i)(0).ToString() = "F" Then
-					cboTipoPersona.SelectionStart = 0
+					cboTipoPersona.SelectedItem = "Física"
+					cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
 					lblInicioAct.Visible = False
 					lblNombreFanta.Visible = False
 					lblRazonSoc.Visible = False
 					dtpfechanac.MinDate = DateTime.Now.AddYears(-100)
 					dtpfechanac.MaxDate = DateTime.Now.AddYears(-18)
 				Else
-					cboTipoPersona.SelectionStart = 1
+					cboTipoPersona.SelectedItem = "Jurídica"
 					lblFechaNac.Visible = False
 					lblNombre.Visible = False
 					lblApellido.Visible = False
@@ -105,7 +111,6 @@ Public Class FrmGestionCliente
 				LlenarCMBLocalidades("unico")
 				LlenarCMBProvincias("unico")
 
-				'Si detecta que el texto es null lo transforma en ""
 				tbcodcel.Text = ds.Tables(0).Rows(i)(9).ToString()
 				tbcel.Text = ds.Tables(0).Rows(i)(10).ToString()
 				tbcodtel.Text = ds.Tables(0).Rows(i)(11).ToString()
@@ -121,6 +126,7 @@ Public Class FrmGestionCliente
 				GroupBox6.Visible = True
 				Modificando = True
 			Next
+			cbtipodni.Enabled = False
 		Catch ex As Exception
 			MessageBox.Show(ex.Message)
 		End Try
@@ -173,6 +179,7 @@ Public Class FrmGestionCliente
 	Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
 		GroupBox6.Visible = True
 		btnNuevo.Enabled = False
+		cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
 	End Sub
 
 #End Region
@@ -694,6 +701,9 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 	End Sub
 
 	Private Sub GotfocusTexto(ByVal sender As Object, ByVal e As System.EventArgs)
+		If Modificando Then
+			Return
+		End If
 		'capturamos el texto que tenia
 		cadena = sender.Text
 		'borramos el texto del textbox
@@ -703,6 +713,9 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 	End Sub
 
 	Private Sub LostfocusTexto(ByVal sender As Object, ByVal e As System.EventArgs)
+		If Modificando Then
+			Return
+		End If
 		If sender.Text = "" Then 'si salio del textbox sin poner nada
 			sender.Text = cadena  'volverle a poner el texto que tenia
 			sender.ForeColor = Color.Black 'y poner la letra en gris

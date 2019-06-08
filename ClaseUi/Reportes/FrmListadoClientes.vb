@@ -16,12 +16,13 @@ Public Class FrmListadoClientes
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 		fechadesde = Format(dtpdesde.Value, "yyyy/MM/dd")
 		fechahasta = Format(dtphasta.Value, "yyyy/MM/dd")
-		controlfecha()
+		Controlfecha()
 
 		If contador > 0 Then
 
 			'Me.SP_ListadodeClientesPorfechaTableAdapter.Fill(Me.dslistadocliente.SP_ListadodeClientesPorfecha)
-			Me.SP_ListadodeClientesPorfechaTableAdapter.Fill(Me.dslistadocliente.SP_ListadodeClientesPorfecha, CType(fechadesde, Date), CType(fechahasta, Date))
+
+			SP_ListadodeClientesPorfechaTableAdapter.Fill(Me.dslistadocliente.SP_ListadodeClientesPorfecha, CType(fechadesde, Date), CType(fechahasta, Date))
 			Me.ReportViewer1.RefreshReport()
 		Else
 
@@ -33,9 +34,9 @@ Public Class FrmListadoClientes
 
 	End Sub
 
-	Public Sub controlfecha()
+	Public Sub Controlfecha()
 
-		clientemetodo.controlfecha(fechadesde, fechahasta)
+		clientemetodo.Controlfecha(fechadesde, fechahasta)
 		contador = clientemetodo.contador
 
 	End Sub
@@ -50,7 +51,7 @@ Public Class FrmListadoClientes
 
 	End Sub
 
-	Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+	Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 		Me.Close()
 
 	End Sub
