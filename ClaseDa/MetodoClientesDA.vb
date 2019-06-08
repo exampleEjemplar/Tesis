@@ -6,20 +6,20 @@ Imports ClaseNe
 
 Public Class MetodoClientesDA
 
-    Private db As New SqlConnection
-    Private com As New SqlCommand
-    Private da As SqlDataAdapter
-    Private ds1 As DataSet
-    Dim Rs As SqlDataReader
-    Public contador As Integer
+	Private db As New SqlConnection
+	Private com As New SqlCommand
+	Private da As SqlDataAdapter
+	Private ds1 As DataSet
+	Dim Rs As SqlDataReader
+	Public contador As Integer
 
 
 
-    Public Sub New()
-        Dim objcon As New ConexionDA
-        db = objcon.Abrir
-        com.Connection = db
-    End Sub
+	Public Sub New()
+		Dim objcon As New ConexionDA
+		db = objcon.Abrir
+		com.Connection = db
+	End Sub
 
 	Public Function ConsultaModificacion(ByVal Id As Integer) As DataSet
 		Dim sqlStr As String
@@ -124,15 +124,15 @@ Public Class MetodoClientesDA
 		End Try
 	End Sub
 
-    Public Sub ActualizarClientes(ByVal cli As ClientesNE)
-        Try
+	Public Sub ActualizarClientes(ByVal cli As ClientesNE)
+		Try
 			Dim insert As New SqlCommand("set dateformat dmy Update Clientes set  TipoDocumentoId = " & cli.TipoDocumentoId & ",NumeroDocumento = " & cli.NumeroDocumento & ",Nombre = " & If(cli.Nombre <> "", "'" + cli.Nombre + "'", "NULL") & ",Apellido = " & If(cli.Apellido <> "", "'" + cli.Apellido + "'", "NULL") & ",FechaNacimiento = " & If(cli.FechaNacimiento.ToString() <> "", "'" + cli.FechaNacimiento.ToString("dd/MM/yyyy") + "'", "NULL") & ",calle =  " & If(cli.Calle <> "", "'" + cli.Calle + "'", "NULL") & ",NumeroCalle = " & If(cli.NumeroCalle.ToString() <> "", "'" + cli.NumeroCalle + "'", "NULL") & ",Departamento =  " & If(cli.Departamento <> "", "'" + cli.Departamento + "'", "NULL") & ",Barrio = " & If(cli.Barrio <> "", "'" + cli.Barrio + "'", "NULL") & ",Piso = " & If(cli.Piso.ToString() <> "", "'" + cli.Piso + "'", "NULL") & ",Manzana = " & If(cli.Manzana <> "", "'" + cli.Manzana + "'", "NULL") & ",Lote = " & If(cli.Lote <> "", "'" + cli.Lote + "'", "NULL") & ",CiudadId = " & If(cli.CiudadId.ToString() <> "", "'" + cli.CiudadId.ToString() + "'", "NULL") & " ,Car_Telefono = " & If(cli.Car_Telefono <> "", "'" + cli.Car_Telefono + "'", "NULL") & ",NumeroTelefono = " & If(cli.NumeroTelefono <> "", "'" + cli.NumeroTelefono + "'", "NULL") & ",Car_Celular = " & If(cli.Car_Celular <> "", "'" + cli.Car_Celular + "'", "NULL") & ",NumeroCelular = " & If(cli.NumeroCelular <> "", "'" + cli.NumeroCelular + "'", "NULL") & ",Email = " & If(cli.Email <> "", "'" + cli.Email + "'", "NULL ") & " where Id = " & cli.Id, db)
 			insert.CommandType = CommandType.Text
-            db.Open()
-            insert.ExecuteNonQuery()
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Open()
+			insert.ExecuteNonQuery()
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
 			db.Close()
 		End Try
 	End Sub
@@ -165,65 +165,65 @@ Public Class MetodoClientesDA
 
 	Public Function GeneraGraficopersoneria(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
 
-        Dim sqlStr As String
-        ds1 = New DataSet
-        sqlStr = "select count(id) as Cantidad, FisicaOJuridica from Clientes " &
+		Dim sqlStr As String
+		ds1 = New DataSet
+		sqlStr = "select count(id) as Cantidad, FisicaOJuridica from Clientes " &
 "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
 "group by FisicaOJuridica"
 
-        Try
-            da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds1)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-        Return ds1
-        db.Close()
-
-    End Function
-
-
-
-    Public Function GeneraGraficousuario(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
-
-        Dim sqlStr As String
-        ds1 = New DataSet
-        sqlStr = " Select  COUNT(*) As contador, u.UserName as nombre FROM clientes c " &
-                  "inner join Usuarios u on c.UsuarioId=u.id " &
-                  "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-                  "GROUP BY u.UserName"
-
-        Try
-            da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds1)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-        Return ds1
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+		End Try
+		Return ds1
+		db.Close()
 
 	End Function
 
-    Public Sub controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
 
 
-        Try
+	Public Function GeneraGraficousuario(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+
+		Dim sqlStr As String
+		ds1 = New DataSet
+		sqlStr = " Select  COUNT(*) As contador, u.UserName as nombre FROM clientes c " &
+					 "inner join Usuarios u on c.UsuarioId=u.id " &
+					 "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+					 "GROUP BY u.UserName"
+
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+		End Try
+		Return ds1
+
+	End Function
+
+	Public Sub controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
+
+
+		Try
 			'db.Open()
 
 			Dim control As New SqlCommand("select count(*) from clientes where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' ", db)
-            control.CommandType = CommandType.Text
-            Rs = control.ExecuteReader()
-            Rs.Read()
-            contador = Rs(0)
+			control.CommandType = CommandType.Text
+			Rs = control.ExecuteReader()
+			Rs.Read()
+			contador = Rs(0)
 
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+		End Try
 
-        db.Close()
+		db.Close()
 
-    End Sub
+	End Sub
 
 
 

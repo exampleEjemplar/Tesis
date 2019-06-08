@@ -13,17 +13,17 @@ Option Explicit On
 
 
 Namespace My
-    
-    <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0"),  _
-     Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
-    Partial Friend NotInheritable Class MySettings
-        Inherits Global.System.Configuration.ApplicationSettingsBase
-        
-        Private Shared defaultInstance As MySettings = CType(Global.System.Configuration.ApplicationSettingsBase.Synchronized(New MySettings()),MySettings)
-        
+
+	<Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),
+	 Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0"),
+	 Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>
+	Partial Friend NotInheritable Class MySettings
+		Inherits Global.System.Configuration.ApplicationSettingsBase
+
+		Private Shared defaultInstance As MySettings = CType(Global.System.Configuration.ApplicationSettingsBase.Synchronized(New MySettings()), MySettings)
+
 #Region "Funcionalidad para autoguardar My.Settings"
-#If _MyType = "WindowsForms" Then
+#If _MYTYPE = "WindowsForms" Then
     Private Shared addedHandler As Boolean
 
     Private Shared addedHandlerLockObject As New Object
@@ -36,11 +36,11 @@ Namespace My
     End Sub
 #End If
 #End Region
-        
-        Public Shared ReadOnly Property [Default]() As MySettings
-            Get
-                
-#If _MyType = "WindowsForms" Then
+
+		Public Shared ReadOnly Property [Default]() As MySettings
+			Get
+
+#If _MYTYPE = "WindowsForms" Then
                If Not addedHandler Then
                     SyncLock addedHandlerLockObject
                         If Not addedHandler Then
@@ -50,46 +50,46 @@ Namespace My
                     End SyncLock
                 End If
 #End If
-                Return defaultInstance
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol11;Integrated"& _ 
-            " Security=True")>  _
-        Public ReadOnly Property JoyeriaCrisol11ConnectionString() As String
-            Get
-                Return CType(Me("JoyeriaCrisol11ConnectionString"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-PDNSPVO\LOCAL;Initial Catalog=JoyeriaCrisol2;Integrated Secur"& _ 
-            "ity=True")>  _
-        Public ReadOnly Property JoyeriaCrisol2ConnectionString() As String
-            Get
-                Return CType(Me("JoyeriaCrisol2ConnectionString"),String)
-            End Get
-        End Property
-    End Class
+				Return defaultInstance
+			End Get
+		End Property
+
+		<Global.System.Configuration.ApplicationScopedSettingAttribute(),
+		 Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+		 Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
+		 Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol11;Integrated" &
+			 " Security=True")>
+		Public ReadOnly Property JoyeriaCrisol11ConnectionString() As String
+			Get
+				Return CType(Me("JoyeriaCrisol11ConnectionString"), String)
+			End Get
+		End Property
+
+		<Global.System.Configuration.ApplicationScopedSettingAttribute(),
+		 Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+		 Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
+		 Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-PDNSPVO\LOCAL;Initial Catalog=JoyeriaCrisol2;Integrated Secur" &
+			 "ity=True")>
+		Public ReadOnly Property JoyeriaCrisol2ConnectionString() As String
+			Get
+				Return CType(Me("JoyeriaCrisol2ConnectionString"), String)
+			End Get
+		End Property
+	End Class
 End Namespace
 
 Namespace My
-    
-    <Global.Microsoft.VisualBasic.HideModuleNameAttribute(),  _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
-    Friend Module MySettingsProperty
-        
-        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.ClaseUi.My.MySettings
-            Get
-                Return Global.ClaseUi.My.MySettings.Default
-            End Get
-        End Property
-    End Module
+
+	<Global.Microsoft.VisualBasic.HideModuleNameAttribute(),
+	 Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+	 Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>
+	Friend Module MySettingsProperty
+
+		<Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>
+		Friend ReadOnly Property Settings() As Global.ClaseUi.My.MySettings
+			Get
+				Return Global.ClaseUi.My.MySettings.Default
+			End Get
+		End Property
+	End Module
 End Namespace

@@ -25,19 +25,19 @@ Public Class HelpersUI
 
 
 	Public Function ValidarTamaño(ByVal text As String, ByVal minLength As Integer, ByVal maxLength As Integer) As Boolean
-        'Pasar en 0 el parametro que no se quiera validar
-        If minLength <> 0 Then
-            If text.Length < minLength Then
-                Return False
-            End If
-        End If
-        If maxLength <> 0 Then
-            If text.Length > maxLength Then
-                Return False
-            End If
-        End If
-        Return True
-    End Function
+		'Pasar en 0 el parametro que no se quiera validar
+		If minLength <> 0 Then
+			If text.Length < minLength Then
+				Return False
+			End If
+		End If
+		If maxLength <> 0 Then
+			If text.Length > maxLength Then
+				Return False
+			End If
+		End If
+		Return True
+	End Function
 
 	Function ValidatePassword(ByVal pwd As String,
 	 Optional ByVal minLength As Integer = 8,
