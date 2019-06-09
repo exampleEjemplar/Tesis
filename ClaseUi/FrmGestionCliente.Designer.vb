@@ -789,9 +789,9 @@ Partial Class FrmGestionCliente
 		'btnLimpiar
 		'
 		Me.btnLimpiar.BackColor = System.Drawing.SystemColors.Control
-		Me.btnLimpiar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_cancel_621
-		Me.btnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnLimpiar.FlatAppearance.BorderSize = 0
+        Me.btnLimpiar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_cancel_62
+        Me.btnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnLimpiar.FlatAppearance.BorderSize = 0
 		Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnLimpiar.Location = New System.Drawing.Point(837, 422)
 		Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(4)

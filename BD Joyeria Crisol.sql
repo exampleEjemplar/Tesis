@@ -22924,7 +22924,7 @@ VALUES
 (1)
 GO
 
- USE [JoyeriaCrisol11]
+ USE [JoyeriaCrisol]
 GO
 /****** Object:  StoredProcedure [dbo].[SP_ListadodeClientesPorfecha]    Script Date: 6/6/2019 23:45:38 ******/
 SET ANSI_NULLS ON
@@ -22948,8 +22948,10 @@ inner join TipoDocumentos t on t.Id = p.TipoDocumentoId
 inner join Ciudades ciu on p.CiudadId = Ciu.Id  
 where FechaAlta BETWEEN @fechadesde and @fechahasta
 end
-        
- USE [JoyeriaCrisol11]
+
+GO
+ 
+ USE [JoyeriaCrisol]
 GO
 /****** Object:  StoredProcedure [dbo].[SP_ModificarProductos]    Script Date: 7/6/2019 01:36:52 ******/
 SET ANSI_NULLS ON
@@ -22997,8 +22999,9 @@ StockODeTercero =@StockODeTercero
 where Id = @id
 
 end
+GO
 
-USE [JoyeriaCrisol11]
+USE [JoyeriaCrisol]
 GO
 /****** Object:  StoredProcedure [dbo].[SP_MostrarProductoconbusqueda]    Script Date: 7/6/2019 01:37:45 ******/
 SET ANSI_NULLS ON
@@ -23017,9 +23020,9 @@ inner join Categorias2 t on p.Categoria2ID=t.id
 inner join Materiales m On p.MaterialId=m.id
 inner join categorias ca on p.CategoriaID= ca.Id
 where p.id like CONCAT('%', @codigo ,'%') and  p.nombre like  CONCAT('%', @nombre ,'%');
-
-       
-USE [JoyeriaCrisol11]
+GO 
+     
+USE [JoyeriaCrisol]
 GO
 /****** Object:  StoredProcedure [dbo].[SP_MostrarProductoconbusquedaCAT]    Script Date: 7/6/2019 01:38:07 ******/
 SET ANSI_NULLS ON
@@ -23039,9 +23042,9 @@ inner join Categorias2 t on p.Categoria2ID=t.id
 inner join Materiales m On p.MaterialId=m.id
 inner join categorias ca on p.CategoriaID= ca.Id
 where p.id like CONCAT('%', @codigo ,'%') and  p.nombre like  CONCAT('%', @nombre ,'%') and  p.CategoriaID = @categoria;
+GO
 
-
-USE [JoyeriaCrisol11]
+USE [JoyeriaCrisol]
 GO
 /****** Object:  StoredProcedure [dbo].[SP_MostrarProductosinbusqueda]    Script Date: 7/6/2019 01:38:32 ******/
 SET ANSI_NULLS ON
@@ -23059,14 +23062,16 @@ p.CategoriaID, p.StockODeTercero FROM productos as p
 inner join Categorias2 t on p.Categoria2ID=t.id
 inner join Materiales m On p.MaterialId=m.id
 inner join categorias ca on p.CategoriaID= ca.Id
+GO
 
-USE [JoyeriaCrisol11]
+USE [JoyeriaCrisol]
 GO
 /****** Object:  StoredProcedure [dbo].[SP_RegistrarProducto]    Script Date: 7/6/2019 01:38:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
 CREATE PROCEDURE [dbo].[SP_RegistrarProducto]
 @Cod_Barra varchar(max),
 @Nombre varchar(max),
@@ -23085,6 +23090,7 @@ CREATE PROCEDURE [dbo].[SP_RegistrarProducto]
 @CategoriaId int,
 @StockODeTercero int
 AS
+
 begin
 insert into productos  values(@Cod_Barra,
 @Nombre,
@@ -23103,7 +23109,6 @@ insert into productos  values(@Cod_Barra,
 @CategoriaId,
 @StockODeTercero)
 end
-
 
 
 
