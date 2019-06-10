@@ -24,7 +24,7 @@ Public Class FrmListadoClientes
 
             'Me.SP_ListadodeClientesPorfechaTableAdapter.Fill(Me.dslistadocliente.SP_ListadodeClientesPorfecha)
 
-            Me.SP_ListadodeClientesPorfechaTableAdapter.Fill(Me.JoyeriaCrisolDataSet1.SP_ListadodeClientesPorfecha, CType(fechadesde, Date), CType(fechahasta, Date))
+            Me.SP_ListadodeClientesPorfechaTableAdapter.Fill(Me.JoyeriaCrisol11DataSet.SP_ListadodeClientesPorfecha, CType(fechadesde, Date), CType(fechahasta, Date))
             Me.ReportViewer1.RefreshReport()
 		Else
 
@@ -46,9 +46,6 @@ Public Class FrmListadoClientes
 
 
 	Private Sub FrmListadoClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'JoyeriaCrisolDataSet1.SP_ListadodeClientesPorfecha' Puede moverla o quitarla según sea necesario.
-
-        'TODO: esta línea de código carga datos en la tabla 'dslistadocliente.SP_ListadodeClientesPorfecha' Puede moverla o quitarla según sea necesario.
         dtpdesde.Format = DateTimePickerFormat.Custom
         dtpdesde.CustomFormat = " dd/MM/yyyy"
 		dtphasta.Format = DateTimePickerFormat.Custom

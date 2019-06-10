@@ -169,6 +169,11 @@
     <Compile Include="FrmGestionVentas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="JoyeriaCrisol11DataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JoyeriaCrisol11DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="JoyeriaCrisol2DataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -288,6 +293,17 @@
     </None>
     <None Include="dslistadocliente.xss">
       <DependentUpon>dslistadocliente.xsd</DependentUpon>
+    </None>
+    <None Include="JoyeriaCrisol11DataSet.xsc">
+      <DependentUpon>JoyeriaCrisol11DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JoyeriaCrisol11DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JoyeriaCrisol11DataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JoyeriaCrisol11DataSet.xss">
+      <DependentUpon>JoyeriaCrisol11DataSet.xsd</DependentUpon>
     </None>
     <None Include="JoyeriaCrisol2DataSet.xsc">
       <DependentUpon>JoyeriaCrisol2DataSet.xsd</DependentUpon>
