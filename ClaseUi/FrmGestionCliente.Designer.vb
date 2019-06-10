@@ -744,9 +744,14 @@ Partial Class FrmGestionCliente
         '
         'Dgvclientes
         '
+        Me.Dgvclientes.AllowUserToAddRows = False
+        Me.Dgvclientes.AllowUserToDeleteRows = False
+        Me.Dgvclientes.AllowUserToResizeColumns = False
+        Me.Dgvclientes.AllowUserToResizeRows = False
         Me.Dgvclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvclientes.Location = New System.Drawing.Point(38, 464)
         Me.Dgvclientes.Name = "Dgvclientes"
+        Me.Dgvclientes.RowHeadersVisible = False
         Me.Dgvclientes.Size = New System.Drawing.Size(885, 204)
         Me.Dgvclientes.TabIndex = 23
         '
