@@ -47,7 +47,6 @@ Partial Class MDIPrincipal
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
@@ -56,6 +55,7 @@ Partial Class MDIPrincipal
         Me.btnArticulos = New System.Windows.Forms.Button()
         Me.btnCompras = New System.Windows.Forms.Button()
         Me.btnVentas = New System.Windows.Forms.Button()
+        Me.GestionDeUsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -68,7 +68,7 @@ Partial Class MDIPrincipal
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(832, 24)
+        Me.MenuStrip.Size = New System.Drawing.Size(1012, 24)
         Me.MenuStrip.TabIndex = 15
         Me.MenuStrip.Text = "MenuStrip"
         '
@@ -87,9 +87,10 @@ Partial Class MDIPrincipal
         '
         'ViewMenu
         '
+        Me.ViewMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeUsuariosToolStripMenuItem})
         Me.ViewMenu.Name = "ViewMenu"
-        Me.ViewMenu.Size = New System.Drawing.Size(66, 20)
-        Me.ViewMenu.Text = "&Articulos"
+        Me.ViewMenu.Size = New System.Drawing.Size(59, 20)
+        Me.ViewMenu.Text = "&Usuario"
         '
         'ToolsMenu
         '
@@ -204,7 +205,7 @@ Partial Class MDIPrincipal
         Me.Button4.FlatAppearance.BorderSize = 0
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(157, 328)
+        Me.Button4.Location = New System.Drawing.Point(714, 208)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(124, 90)
         Me.Button4.TabIndex = 30
@@ -212,23 +213,6 @@ Partial Class MDIPrincipal
         Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.Button4.UseVisualStyleBackColor = False
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.Button3.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_user_account_62
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(157, 232)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(124, 90)
-        Me.Button3.TabIndex = 28
-        Me.Button3.Text = "Usuarios"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button3.UseVisualStyleBackColor = False
         '
         'Button2
         '
@@ -238,7 +222,7 @@ Partial Class MDIPrincipal
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(157, 136)
+        Me.Button2.Location = New System.Drawing.Point(572, 208)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(124, 90)
         Me.Button2.TabIndex = 26
@@ -255,7 +239,7 @@ Partial Class MDIPrincipal
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(157, 39)
+        Me.Button1.Location = New System.Drawing.Point(572, 111)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(124, 90)
         Me.Button1.TabIndex = 24
@@ -272,7 +256,7 @@ Partial Class MDIPrincipal
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Location = New System.Drawing.Point(10, 522)
+        Me.btnSalir.Location = New System.Drawing.Point(644, 304)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(124, 91)
         Me.btnSalir.TabIndex = 22
@@ -289,7 +273,7 @@ Partial Class MDIPrincipal
         Me.btnAjustes.FlatAppearance.BorderSize = 0
         Me.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAjustes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAjustes.Location = New System.Drawing.Point(10, 426)
+        Me.btnAjustes.Location = New System.Drawing.Point(861, 107)
         Me.btnAjustes.Name = "btnAjustes"
         Me.btnAjustes.Size = New System.Drawing.Size(124, 90)
         Me.btnAjustes.TabIndex = 20
@@ -306,7 +290,7 @@ Partial Class MDIPrincipal
         Me.btnCaja.FlatAppearance.BorderSize = 0
         Me.btnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCaja.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCaja.Location = New System.Drawing.Point(10, 329)
+        Me.btnCaja.Location = New System.Drawing.Point(861, 208)
         Me.btnCaja.Name = "btnCaja"
         Me.btnCaja.Size = New System.Drawing.Size(124, 90)
         Me.btnCaja.TabIndex = 19
@@ -323,7 +307,7 @@ Partial Class MDIPrincipal
         Me.btnArticulos.FlatAppearance.BorderSize = 0
         Me.btnArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnArticulos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnArticulos.Location = New System.Drawing.Point(10, 232)
+        Me.btnArticulos.Location = New System.Drawing.Point(714, 107)
         Me.btnArticulos.Name = "btnArticulos"
         Me.btnArticulos.Size = New System.Drawing.Size(124, 90)
         Me.btnArticulos.TabIndex = 18
@@ -340,7 +324,7 @@ Partial Class MDIPrincipal
         Me.btnCompras.FlatAppearance.BorderSize = 0
         Me.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCompras.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCompras.Location = New System.Drawing.Point(10, 136)
+        Me.btnCompras.Location = New System.Drawing.Point(425, 208)
         Me.btnCompras.Name = "btnCompras"
         Me.btnCompras.Size = New System.Drawing.Size(124, 90)
         Me.btnCompras.TabIndex = 17
@@ -357,7 +341,7 @@ Partial Class MDIPrincipal
         Me.btnVentas.FlatAppearance.BorderSize = 0
         Me.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVentas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVentas.Location = New System.Drawing.Point(10, 39)
+        Me.btnVentas.Location = New System.Drawing.Point(425, 111)
         Me.btnVentas.Name = "btnVentas"
         Me.btnVentas.Size = New System.Drawing.Size(124, 90)
         Me.btnVentas.TabIndex = 16
@@ -366,14 +350,21 @@ Partial Class MDIPrincipal
         Me.btnVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnVentas.UseVisualStyleBackColor = False
         '
+        'GestionDeUsuariosToolStripMenuItem
+        '
+        Me.GestionDeUsuariosToolStripMenuItem.Name = "GestionDeUsuariosToolStripMenuItem"
+        Me.GestionDeUsuariosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GestionDeUsuariosToolStripMenuItem.Text = "Gestion de Usuarios"
+        '
         'MDIPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(832, 619)
+        Me.BackgroundImage = Global.ClaseUi.My.Resources.Resources.Jewelry_Pearl_Gray_background_543096_1280x847
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(1012, 619)
         Me.ControlBox = False
         Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnSalir)
@@ -417,7 +408,6 @@ Partial Class MDIPrincipal
     Friend WithEvents btnSalir As Windows.Forms.Button
     Friend WithEvents Button1 As Windows.Forms.Button
     Friend WithEvents Button2 As Windows.Forms.Button
-    Friend WithEvents Button3 As Windows.Forms.Button
     Friend WithEvents EstaditicasToolStripMenuItem As Windows.Forms.ToolStripMenuItem
     Friend WithEvents ClientesToolStripMenuItem As Windows.Forms.ToolStripMenuItem
     Friend WithEvents ProveedoresToolStripMenuItem As Windows.Forms.ToolStripMenuItem
@@ -425,4 +415,5 @@ Partial Class MDIPrincipal
     Friend WithEvents VentasToolStripMenuItem As Windows.Forms.ToolStripMenuItem
     Friend WithEvents ComprasToolStripMenuItem As Windows.Forms.ToolStripMenuItem
     Friend WithEvents Button4 As Windows.Forms.Button
+    Friend WithEvents GestionDeUsuariosToolStripMenuItem As Windows.Forms.ToolStripMenuItem
 End Class

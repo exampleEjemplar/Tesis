@@ -28,7 +28,7 @@ Public Class FrmEstadisticacliente
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         fechadesde = Format(dtpdesde.Value, "yyyy/MM/dd")
-        fechahasta = Format(dtphasta.Value, "yyyy/MM/dd")
+        fechahasta = Format(dtphasta.Value.AddDays(1), "yyyy/MM/dd")
         controlfecha()
 
         If contador > 0 Then

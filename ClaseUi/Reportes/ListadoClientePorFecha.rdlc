@@ -377,18 +377,19 @@
         <Top>0.94932cm</Top>
         <Left>0.1162cm</Left>
         <Height>1.2cm</Height>
-        <Width>28.83833cm</Width>
+        <Width>28.83834cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+          <TextAlign>Left</TextAlign>
         </Style>
       </Tablix>
     </ReportItems>
     <Height>5.08333in</Height>
     <Style />
   </Body>
-  <Width>11.39942in</Width>
+  <Width>11.39943in</Width>
   <Page>
     <PageHeader>
       <Height>2.8575cm</Height>
@@ -561,11 +562,11 @@
         </Field>
         <Field Name="Column1">
           <DataField>Column1</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="Column2">
           <DataField>Column2</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="Email">
           <DataField>Email</DataField>
@@ -577,8 +578,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>dslistadocliente</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\cabri\source\repos\Tesis\ClaseUi\dslistadocliente.xsd</rd:SchemaPath>
+        <rd:DataSetName>JoyeriaCrisolDataSet1</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\martcabrera\Source\Repos\Tesis2\ClaseUi\JoyeriaCrisolDataSet1.xsd</rd:SchemaPath>
         <rd:TableName>SP_ListadodeClientesPorfecha</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

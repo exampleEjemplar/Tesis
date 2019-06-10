@@ -103,10 +103,6 @@ Public Class MDIPrincipal
         FrmGestionProveedores.Show()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        FrmGestionUsuario.Show()
-    End Sub
-
     Private Sub btnArticulos_Click(sender As Object, e As EventArgs) Handles btnArticulos.Click
         FrmGestionProducto.Show()
 
@@ -121,5 +117,9 @@ Public Class MDIPrincipal
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         FrmCatalogo.Show()
 
+    End Sub
+
+    Private Sub GestionDeUsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionDeUsuariosToolStripMenuItem.Click
+        FrmGestionUsuario.Show()
     End Sub
 End Class

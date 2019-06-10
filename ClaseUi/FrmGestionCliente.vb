@@ -359,7 +359,8 @@ Public Class FrmGestionCliente
         End If
 
         If String.IsNullOrEmpty(cmbLocalidades.SelectedValue) Then
-            cli.CiudadId = ""
+            MsgBox("Debe Cargar una Localidad", MsgBoxStyle.Critical, "Error")
+            Return False
         Else
             cli.CiudadId = cmbLocalidades.SelectedValue
         End If
@@ -760,6 +761,7 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
         Limpiar()
         Block()
     End Sub
+
 
 
 
