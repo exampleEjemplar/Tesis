@@ -38,7 +38,7 @@ Public Class FrmGestionCliente
 		AddHandler tbmail.LostFocus, AddressOf LostfocusTexto
 
 
-	End Sub
+    End Sub
 
 	Private Sub CmbProvincias_SelectionChangeCommitted(sender As System.Object, e As System.EventArgs) Handles cmbProvincias.SelectionChangeCommitted
 		IdProvincia = cmbProvincias.SelectedValue
@@ -140,18 +140,23 @@ Public Class FrmGestionCliente
     Private Sub CboTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoPersona.SelectedIndexChanged
         If cboTipoPersona.SelectedItem = "Física" Then
             LlenarCMBDoc("F", "nuevo")
+            cbtipodni.Enabled = True
+            tbNroDoc.Enabled = False
         Else
             LlenarCMBDoc("J", "nuevo")
             lblNombreFanta.Visible = True
             lblRazonSoc.Visible = True
+            cbtipodni.Enabled = True
+            tbNroDoc.Enabled = False
 
         End If
-        cbtipodni.Enabled = True
+
     End Sub
 
     Private Sub CboBusTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboBusTipoPersona.SelectedIndexChanged
         If cboBusTipoPersona.SelectedItem = "Física" Then
             LlenarCMBDoc("F", "busqueda")
+
         Else
             LlenarCMBDoc("J", "busqueda")
         End If
@@ -181,6 +186,8 @@ Public Class FrmGestionCliente
         GroupBox6.Visible = True
         btnNuevo.Enabled = False
         cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
+        cbtipodni.Enabled = False
+        tbNroDoc.Enabled = False
     End Sub
 
 #End Region
@@ -760,6 +767,10 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
         End If
         Limpiar()
         Block()
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
     End Sub
 
 

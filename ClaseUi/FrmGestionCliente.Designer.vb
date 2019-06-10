@@ -750,8 +750,12 @@ Partial Class FrmGestionCliente
         Me.Dgvclientes.AllowUserToResizeRows = False
         Me.Dgvclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvclientes.Location = New System.Drawing.Point(38, 464)
+        Me.Dgvclientes.MultiSelect = False
         Me.Dgvclientes.Name = "Dgvclientes"
+        Me.Dgvclientes.ReadOnly = True
         Me.Dgvclientes.RowHeadersVisible = False
+        Me.Dgvclientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.Dgvclientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Dgvclientes.Size = New System.Drawing.Size(885, 204)
         Me.Dgvclientes.TabIndex = 23
         '
