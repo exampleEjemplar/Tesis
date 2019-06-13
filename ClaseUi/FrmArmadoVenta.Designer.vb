@@ -39,11 +39,11 @@ Partial Class FrmArmadoVenta
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
 		Me.lstProdDispo = New System.Windows.Forms.ListView()
 		Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+		Me.ListView1 = New System.Windows.Forms.ListView()
 		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.btnAgregar = New System.Windows.Forms.Button()
 		Me.btnQuitar = New System.Windows.Forms.Button()
 		Me.btnNuevo = New System.Windows.Forms.Button()
-		Me.ListView1 = New System.Windows.Forms.ListView()
 		Me.GroupBox1.SuspendLayout()
 		Me.GroupBox2.SuspendLayout()
 		Me.GroupBox3.SuspendLayout()
@@ -239,6 +239,15 @@ Partial Class FrmArmadoVenta
 		Me.GroupBox4.TabStop = False
 		Me.GroupBox4.Text = "Productos en la venta"
 		'
+		'ListView1
+		'
+		Me.ListView1.AllowDrop = True
+		Me.ListView1.Location = New System.Drawing.Point(4, 21)
+		Me.ListView1.Name = "ListView1"
+		Me.ListView1.Size = New System.Drawing.Size(502, 552)
+		Me.ListView1.TabIndex = 1
+		Me.ListView1.UseCompatibleStateImageBehavior = False
+		'
 		'btnSalir
 		'
 		Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
@@ -302,15 +311,6 @@ Partial Class FrmArmadoVenta
 		Me.btnNuevo.Text = "Finalizar"
 		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnNuevo.UseVisualStyleBackColor = False
-		'
-		'ListView1
-		'
-		Me.ListView1.AllowDrop = True
-		Me.ListView1.Location = New System.Drawing.Point(4, 21)
-		Me.ListView1.Name = "ListView1"
-		Me.ListView1.Size = New System.Drawing.Size(502, 552)
-		Me.ListView1.TabIndex = 1
-		Me.ListView1.UseCompatibleStateImageBehavior = False
 		'
 		'FrmArmadoVenta
 		'

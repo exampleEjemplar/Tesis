@@ -8,9 +8,6 @@ Public Class FrmArmadoVenta
 	Private clientesLN As New ClientesLN
 	Dim moveItem As Boolean
 
-
-
-
 #Region "Eventos"
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		LlenarCboClientes()
@@ -109,6 +106,7 @@ Public Class FrmArmadoVenta
 			e.Effect = DragDropEffects.None
 		End If
 	End Sub
+
 
 #End Region
 

@@ -82,7 +82,7 @@ Public Class FrmGestionCliente
 		End If
 		Try
 			Dim ds As DataSet = clientemetodo.ConsultaModificacion(selectedRow.Cells("id").Value)
-		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+			For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
 				If ds.Tables(0).Rows(i)(0).ToString() = "F" Then
 					cboTipoPersona.SelectedItem = "Física"
 					cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
@@ -131,19 +131,15 @@ Public Class FrmGestionCliente
 				Unblock()
 				GroupBox6.Visible = True
 				Modificando = True
-                btnLimpiar.Enabled = False
-            Next
-            cbtipodni.Enabled = False
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-    End Sub
+				btnLimpiar.Enabled = False
+			Next
+			cbtipodni.Enabled = False
+		Catch ex As Exception
+			MessageBox.Show(ex.Message)
+		End Try
+	End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub CboTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoPersona.SelectedIndexChanged
+	Private Sub CboTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoPersona.SelectedIndexChanged
 		If cboTipoPersona.SelectedItem = "Física" Then
 			LlenarCMBDoc("F", "nuevo")
 			cbtipodni.Enabled = True
