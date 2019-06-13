@@ -89,6 +89,9 @@ Public Class FrmGestionCliente
 					lblInicioAct.Visible = False
 					lblNombreFanta.Visible = False
 					lblRazonSoc.Visible = False
+					lblNombre.Visible = True
+					lblApellido.Visible = True
+					lblFechaNac.Visible = True
 					dtpfechanac.MinDate = DateTime.Now.AddYears(-100)
 					dtpfechanac.MaxDate = DateTime.Now.AddYears(-18)
 				Else
@@ -96,6 +99,9 @@ Public Class FrmGestionCliente
 					lblFechaNac.Visible = False
 					lblNombre.Visible = False
 					lblApellido.Visible = False
+					lblInicioAct.Visible = True
+					lblNombreFanta.Visible = True
+					lblRazonSoc.Visible = True
 					dtpfechanac.MinDate = DateTime.Now.AddYears(-100)
 					dtpfechanac.MaxDate = DateTime.Now
 				End If
@@ -138,18 +144,16 @@ Public Class FrmGestionCliente
     End Sub
 
     Private Sub CboTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoPersona.SelectedIndexChanged
-        If cboTipoPersona.SelectedItem = "Física" Then
-            LlenarCMBDoc("F", "nuevo")
-            cbtipodni.Enabled = True
-            tbNroDoc.Enabled = False
-        Else
-            LlenarCMBDoc("J", "nuevo")
+		If cboTipoPersona.SelectedItem = "Física" Then
+			LlenarCMBDoc("F", "nuevo")
+			cbtipodni.Enabled = True
+		Else
+			LlenarCMBDoc("J", "nuevo")
             lblNombreFanta.Visible = True
             lblRazonSoc.Visible = True
             cbtipodni.Enabled = True
-            tbNroDoc.Enabled = False
 
-        End If
+		End If
 
     End Sub
 
@@ -182,20 +186,18 @@ Public Class FrmGestionCliente
         End If
     End Sub
 
-    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
-        GroupBox6.Visible = True
-        btnNuevo.Enabled = False
-        cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
-        cbtipodni.Enabled = False
-        tbNroDoc.Enabled = False
-    End Sub
+	Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+		GroupBox6.Visible = True
+		btnNuevo.Enabled = False
+		cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
+	End Sub
 
 #End Region
 
 #Region "Validadores"
 
-    'Valida datos antes de insertarlos en la BD
-    Public Function ValidarDatos()
+	'Valida datos antes de insertarlos en la BD
+	Public Function ValidarDatos()
 
         'Seccion modificada a partir de pedido de la profe, la dejo comentada a proposito. 6/6/2019
 
@@ -509,13 +511,13 @@ Public Class FrmGestionCliente
 
     'Limpia los campos para una nueva inserción
     Private Sub Limpiar()
-        tbNombre.Text = ""
-        tbApellido.Text = ""
+		tbNombre.Text = ""
+		tbApellido.Text = ""
         cbtipodni.SelectedItem = Nothing
         tbNroDoc.Text = ""
         dtpfechanac.Value.ToString("dd-MM-yyyy HH:mm:ss")
-        tbmail.Text = ""
-        tbcalle.Text = ""
+		tbmail.Text = "ejemplo@ejemplo.com"
+		tbcalle.Text = ""
         txtLote.Text = ""
         txtManzana.Text = ""
         tbNro.Text = ""
@@ -734,28 +736,22 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 
     End Sub
 
-    'Private Sub btncancelar_Click(sender As Object, e As EventArgs) Handles btncancelar.Click
-    '	Limpiar()
+	'Private Sub btncancelar_Click(sender As Object, e As EventArgs) Handles btncancelar.Click
+	'	Limpiar()
 
-    '	Block()
+	'	Block()
 
-    'End Sub
+	'End Sub
 
-    'Private Sub btnmodificar_Click(sender As Object, e As EventArgs) Handles btnmodificar.Click
-    '	habilitar()
+	'Private Sub btnmodificar_Click(sender As Object, e As EventArgs) Handles btnmodificar.Click
+	'	habilitar()
 
-    'End Sub
+	'End Sub
 
-    Private Sub GroupBox6_Enter(sender As Object, e As EventArgs) Handles GroupBox6.Enter
+	Private Sub GroupBox6_Enter(sender As Object, e As EventArgs) Handles GroupBox6.Enter
 
-    End Sub
-
-    Private Sub cbtipodni_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbtipodni.SelectedIndexChanged
-        tbNroDoc.Enabled = True
-
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+	End Sub
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         FrmListadoClientes.Show()
 
     End Sub
@@ -768,13 +764,6 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
         Limpiar()
         Block()
     End Sub
-
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
-
-    End Sub
-
-
-
 
 #End Region
 
