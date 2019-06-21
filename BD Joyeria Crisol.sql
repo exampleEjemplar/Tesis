@@ -46,9 +46,15 @@ CONSTRAINT Usuarios_Roles FOREIGN KEY (RolId) REFERENCES Roles(ID)
 GO
 CREATE TABLE Materiales(
 Id INT IDENTITY PRIMARY KEY,
-Nombre VARCHAR(MAX),
+Nombre VARCHAR(MAX)
+)
+GO
+CREATE TABLE Cotizaciones(
+Id INT IDENTITY PRIMARY KEY,
 Cotizacion FLOAT,
-Fecha DATE
+MaterialId INT,
+Fecha DATE,
+CONSTRAINT Cotizacion_Material FOREIGN KEY (MaterialId) REFERENCES Materiales(ID)
 )
 GO
 CREATE TABLE Provincias (

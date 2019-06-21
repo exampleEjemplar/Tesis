@@ -52,16 +52,13 @@ Public Class LogIn
         End If
     End Sub
 #End Region
-
-
-
 #Region "Metodos"
 
-    'Public Function ObtainUserId()
+	'Public Function ObtainUserId()
 
-    'End Function
+	'End Function
 
-    Private Sub LogIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+	Private Sub LogIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtUsuario.Text = ""
         txtContrasena.Text = ""
         'Mostrar Fecha y Hora

@@ -30,12 +30,15 @@ Partial Class FrmGestionMaterial
 		Me.btnGuardar = New System.Windows.Forms.Button()
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+		Me.btnCotizacionesHist = New System.Windows.Forms.Button()
+		Me.lblInicioAct = New System.Windows.Forms.Label()
+		Me.dtpfecha = New System.Windows.Forms.DateTimePicker()
+		Me.txtCoti = New System.Windows.Forms.TextBox()
+		Me.Label3 = New System.Windows.Forms.Label()
 		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.TextBox2 = New System.Windows.Forms.TextBox()
-		Me.tbApellido = New System.Windows.Forms.TextBox()
+		Me.txtNombre = New System.Windows.Forms.TextBox()
 		Me.Label2 = New System.Windows.Forms.Label()
-		Me.TextBox1 = New System.Windows.Forms.TextBox()
-		Me.Label1 = New System.Windows.Forms.Label()
 		Me.dgvCategorias = New System.Windows.Forms.DataGridView()
 		Me.GroupBox2.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
@@ -130,12 +133,15 @@ Partial Class FrmGestionMaterial
 		'
 		'GroupBox1
 		'
+		Me.GroupBox1.Controls.Add(Me.btnCotizacionesHist)
+		Me.GroupBox1.Controls.Add(Me.lblInicioAct)
+		Me.GroupBox1.Controls.Add(Me.dtpfecha)
+		Me.GroupBox1.Controls.Add(Me.txtCoti)
+		Me.GroupBox1.Controls.Add(Me.Label3)
 		Me.GroupBox1.Controls.Add(Me.btnSalir)
 		Me.GroupBox1.Controls.Add(Me.TextBox2)
-		Me.GroupBox1.Controls.Add(Me.tbApellido)
+		Me.GroupBox1.Controls.Add(Me.txtNombre)
 		Me.GroupBox1.Controls.Add(Me.Label2)
-		Me.GroupBox1.Controls.Add(Me.TextBox1)
-		Me.GroupBox1.Controls.Add(Me.Label1)
 		Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
 		Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
 		Me.GroupBox1.Name = "GroupBox1"
@@ -143,6 +149,66 @@ Partial Class FrmGestionMaterial
 		Me.GroupBox1.TabIndex = 45
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "Gestión Categorías"
+		'
+		'btnCotizacionesHist
+		'
+		Me.btnCotizacionesHist.BackColor = System.Drawing.SystemColors.Control
+		Me.btnCotizacionesHist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnCotizacionesHist.FlatAppearance.BorderSize = 0
+		Me.btnCotizacionesHist.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnCotizacionesHist.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
+		Me.btnCotizacionesHist.Location = New System.Drawing.Point(581, 31)
+		Me.btnCotizacionesHist.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnCotizacionesHist.Name = "btnCotizacionesHist"
+		Me.btnCotizacionesHist.Size = New System.Drawing.Size(115, 126)
+		Me.btnCotizacionesHist.TabIndex = 50
+		Me.btnCotizacionesHist.Text = "Consultar cotizaciones antiguas"
+		Me.btnCotizacionesHist.UseVisualStyleBackColor = False
+		'
+		'lblInicioAct
+		'
+		Me.lblInicioAct.AutoSize = True
+		Me.lblInicioAct.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblInicioAct.Location = New System.Drawing.Point(7, 107)
+		Me.lblInicioAct.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lblInicioAct.Name = "lblInicioAct"
+		Me.lblInicioAct.Size = New System.Drawing.Size(178, 17)
+		Me.lblInicioAct.TabIndex = 46
+		Me.lblInicioAct.Text = "Fecha utlima cotización"
+		'
+		'dtpfecha
+		'
+		Me.dtpfecha.CustomFormat = "dd/MM/yyy"
+		Me.dtpfecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
+		Me.dtpfecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+		Me.dtpfecha.Location = New System.Drawing.Point(7, 132)
+		Me.dtpfecha.Margin = New System.Windows.Forms.Padding(4)
+		Me.dtpfecha.Name = "dtpfecha"
+		Me.dtpfecha.Size = New System.Drawing.Size(236, 23)
+		Me.dtpfecha.TabIndex = 45
+		Me.dtpfecha.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
+		'
+		'txtCoti
+		'
+		Me.txtCoti.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.txtCoti.Location = New System.Drawing.Point(283, 66)
+		Me.txtCoti.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtCoti.MaxLength = 30
+		Me.txtCoti.Name = "txtCoti"
+		Me.txtCoti.Size = New System.Drawing.Size(236, 23)
+		Me.txtCoti.TabIndex = 44
+		Me.txtCoti.Text = "0.00"
+		'
+		'Label3
+		'
+		Me.Label3.AutoSize = True
+		Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label3.Location = New System.Drawing.Point(283, 37)
+		Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label3.Name = "Label3"
+		Me.Label3.Size = New System.Drawing.Size(227, 17)
+		Me.Label3.TabIndex = 43
+		Me.Label3.Text = "Cotizacion Actual * (en pesos)"
 		'
 		'btnSalir
 		'
@@ -170,15 +236,15 @@ Partial Class FrmGestionMaterial
 		Me.TextBox2.Size = New System.Drawing.Size(321, 23)
 		Me.TextBox2.TabIndex = 40
 		'
-		'tbApellido
+		'txtNombre
 		'
-		Me.tbApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.tbApellido.Location = New System.Drawing.Point(7, 66)
-		Me.tbApellido.Margin = New System.Windows.Forms.Padding(4)
-		Me.tbApellido.MaxLength = 30
-		Me.tbApellido.Name = "tbApellido"
-		Me.tbApellido.Size = New System.Drawing.Size(236, 23)
-		Me.tbApellido.TabIndex = 37
+		Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.txtNombre.Location = New System.Drawing.Point(7, 66)
+		Me.txtNombre.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtNombre.MaxLength = 30
+		Me.txtNombre.Name = "txtNombre"
+		Me.txtNombre.Size = New System.Drawing.Size(236, 23)
+		Me.txtNombre.TabIndex = 37
 		'
 		'Label2
 		'
@@ -190,26 +256,6 @@ Partial Class FrmGestionMaterial
 		Me.Label2.Size = New System.Drawing.Size(75, 17)
 		Me.Label2.TabIndex = 36
 		Me.Label2.Text = "Nombre *"
-		'
-		'TextBox1
-		'
-		Me.TextBox1.Location = New System.Drawing.Point(284, 66)
-		Me.TextBox1.MaxLength = 300
-		Me.TextBox1.Multiline = True
-		Me.TextBox1.Name = "TextBox1"
-		Me.TextBox1.Size = New System.Drawing.Size(417, 84)
-		Me.TextBox1.TabIndex = 34
-		'
-		'Label1
-		'
-		Me.Label1.AutoSize = True
-		Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label1.Location = New System.Drawing.Point(281, 37)
-		Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label1.Name = "Label1"
-		Me.Label1.Size = New System.Drawing.Size(93, 17)
-		Me.Label1.TabIndex = 35
-		Me.Label1.Text = "Descripción"
 		'
 		'dgvCategorias
 		'
@@ -260,9 +306,12 @@ Partial Class FrmGestionMaterial
 	Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
 	Friend WithEvents btnSalir As Windows.Forms.Button
 	Friend WithEvents TextBox2 As Windows.Forms.TextBox
-	Friend WithEvents tbApellido As Windows.Forms.TextBox
+	Friend WithEvents txtNombre As Windows.Forms.TextBox
 	Friend WithEvents Label2 As Windows.Forms.Label
-	Friend WithEvents TextBox1 As Windows.Forms.TextBox
-	Friend WithEvents Label1 As Windows.Forms.Label
 	Friend WithEvents dgvCategorias As Windows.Forms.DataGridView
+	Friend WithEvents txtCoti As Windows.Forms.TextBox
+	Friend WithEvents Label3 As Windows.Forms.Label
+	Friend WithEvents btnCotizacionesHist As Windows.Forms.Button
+	Friend WithEvents lblInicioAct As Windows.Forms.Label
+	Friend WithEvents dtpfecha As Windows.Forms.DateTimePicker
 End Class
