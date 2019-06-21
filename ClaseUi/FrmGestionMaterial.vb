@@ -28,8 +28,8 @@ Public Class FrmGestionMaterial
 			txtNombre.Text = ds.Tables(0).Rows(i)(0).ToString()
 			txtCoti.Text = ds.Tables(0).Rows(i)(1).ToString()
 			dtpfecha.Value = ds.Tables(0).Rows(i)(2).ToString()
+			dtpfecha.Enabled = False
 			materialId = ds.Tables(0).Rows(i)(3).ToString()
-
 			modificando = True
 		Next
 
@@ -64,5 +64,11 @@ Public Class FrmGestionMaterial
 
 	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnCotizacionesHist.Click
 		FrmConsultaCotizaciones.Show()
+	End Sub
+
+	Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+		GroupBox1.Visible = True
+		lblFecha.Visible = False
+		dtpfecha.Visible = False
 	End Sub
 End Class

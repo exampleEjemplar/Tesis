@@ -357,15 +357,17 @@ Public Class FrmGestionProducto
         gbbusqueda.Visible = False
     End Sub
 
-    Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
-        cargarcodigo()
-        Habilitarcampos()
-        btnBuscar.Enabled = False
-        btnmodificar.Enabled = False
+	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+		'TODO ERNES: Lo comente para que ande, no andaba
+		'cargarcodigo()
+		Habilitarcampos()
+		btnBuscar.Enabled = False
+		btnmodificar.Enabled = False
+		btnNuevo.Enabled = False
 
-    End Sub
+	End Sub
 
-    Public Sub bloquearcampos()
+	Public Sub bloquearcampos()
         tbCodBarra.Enabled = False
         tbCodigo.Enabled = False
         TbColor.Enabled = False
@@ -519,6 +521,6 @@ Public Class FrmGestionProducto
 	End Sub
 
 	Private Sub Button6_Click_1(sender As Object, e As EventArgs) Handles Button6.Click
-
+		FrmGestionMaterial.Show()
 	End Sub
 End Class

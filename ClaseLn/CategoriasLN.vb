@@ -14,5 +14,7 @@ Public Class CategoriasLN
 		Return categoriasDA.ConsultaModificacion(id)
 	End Function
 
-
+	Public Sub GuardarNuevo(ByVal nombre As String, ByVal descripcion As String)
+		categoriasDA.GuardarNuevo(nombre, descripcion)
+	End Sub
 End Class

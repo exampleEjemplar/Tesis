@@ -38,6 +38,7 @@ Partial Class FrmGestionProducto
 		Me.Button2 = New System.Windows.Forms.Button()
 		Me.btnGuardar = New System.Windows.Forms.Button()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+		Me.Button6 = New System.Windows.Forms.Button()
 		Me.Button5 = New System.Windows.Forms.Button()
 		Me.Button1 = New System.Windows.Forms.Button()
 		Me.rdterceros = New System.Windows.Forms.RadioButton()
@@ -77,7 +78,6 @@ Partial Class FrmGestionProducto
 		Me.TbNombreProducto = New System.Windows.Forms.TextBox()
 		Me.PBfoto = New System.Windows.Forms.PictureBox()
 		Me.btnguardarmodificacion = New System.Windows.Forms.Button()
-		Me.Button6 = New System.Windows.Forms.Button()
 		Me.gbbusqueda.SuspendLayout()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox2.SuspendLayout()
@@ -349,6 +349,21 @@ Partial Class FrmGestionProducto
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "Gestion de producto"
 		'
+		'Button6
+		'
+		Me.Button6.BackColor = System.Drawing.SystemColors.ActiveCaption
+		Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button6.FlatAppearance.BorderSize = 0
+		Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button6.Location = New System.Drawing.Point(687, 209)
+		Me.Button6.Margin = New System.Windows.Forms.Padding(4)
+		Me.Button6.Name = "Button6"
+		Me.Button6.Size = New System.Drawing.Size(143, 44)
+		Me.Button6.TabIndex = 49
+		Me.Button6.Text = "Cargar nuevo material"
+		Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.Button6.UseVisualStyleBackColor = False
+		'
 		'Button5
 		'
 		Me.Button5.BackColor = System.Drawing.SystemColors.ActiveCaption
@@ -480,7 +495,7 @@ Partial Class FrmGestionProducto
 		'
 		'TbPrecio
 		'
-		Me.TbPrecio.Location = New System.Drawing.Point(526, 345)
+		Me.TbPrecio.Location = New System.Drawing.Point(532, 343)
 		Me.TbPrecio.Margin = New System.Windows.Forms.Padding(4)
 		Me.TbPrecio.Name = "TbPrecio"
 		Me.TbPrecio.Size = New System.Drawing.Size(104, 23)
@@ -490,16 +505,16 @@ Partial Class FrmGestionProducto
 		'
 		Me.Label20.AutoSize = True
 		Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label20.Location = New System.Drawing.Point(435, 348)
+		Me.Label20.Location = New System.Drawing.Point(376, 351)
 		Me.Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label20.Name = "Label20"
-		Me.Label20.Size = New System.Drawing.Size(73, 17)
+		Me.Label20.Size = New System.Drawing.Size(156, 17)
 		Me.Label20.TabIndex = 36
-		Me.Label20.Text = "Precio  $"
+		Me.Label20.Text = "Precio  $ (en pesos)"
 		'
 		'TbStockMax
 		'
-		Me.TbStockMax.Location = New System.Drawing.Point(340, 345)
+		Me.TbStockMax.Location = New System.Drawing.Point(316, 345)
 		Me.TbStockMax.Margin = New System.Windows.Forms.Padding(4)
 		Me.TbStockMax.Name = "TbStockMax"
 		Me.TbStockMax.Size = New System.Drawing.Size(48, 23)
@@ -509,7 +524,7 @@ Partial Class FrmGestionProducto
 		'
 		Me.Label21.AutoSize = True
 		Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label21.Location = New System.Drawing.Point(218, 349)
+		Me.Label21.Location = New System.Drawing.Point(196, 349)
 		Me.Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label21.Name = "Label21"
 		Me.Label21.Size = New System.Drawing.Size(106, 17)
@@ -538,7 +553,7 @@ Partial Class FrmGestionProducto
 		'
 		'TbStockmin
 		'
-		Me.TbStockmin.Location = New System.Drawing.Point(162, 344)
+		Me.TbStockmin.Location = New System.Drawing.Point(141, 344)
 		Me.TbStockmin.Margin = New System.Windows.Forms.Padding(4)
 		Me.TbStockmin.Name = "TbStockmin"
 		Me.TbStockmin.Size = New System.Drawing.Size(47, 23)
@@ -548,7 +563,7 @@ Partial Class FrmGestionProducto
 		'
 		Me.Label22.AutoSize = True
 		Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label22.Location = New System.Drawing.Point(43, 349)
+		Me.Label22.Location = New System.Drawing.Point(30, 348)
 		Me.Label22.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label22.Name = "Label22"
 		Me.Label22.Size = New System.Drawing.Size(103, 17)
@@ -757,21 +772,6 @@ Partial Class FrmGestionProducto
 		Me.btnguardarmodificacion.Text = "Guardar"
 		Me.btnguardarmodificacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnguardarmodificacion.UseVisualStyleBackColor = False
-		'
-		'Button6
-		'
-		Me.Button6.BackColor = System.Drawing.SystemColors.ActiveCaption
-		Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button6.FlatAppearance.BorderSize = 0
-		Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button6.Location = New System.Drawing.Point(687, 209)
-		Me.Button6.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button6.Name = "Button6"
-		Me.Button6.Size = New System.Drawing.Size(143, 44)
-		Me.Button6.TabIndex = 49
-		Me.Button6.Text = "Cargar nuevo material"
-		Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button6.UseVisualStyleBackColor = False
 		'
 		'FrmGestionProducto
 		'

@@ -31,7 +31,7 @@ Partial Class FrmGestionMaterial
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.btnCotizacionesHist = New System.Windows.Forms.Button()
-		Me.lblInicioAct = New System.Windows.Forms.Label()
+		Me.lblFecha = New System.Windows.Forms.Label()
 		Me.dtpfecha = New System.Windows.Forms.DateTimePicker()
 		Me.txtCoti = New System.Windows.Forms.TextBox()
 		Me.Label3 = New System.Windows.Forms.Label()
@@ -134,7 +134,7 @@ Partial Class FrmGestionMaterial
 		'GroupBox1
 		'
 		Me.GroupBox1.Controls.Add(Me.btnCotizacionesHist)
-		Me.GroupBox1.Controls.Add(Me.lblInicioAct)
+		Me.GroupBox1.Controls.Add(Me.lblFecha)
 		Me.GroupBox1.Controls.Add(Me.dtpfecha)
 		Me.GroupBox1.Controls.Add(Me.txtCoti)
 		Me.GroupBox1.Controls.Add(Me.Label3)
@@ -165,16 +165,16 @@ Partial Class FrmGestionMaterial
 		Me.btnCotizacionesHist.Text = "Consultar cotizaciones antiguas"
 		Me.btnCotizacionesHist.UseVisualStyleBackColor = False
 		'
-		'lblInicioAct
+		'lblFecha
 		'
-		Me.lblInicioAct.AutoSize = True
-		Me.lblInicioAct.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblInicioAct.Location = New System.Drawing.Point(7, 107)
-		Me.lblInicioAct.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.lblInicioAct.Name = "lblInicioAct"
-		Me.lblInicioAct.Size = New System.Drawing.Size(178, 17)
-		Me.lblInicioAct.TabIndex = 46
-		Me.lblInicioAct.Text = "Fecha utlima cotización"
+		Me.lblFecha.AutoSize = True
+		Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblFecha.Location = New System.Drawing.Point(7, 107)
+		Me.lblFecha.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lblFecha.Name = "lblFecha"
+		Me.lblFecha.Size = New System.Drawing.Size(178, 17)
+		Me.lblFecha.TabIndex = 46
+		Me.lblFecha.Text = "Fecha utlima cotización"
 		'
 		'dtpfecha
 		'
@@ -312,6 +312,6 @@ Partial Class FrmGestionMaterial
 	Friend WithEvents txtCoti As Windows.Forms.TextBox
 	Friend WithEvents Label3 As Windows.Forms.Label
 	Friend WithEvents btnCotizacionesHist As Windows.Forms.Button
-	Friend WithEvents lblInicioAct As Windows.Forms.Label
+	Friend WithEvents lblFecha As Windows.Forms.Label
 	Friend WithEvents dtpfecha As Windows.Forms.DateTimePicker
 End Class

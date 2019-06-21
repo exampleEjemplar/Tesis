@@ -22,12 +22,12 @@ Partial Class FrmGestionCategorías
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.dgvCategorias = New System.Windows.Forms.DataGridView()
-		Me.TextBox1 = New System.Windows.Forms.TextBox()
+		Me.txtDescripcion = New System.Windows.Forms.TextBox()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.Label2 = New System.Windows.Forms.Label()
-		Me.tbApellido = New System.Windows.Forms.TextBox()
+		Me.txtNombre = New System.Windows.Forms.TextBox()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.TextBox2 = New System.Windows.Forms.TextBox()
@@ -55,19 +55,19 @@ Partial Class FrmGestionCategorías
 		Me.dgvCategorias.ReadOnly = True
 		Me.dgvCategorias.RowHeadersVisible = False
 		Me.dgvCategorias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-		DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-		Me.dgvCategorias.RowsDefaultCellStyle = DataGridViewCellStyle2
+		DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+		Me.dgvCategorias.RowsDefaultCellStyle = DataGridViewCellStyle1
 		Me.dgvCategorias.Size = New System.Drawing.Size(707, 200)
 		Me.dgvCategorias.TabIndex = 33
 		'
-		'TextBox1
+		'txtDescripcion
 		'
-		Me.TextBox1.Location = New System.Drawing.Point(284, 66)
-		Me.TextBox1.MaxLength = 300
-		Me.TextBox1.Multiline = True
-		Me.TextBox1.Name = "TextBox1"
-		Me.TextBox1.Size = New System.Drawing.Size(417, 84)
-		Me.TextBox1.TabIndex = 34
+		Me.txtDescripcion.Location = New System.Drawing.Point(284, 66)
+		Me.txtDescripcion.MaxLength = 300
+		Me.txtDescripcion.Multiline = True
+		Me.txtDescripcion.Name = "txtDescripcion"
+		Me.txtDescripcion.Size = New System.Drawing.Size(417, 84)
+		Me.txtDescripcion.TabIndex = 34
 		'
 		'Label1
 		'
@@ -91,23 +91,23 @@ Partial Class FrmGestionCategorías
 		Me.Label2.TabIndex = 36
 		Me.Label2.Text = "Nombre *"
 		'
-		'tbApellido
+		'txtNombre
 		'
-		Me.tbApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.tbApellido.Location = New System.Drawing.Point(7, 66)
-		Me.tbApellido.Margin = New System.Windows.Forms.Padding(4)
-		Me.tbApellido.MaxLength = 30
-		Me.tbApellido.Name = "tbApellido"
-		Me.tbApellido.Size = New System.Drawing.Size(236, 23)
-		Me.tbApellido.TabIndex = 37
+		Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.txtNombre.Location = New System.Drawing.Point(7, 66)
+		Me.txtNombre.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtNombre.MaxLength = 30
+		Me.txtNombre.Name = "txtNombre"
+		Me.txtNombre.Size = New System.Drawing.Size(236, 23)
+		Me.txtNombre.TabIndex = 37
 		'
 		'GroupBox1
 		'
 		Me.GroupBox1.Controls.Add(Me.btnSalir)
 		Me.GroupBox1.Controls.Add(Me.TextBox2)
-		Me.GroupBox1.Controls.Add(Me.tbApellido)
+		Me.GroupBox1.Controls.Add(Me.txtNombre)
 		Me.GroupBox1.Controls.Add(Me.Label2)
-		Me.GroupBox1.Controls.Add(Me.TextBox1)
+		Me.GroupBox1.Controls.Add(Me.txtDescripcion)
 		Me.GroupBox1.Controls.Add(Me.Label1)
 		Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
 		Me.GroupBox1.Location = New System.Drawing.Point(4, 1)
@@ -252,10 +252,10 @@ Partial Class FrmGestionCategorías
 	End Sub
 
 	Friend WithEvents dgvCategorias As Windows.Forms.DataGridView
-	Friend WithEvents TextBox1 As Windows.Forms.TextBox
+	Friend WithEvents txtDescripcion As Windows.Forms.TextBox
 	Friend WithEvents Label1 As Windows.Forms.Label
 	Friend WithEvents Label2 As Windows.Forms.Label
-	Friend WithEvents tbApellido As Windows.Forms.TextBox
+	Friend WithEvents txtNombre As Windows.Forms.TextBox
 	Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
 	Friend WithEvents btnNuevo As Windows.Forms.Button
 	Friend WithEvents btnSalir As Windows.Forms.Button

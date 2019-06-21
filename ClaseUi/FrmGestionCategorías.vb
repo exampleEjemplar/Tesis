@@ -28,4 +28,18 @@ Public Class FrmGestionCategorías
 
 	End Sub
 
+	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+		GroupBox1.Visible = True
+		btnGuardar.Enabled = True
+	End Sub
+
+	Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+		If String.IsNullOrWhiteSpace(txtNombre.Text) Then
+			MsgBox("Ingrese el nombre de la categoria", MsgBoxStyle.Critical, "Categoria")
+			Return
+		End If
+
+		categoriasLN.GuardarNuevo(txtNombre.Text, txtDescripcion.Text)
+
+	End Sub
 End Class

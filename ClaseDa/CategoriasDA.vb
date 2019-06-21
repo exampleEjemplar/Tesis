@@ -40,5 +40,16 @@ Public Class CategoriasDA
 		End Try
 		Return ds1
 	End Function
-
+	Public Sub GuardarNuevo(ByVal nombre As String, ByVal descripcion As String)
+		Try
+			'Inserto nuevo registro de material
+			Dim insert As New SqlCommand("insert into categorias VALUES ('" & nombre & "','" & If(descripcion <> "", "'" + descripcion + "'", "NULL") & "')")
+			insert.CommandType = CommandType.Text
+			insert.ExecuteNonQuery()
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+	End Sub
 End Class
