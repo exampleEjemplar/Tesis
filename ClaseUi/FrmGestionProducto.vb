@@ -513,4 +513,12 @@ Public Class FrmGestionProducto
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 		FrmGestionCategorías.Show()
 	End Sub
+
+	Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+		FrmGestionTipoDeProducto.Show()
+	End Sub
+
+	Private Sub Button6_Click_1(sender As Object, e As EventArgs) Handles Button6.Click
+
+	End Sub
 End Class

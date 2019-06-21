@@ -151,10 +151,22 @@
     <Compile Include="FrmGestionCompras.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmGestionMaterial.Designer.vb">
+      <DependentUpon>FrmGestionMaterial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionMaterial.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmGestionProveedores.Designer.vb">
       <DependentUpon>FrmGestionProveedores.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmGestionProveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionTipoDeProducto.Designer.vb">
+      <DependentUpon>FrmGestionTipoDeProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionTipoDeProducto.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmGestionUsuario.Designer.vb">
@@ -261,11 +273,17 @@
     <EmbeddedResource Include="FrmGestionCompras.resx">
       <DependentUpon>FrmGestionCompras.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionMaterial.resx">
+      <DependentUpon>FrmGestionMaterial.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionProducto.resx">
       <DependentUpon>FrmGestionProducto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionProveedores.resx">
       <DependentUpon>FrmGestionProveedores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionTipoDeProducto.resx">
+      <DependentUpon>FrmGestionTipoDeProducto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionUsuario.resx">
       <DependentUpon>FrmGestionUsuario.vb</DependentUpon>
