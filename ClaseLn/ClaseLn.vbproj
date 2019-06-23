@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MaterialesLN.vb" />
-    <Compile Include="TipoDeProductiosLN.vb" />
+    <Compile Include="TipoDeProductosLN.vb" />
     <Compile Include="CategoriasLN.vb" />
     <Compile Include="CajaLN.vb" />
     <Compile Include="ConversionLN.vb" />

@@ -15,6 +15,7 @@ FisicaOJuridica CHAR(1)
 GO
 CREATE TABLE TipoProductos(
 Id INT IDENTITY PRIMARY KEY,
+Nombre VARCHAR(MAX),
 Descripcion VARCHAR(MAX)
 )
 GO

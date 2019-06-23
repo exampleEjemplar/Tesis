@@ -11,7 +11,7 @@ Public Class TipoDeProductosDA
 		com.Connection = db
 	End Sub
 
-	Public Function CargarGrillaTipoDeProductos() As DataSet
+	Public Function CargarGrilla() As DataSet
 		Dim sqlStr As String
 		ds1 = New DataSet
 		sqlStr = "Select * from TipoProductos"
@@ -25,6 +25,19 @@ Public Class TipoDeProductosDA
 		End Try
 		Return ds1
 	End Function
+
+	Public Sub Modificar(nombre As String, descripcion As String, id As Integer)
+		Try
+			Dim insert As New SqlCommand("UPDATE TipoProductos set Nombre = '" & nombre & "',Descripcion = " & If(descripcion <> "", "'" + descripcion + "'", "NULL") & " where id = " & id, db)
+			insert.CommandType = CommandType.Text
+			db.Open()
+			insert.ExecuteNonQuery()
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+	End Sub
 
 	Public Function ConsultaModificacion(ByVal id As Integer) As DataSet
 		Dim sqlStr As String
@@ -40,5 +53,16 @@ Public Class TipoDeProductosDA
 		End Try
 		Return ds1
 	End Function
-
+	Public Sub GuardarNuevo(ByVal nombre As String, ByVal descripcion As String)
+		Try
+			Dim insert As New SqlCommand("insert into TipoProductos VALUES ('" & nombre & "'," & If(descripcion <> "", "'" + descripcion + "'", "NULL") & ")", db)
+			insert.CommandType = CommandType.Text
+			db.Open()
+			insert.ExecuteNonQuery()
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+	End Sub
 End Class

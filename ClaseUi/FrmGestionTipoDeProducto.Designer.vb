@@ -22,21 +22,21 @@ Partial Class FrmGestionTipoDeProducto
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+		Me.Button1 = New System.Windows.Forms.Button()
 		Me.TextBox3 = New System.Windows.Forms.TextBox()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.TextBox2 = New System.Windows.Forms.TextBox()
-		Me.tbApellido = New System.Windows.Forms.TextBox()
+		Me.txtNombre = New System.Windows.Forms.TextBox()
 		Me.Label2 = New System.Windows.Forms.Label()
-		Me.TextBox1 = New System.Windows.Forms.TextBox()
+		Me.txtDescripcion = New System.Windows.Forms.TextBox()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.dgvCategorias = New System.Windows.Forms.DataGridView()
-		Me.Button1 = New System.Windows.Forms.Button()
 		Me.Button2 = New System.Windows.Forms.Button()
 		Me.btnGuardar = New System.Windows.Forms.Button()
 		Me.btnNuevo = New System.Windows.Forms.Button()
-		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.GroupBox2.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
 		CType(Me.dgvCategorias, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,6 +54,22 @@ Partial Class FrmGestionTipoDeProducto
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "Gestión Tipo de producto"
 		'
+		'Button1
+		'
+		Me.Button1.BackColor = System.Drawing.SystemColors.Control
+		Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+		Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button1.FlatAppearance.BorderSize = 0
+		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button1.Location = New System.Drawing.Point(736, 274)
+		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+		Me.Button1.Name = "Button1"
+		Me.Button1.Size = New System.Drawing.Size(107, 110)
+		Me.Button1.TabIndex = 42
+		Me.Button1.Text = "Salir"
+		Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.Button1.UseVisualStyleBackColor = False
+		'
 		'TextBox3
 		'
 		Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -68,9 +84,9 @@ Partial Class FrmGestionTipoDeProducto
 		'
 		Me.GroupBox1.Controls.Add(Me.btnSalir)
 		Me.GroupBox1.Controls.Add(Me.TextBox2)
-		Me.GroupBox1.Controls.Add(Me.tbApellido)
+		Me.GroupBox1.Controls.Add(Me.txtNombre)
 		Me.GroupBox1.Controls.Add(Me.Label2)
-		Me.GroupBox1.Controls.Add(Me.TextBox1)
+		Me.GroupBox1.Controls.Add(Me.txtDescripcion)
 		Me.GroupBox1.Controls.Add(Me.Label1)
 		Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
 		Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
@@ -79,6 +95,22 @@ Partial Class FrmGestionTipoDeProducto
 		Me.GroupBox1.TabIndex = 45
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "Gestión Categorías"
+		'
+		'btnSalir
+		'
+		Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
+		Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnSalir.FlatAppearance.BorderSize = 0
+		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnSalir.Location = New System.Drawing.Point(736, 274)
+		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnSalir.Name = "btnSalir"
+		Me.btnSalir.Size = New System.Drawing.Size(107, 110)
+		Me.btnSalir.TabIndex = 42
+		Me.btnSalir.Text = "Salir"
+		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnSalir.UseVisualStyleBackColor = False
 		'
 		'TextBox2
 		'
@@ -90,15 +122,15 @@ Partial Class FrmGestionTipoDeProducto
 		Me.TextBox2.Size = New System.Drawing.Size(321, 23)
 		Me.TextBox2.TabIndex = 40
 		'
-		'tbApellido
+		'txtNombre
 		'
-		Me.tbApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.tbApellido.Location = New System.Drawing.Point(7, 66)
-		Me.tbApellido.Margin = New System.Windows.Forms.Padding(4)
-		Me.tbApellido.MaxLength = 30
-		Me.tbApellido.Name = "tbApellido"
-		Me.tbApellido.Size = New System.Drawing.Size(236, 23)
-		Me.tbApellido.TabIndex = 37
+		Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.txtNombre.Location = New System.Drawing.Point(7, 66)
+		Me.txtNombre.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtNombre.MaxLength = 30
+		Me.txtNombre.Name = "txtNombre"
+		Me.txtNombre.Size = New System.Drawing.Size(236, 23)
+		Me.txtNombre.TabIndex = 37
 		'
 		'Label2
 		'
@@ -111,14 +143,14 @@ Partial Class FrmGestionTipoDeProducto
 		Me.Label2.TabIndex = 36
 		Me.Label2.Text = "Nombre *"
 		'
-		'TextBox1
+		'txtDescripcion
 		'
-		Me.TextBox1.Location = New System.Drawing.Point(284, 66)
-		Me.TextBox1.MaxLength = 300
-		Me.TextBox1.Multiline = True
-		Me.TextBox1.Name = "TextBox1"
-		Me.TextBox1.Size = New System.Drawing.Size(417, 84)
-		Me.TextBox1.TabIndex = 34
+		Me.txtDescripcion.Location = New System.Drawing.Point(284, 66)
+		Me.txtDescripcion.MaxLength = 300
+		Me.txtDescripcion.Multiline = True
+		Me.txtDescripcion.Name = "txtDescripcion"
+		Me.txtDescripcion.Size = New System.Drawing.Size(417, 84)
+		Me.txtDescripcion.TabIndex = 34
 		'
 		'Label1
 		'
@@ -144,26 +176,10 @@ Partial Class FrmGestionTipoDeProducto
 		Me.dgvCategorias.ReadOnly = True
 		Me.dgvCategorias.RowHeadersVisible = False
 		Me.dgvCategorias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-		DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-		Me.dgvCategorias.RowsDefaultCellStyle = DataGridViewCellStyle1
+		DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+		Me.dgvCategorias.RowsDefaultCellStyle = DataGridViewCellStyle2
 		Me.dgvCategorias.Size = New System.Drawing.Size(701, 200)
 		Me.dgvCategorias.TabIndex = 44
-		'
-		'Button1
-		'
-		Me.Button1.BackColor = System.Drawing.SystemColors.Control
-		Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
-		Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button1.FlatAppearance.BorderSize = 0
-		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button1.Location = New System.Drawing.Point(736, 274)
-		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button1.Name = "Button1"
-		Me.Button1.Size = New System.Drawing.Size(107, 110)
-		Me.Button1.TabIndex = 42
-		Me.Button1.Text = "Salir"
-		Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button1.UseVisualStyleBackColor = False
 		'
 		'Button2
 		'
@@ -209,25 +225,9 @@ Partial Class FrmGestionTipoDeProducto
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(115, 106)
 		Me.btnNuevo.TabIndex = 46
-		Me.btnNuevo.Text = "Nueva"
+		Me.btnNuevo.Text = "Nuevo"
 		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnNuevo.UseVisualStyleBackColor = False
-		'
-		'btnSalir
-		'
-		Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
-		Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
-		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnSalir.FlatAppearance.BorderSize = 0
-		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalir.Location = New System.Drawing.Point(736, 274)
-		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnSalir.Name = "btnSalir"
-		Me.btnSalir.Size = New System.Drawing.Size(107, 110)
-		Me.btnSalir.TabIndex = 42
-		Me.btnSalir.Text = "Salir"
-		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnSalir.UseVisualStyleBackColor = False
 		'
 		'FrmGestionTipoDeProducto
 		'
@@ -260,9 +260,9 @@ Partial Class FrmGestionTipoDeProducto
 	Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
 	Friend WithEvents btnSalir As Windows.Forms.Button
 	Friend WithEvents TextBox2 As Windows.Forms.TextBox
-	Friend WithEvents tbApellido As Windows.Forms.TextBox
+	Friend WithEvents txtNombre As Windows.Forms.TextBox
 	Friend WithEvents Label2 As Windows.Forms.Label
-	Friend WithEvents TextBox1 As Windows.Forms.TextBox
+	Friend WithEvents txtDescripcion As Windows.Forms.TextBox
 	Friend WithEvents Label1 As Windows.Forms.Label
 	Friend WithEvents dgvCategorias As Windows.Forms.DataGridView
 End Class
