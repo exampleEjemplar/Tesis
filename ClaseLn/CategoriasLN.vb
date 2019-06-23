@@ -17,4 +17,8 @@ Public Class CategoriasLN
 	Public Sub GuardarNuevo(ByVal nombre As String, ByVal descripcion As String)
 		categoriasDA.GuardarNuevo(nombre, descripcion)
 	End Sub
+
+	Public Sub Modificar(nombre As String, descripcion As String, id As Integer)
+		categoriasDA.Modificar(nombre, descripcion, id)
+	End Sub
 End Class

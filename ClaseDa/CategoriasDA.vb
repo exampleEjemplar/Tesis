@@ -26,6 +26,19 @@ Public Class CategoriasDA
 		Return ds1
 	End Function
 
+	Public Sub Modificar(nombre As String, descripcion As String, id As Integer)
+		Try
+			Dim insert As New SqlCommand("UPDATE categorias set Nombre = '" & nombre & "',Descripcion = " & If(descripcion <> "", "'" + descripcion + "'", "NULL") & " where id = " & id, db)
+			insert.CommandType = CommandType.Text
+			db.Open()
+			insert.ExecuteNonQuery()
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+	End Sub
+
 	Public Function ConsultaModificacion(ByVal id As Integer) As DataSet
 		Dim sqlStr As String
 		ds1 = New DataSet
@@ -42,9 +55,9 @@ Public Class CategoriasDA
 	End Function
 	Public Sub GuardarNuevo(ByVal nombre As String, ByVal descripcion As String)
 		Try
-			'Inserto nuevo registro de material
-			Dim insert As New SqlCommand("insert into categorias VALUES ('" & nombre & "','" & If(descripcion <> "", "'" + descripcion + "'", "NULL") & "')")
+			Dim insert As New SqlCommand("insert into categorias VALUES ('" & nombre & "'," & If(descripcion <> "", "'" + descripcion + "'", "NULL") & ")", db)
 			insert.CommandType = CommandType.Text
+			db.Open()
 			insert.ExecuteNonQuery()
 			db.Close()
 		Catch ex As Exception

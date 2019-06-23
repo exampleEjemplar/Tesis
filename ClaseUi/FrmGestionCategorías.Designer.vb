@@ -22,7 +22,7 @@ Partial Class FrmGestionCategorías
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.dgvCategorias = New System.Windows.Forms.DataGridView()
 		Me.txtDescripcion = New System.Windows.Forms.TextBox()
 		Me.Label1 = New System.Windows.Forms.Label()
@@ -55,9 +55,9 @@ Partial Class FrmGestionCategorías
 		Me.dgvCategorias.ReadOnly = True
 		Me.dgvCategorias.RowHeadersVisible = False
 		Me.dgvCategorias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-		DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-		Me.dgvCategorias.RowsDefaultCellStyle = DataGridViewCellStyle1
-		Me.dgvCategorias.Size = New System.Drawing.Size(707, 200)
+		DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+		Me.dgvCategorias.RowsDefaultCellStyle = DataGridViewCellStyle2
+		Me.dgvCategorias.Size = New System.Drawing.Size(549, 200)
 		Me.dgvCategorias.TabIndex = 33
 		'
 		'txtDescripcion
@@ -66,7 +66,7 @@ Partial Class FrmGestionCategorías
 		Me.txtDescripcion.MaxLength = 300
 		Me.txtDescripcion.Multiline = True
 		Me.txtDescripcion.Name = "txtDescripcion"
-		Me.txtDescripcion.Size = New System.Drawing.Size(417, 84)
+		Me.txtDescripcion.Size = New System.Drawing.Size(248, 84)
 		Me.txtDescripcion.TabIndex = 34
 		'
 		'Label1
@@ -112,7 +112,7 @@ Partial Class FrmGestionCategorías
 		Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
 		Me.GroupBox1.Location = New System.Drawing.Point(4, 1)
 		Me.GroupBox1.Name = "GroupBox1"
-		Me.GroupBox1.Size = New System.Drawing.Size(707, 162)
+		Me.GroupBox1.Size = New System.Drawing.Size(550, 162)
 		Me.GroupBox1.TabIndex = 38
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "Gestión Categorías"
@@ -150,7 +150,7 @@ Partial Class FrmGestionCategorías
 		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnNuevo.FlatAppearance.BorderSize = 0
 		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnNuevo.Location = New System.Drawing.Point(723, 13)
+		Me.btnNuevo.Location = New System.Drawing.Point(561, 16)
 		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(115, 106)
@@ -166,7 +166,7 @@ Partial Class FrmGestionCategorías
 		Me.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnGuardar.FlatAppearance.BorderSize = 0
 		Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnGuardar.Location = New System.Drawing.Point(723, 127)
+		Me.btnGuardar.Location = New System.Drawing.Point(561, 130)
 		Me.btnGuardar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnGuardar.Name = "btnGuardar"
 		Me.btnGuardar.Size = New System.Drawing.Size(115, 110)
@@ -182,7 +182,7 @@ Partial Class FrmGestionCategorías
 		Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.Button2.FlatAppearance.BorderSize = 0
 		Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button2.Location = New System.Drawing.Point(723, 245)
+		Me.Button2.Location = New System.Drawing.Point(561, 248)
 		Me.Button2.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button2.Name = "Button2"
 		Me.Button2.Size = New System.Drawing.Size(115, 110)
@@ -198,7 +198,7 @@ Partial Class FrmGestionCategorías
 		Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
 		Me.GroupBox2.Location = New System.Drawing.Point(4, 1)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Size = New System.Drawing.Size(707, 28)
+		Me.GroupBox2.Size = New System.Drawing.Size(550, 28)
 		Me.GroupBox2.TabIndex = 43
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "Gestión Categorías"
@@ -233,7 +233,7 @@ Partial Class FrmGestionCategorías
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(851, 378)
+		Me.ClientSize = New System.Drawing.Size(683, 378)
 		Me.Controls.Add(Me.GroupBox2)
 		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.btnGuardar)
