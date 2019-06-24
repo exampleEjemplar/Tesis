@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms
+﻿Imports System.Drawing
+Imports System.Windows.Forms
 Imports ClaseLn
 
 Public Class FrmArmadoVenta
@@ -69,17 +70,26 @@ Public Class FrmArmadoVenta
 		Dim ds2 As DataSet = helpersLN.CargarTodosProductos()
 		lstProdDispo.Scrollable = True
 
+
+
+
+
 		For i As Integer = 0 To ds2.Tables(0).Rows.Count - 1
 			Dim LVI = New ListViewItem
 			LVI.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
-			LVI.UseItemStyleForSubItems = True
 			LVI.BackColor = Drawing.Color.DarkOliveGreen
-			LVI.ForeColor = Drawing.Color.Crimson
-			LVI.ImageKey = ds2.Tables(0).Rows(i).Item(2).ToString()
+			LVI.ForeColor = Drawing.Color.White
 			LVI.SubItems.Add(ds2.Tables(0).Rows(i).Item(0))
-			lstProdDispo.Items.Add(ds2.Tables(0).Rows(i).Item(1).ToString(), ds2.Tables(0).Rows(i).Item(2).ToString())
+			lstProdDispo.Items.Add(LVI)
+			'Dim LVI = New ListViewItem
+			'LVI.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
+			'LVI.UseItemStyleForSubItems = True
+			'LVI.ImageKey = ds2.Tables(0).Rows(i).Item(2).ToString()
+			'LVI.SubItems.Add(ds2.Tables(0).Rows(i).Item(0))
+			'lstProdDispo.Items.Add(ds2.Tables(0).Rows(i).Item(1).ToString(), ds2.Tables(0).Rows(i).Item(2).ToString())
 		Next
 
+		'lstproddispo.largeimagelist.imagesize = new size(112, 112)
 	End Sub
 
 	Private Sub lstProdDispo_MouseDown(sender As Object, e As MouseEventArgs) Handles lstProdDispo.MouseDown

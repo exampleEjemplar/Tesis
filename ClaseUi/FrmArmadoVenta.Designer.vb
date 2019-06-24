@@ -221,11 +221,16 @@ Partial Class FrmArmadoVenta
 		'
 		'lstProdDispo
 		'
+		Me.lstProdDispo.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lstProdDispo.GridLines = True
 		Me.lstProdDispo.Location = New System.Drawing.Point(12, 21)
 		Me.lstProdDispo.Name = "lstProdDispo"
 		Me.lstProdDispo.Size = New System.Drawing.Size(537, 552)
+		Me.lstProdDispo.Sorting = System.Windows.Forms.SortOrder.Descending
 		Me.lstProdDispo.TabIndex = 0
+		Me.lstProdDispo.TileSize = New System.Drawing.Size(120, 25)
 		Me.lstProdDispo.UseCompatibleStateImageBehavior = False
+		Me.lstProdDispo.View = System.Windows.Forms.View.Tile
 		'
 		'GroupBox4
 		'
