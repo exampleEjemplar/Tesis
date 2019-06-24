@@ -67,7 +67,7 @@ Public Class FrmArmadoVenta
 		'Productos
 
 		Dim ds2 As DataSet = helpersLN.CargarTodosProductos()
-		lstProdDispo.Columns.Add("Nombre", 100, HorizontalAlignment.Center)
+		lstProdDispo.Scrollable = True
 
 		For i As Integer = 0 To ds2.Tables(0).Rows.Count - 1
 			Dim LVI = New ListViewItem
@@ -77,8 +77,7 @@ Public Class FrmArmadoVenta
 			LVI.ForeColor = Drawing.Color.Crimson
 			LVI.ImageKey = ds2.Tables(0).Rows(i).Item(2).ToString()
 			LVI.SubItems.Add(ds2.Tables(0).Rows(i).Item(0))
-			lstProdDispo.Items.Add(LVI)
-			lstProdDispo.Scrollable = True
+			lstProdDispo.Items.Add(ds2.Tables(0).Rows(i).Item(1).ToString(), ds2.Tables(0).Rows(i).Item(2).ToString())
 		Next
 
 	End Sub
@@ -91,8 +90,10 @@ Public Class FrmArmadoVenta
 		Try
 			If moveItem Then
 				Dim asdas As New Label
-				asdas.Text = lstProdDispo.SelectedItems.Item(0).Text
-				asdas.DoDragDrop(asdas.Text, DragDropEffects.Copy)
+				If Not lstProdDispo.SelectedItems.Count = 0 Then
+					asdas.Text = lstProdDispo.SelectedItems.Item(0).Text
+					asdas.DoDragDrop(asdas.Text, DragDropEffects.Copy)
+				End If
 			End If
 			moveItem = False
 		Catch ex As Exception
@@ -111,6 +112,8 @@ Public Class FrmArmadoVenta
 			e.Effect = DragDropEffects.None
 		End If
 	End Sub
+
+
 
 
 #End Region
