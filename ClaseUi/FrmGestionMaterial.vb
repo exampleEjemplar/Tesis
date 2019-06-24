@@ -21,12 +21,11 @@ Public Class FrmGestionMaterial
 			If examples.Where(Function(s) s.Id = ds.Tables(0).Rows(i)(0).ToString()).FirstOrDefault() IsNot Nothing Then
 
 				For Each example As Example In examples
-					'23/6/2019 00:00:00
 					If example.Id = ds.Tables(0).Rows(i)(0).ToString() And Date.ParseExact(example.Fecha, "dd/M/yyyy hh:mm:ss", CultureInfo.InvariantCulture) < Date.ParseExact(ds.Tables(0).Rows(i)(3).ToString(), "dd/M/yyyy hh:mm:ss", CultureInfo.InvariantCulture) Then
 						examples.Add(New Example With {
 					.Id = ds.Tables(0).Rows(i)(0).ToString(),
-					.Nombre = ds.Tables(0).Rows(i)(1).ToString(),
-					.Coti = ds.Tables(0).Rows(i)(2).ToString(),
+					.Material = ds.Tables(0).Rows(i)(1).ToString(),
+					.Cotizacion = ds.Tables(0).Rows(i)(2).ToString(),
 					.Fecha = ds.Tables(0).Rows(i)(3).ToString()
 					})
 						examples.Remove(example)
@@ -36,16 +35,20 @@ Public Class FrmGestionMaterial
 			Else
 				examples.Add(New Example With {
 					.Id = ds.Tables(0).Rows(i)(0).ToString(),
-					.Nombre = ds.Tables(0).Rows(i)(1).ToString(),
-					.Coti = ds.Tables(0).Rows(i)(2).ToString(),
+					.Material = ds.Tables(0).Rows(i)(1).ToString(),
+					.Cotizacion = ds.Tables(0).Rows(i)(2).ToString(),
 					.Fecha = ds.Tables(0).Rows(i)(3).ToString()
 					})
 			End If
 
 		Next
 
-		dgvCategorias.DataSource = ds.Tables(0)
+		dgvCategorias.DataSource = examples
 		dgvCategorias.Columns("Id").Visible = False
+		dgvCategorias.Columns("Material").DisplayIndex = 0
+		dgvCategorias.Columns("Cotizacion").DisplayIndex = 1
+		dgvCategorias.Columns("Fecha").DisplayIndex = 2
+
 		dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
 		dgvCategorias.AutoResizeColumns()
 	End Sub
@@ -140,7 +143,7 @@ Public Class Example
 	End Property
 	Private _Coti As String
 
-	Public Property Coti As String
+	Public Property Cotizacion As String
 		Get
 			Return _Coti
 		End Get
@@ -160,7 +163,7 @@ Public Class Example
 	End Property
 	Private _Nombre As String
 
-	Public Property Nombre As String
+	Public Property Material As String
 		Get
 			Return _Nombre
 		End Get
