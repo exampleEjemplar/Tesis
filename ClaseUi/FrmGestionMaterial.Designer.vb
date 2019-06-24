@@ -26,7 +26,7 @@ Partial Class FrmGestionMaterial
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
 		Me.Button1 = New System.Windows.Forms.Button()
 		Me.TextBox3 = New System.Windows.Forms.TextBox()
-		Me.Button2 = New System.Windows.Forms.Button()
+		Me.btnSalirr = New System.Windows.Forms.Button()
 		Me.btnGuardar = New System.Windows.Forms.Button()
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -83,21 +83,21 @@ Partial Class FrmGestionMaterial
 		Me.TextBox3.Size = New System.Drawing.Size(321, 23)
 		Me.TextBox3.TabIndex = 40
 		'
-		'Button2
+		'btnSalirr
 		'
-		Me.Button2.BackColor = System.Drawing.SystemColors.Control
-		Me.Button2.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
-		Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button2.FlatAppearance.BorderSize = 0
-		Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button2.Location = New System.Drawing.Point(731, 256)
-		Me.Button2.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button2.Name = "Button2"
-		Me.Button2.Size = New System.Drawing.Size(115, 110)
-		Me.Button2.TabIndex = 48
-		Me.Button2.Text = "Salir"
-		Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button2.UseVisualStyleBackColor = False
+		Me.btnSalirr.BackColor = System.Drawing.SystemColors.Control
+		Me.btnSalirr.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+		Me.btnSalirr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnSalirr.FlatAppearance.BorderSize = 0
+		Me.btnSalirr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnSalirr.Location = New System.Drawing.Point(731, 256)
+		Me.btnSalirr.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnSalirr.Name = "btnSalirr"
+		Me.btnSalirr.Size = New System.Drawing.Size(115, 110)
+		Me.btnSalirr.TabIndex = 48
+		Me.btnSalirr.Text = "Salir"
+		Me.btnSalirr.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnSalirr.UseVisualStyleBackColor = False
 		'
 		'btnGuardar
 		'
@@ -127,7 +127,7 @@ Partial Class FrmGestionMaterial
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(115, 106)
 		Me.btnNuevo.TabIndex = 46
-		Me.btnNuevo.Text = "Nueva"
+		Me.btnNuevo.Text = "Nuevo"
 		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnNuevo.UseVisualStyleBackColor = False
 		'
@@ -281,7 +281,7 @@ Partial Class FrmGestionMaterial
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(860, 407)
 		Me.Controls.Add(Me.GroupBox2)
-		Me.Controls.Add(Me.Button2)
+		Me.Controls.Add(Me.btnSalirr)
 		Me.Controls.Add(Me.btnGuardar)
 		Me.Controls.Add(Me.btnNuevo)
 		Me.Controls.Add(Me.GroupBox1)
@@ -300,7 +300,7 @@ Partial Class FrmGestionMaterial
 	Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
 	Friend WithEvents Button1 As Windows.Forms.Button
 	Friend WithEvents TextBox3 As Windows.Forms.TextBox
-	Friend WithEvents Button2 As Windows.Forms.Button
+	Friend WithEvents btnSalirr As Windows.Forms.Button
 	Friend WithEvents btnGuardar As Windows.Forms.Button
 	Friend WithEvents btnNuevo As Windows.Forms.Button
 	Friend WithEvents GroupBox1 As Windows.Forms.GroupBox

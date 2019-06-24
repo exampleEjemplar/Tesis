@@ -14,11 +14,11 @@ Public Class MaterialesLN
 		Return materialesDA.ConsultaModificacion(id)
 	End Function
 
-	Public Sub GuardarNuevo(ByVal nombre As String, ByVal coti As Double)
+	Public Sub GuardarNuevo(ByVal nombre As String, ByVal coti As String)
 		materialesDA.GuardarNuevo(nombre, coti)
 	End Sub
 
-	Public Sub NuevaCotizacion(ByVal id As Integer, ByVal coti As Double)
+	Public Sub NuevaCotizacion(ByVal id As Integer, ByVal coti As String)
 		materialesDA.NuevaCotizacion(id, coti)
 	End Sub
 
