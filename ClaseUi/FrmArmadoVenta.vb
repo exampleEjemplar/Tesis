@@ -66,14 +66,19 @@ Public Class FrmArmadoVenta
 		Next
 		'Productos
 
-		Dim LVI As ListViewItem
 		Dim ds2 As DataSet = helpersLN.CargarTodosProductos()
+		lstProdDispo.Columns.Add("Nombre", 100, HorizontalAlignment.Center)
 
 		For i As Integer = 0 To ds2.Tables(0).Rows.Count - 1
-			LVI = New ListViewItem
+			Dim LVI = New ListViewItem
 			LVI.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
+			LVI.UseItemStyleForSubItems = True
+			LVI.BackColor = Drawing.Color.DarkOliveGreen
+			LVI.ForeColor = Drawing.Color.Crimson
+			LVI.ImageKey = ds2.Tables(0).Rows(i).Item(2).ToString()
 			LVI.SubItems.Add(ds2.Tables(0).Rows(i).Item(0))
 			lstProdDispo.Items.Add(LVI)
+			lstProdDispo.Scrollable = True
 		Next
 
 	End Sub

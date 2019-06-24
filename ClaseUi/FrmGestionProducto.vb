@@ -51,67 +51,64 @@ Public Class FrmGestionProducto
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-
-        If rdpropios.Checked Then
-
-
-            Dim ms As New IO.MemoryStream()
-            PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
-            pro.nombreprducto = TbNombreProducto.Text
-            pro.CodBarra = tbCodBarra.Text
-            pro.foto = ms.GetBuffer
-            pro.precio = TbPrecio.Text
-            pro.utilidad = TbUtilidad.Text
-            pro.materialid = CmbMaterial.SelectedValue
-            pro.peso = 1
-            pro.tamaño = TbTamaño.Text
-            pro.color = TbColor.Text
-            pro.proveedorId = cmbProveedor.SelectedValue
-            pro.stockmin = TbStockmin.Text
-            pro.stockmax = TbStockMax.Text
-            pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
-            pro.Unidad = TbUnidad.SelectedValue
-            pro.categoriaId = CmbCategoria.SelectedValue
-            pro.StockODeTercero = 0
-            productometodo.Grabarproductos(pro)
-            Dgvproductosset()
-            cereacampos()
-            bloquearcampos()
-            btnBuscar.Enabled = True
-            btnmodificar.Enabled = True
-            btnNuevo.Enabled = True
-        Else
-
-            Dim ms As New IO.MemoryStream()
-            PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
-            pro.nombreprducto = TbNombreProducto.Text
-            pro.CodBarra = tbCodBarra.Text
-            pro.foto = ms.GetBuffer
-            pro.precio = TbPrecio.Text
-            pro.utilidad = TbUtilidad.Text
-            pro.materialid = CmbMaterial.SelectedValue
-            pro.peso = 1
-            pro.tamaño = TbTamaño.Text
-            pro.color = TbColor.Text
-            pro.proveedorId = cmbProveedor.SelectedValue
-            pro.stockmin = TbStockmin.Text
-            pro.stockmax = TbStockMax.Text
-            pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
-            pro.Unidad = TbUnidad.SelectedValue
-            pro.categoriaId = CmbCategoria.SelectedValue
-            pro.StockODeTercero = 1
-            productometodo.Grabarproductos(pro)
-            Dgvproductosset()
-            cereacampos()
-            bloquearcampos()
-            btnBuscar.Enabled = True
-            btnmodificar.Enabled = True
-
-        End If
-
-
-
-    End Sub
+		Try
+			If rdpropios.Checked Then
+				Dim ms As New IO.MemoryStream()
+				PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
+				pro.nombreprducto = TbNombreProducto.Text
+				pro.CodBarra = tbCodBarra.Text
+				pro.foto = ms.GetBuffer
+				pro.precio = TbPrecio.Text
+				pro.utilidad = TbUtilidad.Text
+				pro.materialid = CmbMaterial.SelectedValue
+				pro.peso = 1
+				pro.tamaño = TbTamaño.Text
+				pro.color = TbColor.Text
+				pro.proveedorId = cmbProveedor.SelectedValue
+				pro.stockmin = TbStockmin.Text
+				pro.stockmax = TbStockMax.Text
+				pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
+				pro.Unidad = TbUnidad.SelectedValue
+				pro.categoriaId = CmbCategoria.SelectedValue
+				pro.StockODeTercero = 0
+				productometodo.Grabarproductos(pro)
+				Dgvproductosset()
+				cereacampos()
+				bloquearcampos()
+				btnBuscar.Enabled = True
+				btnmodificar.Enabled = True
+				btnNuevo.Enabled = True
+			Else
+				Dim ms As New IO.MemoryStream()
+				PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
+				pro.nombreprducto = TbNombreProducto.Text
+				pro.CodBarra = tbCodBarra.Text
+				pro.foto = ms.GetBuffer
+				pro.precio = TbPrecio.Text
+				pro.utilidad = TbUtilidad.Text
+				pro.materialid = CmbMaterial.SelectedValue
+				pro.peso = 1
+				pro.tamaño = TbTamaño.Text
+				pro.color = TbColor.Text
+				pro.proveedorId = cmbProveedor.SelectedValue
+				pro.stockmin = TbStockmin.Text
+				pro.stockmax = TbStockMax.Text
+				pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
+				pro.Unidad = TbUnidad.SelectedValue
+				pro.categoriaId = CmbCategoria.SelectedValue
+				pro.StockODeTercero = 1
+				productometodo.Grabarproductos(pro)
+				Dgvproductosset()
+				cereacampos()
+				bloquearcampos()
+				btnBuscar.Enabled = True
+				btnmodificar.Enabled = True
+			End If
+		Catch ex As Exception
+			MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+			Exit Sub
+		End Try
+	End Sub
 
     Private Sub btnmodificar_Click(sender As Object, e As EventArgs) Handles btnmodificar.Click
         Habilitarcampos()
@@ -268,24 +265,23 @@ Public Class FrmGestionProducto
 
 
 
-    Public Function LlenarCMBTipo()
-        Try
-            Dim ds1 As DataSet
-            ds1 = productometodo.CargarCMBTipo()
-            CmbTipoprodcuto.DataSource = ds1.Tables(0)
-            CmbTipoprodcuto.DisplayMember = "nombre"
-            CmbTipoprodcuto.ValueMember = "id"
-            CmbTipoprodcuto.SelectedValue = 0
+	Public Sub LlenarCMBTipo()
+		Try
+			Dim ds1 As DataSet
+			ds1 = productometodo.CargarCMBTipo()
+			CmbTipoprodcuto.DataSource = ds1.Tables(0)
+			CmbTipoprodcuto.DisplayMember = "nombre"
+			CmbTipoprodcuto.ValueMember = "id"
+			CmbTipoprodcuto.SelectedValue = 0
 
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-        Return CmbTipoprodcuto.SelectedValue
-    End Function
+		Catch ex As Exception
+			MessageBox.Show(ex.Message)
+		End Try
+	End Sub
 
 
-    Public Function LlenarCMBMaterial()
+	Public Function LlenarCMBMaterial()
         Try
             Dim ds1 As DataSet
             ds1 = productometodo.CargarCMBmaterial()

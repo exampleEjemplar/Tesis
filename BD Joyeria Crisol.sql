@@ -152,14 +152,14 @@ Color VARCHAR(MAX),
 ProveedorId INT,
 StockMin INT,
 StockMax INT,
-Categoria2ID INT,
+TipoProductoID INT,
 UnidadDePeso VARCHAR(MAX),
 CategoriaID INT,
 StockODeTercero INT,
 CONSTRAINT Producto_Material FOREIGN KEY (MaterialId) REFERENCES Materiales(ID),
 CONSTRAINT Producto_Proveedor FOREIGN KEY (ProveedorId) REFERENCES Proveedores(ID),
 CONSTRAINT Producto_Categoria FOREIGN KEY (CategoriaID) REFERENCES Categorias(ID),
-CONSTRAINT Producto_Categoria2 FOREIGN KEY (Categoria2ID) REFERENCES Categorias2(ID)
+CONSTRAINT Producto_Categoria2 FOREIGN KEY (TipoProductoID) REFERENCES TipoProductos(ID)
 )
 GO
 CREATE TABLE MovimientosStock(
@@ -23092,7 +23092,7 @@ CREATE PROCEDURE [dbo].[SP_RegistrarProducto]
 @ProveedorId int,
 @StockMin int,
 @StockMax int,
-@Categoria2ID int,
+@TipoProductoID int,
 @UnidadDePeso int,
 @CategoriaId int,
 @StockODeTercero int
@@ -23111,7 +23111,7 @@ insert into productos  values(@Cod_Barra,
 @ProveedorId,
 @StockMin,
 @StockMax,
-@Categoria2ID,
+@TipoProductoID,
 @UnidadDePeso,
 @CategoriaId,
 @StockODeTercero)
