@@ -126,69 +126,69 @@ Public Class FrmGestionCliente
 				Unblock()
 				GroupBox6.Visible = True
 				Modificando = True
-				btnLimpiar.Enabled = False
-			Next
-			cbtipodni.Enabled = False
-		Catch ex As Exception
-			MessageBox.Show(ex.Message)
-		End Try
-	End Sub
+                btnLimpiar.Enabled = False
+            Next
+            cbtipodni.Enabled = False
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 
-	Private Sub CboTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoPersona.SelectedIndexChanged
-		If cboTipoPersona.SelectedItem = "Física" Then
-			LlenarCMBDoc("F", "nuevo")
-			cbtipodni.Enabled = True
-		Else
-			LlenarCMBDoc("J", "nuevo")
-			lblNombreFanta.Visible = True
-			lblRazonSoc.Visible = True
-			cbtipodni.Enabled = True
+    Private Sub CboTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoPersona.SelectedIndexChanged
+        If cboTipoPersona.SelectedItem = "Física" Then
+            LlenarCMBDoc("F", "nuevo")
+            cbtipodni.Enabled = True
+        Else
+            LlenarCMBDoc("J", "nuevo")
+            lblNombreFanta.Visible = True
+            lblRazonSoc.Visible = True
+            cbtipodni.Enabled = True
 
-		End If
+        End If
 
-	End Sub
+    End Sub
 
-	Private Sub CboBusTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboBusTipoPersona.SelectedIndexChanged
-		If cboBusTipoPersona.SelectedItem = "Física" Then
-			LlenarCMBDoc("F", "busqueda")
+    Private Sub CboBusTipoPersona_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboBusTipoPersona.SelectedIndexChanged
+        If cboBusTipoPersona.SelectedItem = "Física" Then
+            LlenarCMBDoc("F", "busqueda")
 
-		Else
-			LlenarCMBDoc("J", "busqueda")
-		End If
-		cboBusTipoDNI.Enabled = True
-	End Sub
+        Else
+            LlenarCMBDoc("J", "busqueda")
+        End If
+        cboBusTipoDNI.Enabled = True
+    End Sub
 
-	Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-		Dim parametros As New Dictionary(Of String, String)
-		If String.IsNullOrWhiteSpace(cboBusTipoDNI.SelectedValue) = False Then
-			parametros.Add("TipoDocumentoId", cboBusTipoDNI.SelectedValue)
-		End If
-		If String.IsNullOrWhiteSpace(txtBusDocNro.Text) = False Then
-			parametros.Add("NumeroDocumento", txtBusDocNro.Text)
-		End If
-		If String.IsNullOrWhiteSpace(txtBusNombre.Text) = False Then
-			parametros.Add("Nombre", txtBusNombre.Text)
-		End If
-		If String.IsNullOrWhiteSpace(txtBusApellido.Text) = False Then
-			parametros.Add("Apellido", txtBusApellido.Text)
-		End If
-		If DgvclientesSet(parametros).Tables(0).Rows.Count = 0 Then
-			MsgBox("La búsqueda no arrojo resultados", MsgBoxStyle.Critical, "Error")
-		End If
-	End Sub
+    Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        Dim parametros As New Dictionary(Of String, String)
+        If String.IsNullOrWhiteSpace(cboBusTipoDNI.SelectedValue) = False Then
+            parametros.Add("TipoDocumentoId", cboBusTipoDNI.SelectedValue)
+        End If
+        If String.IsNullOrWhiteSpace(txtBusDocNro.Text) = False Then
+            parametros.Add("NumeroDocumento", txtBusDocNro.Text)
+        End If
+        If String.IsNullOrWhiteSpace(txtBusNombre.Text) = False Then
+            parametros.Add("Nombre", txtBusNombre.Text)
+        End If
+        If String.IsNullOrWhiteSpace(txtBusApellido.Text) = False Then
+            parametros.Add("Apellido", txtBusApellido.Text)
+        End If
+        If DgvclientesSet(parametros).Tables(0).Rows.Count = 0 Then
+            MsgBox("La búsqueda no arrojo resultados", MsgBoxStyle.Critical, "Error")
+        End If
+    End Sub
 
-	Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
-		GroupBox6.Visible = True
-		btnNuevo.Enabled = False
-		cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
-	End Sub
+    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+        GroupBox6.Visible = True
+        btnNuevo.Enabled = False
+        cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
+    End Sub
 
 #End Region
 
 #Region "Validadores"
 
-	'Valida datos antes de insertarlos en la BD
-	Public Function ValidarDatos()
+    'Valida datos antes de insertarlos en la BD
+    Public Function ValidarDatos()
 		Dim value As Integer
 		If Integer.TryParse(helpersLN.EnSesion, value) = True Then
 			cli.UsuarioId = value

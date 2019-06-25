@@ -326,7 +326,7 @@ Partial Class FrmEstadisticacliente
     Friend WithEvents RadioButton1 As Windows.Forms.RadioButton
     Friend WithEvents gbFiltro As Windows.Forms.GroupBox
     Friend WithEvents Button1 As Windows.Forms.Button
-    Friend WithEvents Chart1 As Windows.Forms.DataVisualization.Charting.Chart
+    Friend WithEvents Chart1 As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents Chart2 As Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents Chart3 As Windows.Forms.DataVisualization.Charting.Chart
 End Class

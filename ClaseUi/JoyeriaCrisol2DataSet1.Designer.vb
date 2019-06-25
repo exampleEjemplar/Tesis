@@ -20,9 +20,9 @@ Option Explicit On
  Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
  Global.System.ComponentModel.ToolboxItem(true),  _
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("dslistadocliente"),  _
+ Global.System.Xml.Serialization.XmlRootAttribute("JoyeriaCrisol2DataSet"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class dslistadocliente
+Partial Public Class JoyeriaCrisol2DataSet
     Inherits Global.System.Data.DataSet
     
     Private tableSP_ListadodeClientesPorfecha As SP_ListadodeClientesPorfechaDataTable
@@ -128,7 +128,7 @@ Partial Public Class dslistadocliente
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As dslistadocliente = CType(MyBase.Clone,dslistadocliente)
+        Dim cln As JoyeriaCrisol2DataSet = CType(MyBase.Clone,JoyeriaCrisol2DataSet)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -199,9 +199,9 @@ Partial Public Class dslistadocliente
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Private Sub InitClass()
-        Me.DataSetName = "dslistadocliente"
+        Me.DataSetName = "JoyeriaCrisol2DataSet"
         Me.Prefix = ""
-        Me.Namespace = "http://tempuri.org/dslistadocliente.xsd"
+        Me.Namespace = "http://tempuri.org/JoyeriaCrisol2DataSet.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableSP_ListadodeClientesPorfecha = New SP_ListadodeClientesPorfechaDataTable()
@@ -225,7 +225,7 @@ Partial Public Class dslistadocliente
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As dslistadocliente = New dslistadocliente()
+        Dim ds As JoyeriaCrisol2DataSet = New JoyeriaCrisol2DataSet()
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
         Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
         Dim any As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
@@ -495,7 +495,7 @@ Partial Public Class dslistadocliente
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddSP_ListadodeClientesPorfechaRow(ByVal FisicaOJuridica As String, ByVal Descripcion As String, ByVal NumeroDocumento As Double, ByVal Nombre As String, ByVal Apellido As String, ByVal FechaNacimiento As Date, ByVal FechaAlta As Date, ByVal Calle As String, ByVal NumeroCalle As Integer, ByVal Nombre1 As String, ByVal Column1 As Integer, ByVal Column2 As Integer, ByVal Email As String) As SP_ListadodeClientesPorfechaRow
+        Public Overloads Function AddSP_ListadodeClientesPorfechaRow(ByVal FisicaOJuridica As String, ByVal Descripcion As String, ByVal NumeroDocumento As Double, ByVal Nombre As String, ByVal Apellido As String, ByVal FechaNacimiento As Date, ByVal FechaAlta As Date, ByVal Calle As String, ByVal NumeroCalle As Integer, ByVal Nombre1 As String, ByVal Column1 As Double, ByVal Column2 As Double, ByVal Email As String) As SP_ListadodeClientesPorfechaRow
             Dim rowSP_ListadodeClientesPorfechaRow As SP_ListadodeClientesPorfechaRow = CType(Me.NewRow,SP_ListadodeClientesPorfechaRow)
             Dim columnValuesArray() As Object = New Object() {FisicaOJuridica, Descripcion, NumeroDocumento, Nombre, Apellido, FechaNacimiento, FechaAlta, Calle, NumeroCalle, Nombre1, Column1, Column2, Email, Nothing}
             rowSP_ListadodeClientesPorfechaRow.ItemArray = columnValuesArray
@@ -565,9 +565,9 @@ Partial Public Class dslistadocliente
             MyBase.Columns.Add(Me.columnNumeroCalle)
             Me.columnNombre1 = New Global.System.Data.DataColumn("Nombre1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNombre1)
-            Me.columnColumn1 = New Global.System.Data.DataColumn("Column1", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnColumn1 = New Global.System.Data.DataColumn("Column1", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnColumn1)
-            Me.columnColumn2 = New Global.System.Data.DataColumn("Column2", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnColumn2 = New Global.System.Data.DataColumn("Column2", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnColumn2)
             Me.columnEmail = New Global.System.Data.DataColumn("Email", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEmail)
@@ -655,7 +655,7 @@ Partial Public Class dslistadocliente
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As dslistadocliente = New dslistadocliente()
+            Dim ds As JoyeriaCrisol2DataSet = New JoyeriaCrisol2DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -889,10 +889,10 @@ Partial Public Class dslistadocliente
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Column1() As Integer
+        Public Property Column1() As Double
             Get
                 Try 
-                    Return CType(Me(Me.tableSP_ListadodeClientesPorfecha.Column1Column),Integer)
+                    Return CType(Me(Me.tableSP_ListadodeClientesPorfecha.Column1Column),Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Column1' de la tabla 'SP_ListadodeClientesPorfecha' es DB"& _ 
                             "Null.", e)
@@ -905,10 +905,10 @@ Partial Public Class dslistadocliente
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Column2() As Integer
+        Public Property Column2() As Double
             Get
                 Try 
-                    Return CType(Me(Me.tableSP_ListadodeClientesPorfecha.Column2Column),Integer)
+                    Return CType(Me(Me.tableSP_ListadodeClientesPorfecha.Column2Column),Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Column2' de la tabla 'SP_ListadodeClientesPorfecha' es DB"& _ 
                             "Null.", e)
@@ -1128,7 +1128,7 @@ Partial Public Class dslistadocliente
     End Class
 End Class
 
-Namespace dslistadoclienteTableAdapters
+Namespace JoyeriaCrisol2DataSetTableAdapters
     
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
@@ -1278,7 +1278,7 @@ Namespace dslistadoclienteTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.ClaseUi.My.MySettings.Default.JoyeriaCrisol11ConnectionString
+            Me._connection.ConnectionString = Global.ClaseUi.My.MySettings.Default.JoyeriaCrisol2ConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1298,7 +1298,7 @@ Namespace dslistadoclienteTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As dslistadocliente.SP_ListadodeClientesPorfechaDataTable, ByVal fechadesde As Global.System.Nullable(Of Date), ByVal fechahasta As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As JoyeriaCrisol2DataSet.SP_ListadodeClientesPorfechaDataTable, ByVal fechadesde As Global.System.Nullable(Of Date), ByVal fechahasta As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fechadesde.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(fechadesde.Value,Date)
@@ -1321,7 +1321,7 @@ Namespace dslistadoclienteTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal fechadesde As Global.System.Nullable(Of Date), ByVal fechahasta As Global.System.Nullable(Of Date)) As dslistadocliente.SP_ListadodeClientesPorfechaDataTable
+        Public Overloads Overridable Function GetData(ByVal fechadesde As Global.System.Nullable(Of Date), ByVal fechahasta As Global.System.Nullable(Of Date)) As JoyeriaCrisol2DataSet.SP_ListadodeClientesPorfechaDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fechadesde.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(fechadesde.Value,Date)
@@ -1333,9 +1333,179 @@ Namespace dslistadoclienteTableAdapters
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            Dim dataTable As dslistadocliente.SP_ListadodeClientesPorfechaDataTable = New dslistadocliente.SP_ListadodeClientesPorfechaDataTable()
+            Dim dataTable As JoyeriaCrisol2DataSet.SP_ListadodeClientesPorfechaDataTable = New JoyeriaCrisol2DataSet.SP_ListadodeClientesPorfechaDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class QueriesTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private _commandCollection() As Global.System.Data.IDbCommand
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.IDbCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.IDbCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.ClaseUi.My.MySettings.Default.JoyeriaCrisol2ConnectionString)
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.SP_RegistrarProducto"
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cod_Barra", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Foto", Global.System.Data.SqlDbType.Image, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Precio", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 53, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Utilidad", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 53, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MaterialId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Peso", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 53, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tamaño", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 53, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Color", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProveedorId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StockMin", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StockMax", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Categoria2ID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UnidadDePeso", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CategoriaId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StockODeTercero", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function SP_RegistrarProducto( _
+                    ByVal Cod_Barra As String,  _
+                    ByVal Nombre As String,  _
+                    ByVal Foto() As Byte,  _
+                    ByVal Precio As Global.System.Nullable(Of Double),  _
+                    ByVal Utilidad As Global.System.Nullable(Of Double),  _
+                    ByVal MaterialId As Global.System.Nullable(Of Integer),  _
+                    ByVal Peso As Global.System.Nullable(Of Double),  _
+                    ByVal Tamaño As Global.System.Nullable(Of Double),  _
+                    ByVal Color As String,  _
+                    ByVal ProveedorId As Global.System.Nullable(Of Integer),  _
+                    ByVal StockMin As Global.System.Nullable(Of Integer),  _
+                    ByVal StockMax As Global.System.Nullable(Of Integer),  _
+                    ByVal Categoria2ID As Global.System.Nullable(Of Integer),  _
+                    ByVal UnidadDePeso As Global.System.Nullable(Of Integer),  _
+                    ByVal CategoriaId As Global.System.Nullable(Of Integer),  _
+                    ByVal StockODeTercero As Global.System.Nullable(Of Integer)) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(0),Global.System.Data.SqlClient.SqlCommand)
+            If (Cod_Barra Is Nothing) Then
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(1).Value = CType(Cod_Barra,String)
+            End If
+            If (Nombre Is Nothing) Then
+                command.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(2).Value = CType(Nombre,String)
+            End If
+            If (Foto Is Nothing) Then
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(3).Value = CType(Foto,Byte())
+            End If
+            If (Precio.HasValue = true) Then
+                command.Parameters(4).Value = CType(Precio.Value,Double)
+            Else
+                command.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (Utilidad.HasValue = true) Then
+                command.Parameters(5).Value = CType(Utilidad.Value,Double)
+            Else
+                command.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (MaterialId.HasValue = true) Then
+                command.Parameters(6).Value = CType(MaterialId.Value,Integer)
+            Else
+                command.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (Peso.HasValue = true) Then
+                command.Parameters(7).Value = CType(Peso.Value,Double)
+            Else
+                command.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (Tamaño.HasValue = true) Then
+                command.Parameters(8).Value = CType(Tamaño.Value,Double)
+            Else
+                command.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (Color Is Nothing) Then
+                command.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(9).Value = CType(Color,String)
+            End If
+            If (ProveedorId.HasValue = true) Then
+                command.Parameters(10).Value = CType(ProveedorId.Value,Integer)
+            Else
+                command.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (StockMin.HasValue = true) Then
+                command.Parameters(11).Value = CType(StockMin.Value,Integer)
+            Else
+                command.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (StockMax.HasValue = true) Then
+                command.Parameters(12).Value = CType(StockMax.Value,Integer)
+            Else
+                command.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (Categoria2ID.HasValue = true) Then
+                command.Parameters(13).Value = CType(Categoria2ID.Value,Integer)
+            Else
+                command.Parameters(13).Value = Global.System.DBNull.Value
+            End If
+            If (UnidadDePeso.HasValue = true) Then
+                command.Parameters(14).Value = CType(UnidadDePeso.Value,Integer)
+            Else
+                command.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (CategoriaId.HasValue = true) Then
+                command.Parameters(15).Value = CType(CategoriaId.Value,Integer)
+            Else
+                command.Parameters(15).Value = Global.System.DBNull.Value
+            End If
+            If (StockODeTercero.HasValue = true) Then
+                command.Parameters(16).Value = CType(StockODeTercero.Value,Integer)
+            Else
+                command.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
         End Function
     End Class
     
@@ -1408,7 +1578,7 @@ Namespace dslistadoclienteTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Function UpdateUpdatedRows(ByVal dataSet As dslistadocliente, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateUpdatedRows(ByVal dataSet As JoyeriaCrisol2DataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -1418,7 +1588,7 @@ Namespace dslistadoclienteTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Function UpdateInsertedRows(ByVal dataSet As dslistadocliente, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateInsertedRows(ByVal dataSet As JoyeriaCrisol2DataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -1428,7 +1598,7 @@ Namespace dslistadoclienteTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Function UpdateDeletedRows(ByVal dataSet As dslistadocliente, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateDeletedRows(ByVal dataSet As JoyeriaCrisol2DataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -1464,7 +1634,7 @@ Namespace dslistadoclienteTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overridable Function UpdateAll(ByVal dataSet As dslistadocliente) As Integer
+        Public Overridable Function UpdateAll(ByVal dataSet As JoyeriaCrisol2DataSet) As Integer
             If (dataSet Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("dataSet")
             End If
