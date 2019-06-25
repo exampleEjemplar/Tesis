@@ -75,4 +75,8 @@ Public Class FrmGestionTipoDeProducto
 		modificado = True
 		Me.Close()
 	End Sub
+
+	Private Sub FrmGestionTipoDeProducto_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+		modificado = True
+	End Sub
 End Class

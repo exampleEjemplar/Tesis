@@ -287,6 +287,7 @@ Partial Class FrmGestionMaterial
 		Me.Controls.Add(Me.GroupBox1)
 		Me.Controls.Add(Me.dgvCategorias)
 		Me.Name = "FrmGestionMaterial"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "FrmGestionMaterial"
 		Me.GroupBox2.ResumeLayout(False)
 		Me.GroupBox2.PerformLayout()

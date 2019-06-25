@@ -131,6 +131,10 @@ Public Class FrmGestionMaterial
 		modificado = True
 		Me.Close()
 	End Sub
+
+	Private Sub FrmGestionMaterial_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+		modificado = True
+	End Sub
 End Class
 
 Public Class Example

@@ -71,4 +71,8 @@ Public Class FrmGestionCategorías
 		modificado = True
 		Me.Close()
 	End Sub
+
+	Private Sub FrmGestionCategorías_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+		modificado = True
+	End Sub
 End Class

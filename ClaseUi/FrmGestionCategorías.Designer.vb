@@ -22,7 +22,7 @@ Partial Class FrmGestionCategorías
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.dgvCategorias = New System.Windows.Forms.DataGridView()
 		Me.txtDescripcion = New System.Windows.Forms.TextBox()
 		Me.Label1 = New System.Windows.Forms.Label()
@@ -55,8 +55,8 @@ Partial Class FrmGestionCategorías
 		Me.dgvCategorias.ReadOnly = True
 		Me.dgvCategorias.RowHeadersVisible = False
 		Me.dgvCategorias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-		DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-		Me.dgvCategorias.RowsDefaultCellStyle = DataGridViewCellStyle2
+		DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+		Me.dgvCategorias.RowsDefaultCellStyle = DataGridViewCellStyle1
 		Me.dgvCategorias.Size = New System.Drawing.Size(549, 200)
 		Me.dgvCategorias.TabIndex = 33
 		'
@@ -241,6 +241,7 @@ Partial Class FrmGestionCategorías
 		Me.Controls.Add(Me.GroupBox1)
 		Me.Controls.Add(Me.dgvCategorias)
 		Me.Name = "FrmGestionCategorías"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "FrmGestionCategorías"
 		CType(Me.dgvCategorias, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox1.ResumeLayout(False)
