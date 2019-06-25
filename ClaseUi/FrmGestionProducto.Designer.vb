@@ -38,12 +38,12 @@ Partial Class FrmGestionProducto
 		Me.Button2 = New System.Windows.Forms.Button()
 		Me.btnGuardar = New System.Windows.Forms.Button()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-		Me.Button6 = New System.Windows.Forms.Button()
-		Me.Button5 = New System.Windows.Forms.Button()
-		Me.Button1 = New System.Windows.Forms.Button()
+		Me.btnNuevoMaterial = New System.Windows.Forms.Button()
+		Me.btnNuevoTipo = New System.Windows.Forms.Button()
+		Me.btnNuevaCategoria = New System.Windows.Forms.Button()
 		Me.rdterceros = New System.Windows.Forms.RadioButton()
 		Me.rdpropios = New System.Windows.Forms.RadioButton()
-		Me.Label1 = New System.Windows.Forms.Label()
+		Me.lblprod = New System.Windows.Forms.Label()
 		Me.tbCodigo = New System.Windows.Forms.TextBox()
 		Me.Label29 = New System.Windows.Forms.Label()
 		Me.Label18 = New System.Windows.Forms.Label()
@@ -98,7 +98,7 @@ Partial Class FrmGestionProducto
 		Me.gbbusqueda.Name = "gbbusqueda"
 		Me.gbbusqueda.Padding = New System.Windows.Forms.Padding(4)
 		Me.gbbusqueda.Size = New System.Drawing.Size(909, 146)
-		Me.gbbusqueda.TabIndex = 36
+		Me.gbbusqueda.TabIndex = 8
 		Me.gbbusqueda.TabStop = False
 		Me.gbbusqueda.Text = "Búsqueda"
 		'
@@ -113,7 +113,7 @@ Partial Class FrmGestionProducto
 		Me.Button7.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button7.Name = "Button7"
 		Me.Button7.Size = New System.Drawing.Size(115, 113)
-		Me.Button7.TabIndex = 41
+		Me.Button7.TabIndex = 0
 		Me.Button7.Text = "Aceptar"
 		Me.Button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.Button7.UseVisualStyleBackColor = False
@@ -141,7 +141,7 @@ Partial Class FrmGestionProducto
 		Me.txtBusNombreProd.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtBusNombreProd.Name = "txtBusNombreProd"
 		Me.txtBusNombreProd.Size = New System.Drawing.Size(341, 23)
-		Me.txtBusNombreProd.TabIndex = 28
+		Me.txtBusNombreProd.TabIndex = 2
 		'
 		'lblBusApellido
 		'
@@ -161,7 +161,7 @@ Partial Class FrmGestionProducto
 		Me.txtBusCodigo.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtBusCodigo.Name = "txtBusCodigo"
 		Me.txtBusCodigo.Size = New System.Drawing.Size(187, 23)
-		Me.txtBusCodigo.TabIndex = 26
+		Me.txtBusCodigo.TabIndex = 1
 		'
 		'lblBusNombre
 		'
@@ -213,7 +213,7 @@ Partial Class FrmGestionProducto
 		Me.btncancelar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btncancelar.Name = "btncancelar"
 		Me.btncancelar.Size = New System.Drawing.Size(115, 128)
-		Me.btncancelar.TabIndex = 39
+		Me.btncancelar.TabIndex = 4
 		Me.btncancelar.Text = "Cancelar"
 		Me.btncancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btncancelar.UseVisualStyleBackColor = False
@@ -229,7 +229,7 @@ Partial Class FrmGestionProducto
 		Me.btnmodificar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnmodificar.Name = "btnmodificar"
 		Me.btnmodificar.Size = New System.Drawing.Size(115, 128)
-		Me.btnmodificar.TabIndex = 38
+		Me.btnmodificar.TabIndex = 3
 		Me.btnmodificar.Text = "Modificar"
 		Me.btnmodificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnmodificar.UseVisualStyleBackColor = False
@@ -245,7 +245,7 @@ Partial Class FrmGestionProducto
 		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(108, 128)
-		Me.btnBuscar.TabIndex = 34
+		Me.btnBuscar.TabIndex = 6
 		Me.btnBuscar.Text = "Buscar"
 		Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnBuscar.UseVisualStyleBackColor = False
@@ -261,7 +261,7 @@ Partial Class FrmGestionProducto
 		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(116, 128)
-		Me.btnNuevo.TabIndex = 33
+		Me.btnNuevo.TabIndex = 2
 		Me.btnNuevo.Text = "Nuevo"
 		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnNuevo.UseVisualStyleBackColor = False
@@ -300,12 +300,12 @@ Partial Class FrmGestionProducto
 		'
 		'GroupBox2
 		'
-		Me.GroupBox2.Controls.Add(Me.Button6)
-		Me.GroupBox2.Controls.Add(Me.Button5)
-		Me.GroupBox2.Controls.Add(Me.Button1)
+		Me.GroupBox2.Controls.Add(Me.btnNuevoMaterial)
+		Me.GroupBox2.Controls.Add(Me.btnNuevoTipo)
+		Me.GroupBox2.Controls.Add(Me.btnNuevaCategoria)
 		Me.GroupBox2.Controls.Add(Me.rdterceros)
 		Me.GroupBox2.Controls.Add(Me.rdpropios)
-		Me.GroupBox2.Controls.Add(Me.Label1)
+		Me.GroupBox2.Controls.Add(Me.lblprod)
 		Me.GroupBox2.Controls.Add(Me.tbCodigo)
 		Me.GroupBox2.Controls.Add(Me.Label29)
 		Me.GroupBox2.Controls.Add(Me.Label18)
@@ -349,50 +349,50 @@ Partial Class FrmGestionProducto
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "Gestion de producto"
 		'
-		'Button6
+		'btnNuevoMaterial
 		'
-		Me.Button6.BackColor = System.Drawing.SystemColors.ActiveCaption
-		Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button6.FlatAppearance.BorderSize = 0
-		Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button6.Location = New System.Drawing.Point(687, 209)
-		Me.Button6.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button6.Name = "Button6"
-		Me.Button6.Size = New System.Drawing.Size(143, 44)
-		Me.Button6.TabIndex = 49
-		Me.Button6.Text = "Cargar nuevo material"
-		Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button6.UseVisualStyleBackColor = False
+		Me.btnNuevoMaterial.BackColor = System.Drawing.SystemColors.ActiveCaption
+		Me.btnNuevoMaterial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnNuevoMaterial.FlatAppearance.BorderSize = 0
+		Me.btnNuevoMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnNuevoMaterial.Location = New System.Drawing.Point(687, 209)
+		Me.btnNuevoMaterial.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnNuevoMaterial.Name = "btnNuevoMaterial"
+		Me.btnNuevoMaterial.Size = New System.Drawing.Size(143, 44)
+		Me.btnNuevoMaterial.TabIndex = 49
+		Me.btnNuevoMaterial.Text = "Cargar nuevo material"
+		Me.btnNuevoMaterial.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnNuevoMaterial.UseVisualStyleBackColor = False
 		'
-		'Button5
+		'btnNuevoTipo
 		'
-		Me.Button5.BackColor = System.Drawing.SystemColors.ActiveCaption
-		Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button5.FlatAppearance.BorderSize = 0
-		Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button5.Location = New System.Drawing.Point(347, 209)
-		Me.Button5.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button5.Name = "Button5"
-		Me.Button5.Size = New System.Drawing.Size(143, 44)
-		Me.Button5.TabIndex = 48
-		Me.Button5.Text = "Cargar nuevo tipo"
-		Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button5.UseVisualStyleBackColor = False
+		Me.btnNuevoTipo.BackColor = System.Drawing.SystemColors.ActiveCaption
+		Me.btnNuevoTipo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnNuevoTipo.FlatAppearance.BorderSize = 0
+		Me.btnNuevoTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnNuevoTipo.Location = New System.Drawing.Point(347, 209)
+		Me.btnNuevoTipo.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnNuevoTipo.Name = "btnNuevoTipo"
+		Me.btnNuevoTipo.Size = New System.Drawing.Size(143, 44)
+		Me.btnNuevoTipo.TabIndex = 48
+		Me.btnNuevoTipo.Text = "Cargar nuevo tipo"
+		Me.btnNuevoTipo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnNuevoTipo.UseVisualStyleBackColor = False
 		'
-		'Button1
+		'btnNuevaCategoria
 		'
-		Me.Button1.BackColor = System.Drawing.SystemColors.ActiveCaption
-		Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button1.FlatAppearance.BorderSize = 0
-		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button1.Location = New System.Drawing.Point(34, 209)
-		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button1.Name = "Button1"
-		Me.Button1.Size = New System.Drawing.Size(143, 44)
-		Me.Button1.TabIndex = 41
-		Me.Button1.Text = "Cargar nueva categoría"
-		Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button1.UseVisualStyleBackColor = False
+		Me.btnNuevaCategoria.BackColor = System.Drawing.SystemColors.ActiveCaption
+		Me.btnNuevaCategoria.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnNuevaCategoria.FlatAppearance.BorderSize = 0
+		Me.btnNuevaCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnNuevaCategoria.Location = New System.Drawing.Point(34, 209)
+		Me.btnNuevaCategoria.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnNuevaCategoria.Name = "btnNuevaCategoria"
+		Me.btnNuevaCategoria.Size = New System.Drawing.Size(143, 44)
+		Me.btnNuevaCategoria.TabIndex = 41
+		Me.btnNuevaCategoria.Text = "Cargar nueva categoría"
+		Me.btnNuevaCategoria.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnNuevaCategoria.UseVisualStyleBackColor = False
 		'
 		'rdterceros
 		'
@@ -418,16 +418,16 @@ Partial Class FrmGestionProducto
 		Me.rdpropios.Text = "Propios"
 		Me.rdpropios.UseVisualStyleBackColor = True
 		'
-		'Label1
+		'lblprod
 		'
-		Me.Label1.AutoSize = True
-		Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label1.Location = New System.Drawing.Point(287, 20)
-		Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label1.Name = "Label1"
-		Me.Label1.Size = New System.Drawing.Size(190, 17)
-		Me.Label1.TabIndex = 45
-		Me.Label1.Text = "Procedencia de producto"
+		Me.lblprod.AutoSize = True
+		Me.lblprod.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblprod.Location = New System.Drawing.Point(287, 20)
+		Me.lblprod.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lblprod.Name = "lblprod"
+		Me.lblprod.Size = New System.Drawing.Size(190, 17)
+		Me.lblprod.TabIndex = 45
+		Me.lblprod.Text = "Procedencia de producto"
 		'
 		'tbCodigo
 		'
@@ -768,7 +768,7 @@ Partial Class FrmGestionProducto
 		Me.btnguardarmodificacion.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnguardarmodificacion.Name = "btnguardarmodificacion"
 		Me.btnguardarmodificacion.Size = New System.Drawing.Size(115, 128)
-		Me.btnguardarmodificacion.TabIndex = 40
+		Me.btnguardarmodificacion.TabIndex = 5
 		Me.btnguardarmodificacion.Text = "Guardar"
 		Me.btnguardarmodificacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnguardarmodificacion.UseVisualStyleBackColor = False
@@ -821,7 +821,7 @@ Partial Class FrmGestionProducto
     Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
     Friend WithEvents rdterceros As Windows.Forms.RadioButton
     Friend WithEvents rdpropios As Windows.Forms.RadioButton
-    Friend WithEvents Label1 As Windows.Forms.Label
+    Friend WithEvents lblprod As Windows.Forms.Label
     Friend WithEvents tbCodigo As Windows.Forms.TextBox
     Friend WithEvents Label29 As Windows.Forms.Label
     Friend WithEvents Label18 As Windows.Forms.Label
@@ -856,7 +856,7 @@ Partial Class FrmGestionProducto
     Friend WithEvents TbNombreProducto As Windows.Forms.TextBox
     Friend WithEvents PBfoto As Windows.Forms.PictureBox
 	Friend WithEvents btnguardarmodificacion As Windows.Forms.Button
-	Friend WithEvents Button1 As Windows.Forms.Button
-	Friend WithEvents Button5 As Windows.Forms.Button
-	Friend WithEvents Button6 As Windows.Forms.Button
+	Friend WithEvents btnNuevaCategoria As Windows.Forms.Button
+	Friend WithEvents btnNuevoTipo As Windows.Forms.Button
+	Friend WithEvents btnNuevoMaterial As Windows.Forms.Button
 End Class

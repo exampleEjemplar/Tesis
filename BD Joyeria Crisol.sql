@@ -22931,6 +22931,7 @@ VALUES
 (1)
 GO
 
+
  USE [JoyeriaCrisol]
 GO
 /****** Object:  StoredProcedure [dbo].[SP_ListadodeClientesPorfecha]    Script Date: 6/6/2019 23:45:38 ******/
@@ -22979,7 +22980,7 @@ CREATE PROCEDURE [dbo].[SP_ModificarProductos]
 @ProveedorId int,
 @StockMin int,
 @StockMax int,
-@Categoria2ID int,
+@TipoProductoID int,
 @UnidadDePeso int,
 @CategoriaId int,
 @StockODeTercero int
@@ -22999,7 +23000,7 @@ color =@Color,
 ProveedorId =@ProveedorId,
 StockMin =@StockMin,
 StockMax =@StockMax,
-Categoria2ID = @Categoria2ID,
+TipoProductoID = @TipoProductoID,
 UnidadDePeso = @UnidadDePeso,
 CategoriaID =@CategoriaId,
 StockODeTercero =@StockODeTercero
@@ -23020,10 +23021,10 @@ CREATE PROCEDURE [dbo].[SP_MostrarProductoconbusqueda]
 @Nombre varchar(max)
 
 AS
-SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.Categoria2ID , p.MaterialId, p.foto, 
-p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.Categoria2ID, p.UnidadDePeso, 
+SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto, 
+p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.TipoProductoID, p.UnidadDePeso, 
 p.CategoriaID, p.StockODeTercero FROM productos as p
-inner join Categorias2 t on p.Categoria2ID=t.id
+inner join Categorias2 t on p.TipoProductoID=t.id
 inner join Materiales m On p.MaterialId=m.id
 inner join categorias ca on p.CategoriaID= ca.Id
 where p.id like CONCAT('%', @codigo ,'%') and  p.nombre like  CONCAT('%', @nombre ,'%');
@@ -23042,10 +23043,10 @@ create PROCEDURE [dbo].[SP_MostrarProductoconbusquedaCAT]
 @Categoria as varchar
 
 AS
-SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.Categoria2ID , p.MaterialId, p.foto, 
-p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.Categoria2ID, p.UnidadDePeso, 
+SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto, 
+p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.TipoProductoID, p.UnidadDePeso, 
 p.CategoriaID, p.StockODeTercero FROM productos as p
-inner join Categorias2 t on p.Categoria2ID=t.id
+inner join Categorias2 t on p.TipoProductoID=t.id
 inner join Materiales m On p.MaterialId=m.id
 inner join categorias ca on p.CategoriaID= ca.Id
 where p.id like CONCAT('%', @codigo ,'%') and  p.nombre like  CONCAT('%', @nombre ,'%') and  p.CategoriaID = @categoria;
@@ -23063,10 +23064,10 @@ create PROCEDURE [dbo].[SP_MostrarProductosinbusqueda]
 @Nombre varchar(max)
 
 AS
-SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.Categoria2ID , p.MaterialId, p.foto, 
-p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.Categoria2ID, p.UnidadDePeso, 
+SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto, 
+p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.TipoProductoID, p.UnidadDePeso, 
 p.CategoriaID, p.StockODeTercero FROM productos as p
-inner join Categorias2 t on p.Categoria2ID=t.id
+inner join TipoProductos t on p.TipoProductoID=t.id
 inner join Materiales m On p.MaterialId=m.id
 inner join categorias ca on p.CategoriaID= ca.Id
 GO
@@ -23116,6 +23117,8 @@ insert into productos  values(@Cod_Barra,
 @CategoriaId,
 @StockODeTercero)
 end
+
+
 
 
 
