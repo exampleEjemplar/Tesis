@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmGestionVentas
 	Inherits System.Windows.Forms.Form
 
 	'Form reemplaza a Dispose para limpiar la lista de componentes.
-	<System.Diagnostics.DebuggerNonUserCode()> _
+	<System.Diagnostics.DebuggerNonUserCode()>
 	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
 		Try
 			If disposing AndAlso components IsNot Nothing Then
@@ -20,37 +20,39 @@ Partial Class FrmGestionVentas
 	'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
 	'Se puede modificar usando el Diseñador de Windows Forms.  
 	'No lo modifique con el editor de código.
-	<System.Diagnostics.DebuggerStepThrough()> _
+	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-		Me.dtpFechaComp2 = New System.Windows.Forms.DateTimePicker()
-		Me.rbtEntreFechas = New System.Windows.Forms.RadioButton()
-		Me.cboUsuario = New System.Windows.Forms.ComboBox()
-		Me.Label2 = New System.Windows.Forms.Label()
-		Me.dtpFechaComp = New System.Windows.Forms.DateTimePicker()
+		Me.rbtFechaExacta = New System.Windows.Forms.CheckBox()
+		Me.rbtEntreFechas = New System.Windows.Forms.CheckBox()
+		Me.dtpFechaHasta = New System.Windows.Forms.DateTimePicker()
+		Me.dtpFechaDesde = New System.Windows.Forms.DateTimePicker()
 		Me.btnBuscar = New System.Windows.Forms.Button()
 		Me.cboCliente = New System.Windows.Forms.ComboBox()
 		Me.Label17 = New System.Windows.Forms.Label()
-		Me.Label16 = New System.Windows.Forms.Label()
+		Me.lblFechaExacta = New System.Windows.Forms.Label()
 		Me.dgvProveedores = New System.Windows.Forms.DataGridView()
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.Label1 = New System.Windows.Forms.Label()
+		Me.lblHasta = New System.Windows.Forms.Label()
+		Me.lbldesde = New System.Windows.Forms.Label()
 		Me.GroupBox5.SuspendLayout()
 		CType(Me.dgvProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'GroupBox5
 		'
-		Me.GroupBox5.Controls.Add(Me.dtpFechaComp2)
+		Me.GroupBox5.Controls.Add(Me.lbldesde)
+		Me.GroupBox5.Controls.Add(Me.lblHasta)
+		Me.GroupBox5.Controls.Add(Me.rbtFechaExacta)
 		Me.GroupBox5.Controls.Add(Me.rbtEntreFechas)
-		Me.GroupBox5.Controls.Add(Me.cboUsuario)
-		Me.GroupBox5.Controls.Add(Me.Label2)
-		Me.GroupBox5.Controls.Add(Me.dtpFechaComp)
+		Me.GroupBox5.Controls.Add(Me.dtpFechaHasta)
+		Me.GroupBox5.Controls.Add(Me.dtpFechaDesde)
 		Me.GroupBox5.Controls.Add(Me.btnBuscar)
 		Me.GroupBox5.Controls.Add(Me.cboCliente)
 		Me.GroupBox5.Controls.Add(Me.Label17)
-		Me.GroupBox5.Controls.Add(Me.Label16)
+		Me.GroupBox5.Controls.Add(Me.lblFechaExacta)
 		Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.GroupBox5.Location = New System.Drawing.Point(13, 62)
 		Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4)
@@ -61,60 +63,45 @@ Partial Class FrmGestionVentas
 		Me.GroupBox5.TabStop = False
 		Me.GroupBox5.Text = "Búsqueda"
 		'
-		'dtpFechaComp2
+		'rbtFechaExacta
 		'
-		Me.dtpFechaComp2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-		Me.dtpFechaComp2.Location = New System.Drawing.Point(577, 52)
-		Me.dtpFechaComp2.Margin = New System.Windows.Forms.Padding(4)
-		Me.dtpFechaComp2.Name = "dtpFechaComp2"
-		Me.dtpFechaComp2.Size = New System.Drawing.Size(151, 23)
-		Me.dtpFechaComp2.TabIndex = 37
-		Me.dtpFechaComp2.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
+		Me.rbtFechaExacta.AutoSize = True
+		Me.rbtFechaExacta.Location = New System.Drawing.Point(14, 62)
+		Me.rbtFechaExacta.Name = "rbtFechaExacta"
+		Me.rbtFechaExacta.Size = New System.Drawing.Size(199, 21)
+		Me.rbtFechaExacta.TabIndex = 39
+		Me.rbtFechaExacta.Text = "Busqueda fecha exacta"
+		Me.rbtFechaExacta.UseVisualStyleBackColor = True
 		'
 		'rbtEntreFechas
 		'
 		Me.rbtEntreFechas.AutoSize = True
-		Me.rbtEntreFechas.Location = New System.Drawing.Point(354, 52)
+		Me.rbtEntreFechas.Location = New System.Drawing.Point(502, 62)
 		Me.rbtEntreFechas.Name = "rbtEntreFechas"
-		Me.rbtEntreFechas.Size = New System.Drawing.Size(197, 21)
-		Me.rbtEntreFechas.TabIndex = 36
-		Me.rbtEntreFechas.TabStop = True
+		Me.rbtEntreFechas.Size = New System.Drawing.Size(198, 21)
+		Me.rbtEntreFechas.TabIndex = 38
 		Me.rbtEntreFechas.Text = "Busqueda entre fechas"
 		Me.rbtEntreFechas.UseVisualStyleBackColor = True
 		'
-		'cboUsuario
+		'dtpFechaHasta
 		'
-		Me.cboUsuario.AccessibleDescription = ""
-		Me.cboUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.cboUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.cboUsuario.FormattingEnabled = True
-		Me.cboUsuario.Items.AddRange(New Object() {"Física", "Jurídica"})
-		Me.cboUsuario.Location = New System.Drawing.Point(187, 83)
-		Me.cboUsuario.Margin = New System.Windows.Forms.Padding(4)
-		Me.cboUsuario.Name = "cboUsuario"
-		Me.cboUsuario.Size = New System.Drawing.Size(367, 25)
-		Me.cboUsuario.TabIndex = 24
+		Me.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+		Me.dtpFechaHasta.Location = New System.Drawing.Point(549, 99)
+		Me.dtpFechaHasta.Margin = New System.Windows.Forms.Padding(4)
+		Me.dtpFechaHasta.Name = "dtpFechaHasta"
+		Me.dtpFechaHasta.Size = New System.Drawing.Size(151, 23)
+		Me.dtpFechaHasta.TabIndex = 37
+		Me.dtpFechaHasta.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
 		'
-		'Label2
+		'dtpFechaDesde
 		'
-		Me.Label2.AutoSize = True
-		Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label2.Location = New System.Drawing.Point(11, 86)
-		Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label2.Name = "Label2"
-		Me.Label2.Size = New System.Drawing.Size(64, 17)
-		Me.Label2.TabIndex = 23
-		Me.Label2.Text = "Usuario"
-		'
-		'dtpFechaComp
-		'
-		Me.dtpFechaComp.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-		Me.dtpFechaComp.Location = New System.Drawing.Point(187, 52)
-		Me.dtpFechaComp.Margin = New System.Windows.Forms.Padding(4)
-		Me.dtpFechaComp.Name = "dtpFechaComp"
-		Me.dtpFechaComp.Size = New System.Drawing.Size(151, 23)
-		Me.dtpFechaComp.TabIndex = 22
-		Me.dtpFechaComp.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
+		Me.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+		Me.dtpFechaDesde.Location = New System.Drawing.Point(187, 97)
+		Me.dtpFechaDesde.Margin = New System.Windows.Forms.Padding(4)
+		Me.dtpFechaDesde.Name = "dtpFechaDesde"
+		Me.dtpFechaDesde.Size = New System.Drawing.Size(151, 23)
+		Me.dtpFechaDesde.TabIndex = 22
+		Me.dtpFechaDesde.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
 		'
 		'btnBuscar
 		'
@@ -123,7 +110,7 @@ Partial Class FrmGestionVentas
 		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnBuscar.FlatAppearance.BorderSize = 0
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(867, 19)
+		Me.btnBuscar.Location = New System.Drawing.Point(867, 12)
 		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(137, 110)
@@ -156,16 +143,16 @@ Partial Class FrmGestionVentas
 		Me.Label17.TabIndex = 21
 		Me.Label17.Text = "Cliente"
 		'
-		'Label16
+		'lblFechaExacta
 		'
-		Me.Label16.AutoSize = True
-		Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label16.Location = New System.Drawing.Point(11, 57)
-		Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label16.Name = "Label16"
-		Me.Label16.Size = New System.Drawing.Size(151, 17)
-		Me.Label16.TabIndex = 21
-		Me.Label16.Text = "Fecha comprobante"
+		Me.lblFechaExacta.AutoSize = True
+		Me.lblFechaExacta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblFechaExacta.Location = New System.Drawing.Point(11, 102)
+		Me.lblFechaExacta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lblFechaExacta.Name = "lblFechaExacta"
+		Me.lblFechaExacta.Size = New System.Drawing.Size(151, 17)
+		Me.lblFechaExacta.TabIndex = 21
+		Me.lblFechaExacta.Text = "Fecha comprobante"
 		'
 		'dgvProveedores
 		'
@@ -219,6 +206,28 @@ Partial Class FrmGestionVentas
 		Me.Label1.TabIndex = 23
 		Me.Label1.Text = "Gestión ventas"
 		'
+		'lblHasta
+		'
+		Me.lblHasta.AutoSize = True
+		Me.lblHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblHasta.Location = New System.Drawing.Point(380, 100)
+		Me.lblHasta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lblHasta.Name = "lblHasta"
+		Me.lblHasta.Size = New System.Drawing.Size(50, 17)
+		Me.lblHasta.TabIndex = 40
+		Me.lblHasta.Text = "Hasta"
+		'
+		'lbldesde
+		'
+		Me.lbldesde.AutoSize = True
+		Me.lbldesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lbldesde.Location = New System.Drawing.Point(110, 102)
+		Me.lbldesde.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lbldesde.Name = "lbldesde"
+		Me.lbldesde.Size = New System.Drawing.Size(54, 17)
+		Me.lbldesde.TabIndex = 41
+		Me.lbldesde.Text = "Desde"
+		'
 		'FrmGestionVentas
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -243,14 +252,15 @@ Partial Class FrmGestionVentas
 	Friend WithEvents btnBuscar As Windows.Forms.Button
 	Friend WithEvents cboCliente As Windows.Forms.ComboBox
 	Friend WithEvents Label17 As Windows.Forms.Label
-	Friend WithEvents Label16 As Windows.Forms.Label
+	Friend WithEvents lblFechaExacta As Windows.Forms.Label
 	Friend WithEvents dgvProveedores As Windows.Forms.DataGridView
 	Friend WithEvents btnNuevo As Windows.Forms.Button
 	Friend WithEvents btnSalir As Windows.Forms.Button
-	Friend WithEvents dtpFechaComp As Windows.Forms.DateTimePicker
+	Friend WithEvents dtpFechaDesde As Windows.Forms.DateTimePicker
 	Friend WithEvents Label1 As Windows.Forms.Label
-	Friend WithEvents cboUsuario As Windows.Forms.ComboBox
-	Friend WithEvents Label2 As Windows.Forms.Label
-	Friend WithEvents dtpFechaComp2 As Windows.Forms.DateTimePicker
-	Friend WithEvents rbtEntreFechas As Windows.Forms.RadioButton
+	Friend WithEvents dtpFechaHasta As Windows.Forms.DateTimePicker
+	Friend WithEvents rbtEntreFechas As Windows.Forms.CheckBox
+	Friend WithEvents rbtFechaExacta As Windows.Forms.CheckBox
+	Friend WithEvents lblHasta As Windows.Forms.Label
+	Friend WithEvents lbldesde As Windows.Forms.Label
 End Class

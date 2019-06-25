@@ -122,4 +122,8 @@ Public Class MDIPrincipal
     Private Sub GestionDeUsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionDeUsuariosToolStripMenuItem.Click
         FrmGestionUsuario.Show()
     End Sub
+
+	Private Sub btnVentas_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
+		FrmGestionVentas.Show()
+	End Sub
 End Class
