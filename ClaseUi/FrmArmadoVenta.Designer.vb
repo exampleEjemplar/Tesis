@@ -39,11 +39,9 @@ Partial Class FrmArmadoVenta
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
 		Me.lstProdDispo = New System.Windows.Forms.ListView()
 		Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-		Me.btnSalir = New System.Windows.Forms.Button()
-		Me.btnAgregar = New System.Windows.Forms.Button()
-		Me.btnQuitar = New System.Windows.Forms.Button()
-		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.ListView1 = New System.Windows.Forms.ListView()
+		Me.btnSalir = New System.Windows.Forms.Button()
+		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.GroupBox1.SuspendLayout()
 		Me.GroupBox2.SuspendLayout()
 		Me.GroupBox3.SuspendLayout()
@@ -216,28 +214,44 @@ Partial Class FrmArmadoVenta
 		Me.GroupBox3.Controls.Add(Me.lstProdDispo)
 		Me.GroupBox3.Location = New System.Drawing.Point(12, 310)
 		Me.GroupBox3.Name = "GroupBox3"
-		Me.GroupBox3.Size = New System.Drawing.Size(555, 579)
+		Me.GroupBox3.Size = New System.Drawing.Size(859, 579)
 		Me.GroupBox3.TabIndex = 31
 		Me.GroupBox3.TabStop = False
 		Me.GroupBox3.Text = "Productos disponibles"
 		'
 		'lstProdDispo
 		'
+		Me.lstProdDispo.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lstProdDispo.GridLines = True
 		Me.lstProdDispo.Location = New System.Drawing.Point(12, 21)
 		Me.lstProdDispo.Name = "lstProdDispo"
-		Me.lstProdDispo.Size = New System.Drawing.Size(537, 552)
+		Me.lstProdDispo.Size = New System.Drawing.Size(841, 552)
+		Me.lstProdDispo.Sorting = System.Windows.Forms.SortOrder.Descending
 		Me.lstProdDispo.TabIndex = 0
+		Me.lstProdDispo.TileSize = New System.Drawing.Size(120, 25)
 		Me.lstProdDispo.UseCompatibleStateImageBehavior = False
 		'
 		'GroupBox4
 		'
 		Me.GroupBox4.Controls.Add(Me.ListView1)
-		Me.GroupBox4.Location = New System.Drawing.Point(687, 310)
+		Me.GroupBox4.Location = New System.Drawing.Point(880, 310)
 		Me.GroupBox4.Name = "GroupBox4"
-		Me.GroupBox4.Size = New System.Drawing.Size(512, 579)
+		Me.GroupBox4.Size = New System.Drawing.Size(341, 579)
 		Me.GroupBox4.TabIndex = 32
 		Me.GroupBox4.TabStop = False
 		Me.GroupBox4.Text = "Productos en la venta"
+		'
+		'ListView1
+		'
+		Me.ListView1.AllowDrop = True
+		Me.ListView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!)
+		Me.ListView1.Location = New System.Drawing.Point(10, 27)
+		Me.ListView1.Name = "ListView1"
+		Me.ListView1.Size = New System.Drawing.Size(309, 552)
+		Me.ListView1.TabIndex = 1
+		Me.ListView1.TileSize = New System.Drawing.Size(120, 25)
+		Me.ListView1.UseCompatibleStateImageBehavior = False
+		Me.ListView1.View = System.Windows.Forms.View.List
 		'
 		'btnSalir
 		'
@@ -255,38 +269,6 @@ Partial Class FrmArmadoVenta
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnSalir.UseVisualStyleBackColor = False
 		'
-		'btnAgregar
-		'
-		Me.btnAgregar.BackColor = System.Drawing.SystemColors.Control
-		Me.btnAgregar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.plus1
-		Me.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnAgregar.FlatAppearance.BorderSize = 0
-		Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnAgregar.Location = New System.Drawing.Point(571, 320)
-		Me.btnAgregar.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnAgregar.Name = "btnAgregar"
-		Me.btnAgregar.Size = New System.Drawing.Size(113, 113)
-		Me.btnAgregar.TabIndex = 33
-		Me.btnAgregar.Text = "Agregar"
-		Me.btnAgregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnAgregar.UseVisualStyleBackColor = False
-		'
-		'btnQuitar
-		'
-		Me.btnQuitar.BackColor = System.Drawing.SystemColors.Control
-		Me.btnQuitar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.minus
-		Me.btnQuitar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnQuitar.FlatAppearance.BorderSize = 0
-		Me.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnQuitar.Location = New System.Drawing.Point(568, 441)
-		Me.btnQuitar.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnQuitar.Name = "btnQuitar"
-		Me.btnQuitar.Size = New System.Drawing.Size(119, 113)
-		Me.btnQuitar.TabIndex = 32
-		Me.btnQuitar.Text = "Quitar"
-		Me.btnQuitar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnQuitar.UseVisualStyleBackColor = False
-		'
 		'btnNuevo
 		'
 		Me.btnNuevo.BackColor = System.Drawing.SystemColors.Control
@@ -303,32 +285,23 @@ Partial Class FrmArmadoVenta
 		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnNuevo.UseVisualStyleBackColor = False
 		'
-		'ListView1
-		'
-		Me.ListView1.AllowDrop = True
-		Me.ListView1.Location = New System.Drawing.Point(4, 21)
-		Me.ListView1.Name = "ListView1"
-		Me.ListView1.Size = New System.Drawing.Size(502, 552)
-		Me.ListView1.TabIndex = 1
-		Me.ListView1.UseCompatibleStateImageBehavior = False
-		'
 		'FrmArmadoVenta
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(1211, 950)
+		Me.ClientSize = New System.Drawing.Size(1233, 950)
 		Me.Controls.Add(Me.btnNuevo)
 		Me.Controls.Add(Me.btnSalir)
-		Me.Controls.Add(Me.btnAgregar)
 		Me.Controls.Add(Me.GroupBox4)
 		Me.Controls.Add(Me.cboCliente)
 		Me.Controls.Add(Me.Label17)
-		Me.Controls.Add(Me.btnQuitar)
 		Me.Controls.Add(Me.GroupBox3)
 		Me.Controls.Add(Me.GroupBox2)
 		Me.Controls.Add(Me.GroupBox1)
 		Me.Controls.Add(Me.Label1)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
 		Me.Name = "FrmArmadoVenta"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "FrmArmadoVenta"
 		Me.GroupBox1.ResumeLayout(False)
 		Me.GroupBox1.PerformLayout()
@@ -357,8 +330,6 @@ Partial Class FrmArmadoVenta
 	Friend WithEvents Label6 As Windows.Forms.Label
 	Friend WithEvents GroupBox3 As Windows.Forms.GroupBox
 	Friend WithEvents lstProdDispo As Windows.Forms.ListView
-	Friend WithEvents btnAgregar As Windows.Forms.Button
-	Friend WithEvents btnQuitar As Windows.Forms.Button
 	Friend WithEvents GroupBox4 As Windows.Forms.GroupBox
 	Friend WithEvents btnSalir As Windows.Forms.Button
 	Friend WithEvents btnNuevo As Windows.Forms.Button

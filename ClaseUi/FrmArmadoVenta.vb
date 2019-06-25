@@ -1,4 +1,7 @@
-﻿Imports System.Windows.Forms
+﻿Imports System.Drawing
+Imports System.IO
+Imports System.Windows.Forms
+Imports System.Windows.Forms.ListView
 Imports ClaseLn
 
 Public Class FrmArmadoVenta
@@ -7,8 +10,8 @@ Public Class FrmArmadoVenta
 	Private ventasLN As New VentasLN
 	Private clientesLN As New ClientesLN
 	Dim moveItem As Boolean
-
-
+	Private listita As List(Of ListViewItem) = New List(Of ListViewItem)
+	Public listaDeProductosId As List(Of String) = New List(Of String)
 
 
 #Region "Eventos"
@@ -45,7 +48,7 @@ Public Class FrmArmadoVenta
 		GroupBox1.Visible = True
 		'Datos lbl arriba izquierda
 		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
-			lblNombre.Text = ds.Tables(0).Rows(i)(3).ToString() + " " + ds.Tables(0).Rows(i)(3).ToString()
+			lblNombre.Text = ds.Tables(0).Rows(i)(3).ToString() + " " + ds.Tables(0).Rows(i)(4).ToString()
 
 			Dim piso As String = If(ds.Tables(0).Rows(i)(14).ToString() <> "" Or ds.Tables(0).Rows(i)(14).ToString() <> Nothing, "Piso " + ds.Tables(0).Rows(i)(14).ToString() + " ", "")
 			Dim dpto As String = If(ds.Tables(0).Rows(i)(15).ToString() <> "" Or ds.Tables(0).Rows(i)(15).ToString() <> Nothing, "Dpto " + ds.Tables(0).Rows(i)(15).ToString() + " ", "")
@@ -55,9 +58,10 @@ Public Class FrmArmadoVenta
 
 			'Obtengo la localidad y le seteo el valor
 			Dim ds1 As DataSet = helpersLN.CargarCMBLocalidadesUnico(ds.Tables(0).Rows(i)(8).ToString())
-			Dim localidad As String = ", " + ds1.Tables(0).Rows(0)(1).ToString()
+			Dim localidad As String = ds1.Tables(0).Rows(0)(1).ToString()
+			Dim direccionSinLocalidad = ds.Tables(0).Rows(i)(6).ToString() + " " + ds.Tables(0).Rows(i)(7).ToString() + piso + dpto + mzan + lote + barrio
 
-			lblClienteDireccion.Text = ds.Tables(0).Rows(i)(6).ToString() + " " + ds.Tables(0).Rows(i)(7).ToString() + piso + dpto + mzan + lote + barrio + localidad
+			lblClienteDireccion.Text = If(direccionSinLocalidad <> " ", direccionSinLocalidad + ", " + localidad, localidad)
 			lblClienteDNI.Text = ds.Tables(0).Rows(i)(1).ToString() + "  " + ds.Tables(0).Rows(i)(2).ToString()
 
 			If ds.Tables(0).Rows(i)(9).ToString() <> "NULL" Or ds.Tables(0).Rows(i)(14).ToString() <> Nothing Then
@@ -69,16 +73,34 @@ Public Class FrmArmadoVenta
 		Next
 		'Productos
 
-		Dim LVI As ListViewItem
 		Dim ds2 As DataSet = helpersLN.CargarTodosProductos()
+		lstProdDispo.Scrollable = True
+
 
 		For i As Integer = 0 To ds2.Tables(0).Rows.Count - 1
-			LVI = New ListViewItem
-			LVI.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
-			LVI.SubItems.Add(ds2.Tables(0).Rows(i).Item(0))
-			lstProdDispo.Items.Add(LVI)
-		Next
 
+#Region "Img stuff"
+			Dim ms As MemoryStream = New MemoryStream()
+			Dim img As Byte() = CType(ds2.Tables(0).Rows(i).Item(2), Byte())
+			If img IsNot Nothing Then
+				ms.Write(img, 0, img.GetUpperBound(0) + 1)
+				Dim imgImagen As Image = Image.FromStream(ms)
+				Dim imagen As ImageList = New ImageList
+				Dim ImageList = New ImageList()
+				ImageList.Images.Add(ds2.Tables(0).Rows(i).Item(0).ToString(), imgImagen)
+				ImageList.ImageSize = New Size(90, 90)
+				lstProdDispo.LargeImageList = ImageList
+#End Region
+
+				Dim ListViewItem As ListViewItem = New ListViewItem
+				ListViewItem.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
+				ListViewItem.Tag = ds2.Tables(0).Rows(i)
+				ListViewItem.ImageKey = ds2.Tables(0).Rows(i).Item(0).ToString()
+				lstProdDispo.Items.Add(ListViewItem)
+				listita.Add(ListViewItem)
+				'ListViewItem. = ds2.Tables(0).Rows(i).Item(0).ToString()
+			End If
+		Next
 	End Sub
 
 	Private Sub lstProdDispo_MouseDown(sender As Object, e As MouseEventArgs) Handles lstProdDispo.MouseDown
@@ -89,8 +111,10 @@ Public Class FrmArmadoVenta
 		Try
 			If moveItem Then
 				Dim asdas As New Label
-				asdas.Text = lstProdDispo.SelectedItems.Item(0).Text
-				asdas.DoDragDrop(asdas.Text, DragDropEffects.Copy)
+				If Not lstProdDispo.SelectedItems.Count = 0 Then
+					asdas.Text = lstProdDispo.SelectedItems.Item(0).Text
+					asdas.DoDragDrop(asdas.Text, DragDropEffects.Copy)
+				End If
 			End If
 			moveItem = False
 		Catch ex As Exception
@@ -99,7 +123,13 @@ Public Class FrmArmadoVenta
 	End Sub
 
 	Private Sub ListView1_DragDrop(sender As Object, e As DragEventArgs) Handles ListView1.DragDrop
-		ListView1.Items.Add(e.Data.GetData(DataFormats.Text))
+
+		Dim ItemSelected = listita.Where(Function(s) s.Text = e.Data.GetData(DataFormats.Text)).FirstOrDefault()
+		If ItemSelected IsNot Nothing Then
+			Dim cloneOfItem = ItemSelected.Clone()
+			ListView1.Items.Add(cloneOfItem)
+		End If
+
 	End Sub
 
 	Private Sub ListView1_DragEnter(sender As Object, e As DragEventArgs) Handles ListView1.DragEnter
@@ -108,6 +138,12 @@ Public Class FrmArmadoVenta
 		Else
 			e.Effect = DragDropEffects.None
 		End If
+	End Sub
+
+	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+		For Each item As ListViewItem In ListView1.Items
+			listaDeProductosId.Add(item.Tag.item(0).ToString())
+		Next
 	End Sub
 
 #End Region

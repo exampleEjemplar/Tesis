@@ -30,7 +30,7 @@ Public Class MetodoProductoDA
 
 		Dim sqlStr As String
 		ds = New DataSet
-		sqlStr = "select * from categorias2 Order By nombre "
+		sqlStr = "select * from TipoProductos Order By nombre "
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
@@ -150,7 +150,7 @@ Public Class MetodoProductoDA
 				.AddWithValue("@ProveedorId", pro.proveedorId)
 				.AddWithValue("@StockMin", pro.stockmin)
 				.AddWithValue("@StockMax", pro.stockmax)
-				.AddWithValue("@categoria2id", pro.TipodeProductoId)
+				.AddWithValue("@tipoProductoId", pro.TipodeProductoId)
 				.AddWithValue("@UnidadDePeso", 1)
 				.AddWithValue("@CategoriaId", pro.categoriaId)
 				.AddWithValue("@StockODeTercero", pro.StockODeTercero)
