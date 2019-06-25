@@ -164,6 +164,8 @@ Public Class FrmGestionCliente
     End Sub
 
     Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+
+
         Dim parametros As New Dictionary(Of String, String)
         If String.IsNullOrWhiteSpace(cboBusTipoDNI.SelectedValue) = False Then
             parametros.Add("TipoDocumentoId", cboBusTipoDNI.SelectedValue)

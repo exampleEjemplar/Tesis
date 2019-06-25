@@ -69,7 +69,7 @@ Partial Class FrmEstadisticacliente
         Me.GroupBox1.Size = New System.Drawing.Size(668, 157)
         Me.GroupBox1.TabIndex = 16
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Gráfica altas de clientes"
+        Me.GroupBox1.Text = "Estadísticas de  Clientes"
         '
         'Button1
         '
