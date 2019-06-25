@@ -352,8 +352,6 @@ Public Class FrmGestionProducto
 
 	End Sub
 
-
-
 	Public Sub bloquearcampos()
 		tbCodBarra.Enabled = False
 		tbCodigo.Enabled = False

@@ -230,7 +230,6 @@ Partial Class FrmArmadoVenta
 		Me.lstProdDispo.TabIndex = 0
 		Me.lstProdDispo.TileSize = New System.Drawing.Size(120, 25)
 		Me.lstProdDispo.UseCompatibleStateImageBehavior = False
-		Me.lstProdDispo.View = System.Windows.Forms.View.Tile
 		'
 		'GroupBox4
 		'
@@ -252,7 +251,6 @@ Partial Class FrmArmadoVenta
 		Me.ListView1.TabIndex = 1
 		Me.ListView1.TileSize = New System.Drawing.Size(120, 25)
 		Me.ListView1.UseCompatibleStateImageBehavior = False
-		Me.ListView1.View = System.Windows.Forms.View.Tile
 		'
 		'btnSalir
 		'

@@ -6,8 +6,6 @@ Public Class FrmGestionVentas
 	Private helpersLN As New HelpersLN
 	Private ventasLN As New VentasLN
 
-
-
 #Region "Eventos"
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		LlenarCboClientes()

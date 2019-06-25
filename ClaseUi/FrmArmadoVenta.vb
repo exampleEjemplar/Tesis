@@ -1,4 +1,5 @@
 ﻿Imports System.Drawing
+Imports System.IO
 Imports System.Windows.Forms
 Imports ClaseLn
 
@@ -72,25 +73,23 @@ Public Class FrmArmadoVenta
 		lstProdDispo.Scrollable = True
 
 
-
-
-
 		For i As Integer = 0 To ds2.Tables(0).Rows.Count - 1
-			Dim LVI = New ListViewItem
-			LVI.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
-			LVI.BackColor = Drawing.Color.DarkOliveGreen
-			LVI.ForeColor = Drawing.Color.White
-			LVI.SubItems.Add(ds2.Tables(0).Rows(i).Item(0))
-			lstProdDispo.Items.Add(LVI)
-			'Dim LVI = New ListViewItem
-			'LVI.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
-			'LVI.UseItemStyleForSubItems = True
-			'LVI.ImageKey = ds2.Tables(0).Rows(i).Item(2).ToString()
-			'LVI.SubItems.Add(ds2.Tables(0).Rows(i).Item(0))
-			'lstProdDispo.Items.Add(ds2.Tables(0).Rows(i).Item(1).ToString(), ds2.Tables(0).Rows(i).Item(2).ToString())
-		Next
+			Dim ms As MemoryStream = New MemoryStream()
 
-		'lstproddispo.largeimagelist.imagesize = new size(112, 112)
+			Dim img As Byte() = CType(ds2.Tables(0).Rows(i).Item(2), Byte())
+
+			If img IsNot Nothing Then
+				ms.Write(img, 0, img.GetUpperBound(0) + 1)
+				Dim imgImagen As Image = Image.FromStream(ms)
+				Dim imagen As ImageList = New ImageList
+				Dim ImageList = New ImageList()
+				ImageList.Images.Add("valor", imgImagen)
+				ImageList.ImageSize = New Size(90, 90)
+				lstProdDispo.LargeImageList = ImageList
+				Dim ListViewItem = lstProdDispo.Items.Add(ds2.Tables(0).Rows(i).Item(1).ToString())
+				ListViewItem.ImageKey = "valor"
+			End If
+		Next
 	End Sub
 
 	Private Sub lstProdDispo_MouseDown(sender As Object, e As MouseEventArgs) Handles lstProdDispo.MouseDown
@@ -113,7 +112,8 @@ Public Class FrmArmadoVenta
 	End Sub
 
 	Private Sub ListView1_DragDrop(sender As Object, e As DragEventArgs) Handles ListView1.DragDrop
-		ListView1.Items.Add(e.Data.GetData(DataFormats.Text))
+		ListView1.Items.Add(e.Data.GetData(DataFormats.Text), "valor")
+		'ListView1.Items.Add(e.Data.GetData(DataFormats.Bitmap))
 	End Sub
 
 	Private Sub ListView1_DragEnter(sender As Object, e As DragEventArgs) Handles ListView1.DragEnter
