@@ -11,6 +11,7 @@ Public Class FrmArmadoVenta
 	Private clientesLN As New ClientesLN
 	Dim moveItem As Boolean
 	Private listita As List(Of ListViewItem) = New List(Of ListViewItem)
+	Public listaDeProductosId As List(Of String) = New List(Of String)
 
 
 #Region "Eventos"
@@ -140,12 +141,9 @@ Public Class FrmArmadoVenta
 
 	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
 		For Each item As ListViewItem In ListView1.Items
-
+			listaDeProductosId.Add(item.Tag.item(0).ToString())
 		Next
 	End Sub
-
-
-
 
 #End Region
 
