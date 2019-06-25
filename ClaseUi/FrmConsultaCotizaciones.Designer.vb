@@ -107,6 +107,7 @@ Partial Class FrmConsultaCotizaciones
 		Me.Controls.Add(Me.btnSalir)
 		Me.Controls.Add(Me.dgvCotizaciones)
 		Me.Name = "FrmConsultaCotizaciones"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "FrmConsultaCotizaciones"
 		CType(Me.dgvCotizaciones, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)

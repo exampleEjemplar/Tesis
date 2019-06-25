@@ -10,8 +10,8 @@ Public Class FrmConsultaCotizaciones
 		dgvCotizaciones.Columns("Id").Visible = False
 		dgvCotizaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
 		dgvCotizaciones.AutoResizeColumns()
-		txtMaterial.Text = ds.Tables(0).Rows(0)(0).ToString()
-
+		txtMaterial.Text = ds.Tables(0).Rows(0)(1).ToString()
+		txtMaterial.Enabled = False
 	End Sub
 
 	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSalir.Click

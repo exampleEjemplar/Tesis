@@ -374,6 +374,7 @@ Public Class FrmGestionProducto
 		btnNuevaCategoria.Enabled = False
 		btnNuevoMaterial.Enabled = False
 		btnNuevoTipo.Enabled = False
+		btnGuardar.Enabled = False
 
 	End Sub
 
@@ -397,6 +398,8 @@ Public Class FrmGestionProducto
 		btnNuevaCategoria.Enabled = True
 		btnNuevoMaterial.Enabled = True
 		btnNuevoTipo.Enabled = True
+
+		btnGuardar.Enabled = True
 
 	End Sub
 
