@@ -214,7 +214,7 @@ Partial Class FrmArmadoVenta
 		Me.GroupBox3.Controls.Add(Me.lstProdDispo)
 		Me.GroupBox3.Location = New System.Drawing.Point(12, 310)
 		Me.GroupBox3.Name = "GroupBox3"
-		Me.GroupBox3.Size = New System.Drawing.Size(555, 579)
+		Me.GroupBox3.Size = New System.Drawing.Size(859, 579)
 		Me.GroupBox3.TabIndex = 31
 		Me.GroupBox3.TabStop = False
 		Me.GroupBox3.Text = "Productos disponibles"
@@ -225,7 +225,7 @@ Partial Class FrmArmadoVenta
 		Me.lstProdDispo.GridLines = True
 		Me.lstProdDispo.Location = New System.Drawing.Point(12, 21)
 		Me.lstProdDispo.Name = "lstProdDispo"
-		Me.lstProdDispo.Size = New System.Drawing.Size(537, 552)
+		Me.lstProdDispo.Size = New System.Drawing.Size(841, 552)
 		Me.lstProdDispo.Sorting = System.Windows.Forms.SortOrder.Descending
 		Me.lstProdDispo.TabIndex = 0
 		Me.lstProdDispo.TileSize = New System.Drawing.Size(120, 25)
@@ -234,9 +234,9 @@ Partial Class FrmArmadoVenta
 		'GroupBox4
 		'
 		Me.GroupBox4.Controls.Add(Me.ListView1)
-		Me.GroupBox4.Location = New System.Drawing.Point(687, 310)
+		Me.GroupBox4.Location = New System.Drawing.Point(880, 310)
 		Me.GroupBox4.Name = "GroupBox4"
-		Me.GroupBox4.Size = New System.Drawing.Size(512, 579)
+		Me.GroupBox4.Size = New System.Drawing.Size(341, 579)
 		Me.GroupBox4.TabIndex = 32
 		Me.GroupBox4.TabStop = False
 		Me.GroupBox4.Text = "Productos en la venta"
@@ -245,12 +245,13 @@ Partial Class FrmArmadoVenta
 		'
 		Me.ListView1.AllowDrop = True
 		Me.ListView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!)
-		Me.ListView1.Location = New System.Drawing.Point(4, 21)
+		Me.ListView1.Location = New System.Drawing.Point(10, 27)
 		Me.ListView1.Name = "ListView1"
-		Me.ListView1.Size = New System.Drawing.Size(502, 552)
+		Me.ListView1.Size = New System.Drawing.Size(309, 552)
 		Me.ListView1.TabIndex = 1
 		Me.ListView1.TileSize = New System.Drawing.Size(120, 25)
 		Me.ListView1.UseCompatibleStateImageBehavior = False
+		Me.ListView1.View = System.Windows.Forms.View.List
 		'
 		'btnSalir
 		'
@@ -288,7 +289,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(1211, 950)
+		Me.ClientSize = New System.Drawing.Size(1233, 950)
 		Me.Controls.Add(Me.btnNuevo)
 		Me.Controls.Add(Me.btnSalir)
 		Me.Controls.Add(Me.GroupBox4)
