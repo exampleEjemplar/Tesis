@@ -4,12 +4,14 @@ Public Class FrmGestionCategorías
 
 	Private categoriasLN As New CategoriasLN
 	Private modificando As Boolean = False
+	Public modificado As Boolean
 	Public categoriaId As Integer
 
 	Private Sub FrmGestionCategorías_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		GroupBox1.Visible = False
 		CargarGrillaCategorías()
 		btnGuardar.Enabled = False
+		modificado = False
 	End Sub
 	Public Sub CargarGrillaCategorías()
 		Dim ds As DataSet = categoriasLN.CargarGrillaCategorías()
@@ -66,6 +68,7 @@ Public Class FrmGestionCategorías
 		With FrmGestionProducto
 		End With
 		FrmGestionProducto.Show()
+		modificado = True
 		Me.Close()
 	End Sub
 End Class

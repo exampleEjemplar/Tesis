@@ -245,10 +245,12 @@ Partial Class FrmArmadoVenta
 		'ListView1
 		'
 		Me.ListView1.AllowDrop = True
+		Me.ListView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!)
 		Me.ListView1.Location = New System.Drawing.Point(4, 21)
 		Me.ListView1.Name = "ListView1"
 		Me.ListView1.Size = New System.Drawing.Size(502, 552)
 		Me.ListView1.TabIndex = 1
+		Me.ListView1.TileSize = New System.Drawing.Size(120, 25)
 		Me.ListView1.UseCompatibleStateImageBehavior = False
 		'
 		'btnSalir

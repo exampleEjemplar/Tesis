@@ -519,4 +519,16 @@ Public Class FrmGestionProducto
 	Private Sub Button6_Click_1(sender As Object, e As EventArgs) Handles Button6.Click
 		FrmGestionMaterial.Show()
 	End Sub
+
+	Private Sub FrmGestionProducto_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+		If FrmGestionMaterial.modificado Then
+			LlenarCMBMaterial()
+		End If
+		If FrmGestionTipoDeProducto.modificado Then
+			LlenarCMBTipo()
+		End If
+		If FrmGestionCategorías.modificado Then
+			LlenarCMBCategoria()
+		End If
+	End Sub
 End Class

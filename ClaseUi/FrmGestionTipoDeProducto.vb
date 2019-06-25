@@ -4,12 +4,14 @@ Public Class FrmGestionTipoDeProducto
 
 	Private tipoDeProductoLN As New TipoDeProductosLN
 	Private modificando As Boolean = False
+	Public modificado As Boolean = False
 	Public tipoDeProductoId As Integer
 
 	Private Sub FrmGestionCategorías_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		GroupBox1.Visible = False
 		CargarGrilla()
 		btnGuardar.Enabled = False
+		modificado = False
 	End Sub
 	Public Sub CargarGrilla()
 		Dim ds As DataSet = tipoDeProductoLN.CargarGrilla()
@@ -70,6 +72,7 @@ Public Class FrmGestionTipoDeProducto
 		With FrmGestionProducto
 		End With
 		FrmGestionProducto.Show()
+		modificado = True
 		Me.Close()
 	End Sub
 End Class

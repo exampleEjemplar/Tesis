@@ -6,11 +6,13 @@ Public Class FrmGestionMaterial
 	Private materialesLN As New MaterialesLN
 	Private modificando As Boolean = False
 	Public materialId As Integer
+	Public modificado As Boolean = False
 
 	Private Sub FrmGestionCategorías_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		GroupBox1.Visible = False
 		CargarGrilla()
 		btnGuardar.Enabled = False
+		modificado = False
 	End Sub
 	Public Sub CargarGrilla()
 		Dim ds As DataSet = materialesLN.CargarGrillaMateriales()
@@ -126,6 +128,7 @@ Public Class FrmGestionMaterial
 		With FrmGestionProducto
 		End With
 		FrmGestionProducto.Show()
+		modificado = True
 		Me.Close()
 	End Sub
 End Class
