@@ -49,7 +49,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>1.5pt</Width>
+                          <Width>2pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -83,7 +83,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>1.5pt</Width>
+                          <Width>2pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -117,7 +117,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>1.5pt</Width>
+                          <Width>2pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -151,7 +151,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>1.5pt</Width>
+                          <Width>2pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -185,7 +185,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>1.5pt</Width>
+                          <Width>2pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -227,10 +227,10 @@
                           <Style>Solid</Style>
                         </TopBorder>
                         <LeftBorder>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </LeftBorder>
                         <RightBorder>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -267,10 +267,10 @@
                           <Style>Solid</Style>
                         </TopBorder>
                         <LeftBorder>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </LeftBorder>
                         <RightBorder>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -294,7 +294,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -307,10 +307,10 @@
                           <Style>Solid</Style>
                         </TopBorder>
                         <LeftBorder>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </LeftBorder>
                         <RightBorder>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -347,10 +347,10 @@
                           <Style>Solid</Style>
                         </TopBorder>
                         <LeftBorder>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </LeftBorder>
                         <RightBorder>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -387,10 +387,10 @@
                           <Style>Solid</Style>
                         </TopBorder>
                         <LeftBorder>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </LeftBorder>
                         <RightBorder>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -425,7 +425,7 @@
         </TablixRowHierarchy>
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>dsComprobanteVentas</DataSetName>
-        <Top>0.03175cm</Top>
+        <Top>0cm</Top>
         <Left>0.29141cm</Left>
         <Height>1.42874cm</Height>
         <Width>21.00718cm</Width>
@@ -479,7 +479,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Sum((Fields!PrecioUnit.Value)*(Fields!Cantidad.Value)))</Value>
+                    <Value>=Fields!Total.Value</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -762,7 +762,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>00001</Value>
+                      <Value>0001</Value>
                       <Style>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -858,7 +858,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Today()</Value>
+                      <Value>=FormatDateTime(Today(),DateFormat.ShortDate)</Value>
                       <Style>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -871,7 +871,7 @@
               <Top>1.10624cm</Top>
               <Left>3.46431cm</Left>
               <Height>0.60473cm</Height>
-              <Width>2.14575cm</Width>
+              <Width>6.14096cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -1112,7 +1112,7 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Center</TextAlign>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
@@ -1146,7 +1146,7 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Center</TextAlign>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
@@ -1214,7 +1214,7 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Center</TextAlign>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
@@ -1312,6 +1312,10 @@
         <Field Name="TipoDoc">
           <DataField>TipoDoc</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Total">
+          <DataField>Total</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="UnidadPeso">
           <DataField>UnidadPeso</DataField>

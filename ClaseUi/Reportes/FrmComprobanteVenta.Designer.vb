@@ -23,26 +23,30 @@ Partial Class FrmComprobanteVenta
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.ComprobanteVentasNEBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.rpVentas = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblTitulo = New System.Windows.Forms.Label()
         Me.btnGenerar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
-        Me.ComprobanteVentasNEBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Panel1.SuspendLayout()
         CType(Me.ComprobanteVentasNEBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'ComprobanteVentasNEBindingSource
+        '
+        Me.ComprobanteVentasNEBindingSource.DataSource = GetType(ClaseNe.ComprobanteVentasNE)
         '
         'rpVentas
         '
         Me.rpVentas.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource4.Name = "dsComprobanteVentas"
-        ReportDataSource4.Value = Me.ComprobanteVentasNEBindingSource
-        Me.rpVentas.LocalReport.DataSources.Add(ReportDataSource4)
+        ReportDataSource2.Name = "dsComprobanteVentas"
+        ReportDataSource2.Value = Me.ComprobanteVentasNEBindingSource
+        Me.rpVentas.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.rpVentas.LocalReport.ReportEmbeddedResource = "ClaseUi.ComprobanteVenta.rdlc"
         Me.rpVentas.Location = New System.Drawing.Point(0, 0)
         Me.rpVentas.Name = "rpVentas"
-        Me.rpVentas.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Remote
         Me.rpVentas.ServerReport.BearerToken = Nothing
         Me.rpVentas.Size = New System.Drawing.Size(850, 503)
         Me.rpVentas.TabIndex = 0
@@ -95,10 +99,6 @@ Partial Class FrmComprobanteVenta
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnSalir.UseVisualStyleBackColor = True
         '
-        'ComprobanteVentasNEBindingSource
-        '
-        Me.ComprobanteVentasNEBindingSource.DataSource = GetType(ClaseNe.ComprobanteVentasNE)
-        '
         'FrmComprobanteVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -111,11 +111,12 @@ Partial Class FrmComprobanteVenta
         Me.Controls.Add(Me.lblTitulo)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.MaximizeBox = False
         Me.Name = "FrmComprobanteVenta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmComprobanteVenta"
-        Me.Panel1.ResumeLayout(False)
         CType(Me.ComprobanteVentasNEBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

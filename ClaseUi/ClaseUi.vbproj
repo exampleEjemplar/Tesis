@@ -316,6 +316,7 @@
     <EmbeddedResource Include="FrmGestionVentas.resx">
       <DependentUpon>FrmGestionVentas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ComprobanteVenta.rdlc" />
     <EmbeddedResource Include="Reportes\FrmComprobanteVenta.resx">
       <DependentUpon>FrmComprobanteVenta.vb</DependentUpon>
     </EmbeddedResource>

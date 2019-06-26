@@ -86,7 +86,7 @@ Public Class VentasDA
     End Sub
 
     Public Function ObtenerUltimaVenta()
-        Dim da As New SqlDataAdapter("Select Max(id) from ventas", db)
+        Dim da As New SqlDataAdapter("Select Max(id) as [Id] from ventas", db)
         Dim ds As New DataSet
         Try
             da.Fill(ds)
@@ -99,8 +99,41 @@ Public Class VentasDA
 
     End Function
 
-    Public Function ObtenerDatosComprobante(ByVal idventa As Integer)
+    Public Function ObtenerDatosCliente(ByVal idventa As String)
+        Dim da As New SqlDataAdapter("Select c.Nombre + ', ' + c.Apellido as [NombreCliente],
+                                      td.Descripcion as [TipoDoc], c.NumeroDocumento as [NroDoc],
+                                      c.Calle + ', ' + Convert(varchar(10),c.NumeroCalle) as [Domicilio], v.Total as [Total] From Ventas as v
+                                      INNER JOIN Clientes as c on c.Id = v.ClienteId
+                                      INNER JOIN TipoDocumentos as td on td.Id = c.TipoDocumentoId
+                                      Where v.Id = " & idventa & " ", db)
+        Dim ds As New DataSet
+        Try
+            da.Fill(ds)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
 
+        Return ds
+    End Function
+
+    Public Function ObtenerDatosProducto(ByVal idventa As String)
+        Dim da As New SqlDataAdapter("Select  dv.id, Max(p.Nombre) as [Producto], Max(p.Precio) [PrecioU],
+		                                Max(u.Nombre) as [UnidadMedida],
+		                                Max(dv.cantidad) as [Cantidad], Max(dv.Subtotal) as [Subtotal] from Ventas as v 
+                                        INNER JOIN DetalleVentas as dv on dv.VentaId = v.Id 
+                                        INNER JOIN Productos as p on p.id = dv.ProductoId
+                                        INNER JOIN UnidadesDePeso as u on u.id = p.UnidadDePeso Where v.Id = " & idventa & " Group by dv.id", db)
+        Dim ds As New DataSet
+
+        Try
+            da.Fill(ds)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+
+        Return ds
     End Function
 
 End Class

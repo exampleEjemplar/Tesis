@@ -19,4 +19,11 @@ Public Class VentasLN
     Public Function ObtenerUltimaVenta()
         Return ventasDA.ObtenerUltimaVenta
     End Function
+    Public Function ObtenerDatosCliente(ByVal idventa As String) As DataSet
+        Return ventasDA.ObtenerDatosCliente(idventa)
+    End Function
+
+    Public Function ObtenerDatosProducto(ByVal idventa As String) As DataSet
+        Return ventasDA.ObtenerDatosProducto(idventa)
+    End Function
 End Class

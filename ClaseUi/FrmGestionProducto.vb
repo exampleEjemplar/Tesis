@@ -362,8 +362,8 @@ Public Class FrmGestionProducto
 	End Sub
 
 	Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
-		productometodo.Cargargrilladobleclick()
-		tbCodigo.Text = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
+        productometodo.Cargargrilladobleclick()
+        tbCodigo.Text = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
 		tbCodBarra.Text = (DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value)
 
 		Dim ms As MemoryStream = New MemoryStream()
@@ -400,8 +400,8 @@ Public Class FrmGestionProducto
 		btnBuscar.Enabled = False
 		btnNuevo.Enabled = False
 		btnGuardar.Visible = False
-		btnguardarmodificacion.Visible = True
-		btnmodificar.Enabled = True
+        btnguardarmodificacion.Visible = False
+        btnmodificar.Enabled = True
 		bloquearcampos()
 
 	End Sub

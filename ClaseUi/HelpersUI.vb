@@ -71,6 +71,6 @@ Public Class HelpersUI
 		For i = 1 To amountOfZeros
 			text = text + "0"
 		Next
-		Return "0001-" + text + numero.ToString()
-	End Function
+        Return text + numero.ToString()
+    End Function
 End Class

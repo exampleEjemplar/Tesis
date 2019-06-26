@@ -227,4 +227,14 @@ Public Class ComprobanteVentasNE
             _PrecioUnit = value
         End Set
     End Property
+    Private _Total As Double
+
+    Public Property Total As Double
+        Get
+            Return _Total
+        End Get
+        Set(ByVal value As Double)
+            _Total = value
+        End Set
+    End Property
 End Class

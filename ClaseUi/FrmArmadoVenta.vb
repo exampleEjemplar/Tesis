@@ -30,6 +30,7 @@ Public Class FrmArmadoVenta
     End Sub
 
 #End Region
+
 #Region "Metodos"
     Public Function LlenarCboClientes()
         Try
@@ -194,7 +195,7 @@ Public Class FrmArmadoVenta
         Next
 
         If DiccionarioDeStringYCantidad.Count = 0 Then
-            MsgBox("Debe agregar algún producto a la lista", MsgBoxStyle.OkOnly, "Exito")
+            MsgBox("Debe agregar algún producto a la lista", MsgBoxStyle.OkOnly, "Error")
             Return
         End If
 
@@ -206,13 +207,14 @@ Public Class FrmArmadoVenta
             venta.ProductoId = item.Key
             venta.Precio = product.precio
             listaDeVentas.Add(venta)
+            FrmComprobanteVenta.ListaVentas.Add(venta)
         Next
 
         ventasLN.Registrar(listaDeVentas, cboCliente.SelectedValue)
+        MsgBox("Venta realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 
         FrmComprobanteVenta.Show()
 
-        MsgBox("Venta realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 
         ListView1.Clear()
         LlenarCboClientes()
