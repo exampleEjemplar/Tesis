@@ -196,17 +196,17 @@ Public Class FrmGestionProducto
 				If Not String.IsNullOrEmpty(CmbMaterial.SelectedValue) Then
 					pro.materialid = CmbMaterial.SelectedValue
 				Else
-					pro.materialid = ""
+					pro.materialid = 1
 				End If
 				If Not String.IsNullOrEmpty(TbPeso.Text) Then
 					pro.peso = TbPeso.Text
 				Else
-					pro.peso = ""
+					pro.peso = 1
 				End If
 				If Not String.IsNullOrEmpty(TbTamaño.Text) Then
 					pro.tamaño = TbTamaño.Text
 				Else
-					pro.tamaño = ""
+					pro.tamaño = 0
 				End If
 				If Not String.IsNullOrEmpty(TbColor.Text) Then
 					pro.color = TbColor.Text
@@ -222,12 +222,12 @@ Public Class FrmGestionProducto
 				If Not String.IsNullOrEmpty(TbStockmin.Text) Then
 					pro.stockmin = TbStockmin.Text
 				Else
-					pro.stockmin = ""
+					pro.stockmin = 0
 				End If
 				If Not String.IsNullOrEmpty(TbStockMax.Text) Then
 					pro.stockmax = TbStockMax.Text
 				Else
-					pro.stockmax = ""
+					pro.stockmax = 0
 				End If
 				If Not String.IsNullOrEmpty(CmbTipoprodcuto.SelectedValue) Then
 					pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue

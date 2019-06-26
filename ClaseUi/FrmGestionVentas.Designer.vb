@@ -23,6 +23,8 @@ Partial Class FrmGestionVentas
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+		Me.lbldesde = New System.Windows.Forms.Label()
+		Me.lblHasta = New System.Windows.Forms.Label()
 		Me.rbtFechaExacta = New System.Windows.Forms.CheckBox()
 		Me.rbtEntreFechas = New System.Windows.Forms.CheckBox()
 		Me.dtpFechaHasta = New System.Windows.Forms.DateTimePicker()
@@ -35,8 +37,6 @@ Partial Class FrmGestionVentas
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.Label1 = New System.Windows.Forms.Label()
-		Me.lblHasta = New System.Windows.Forms.Label()
-		Me.lbldesde = New System.Windows.Forms.Label()
 		Me.GroupBox5.SuspendLayout()
 		CType(Me.dgvProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
@@ -58,10 +58,32 @@ Partial Class FrmGestionVentas
 		Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4)
 		Me.GroupBox5.Name = "GroupBox5"
 		Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4)
-		Me.GroupBox5.Size = New System.Drawing.Size(1012, 133)
+		Me.GroupBox5.Size = New System.Drawing.Size(703, 133)
 		Me.GroupBox5.TabIndex = 34
 		Me.GroupBox5.TabStop = False
 		Me.GroupBox5.Text = "Búsqueda"
+		'
+		'lbldesde
+		'
+		Me.lbldesde.AutoSize = True
+		Me.lbldesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lbldesde.Location = New System.Drawing.Point(110, 102)
+		Me.lbldesde.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lbldesde.Name = "lbldesde"
+		Me.lbldesde.Size = New System.Drawing.Size(54, 17)
+		Me.lbldesde.TabIndex = 41
+		Me.lbldesde.Text = "Desde"
+		'
+		'lblHasta
+		'
+		Me.lblHasta.AutoSize = True
+		Me.lblHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblHasta.Location = New System.Drawing.Point(346, 99)
+		Me.lblHasta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lblHasta.Name = "lblHasta"
+		Me.lblHasta.Size = New System.Drawing.Size(50, 17)
+		Me.lblHasta.TabIndex = 40
+		Me.lblHasta.Text = "Hasta"
 		'
 		'rbtFechaExacta
 		'
@@ -76,7 +98,7 @@ Partial Class FrmGestionVentas
 		'rbtEntreFechas
 		'
 		Me.rbtEntreFechas.AutoSize = True
-		Me.rbtEntreFechas.Location = New System.Drawing.Point(502, 62)
+		Me.rbtEntreFechas.Location = New System.Drawing.Point(306, 62)
 		Me.rbtEntreFechas.Name = "rbtEntreFechas"
 		Me.rbtEntreFechas.Size = New System.Drawing.Size(198, 21)
 		Me.rbtEntreFechas.TabIndex = 38
@@ -86,7 +108,7 @@ Partial Class FrmGestionVentas
 		'dtpFechaHasta
 		'
 		Me.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-		Me.dtpFechaHasta.Location = New System.Drawing.Point(549, 99)
+		Me.dtpFechaHasta.Location = New System.Drawing.Point(404, 99)
 		Me.dtpFechaHasta.Margin = New System.Windows.Forms.Padding(4)
 		Me.dtpFechaHasta.Name = "dtpFechaHasta"
 		Me.dtpFechaHasta.Size = New System.Drawing.Size(151, 23)
@@ -96,7 +118,7 @@ Partial Class FrmGestionVentas
 		'dtpFechaDesde
 		'
 		Me.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-		Me.dtpFechaDesde.Location = New System.Drawing.Point(187, 97)
+		Me.dtpFechaDesde.Location = New System.Drawing.Point(172, 97)
 		Me.dtpFechaDesde.Margin = New System.Windows.Forms.Padding(4)
 		Me.dtpFechaDesde.Name = "dtpFechaDesde"
 		Me.dtpFechaDesde.Size = New System.Drawing.Size(151, 23)
@@ -110,7 +132,7 @@ Partial Class FrmGestionVentas
 		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnBuscar.FlatAppearance.BorderSize = 0
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(867, 12)
+		Me.btnBuscar.Location = New System.Drawing.Point(563, 15)
 		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(137, 110)
@@ -126,7 +148,7 @@ Partial Class FrmGestionVentas
 		Me.cboCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.cboCliente.FormattingEnabled = True
 		Me.cboCliente.Items.AddRange(New Object() {"Física", "Jurídica"})
-		Me.cboCliente.Location = New System.Drawing.Point(187, 19)
+		Me.cboCliente.Location = New System.Drawing.Point(77, 21)
 		Me.cboCliente.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboCliente.Name = "cboCliente"
 		Me.cboCliente.Size = New System.Drawing.Size(367, 25)
@@ -160,7 +182,7 @@ Partial Class FrmGestionVentas
 		Me.dgvProveedores.Location = New System.Drawing.Point(13, 203)
 		Me.dgvProveedores.Margin = New System.Windows.Forms.Padding(4)
 		Me.dgvProveedores.Name = "dgvProveedores"
-		Me.dgvProveedores.Size = New System.Drawing.Size(1272, 214)
+		Me.dgvProveedores.Size = New System.Drawing.Size(554, 214)
 		Me.dgvProveedores.TabIndex = 35
 		'
 		'btnNuevo
@@ -170,7 +192,7 @@ Partial Class FrmGestionVentas
 		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnNuevo.FlatAppearance.BorderSize = 0
 		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnNuevo.Location = New System.Drawing.Point(1033, 74)
+		Me.btnNuevo.Location = New System.Drawing.Point(576, 203)
 		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(137, 112)
@@ -186,10 +208,10 @@ Partial Class FrmGestionVentas
 		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnSalir.FlatAppearance.BorderSize = 0
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalir.Location = New System.Drawing.Point(1178, 76)
+		Me.btnSalir.Location = New System.Drawing.Point(585, 323)
 		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
-		Me.btnSalir.Size = New System.Drawing.Size(107, 110)
+		Me.btnSalir.Size = New System.Drawing.Size(107, 94)
 		Me.btnSalir.TabIndex = 32
 		Me.btnSalir.Text = "Salir"
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -206,39 +228,19 @@ Partial Class FrmGestionVentas
 		Me.Label1.TabIndex = 23
 		Me.Label1.Text = "Gestión ventas"
 		'
-		'lblHasta
-		'
-		Me.lblHasta.AutoSize = True
-		Me.lblHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblHasta.Location = New System.Drawing.Point(380, 100)
-		Me.lblHasta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.lblHasta.Name = "lblHasta"
-		Me.lblHasta.Size = New System.Drawing.Size(50, 17)
-		Me.lblHasta.TabIndex = 40
-		Me.lblHasta.Text = "Hasta"
-		'
-		'lbldesde
-		'
-		Me.lbldesde.AutoSize = True
-		Me.lbldesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lbldesde.Location = New System.Drawing.Point(110, 102)
-		Me.lbldesde.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.lbldesde.Name = "lbldesde"
-		Me.lbldesde.Size = New System.Drawing.Size(54, 17)
-		Me.lbldesde.TabIndex = 41
-		Me.lbldesde.Text = "Desde"
-		'
 		'FrmGestionVentas
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(1316, 424)
+		Me.ClientSize = New System.Drawing.Size(736, 424)
 		Me.Controls.Add(Me.Label1)
 		Me.Controls.Add(Me.GroupBox5)
 		Me.Controls.Add(Me.dgvProveedores)
 		Me.Controls.Add(Me.btnNuevo)
 		Me.Controls.Add(Me.btnSalir)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
 		Me.Name = "FrmGestionVentas"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "FrmGestionVentas"
 		Me.GroupBox5.ResumeLayout(False)
 		Me.GroupBox5.PerformLayout()
