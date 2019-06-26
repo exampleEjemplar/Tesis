@@ -3,6 +3,7 @@ Imports System.IO
 Imports System.Windows.Forms
 Imports System.Windows.Forms.ListView
 Imports ClaseLn
+Imports ClaseNe
 
 Public Class FrmArmadoVenta
 
@@ -11,8 +12,9 @@ Public Class FrmArmadoVenta
 	Private clientesLN As New ClientesLN
 	Dim moveItem As Boolean
 	Private listita As List(Of ListViewItem)
-	Public listaDeProductosId As List(Of String) = New List(Of String)
 	Private selectedProducto As ListViewItem
+	Dim product As New ProductoLN
+
 
 
 #Region "Eventos"
@@ -77,7 +79,7 @@ Public Class FrmArmadoVenta
 		Dim ds2 As DataSet = helpersLN.CargarTodosProductos()
 		lstProdDispo.Scrollable = True
 
-        Dim ik As Integer
+		Dim ik As Integer
 		Dim imagen As ImageList = New ImageList
 		Dim ImageList = New ImageList()
 
@@ -115,6 +117,16 @@ Public Class FrmArmadoVenta
 		lstProdDispo.LargeImageList = ImageList
 
 	End Sub
+
+	Private Function ObtainProductInformation(ByVal id As Integer) As ProductosNE
+		Dim producto = New ProductosNE
+		Dim ds = product.CargarUnProducto(id)
+		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+			producto.Id = ds.Tables(0).Rows(i).Item(0)
+			producto.precio = ds.Tables(0).Rows(i).Item(4)
+		Next
+		Return producto
+	End Function
 
 	Private Sub lstProdDispo_MouseDown(sender As Object, e As MouseEventArgs) Handles lstProdDispo.MouseDown
 		moveItem = True
@@ -157,9 +169,38 @@ Public Class FrmArmadoVenta
 	End Sub
 
 	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+
+		Dim DiccionarioDeStringYCantidad = New Dictionary(Of Integer, Integer)
+		Dim listaDeInteger = New List(Of Integer)
+
+		ListView1.Sort()
+
 		For Each item As ListViewItem In ListView1.Items
-			listaDeProductosId.Add(item.Tag.item(0).ToString())
+			listaDeInteger.Add(item.Tag.item(0))
 		Next
+
+		For Each item As Integer In listaDeInteger
+			If Not DiccionarioDeStringYCantidad.Keys.Contains(item) Then
+				Dim cantidad = listaDeInteger.Where(Function(s) s = item).Count
+				DiccionarioDeStringYCantidad.Add(item, cantidad)
+			End If
+		Next
+
+		Dim listaDeVentas = New List(Of TipoDeVentasNE)
+		For Each item As KeyValuePair(Of Integer, Integer) In DiccionarioDeStringYCantidad
+			Dim product = ObtainProductInformation(item.Key)
+			Dim venta = New TipoDeVentasNE
+			venta.Cantidad = item.Value
+			venta.ProductoId = item.Key
+			venta.Precio = product.precio
+			listaDeVentas.Add(venta)
+		Next
+
+		ventasLN.Registrar(listaDeVentas, cboCliente.SelectedValue)
+		MsgBox("Venta realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
+
+		ListView1.Clear()
+		LlenarCboClientes()
 	End Sub
 
 	Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
@@ -169,10 +210,6 @@ Public Class FrmArmadoVenta
 	Private Sub btnQuitarItem_Click(sender As Object, e As EventArgs) Handles btnQuitarItem.Click
 		ListView1.Items.Remove(selectedProducto)
 	End Sub
-
-	'Private Sub ListView1_MouseClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseClick
-	'	selectedProducto = ListView1.FocusedItem
-	'End Sub
 
 	Private Sub ListView1_ItemSelectionChanged(sender As Object, e As ListViewItemSelectionChangedEventArgs) Handles ListView1.ItemSelectionChanged
 		selectedProducto = ListView1.FocusedItem

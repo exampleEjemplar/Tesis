@@ -11,4 +11,8 @@ Public Class VentasLN
 	Public Function CargarGrillaVentas(ByVal parametros As Dictionary(Of String, String))
 		Return ventasDA.CargarGrillaVentas(parametros)
 	End Function
+
+	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer)
+		ventasDA.Registrar(listaDeProductosId, clienteId)
+	End Sub
 End Class

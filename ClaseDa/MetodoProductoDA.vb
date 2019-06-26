@@ -323,7 +323,20 @@ Public Class MetodoProductoDA
 
 	End Sub
 
-
+	Public Function CargarUnProducto(id As Integer)
+		Dim sqlStr As String
+		Dim ds1 = New DataSet
+		sqlStr = "select * from productos where id =" & id
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+		Return ds1
+	End Function
 
 
 End Class

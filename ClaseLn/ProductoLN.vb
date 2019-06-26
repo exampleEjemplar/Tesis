@@ -74,25 +74,31 @@ Public Class ProductoLN
         Return objproductosAD.CargaGrillaproductosconbusqueda(codigo, nombre)
     End Function
 
-    Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As String) As DataTable
+	Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As String) As DataTable
 
-        Return objproductosAD.CargaGrillaproductosCONbusquedaCAT(codigo, nombre, categoria)
-    End Function
+		Return objproductosAD.CargaGrillaproductosCONbusquedaCAT(codigo, nombre, categoria)
+	End Function
 
-    ''
-    'Public Function ConsultaModificacion(ByVal nroDoc As Integer)
-
-    '    Return objclientesAD.ConsultaModificacion(nroDoc)
-
-    'End Function
+	Public Function CargarUnProducto(id As Integer)
+		Return objproductosAD.CargarUnProducto(id)
+	End Function
 
 
 
+	''
+	'Public Function ConsultaModificacion(ByVal nroDoc As Integer)
+
+	'    Return objclientesAD.ConsultaModificacion(nroDoc)
+
+	'End Function
 
 
-    'Public Sub ActualizarClientes(ByVal cli As ClientesNE)
-    '    objclientesAD.ActualizarClientes(cli)
-    'End Sub
+
+
+
+	'Public Sub ActualizarClientes(ByVal cli As ClientesNE)
+	'    objclientesAD.ActualizarClientes(cli)
+	'End Sub
 
 End Class
 
