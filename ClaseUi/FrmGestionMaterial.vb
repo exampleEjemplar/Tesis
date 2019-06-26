@@ -14,50 +14,52 @@ Public Class FrmGestionMaterial
 		btnGuardar.Enabled = False
 		modificado = False
 	End Sub
-	Public Sub CargarGrilla()
-		Dim ds As DataSet = materialesLN.CargarGrillaMateriales()
-		Dim examples As List(Of Example) = New List(Of Example)
+    Public Sub CargarGrilla()
 
-		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+        dgvmaterial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 
-			If examples.Where(Function(s) s.Id = ds.Tables(0).Rows(i)(0).ToString()).FirstOrDefault() IsNot Nothing Then
+        Dim ds As DataSet = materialesLN.CargarGrillaMateriales()
+        Dim examples As List(Of Example) = New List(Of Example)
 
-				For Each example As Example In examples
-					If example.Id = ds.Tables(0).Rows(i)(0).ToString() And Date.ParseExact(example.Fecha, "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture) < Date.ParseExact(ds.Tables(0).Rows(i)(3).ToString(), "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture) Then
-						examples.Add(New Example With {
-					.Id = ds.Tables(0).Rows(i)(0).ToString(),
-					.Material = ds.Tables(0).Rows(i)(1).ToString(),
-					.Cotizacion = ds.Tables(0).Rows(i)(2).ToString(),
-					.Fecha = ds.Tables(0).Rows(i)(3).ToString()
-					})
-						examples.Remove(example)
-						Exit For
-					End If
-				Next
-			Else
-				examples.Add(New Example With {
-					.Id = ds.Tables(0).Rows(i)(0).ToString(),
-					.Material = ds.Tables(0).Rows(i)(1).ToString(),
-					.Cotizacion = ds.Tables(0).Rows(i)(2).ToString(),
-					.Fecha = ds.Tables(0).Rows(i)(3).ToString()
-					})
-			End If
+        For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
 
-		Next
+            If examples.Where(Function(s) s.Id = ds.Tables(0).Rows(i)(0).ToString()).FirstOrDefault() IsNot Nothing Then
 
-		dgvCategorias.DataSource = examples
-		dgvCategorias.Columns("Id").Visible = False
-		dgvCategorias.Columns("Material").DisplayIndex = 0
-		dgvCategorias.Columns("Cotizacion").DisplayIndex = 1
-		dgvCategorias.Columns("Fecha").DisplayIndex = 2
+                For Each example As Example In examples
+                    If example.Id = ds.Tables(0).Rows(i)(0).ToString() And Date.ParseExact(example.Fecha, "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture) < Date.ParseExact(ds.Tables(0).Rows(i)(3).ToString(), "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture) Then
+                        examples.Add(New Example With {
+                    .Id = ds.Tables(0).Rows(i)(0).ToString(),
+                    .Material = ds.Tables(0).Rows(i)(1).ToString(),
+                    .Cotizacion = ds.Tables(0).Rows(i)(2).ToString(),
+                    .Fecha = ds.Tables(0).Rows(i)(3).ToString()
+                    })
+                        examples.Remove(example)
+                        Exit For
+                    End If
+                Next
+            Else
+                examples.Add(New Example With {
+                    .Id = ds.Tables(0).Rows(i)(0).ToString(),
+                    .Material = ds.Tables(0).Rows(i)(1).ToString(),
+                    .Cotizacion = ds.Tables(0).Rows(i)(2).ToString(),
+                    .Fecha = ds.Tables(0).Rows(i)(3).ToString()
+                    })
+            End If
 
-		dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-		dgvCategorias.AutoResizeColumns()
-	End Sub
+        Next
+
+        dgvmaterial.DataSource = examples
+        dgvmaterial.Columns("Id").Visible = False
+        dgvmaterial.Columns("Material").DisplayIndex = 0
+        dgvmaterial.Columns("Cotizacion").DisplayIndex = 1
+        dgvmaterial.Columns("Fecha").DisplayIndex = 2
+
+
+    End Sub
     Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs)
         Dim selectedRow As DataGridViewRow
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-            selectedRow = dgvCategorias.Rows(e.RowIndex)
+            selectedRow = dgvmaterial.Rows(e.RowIndex)
         End If
         Dim ds As DataSet = materialesLN.ConsultaModificacion(selectedRow.Cells("id").Value)
         For i As Integer = 0 To ds.Tables(0).Rows.Count - 1

@@ -38,10 +38,10 @@ Partial Class FrmGestionMaterial
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.dgvCategorias = New System.Windows.Forms.DataGridView()
+        Me.dgvmaterial = New System.Windows.Forms.DataGridView()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.dgvCategorias, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvmaterial, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -50,9 +50,9 @@ Partial Class FrmGestionMaterial
         Me.GroupBox2.Controls.Add(Me.TextBox3)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
         Me.GroupBox2.Location = New System.Drawing.Point(9, 10)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(530, 23)
         Me.GroupBox2.TabIndex = 49
         Me.GroupBox2.TabStop = False
@@ -140,9 +140,9 @@ Partial Class FrmGestionMaterial
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
         Me.GroupBox1.Location = New System.Drawing.Point(9, 10)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(530, 132)
         Me.GroupBox1.TabIndex = 45
         Me.GroupBox1.TabStop = False
@@ -246,41 +246,41 @@ Partial Class FrmGestionMaterial
         Me.Label2.TabIndex = 36
         Me.Label2.Text = "Nombre *"
         '
-        'dgvCategorias
+        'dgvmaterial
         '
-        Me.dgvCategorias.AllowDrop = True
-        Me.dgvCategorias.AllowUserToAddRows = False
-        Me.dgvCategorias.AllowUserToDeleteRows = False
-        Me.dgvCategorias.AllowUserToResizeColumns = False
-        Me.dgvCategorias.AllowUserToResizeRows = False
-        Me.dgvCategorias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvCategorias.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.dgvCategorias.EnableHeadersVisualStyles = False
-        Me.dgvCategorias.Location = New System.Drawing.Point(9, 147)
-        Me.dgvCategorias.MultiSelect = False
-        Me.dgvCategorias.Name = "dgvCategorias"
-        Me.dgvCategorias.ReadOnly = True
-        Me.dgvCategorias.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.dgvCategorias.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.dgvCategorias.RowHeadersVisible = False
-        Me.dgvCategorias.RowHeadersWidth = 56
-        Me.dgvCategorias.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvCategorias.Size = New System.Drawing.Size(530, 153)
-        Me.dgvCategorias.TabIndex = 50
+        Me.dgvmaterial.AllowDrop = True
+        Me.dgvmaterial.AllowUserToAddRows = False
+        Me.dgvmaterial.AllowUserToDeleteRows = False
+        Me.dgvmaterial.AllowUserToResizeColumns = False
+        Me.dgvmaterial.AllowUserToResizeRows = False
+        Me.dgvmaterial.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvmaterial.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dgvmaterial.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
+        Me.dgvmaterial.Location = New System.Drawing.Point(9, 147)
+        Me.dgvmaterial.MultiSelect = False
+        Me.dgvmaterial.Name = "dgvmaterial"
+        Me.dgvmaterial.ReadOnly = True
+        Me.dgvmaterial.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.dgvmaterial.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.dgvmaterial.RowHeadersVisible = False
+        Me.dgvmaterial.RowHeadersWidth = 56
+        Me.dgvmaterial.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvmaterial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvmaterial.Size = New System.Drawing.Size(530, 153)
+        Me.dgvmaterial.TabIndex = 50
         '
         'FrmGestionMaterial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(645, 331)
-        Me.Controls.Add(Me.dgvCategorias)
+        Me.Controls.Add(Me.dgvmaterial)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.btnSalirr)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmGestionMaterial"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmGestionMaterial"
@@ -288,7 +288,7 @@ Partial Class FrmGestionMaterial
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.dgvCategorias, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvmaterial, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -309,5 +309,5 @@ Partial Class FrmGestionMaterial
     Friend WithEvents btnCotizacionesHist As Windows.Forms.Button
     Friend WithEvents lblFecha As Windows.Forms.Label
     Friend WithEvents dtpfecha As Windows.Forms.DateTimePicker
-    Friend WithEvents dgvCategorias As Windows.Forms.DataGridView
+    Friend WithEvents dgvmaterial As Windows.Forms.DataGridView
 End Class

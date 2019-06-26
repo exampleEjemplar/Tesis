@@ -17,9 +17,8 @@ Public Class FrmGestionTipoDeProducto
 		Dim ds As DataSet = tipoDeProductoLN.CargarGrilla()
 		dgvCategorias.DataSource = ds.Tables(0)
 		dgvCategorias.Columns("Id").Visible = False
-		dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-		dgvCategorias.AutoResizeColumns()
-	End Sub
+        dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+    End Sub
     Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs)
         Try
             Dim selectedRow As DataGridViewRow

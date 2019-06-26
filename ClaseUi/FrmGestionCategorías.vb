@@ -17,9 +17,8 @@ Public Class FrmGestionCategorías
 		Dim ds As DataSet = categoriasLN.CargarGrillaCategorías()
 		dgvCategorias.DataSource = ds.Tables(0)
 		dgvCategorias.Columns("Id").Visible = False
-		dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-		dgvCategorias.AutoResizeColumns()
-	End Sub
+        dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+    End Sub
 	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) 
 		Dim selectedRow As DataGridViewRow
 		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
@@ -75,4 +74,8 @@ Public Class FrmGestionCategorías
 	Private Sub FrmGestionCategorías_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 		modificado = True
 	End Sub
+
+    Private Sub dgvCategorias_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCategorias.CellContentClick
+
+    End Sub
 End Class
