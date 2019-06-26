@@ -11,4 +11,9 @@
 		cantidad = cboCantidad.SelectedItem
 		Me.Close()
 	End Sub
+
+	Private Sub CantidadDragAndDrop_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		cboCantidad.SelectedText = 1
+		cboCantidad.SelectedItem = "1"
+	End Sub
 End Class

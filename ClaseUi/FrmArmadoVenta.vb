@@ -12,6 +12,7 @@ Public Class FrmArmadoVenta
 	Dim moveItem As Boolean
 	Private listita As List(Of ListViewItem)
 	Public listaDeProductosId As List(Of String) = New List(Of String)
+	Private selectedProducto As ListViewItem
 
 
 #Region "Eventos"
@@ -159,6 +160,22 @@ Public Class FrmArmadoVenta
 		For Each item As ListViewItem In ListView1.Items
 			listaDeProductosId.Add(item.Tag.item(0).ToString())
 		Next
+	End Sub
+
+	Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+		ListView1.Clear()
+	End Sub
+
+	Private Sub btnQuitarItem_Click(sender As Object, e As EventArgs) Handles btnQuitarItem.Click
+		ListView1.Items.Remove(selectedProducto)
+	End Sub
+
+	'Private Sub ListView1_MouseClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseClick
+	'	selectedProducto = ListView1.FocusedItem
+	'End Sub
+
+	Private Sub ListView1_ItemSelectionChanged(sender As Object, e As ListViewItemSelectionChangedEventArgs) Handles ListView1.ItemSelectionChanged
+		selectedProducto = ListView1.FocusedItem
 	End Sub
 
 #End Region
