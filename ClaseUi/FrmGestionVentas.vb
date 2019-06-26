@@ -63,6 +63,10 @@ Public Class FrmGestionVentas
 			parametros.Add("FechaDesde", dtpFechaDesde.Value.Date.ToString("dd/MM/yyyy"))
 		End If
 		If String.IsNullOrWhiteSpace(dtpFechaHasta.Value.ToString()) = False And dtpFechaDesde.Visible And dtpFechaHasta.Visible Then
+			If dtpFechaHasta.Value <= dtpFechaDesde.Value Then
+				MsgBox("La fecha desde no puede ser mayor que la fecha hasta", MsgBoxStyle.OkOnly, "Error")
+				Return
+			End If
 			parametros.Add("FechaHasta", dtpFechaHasta.Value.Date.ToString("dd/MM/yyyy"))
 		End If
 		LlenarDgv(parametros)
