@@ -11,7 +11,11 @@ Public Class HelpersLN
         Return helpersDA.CargarCMBProvincias()
     End Function
 
-    Public Function CargarCMBLocalidades(ByVal idprov As Integer)
+	Public Function LlenarUnidadDePeso()
+		Return helpersDA.LlenarUnidadDePeso()
+	End Function
+
+	Public Function CargarCMBLocalidades(ByVal idprov As Integer)
         Return helpersDA.CargarCMBLocalidades(idprov)
     End Function
 

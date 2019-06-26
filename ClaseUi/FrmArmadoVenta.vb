@@ -76,32 +76,44 @@ Public Class FrmArmadoVenta
 		Dim ds2 As DataSet = helpersLN.CargarTodosProductos()
 		lstProdDispo.Scrollable = True
 
+        Dim ik As Integer
+        Dim ListViewItem As ListViewItem = New ListViewItem
+        Dim imagen As ImageList = New ImageList
+        Dim ImageList = New ImageList()
 
-		For i As Integer = 0 To ds2.Tables(0).Rows.Count - 1
+        For i As Integer = 0 To ds2.Tables(0).Rows.Count - 1
 
 #Region "Img stuff"
-			Dim ms As MemoryStream = New MemoryStream()
-			Dim img As Byte() = CType(ds2.Tables(0).Rows(i).Item(2), Byte())
-			If img IsNot Nothing Then
-				ms.Write(img, 0, img.GetUpperBound(0) + 1)
-				Dim imgImagen As Image = Image.FromStream(ms)
-				Dim imagen As ImageList = New ImageList
-				Dim ImageList = New ImageList()
-				ImageList.Images.Add(ds2.Tables(0).Rows(i).Item(0).ToString(), imgImagen)
-				ImageList.ImageSize = New Size(90, 90)
-				lstProdDispo.LargeImageList = ImageList
-#End Region
 
-				Dim ListViewItem As ListViewItem = New ListViewItem
-				ListViewItem.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
-				ListViewItem.Tag = ds2.Tables(0).Rows(i)
-				ListViewItem.ImageKey = ds2.Tables(0).Rows(i).Item(0).ToString()
-				lstProdDispo.Items.Add(ListViewItem)
-				listita.Add(ListViewItem)
-				'ListViewItem. = ds2.Tables(0).Rows(i).Item(0).ToString()
-			End If
-		Next
-	End Sub
+            If i = 0 Then
+                ik = 0
+            Else
+                ik += 1
+            End If
+            Dim ms As MemoryStream = New MemoryStream()
+
+            Dim img As Byte() = CType(ds2.Tables(0).Rows(i).Item(2), Byte())
+            If img IsNot Nothing Then
+                ms.Write(img, 0, img.GetUpperBound(0) + 1)
+                Dim imgImagen As Image = Image.FromStream(ms)
+
+                'ImageList.Images.Add(ik.ToString, imgImagen)
+                ImageList.Images.Add(Image.FromStream(ms))
+                ImageList.ImageSize = New Size(90, 90)
+
+            End If
+#End Region
+            ListViewItem.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
+            ListViewItem.Tag = ds2.Tables(0).Rows(i)
+            ListViewItem.ImageIndex = ik
+            lstProdDispo.Items.Add(ds2.Tables(0).Rows(i).Item(1).ToString(), ik)
+            'ListViewItem. = ds2.Tables(0).Rows(i).Item(0).ToString()
+        Next
+
+        listita.Add(ListViewItem)
+        lstProdDispo.LargeImageList = ImageList
+
+    End Sub
 
 	Private Sub lstProdDispo_MouseDown(sender As Object, e As MouseEventArgs) Handles lstProdDispo.MouseDown
 		moveItem = True
