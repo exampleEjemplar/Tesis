@@ -138,8 +138,11 @@ Public Class FrmArmadoVenta
 
 		Dim ItemSelected = listita.Where(Function(s) s.Text = e.Data.GetData(DataFormats.Text)).FirstOrDefault()
 		If ItemSelected IsNot Nothing Then
-			Dim cloneOfItem = ItemSelected.Clone()
-			ListView1.Items.Add(cloneOfItem)
+			CantidadDragAndDrop.ShowDialog()
+			For index = 1 To CantidadDragAndDrop.cantidad
+				Dim cloneOfItem = ItemSelected.Clone()
+				ListView1.Items.Add(cloneOfItem)
+			Next
 		End If
 
 	End Sub
