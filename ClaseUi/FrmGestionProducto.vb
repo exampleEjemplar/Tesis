@@ -275,7 +275,7 @@ Public Class FrmGestionProducto
 		bloquearcampos()
 		LlenarCMBTipo()
 		LlenarCMBMaterial()
-		LlenarCMBproveerdor()
+		LlenarCMBproveedor()
 		LlenarCMBUnidadDePeso()
 		LlenarCMBCategoria()
 		Dgvproductosset()
@@ -436,7 +436,7 @@ Public Class FrmGestionProducto
 		Return CmbMaterial.SelectedValue
 	End Function
 
-	Public Function LlenarCMBproveerdor()
+	Public Function LlenarCMBproveedor()
 		Try
 			Dim ds1 As DataSet
 			ds1 = productometodo.CargarCMBproveerdor()
@@ -688,6 +688,9 @@ Public Class FrmGestionProducto
 		End If
 		If FrmGestionCategorías.modificado Then
 			LlenarCMBCategoria()
+		End If
+		If FrmGestionProveedores.modificado Then
+			LlenarCMBproveedor()
 		End If
 	End Sub
 
