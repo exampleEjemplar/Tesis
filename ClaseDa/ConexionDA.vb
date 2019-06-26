@@ -12,7 +12,7 @@ Public Class ConexionDA
 		'con = "Data Source= I73770-PEDRO\LOCALDB;Initial Catalog=JoyeriaCrisol;Integrated Security=True"
 
 		scon = New SqlConnection(con)
-        scon.Open()  '---------------------------------- DESHABILITE EL OPEN DE LA BASE AUTOMATICO
+		scon.Open()  '---------------------------------- DESHABILITE EL OPEN DE LA BASE AUTOMATICO
 		Return scon
 	End Function
 
