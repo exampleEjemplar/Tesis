@@ -23,7 +23,7 @@ Public Class FrmGestionMaterial
 			If examples.Where(Function(s) s.Id = ds.Tables(0).Rows(i)(0).ToString()).FirstOrDefault() IsNot Nothing Then
 
 				For Each example As Example In examples
-					If example.Id = ds.Tables(0).Rows(i)(0).ToString() And Date.ParseExact(example.Fecha, "dd/M/yyyy hh:mm:ss", CultureInfo.InvariantCulture) < Date.ParseExact(ds.Tables(0).Rows(i)(3).ToString(), "dd/M/yyyy hh:mm:ss", CultureInfo.InvariantCulture) Then
+					If example.Id = ds.Tables(0).Rows(i)(0).ToString() And Date.ParseExact(example.Fecha, "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture) < Date.ParseExact(ds.Tables(0).Rows(i)(3).ToString(), "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture) Then
 						examples.Add(New Example With {
 					.Id = ds.Tables(0).Rows(i)(0).ToString(),
 					.Material = ds.Tables(0).Rows(i)(1).ToString(),
