@@ -258,7 +258,6 @@ Public Class FrmGestionProducto
 	End Sub
 
 	Private Sub btnmodificar_Click(sender As Object, e As EventArgs) Handles btnmodificar.Click
-		Habilitarcampos()
 
 	End Sub
 
@@ -403,6 +402,7 @@ Public Class FrmGestionProducto
 		btnGuardar.Visible = False
 		btnguardarmodificacion.Visible = True
 		btnmodificar.Enabled = True
+		bloquearcampos()
 
 	End Sub
 

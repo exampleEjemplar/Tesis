@@ -63,6 +63,13 @@ Public Class VentasDA
             total = total + (ventaDetalle.Precio * ventaDetalle.Cantidad)
         Next
 
+        If (db.State = ConnectionState.Closed) Then
+            db.Open()
+        End If
+
+
+
+
         Try
             Dim insert As New SqlCommand("insert into ventas Values (GETDATE()," & clienteId & ", " & Math.Round(total, 2) & ",1)", db)
             insert.CommandType = CommandType.Text
