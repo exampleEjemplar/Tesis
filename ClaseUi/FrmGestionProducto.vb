@@ -54,22 +54,98 @@ Public Class FrmGestionProducto
 		Try
 			If rdpropios.Checked Then
 				Dim ms As New IO.MemoryStream()
-				PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
-				pro.nombreprducto = TbNombreProducto.Text
-				pro.CodBarra = tbCodBarra.Text
-				pro.foto = ms.GetBuffer
-				pro.precio = TbPrecio.Text
-				pro.utilidad = TbUtilidad.Text
-				pro.materialid = CmbMaterial.SelectedValue
-				pro.peso = 1
-				pro.tamaño = TbTamaño.Text
-				pro.color = TbColor.Text
-				pro.proveedorId = cmbProveedor.SelectedValue
-				pro.stockmin = TbStockmin.Text
-				pro.stockmax = TbStockMax.Text
-				pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
-				pro.Unidad = TbUnidad.SelectedValue
-				pro.categoriaId = CmbCategoria.SelectedValue
+				If PBfoto.Image IsNot Nothing Then
+					PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
+					pro.foto = ms.GetBuffer
+				Else
+					MsgBox("Debe agregar una foto", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(TbNombreProducto.Text) Then
+					pro.nombreprducto = TbNombreProducto.Text
+				Else
+					MsgBox("Debe agregar un Nombre", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(cmbUnidad.SelectedValue) Then
+					pro.Unidad = cmbUnidad.SelectedValue
+				Else
+					MsgBox("Debe agregar una unidad de peso", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(tbCodBarra.Text) Then
+					pro.CodBarra = tbCodBarra.Text
+				Else
+					MsgBox("Debe agregar una codigo de barra", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(TbPrecio.Text) Then
+					pro.precio = TbPrecio.Text
+				Else
+					MsgBox("Debe agregar un precio", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(TbUtilidad.Text) Then
+					pro.utilidad = TbUtilidad.Text
+				Else
+					MsgBox("Debe agregar una utilidad", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(CmbMaterial.SelectedValue) Then
+					pro.materialid = CmbMaterial.SelectedValue
+				Else
+					MsgBox("Debe seleccionar un Material", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(TbPeso.Text) Then
+					pro.peso = TbPeso.Text
+				Else
+					MsgBox("Debe cargar un peso", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(TbTamaño.Text) Then
+					pro.tamaño = TbTamaño.Text
+				Else
+					MsgBox("Debe seleccionar un tamaño", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(TbColor.Text) Then
+					pro.color = TbColor.Text
+				Else
+					MsgBox("Debe cargar un color", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(cmbProveedor.SelectedValue) Then
+					pro.proveedorId = cmbProveedor.SelectedValue
+				Else
+					MsgBox("Debe seleccionar un proveedor", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(TbStockmin.Text) Then
+					pro.stockmin = TbStockmin.Text
+				Else
+					MsgBox("Debe cargar un stock minimo", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(TbStockMax.Text) Then
+					pro.stockmax = TbStockMax.Text
+				Else
+					MsgBox("Debe cargar un stock maximo", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(CmbTipoprodcuto.SelectedValue) Then
+					pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
+				Else
+					MsgBox("Debe cargar un tipo de producto", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(CmbCategoria.SelectedValue) Then
+					pro.categoriaId = CmbCategoria.SelectedValue
+				Else
+					MsgBox("Debe cargar una categoria", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+
 				pro.StockODeTercero = 0
 				productometodo.Grabarproductos(pro)
 				Dgvproductosset()
@@ -78,24 +154,94 @@ Public Class FrmGestionProducto
 				btnBuscar.Enabled = True
 				btnmodificar.Enabled = True
 				btnNuevo.Enabled = True
+				MsgBox("Producto Agregado", MsgBoxStyle.OkOnly, "Producto")
+
 			Else
 				Dim ms As New IO.MemoryStream()
-				PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
-				pro.nombreprducto = TbNombreProducto.Text
-				pro.CodBarra = tbCodBarra.Text
-				pro.foto = ms.GetBuffer
-				pro.precio = TbPrecio.Text
-				pro.utilidad = TbUtilidad.Text
-				pro.materialid = CmbMaterial.SelectedValue
-				pro.peso = 1
-				pro.tamaño = TbTamaño.Text
-				pro.color = TbColor.Text
-				pro.proveedorId = cmbProveedor.SelectedValue
-				pro.stockmin = TbStockmin.Text
-				pro.stockmax = TbStockMax.Text
-				pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
-				pro.Unidad = TbUnidad.SelectedValue
-				pro.categoriaId = CmbCategoria.SelectedValue
+				If PBfoto.Image IsNot Nothing Then
+					PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
+					pro.foto = ms.GetBuffer
+				Else
+					MsgBox("Debe agregar una foto", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(TbNombreProducto.Text) Then
+					pro.nombreprducto = TbNombreProducto.Text
+				Else
+					MsgBox("Debe agregar un Nombre", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(cmbUnidad.SelectedValue) Then
+					pro.Unidad = cmbUnidad.SelectedValue
+				Else
+					pro.Unidad = 1
+				End If
+				If Not String.IsNullOrEmpty(tbCodBarra.Text) Then
+					pro.CodBarra = tbCodBarra.Text
+				Else
+					MsgBox("Debe agregar una codigo de barra", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(TbPrecio.Text) Then
+					pro.precio = TbPrecio.Text
+				Else
+					MsgBox("Debe agregar un precio", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(TbUtilidad.Text) Then
+					pro.utilidad = TbUtilidad.Text
+				Else
+					pro.utilidad = 0
+				End If
+				If Not String.IsNullOrEmpty(CmbMaterial.SelectedValue) Then
+					pro.materialid = CmbMaterial.SelectedValue
+				Else
+					pro.materialid = ""
+				End If
+				If Not String.IsNullOrEmpty(TbPeso.Text) Then
+					pro.peso = TbPeso.Text
+				Else
+					pro.peso = ""
+				End If
+				If Not String.IsNullOrEmpty(TbTamaño.Text) Then
+					pro.tamaño = TbTamaño.Text
+				Else
+					pro.tamaño = ""
+				End If
+				If Not String.IsNullOrEmpty(TbColor.Text) Then
+					pro.color = TbColor.Text
+				Else
+					pro.color = ""
+				End If
+				If Not String.IsNullOrEmpty(cmbProveedor.SelectedValue) Then
+					pro.proveedorId = cmbProveedor.SelectedValue
+				Else
+					MsgBox("Debe seleccionar un proveedor", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(TbStockmin.Text) Then
+					pro.stockmin = TbStockmin.Text
+				Else
+					pro.stockmin = ""
+				End If
+				If Not String.IsNullOrEmpty(TbStockMax.Text) Then
+					pro.stockmax = TbStockMax.Text
+				Else
+					pro.stockmax = ""
+				End If
+				If Not String.IsNullOrEmpty(CmbTipoprodcuto.SelectedValue) Then
+					pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
+				Else
+					MsgBox("Debe cargar un tipo de producto", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If Not String.IsNullOrEmpty(CmbCategoria.SelectedValue) Then
+					pro.categoriaId = CmbCategoria.SelectedValue
+				Else
+					MsgBox("Debe cargar una categoria", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+
 				pro.StockODeTercero = 1
 				productometodo.Grabarproductos(pro)
 				Dgvproductosset()
@@ -103,6 +249,7 @@ Public Class FrmGestionProducto
 				bloquearcampos()
 				btnBuscar.Enabled = True
 				btnmodificar.Enabled = True
+				MsgBox("Producto Agregado", MsgBoxStyle.OkOnly, "Producto")
 			End If
 		Catch ex As Exception
 			MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
@@ -244,7 +391,7 @@ Public Class FrmGestionProducto
 		TbStockmin.Text = (DataGridView1.Item(16, DataGridView1.CurrentRow.Index).Value)
 		TbStockMax.Text = (DataGridView1.Item(17, DataGridView1.CurrentRow.Index).Value)
 		CmbTipoprodcuto.SelectedValue = (DataGridView1.Item(8, DataGridView1.CurrentRow.Index).Value)
-		TbUnidad.Text = (DataGridView1.Item(19, DataGridView1.CurrentRow.Index).Value)
+		cmbUnidad.Text = (DataGridView1.Item(19, DataGridView1.CurrentRow.Index).Value)
 		CmbCategoria.SelectedValue = (DataGridView1.Item(20, DataGridView1.CurrentRow.Index).Value)
 		If (DataGridView1.Item(21, DataGridView1.CurrentRow.Index).Value) = 0 Then
 			rdpropios.Checked = True
@@ -324,16 +471,15 @@ Public Class FrmGestionProducto
 		Try
 			Dim ds1 As DataSet
 			ds1 = helpersLN.LlenarUnidadDePeso()
-			CmbCategoria.DataSource = ds1.Tables(0)
-			CmbCategoria.DisplayMember = "nombre"
-			CmbCategoria.ValueMember = "id"
-			CmbCategoria.SelectedValue = 0
+			cmbUnidad.DataSource = ds1.Tables(0)
+			cmbUnidad.DisplayMember = "nombre"
+			cmbUnidad.ValueMember = "id"
+			cmbUnidad.SelectedValue = 0
 
 
 		Catch ex As Exception
 			MessageBox.Show(ex.Message)
 		End Try
-		Return CmbCategoria.SelectedValue
 	End Function
 
 	Public Sub cargarcodigo()
@@ -380,7 +526,7 @@ Public Class FrmGestionProducto
 		TbStockMax.Enabled = False
 		TbStockmin.Enabled = False
 		TbTamaño.Enabled = False
-		TbUnidad.Enabled = False
+		cmbUnidad.Enabled = False
 		TbUtilidad.Enabled = False
 		cmbProveedor.Enabled = False
 		CmbTipoprodcuto.Enabled = False
@@ -405,7 +551,7 @@ Public Class FrmGestionProducto
 		TbStockMax.Enabled = True
 		TbStockmin.Enabled = True
 		TbTamaño.Enabled = True
-		TbUnidad.Enabled = True
+		cmbUnidad.Enabled = True
 		TbUtilidad.Enabled = True
 		cmbProveedor.Enabled = True
 		CmbTipoprodcuto.Enabled = True
@@ -430,7 +576,7 @@ Public Class FrmGestionProducto
 		TbStockMax.Text = ""
 		TbStockmin.Text = ""
 		TbTamaño.Text = ""
-		TbUnidad.Text = ""
+		cmbUnidad.Text = ""
 		TbUtilidad.Text = ""
 		cmbProveedor.SelectedValue = 0
 		CmbTipoprodcuto.SelectedValue = 0
@@ -478,7 +624,7 @@ Public Class FrmGestionProducto
 			pro.stockmin = TbStockmin.Text
 			pro.stockmax = TbStockMax.Text
 			pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
-			pro.Unidad = TbUnidad.SelectedValue
+			pro.Unidad = cmbUnidad.SelectedValue
 			pro.categoriaId = CmbCategoria.SelectedValue
 			pro.StockODeTercero = 0
 			productometodo.modificarproductos(pro)
@@ -505,7 +651,7 @@ Public Class FrmGestionProducto
 			pro.stockmin = TbStockmin.Text
 			pro.stockmax = TbStockMax.Text
 			pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
-			pro.Unidad = TbUnidad.SelectedValue
+			pro.Unidad = cmbUnidad.SelectedValue
 			pro.categoriaId = CmbCategoria.SelectedValue
 			pro.StockODeTercero = 1
 			productometodo.modificarproductos(pro)
@@ -565,6 +711,9 @@ Public Class FrmGestionProducto
 		btnNuevoMaterial.Enabled = True
 		btnNuevoTipo.Enabled = True
 		btnGuardar.Enabled = True
+		TbNombreProducto.Enabled = True
+		tbCodBarra.Enabled = True
+		Button3.Enabled = True
 	End Sub
 
     Private Sub btnProveedor_Click(sender As Object, e As EventArgs) Handles btnProveedor.Click
@@ -572,7 +721,4 @@ Public Class FrmGestionProducto
 
     End Sub
 
-    Private Sub gbbusqueda_Enter(sender As Object, e As EventArgs) Handles gbbusqueda.Enter
-
-    End Sub
 End Class

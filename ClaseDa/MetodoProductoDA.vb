@@ -151,7 +151,7 @@ Public Class MetodoProductoDA
 				.AddWithValue("@StockMin", pro.stockmin)
 				.AddWithValue("@StockMax", pro.stockmax)
 				.AddWithValue("@tipoProductoId", pro.TipodeProductoId)
-				.AddWithValue("@UnidadDePeso", 1)
+				.AddWithValue("@UnidadDePeso", pro.Unidad)
 				.AddWithValue("@CategoriaId", pro.categoriaId)
 				.AddWithValue("@StockODeTercero", pro.StockODeTercero)
 			End With
