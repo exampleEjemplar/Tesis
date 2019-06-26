@@ -12,6 +12,23 @@ Public Class HelpersDA
 		db = objcon.Abrir
 		com.Connection = db
 	End Sub
+	Public Function LlenarUnidadDePeso()
+
+		Dim sqlStr As String
+		ds = New DataSet
+		sqlStr = "select * from UnidadesDePeso Order By Nombre "
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+		Return ds
+
+	End Function
+
 
 	Public Function CargarCMBProvincias()
 

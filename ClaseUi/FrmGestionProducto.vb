@@ -12,6 +12,7 @@ Public Class FrmGestionProducto
 	Private pro As New ProductosNE
 	Public idcategoria As Integer
 	Public idcategoria1 As Integer
+	Dim helpersLN As New HelpersLN
 
 	Dim IMAGEN As String
 	Dim busqcod As String
@@ -128,6 +129,7 @@ Public Class FrmGestionProducto
 		LlenarCMBTipo()
 		LlenarCMBMaterial()
 		LlenarCMBproveerdor()
+		LlenarCMBUnidadDePeso()
 		LlenarCMBCategoria()
 		Dgvproductosset()
 		btnmodificar.Enabled = False
@@ -318,6 +320,22 @@ Public Class FrmGestionProducto
 		Return CmbCategoria.SelectedValue
 	End Function
 
+	Public Function LlenarCMBUnidadDePeso()
+		Try
+			Dim ds1 As DataSet
+			ds1 = helpersLN.LlenarUnidadDePeso()
+			CmbCategoria.DataSource = ds1.Tables(0)
+			CmbCategoria.DisplayMember = "nombre"
+			CmbCategoria.ValueMember = "id"
+			CmbCategoria.SelectedValue = 0
+
+
+		Catch ex As Exception
+			MessageBox.Show(ex.Message)
+		End Try
+		Return CmbCategoria.SelectedValue
+	End Function
+
 	Public Sub cargarcodigo()
 		productometodo.ConsultarCodigo()
 		tbCodigo.Text = productometodo.QProducto
@@ -342,7 +360,7 @@ Public Class FrmGestionProducto
 	End Sub
 
 	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
-		cargarcodigo()
+		'cargarcodigo()
 		'Habilitarcampos()
 		rdpropios.Enabled = True
 		rdterceros.Enabled = True
@@ -536,8 +554,16 @@ Public Class FrmGestionProducto
 
 	Private Sub rdterceros_CheckedChanged(sender As Object, e As EventArgs) Handles rdterceros.Click
 		'TERCEROS
-		Habilitarcampos()
+		CmbCategoria.Enabled = True
+		CmbTipoprodcuto.Enabled = True
+		CmbMaterial.Enabled = True
+		cmbProveedor.Enabled = True
 		rdpropios.Enabled = False
 		rdterceros.Enabled = False
+		TbPrecio.Enabled = True
+		btnNuevaCategoria.Enabled = True
+		btnNuevoMaterial.Enabled = True
+		btnNuevoTipo.Enabled = True
+		btnGuardar.Enabled = True
 	End Sub
 End Class
