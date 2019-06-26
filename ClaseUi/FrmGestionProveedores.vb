@@ -15,6 +15,7 @@ Public Class FrmGestionProveedores
 	Private fisicaOJuridica As String
 	Private ProveedorId As Integer
 	Private Modificando As Boolean
+	Public modificado As Boolean
 	Dim cadena As String
 
 #Region "Eventos"
@@ -31,6 +32,7 @@ Public Class FrmGestionProveedores
 		If Not Modificando Then
 			tbmail.Text = "ejemplo@ejemplo.com"
 		End If
+		modificado = False
 
 		'tbmail.ForeColor = Color.LightGray
 
@@ -65,6 +67,7 @@ Public Class FrmGestionProveedores
 		Block()
 		Modificando = False
 		DgvProveedoresSet(New Dictionary(Of String, String))
+		modificado = True
 
 	End Sub
 

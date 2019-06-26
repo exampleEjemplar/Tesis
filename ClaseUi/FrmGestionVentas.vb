@@ -48,6 +48,9 @@ Public Class FrmGestionVentas
 		dsa1 = ventasLN.CargarGrillaVentas(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
 		dgvProveedores.DataSource = dsa1.Tables(0)
 		dgvProveedores.Columns("Id").Visible = False
+		If dsa1.Tables(0).Rows.Count() = 0 Then
+			MsgBox("La busqueda no arrojo resultados", MsgBoxStyle.OkOnly, "Exito")
+		End If
 		Return dsa1
 	End Function
 

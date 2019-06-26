@@ -179,7 +179,6 @@ Public Class FrmArmadoVenta
 
         Dim DiccionarioDeStringYCantidad = New Dictionary(Of Integer, Integer)
         Dim listaDeInteger = New List(Of Integer)
-        Dim CompVentasNE = New ComprobanteVentasNE
 
         ListView1.Sort()
 
