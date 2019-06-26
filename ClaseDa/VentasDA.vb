@@ -57,25 +57,43 @@ Public Class VentasDA
 		db.Close()
 	End Function
 
-	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer)
-		Dim total As Integer
-		For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId
-			total = total + (ventaDetalle.Precio * ventaDetalle.Cantidad)
-		Next
+    Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer)
+        Dim total As Integer
+        For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId
+            total = total + (ventaDetalle.Precio * ventaDetalle.Cantidad)
+        Next
 
-		Try
-			Dim insert As New SqlCommand("insert into ventas Values (GETDATE()," & clienteId & ", " & Math.Round(total, 2) & ",1)", db)
-			insert.CommandType = CommandType.Text
-			insert.ExecuteNonQuery()
-			For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId
-				Dim insert2 As New SqlCommand("Declare @ventaID int SELECT @ventaID = MAX(Id) FROM ventas insert into DetalleVentas VALUES(@ventaID," & ventaDetalle.ProductoId & "," & ventaDetalle.Cantidad & "," & ventaDetalle.Precio * ventaDetalle.Cantidad & "," & ventaDetalle.Precio * ventaDetalle.Cantidad & ",NULL)", db)
-				insert2.ExecuteNonQuery()
-			Next
-			db.Close()
-      Catch ex As Exception
-			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
-		End Try
-	End Sub
+        Try
+            Dim insert As New SqlCommand("insert into ventas Values (GETDATE()," & clienteId & ", " & Math.Round(total, 2) & ",1)", db)
+            insert.CommandType = CommandType.Text
+            insert.ExecuteNonQuery()
+            For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId
+                Dim insert2 As New SqlCommand("Declare @ventaID int SELECT @ventaID = MAX(Id) FROM ventas insert into DetalleVentas VALUES(@ventaID," & ventaDetalle.ProductoId & "," & ventaDetalle.Cantidad & "," & ventaDetalle.Precio * ventaDetalle.Cantidad & "," & ventaDetalle.Precio * ventaDetalle.Cantidad & ",NULL)", db)
+                insert2.ExecuteNonQuery()
+            Next
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            db.Close()
+        End Try
+    End Sub
+
+    Public Function ObtenerUltimaVenta()
+        Dim da As New SqlDataAdapter("Select Max(id) from ventas", db)
+        Dim ds As New DataSet
+        Try
+            da.Fill(ds)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+
+        Return ds
+
+    End Function
+
+    Public Function ObtenerDatosComprobante(ByVal idventa As Integer)
+
+    End Function
 
 End Class

@@ -649,14 +649,16 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>COMPROBANTE DE VENTA</Value>
+                      <Value>COMPROBANTE </Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
@@ -792,7 +794,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!Id.Value</Value>
+                      <Value>=Fields!Comprobante.Value</Value>
                       <Style>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -1283,6 +1285,10 @@
           <DataField>Cantidad</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Comprobante">
+          <DataField>Comprobante</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="Documento">
           <DataField>Documento</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1290,10 +1296,6 @@
         <Field Name="DomicilioCliente">
           <DataField>DomicilioCliente</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Id">
-          <DataField>Id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="NombreCliente">
           <DataField>NombreCliente</DataField>

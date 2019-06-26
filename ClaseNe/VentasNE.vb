@@ -128,16 +128,17 @@ Public Class TipoDeVentasNE
 End Class
 
 Public Class ComprobanteVentasNE
-    Private _Id As Integer
+    Private _Comprobante As String
 
-    Public Property Id As Integer
+    Public Property Comprobante As String
         Get
-            Return _Id
+            Return _Comprobante
         End Get
-        Set(ByVal value As Integer)
-            _Id = CStr(value)
+        Set(ByVal value As String)
+            _Comprobante = CStr(value)
         End Set
     End Property
+
 
     Private _NombreCliente As String
 

@@ -50,6 +50,7 @@
     <StartupObject>ClaseUi.My.MyApplication</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=10.0.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -222,6 +223,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JoyeriaCrisolDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\FrmComprobanteVenta.Designer.vb">
+      <DependentUpon>FrmComprobanteVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmComprobanteVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\FrmListadoClientes.Designer.vb">
       <DependentUpon>FrmListadoClientes.vb</DependentUpon>
     </Compile>
@@ -308,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionVentas.resx">
       <DependentUpon>FrmGestionVentas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FrmComprobanteVenta.resx">
+      <DependentUpon>FrmComprobanteVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ListadoClientePorFecha.rdlc" />
     <EmbeddedResource Include="Reportes\FrmListadoClientes.resx">
