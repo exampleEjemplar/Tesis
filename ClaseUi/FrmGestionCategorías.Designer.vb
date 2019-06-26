@@ -44,7 +44,7 @@ Partial Class FrmGestionCategorías
         'txtDescripcion
         '
         Me.txtDescripcion.Location = New System.Drawing.Point(213, 54)
-        Me.txtDescripcion.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtDescripcion.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDescripcion.MaxLength = 300
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
@@ -90,9 +90,9 @@ Partial Class FrmGestionCategorías
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
         Me.GroupBox1.Location = New System.Drawing.Point(3, 1)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(412, 132)
         Me.GroupBox1.TabIndex = 38
         Me.GroupBox1.TabStop = False
@@ -173,9 +173,9 @@ Partial Class FrmGestionCategorías
         Me.GroupBox2.Controls.Add(Me.TextBox3)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
         Me.GroupBox2.Location = New System.Drawing.Point(3, 1)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(412, 23)
         Me.GroupBox2.TabIndex = 43
         Me.GroupBox2.TabStop = False
@@ -239,7 +239,7 @@ Partial Class FrmGestionCategorías
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmGestionCategorías"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmGestionCategorías"
