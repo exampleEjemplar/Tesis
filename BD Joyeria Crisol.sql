@@ -138,6 +138,11 @@ UsuarioId Int,
 CONSTRAINT Venta_Cliente FOREIGN KEY (ClienteId) REFERENCES Clientes(ID)
 )
 GO
+CREATE TABLE UnidadesDePeso(
+Id INT IDENTITY PRIMARY KEY,
+Nombre VARCHAR(MAX)
+)
+GO
 CREATE TABLE Productos(
 Id INT IDENTITY PRIMARY KEY,
 Cod_Barra VARCHAR(MAX),
@@ -153,13 +158,14 @@ ProveedorId INT,
 StockMin INT,
 StockMax INT,
 TipoProductoID INT,
-UnidadDePeso VARCHAR(MAX),
+UnidadDePeso int,
 CategoriaID INT,
 StockODeTercero INT,
 CONSTRAINT Producto_Material FOREIGN KEY (MaterialId) REFERENCES Materiales(ID),
 CONSTRAINT Producto_Proveedor FOREIGN KEY (ProveedorId) REFERENCES Proveedores(ID),
 CONSTRAINT Producto_Categoria FOREIGN KEY (CategoriaID) REFERENCES Categorias(ID),
-CONSTRAINT Producto_Categoria2 FOREIGN KEY (TipoProductoID) REFERENCES TipoProductos(ID)
+CONSTRAINT Producto_Categoria2 FOREIGN KEY (TipoProductoID) REFERENCES TipoProductos(ID),
+CONSTRAINT Producto_UnidadDePeso FOREIGN KEY (UnidadDePeso) REFERENCES UnidadesDePeso(ID)
 )
 GO
 CREATE TABLE MovimientosStock(
@@ -22929,6 +22935,22 @@ GO
 INSERT EnSesion
 VALUES
 (1)
+GO
+insert into UnidadesDePeso
+VALUES
+('Kilogramo')
+GO
+insert into UnidadesDePeso
+VALUES
+('Miligramo')
+GO
+insert into UnidadesDePeso
+VALUES
+('Onza')
+GO
+insert into UnidadesDePeso
+VALUES
+('Unidad')
 GO
 
 

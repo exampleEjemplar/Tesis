@@ -1,27 +1,27 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmGestionProducto
-    Inherits System.Windows.Forms.Form
+	Inherits System.Windows.Forms.Form
 
-    'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()>
-    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-        Try
-            If disposing AndAlso components IsNot Nothing Then
-                components.Dispose()
-            End If
-        Finally
-            MyBase.Dispose(disposing)
-        End Try
-    End Sub
+	'Form reemplaza a Dispose para limpiar la lista de componentes.
+	<System.Diagnostics.DebuggerNonUserCode()>
+	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+		Try
+			If disposing AndAlso components IsNot Nothing Then
+				components.Dispose()
+			End If
+		Finally
+			MyBase.Dispose(disposing)
+		End Try
+	End Sub
 
-    'Requerido por el Diseñador de Windows Forms
-    Private components As System.ComponentModel.IContainer
+	'Requerido por el Diseñador de Windows Forms
+	Private components As System.ComponentModel.IContainer
 
-    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
-    'Se puede modificar usando el Diseñador de Windows Forms.  
-    'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()>
-    Private Sub InitializeComponent()
+	'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+	'Se puede modificar usando el Diseñador de Windows Forms.  
+	'No lo modifique con el editor de código.
+	<System.Diagnostics.DebuggerStepThrough()>
+	Private Sub InitializeComponent()
 		Me.gbbusqueda = New System.Windows.Forms.GroupBox()
 		Me.Button7 = New System.Windows.Forms.Button()
 		Me.Button4 = New System.Windows.Forms.Button()
@@ -838,61 +838,59 @@ Partial Class FrmGestionProducto
 
 	End Sub
 	Friend WithEvents btnNuevo As Windows.Forms.Button
-    Friend WithEvents btnGuardar As Windows.Forms.Button
-    Friend WithEvents gbbusqueda As Windows.Forms.GroupBox
-    Friend WithEvents txtBusNombreProd As Windows.Forms.TextBox
-    Friend WithEvents lblBusApellido As Windows.Forms.Label
-    Friend WithEvents txtBusCodigo As Windows.Forms.TextBox
-    Friend WithEvents lblBusNombre As Windows.Forms.Label
-    Friend WithEvents OpenFileDialog1 As Windows.Forms.OpenFileDialog
-    Friend WithEvents Button2 As Windows.Forms.Button
-    Friend WithEvents DataGridView1 As Windows.Forms.DataGridView
-    Friend WithEvents btnBuscar As Windows.Forms.Button
-    Friend WithEvents btnmodificar As Windows.Forms.Button
-    Friend WithEvents btncancelar As Windows.Forms.Button
-    Friend WithEvents Button4 As Windows.Forms.Button
-    Friend WithEvents Button7 As Windows.Forms.Button
-    Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
-    Friend WithEvents rdterceros As Windows.Forms.RadioButton
-    Friend WithEvents rdpropios As Windows.Forms.RadioButton
-    Friend WithEvents lblprod As Windows.Forms.Label
-    Friend WithEvents tbCodigo As Windows.Forms.TextBox
-    Friend WithEvents Label29 As Windows.Forms.Label
-    Friend WithEvents Label18 As Windows.Forms.Label
-    Friend WithEvents Button3 As Windows.Forms.Button
-    Friend WithEvents TbUtilidad As Windows.Forms.TextBox
-    Friend WithEvents Label19 As Windows.Forms.Label
-    Friend WithEvents TbPrecio As Windows.Forms.TextBox
-    Friend WithEvents Label20 As Windows.Forms.Label
-    Friend WithEvents TbStockMax As Windows.Forms.TextBox
-    Friend WithEvents Label21 As Windows.Forms.Label
-    Friend WithEvents cmbProveedor As Windows.Forms.ComboBox
-    Friend WithEvents Label26 As Windows.Forms.Label
-    Friend WithEvents TbStockmin As Windows.Forms.TextBox
-    Friend WithEvents Label22 As Windows.Forms.Label
-    Friend WithEvents TbPeso As Windows.Forms.TextBox
-    Friend WithEvents TbUnidad As Windows.Forms.ComboBox
-    Friend WithEvents Label23 As Windows.Forms.Label
-    Friend WithEvents Label24 As Windows.Forms.Label
-    Friend WithEvents Label25 As Windows.Forms.Label
-    Friend WithEvents TbColor As Windows.Forms.TextBox
-    Friend WithEvents CmbCategoria As Windows.Forms.ComboBox
-    Friend WithEvents Label28 As Windows.Forms.Label
-    Friend WithEvents CmbMaterial As Windows.Forms.ComboBox
-    Friend WithEvents Label30 As Windows.Forms.Label
-    Friend WithEvents CmbTipoprodcuto As Windows.Forms.ComboBox
-    Friend WithEvents Label31 As Windows.Forms.Label
-    Friend WithEvents Label32 As Windows.Forms.Label
-    Friend WithEvents Label33 As Windows.Forms.Label
-    Friend WithEvents Label27 As Windows.Forms.Label
-    Friend WithEvents TbTamaño As Windows.Forms.TextBox
-    Friend WithEvents tbCodBarra As Windows.Forms.TextBox
-    Friend WithEvents TbNombreProducto As Windows.Forms.TextBox
-    Friend WithEvents PBfoto As Windows.Forms.PictureBox
+	Friend WithEvents btnGuardar As Windows.Forms.Button
+	Friend WithEvents gbbusqueda As Windows.Forms.GroupBox
+	Friend WithEvents txtBusNombreProd As Windows.Forms.TextBox
+	Friend WithEvents lblBusApellido As Windows.Forms.Label
+	Friend WithEvents txtBusCodigo As Windows.Forms.TextBox
+	Friend WithEvents lblBusNombre As Windows.Forms.Label
+	Friend WithEvents OpenFileDialog1 As Windows.Forms.OpenFileDialog
+	Friend WithEvents Button2 As Windows.Forms.Button
+	Friend WithEvents DataGridView1 As Windows.Forms.DataGridView
+	Friend WithEvents btnBuscar As Windows.Forms.Button
+	Friend WithEvents btnmodificar As Windows.Forms.Button
+	Friend WithEvents btncancelar As Windows.Forms.Button
+	Friend WithEvents Button4 As Windows.Forms.Button
+	Friend WithEvents Button7 As Windows.Forms.Button
+	Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
+	Friend WithEvents rdterceros As Windows.Forms.RadioButton
+	Friend WithEvents rdpropios As Windows.Forms.RadioButton
+	Friend WithEvents lblprod As Windows.Forms.Label
+	Friend WithEvents tbCodigo As Windows.Forms.TextBox
+	Friend WithEvents Label29 As Windows.Forms.Label
+	Friend WithEvents Label18 As Windows.Forms.Label
+	Friend WithEvents Button3 As Windows.Forms.Button
+	Friend WithEvents TbUtilidad As Windows.Forms.TextBox
+	Friend WithEvents Label19 As Windows.Forms.Label
+	Friend WithEvents TbPrecio As Windows.Forms.TextBox
+	Friend WithEvents Label20 As Windows.Forms.Label
+	Friend WithEvents TbStockMax As Windows.Forms.TextBox
+	Friend WithEvents Label21 As Windows.Forms.Label
+	Friend WithEvents cmbProveedor As Windows.Forms.ComboBox
+	Friend WithEvents Label26 As Windows.Forms.Label
+	Friend WithEvents TbStockmin As Windows.Forms.TextBox
+	Friend WithEvents Label22 As Windows.Forms.Label
+	Friend WithEvents TbPeso As Windows.Forms.TextBox
+	Friend WithEvents TbUnidad As Windows.Forms.ComboBox
+	Friend WithEvents Label23 As Windows.Forms.Label
+	Friend WithEvents Label24 As Windows.Forms.Label
+	Friend WithEvents Label25 As Windows.Forms.Label
+	Friend WithEvents TbColor As Windows.Forms.TextBox
+	Friend WithEvents CmbCategoria As Windows.Forms.ComboBox
+	Friend WithEvents Label28 As Windows.Forms.Label
+	Friend WithEvents CmbMaterial As Windows.Forms.ComboBox
+	Friend WithEvents Label30 As Windows.Forms.Label
+	Friend WithEvents CmbTipoprodcuto As Windows.Forms.ComboBox
+	Friend WithEvents Label31 As Windows.Forms.Label
+	Friend WithEvents Label32 As Windows.Forms.Label
+	Friend WithEvents Label33 As Windows.Forms.Label
+	Friend WithEvents Label27 As Windows.Forms.Label
+	Friend WithEvents TbTamaño As Windows.Forms.TextBox
+	Friend WithEvents tbCodBarra As Windows.Forms.TextBox
+	Friend WithEvents TbNombreProducto As Windows.Forms.TextBox
+	Friend WithEvents PBfoto As Windows.Forms.PictureBox
 	Friend WithEvents btnguardarmodificacion As Windows.Forms.Button
-    Friend WithEvents btnNuevoMaterial As Windows.Forms.Button
-    Friend WithEvents btnmagnitud As Windows.Forms.Button
-    Friend WithEvents btnproveedor As Windows.Forms.Button
-    Friend WithEvents btnNuevaCategoria As Windows.Forms.Button
-    Friend WithEvents btnNuevoTipo As Windows.Forms.Button
+	Friend WithEvents btnNuevaCategoria As Windows.Forms.Button
+	Friend WithEvents btnNuevoTipo As Windows.Forms.Button
+	Friend WithEvents btnNuevoMaterial As Windows.Forms.Button
 End Class
