@@ -54,7 +54,7 @@ CREATE TABLE Cotizaciones(
 Id INT IDENTITY PRIMARY KEY,
 Cotizacion FLOAT,
 MaterialId INT,
-Fecha DATE,
+Fecha DATETIME,
 CONSTRAINT Cotizacion_Material FOREIGN KEY (MaterialId) REFERENCES Materiales(ID)
 )
 GO
