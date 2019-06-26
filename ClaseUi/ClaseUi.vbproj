@@ -512,6 +512,11 @@
     <None Include="Resources\Jewelry_Pearl_Gray_background_543096_1280x847.jpg" />
     <None Include="Resources\129603-foxixol.jpg" />
     <None Include="Resources\WhatsApp Image 2019-06-09 at 00.35.22.jpeg" />
+    <None Include="Resources\icons8-add-35.png" />
+    <None Include="Resources\icons8-add-351.png" />
+    <None Include="Resources\icons8-add-352.png" />
+    <None Include="Resources\icons8-add-353.png" />
+    <None Include="Resources\icons8-add-354.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
