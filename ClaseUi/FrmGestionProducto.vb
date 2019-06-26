@@ -566,4 +566,13 @@ Public Class FrmGestionProducto
 		btnNuevoTipo.Enabled = True
 		btnGuardar.Enabled = True
 	End Sub
+
+    Private Sub btnProveedor_Click(sender As Object, e As EventArgs) Handles btnProveedor.Click
+        FrmGestionProveedores.Show()
+
+    End Sub
+
+    Private Sub gbbusqueda_Enter(sender As Object, e As EventArgs) Handles gbbusqueda.Enter
+
+    End Sub
 End Class

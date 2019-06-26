@@ -30,8 +30,8 @@ Public Class MetodoProductoDA
 
 		Dim sqlStr As String
 		ds = New DataSet
-		sqlStr = "select * from TipoProductos Order By nombre "
-		Try
+        sqlStr = "select * from TipoProductos Order By Descripcion "
+        Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
 			db.Close()
