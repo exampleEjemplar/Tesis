@@ -54,26 +54,26 @@ Public Class FrmGestionMaterial
 		dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
 		dgvCategorias.AutoResizeColumns()
 	End Sub
-	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles dgvCategorias.CellMouseDoubleClick
-		Dim selectedRow As DataGridViewRow
-		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-			selectedRow = dgvCategorias.Rows(e.RowIndex)
-		End If
-		Dim ds As DataSet = materialesLN.ConsultaModificacion(selectedRow.Cells("id").Value)
-		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
-			txtNombre.Text = ds.Tables(0).Rows(i)(0).ToString()
-			txtCoti.Text = ds.Tables(0).Rows(i)(1).ToString()
-			dtpfecha.Value = ds.Tables(0).Rows(i)(2).ToString()
-			dtpfecha.Enabled = False
-			materialId = ds.Tables(0).Rows(i)(3).ToString()
-			modificando = True
-			GroupBox1.Visible = True
-			btnGuardar.Enabled = True
-		Next
+    Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs)
+        Dim selectedRow As DataGridViewRow
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            selectedRow = dgvCategorias.Rows(e.RowIndex)
+        End If
+        Dim ds As DataSet = materialesLN.ConsultaModificacion(selectedRow.Cells("id").Value)
+        For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+            txtNombre.Text = ds.Tables(0).Rows(i)(0).ToString()
+            txtCoti.Text = ds.Tables(0).Rows(i)(1).ToString()
+            dtpfecha.Value = ds.Tables(0).Rows(i)(2).ToString()
+            dtpfecha.Enabled = False
+            materialId = ds.Tables(0).Rows(i)(3).ToString()
+            modificando = True
+            GroupBox1.Visible = True
+            btnGuardar.Enabled = True
+        Next
 
-	End Sub
+    End Sub
 
-	Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
 		If String.IsNullOrWhiteSpace(txtNombre.Text) Then
 			MsgBox("Ingrese el nombre del material", MsgBoxStyle.Critical, "Material")
