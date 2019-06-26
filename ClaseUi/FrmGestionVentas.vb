@@ -81,7 +81,7 @@ Public Class FrmGestionVentas
 			lblHasta.Visible = False
 			dtpFechaHasta.Visible = False
 			dtpFechaDesde.Visible = True
-		ElseIf rbtEntreFechas.checked Then
+		ElseIf rbtEntreFechas.Checked Then
 			lblFechaExacta.Visible = False
 			rbtFechaExacta.Checked = False
 			lblHasta.Visible = True

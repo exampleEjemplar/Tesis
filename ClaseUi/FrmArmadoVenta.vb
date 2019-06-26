@@ -174,10 +174,6 @@ Public Class FrmArmadoVenta
 	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
 		btnNuevo.Enabled = True
 		Dim DiccionarioDeStringYCantidad = New Dictionary(Of Integer, Integer)
-		If DiccionarioDeStringYCantidad.Count = 0 Then
-			MsgBox("Debe agregar algún producto a la lista", MsgBoxStyle.OkOnly, "Exito")
-			Return
-		End If
 		Dim listaDeInteger = New List(Of Integer)
 
 		ListView1.Sort()
@@ -192,6 +188,11 @@ Public Class FrmArmadoVenta
 				DiccionarioDeStringYCantidad.Add(item, cantidad)
 			End If
 		Next
+
+		If DiccionarioDeStringYCantidad.Count = 0 Then
+			MsgBox("Debe agregar algún producto a la lista", MsgBoxStyle.OkOnly, "Exito")
+			Return
+		End If
 
 		Dim listaDeVentas = New List(Of TipoDeVentasNE)
 		For Each item As KeyValuePair(Of Integer, Integer) In DiccionarioDeStringYCantidad
