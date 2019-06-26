@@ -10,8 +10,9 @@ Public Class FrmArmadoVenta
 	Private ventasLN As New VentasLN
 	Private clientesLN As New ClientesLN
 	Dim moveItem As Boolean
-	Private listita As List(Of ListViewItem) = New List(Of ListViewItem)
+	Private listita As List(Of ListViewItem)
 	Public listaDeProductosId As List(Of String) = New List(Of String)
+	Private selectedProducto As ListViewItem
 
 
 #Region "Eventos"
@@ -77,43 +78,43 @@ Public Class FrmArmadoVenta
 		lstProdDispo.Scrollable = True
 
         Dim ik As Integer
-        Dim ListViewItem As ListViewItem = New ListViewItem
-        Dim imagen As ImageList = New ImageList
-        Dim ImageList = New ImageList()
+		Dim imagen As ImageList = New ImageList
+		Dim ImageList = New ImageList()
 
-        For i As Integer = 0 To ds2.Tables(0).Rows.Count - 1
-
+		listita = New List(Of ListViewItem)
+		For i As Integer = 0 To ds2.Tables(0).Rows.Count - 1
+			Dim listaViewItem As ListViewItem = New ListViewItem
 #Region "Img stuff"
 
-            If i = 0 Then
-                ik = 0
-            Else
-                ik += 1
-            End If
-            Dim ms As MemoryStream = New MemoryStream()
+			If i = 0 Then
+				ik = 0
+			Else
+				ik += 1
+			End If
+			Dim ms As MemoryStream = New MemoryStream()
 
-            Dim img As Byte() = CType(ds2.Tables(0).Rows(i).Item(2), Byte())
-            If img IsNot Nothing Then
-                ms.Write(img, 0, img.GetUpperBound(0) + 1)
-                Dim imgImagen As Image = Image.FromStream(ms)
+			Dim img As Byte() = CType(ds2.Tables(0).Rows(i).Item(2), Byte())
+			If img IsNot Nothing Then
+				ms.Write(img, 0, img.GetUpperBound(0) + 1)
+				Dim imgImagen As Image = Image.FromStream(ms)
 
-                'ImageList.Images.Add(ik.ToString, imgImagen)
-                ImageList.Images.Add(Image.FromStream(ms))
-                ImageList.ImageSize = New Size(90, 90)
+				'ImageList.Images.Add(ik.ToString, imgImagen)
+				ImageList.Images.Add(Image.FromStream(ms))
+				ImageList.ImageSize = New Size(90, 90)
 
-            End If
+			End If
 #End Region
-            ListViewItem.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
-            ListViewItem.Tag = ds2.Tables(0).Rows(i)
-            ListViewItem.ImageIndex = ik
-            lstProdDispo.Items.Add(ds2.Tables(0).Rows(i).Item(1).ToString(), ik)
-            'ListViewItem. = ds2.Tables(0).Rows(i).Item(0).ToString()
-        Next
+			listaViewItem.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
+			listaViewItem.Tag = ds2.Tables(0).Rows(i)
+			listaViewItem.ImageIndex = ik
+			lstProdDispo.Items.Add(ds2.Tables(0).Rows(i).Item(1).ToString(), ik)
+			'ListViewItem. = ds2.Tables(0).Rows(i).Item(0).ToString()
+			listita.Add(listaViewItem)
+		Next
 
-        listita.Add(ListViewItem)
-        lstProdDispo.LargeImageList = ImageList
+		lstProdDispo.LargeImageList = ImageList
 
-    End Sub
+	End Sub
 
 	Private Sub lstProdDispo_MouseDown(sender As Object, e As MouseEventArgs) Handles lstProdDispo.MouseDown
 		moveItem = True
@@ -138,8 +139,11 @@ Public Class FrmArmadoVenta
 
 		Dim ItemSelected = listita.Where(Function(s) s.Text = e.Data.GetData(DataFormats.Text)).FirstOrDefault()
 		If ItemSelected IsNot Nothing Then
-			Dim cloneOfItem = ItemSelected.Clone()
-			ListView1.Items.Add(cloneOfItem)
+			CantidadDragAndDrop.ShowDialog()
+			For index = 1 To CantidadDragAndDrop.cantidad
+				Dim cloneOfItem = ItemSelected.Clone()
+				ListView1.Items.Add(cloneOfItem)
+			Next
 		End If
 
 	End Sub
@@ -156,6 +160,22 @@ Public Class FrmArmadoVenta
 		For Each item As ListViewItem In ListView1.Items
 			listaDeProductosId.Add(item.Tag.item(0).ToString())
 		Next
+	End Sub
+
+	Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+		ListView1.Clear()
+	End Sub
+
+	Private Sub btnQuitarItem_Click(sender As Object, e As EventArgs) Handles btnQuitarItem.Click
+		ListView1.Items.Remove(selectedProducto)
+	End Sub
+
+	'Private Sub ListView1_MouseClick(sender As Object, e As MouseEventArgs) Handles ListView1.MouseClick
+	'	selectedProducto = ListView1.FocusedItem
+	'End Sub
+
+	Private Sub ListView1_ItemSelectionChanged(sender As Object, e As ListViewItemSelectionChangedEventArgs) Handles ListView1.ItemSelectionChanged
+		selectedProducto = ListView1.FocusedItem
 	End Sub
 
 #End Region

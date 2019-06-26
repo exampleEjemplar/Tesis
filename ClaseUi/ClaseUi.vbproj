@@ -92,6 +92,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CantidadDragAndDrop.Designer.vb">
+      <DependentUpon>CantidadDragAndDrop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CantidadDragAndDrop.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="dslistadocliente.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -252,6 +258,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CantidadDragAndDrop.resx">
+      <DependentUpon>CantidadDragAndDrop.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formprueba1.resx">
       <DependentUpon>Formprueba1.vb</DependentUpon>
     </EmbeddedResource>
