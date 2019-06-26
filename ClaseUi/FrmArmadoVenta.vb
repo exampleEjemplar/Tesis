@@ -21,6 +21,7 @@ Public Class FrmArmadoVenta
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		LlenarCboClientes()
 		GroupBox1.Visible = False
+		btnNuevo.Enabled = False
 	End Sub
 
 	Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
@@ -47,6 +48,7 @@ Public Class FrmArmadoVenta
 	End Function
 
 	Private Sub cboCliente_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCliente.SelectionChangeCommitted
+		btnNuevo.Enabled = True
 		Dim ds As DataSet = clientesLN.ConsultaModificacion(cboCliente.SelectedValue)
 		GroupBox1.Visible = True
 		'Datos lbl arriba izquierda
@@ -115,6 +117,7 @@ Public Class FrmArmadoVenta
 		Next
 
 		lstProdDispo.LargeImageList = ImageList
+		cboCliente.Enabled = False
 
 	End Sub
 
@@ -169,8 +172,12 @@ Public Class FrmArmadoVenta
 	End Sub
 
 	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
-
+		btnNuevo.Enabled = True
 		Dim DiccionarioDeStringYCantidad = New Dictionary(Of Integer, Integer)
+		If DiccionarioDeStringYCantidad.Count = 0 Then
+			MsgBox("Debe agregar algún producto a la lista", MsgBoxStyle.OkOnly, "Exito")
+			Return
+		End If
 		Dim listaDeInteger = New List(Of Integer)
 
 		ListView1.Sort()
@@ -200,7 +207,10 @@ Public Class FrmArmadoVenta
 		MsgBox("Venta realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 
 		ListView1.Clear()
+		lstProdDispo.Clear()
 		LlenarCboClientes()
+		cboCliente.Enabled = True
+		GroupBox1.Visible = False
 	End Sub
 
 	Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
