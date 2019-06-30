@@ -22,10 +22,11 @@ Public Class FrmListadoClientes
 
 		If contador > 0 Then
 
-            'Me.SP_ListadodeClientesPorfechaTableAdapter.Fill(Me.dslistadocliente.SP_ListadodeClientesPorfecha)
+			'Me.SP_ListadodeClientesPorfechaTableAdapter.Fill(Me.dslistadocliente.SP_ListadodeClientesPorfecha)
 
-            Me.SP_ListadodeClientesPorfechaTableAdapter.Fill(Me.JoyeriaCrisol11DataSet.SP_ListadodeClientesPorfecha, CType(fechadesde, Date), CType(fechahasta, Date))
-            Me.ReportViewer1.RefreshReport()
+			Me.SP_ListadodeClientesPorfechaTableAdapter.Fill(Me.JoyeriaCrisol12DataSet.SP_ListadodeClientesPorfecha, CType(fechadesde, Date), CType(fechahasta, Date))
+
+			Me.ReportViewer1.RefreshReport()
 		Else
 
 			MsgBox("No existe registro en ese intervalo de fechas", MsgBoxStyle.Critical, "Error")
@@ -46,7 +47,11 @@ Public Class FrmListadoClientes
 
 
 	Private Sub FrmListadoClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dtpdesde.Format = DateTimePickerFormat.Custom
+		'TODO: esta línea de código carga datos en la tabla 'JoyeriaCrisol11DataSet.SP_ListadodeClientesPorfecha' Puede moverla o quitarla según sea necesario.
+
+		'TODO: esta línea de código carga datos en la tabla 'JoyeriaCrisol11DataSet.SP_ListadodeClientesPorfecha' Puede moverla o quitarla según sea necesario.
+
+		dtpdesde.Format = DateTimePickerFormat.Custom
         dtpdesde.CustomFormat = " dd/MM/yyyy"
 		dtphasta.Format = DateTimePickerFormat.Custom
 		dtphasta.CustomFormat = " dd/MM/yyyy"
@@ -62,8 +67,12 @@ Public Class FrmListadoClientes
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Me.Close()
+	Private Sub Button2_Click(sender As Object, e As EventArgs)
+		Me.Close()
 
-    End Sub
+	End Sub
+
+	Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+		Me.Close()
+	End Sub
 End Class

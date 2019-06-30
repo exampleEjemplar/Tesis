@@ -22,6 +22,8 @@ Partial Class FrmGestionVentas
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
+		Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
 		Me.lbldesde = New System.Windows.Forms.Label()
 		Me.lblHasta = New System.Windows.Forms.Label()
@@ -33,10 +35,10 @@ Partial Class FrmGestionVentas
 		Me.cboCliente = New System.Windows.Forms.ComboBox()
 		Me.Label17 = New System.Windows.Forms.Label()
 		Me.lblFechaExacta = New System.Windows.Forms.Label()
-		Me.dgvProveedores = New System.Windows.Forms.DataGridView()
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.Label1 = New System.Windows.Forms.Label()
+		Me.dgvProveedores = New System.Windows.Forms.DataGridView()
 		Me.GroupBox5.SuspendLayout()
 		CType(Me.dgvProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
@@ -176,15 +178,6 @@ Partial Class FrmGestionVentas
 		Me.lblFechaExacta.TabIndex = 21
 		Me.lblFechaExacta.Text = "Fecha comprobante"
 		'
-		'dgvProveedores
-		'
-		Me.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.dgvProveedores.Location = New System.Drawing.Point(13, 203)
-		Me.dgvProveedores.Margin = New System.Windows.Forms.Padding(4)
-		Me.dgvProveedores.Name = "dgvProveedores"
-		Me.dgvProveedores.Size = New System.Drawing.Size(554, 214)
-		Me.dgvProveedores.TabIndex = 35
-		'
 		'btnNuevo
 		'
 		Me.btnNuevo.BackColor = System.Drawing.SystemColors.Control
@@ -195,7 +188,7 @@ Partial Class FrmGestionVentas
 		Me.btnNuevo.Location = New System.Drawing.Point(576, 203)
 		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
-		Me.btnNuevo.Size = New System.Drawing.Size(137, 112)
+		Me.btnNuevo.Size = New System.Drawing.Size(116, 95)
 		Me.btnNuevo.TabIndex = 33
 		Me.btnNuevo.Text = "Nueva"
 		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -208,10 +201,10 @@ Partial Class FrmGestionVentas
 		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnSalir.FlatAppearance.BorderSize = 0
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalir.Location = New System.Drawing.Point(585, 323)
+		Me.btnSalir.Location = New System.Drawing.Point(576, 306)
 		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
-		Me.btnSalir.Size = New System.Drawing.Size(107, 94)
+		Me.btnSalir.Size = New System.Drawing.Size(116, 111)
 		Me.btnSalir.TabIndex = 32
 		Me.btnSalir.Text = "Salir"
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -228,14 +221,54 @@ Partial Class FrmGestionVentas
 		Me.Label1.TabIndex = 23
 		Me.Label1.Text = "Gestión ventas"
 		'
+		'dgvProveedores
+		'
+		Me.dgvProveedores.AllowDrop = True
+		Me.dgvProveedores.AllowUserToAddRows = False
+		Me.dgvProveedores.AllowUserToDeleteRows = False
+		Me.dgvProveedores.AllowUserToResizeColumns = False
+		Me.dgvProveedores.AllowUserToResizeRows = False
+		Me.dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+		Me.dgvProveedores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+		DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+		DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+		DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+		DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.dgvProveedores.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+		DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+		DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+		DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+		DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+		Me.dgvProveedores.DefaultCellStyle = DataGridViewCellStyle4
+		Me.dgvProveedores.EnableHeadersVisualStyles = False
+		Me.dgvProveedores.Location = New System.Drawing.Point(18, 203)
+		Me.dgvProveedores.Margin = New System.Windows.Forms.Padding(4)
+		Me.dgvProveedores.MultiSelect = False
+		Me.dgvProveedores.Name = "dgvProveedores"
+		Me.dgvProveedores.ReadOnly = True
+		Me.dgvProveedores.RightToLeft = System.Windows.Forms.RightToLeft.No
+		Me.dgvProveedores.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+		Me.dgvProveedores.RowHeadersVisible = False
+		Me.dgvProveedores.RowHeadersWidth = 56
+		Me.dgvProveedores.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+		Me.dgvProveedores.Size = New System.Drawing.Size(549, 208)
+		Me.dgvProveedores.TabIndex = 45
+		'
 		'FrmGestionVentas
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(736, 424)
+		Me.Controls.Add(Me.dgvProveedores)
 		Me.Controls.Add(Me.Label1)
 		Me.Controls.Add(Me.GroupBox5)
-		Me.Controls.Add(Me.dgvProveedores)
 		Me.Controls.Add(Me.btnNuevo)
 		Me.Controls.Add(Me.btnSalir)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -255,7 +288,6 @@ Partial Class FrmGestionVentas
 	Friend WithEvents cboCliente As Windows.Forms.ComboBox
 	Friend WithEvents Label17 As Windows.Forms.Label
 	Friend WithEvents lblFechaExacta As Windows.Forms.Label
-	Friend WithEvents dgvProveedores As Windows.Forms.DataGridView
 	Friend WithEvents btnNuevo As Windows.Forms.Button
 	Friend WithEvents btnSalir As Windows.Forms.Button
 	Friend WithEvents dtpFechaDesde As Windows.Forms.DateTimePicker
@@ -265,4 +297,5 @@ Partial Class FrmGestionVentas
 	Friend WithEvents rbtFechaExacta As Windows.Forms.CheckBox
 	Friend WithEvents lblHasta As Windows.Forms.Label
 	Friend WithEvents lbldesde As Windows.Forms.Label
+	Friend WithEvents dgvProveedores As Windows.Forms.DataGridView
 End Class

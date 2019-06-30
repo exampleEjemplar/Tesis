@@ -156,7 +156,7 @@ Partial Class FrmArmadoVenta
 		Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.GroupBox2.Name = "GroupBox2"
 		Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.GroupBox2.Size = New System.Drawing.Size(512, 176)
+		Me.GroupBox2.Size = New System.Drawing.Size(512, 160)
 		Me.GroupBox2.TabIndex = 31
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "Local"
@@ -165,7 +165,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.Label2.AutoSize = True
 		Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label2.Location = New System.Drawing.Point(23, 66)
+		Me.Label2.Location = New System.Drawing.Point(23, 42)
 		Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label2.Name = "Label2"
 		Me.Label2.Size = New System.Drawing.Size(155, 20)
@@ -176,7 +176,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.Label3.AutoSize = True
 		Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label3.Location = New System.Drawing.Point(187, 105)
+		Me.Label3.Location = New System.Drawing.Point(187, 81)
 		Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label3.Name = "Label3"
 		Me.Label3.Size = New System.Drawing.Size(119, 20)
@@ -187,7 +187,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.Label4.AutoSize = True
 		Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label4.Location = New System.Drawing.Point(23, 106)
+		Me.Label4.Location = New System.Drawing.Point(23, 82)
 		Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label4.Name = "Label4"
 		Me.Label4.Size = New System.Drawing.Size(50, 20)
@@ -198,7 +198,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.Label5.AutoSize = True
 		Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label5.Location = New System.Drawing.Point(23, 148)
+		Me.Label5.Location = New System.Drawing.Point(23, 124)
 		Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label5.Name = "Label5"
 		Me.Label5.Size = New System.Drawing.Size(114, 20)
@@ -309,10 +309,10 @@ Partial Class FrmArmadoVenta
 		Me.btnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnLimpiar.FlatAppearance.BorderSize = 0
 		Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnLimpiar.Location = New System.Drawing.Point(1093, 286)
+		Me.btnLimpiar.Location = New System.Drawing.Point(1093, 276)
 		Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnLimpiar.Name = "btnLimpiar"
-		Me.btnLimpiar.Size = New System.Drawing.Size(126, 93)
+		Me.btnLimpiar.Size = New System.Drawing.Size(126, 103)
 		Me.btnLimpiar.TabIndex = 36
 		Me.btnLimpiar.Text = "Limpiar todo"
 		Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -325,10 +325,10 @@ Partial Class FrmArmadoVenta
 		Me.btnQuitarItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnQuitarItem.FlatAppearance.BorderSize = 0
 		Me.btnQuitarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnQuitarItem.Location = New System.Drawing.Point(897, 292)
+		Me.btnQuitarItem.Location = New System.Drawing.Point(897, 276)
 		Me.btnQuitarItem.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnQuitarItem.Name = "btnQuitarItem"
-		Me.btnQuitarItem.Size = New System.Drawing.Size(96, 87)
+		Me.btnQuitarItem.Size = New System.Drawing.Size(96, 103)
 		Me.btnQuitarItem.TabIndex = 37
 		Me.btnQuitarItem.Text = "Quitar item"
 		Me.btnQuitarItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter

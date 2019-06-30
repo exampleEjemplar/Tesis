@@ -205,6 +205,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JoyeriaCrisol11DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="JoyeriaCrisol12DataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JoyeriaCrisol12DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="JoyeriaCrisol2DataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -362,6 +367,17 @@
     </None>
     <None Include="JoyeriaCrisol11DataSet.xss">
       <DependentUpon>JoyeriaCrisol11DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JoyeriaCrisol12DataSet.xsc">
+      <DependentUpon>JoyeriaCrisol12DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JoyeriaCrisol12DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JoyeriaCrisol12DataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JoyeriaCrisol12DataSet.xss">
+      <DependentUpon>JoyeriaCrisol12DataSet.xsd</DependentUpon>
     </None>
     <None Include="JoyeriaCrisol2DataSet.xsc">
       <DependentUpon>JoyeriaCrisol2DataSet.xsd</DependentUpon>
