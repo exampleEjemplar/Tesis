@@ -118,6 +118,7 @@ Public Class HelpersDA
 		End If
 		Return False
 	End Function
+
 	Public Function ValidarSiExisteUserName(ByVal usrName As String) As Boolean
 
 		Dim sqlStr As String
@@ -139,6 +140,7 @@ Public Class HelpersDA
 		End If
 		Return False
 	End Function
+
 	Public Function EnSesion() As Integer
 		Dim resultado As Integer
 		Try
@@ -160,6 +162,7 @@ Public Class HelpersDA
 		db.Close()
 		Return resultado
 	End Function
+
 	Public Function CargarCboTodosClientes()
 
 		Dim sqlStr As String
@@ -177,7 +180,41 @@ Public Class HelpersDA
 
 	End Function
 
-	Public Function CargarTodosProductos()
+	Public Function CargarCboTodosProveedores()
+
+		Dim sqlStr As String
+		ds = New DataSet
+		sqlStr = "select Id,Nombre +' '+ Apellido as Nombre from Proveedores Order By Nombre  "
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+		Return ds
+
+	End Function
+
+	Public Function CargarCboTodosUsuarios()
+
+		Dim sqlStr As String
+		ds = New DataSet
+		sqlStr = "select Id,Username as Nombre from Usuarios Order By username  "
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+		Return ds
+
+	End Function
+
+	Public Function CargarTodosProductos(ByVal parametros As Dictionary(Of String, String))
 
 		Dim sqlStr As String
 		ds = New DataSet

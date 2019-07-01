@@ -17,12 +17,12 @@ Public Class FrmGestionVentas
 		lbldesde.Visible = False
 	End Sub
 
-	Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+	Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 		Me.Close()
 		MDIPrincipal.Show()
 	End Sub
 
-	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+	Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
 		FrmArmadoVenta.Show()
 	End Sub
 #End Region
@@ -55,7 +55,7 @@ Public Class FrmGestionVentas
 		Return dsa1
 	End Function
 
-	Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+	Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
 		Dim parametros As Dictionary(Of String, String) = New Dictionary(Of String, String)
 		If String.IsNullOrWhiteSpace(cboCliente.SelectedValue) = False Then
 			parametros.Add("ClienteId", cboCliente.SelectedValue)
@@ -73,7 +73,7 @@ Public Class FrmGestionVentas
 		LlenarDgv(parametros)
 	End Sub
 
-	Private Sub rbtEntreFechas_CheckedChanged(sender As Object, e As EventArgs) Handles rbtEntreFechas.CheckedChanged, rbtFechaExacta.CheckedChanged
+	Private Sub RbtEntreFechas_CheckedChanged(sender As Object, e As EventArgs) Handles rbtEntreFechas.CheckedChanged, rbtFechaExacta.CheckedChanged
 
 		If rbtFechaExacta.Checked Then
 			lblFechaExacta.Visible = True
