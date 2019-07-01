@@ -110,16 +110,16 @@
     <Compile Include="Formprueba1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmArmadoCompra.Designer.vb">
+    <Compile Include="FrmArmado\FrmArmadoCompra.Designer.vb">
       <DependentUpon>FrmArmadoCompra.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmArmadoCompra.vb">
+    <Compile Include="FrmArmado\FrmArmadoCompra.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmArmadoVenta.Designer.vb">
+    <Compile Include="FrmArmado\FrmArmadoVenta.Designer.vb">
       <DependentUpon>FrmArmadoVenta.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmArmadoVenta.vb">
+    <Compile Include="FrmArmado\FrmArmadoVenta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmConsultaCotizaciones.Designer.vb">
@@ -146,58 +146,58 @@
     <Compile Include="FrmDetalleProductoCatalogo.Vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGestionCategorías.Designer.vb">
+    <Compile Include="FrmGestion\FrmGestionCategorías.Designer.vb">
       <DependentUpon>FrmGestionCategorías.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmGestionCategorías.vb">
+    <Compile Include="FrmGestion\FrmGestionCategorías.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGestionCliente.Designer.vb">
+    <Compile Include="FrmGestion\FrmGestionCliente.Designer.vb">
       <DependentUpon>FrmGestionCliente.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmGestionCliente.vb">
+    <Compile Include="FrmGestion\FrmGestionCliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGestionCompras.Designer.vb">
+    <Compile Include="FrmGestion\FrmGestionCompras.Designer.vb">
       <DependentUpon>FrmGestionCompras.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmGestionCompras.vb">
+    <Compile Include="FrmGestion\FrmGestionCompras.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGestionMaterial.Designer.vb">
+    <Compile Include="FrmGestion\FrmGestionMaterial.Designer.vb">
       <DependentUpon>FrmGestionMaterial.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmGestionMaterial.vb">
+    <Compile Include="FrmGestion\FrmGestionMaterial.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGestionProveedores.Designer.vb">
+    <Compile Include="FrmGestion\FrmGestionProveedores.Designer.vb">
       <DependentUpon>FrmGestionProveedores.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmGestionProveedores.vb">
+    <Compile Include="FrmGestion\FrmGestionProveedores.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGestionTipoDeProducto.Designer.vb">
+    <Compile Include="FrmGestion\FrmGestionTipoDeProducto.Designer.vb">
       <DependentUpon>FrmGestionTipoDeProducto.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmGestionTipoDeProducto.vb">
+    <Compile Include="FrmGestion\FrmGestionTipoDeProducto.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGestionUsuario.Designer.vb">
+    <Compile Include="FrmGestion\FrmGestionUsuario.Designer.vb">
       <DependentUpon>FrmGestionUsuario.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmGestionUsuario.vb">
+    <Compile Include="FrmGestion\FrmGestionUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGestionProducto.Designer.vb">
+    <Compile Include="FrmGestion\FrmGestionProducto.Designer.vb">
       <DependentUpon>FrmGestionProducto.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmGestionProducto.vb">
+    <Compile Include="FrmGestion\FrmGestionProducto.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGestionVentas.Designer.vb">
+    <Compile Include="FrmGestion\FrmGestionVentas.Designer.vb">
       <DependentUpon>FrmGestionVentas.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmGestionVentas.vb">
+    <Compile Include="FrmGestion\FrmGestionVentas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="JoyeriaCrisol11DataSet.Designer.vb">
@@ -276,10 +276,10 @@
     <EmbeddedResource Include="Formprueba1.resx">
       <DependentUpon>Formprueba1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmArmadoCompra.resx">
+    <EmbeddedResource Include="FrmArmado\FrmArmadoCompra.resx">
       <DependentUpon>FrmArmadoCompra.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmArmadoVenta.resx">
+    <EmbeddedResource Include="FrmArmado\FrmArmadoVenta.resx">
       <DependentUpon>FrmArmadoVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCatalogo.resx">
@@ -294,31 +294,31 @@
     <EmbeddedResource Include="FrmEstadisticacliente.resx">
       <DependentUpon>FrmEstadisticacliente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGestionCategorías.resx">
+    <EmbeddedResource Include="FrmGestion\FrmGestionCategorías.resx">
       <DependentUpon>FrmGestionCategorías.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGestionCliente.resx">
+    <EmbeddedResource Include="FrmGestion\FrmGestionCliente.resx">
       <DependentUpon>FrmGestionCliente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGestionCompras.resx">
+    <EmbeddedResource Include="FrmGestion\FrmGestionCompras.resx">
       <DependentUpon>FrmGestionCompras.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGestionMaterial.resx">
+    <EmbeddedResource Include="FrmGestion\FrmGestionMaterial.resx">
       <DependentUpon>FrmGestionMaterial.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGestionProducto.resx">
+    <EmbeddedResource Include="FrmGestion\FrmGestionProducto.resx">
       <DependentUpon>FrmGestionProducto.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGestionProveedores.resx">
+    <EmbeddedResource Include="FrmGestion\FrmGestionProveedores.resx">
       <DependentUpon>FrmGestionProveedores.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGestionTipoDeProducto.resx">
+    <EmbeddedResource Include="FrmGestion\FrmGestionTipoDeProducto.resx">
       <DependentUpon>FrmGestionTipoDeProducto.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGestionUsuario.resx">
+    <EmbeddedResource Include="FrmGestion\FrmGestionUsuario.resx">
       <DependentUpon>FrmGestionUsuario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGestionVentas.resx">
+    <EmbeddedResource Include="FrmGestion\FrmGestionVentas.resx">
       <DependentUpon>FrmGestionVentas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ComprobanteVenta.rdlc" />
