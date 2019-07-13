@@ -25,7 +25,22 @@ Public Class FrmGestionVentas
 	Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
 		FrmArmadoVenta.Show()
 	End Sub
+
+	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles dgvProveedores.CellMouseDoubleClick
+		Dim selectedRow As DataGridViewRow
+		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+			selectedRow = dgvProveedores.Rows(e.RowIndex)
+		End If
+		Try
+
+			'selectedRow.Cells("id").Value
+		Catch ex As Exception
+			MessageBox.Show(ex.Message)
+		End Try
+
+	End Sub
 #End Region
+
 #Region "Metodos"
 	Public Function LlenarCboClientes()
 		Try
@@ -98,7 +113,6 @@ Public Class FrmGestionVentas
 		End If
 
 	End Sub
-
 
 #End Region
 

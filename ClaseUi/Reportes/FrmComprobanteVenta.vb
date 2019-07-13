@@ -13,13 +13,12 @@ Public Class FrmComprobanteVenta
 
 
 #Region "Eventos"
-    Dim reportpath As String
 
-    Private Sub FrmComprobanteVenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+	Private Sub FrmComprobanteVenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
 		Me.rpVentas.RefreshReport()
 		Dim rpVentasDS As New ReportDataSource
-		Dim CompVentasNE As New ComprobanteVentasNE
+		Dim ListaDeCompVentasNE As List(Of ComprobanteVentasNE) = New List(Of ComprobanteVentasNE)
 		Dim UltimaVenta As DataSet = VentasLN.ObtenerUltimaVenta()
 		Dim idVenta As Integer
 
@@ -27,25 +26,25 @@ Public Class FrmComprobanteVenta
 
 		Dim dsProducto As DataSet = VentasLN.ObtenerDatosProducto(idVenta)
 		Dim dsCliente As DataSet = VentasLN.ObtenerDatosCliente(idVenta)
-		CompVentasNE.Comprobante = helpersUI.AgregarNumerosComprobante(idVenta)
 		Try
 			'Cargo datos en objeto
 			For i As Integer = 0 To dsProducto.Tables(0).Rows.Count - 1
 
+				Dim CompVentasNE As New ComprobanteVentasNE
+				CompVentasNE.Comprobante = helpersUI.AgregarNumerosComprobante(idVenta)
 				CompVentasNE.Producto = dsProducto.Tables(0).Rows(i)(1).ToString
 				CompVentasNE.PrecioUnit = dsProducto.Tables(0).Rows(i).Item(2).ToString
 				CompVentasNE.UnidadPeso = dsProducto.Tables(0).Rows(i).Item(3).ToString
 				CompVentasNE.Cantidad = dsProducto.Tables(0).Rows(i).Item(4).ToString
+				CompVentasNE.NombreCliente = dsCliente.Tables(0).Rows(0).Item(0).ToString
+				CompVentasNE.TipoDoc = dsCliente.Tables(0).Rows(0).Item(1).ToString
+				CompVentasNE.Documento = dsCliente.Tables(0).Rows(0).Item(2).ToString
+				CompVentasNE.DomicilioCliente = dsCliente.Tables(0).Rows(0).Item(3).ToString
+				CompVentasNE.Total = dsCliente.Tables(0).Rows(0).Item(4).ToString
+				ListaDeCompVentasNE.Add(CompVentasNE)
 			Next
-			CompVentasNE.NombreCliente = dsCliente.Tables(0).Rows(0).Item(0).ToString
-			CompVentasNE.TipoDoc = dsCliente.Tables(0).Rows(0).Item(1).ToString
-			CompVentasNE.Documento = dsCliente.Tables(0).Rows(0).Item(2).ToString 'y esto
-			CompVentasNE.DomicilioCliente = dsCliente.Tables(0).Rows(0).Item(3).ToString
-			CompVentasNE.Total = dsCliente.Tables(0).Rows(0).Item(4).ToString
 
-			'reportpath = "ClaseIU.Reportes.ComprobanteVenta.rdlc"
-			'rpVentas.LocalReport.ReportEmbeddedResource = reportpath
-			ComprobanteVentasNEBindingSource.DataSource = CompVentasNE
+			ComprobanteVentasNEBindingSource.DataSource = ListaDeCompVentasNE
 
 			rpVentas.RefreshReport()
 
