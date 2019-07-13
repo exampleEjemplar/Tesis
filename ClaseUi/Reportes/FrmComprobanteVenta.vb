@@ -16,13 +16,15 @@ Public Class FrmComprobanteVenta
 
 	Private Sub FrmComprobanteVenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-		Me.rpVentas.RefreshReport()
 		Dim rpVentasDS As New ReportDataSource
 		Dim ListaDeCompVentasNE As List(Of ComprobanteVentasNE) = New List(Of ComprobanteVentasNE)
-		Dim UltimaVenta As DataSet = VentasLN.ObtenerUltimaVenta()
 		Dim idVenta As Integer
-
-		idVenta = UltimaVenta.Tables(0).Rows(0).Item(0).ToString
+		Dim ventaDeGestion As Integer = FrmGestionVentas.idVenta
+		If ventaDeGestion = 0 Then
+			idVenta = VentasLN.ObtenerUltimaVenta().Tables(0).Rows(0).Item(0).ToString
+		Else
+			idVenta = ventaDeGestion
+		End If
 
 		Dim dsProducto As DataSet = VentasLN.ObtenerDatosProducto(idVenta)
 		Dim dsCliente As DataSet = VentasLN.ObtenerDatosCliente(idVenta)
@@ -36,13 +38,16 @@ Public Class FrmComprobanteVenta
 				CompVentasNE.PrecioUnit = dsProducto.Tables(0).Rows(i).Item(2).ToString
 				CompVentasNE.UnidadPeso = dsProducto.Tables(0).Rows(i).Item(3).ToString
 				CompVentasNE.Cantidad = dsProducto.Tables(0).Rows(i).Item(4).ToString
-				CompVentasNE.NombreCliente = dsCliente.Tables(0).Rows(0).Item(0).ToString
-				CompVentasNE.TipoDoc = dsCliente.Tables(0).Rows(0).Item(1).ToString
-				CompVentasNE.Documento = dsCliente.Tables(0).Rows(0).Item(2).ToString
-				CompVentasNE.DomicilioCliente = dsCliente.Tables(0).Rows(0).Item(3).ToString
-				CompVentasNE.Total = dsCliente.Tables(0).Rows(0).Item(4).ToString
+
 				ListaDeCompVentasNE.Add(CompVentasNE)
 			Next
+
+			ListaDeCompVentasNE.FirstOrDefault().NombreCliente = dsCliente.Tables(0).Rows(0).Item(0).ToString
+			ListaDeCompVentasNE.FirstOrDefault().TipoDoc = dsCliente.Tables(0).Rows(0).Item(1).ToString
+			ListaDeCompVentasNE.FirstOrDefault().Documento = dsCliente.Tables(0).Rows(0).Item(2).ToString
+			ListaDeCompVentasNE.FirstOrDefault().DomicilioCliente = dsCliente.Tables(0).Rows(0).Item(3).ToString
+			ListaDeCompVentasNE.FirstOrDefault().Total = dsCliente.Tables(0).Rows(0).Item(4).ToString
+
 
 			ComprobanteVentasNEBindingSource.DataSource = ListaDeCompVentasNE
 
@@ -58,4 +63,5 @@ Public Class FrmComprobanteVenta
 	End Sub
 
 #End Region
+
 End Class

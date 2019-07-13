@@ -5,6 +5,7 @@ Public Class FrmGestionVentas
 
 	Private helpersLN As New HelpersLN
 	Private ventasLN As New VentasLN
+	Public idVenta As Integer
 
 #Region "Eventos"
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -32,8 +33,8 @@ Public Class FrmGestionVentas
 			selectedRow = dgvProveedores.Rows(e.RowIndex)
 		End If
 		Try
-
-			'selectedRow.Cells("id").Value
+			idVenta = selectedRow.Cells("id").Value
+			FrmComprobanteVenta.ShowDialog()
 		Catch ex As Exception
 			MessageBox.Show(ex.Message)
 		End Try
