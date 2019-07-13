@@ -218,7 +218,42 @@ Public Class HelpersDA
 
 		Dim sqlStr As String
 		ds = New DataSet
-		sqlStr = "select p.Id,p.Nombre,p.Foto,p.Precio,prov.Nombre as Proveedor from Productos as p inner join proveedores as prov on prov.id = p.ProveedorId order By ProveedorId "
+		sqlStr = "select p.Id,p.Nombre,p.Foto,p.Precio,prov.Nombre as Proveedor from Productos as p inner join proveedores as prov on prov.id = p.ProveedorId "
+
+		If parametros.Count <> 0 Then
+			Dim count = parametros.Count
+			Dim text = " where "
+			For Each item As KeyValuePair(Of String, String) In parametros
+				If item.Key = "ProveedorId" Then
+					count = count - 1
+					text = text & "prov.id" & " = " & item.Value & " " & If(count <> 0, " and ", "")
+					Continue For
+				End If
+				If item.Key = "Nombre" Then
+					count = count - 1
+					text = text & "p.Nombre" & " like '%" & item.Value & "%' " & If(count <> 0, " and ", "")
+					Continue For
+				End If
+				If item.Key = "FechaDesde" And Not parametros.Keys.Contains("FechaHasta") Then
+					count = count - 1
+					text = text & "v.fecha" & " between '" & item.Value & " 00:00:00' and '" & item.Value & " 23:59:59'" & If(count <> 0, " and ", "")
+					Continue For
+				End If
+				If item.Key = "FechaDesde" And parametros.Keys.Contains("FechaHasta") Then
+					count = count - 1
+					text = text & "v.fecha" & " between '" & item.Value & " 00:00:00' and "
+					Continue For
+				End If
+				If item.Key = "FechaHasta" Then
+					count = count - 1
+					text = text & "'" & item.Value & " 23:59:59' " & If(count <> 0, " and ", "")
+					Continue For
+				End If
+			Next
+			sqlStr = sqlStr + text + " order By ProveedorId "
+		End If
+
+
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)

@@ -17,49 +17,46 @@ Public Class FrmComprobanteVenta
 
     Private Sub FrmComprobanteVenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Me.rpVentas.RefreshReport()
-    End Sub
+		Me.rpVentas.RefreshReport()
+		Dim rpVentasDS As New ReportDataSource
+		Dim CompVentasNE As New ComprobanteVentasNE
+		Dim UltimaVenta As DataSet = VentasLN.ObtenerUltimaVenta()
+		Dim idVenta As Integer
 
-    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        Me.Close()
-    End Sub
+		idVenta = UltimaVenta.Tables(0).Rows(0).Item(0).ToString
 
-    Private Sub btnGenerar_Click(sender As Object, e As EventArgs) Handles btnGenerar.Click
-        Dim rpVentasDS As New ReportDataSource
-        Dim CompVentasNE As New ComprobanteVentasNE
-        Dim UltimaVenta As DataSet = VentasLN.ObtenerUltimaVenta()
-        Dim idVenta As Integer
+		Dim dsProducto As DataSet = VentasLN.ObtenerDatosProducto(idVenta)
+		Dim dsCliente As DataSet = VentasLN.ObtenerDatosCliente(idVenta)
+		CompVentasNE.Comprobante = helpersUI.AgregarNumerosComprobante(idVenta)
+		Try
+			'Cargo datos en objeto
+			For i As Integer = 0 To dsProducto.Tables(0).Rows.Count - 1
 
-        idVenta = UltimaVenta.Tables(0).Rows(0).Item(0).ToString
+				CompVentasNE.Producto = dsProducto.Tables(0).Rows(i)(1).ToString
+				CompVentasNE.PrecioUnit = dsProducto.Tables(0).Rows(i).Item(2).ToString
+				CompVentasNE.UnidadPeso = dsProducto.Tables(0).Rows(i).Item(3).ToString
+				CompVentasNE.Cantidad = dsProducto.Tables(0).Rows(i).Item(4).ToString
+			Next
+			CompVentasNE.NombreCliente = dsCliente.Tables(0).Rows(0).Item(0).ToString
+			CompVentasNE.TipoDoc = dsCliente.Tables(0).Rows(0).Item(1).ToString
+			CompVentasNE.Documento = dsCliente.Tables(0).Rows(0).Item(2).ToString 'y esto
+			CompVentasNE.DomicilioCliente = dsCliente.Tables(0).Rows(0).Item(3).ToString
+			CompVentasNE.Total = dsCliente.Tables(0).Rows(0).Item(4).ToString
 
-        Dim dsProducto As DataSet = VentasLN.ObtenerDatosProducto(idVenta)
-        Dim dsCliente As DataSet = VentasLN.ObtenerDatosCliente(idVenta)
-        CompVentasNE.Comprobante = helpersUI.AgregarNumerosComprobante(idVenta)
-        Try
-            'Cargo datos en objeto
-            For i As Integer = 0 To dsProducto.Tables(0).Rows.Count - 1
+			'reportpath = "ClaseIU.Reportes.ComprobanteVenta.rdlc"
+			'rpVentas.LocalReport.ReportEmbeddedResource = reportpath
+			ComprobanteVentasNEBindingSource.DataSource = CompVentasNE
 
-                CompVentasNE.Producto = dsProducto.Tables(0).Rows(i)(1).ToString
-                CompVentasNE.PrecioUnit = dsProducto.Tables(0).Rows(i).Item(2).ToString
-                CompVentasNE.UnidadPeso = dsProducto.Tables(0).Rows(i).Item(3).ToString
-                CompVentasNE.Cantidad = dsProducto.Tables(0).Rows(i).Item(4).ToString
-            Next
-            CompVentasNE.NombreCliente = dsCliente.Tables(0).Rows(0).Item(0).ToString
-            CompVentasNE.TipoDoc = dsCliente.Tables(0).Rows(0).Item(1).ToString
-            CompVentasNE.Documento = dsCliente.Tables(0).Rows(0).Item(2).ToString 'y esto
-            CompVentasNE.DomicilioCliente = dsCliente.Tables(0).Rows(0).Item(3).ToString
-            CompVentasNE.Total = dsCliente.Tables(0).Rows(0).Item(4).ToString
+			rpVentas.RefreshReport()
 
-            'reportpath = "ClaseIU.Reportes.ComprobanteVenta.rdlc"
-            'rpVentas.LocalReport.ReportEmbeddedResource = reportpath
-            ComprobanteVentasNEBindingSource.DataSource = CompVentasNE
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+		End Try
+	End Sub
 
-            rpVentas.RefreshReport()
-
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
+	Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+		Me.Close()
+	End Sub
 
 #End Region
 End Class
