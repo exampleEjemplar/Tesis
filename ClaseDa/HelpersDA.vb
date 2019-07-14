@@ -12,8 +12,16 @@ Public Class HelpersDA
 		db = objcon.Abrir
 		com.Connection = db
 	End Sub
-	Public Function LlenarUnidadDePeso()
 
+	Public Function ChequearConexion(ByVal db As SqlConnection)
+		If (db.State = ConnectionState.Closed) Then
+			db.Open()
+		End If
+		Return db
+	End Function
+
+	Public Function LlenarUnidadDePeso()
+		ChequearConexion(db)
 		Dim sqlStr As String
 		ds = New DataSet
 		sqlStr = "select * from UnidadesDePeso Order By Nombre "
@@ -31,6 +39,7 @@ Public Class HelpersDA
 
 
 	Public Function CargarCMBProvincias()
+		ChequearConexion(db)
 
 		Dim sqlStr As String
 		ds = New DataSet
@@ -48,6 +57,7 @@ Public Class HelpersDA
 	End Function
 
 	Public Function CargarCMBLocalidadesUnico(ByVal idLoc As Integer)
+		ChequearConexion(db)
 
 		Dim sqlStr As String
 		ds = New DataSet
@@ -65,6 +75,7 @@ Public Class HelpersDA
 	End Function
 
 	Public Function CargarCMBLocalidades(ByVal idprov As Integer)
+		ChequearConexion(db)
 
 		Dim sqlStr As String
 		ds = New DataSet
@@ -82,6 +93,7 @@ Public Class HelpersDA
 	End Function
 
 	Public Function CargarCMBDoc(ByVal FoJ As String) As DataSet
+		ChequearConexion(db)
 
 		Dim sqlStr As String
 		ds = New DataSet
@@ -98,6 +110,7 @@ Public Class HelpersDA
 	End Function
 
 	Public Function ValidarSiExisteDni(ByVal numero As Double, ByVal entidad As String) As Boolean
+		ChequearConexion(db)
 
 		Dim sqlStr As String
 		Dim dt = New DataTable
@@ -120,6 +133,7 @@ Public Class HelpersDA
 	End Function
 
 	Public Function ValidarSiExisteUserName(ByVal usrName As String) As Boolean
+		ChequearConexion(db)
 
 		Dim sqlStr As String
 		Dim dt = New DataTable
@@ -142,10 +156,10 @@ Public Class HelpersDA
 	End Function
 
 	Public Function EnSesion() As Integer
+		ChequearConexion(db)
 		Dim resultado As Integer
 		Try
 			Dim sqlStr As New SqlCommand("Select * from Ensesion", db)
-			db.Open()
 			sqlStr.CommandType = CommandType.Text
 			sqlStr.ExecuteNonQuery()
 			respuesta = sqlStr.ExecuteReader
@@ -165,6 +179,7 @@ Public Class HelpersDA
 
 	Public Function CargarCboTodosClientes()
 
+		ChequearConexion(db)
 		Dim sqlStr As String
 		ds = New DataSet
 		sqlStr = "select Id,Nombre +' '+ Apellido as Nombre from Clientes Order By Nombre  "
@@ -182,6 +197,7 @@ Public Class HelpersDA
 
 	Public Function CargarCboTodosProveedores()
 
+		ChequearConexion(db)
 		Dim sqlStr As String
 		ds = New DataSet
 		sqlStr = "select Id,Nombre +' '+ Apellido as Nombre from Proveedores Order By Nombre  "
@@ -199,6 +215,7 @@ Public Class HelpersDA
 
 	Public Function CargarCboTodosUsuarios()
 
+		ChequearConexion(db)
 		Dim sqlStr As String
 		ds = New DataSet
 		sqlStr = "select Id,Username as Nombre from Usuarios Order By username  "
@@ -216,6 +233,7 @@ Public Class HelpersDA
 
 	Public Function CargarTodosProductos(ByVal parametros As Dictionary(Of String, String))
 
+		ChequearConexion(db)
 		Dim sqlStr As String
 		ds = New DataSet
 		sqlStr = "select p.Id,p.Nombre,p.Foto,p.Precio,prov.Nombre as Proveedor from Productos as p inner join proveedores as prov on prov.id = p.ProveedorId "

@@ -7,13 +7,11 @@ Imports ClaseNe
 Public Class ProveedoresDA
 
 	Private db As New SqlConnection
+	Private helpersDa As New HelpersDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
 	Private ds1 As DataSet
-	Dim Rs As SqlDataReader
 	Public contador As Integer
-
-
 
 	Public Sub New()
 		Dim objcon As New ConexionDA
@@ -22,6 +20,7 @@ Public Class ProveedoresDA
 	End Sub
 
 	Public Function ConsultaModificacion(ByVal Id As Integer) As DataSet
+		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
 		sqlStr = "select c.FisicaOJuridica , t.Descripcion, c.NumeroDocumento,         c.Nombre, c.Apellido,         c.FechaNacimiento, c.Calle, c.NumeroCalle, ciu.iD,        c.Car_celular, c.NumeroCelular, c.Car_telefono,c.NumeroTelefono,        c.Email ,c.piso , c.Departamento, c.manzana,c.lote,c.barrio,c.Id  ,ciu.ProvinciaId,ciu.Nombre      from Proveedores as c        inner join TipoDocumentos t on t.Id = c.TipoDocumentoId        inner join Ciudades ciu on c.CiudadId = Ciu.Id  where c.Id = " & Id
@@ -36,8 +35,8 @@ Public Class ProveedoresDA
 		Return ds1
 	End Function
 
-
 	Public Function CargaGrillaProveedores(ByVal parametros As Dictionary(Of String, String)) As DataSet
+		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
 		sqlStr = "select p.FisicaOJuridica as 'Tipo de Persona', t.Descripcion as 'Tipo de Dni', p.NumeroDocumento as 'Numero de identificacion', " &
@@ -80,8 +79,8 @@ Public Class ProveedoresDA
 		Return ds1
 	End Function
 
-
 	Public Function CargaGrillaProveedoreslistado(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
 		sqlStr = "select p.FisicaOJuridica as 'Tipo de Persona', t.Descripcion as 'Tipo de Dni', p.NumeroDocumento as 'Numero de identificacion', " &
@@ -106,8 +105,8 @@ Public Class ProveedoresDA
 		Return ds1
 	End Function
 
-
 	Public Sub GrabarProveedores(ByVal cli As ProveedoresNE)
+		helpersDa.ChequearConexion(db)
 		Try
 			Dim insert As New SqlCommand("set dateformat dmy insert into Proveedores values (" & cli.TipoDocumentoId & "," & cli.NumeroDocumento & "," & If(cli.Nombre <> "", "'" + cli.Nombre + "'", "NULL") & "," &
 			If(cli.Apellido <> "", "'" + cli.Apellido + "'", "NULL") & "," & If(cli.FechaNacimiento.ToString("dd/MM/yyyy") <> "", "'" + cli.FechaNacimiento.ToString("dd/MM/yyyy") + "'", "NULL") & ", getdate(), " & If(cli.Calle <> "", "'" + cli.Calle + "'", "NULL") & ", " & If(cli.NumeroCalle <> "", "'" + cli.NumeroCalle + "'", "NULL") & "," & If(cli.Departamento <> "", "'" + cli.Departamento + "'", "NULL") & "," &
@@ -115,7 +114,6 @@ Public Class ProveedoresDA
 			"," & If(cli.NumeroTelefono <> "", "'" + cli.NumeroTelefono + "'", "NULL") & "," & If(cli.Car_Celular <> "", "'" + cli.Car_Celular + "'", "NULL") & "," & If(cli.NumeroCelular <> "", "'" + cli.NumeroCelular + "'", "NULL") & ", 'S','" & cli.UsuarioId & "'," & If(cli.Email <> "", "'" + cli.Email + "'", "NULL") &
 			",'" & cli.FisicaOJuridica & "')", db)
 			insert.CommandType = CommandType.Text
-			db.Open()
 			insert.ExecuteNonQuery()
 			db.Close()
 		Catch ex As Exception
@@ -126,9 +124,9 @@ Public Class ProveedoresDA
 
 	Public Sub ActualizarProveedores(ByVal cli As ProveedoresNE)
 		Try
+			helpersDa.ChequearConexion(db)
 			Dim insert As New SqlCommand("set dateformat dmy Update Proveedores set  TipoDocumentoId = " & cli.TipoDocumentoId & ",NumeroDocumento = " & cli.NumeroDocumento & ",Nombre = " & If(cli.Nombre <> "", "'" + cli.Nombre + "'", "NULL") & ",Apellido = " & If(cli.Apellido <> "", "'" + cli.Apellido + "'", "NULL") & ",FechaNacimiento = " & If(cli.FechaNacimiento.ToString() <> "", "'" + cli.FechaNacimiento.ToString("dd/MM/yyyy") + "'", "NULL") & ",calle =  " & If(cli.Calle <> "", "'" + cli.Calle + "'", "NULL") & ",NumeroCalle = " & If(cli.NumeroCalle.ToString() <> "", "'" + cli.NumeroCalle + "'", "NULL") & ",Departamento =  " & If(cli.Departamento <> "", "'" + cli.Departamento + "'", "NULL") & ",Barrio = " & If(cli.Barrio <> "", "'" + cli.Barrio + "'", "NULL") & ",Piso = " & If(cli.Piso.ToString() <> "", "'" + cli.Piso + "'", "NULL") & ",Manzana = " & If(cli.Manzana <> "", "'" + cli.Manzana + "'", "NULL") & ",Lote = " & If(cli.Lote <> "", "'" + cli.Lote + "'", "NULL") & ",CiudadId = " & If(cli.CiudadId.ToString() <> "", "'" + cli.CiudadId.ToString() + "'", "NULL") & " ,Car_Telefono = " & If(cli.Car_Telefono <> "", "'" + cli.Car_Telefono + "'", "NULL") & ",NumeroTelefono = " & If(cli.NumeroTelefono <> "", "'" + cli.NumeroTelefono + "'", "NULL") & ",Car_Celular = " & If(cli.Car_Celular <> "", "'" + cli.Car_Celular + "'", "NULL") & ",NumeroCelular = " & If(cli.NumeroCelular <> "", "'" + cli.NumeroCelular + "'", "NULL") & ",Email = " & If(cli.Email <> "", "'" + cli.Email + "'", "NULL ") & " where Id = " & cli.Id, db)
 			insert.CommandType = CommandType.Text
-			db.Open()
 			insert.ExecuteNonQuery()
 			db.Close()
 		Catch ex As Exception
@@ -207,7 +205,6 @@ Public Class ProveedoresDA
 
 
 	'		Try
-	'			'db.Open()
 
 	'			Dim control As New SqlCommand("set dateformat ymd select count(*) from clientes where FechaAlta BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' ", db)
 	'			control.CommandType = CommandType.Text

@@ -2,12 +2,12 @@
 Imports ClaseNe
 
 Public Class MovimientoStockDA
-    Private db As New SqlConnection
-    Private com As New SqlCommand
-    Private da As SqlDataAdapter
-    Private ds1 As DataSet
+	Private db As New SqlConnection
+	Private helpersDa As New HelpersDA
+	Private com As New SqlCommand
+	Private da As SqlDataAdapter
 
-    Public Sub New()
+	Public Sub New()
         Dim objcon As New ConexionDA
         db = objcon.Abrir
         com.Connection = db

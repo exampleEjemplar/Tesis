@@ -2,6 +2,7 @@
 Imports ClaseNe
 Public Class ComprasDA
 	Private db As New SqlConnection
+	Private helpersDa As New HelpersDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
 	Private ds1 As DataSet
@@ -12,6 +13,7 @@ Public Class ComprasDA
 		com.Connection = db
 	End Sub
 	Public Function CargarGrillaCompras(ByVal parametros As Dictionary(Of String, String)) As DataSet
+		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
 		sqlStr = "select c.Id, c.Fecha,c.Nombre +' '+ c.Apellido as Nombre ,c.Total from compras as c inner join Proveedores as c on c.Id = c.ProveedorId"

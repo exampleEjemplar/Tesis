@@ -3,13 +3,14 @@ Imports System.Data.SqlClient
 Imports ClaseNE
 
 Public Class MetodoLoginDA
-	Private con As New SqlConnection
+	Private db As New SqlConnection
+	Private helpersDA As New HelpersDA
 	Private com As New SqlCommand
 
 	Public Sub New()
 		Dim objcon As New ConexionDA
-		con = objcon.Abrir
-		com.Connection = con
+		db = objcon.Abrir
+		com.Connection = db
 	End Sub
 
 	Public usr As String
@@ -19,9 +20,10 @@ Public Class MetodoLoginDA
 	Public respuesta As SqlDataReader
 
 	Function UsuarioRegistrado(ByVal nombreUsuario As String) As Boolean
+		helpersDA.ChequearConexion(db)
 		Dim resultado As Boolean = False
 		Try
-			enunciado = New SqlCommand("Select * from Usuarios where UserName='" & nombreUsuario & "'", con)
+			enunciado = New SqlCommand("Select * from Usuarios where UserName='" & nombreUsuario & "'", db)
 			respuesta = enunciado.ExecuteReader
 
 			If respuesta.Read Then
@@ -30,16 +32,17 @@ Public Class MetodoLoginDA
 			respuesta.Close()
 		Catch ex As Exception
 			MsgBox(ex.ToString)
-			con.Close()
+			db.Close()
 		End Try
 		Return resultado
-		con.Close()
+		db.Close()
 	End Function
 
 	Function Contrasena(ByVal nombreUsuario As String) As String
+		helpersDA.ChequearConexion(db)
 		Dim resultado As String = ""
 		Try
-			enunciado = New SqlCommand("Select rtrim(Contrasena) as Contrasena from Usuarios where UserName='" & nombreUsuario & "'", con)
+			enunciado = New SqlCommand("Select rtrim(Contrasena) as Contrasena from Usuarios where UserName='" & nombreUsuario & "'", db)
 			respuesta = enunciado.ExecuteReader
 
 			If respuesta.Read Then
@@ -49,18 +52,19 @@ Public Class MetodoLoginDA
 			respuesta.Close()
 		Catch ex As Exception
 			MsgBox(ex.ToString)
-			con.Close()
+			db.Close()
 		End Try
 		Return resultado
-		con.Close()
+		db.Close()
 	End Function
 
 	Function ConsultarRolUsuario(ByVal nombreUsuario As String) As Integer
+		helpersDA.ChequearConexion(db)
 		Dim resultado As Integer
 		Dim resultado2 As Integer
 
 		Try
-			enunciado = New SqlCommand("Select RolId, Id from Usuarios where UserName='" & nombreUsuario & "'", con)
+			enunciado = New SqlCommand("Select RolId, Id from Usuarios where UserName='" & nombreUsuario & "'", db)
 			respuesta = enunciado.ExecuteReader
 
 			If respuesta.Read Then
@@ -72,19 +76,20 @@ Public Class MetodoLoginDA
 			respuesta.Close()
 		Catch ex As Exception
 			MsgBox(ex.ToString)
-			con.Close()
+			db.Close()
 		End Try
 
 		Return resultado2
-		con.Close()
+		db.Close()
 	End Function
 
 	Function ConsultarIDUsuario(ByVal nombreUsuario As String) As Integer
+		helpersDA.ChequearConexion(db)
 		Dim resultado As Integer
 		Dim resultado2 As Integer
 
 		Try
-			enunciado = New SqlCommand("Select RolId, Id from Usuarios where UserName='" & nombreUsuario & "'", con)
+			enunciado = New SqlCommand("Select RolId, Id from Usuarios where UserName='" & nombreUsuario & "'", db)
 			respuesta = enunciado.ExecuteReader
 
 			If respuesta.Read Then
@@ -96,21 +101,23 @@ Public Class MetodoLoginDA
 			respuesta.Close()
 		Catch ex As Exception
 			MsgBox(ex.ToString)
-			con.Close()
+			db.Close()
 		End Try
 
 		Return resultado2
 	End Function
+
 	Public Sub EnSesion(ByVal usrId As Integer)
+		helpersDA.ChequearConexion(db)
 		Try
-			Dim insert As New SqlCommand("Update EnSesion set UsuarioId = " & usrId, con)
+			Dim insert As New SqlCommand("Update EnSesion set UsuarioId = " & usrId, db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
 			Dim respuesta = insert.ExecuteReader
-			con.Close()
+			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			con.Close()
+			db.Close()
 		End Try
 	End Sub
 

@@ -32,7 +32,7 @@ Public Class ProductoLN
     End Function
     Public Sub ConsultarCodigo()
 
-        objproductosAD.controlID()
+        objproductosAD.ControlID()
         QProducto = objproductosAD.qidproductos
     End Sub
 

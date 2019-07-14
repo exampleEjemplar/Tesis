@@ -2,6 +2,7 @@
 Imports ClaseNe
 Public Class VentasDA
 	Private db As New SqlConnection
+	Private helpersDa As New HelpersDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
 	Private ds1 As DataSet
@@ -14,6 +15,7 @@ Public Class VentasDA
 
 
 	Public Function CargarGrillaVentas(ByVal parametros As Dictionary(Of String, String)) As DataSet
+		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
 		sqlStr = "set dateformat dmy select v.Id, v.Fecha,c.Nombre +' '+ c.Apellido as Nombre ,v.Total from ventas as v inner join Clientes as c on c.Id = v.ClienteId"
@@ -64,9 +66,8 @@ Public Class VentasDA
 		Next
 		total = Math.Round(total, 2)
 
-		If (db.State = ConnectionState.Closed) Then
-			db.Open()
-		End If
+		helpersDa.ChequearConexion(db)
+
 
 		Try
 			Dim totalizado = total.ToString().Replace(",", ".")
@@ -87,6 +88,7 @@ Public Class VentasDA
 	End Sub
 
 	Public Function ObtenerUltimaVenta()
+		helpersDa.ChequearConexion(db)
 		Dim da As New SqlDataAdapter("Select Max(id) as [Id] from ventas", db)
 		Dim ds As New DataSet
 		Try
@@ -101,6 +103,7 @@ Public Class VentasDA
 	End Function
 
 	Public Function ObtenerDatosCliente(ByVal idventa As String)
+		helpersDa.ChequearConexion(db)
 		Dim da As New SqlDataAdapter("Select c.Nombre + ', ' + c.Apellido as [NombreCliente],
                                       td.Descripcion as [TipoDoc], c.NumeroDocumento as [NroDoc],
                                       c.Calle + ', ' + Convert(varchar(10),c.NumeroCalle) as [Domicilio], v.Total as [Total] From Ventas as v
@@ -119,6 +122,7 @@ Public Class VentasDA
 	End Function
 
 	Public Function ObtenerDatosProducto(ByVal idventa As String)
+		helpersDa.ChequearConexion(db)
 		Dim da As New SqlDataAdapter("Select  dv.id, Max(p.Nombre) as [Producto], Max(p.Precio) [PrecioU],
 		                                Max(u.Nombre) as [UnidadMedida],
 		                                Max(dv.cantidad) as [Cantidad], Max(dv.Subtotal) as [Subtotal] from Ventas as v 

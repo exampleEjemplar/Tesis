@@ -11,12 +11,11 @@ Public Class MetodoProductoDA
 	Public respuesta As SqlDataReader
 	Public adaptador As SqlDataAdapter
 	Private db As New SqlConnection
+	Private helpersDa As New HelpersDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
 	Dim Rs As SqlDataReader
 	Private ds As DataSet
-	Private dt As DataTable
-
 	Public qidproductos As Integer
 
 
@@ -27,7 +26,7 @@ Public Class MetodoProductoDA
 	End Sub
 
 	Public Function CargarCMBtIpo()
-
+		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds = New DataSet
         sqlStr = "select * from TipoProductos Order By Descripcion "
@@ -44,6 +43,7 @@ Public Class MetodoProductoDA
 	End Function
 
 	Public Function CargarCMBmaterial()
+		helpersDa.ChequearConexion(db)
 
 		Dim sqlStr As String
 		ds = New DataSet
@@ -61,6 +61,7 @@ Public Class MetodoProductoDA
 	End Function
 
 	Public Function CargarCMBproveerdor()
+		helpersDa.ChequearConexion(db)
 
 		Dim sqlStr As String
 		ds = New DataSet
@@ -78,6 +79,7 @@ Public Class MetodoProductoDA
 	End Function
 
 	Public Function LlenarCMBCategoria()
+		helpersDa.ChequearConexion(db)
 
 		Dim sqlStr As String
 		ds = New DataSet
@@ -94,8 +96,8 @@ Public Class MetodoProductoDA
 
 	End Function
 
-
 	Public Function Cargargrilladobleclick()
+		helpersDa.ChequearConexion(db)
 
 		Dim sqlStr As String
 		ds = New DataSet
@@ -113,6 +115,7 @@ Public Class MetodoProductoDA
 	End Function
 
 	Public Function CargarCMBcategoria2(ByVal idcat1 As Integer)
+		helpersDa.ChequearConexion(db)
 
 		Dim sqlStr As String
 		ds = New DataSet
@@ -129,11 +132,9 @@ Public Class MetodoProductoDA
 
 	End Function
 
-
 	Public Sub Grabarproductos(ByVal pro As ProductosNE)
-		'   
+		helpersDa.ChequearConexion(db)
 		Try
-			db.Open()
 			com = New SqlCommand("SP_RegistrarProducto", db)
 			com.CommandType = CommandType.StoredProcedure
 
@@ -165,13 +166,9 @@ Public Class MetodoProductoDA
 		End Try
 	End Sub
 
-
-
 	Public Function CargaGrillaproductosconbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
-
-
+		helpersDa.ChequearConexion(db)
 		Try
-			db.Open()
 			com = New SqlCommand("SP_MostrarProductoconbusqueda", db)
 			com.CommandType = CommandType.StoredProcedure
 			With com.Parameters
@@ -200,13 +197,10 @@ Public Class MetodoProductoDA
 
 	End Function
 
-
-
 	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
-
 		Try
+			helpersDa.ChequearConexion(db)
 
-			db.Open()
 			com = New SqlCommand("SP_MostrarProductosinbusqueda", db)
 			com.CommandType = CommandType.StoredProcedure
 			With com.Parameters
@@ -235,12 +229,10 @@ Public Class MetodoProductoDA
 
 	End Function
 
-
 	Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As String) As DataTable
 
 		Try
-
-			db.Open()
+			helpersDa.ChequearConexion(db)
 			com = New SqlCommand("SP_MostrarProductoconbusquedaCAT", db)
 			com.CommandType = CommandType.StoredProcedure
 			With com.Parameters
@@ -269,11 +261,10 @@ Public Class MetodoProductoDA
 
 	End Function
 
-
 	Public Sub Modificarproductos(ByVal pro As ProductosNE)
-		'   
 		Try
-			db.Open()
+			helpersDa.ChequearConexion(db)
+
 			com = New SqlCommand("SP_ModificarProductos", db)
 			com.CommandType = CommandType.StoredProcedure
 
@@ -306,10 +297,10 @@ Public Class MetodoProductoDA
 		End Try
 	End Sub
 
-	Public Sub controlID()
-
+	Public Sub ControlID()
 		Try
-			db.Open()
+			helpersDa.ChequearConexion(db)
+
 			Dim control As New SqlCommand("select max(id) +1 from productos", db)
 			control.CommandType = CommandType.Text
 			Rs = control.ExecuteReader()
@@ -324,6 +315,7 @@ Public Class MetodoProductoDA
 	End Sub
 
 	Public Function CargarUnProducto(id As Integer)
+		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		Dim ds1 = New DataSet
 		sqlStr = "select * from productos where id =" & id
@@ -337,6 +329,5 @@ Public Class MetodoProductoDA
 		End Try
 		Return ds1
 	End Function
-
 
 End Class
