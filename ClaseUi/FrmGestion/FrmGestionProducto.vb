@@ -4,6 +4,7 @@ Imports ClaseLn
 Imports ClaseNe
 Imports System.IO
 Imports System.Windows.Forms
+Imports System.Globalization
 
 Public Class FrmGestionProducto
 
@@ -179,11 +180,17 @@ Public Class FrmGestionProducto
 				If Not String.IsNullOrEmpty(tbCodBarra.Text) Then
 					pro.CodBarra = tbCodBarra.Text
 				Else
-					MsgBox("Debe agregar una codigo de barra", MsgBoxStyle.Critical, "Producto")
+					MsgBox("Debe agregar una codigo de barras", MsgBoxStyle.Critical, "Producto")
 					Return
 				End If
 				If Not String.IsNullOrEmpty(TbPrecio.Text) Then
-					pro.precio = TbPrecio.Text
+					Dim value As Decimal
+					Dim newText = TbPrecio.Text.Replace(",", ".")
+					If Not Decimal.TryParse(newText, value) Then
+						MsgBox("Ingrese el precio en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
+						Return
+					End If
+					pro.precio = newText.ToString()
 				Else
 					MsgBox("Debe agregar un precio", MsgBoxStyle.Critical, "Producto")
 					Return
@@ -362,8 +369,8 @@ Public Class FrmGestionProducto
 	End Sub
 
 	Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
-        productometodo.Cargargrilladobleclick()
-        tbCodigo.Text = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
+		productometodo.Cargargrilladobleclick()
+		tbCodigo.Text = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
 		tbCodBarra.Text = (DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value)
 
 		Dim ms As MemoryStream = New MemoryStream()
@@ -400,8 +407,8 @@ Public Class FrmGestionProducto
 		btnBuscar.Enabled = False
 		btnNuevo.Enabled = False
 		btnGuardar.Visible = False
-        btnguardarmodificacion.Visible = False
-        btnmodificar.Enabled = True
+		btnguardarmodificacion.Visible = False
+		btnmodificar.Enabled = True
 		bloquearcampos()
 
 	End Sub
@@ -719,9 +726,9 @@ Public Class FrmGestionProducto
 		Button3.Enabled = True
 	End Sub
 
-    Private Sub btnProveedor_Click(sender As Object, e As EventArgs) Handles btnProveedor.Click
-        FrmGestionProveedores.Show()
+	Private Sub btnProveedor_Click(sender As Object, e As EventArgs) Handles btnProveedor.Click
+		FrmGestionProveedores.Show()
 
-    End Sub
+	End Sub
 
 End Class

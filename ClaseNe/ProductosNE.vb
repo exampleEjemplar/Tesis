@@ -44,18 +44,18 @@
         End Set
     End Property
 
-    Private _precio As Double
+	Private _precio As String
 
-    Public Property precio As Double
-        Get
-            Return _precio
-        End Get
-        Set(ByVal value As Double)
-            _precio = CStr(value)
-        End Set
-    End Property
+	Public Property precio As String
+		Get
+			Return _precio
+		End Get
+		Set(ByVal value As String)
+			_precio = CStr(value)
+		End Set
+	End Property
 
-    Private _utilidad As Double
+	Private _utilidad As Double
 
     Public Property utilidad As Double
         Get

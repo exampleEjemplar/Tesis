@@ -1,8 +1,6 @@
 ﻿Imports ClaseLn
 Imports ClaseNe
 Imports Microsoft.Reporting.WinForms
-Imports System.Data.SqlClient
-Imports System.Windows.Forms
 
 Public Class FrmComprobanteVenta
 
@@ -19,6 +17,8 @@ Public Class FrmComprobanteVenta
 		Dim rpVentasDS As New ReportDataSource
 		Dim ListaDeCompVentasNE As List(Of ComprobanteVentasNE) = New List(Of ComprobanteVentasNE)
 		Dim idVenta As Integer
+
+		'Si accedo desde el frmGestionVenta uso ese Id, si no, uso el ultimo.
 		Dim ventaDeGestion As Integer = FrmGestionVentas.idVenta
 		If ventaDeGestion = 0 Then
 			idVenta = VentasLN.ObtenerUltimaVenta().Tables(0).Rows(0).Item(0).ToString
@@ -26,10 +26,12 @@ Public Class FrmComprobanteVenta
 			idVenta = ventaDeGestion
 		End If
 
+		'Consulto los productos y cliente de la venta
 		Dim dsProducto As DataSet = VentasLN.ObtenerDatosProducto(idVenta)
 		Dim dsCliente As DataSet = VentasLN.ObtenerDatosCliente(idVenta)
+
 		Try
-			'Cargo datos en objeto
+			'Cargo datos de los productos en la lista de productos del comprobante
 			For i As Integer = 0 To dsProducto.Tables(0).Rows.Count - 1
 
 				Dim CompVentasNE As New ComprobanteVentasNE
@@ -42,6 +44,7 @@ Public Class FrmComprobanteVenta
 				ListaDeCompVentasNE.Add(CompVentasNE)
 			Next
 
+			'Le agrego los datos del cliente a solo un comprobante de venta, con eso alcanza para mostrarlo
 			ListaDeCompVentasNE.FirstOrDefault().NombreCliente = dsCliente.Tables(0).Rows(0).Item(0).ToString
 			ListaDeCompVentasNE.FirstOrDefault().TipoDoc = dsCliente.Tables(0).Rows(0).Item(1).ToString
 			ListaDeCompVentasNE.FirstOrDefault().Documento = dsCliente.Tables(0).Rows(0).Item(2).ToString
@@ -50,7 +53,8 @@ Public Class FrmComprobanteVenta
 
 
 			ComprobanteVentasNEBindingSource.DataSource = ListaDeCompVentasNE
-
+			'Saque el refresh del principio, perdia performance y funciona igual solo con el ultimo.
+			'Tambien lo hice automatico sin necesidad de tocar un boton para generar
 			rpVentas.RefreshReport()
 
 		Catch ex As Exception
