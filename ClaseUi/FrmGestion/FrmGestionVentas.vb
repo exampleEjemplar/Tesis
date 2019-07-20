@@ -10,7 +10,7 @@ Public Class FrmGestionVentas
 #Region "Eventos"
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		LlenarCboClientes()
-		LlenarDgv(New Dictionary(Of String, String))
+		LlenarDgv(New Dictionary(Of String, String), "load")
 		dtpFechaHasta.Visible = False
 		dtpFechaDesde.Visible = False
 		lblFechaExacta.Visible = False
@@ -59,14 +59,14 @@ Public Class FrmGestionVentas
 		MessageBox.Show(cboCliente.SelectedValue)
 	End Function
 
-	Public Function LlenarDgv(ByVal parametros As Dictionary(Of String, String)) As DataSet
+	Public Function LlenarDgv(ByVal parametros As Dictionary(Of String, String), Optional type As String = "") As DataSet
 		Dim dsa1 As DataSet
-		dsa1 = ventasLN.CargarGrillaVentas(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
+		dsa1 = ventasLN.CargarGrillaVentas(parametros) 'Si parametros esta vacio, busca todos las ventas en la bd
 		dgvProveedores.DataSource = dsa1.Tables(0)
 		dgvProveedores.Columns("Id").Visible = False
 		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
 		dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-		If dsa1.Tables(0).Rows.Count() = 0 Then
+		If dsa1.Tables(0).Rows.Count() = 0 And type = "" Then
 			MsgBox("La busqueda no arrojo resultados", MsgBoxStyle.OkOnly, "Ventas")
 		End If
 		Return dsa1

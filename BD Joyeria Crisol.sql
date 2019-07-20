@@ -42,6 +42,7 @@ UserName VARCHAR(MAX),
 Contrasena VARCHAR(MAX),
 RolId INT,
 ActivoSN CHAR(1),
+FechaAlta DATETIME,
 CONSTRAINT Usuarios_Roles FOREIGN KEY (RolId) REFERENCES Roles(ID)
 )
 GO
@@ -131,7 +132,7 @@ CONSTRAINT Cliente_Usuario FOREIGN KEY (UsuarioId) REFERENCES Usuarios(ID)
 GO
 CREATE TABLE Ventas(
 Id INT IDENTITY PRIMARY KEY,
-Fecha DATE,
+Fecha DATETIME,
 ClienteId INT,
 Total FLOAT,
 UsuarioId Int,
@@ -161,6 +162,7 @@ TipoProductoID INT,
 UnidadDePeso int,
 CategoriaID INT,
 StockODeTercero INT,
+FechaAlta DATETIME,
 CONSTRAINT Producto_Material FOREIGN KEY (MaterialId) REFERENCES Materiales(ID),
 CONSTRAINT Producto_Proveedor FOREIGN KEY (ProveedorId) REFERENCES Proveedores(ID),
 CONSTRAINT Producto_Categoria FOREIGN KEY (CategoriaID) REFERENCES Categorias(ID),
@@ -190,7 +192,7 @@ CONSTRAINT DetalleVenta_Producto FOREIGN KEY (ProductoId) REFERENCES Productos(I
 GO
 CREATE TABLE Compras(
 Id INT IDENTITY PRIMARY KEY,
-Fecha DATE,
+Fecha DATETIME,
 ProveedorId INT,
 Total FLOAT,
 UsuarioId Int,
@@ -22891,48 +22893,48 @@ INSERT INTO ciudades VALUES (27856, 'CANDELARIA', '4231', '3')
 INSERT INTO ciudades VALUES (27857, 'LAS VEGAS', '5549', '13')
 --TipoDocumentos
 GO
-INSERT TIPODOCUMENTOS
+INSERT INTO TIPODOCUMENTOS
 VALUES
 ('DNI','F')
 GO
-INSERT TIPODOCUMENTOS
+INSERT INTO TIPODOCUMENTOS
 VALUES
 ('Libreta de enrolamiento','F')
 GO
-INSERT TIPODOCUMENTOS
+INSERT INTO TIPODOCUMENTOS
 VALUES
 ('Libreta Civica','F')
 GO
-INSERT TIPODOCUMENTOS
+INSERT INTO TIPODOCUMENTOS
 VALUES
 ('CUIT','J')
 GO
-INSERT TIPODOCUMENTOS
+INSERT INTO TIPODOCUMENTOS
 VALUES
 ('CUIL','J')
 
 --Roles
 
 GO
-Insert ROLES
+Insert INTO ROLES
 VALUES
 ('Administrador')
 GO
-Insert ROLES
+Insert INTO ROLES
 VALUES
 ('Vendedor')
 GO
-Insert ROLES
+Insert INTO ROLES
 VALUES
 ('Cajero')
 
 --UsuarioTest
 GO
-INSERT Usuarios
+INSERT INTO Usuarios
 VALUES
 ('testing','testing',1,'S')
 GO
-INSERT EnSesion
+INSERT INTO EnSesion
 VALUES
 (1)
 GO
@@ -22952,7 +22954,8 @@ insert into UnidadesDePeso
 VALUES
 ('Unidad')
 GO
-
+set dateformat dmy insert into Clientes values (1,123456789,'Cliente','Test','13/07/2001', getdate(), 'Calle', '123','B','San Martin','1','1','2','16157' ,NULL,NULL,'351','153934180', 'S','1','cliente@cliente.com','F')
+GO
 
  USE [JoyeriaCrisol]
 GO
@@ -23118,7 +23121,8 @@ CREATE PROCEDURE [dbo].[SP_RegistrarProducto]
 @TipoProductoID int,
 @UnidadDePeso int,
 @CategoriaId int,
-@StockODeTercero int
+@StockODeTercero int,
+@FechaAlta datetime
 AS
 
 begin
@@ -23137,7 +23141,8 @@ insert into productos  values(@Cod_Barra,
 @TipoProductoID,
 @UnidadDePeso,
 @CategoriaId,
-@StockODeTercero)
+@StockODeTercero,
+@FechaAlta)
 end
 
 

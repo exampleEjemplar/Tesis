@@ -213,7 +213,7 @@ Partial Class MDIPrincipal
 		Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Button4.Location = New System.Drawing.Point(952, 256)
-		Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Button4.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button4.Name = "Button4"
 		Me.Button4.Size = New System.Drawing.Size(165, 111)
 		Me.Button4.TabIndex = 30
@@ -231,7 +231,7 @@ Partial Class MDIPrincipal
 		Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Button2.Location = New System.Drawing.Point(763, 256)
-		Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Button2.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button2.Name = "Button2"
 		Me.Button2.Size = New System.Drawing.Size(165, 111)
 		Me.Button2.TabIndex = 26
@@ -249,7 +249,7 @@ Partial Class MDIPrincipal
 		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Button1.Location = New System.Drawing.Point(763, 137)
-		Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button1.Name = "Button1"
 		Me.Button1.Size = New System.Drawing.Size(165, 111)
 		Me.Button1.TabIndex = 24
@@ -267,7 +267,7 @@ Partial Class MDIPrincipal
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnSalir.Location = New System.Drawing.Point(859, 374)
-		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
 		Me.btnSalir.Size = New System.Drawing.Size(165, 112)
 		Me.btnSalir.TabIndex = 22
@@ -285,7 +285,7 @@ Partial Class MDIPrincipal
 		Me.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnAjustes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnAjustes.Location = New System.Drawing.Point(1148, 132)
-		Me.btnAjustes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnAjustes.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnAjustes.Name = "btnAjustes"
 		Me.btnAjustes.Size = New System.Drawing.Size(165, 111)
 		Me.btnAjustes.TabIndex = 20
@@ -303,7 +303,7 @@ Partial Class MDIPrincipal
 		Me.btnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnCaja.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnCaja.Location = New System.Drawing.Point(1148, 256)
-		Me.btnCaja.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnCaja.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnCaja.Name = "btnCaja"
 		Me.btnCaja.Size = New System.Drawing.Size(165, 111)
 		Me.btnCaja.TabIndex = 19
@@ -321,7 +321,7 @@ Partial Class MDIPrincipal
 		Me.btnArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnArticulos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnArticulos.Location = New System.Drawing.Point(952, 132)
-		Me.btnArticulos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnArticulos.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnArticulos.Name = "btnArticulos"
 		Me.btnArticulos.Size = New System.Drawing.Size(165, 111)
 		Me.btnArticulos.TabIndex = 18
@@ -339,7 +339,7 @@ Partial Class MDIPrincipal
 		Me.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnCompras.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnCompras.Location = New System.Drawing.Point(567, 256)
-		Me.btnCompras.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnCompras.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnCompras.Name = "btnCompras"
 		Me.btnCompras.Size = New System.Drawing.Size(165, 111)
 		Me.btnCompras.TabIndex = 17
@@ -357,7 +357,7 @@ Partial Class MDIPrincipal
 		Me.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnVentas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnVentas.Location = New System.Drawing.Point(567, 137)
-		Me.btnVentas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnVentas.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnVentas.Name = "btnVentas"
 		Me.btnVentas.Size = New System.Drawing.Size(165, 111)
 		Me.btnVentas.TabIndex = 16
@@ -386,7 +386,7 @@ Partial Class MDIPrincipal
 		Me.Controls.Add(Me.MenuStrip)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
 		Me.IsMdiContainer = True
-		Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Margin = New System.Windows.Forms.Padding(4)
 		Me.Name = "MDIPrincipal"
 		Me.Text = "MDIPrincipal"
 		Me.MenuStrip.ResumeLayout(False)

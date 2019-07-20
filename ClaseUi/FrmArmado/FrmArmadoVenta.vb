@@ -289,7 +289,10 @@ Public Class FrmArmadoVenta
 		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros)
 		lstProdDispo.Clear()
 		lstProdDispo.Scrollable = True
-
+		If ds2.Tables(0).Rows.Count = 0 Then
+			MsgBox("No se encontró ningún producto bajo los parámetros solicitados", MsgBoxStyle.OkOnly, "Productos")
+			Return
+		End If
 		Dim ik As Integer
 		Dim imagen As ImageList = New ImageList
 		Dim ImageList = New ImageList()

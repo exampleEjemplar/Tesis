@@ -134,8 +134,8 @@ Public Class FrmGestionUsuario
         End If
 
         If Not helpersUI.ValidatePassword(txtContrasena.Text) Then
-            MsgBox("Las contraseña no contiene los parámetros requeridos (1 letra mayúscula, 1 número, 1 letra minúscula)", MsgBoxStyle.Critical, "Error")
-            Return False
+			MsgBox("Las contraseña no contiene los parámetros requeridos (1 letra mayúscula, 1 número, 1 letra minúscula, 8 caracteres)", MsgBoxStyle.Critical, "Error")
+			Return False
         End If
 
         usu.UserName = txtUserName.Text

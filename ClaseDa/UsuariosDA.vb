@@ -36,38 +36,38 @@ Public Class UsuariosDA
 		helpersDA.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
-        sqlStr = "select u.UserName, r.Descripcion, u.ActivoSN from usuarios as u inner join roles as r on r.id = u.RolId"
+		sqlStr = "select u.UserName, r.Descripcion, u.ActivoSN from usuarios as u inner join roles as r on r.id = u.RolId"
 
-        If parametros.Count > 0 Then
-            Dim extraText As String = String.Empty
-            Dim count As Integer = 0
-            For Each parametro As KeyValuePair(Of String, String) In parametros
-                If count <> 0 Then
-                    extraText = extraText & " and "
-                Else
-                    extraText = " where "
-                End If
-                extraText = extraText & " u." & parametro.Key & " like '%" & parametro.Value & "%'"
-                count = count + 1
-            Next
-            sqlStr = sqlStr & extraText
-        End If
+		If parametros.Count > 0 Then
+			Dim extraText As String = String.Empty
+			Dim count As Integer = 0
+			For Each parametro As KeyValuePair(Of String, String) In parametros
+				If count <> 0 Then
+					extraText = extraText & " and "
+				Else
+					extraText = " where "
+				End If
+				extraText = extraText & " u." & parametro.Key & " like '%" & parametro.Value & "%'"
+				count = count + 1
+			Next
+			sqlStr = sqlStr & extraText
+		End If
 
-        Try
-            da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds1)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-        Return ds1
-        db.Close()
-    End Function
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+		End Try
+		Return ds1
+		db.Close()
+	End Function
 
-    Public Sub GrabarUsuarios(ByVal usu As UsuariosNE)
+	Public Sub GrabarUsuarios(ByVal usu As UsuariosNE)
 		helpersDA.ChequearConexion(db)
 		Try
-			Dim insert As New SqlCommand("insert into usuarios values ('" & usu.UserName & "','" & usu.Contrasena & "'," & usu.RolId & ",'" & usu.ActivoSN & "')", db)
+			Dim insert As New SqlCommand("insert into usuarios values ('" & usu.UserName & "','" & usu.Contrasena & "'," & usu.RolId & ",'" & usu.ActivoSN & "',GETDATE())", db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
 			db.Close()
