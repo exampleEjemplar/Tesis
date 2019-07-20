@@ -80,7 +80,5 @@ Public Class HelpersUI
 		End If
 		Dim newText As String = text.ToLower()
 		Return Char.ToUpper(newText(0)) + newText.Substring(1)
-		'Dim j = Char.ToUpper(newText)
-		'Return text
 	End Function
 End Class

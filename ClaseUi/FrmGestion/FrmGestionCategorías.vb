@@ -3,6 +3,7 @@ Imports ClaseLn
 Public Class FrmGestionCategorías
 
 	Private categoriasLN As New CategoriasLN
+	Private helpersUI As New HelpersUI
 	Private modificando As Boolean = False
 	Public modificado As Boolean
 	Public categoriaId As Integer
@@ -36,23 +37,27 @@ Public Class FrmGestionCategorías
 		btnNuevo.Enabled = False
 	End Sub
 
-	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+	Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
 		GroupBox1.Visible = True
 		btnGuardar.Enabled = True
 	End Sub
 
-	Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+	Private Sub BtnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+
 
 		If String.IsNullOrWhiteSpace(txtNombre.Text) Then
 			MsgBox("Ingrese el nombre de la categoria", MsgBoxStyle.Critical, "Categoria")
 			Return
 		End If
 
+		Dim nombre = helpersUI.NormalizarTexto(txtNombre.Text)
+		Dim descripcion = helpersUI.NormalizarTexto(txtDescripcion.Text)
+
 		If modificando Then
-			categoriasLN.Modificar(txtNombre.Text, txtDescripcion.Text, categoriaID)
+			categoriasLN.Modificar(nombre, descripcion, categoriaId)
 			MsgBox("Registro actualizado con exito", MsgBoxStyle.OkOnly, "Categoria")
 		Else
-			categoriasLN.GuardarNuevo(txtNombre.Text, txtDescripcion.Text)
+			categoriasLN.GuardarNuevo(nombre, descripcion)
 			MsgBox("Registro agregado con exito", MsgBoxStyle.OkOnly, "Categoria")
 		End If
 		CargarGrillaCategorías()
