@@ -26,14 +26,19 @@ Partial Class FrmArmadoVenta
 		Me.Label17 = New System.Windows.Forms.Label()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+		Me.Label10 = New System.Windows.Forms.Label()
 		Me.lblClienteDireccion = New System.Windows.Forms.Label()
+		Me.Label9 = New System.Windows.Forms.Label()
 		Me.lblClienteDNI = New System.Windows.Forms.Label()
 		Me.lblClienteTelefono = New System.Windows.Forms.Label()
+		Me.Label4 = New System.Windows.Forms.Label()
 		Me.lblNombre = New System.Windows.Forms.Label()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+		Me.Label12 = New System.Windows.Forms.Label()
 		Me.Label2 = New System.Windows.Forms.Label()
+		Me.Label13 = New System.Windows.Forms.Label()
 		Me.Label3 = New System.Windows.Forms.Label()
-		Me.Label4 = New System.Windows.Forms.Label()
+		Me.Label14 = New System.Windows.Forms.Label()
 		Me.Label5 = New System.Windows.Forms.Label()
 		Me.Label6 = New System.Windows.Forms.Label()
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -64,11 +69,8 @@ Partial Class FrmArmadoVenta
 		Me.Label11 = New System.Windows.Forms.Label()
 		Me.lblTotal = New System.Windows.Forms.Label()
 		Me.lblInstrucciones = New System.Windows.Forms.Label()
-		Me.Label9 = New System.Windows.Forms.Label()
-		Me.Label10 = New System.Windows.Forms.Label()
-		Me.Label12 = New System.Windows.Forms.Label()
-		Me.Label13 = New System.Windows.Forms.Label()
-		Me.Label14 = New System.Windows.Forms.Label()
+		Me.btnAgregarProducto = New System.Windows.Forms.Button()
+		Me.btnAgregarCliente = New System.Windows.Forms.Button()
 		Me.GroupBox1.SuspendLayout()
 		Me.GroupBox2.SuspendLayout()
 		Me.GroupBox3.SuspendLayout()
@@ -131,6 +133,17 @@ Partial Class FrmArmadoVenta
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "Cliente"
 		'
+		'Label10
+		'
+		Me.Label10.AutoSize = True
+		Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
+		Me.Label10.Location = New System.Drawing.Point(7, 139)
+		Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label10.Name = "Label10"
+		Me.Label10.Size = New System.Drawing.Size(79, 20)
+		Me.Label10.TabIndex = 32
+		Me.Label10.Text = "Teléfono"
+		'
 		'lblClienteDireccion
 		'
 		Me.lblClienteDireccion.AutoSize = True
@@ -141,6 +154,17 @@ Partial Class FrmArmadoVenta
 		Me.lblClienteDireccion.Size = New System.Drawing.Size(98, 20)
 		Me.lblClienteDireccion.TabIndex = 30
 		Me.lblClienteDireccion.Text = "*Direccion*"
+		'
+		'Label9
+		'
+		Me.Label9.AutoSize = True
+		Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
+		Me.Label9.Location = New System.Drawing.Point(7, 57)
+		Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label9.Name = "Label9"
+		Me.Label9.Size = New System.Drawing.Size(84, 20)
+		Me.Label9.TabIndex = 31
+		Me.Label9.Text = "Dirección"
 		'
 		'lblClienteDNI
 		'
@@ -163,6 +187,17 @@ Partial Class FrmArmadoVenta
 		Me.lblClienteTelefono.Size = New System.Drawing.Size(93, 20)
 		Me.lblClienteTelefono.TabIndex = 27
 		Me.lblClienteTelefono.Text = "*Telefono*"
+		'
+		'Label4
+		'
+		Me.Label4.AutoSize = True
+		Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
+		Me.Label4.Location = New System.Drawing.Point(7, 100)
+		Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label4.Name = "Label4"
+		Me.Label4.Size = New System.Drawing.Size(104, 20)
+		Me.Label4.TabIndex = 28
+		Me.Label4.Text = "Identifación"
 		'
 		'lblNombre
 		'
@@ -193,6 +228,17 @@ Partial Class FrmArmadoVenta
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "Local"
 		'
+		'Label12
+		'
+		Me.Label12.AutoSize = True
+		Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
+		Me.Label12.Location = New System.Drawing.Point(7, 139)
+		Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label12.Name = "Label12"
+		Me.Label12.Size = New System.Drawing.Size(79, 20)
+		Me.Label12.TabIndex = 35
+		Me.Label12.Text = "Teléfono"
+		'
 		'Label2
 		'
 		Me.Label2.AutoSize = True
@@ -203,6 +249,17 @@ Partial Class FrmArmadoVenta
 		Me.Label2.Size = New System.Drawing.Size(155, 20)
 		Me.Label2.TabIndex = 30
 		Me.Label2.Text = "Velez Sarsfield 68"
+		'
+		'Label13
+		'
+		Me.Label13.AutoSize = True
+		Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
+		Me.Label13.Location = New System.Drawing.Point(7, 57)
+		Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label13.Name = "Label13"
+		Me.Label13.Size = New System.Drawing.Size(84, 20)
+		Me.Label13.TabIndex = 34
+		Me.Label13.Text = "Dirección"
 		'
 		'Label3
 		'
@@ -215,16 +272,16 @@ Partial Class FrmArmadoVenta
 		Me.Label3.TabIndex = 29
 		Me.Label3.Text = "23349892014"
 		'
-		'Label4
+		'Label14
 		'
-		Me.Label4.AutoSize = True
-		Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label4.Location = New System.Drawing.Point(7, 100)
-		Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label4.Name = "Label4"
-		Me.Label4.Size = New System.Drawing.Size(104, 20)
-		Me.Label4.TabIndex = 28
-		Me.Label4.Text = "Identifación"
+		Me.Label14.AutoSize = True
+		Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
+		Me.Label14.Location = New System.Drawing.Point(7, 100)
+		Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label14.Name = "Label14"
+		Me.Label14.Size = New System.Drawing.Size(104, 20)
+		Me.Label14.TabIndex = 33
+		Me.Label14.Text = "Identifación"
 		'
 		'Label5
 		'
@@ -385,7 +442,7 @@ Partial Class FrmArmadoVenta
 		Me.gboFiltros.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.gboFiltros.Name = "gboFiltros"
 		Me.gboFiltros.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.gboFiltros.Size = New System.Drawing.Size(781, 137)
+		Me.gboFiltros.Size = New System.Drawing.Size(731, 137)
 		Me.gboFiltros.TabIndex = 31
 		Me.gboFiltros.TabStop = False
 		Me.gboFiltros.Text = "Filtros"
@@ -397,10 +454,10 @@ Partial Class FrmArmadoVenta
 		Me.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
 		Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(567, 55)
+		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(568, 55)
 		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
-		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(90, 76)
+		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(74, 76)
 		Me.btnLimpiarFiltros.TabIndex = 38
 		Me.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnLimpiarFiltros.UseVisualStyleBackColor = False
@@ -412,10 +469,10 @@ Partial Class FrmArmadoVenta
 		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnBuscar.FlatAppearance.BorderSize = 0
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(679, 58)
+		Me.btnBuscar.Location = New System.Drawing.Point(650, 58)
 		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
-		Me.btnBuscar.Size = New System.Drawing.Size(89, 73)
+		Me.btnBuscar.Size = New System.Drawing.Size(74, 73)
 		Me.btnBuscar.TabIndex = 38
 		Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnBuscar.UseVisualStyleBackColor = False
@@ -495,7 +552,7 @@ Partial Class FrmArmadoVenta
 		'
 		'txtBusNombreProducto
 		'
-		Me.txtBusNombreProducto.Location = New System.Drawing.Point(567, 19)
+		Me.txtBusNombreProducto.Location = New System.Drawing.Point(441, 22)
 		Me.txtBusNombreProducto.Name = "txtBusNombreProducto"
 		Me.txtBusNombreProducto.Size = New System.Drawing.Size(201, 22)
 		Me.txtBusNombreProducto.TabIndex = 41
@@ -504,7 +561,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.Label8.AutoSize = True
 		Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
-		Me.Label8.Location = New System.Drawing.Point(403, 24)
+		Me.Label8.Location = New System.Drawing.Point(306, 25)
 		Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label8.Name = "Label8"
 		Me.Label8.Size = New System.Drawing.Size(128, 16)
@@ -518,7 +575,7 @@ Partial Class FrmArmadoVenta
 		Me.cboBusProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.cboBusProveedor.FormattingEnabled = True
 		Me.cboBusProveedor.Items.AddRange(New Object() {"Física", "Jurídica"})
-		Me.cboBusProveedor.Location = New System.Drawing.Point(171, 21)
+		Me.cboBusProveedor.Location = New System.Drawing.Point(97, 21)
 		Me.cboBusProveedor.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboBusProveedor.Name = "cboBusProveedor"
 		Me.cboBusProveedor.Size = New System.Drawing.Size(201, 25)
@@ -585,74 +642,53 @@ Partial Class FrmArmadoVenta
 		'lblInstrucciones
 		'
 		Me.lblInstrucciones.AutoSize = True
-		Me.lblInstrucciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.25!, System.Drawing.FontStyle.Bold)
+		Me.lblInstrucciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.25!, System.Drawing.FontStyle.Bold)
 		Me.lblInstrucciones.Location = New System.Drawing.Point(476, 53)
 		Me.lblInstrucciones.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblInstrucciones.Name = "lblInstrucciones"
-		Me.lblInstrucciones.Size = New System.Drawing.Size(473, 25)
+		Me.lblInstrucciones.Size = New System.Drawing.Size(401, 22)
 		Me.lblInstrucciones.TabIndex = 36
 		Me.lblInstrucciones.Text = "*Debe seleccionar un cliente para continuar"
 		'
-		'Label9
+		'btnAgregarProducto
 		'
-		Me.Label9.AutoSize = True
-		Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label9.Location = New System.Drawing.Point(7, 57)
-		Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label9.Name = "Label9"
-		Me.Label9.Size = New System.Drawing.Size(84, 20)
-		Me.Label9.TabIndex = 31
-		Me.Label9.Text = "Dirección"
+		Me.btnAgregarProducto.BackColor = System.Drawing.SystemColors.Control
+		Me.btnAgregarProducto.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_add_354
+		Me.btnAgregarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnAgregarProducto.FlatAppearance.BorderSize = 0
+		Me.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnAgregarProducto.Location = New System.Drawing.Point(757, 295)
+		Me.btnAgregarProducto.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnAgregarProducto.Name = "btnAgregarProducto"
+		Me.btnAgregarProducto.Size = New System.Drawing.Size(106, 101)
+		Me.btnAgregarProducto.TabIndex = 38
+		Me.btnAgregarProducto.Text = "Agregar producto"
+		Me.btnAgregarProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnAgregarProducto.UseVisualStyleBackColor = False
 		'
-		'Label10
+		'btnAgregarCliente
 		'
-		Me.Label10.AutoSize = True
-		Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label10.Location = New System.Drawing.Point(7, 139)
-		Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label10.Name = "Label10"
-		Me.Label10.Size = New System.Drawing.Size(79, 20)
-		Me.Label10.TabIndex = 32
-		Me.Label10.Text = "Teléfono"
-		'
-		'Label12
-		'
-		Me.Label12.AutoSize = True
-		Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label12.Location = New System.Drawing.Point(7, 139)
-		Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label12.Name = "Label12"
-		Me.Label12.Size = New System.Drawing.Size(79, 20)
-		Me.Label12.TabIndex = 35
-		Me.Label12.Text = "Teléfono"
-		'
-		'Label13
-		'
-		Me.Label13.AutoSize = True
-		Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label13.Location = New System.Drawing.Point(7, 57)
-		Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label13.Name = "Label13"
-		Me.Label13.Size = New System.Drawing.Size(84, 20)
-		Me.Label13.TabIndex = 34
-		Me.Label13.Text = "Dirección"
-		'
-		'Label14
-		'
-		Me.Label14.AutoSize = True
-		Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label14.Location = New System.Drawing.Point(7, 100)
-		Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label14.Name = "Label14"
-		Me.Label14.Size = New System.Drawing.Size(104, 20)
-		Me.Label14.TabIndex = 33
-		Me.Label14.Text = "Identifación"
+		Me.btnAgregarCliente.BackColor = System.Drawing.SystemColors.Control
+		Me.btnAgregarCliente.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_add_354
+		Me.btnAgregarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnAgregarCliente.FlatAppearance.BorderSize = 0
+		Me.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnAgregarCliente.Location = New System.Drawing.Point(885, -1)
+		Me.btnAgregarCliente.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnAgregarCliente.Name = "btnAgregarCliente"
+		Me.btnAgregarCliente.Size = New System.Drawing.Size(106, 101)
+		Me.btnAgregarCliente.TabIndex = 39
+		Me.btnAgregarCliente.Text = "Agregar cliente"
+		Me.btnAgregarCliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnAgregarCliente.UseVisualStyleBackColor = False
 		'
 		'FrmArmadoVenta
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(1247, 950)
+		Me.Controls.Add(Me.btnAgregarCliente)
+		Me.Controls.Add(Me.btnAgregarProducto)
 		Me.Controls.Add(Me.lblInstrucciones)
 		Me.Controls.Add(Me.gboTotales)
 		Me.Controls.Add(Me.GroupBox5)
@@ -733,4 +769,6 @@ Partial Class FrmArmadoVenta
 	Friend WithEvents Label12 As Windows.Forms.Label
 	Friend WithEvents Label13 As Windows.Forms.Label
 	Friend WithEvents Label14 As Windows.Forms.Label
+	Friend WithEvents btnAgregarProducto As Windows.Forms.Button
+	Friend WithEvents btnAgregarCliente As Windows.Forms.Button
 End Class

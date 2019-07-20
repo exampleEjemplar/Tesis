@@ -230,6 +230,14 @@ Public Class FrmArmadoVenta
 	End Sub
 
 	Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+		Search()
+	End Sub
+
+#End Region
+
+#Region "Metodos"
+
+	Public Sub Search()
 		Dim parametros As Dictionary(Of String, String) = New Dictionary(Of String, String)
 		If String.IsNullOrWhiteSpace(cboBusProveedor.SelectedValue) = False Then
 			parametros.Add("ProveedorId", cboBusProveedor.SelectedValue)
@@ -249,10 +257,6 @@ Public Class FrmArmadoVenta
 		End If
 		LlenarLvi(parametros)
 	End Sub
-
-#End Region
-
-#Region "Metodos"
 
 	Public Function LlenarCboClientes()
 		Try
@@ -350,6 +354,24 @@ Public Class FrmArmadoVenta
 	Private Sub ListView1_CausesValidationChanged(sender As Object, e As EventArgs) Handles ListView1.CausesValidationChanged
 		MsgBox("cambio", MsgBoxStyle.OkOnly, "Error")
 	End Sub
+
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
+		FrmGestionProducto.ShowDialog()
+	End Sub
+
+	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+		If FrmGestionProducto.modificado Then
+			Search()
+		End If
+		If FrmGestionCliente.modificado Then
+			LlenarCboClientes()
+		End If
+	End Sub
+
+	Private Sub btnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarCliente.Click
+		FrmGestionCliente.ShowDialog()
+	End Sub
+
 
 #End Region
 

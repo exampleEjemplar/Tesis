@@ -14,7 +14,7 @@ Public Class FrmGestionProducto
 	Public idcategoria As Integer
 	Public idcategoria1 As Integer
 	Dim helpersLN As New HelpersLN
-
+	Public modificado As Boolean = False
 	Dim IMAGEN As String
 	Dim busqcod As String
 	Dim busqprod As String
@@ -156,6 +156,7 @@ Public Class FrmGestionProducto
 				btnmodificar.Enabled = True
 				btnNuevo.Enabled = True
 				MsgBox("Producto Agregado", MsgBoxStyle.OkOnly, "Producto")
+				modificado = True
 
 			Else
 				Dim ms As New IO.MemoryStream()
@@ -257,6 +258,8 @@ Public Class FrmGestionProducto
 				btnBuscar.Enabled = True
 				btnmodificar.Enabled = True
 				MsgBox("Producto Agregado", MsgBoxStyle.OkOnly, "Producto")
+				modificado = True
+
 			End If
 		Catch ex As Exception
 			MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
@@ -269,6 +272,7 @@ Public Class FrmGestionProducto
 	End Sub
 
 	Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles Button2.Click
+		modificado = True
 		Me.Close()
 	End Sub
 
@@ -286,6 +290,7 @@ Public Class FrmGestionProducto
 		LlenarCMBCategoria()
 		Dgvproductosset()
 		btnmodificar.Enabled = False
+		modificado = False
 
 
 	End Sub
@@ -672,6 +677,7 @@ Public Class FrmGestionProducto
 		btnguardarmodificacion.Visible = False
 		btnmodificar.Enabled = False
 		Dgvproductosset()
+		modificado = True
 	End Sub
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnNuevaCategoria.Click

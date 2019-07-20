@@ -254,12 +254,12 @@ Public Class HelpersDA
 				End If
 				If item.Key = "FechaDesde" And Not parametros.Keys.Contains("FechaHasta") Then
 					count = count - 1
-					text = text & "v.fecha" & " between '" & item.Value & " 00:00:00' and '" & item.Value & " 23:59:59'" & If(count <> 0, " and ", "")
+					text = text & "p.fechaAlta" & " between '" & item.Value & " 00:00:00' and '" & item.Value & " 23:59:59'" & If(count <> 0, " and ", "")
 					Continue For
 				End If
 				If item.Key = "FechaDesde" And parametros.Keys.Contains("FechaHasta") Then
 					count = count - 1
-					text = text & "v.fecha" & " between '" & item.Value & " 00:00:00' and "
+					text = text & "p.fechaAlta" & " between '" & item.Value & " 00:00:00' and "
 					Continue For
 				End If
 				If item.Key = "FechaHasta" Then

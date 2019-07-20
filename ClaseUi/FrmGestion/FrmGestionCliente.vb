@@ -16,6 +16,8 @@ Public Class FrmGestionCliente
 	Private ClienteID As Integer
 	Private Modificando As Boolean
 	Dim cadena As String
+	Public modificado As Boolean = False
+
 
 #Region "Eventos"
 
@@ -32,6 +34,7 @@ Public Class FrmGestionCliente
 
 		AddHandler tbmail.GotFocus, AddressOf GotfocusTexto
 		AddHandler tbmail.LostFocus, AddressOf LostfocusTexto
+		modificado = False
 
 
 	End Sub
@@ -59,6 +62,7 @@ Public Class FrmGestionCliente
 		End If
 		Limpiar()
 		Block()
+		modificado = True
 		Modificando = False
 		DgvclientesSet(New Dictionary(Of String, String))
 

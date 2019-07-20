@@ -155,7 +155,7 @@ Public Class MetodoProductoDA
 				.AddWithValue("@UnidadDePeso", pro.Unidad)
 				.AddWithValue("@CategoriaId", pro.categoriaId)
 				.AddWithValue("@StockODeTercero", pro.StockODeTercero)
-				.AddWithValue("@FechaAlta", Date.Now.ToString())
+				.AddWithValue("@FechaAlta", Date.Now)
 			End With
 
 			com.ExecuteNonQuery()

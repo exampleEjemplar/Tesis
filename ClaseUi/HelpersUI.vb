@@ -71,6 +71,16 @@ Public Class HelpersUI
 		For i = 1 To amountOfZeros
 			text = text + "0"
 		Next
-        Return text + numero.ToString()
-    End Function
+		Return text + numero.ToString()
+	End Function
+
+	Function NormalizarTexto(ByVal text As String)
+		If text Is "" Then
+			Return text
+		End If
+		Dim newText As String = text.ToLower()
+		Return Char.ToUpper(newText(0)) + newText.Substring(1)
+		'Dim j = Char.ToUpper(newText)
+		'Return text
+	End Function
 End Class
