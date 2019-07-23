@@ -126,4 +126,8 @@ Public Class MDIPrincipal
 	Private Sub btnVentas_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
 		FrmGestionVentas.Show()
 	End Sub
+
+	Private Sub btnCompras_Click(sender As Object, e As EventArgs) Handles btnCompras.Click
+		FrmGestionCompras.Show()
+	End Sub
 End Class

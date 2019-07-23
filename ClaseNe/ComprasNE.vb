@@ -126,3 +126,115 @@ Public Class TipoDeComprasNE
 		End Set
 	End Property
 End Class
+
+Public Class ComprobanteComprasNE
+	Private _Comprobante As String
+
+	Public Property Comprobante As String
+		Get
+			Return _Comprobante
+		End Get
+		Set(ByVal value As String)
+			_Comprobante = CStr(value)
+		End Set
+	End Property
+
+
+	Private _NombreProveedor As String
+
+	Public Property NombreProveedor As String
+		Get
+			Return _NombreProveedor
+		End Get
+		Set(ByVal value As String)
+			_NombreProveedor = CStr(value)
+		End Set
+	End Property
+
+	Private _TipoDoc As String
+
+	Public Property TipoDoc As String
+		Get
+			Return _TipoDoc
+		End Get
+		Set(ByVal value As String)
+			_TipoDoc = CStr(value)
+		End Set
+	End Property
+
+	Private _Documento As String
+
+	Public Property Documento As String
+		Get
+			Return _Documento
+		End Get
+		Set(ByVal value As String)
+			_Documento = CStr(value)
+		End Set
+	End Property
+
+	Private _DomicilioProveedor As String
+
+	Public Property DomicilioProveedor As String
+		Get
+			Return _DomicilioProveedor
+		End Get
+		Set(ByVal value As String)
+			_DomicilioProveedor = CStr(value)
+		End Set
+	End Property
+
+	Private _UnidadPeso As String
+
+	Public Property UnidadPeso As String
+		Get
+			Return _UnidadPeso
+		End Get
+		Set(ByVal value As String)
+			_UnidadPeso = CStr(value)
+		End Set
+	End Property
+
+	Private _Cantidad As String
+
+	Public Property Cantidad As String
+		Get
+			Return _Cantidad
+		End Get
+		Set(ByVal value As String)
+			_Cantidad = CStr(value)
+		End Set
+	End Property
+
+	Private _Producto As String
+
+	Public Property Producto As String
+		Get
+			Return _Producto
+		End Get
+		Set(ByVal value As String)
+			_Producto = CStr(value)
+		End Set
+	End Property
+
+	Private _PrecioUnit As Double
+
+	Public Property PrecioUnit As Double
+		Get
+			Return _PrecioUnit
+		End Get
+		Set(ByVal value As Double)
+			_PrecioUnit = value
+		End Set
+	End Property
+	Private _Total As Double
+
+	Public Property Total As Double
+		Get
+			Return _Total
+		End Get
+		Set(ByVal value As Double)
+			_Total = value
+		End Set
+	End Property
+End Class

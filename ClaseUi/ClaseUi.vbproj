@@ -228,6 +228,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JoyeriaCrisolDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\FrmComprobanteCompra.Designer.vb">
+      <DependentUpon>FrmComprobanteCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmComprobanteCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\FrmComprobanteVenta.Designer.vb">
       <DependentUpon>FrmComprobanteVenta.vb</DependentUpon>
     </Compile>
@@ -322,6 +328,9 @@
       <DependentUpon>FrmGestionVentas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ComprobanteVenta.rdlc" />
+    <EmbeddedResource Include="Reportes\FrmComprobanteCompra.resx">
+      <DependentUpon>FrmComprobanteCompra.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmComprobanteVenta.resx">
       <DependentUpon>FrmComprobanteVenta.vb</DependentUpon>
     </EmbeddedResource>

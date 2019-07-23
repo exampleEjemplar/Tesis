@@ -115,7 +115,7 @@ Partial Class FrmGestionVentas
 		Me.dtpFechaHasta.Name = "dtpFechaHasta"
 		Me.dtpFechaHasta.Size = New System.Drawing.Size(151, 23)
 		Me.dtpFechaHasta.TabIndex = 37
-		Me.dtpFechaHasta.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
+		Me.dtpFechaHasta.Value = New Date(2019, 7, 23, 0, 1, 0, 0)
 		'
 		'dtpFechaDesde
 		'
@@ -125,7 +125,8 @@ Partial Class FrmGestionVentas
 		Me.dtpFechaDesde.Name = "dtpFechaDesde"
 		Me.dtpFechaDesde.Size = New System.Drawing.Size(151, 23)
 		Me.dtpFechaDesde.TabIndex = 22
-		Me.dtpFechaDesde.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
+		Me.dtpFechaDesde.Value = New Date(2019, 7, 23, 0, 0, 0, 0)
+		Me.dtpFechaDesde.Visible = False
 		'
 		'btnBuscar
 		'

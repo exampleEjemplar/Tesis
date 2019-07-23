@@ -16,6 +16,7 @@ Public Class FrmArmadoVenta
     Private selectedProducto As ListViewItem
 	Dim product As New ProductoLN
 	Dim total As Double
+	Public modificado = False
 
 
 
@@ -23,6 +24,7 @@ Public Class FrmArmadoVenta
 
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Cargar()
+		modificado = False
 	End Sub
 
 	Private Sub Cargar()
@@ -151,10 +153,11 @@ Public Class FrmArmadoVenta
 		Dim listaDeVentas = New List(Of TipoDeVentasNE)
 		For Each item As KeyValuePair(Of Integer, Integer) In DiccionarioDeStringYCantidad
 			Dim product = ObtainProductInformation(item.Key)
-			Dim venta = New TipoDeVentasNE
-			venta.Cantidad = item.Value
-			venta.ProductoId = item.Key
-			venta.Precio = product.precio
+			Dim venta = New TipoDeVentasNE With {
+				.Cantidad = item.Value,
+				.ProductoId = item.Key,
+				.Precio = product.precio
+			}
 			listaDeVentas.Add(venta)
 			FrmComprobanteVenta.ListaVentas.Add(venta)
 		Next
@@ -162,6 +165,8 @@ Public Class FrmArmadoVenta
 		ventasLN.Registrar(listaDeVentas, cboCliente.SelectedValue)
 		MsgBox("Venta realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
+		modificado = True
+
 		FrmComprobanteVenta.Show()
 
 
@@ -216,7 +221,7 @@ Public Class FrmArmadoVenta
 
 	End Sub
 
-	Private Sub btnLimpiarFiltros_Click(sender As Object, e As EventArgs) Handles btnLimpiarFiltros.Click
+	Private Sub BtnLimpiarFiltros_Click(sender As Object, e As EventArgs) Handles btnLimpiarFiltros.Click
 		If MsgBox("Desea limpiar los filtros?", MsgBoxStyle.YesNo, "Filtros") = MsgBoxResult.No Then
 			Return
 		End If
@@ -229,7 +234,7 @@ Public Class FrmArmadoVenta
 		dtpFechaHasta.Value = Date.Now
 	End Sub
 
-	Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+	Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
 		Search()
 	End Sub
 
@@ -362,14 +367,13 @@ Public Class FrmArmadoVenta
 		End If
 		If FrmGestionCliente.modificado Then
 			Cargar()
-			FrmComprobanteVenta.Show()
 			ListView1.Clear()
 			LlenarCboClientes()
 			FrmGestionCliente.modificado = False
 		End If
 	End Sub
 
-	Private Sub btnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarCliente.Click
+	Private Sub BtnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarCliente.Click
 		FrmGestionCliente.ShowDialog()
 	End Sub
 

@@ -10,12 +10,37 @@ Public Class FrmGestionVentas
 #Region "Eventos"
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		LlenarCboClientes()
-		LlenarDgv(New Dictionary(Of String, String), "load")
+		Busqueda("load")
 		dtpFechaHasta.Visible = False
 		dtpFechaDesde.Visible = False
 		lblFechaExacta.Visible = False
 		lblHasta.Visible = False
 		lbldesde.Visible = False
+	End Sub
+
+	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+		If FrmArmadoVenta.modificado Then
+			Busqueda()
+			FrmArmadoVenta.modificado = False
+		End If
+	End Sub
+
+	Private Sub Busqueda(Optional ByVal type As String = "")
+		Dim parametros As Dictionary(Of String, String) = New Dictionary(Of String, String)
+		If String.IsNullOrWhiteSpace(cboCliente.SelectedValue) = False Then
+			parametros.Add("ClienteId", cboCliente.SelectedValue)
+		End If
+		If String.IsNullOrWhiteSpace(dtpFechaDesde.Value.ToString()) = False And dtpFechaDesde.Visible Then
+			parametros.Add("FechaDesde", dtpFechaDesde.Value.Date.ToString("dd/MM/yyyy"))
+		End If
+		If String.IsNullOrWhiteSpace(dtpFechaHasta.Value.ToString()) = False And dtpFechaDesde.Visible And dtpFechaHasta.Visible Then
+			If dtpFechaHasta.Value <= dtpFechaDesde.Value Then
+				MsgBox("La fecha desde no puede ser mayor que la fecha hasta", MsgBoxStyle.OkOnly, "Error")
+				Return
+			End If
+			parametros.Add("FechaHasta", dtpFechaHasta.Value.Date.ToString("dd/MM/yyyy"))
+		End If
+		LlenarDgv(parametros, type)
 	End Sub
 
 	Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
@@ -73,21 +98,7 @@ Public Class FrmGestionVentas
 	End Function
 
 	Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-		Dim parametros As Dictionary(Of String, String) = New Dictionary(Of String, String)
-		If String.IsNullOrWhiteSpace(cboCliente.SelectedValue) = False Then
-			parametros.Add("ClienteId", cboCliente.SelectedValue)
-		End If
-		If String.IsNullOrWhiteSpace(dtpFechaDesde.Value.ToString()) = False And dtpFechaDesde.Visible Then
-			parametros.Add("FechaDesde", dtpFechaDesde.Value.Date.ToString("dd/MM/yyyy"))
-		End If
-		If String.IsNullOrWhiteSpace(dtpFechaHasta.Value.ToString()) = False And dtpFechaDesde.Visible And dtpFechaHasta.Visible Then
-			If dtpFechaHasta.Value <= dtpFechaDesde.Value Then
-				MsgBox("La fecha desde no puede ser mayor que la fecha hasta", MsgBoxStyle.OkOnly, "Error")
-				Return
-			End If
-			parametros.Add("FechaHasta", dtpFechaHasta.Value.Date.ToString("dd/MM/yyyy"))
-		End If
-		LlenarDgv(parametros)
+		Busqueda()
 	End Sub
 
 	Private Sub RbtEntreFechas_CheckedChanged(sender As Object, e As EventArgs) Handles rbtEntreFechas.CheckedChanged, rbtFechaExacta.CheckedChanged
