@@ -351,10 +351,6 @@ Public Class FrmArmadoVenta
 		Return CompVentasNE
 	End Function
 
-	Private Sub ListView1_CausesValidationChanged(sender As Object, e As EventArgs) Handles ListView1.CausesValidationChanged
-		MsgBox("cambio", MsgBoxStyle.OkOnly, "Error")
-	End Sub
-
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
 		FrmGestionProducto.ShowDialog()
 	End Sub
@@ -362,9 +358,14 @@ Public Class FrmArmadoVenta
 	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
 		If FrmGestionProducto.modificado Then
 			Search()
+			FrmGestionProducto.modificado = False
 		End If
 		If FrmGestionCliente.modificado Then
+			Cargar()
+			FrmComprobanteVenta.Show()
+			ListView1.Clear()
 			LlenarCboClientes()
+			FrmGestionCliente.modificado = False
 		End If
 	End Sub
 

@@ -88,7 +88,6 @@ Public Class MDIPrincipal
 
 		Me.WindowState = FormWindowState.Maximized
 
-
 	End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click

@@ -366,7 +366,7 @@ Partial Class FrmArmadoVenta
 		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnNuevo.FlatAppearance.BorderSize = 0
 		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnNuevo.Location = New System.Drawing.Point(996, -1)
+		Me.btnNuevo.Location = New System.Drawing.Point(999, -9)
 		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(123, 98)
@@ -673,7 +673,7 @@ Partial Class FrmArmadoVenta
 		Me.btnAgregarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnAgregarCliente.FlatAppearance.BorderSize = 0
 		Me.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnAgregarCliente.Location = New System.Drawing.Point(885, -1)
+		Me.btnAgregarCliente.Location = New System.Drawing.Point(883, -12)
 		Me.btnAgregarCliente.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnAgregarCliente.Name = "btnAgregarCliente"
 		Me.btnAgregarCliente.Size = New System.Drawing.Size(106, 101)

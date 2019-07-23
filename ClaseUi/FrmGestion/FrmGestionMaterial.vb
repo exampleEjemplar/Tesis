@@ -4,6 +4,7 @@ Imports ClaseLn
 Public Class FrmGestionMaterial
 
 	Private materialesLN As New MaterialesLN
+	Private helpersUi As New HelpersUI
 	Private modificando As Boolean = False
 	Public materialId As Integer
 	Public modificado As Boolean = False
@@ -14,48 +15,50 @@ Public Class FrmGestionMaterial
 		btnGuardar.Enabled = False
 		modificado = False
 	End Sub
-    Public Sub CargarGrilla()
 
-        dgvmaterial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+	Public Sub CargarGrilla()
 
-        Dim ds As DataSet = materialesLN.CargarGrillaMateriales()
-        Dim examples As List(Of Example) = New List(Of Example)
+		dgvmaterial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 
-        For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+		Dim ds As DataSet = materialesLN.CargarGrillaMateriales()
+		Dim examples As List(Of Example) = New List(Of Example)
 
-            If examples.Where(Function(s) s.Id = ds.Tables(0).Rows(i)(0).ToString()).FirstOrDefault() IsNot Nothing Then
+		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
 
-                For Each example As Example In examples
-                    If example.Id = ds.Tables(0).Rows(i)(0).ToString() And Date.ParseExact(example.Fecha, "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture) < Date.ParseExact(ds.Tables(0).Rows(i)(3).ToString(), "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture) Then
-                        examples.Add(New Example With {
-                    .Id = ds.Tables(0).Rows(i)(0).ToString(),
-                    .Material = ds.Tables(0).Rows(i)(1).ToString(),
-                    .Cotizacion = ds.Tables(0).Rows(i)(2).ToString(),
-                    .Fecha = ds.Tables(0).Rows(i)(3).ToString()
-                    })
-                        examples.Remove(example)
-                        Exit For
-                    End If
-                Next
-            Else
-                examples.Add(New Example With {
-                    .Id = ds.Tables(0).Rows(i)(0).ToString(),
-                    .Material = ds.Tables(0).Rows(i)(1).ToString(),
-                    .Cotizacion = ds.Tables(0).Rows(i)(2).ToString(),
-                    .Fecha = ds.Tables(0).Rows(i)(3).ToString()
-                    })
-            End If
+			If examples.Where(Function(s) s.Id = ds.Tables(0).Rows(i)(0).ToString()).FirstOrDefault() IsNot Nothing Then
 
-        Next
+				For Each example As Example In examples
+					If example.Id = ds.Tables(0).Rows(i)(0).ToString() And Date.ParseExact(example.Fecha, "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture) < Date.ParseExact(ds.Tables(0).Rows(i)(3).ToString(), "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture) Then
+						examples.Add(New Example With {
+						  .Id = ds.Tables(0).Rows(i)(0).ToString(),
+						  .Material = ds.Tables(0).Rows(i)(1).ToString(),
+						  .Cotizacion = ds.Tables(0).Rows(i)(2).ToString(),
+						  .Fecha = ds.Tables(0).Rows(i)(3).ToString()
+						  })
+						examples.Remove(example)
+						Exit For
+					End If
+				Next
+			Else
+				examples.Add(New Example With {
+						  .Id = ds.Tables(0).Rows(i)(0).ToString(),
+						  .Material = ds.Tables(0).Rows(i)(1).ToString(),
+						  .Cotizacion = ds.Tables(0).Rows(i)(2).ToString(),
+						  .Fecha = ds.Tables(0).Rows(i)(3).ToString()
+						  })
+			End If
 
-        dgvmaterial.DataSource = examples
-        dgvmaterial.Columns("Id").Visible = False
-        dgvmaterial.Columns("Material").DisplayIndex = 0
-        dgvmaterial.Columns("Cotizacion").DisplayIndex = 1
-        dgvmaterial.Columns("Fecha").DisplayIndex = 2
+		Next
+
+		dgvmaterial.DataSource = examples
+		dgvmaterial.Columns("Id").Visible = False
+		dgvmaterial.Columns("Material").DisplayIndex = 0
+		dgvmaterial.Columns("Cotizacion").DisplayIndex = 1
+		dgvmaterial.Columns("Fecha").DisplayIndex = 2
 
 
-    End Sub
+	End Sub
+
 	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles dgvmaterial.CellMouseDoubleClick
 		Dim selectedRow As DataGridViewRow
 		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
@@ -101,7 +104,7 @@ Public Class FrmGestionMaterial
 			materialesLN.NuevaCotizacion(materialId, value)
 			MsgBox("Cotizacion de material agregada", MsgBoxStyle.OkOnly, "Material")
 		Else
-			materialesLN.GuardarNuevo(txtNombre.Text, value)
+			materialesLN.GuardarNuevo(helpersUi.NormalizarTexto(txtNombre.Text), value)
 			MsgBox("Material agregado", MsgBoxStyle.OkOnly, "Material")
 		End If
 

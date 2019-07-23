@@ -219,7 +219,7 @@ Public Class FrmGestionCliente
 				MsgBox("Caracter invalido en el campo calle", MsgBoxStyle.Critical, "Error")
 				Return False
 			End If
-			cli.Calle = tbcalle.Text
+			cli.Calle = helpersUI.NormalizarTexto(tbcalle.Text)
 		Else
 			cli.Calle = ""
 		End If
@@ -255,22 +255,22 @@ Public Class FrmGestionCliente
 		If String.IsNullOrEmpty(tbApellido.Text) Then
 			cli.Apellido = ""
 		Else
-			cli.Apellido = tbApellido.Text
+			cli.Apellido = helpersUI.NormalizarTexto(tbApellido.Text)
 		End If
 		If String.IsNullOrEmpty(tbNombre.Text) Then
 			cli.Nombre = ""
 		Else
-			cli.Nombre = tbNombre.Text
+			cli.Nombre = helpersUI.NormalizarTexto(tbNombre.Text)
 		End If
 		If String.IsNullOrEmpty(txtLote.Text) Then
 			cli.Lote = ""
 		Else
-			cli.Lote = txtLote.Text
+			cli.Lote = helpersUI.NormalizarTexto(txtLote.Text)
 		End If
 		If String.IsNullOrEmpty(txtBarrio.Text) Then
 			cli.Barrio = ""
 		Else
-			cli.Barrio = txtBarrio.Text
+			cli.Barrio = helpersUI.NormalizarTexto(txtBarrio.Text)
 		End If
 		If String.IsNullOrEmpty(tbcodtel.Text) Then
 			cli.Car_Telefono = ""

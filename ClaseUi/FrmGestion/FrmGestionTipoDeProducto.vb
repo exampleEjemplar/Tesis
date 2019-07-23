@@ -3,6 +3,7 @@ Imports ClaseLn
 Public Class FrmGestionTipoDeProducto
 
 	Private tipoDeProductoLN As New TipoDeProductosLN
+	Private helpersUI As New HelpersUI
 	Private modificando As Boolean = False
 	Public modificado As Boolean = False
 	Public tipoDeProductoId As Integer
@@ -53,10 +54,10 @@ Public Class FrmGestionTipoDeProducto
 		End If
 
 		If modificando Then
-			tipoDeProductoLN.Modificar(txtNombre.Text, txtDescripcion.Text, tipoDeProductoId)
+			tipoDeProductoLN.Modificar(helpersUI.NormalizarTexto(txtNombre.Text), helpersUI.NormalizarTexto(txtDescripcion.Text), tipoDeProductoId)
 			MsgBox("Registro actualizado con exito", MsgBoxStyle.OkOnly, "Tipo de producto")
 		Else
-			tipoDeProductoLN.GuardarNuevo(txtNombre.Text, txtDescripcion.Text)
+			tipoDeProductoLN.GuardarNuevo(helpersUI.NormalizarTexto(txtNombre.Text), helpersUI.NormalizarTexto(txtDescripcion.Text))
 			MsgBox("Registro agregado con exito", MsgBoxStyle.OkOnly, "Tipo de producto")
 		End If
 		CargarGrilla()
