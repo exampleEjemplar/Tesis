@@ -42,6 +42,7 @@ Public Class FrmArmadoVenta
 		lbldesde.Visible = False
 		lblInstrucciones.Visible = True
 		btnLimpiar.Enabled = False
+		lblClienteTelefono.Visible = True
 		btnQuitarItem.Enabled = False
 	End Sub
 
@@ -71,10 +72,14 @@ Public Class FrmArmadoVenta
 			lblClienteDireccion.Text = If(direccionSinLocalidad <> " ", direccionSinLocalidad + ", " + localidad, localidad)
 			lblClienteDNI.Text = ds.Tables(0).Rows(i)(1).ToString() + "  " + ds.Tables(0).Rows(i)(2).ToString()
 
-			If ds.Tables(0).Rows(i)(9).ToString() <> "NULL" Or ds.Tables(0).Rows(i)(14).ToString() <> Nothing Then
+			If Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(9).ToString()) And Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(14).ToString()) Then
 				lblClienteTelefono.Text = ds.Tables(0).Rows(i)(9).ToString() + ds.Tables(0).Rows(i)(10).ToString()
-			ElseIf ds.Tables(0).Rows(i)(11).ToString() <> "NULL" Or ds.Tables(0).Rows(i)(14).ToString() <> Nothing Then
+			ElseIf Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(11).ToString()) And Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(14).ToString()) Then
 				lblClienteTelefono.Text = ds.Tables(0).Rows(i)(11).ToString() + ds.Tables(0).Rows(i)(12).ToString()
+			End If
+
+			If String.IsNullOrEmpty(lblClienteTelefono.Text) Then
+				lblClienteTelefono.Visible = False
 			End If
 
 		Next

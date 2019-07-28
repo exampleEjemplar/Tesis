@@ -162,9 +162,9 @@ Partial Class FrmArmadoVenta
 		Me.Label9.Location = New System.Drawing.Point(7, 57)
 		Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label9.Name = "Label9"
-		Me.Label9.Size = New System.Drawing.Size(84, 20)
+		Me.Label9.Size = New System.Drawing.Size(81, 20)
 		Me.Label9.TabIndex = 31
-		Me.Label9.Text = "Dirección"
+		Me.Label9.Text = "Domicilio"
 		'
 		'lblClienteDNI
 		'
@@ -624,7 +624,7 @@ Partial Class FrmArmadoVenta
 		Me.Label11.Location = New System.Drawing.Point(49, 21)
 		Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label11.Name = "Label11"
-		Me.Label11.Size = New System.Drawing.Size(156, 28)
+		Me.Label11.Size = New System.Drawing.Size(115, 56)
 		Me.Label11.TabIndex = 30
 		Me.Label11.Text = "Total de la venta"
 		'

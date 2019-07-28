@@ -95,11 +95,11 @@ Public Class MDIPrincipal
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        FrmGestionCliente.Show()
-    End Sub
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+		FrmGestionCliente.Show()
+	End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         FrmGestionProveedores.Show()
     End Sub
 
@@ -124,10 +124,19 @@ Public Class MDIPrincipal
     End Sub
 
 	Private Sub btnVentas_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
-		FrmGestionVentas.Show()
+		If helpersUi.ValidarOperacion(NameOf(FrmGestionVentas)) Then
+			FrmGestionVentas.Show()
+		Else
+			MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+		End If
+
 	End Sub
 
 	Private Sub btnCompras_Click(sender As Object, e As EventArgs) Handles btnCompras.Click
-		FrmGestionCompras.Show()
+		If helpersUi.ValidarOperacion(NameOf(FrmGestionCompras)) Then
+			FrmGestionCompras.Show()
+		Else
+			MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+		End If
 	End Sub
 End Class

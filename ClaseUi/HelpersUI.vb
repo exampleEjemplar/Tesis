@@ -1,6 +1,10 @@
 ﻿Imports System.Text.RegularExpressions
+Imports ClaseLn
 
 Public Class HelpersUI
+	Private loginLN As New LoginLN
+
+
 	Public Function TextValidator(ByVal type As String, ByVal text As String)
 
 		If String.IsNullOrEmpty(text) Then
@@ -21,6 +25,27 @@ Public Class HelpersUI
 	Public Function HasStrangerCaracters(ByVal cadena As String) As Boolean
 		Static regex As New Regex("^[_a-zA-Z0-9-]+")
 		Return regex.IsMatch(cadena)
+	End Function
+
+	Public Function ValidarOperacion(ByVal frm As String)
+		Dim userId = loginLN.ChequearEnSesion()
+		Dim rolUsuario = loginLN.ConsultarRolUsuario("", userId)
+		If rolUsuario = 1 Then
+			Return True
+		End If
+		Select Case frm
+			Case "FrmGestionCompras"
+				If rolUsuario = 2 Then
+					Return True
+				End If
+			Case "FrmGestionVentas"
+				If rolUsuario = 2 Then
+					Return True
+				End If
+			Case Else
+				Return False
+		End Select
+		Return False
 	End Function
 
 

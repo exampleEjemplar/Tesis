@@ -478,9 +478,9 @@ Partial Class FrmArmadoCompra
 		Me.Label9.Location = New System.Drawing.Point(7, 57)
 		Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label9.Name = "Label9"
-		Me.Label9.Size = New System.Drawing.Size(84, 20)
+		Me.Label9.Size = New System.Drawing.Size(81, 20)
 		Me.Label9.TabIndex = 31
-		Me.Label9.Text = "Dirección"
+		Me.Label9.Text = "Domicilio"
 		'
 		'lblClienteDNI
 		'
@@ -673,6 +673,7 @@ Partial Class FrmArmadoCompra
 		Me.Controls.Add(Me.GroupBox2)
 		Me.Controls.Add(Me.GroupBox1)
 		Me.Controls.Add(Me.Label1)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
 		Me.Name = "FrmArmadoCompra"
 		Me.Text = "FrmArmadoCompra"
 		Me.gboFiltros.ResumeLayout(False)

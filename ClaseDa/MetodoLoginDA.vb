@@ -1,6 +1,6 @@
 ﻿
 Imports System.Data.SqlClient
-Imports ClaseNE
+Imports ClaseNe
 
 Public Class MetodoLoginDA
 	Private db As New SqlConnection
@@ -19,23 +19,22 @@ Public Class MetodoLoginDA
 	Public enunciado As SqlCommand
 	Public respuesta As SqlDataReader
 
-	Function UsuarioRegistrado(ByVal nombreUsuario As String) As Boolean
+	Function UsuarioRegistrado(ByVal nombreUsuario As String)
 		helpersDA.ChequearConexion(db)
-		Dim resultado As Boolean = False
+		enunciado = New SqlCommand("Select * from Usuarios where UserName='" & nombreUsuario & "'", db)
+		Dim ds As New DataSet
 		Try
-			enunciado = New SqlCommand("Select * from Usuarios where UserName='" & nombreUsuario & "'", db)
-			respuesta = enunciado.ExecuteReader
+			Dim da = New SqlDataAdapter(enunciado)
+			da.Fill(ds)
+			db.Close()
+			Return ds
 
-			If respuesta.Read Then
-				resultado = True
-			End If
-			respuesta.Close()
 		Catch ex As Exception
 			MsgBox(ex.ToString)
+			Return ds
 			db.Close()
 		End Try
-		Return resultado
-		db.Close()
+
 	End Function
 
 	Function Contrasena(ByVal nombreUsuario As String) As String
@@ -58,13 +57,17 @@ Public Class MetodoLoginDA
 		db.Close()
 	End Function
 
-	Function ConsultarRolUsuario(ByVal nombreUsuario As String) As Integer
+	Function ConsultarRolUsuario(ByVal nombreUsuario As String, Optional ByVal usuarioId As Integer = 0) As Integer
 		helpersDA.ChequearConexion(db)
 		Dim resultado As Integer
 		Dim resultado2 As Integer
 
 		Try
-			enunciado = New SqlCommand("Select RolId, Id from Usuarios where UserName='" & nombreUsuario & "'", db)
+			If usuarioId <> 0 Then
+				enunciado = New SqlCommand("Select RolId, Id from Usuarios where Id=" & usuarioId, db)
+			Else
+				enunciado = New SqlCommand("Select RolId, Id from Usuarios where UserName='" & nombreUsuario & "'", db)
+			End If
 			respuesta = enunciado.ExecuteReader
 
 			If respuesta.Read Then
@@ -79,7 +82,7 @@ Public Class MetodoLoginDA
 			db.Close()
 		End Try
 
-		Return resultado2
+		Return resultado
 		db.Close()
 	End Function
 
@@ -120,5 +123,22 @@ Public Class MetodoLoginDA
 			db.Close()
 		End Try
 	End Sub
+
+	Public Function ChequearEnSesion()
+		helpersDA.ChequearConexion(db)
+		enunciado = New SqlCommand("Select Top(1) UsuarioId from EnSesion", db)
+		Dim ds As New DataSet
+		Try
+			Dim da = New SqlDataAdapter(enunciado)
+			da.Fill(ds)
+			db.Close()
+			Return ds.Tables(0).Rows(0)(0).ToString()
+
+		Catch ex As Exception
+			MsgBox(ex.ToString)
+			Return 0
+			db.Close()
+		End Try
+	End Function
 
 End Class

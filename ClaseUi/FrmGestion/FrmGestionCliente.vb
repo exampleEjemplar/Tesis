@@ -22,7 +22,6 @@ Public Class FrmGestionCliente
 #Region "Eventos"
 
 	Private Sub FrmGestionCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
 		cmbProvincias.SelectedValue = 0
 		cbtipodni.SelectedValue = 0
 		IdProvincia = LlenarCMBProvincias("general")

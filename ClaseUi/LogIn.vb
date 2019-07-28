@@ -15,14 +15,17 @@ Public Class LogIn
 #Region "Eventos"
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles pictureBox1.Click
         Try
-
-            If loginMetodo.usuarioRegistrado(txtUsuario.Text) = True Then
-                Dim contra As String = loginMetodo.contrasena(txtUsuario.Text)
-                If contra.Equals(txtContrasena.Text) = True Then
-                    loginMetodo.rolUsuario = loginMetodo.ConsultarRolUsuario(txtUsuario.Text)
-                    loginMetodo.usr_id = loginMetodo.ConsultarIDUsuario(txtUsuario.Text)
-                    loginMetodo.EnSesion(loginMetodo.usr_id)
-                    helpersUI.TextValidator("a", "a")
+			Dim user = loginMetodo.usuarioRegistrado(txtUsuario.Text).Tables(0)
+			If user.Rows.Count > 0 Then
+				If user.Rows(0)(4).ToString() <> "S" Then
+					MessageBox.Show("Usuario Inactivo", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+					Return
+				End If
+				Dim contra As String = loginMetodo.contrasena(txtUsuario.Text)
+				If contra.Equals(txtContrasena.Text) = True Then
+					loginMetodo.rolUsuario = loginMetodo.ConsultarRolUsuario(txtUsuario.Text)
+					loginMetodo.usr_id = loginMetodo.ConsultarIDUsuario(txtUsuario.Text)
+					loginMetodo.EnSesion(loginMetodo.usr_id)
 					nivelusr = loginMetodo.rolUsuario
 
 					With MDIPrincipal
@@ -32,10 +35,10 @@ Public Class LogIn
 
 				Else
 
-                    MessageBox.Show("Contraseña Inválida", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                    Me.Show()
-                End If
-            Else
+					MessageBox.Show("Contraseña Inválida", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+					Me.Show()
+				End If
+			Else
 
 
 				MessageBox.Show("El usuario no se encuentra registrado", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -53,10 +56,6 @@ Public Class LogIn
     End Sub
 #End Region
 #Region "Metodos"
-
-	'Public Function ObtainUserId()
-
-	'End Function
 
 	Private Sub LogIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtUsuario.Text = ""
