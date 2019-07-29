@@ -11,15 +11,12 @@ Public Class FrmGestionProducto
 	Private productometodo As New ProductoLN
 	Private conversionmetodo As New ConversionLN
 	Private pro As New ProductosNE
-	Public idcategoria As Integer
-	Public idcategoria1 As Integer
 	Dim helpersLN As New HelpersLN
 	Dim helpersUi As New HelpersUI
 	Public modificado As Boolean = False
 	Dim IMAGEN As String
 	Dim busqcod As String
 	Dim busqprod As String
-	Dim qidproductos As Integer
 
 
 	'Metodo que selecciona una imagen y la carga en un PictureBox'
@@ -714,9 +711,12 @@ Public Class FrmGestionProducto
 		Button3.Enabled = True
 	End Sub
 
-	Private Sub btnProveedor_Click(sender As Object, e As EventArgs) Handles btnProveedor.Click
+	Private Sub BtnProveedor_Click(sender As Object, e As EventArgs) Handles btnProveedor.Click
 		FrmGestionProveedores.Show()
 
 	End Sub
 
+	Private Sub BtnModificarPrecios_Click(sender As Object, e As EventArgs) Handles btnModificarPrecios.Click
+		FrmModificarPrecioProducto.Show()
+	End Sub
 End Class

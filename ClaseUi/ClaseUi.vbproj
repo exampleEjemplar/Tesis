@@ -200,6 +200,12 @@
     <Compile Include="FrmGestion\FrmGestionVentas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmModificarPrecioProducto.Designer.vb">
+      <DependentUpon>FrmModificarPrecioProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModificarPrecioProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="JoyeriaCrisol11DataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -326,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionVentas.resx">
       <DependentUpon>FrmGestionVentas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificarPrecioProducto.resx">
+      <DependentUpon>FrmModificarPrecioProducto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ComprobanteVenta.rdlc" />
     <EmbeddedResource Include="Reportes\FrmComprobanteCompra.resx">
@@ -563,6 +572,9 @@
     <None Include="Resources\icons8-add-352.png" />
     <None Include="Resources\icons8-add-353.png" />
     <None Include="Resources\icons8-add-354.png" />
+    <None Include="Resources\aiga_cashier-512.png" />
+    <None Include="Resources\iconfinder_money_box_172507.png" />
+    <None Include="Resources\iconfinder_money-2_322464.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
