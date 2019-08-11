@@ -188,5 +188,13 @@
         End Set
     End Property
 
-
+	Private _FechaAlta As Date
+	Public Property FechaAlta As Date
+		Get
+			Return _FechaAlta
+		End Get
+		Set(ByVal value As Date)
+			_FechaAlta = CStr(value)
+		End Set
+	End Property
 End Class

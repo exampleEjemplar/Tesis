@@ -231,9 +231,9 @@ Partial Class FrmArmadoCompra
 		Me.lblFechaExacta.Location = New System.Drawing.Point(8, 100)
 		Me.lblFechaExacta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblFechaExacta.Name = "lblFechaExacta"
-		Me.lblFechaExacta.Size = New System.Drawing.Size(146, 16)
+		Me.lblFechaExacta.Size = New System.Drawing.Size(95, 16)
 		Me.lblFechaExacta.TabIndex = 46
-		Me.lblFechaExacta.Text = "Fecha comprobante"
+		Me.lblFechaExacta.Text = "Fecha carga"
 		'
 		'txtBusNombreProducto
 		'

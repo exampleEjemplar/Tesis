@@ -103,6 +103,26 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property check_all_icon_54_32x32() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("check-all-icon-54-32x32", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property check_all_icon_54_64x64() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("check-all-icon-54-64x64", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property iconfinder_money_2_322464() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("iconfinder_money-2_322464", resourceCulture)

@@ -114,6 +114,38 @@ Public Class MetodoProductoDA
 
 	End Function
 
+	Public Sub ModificarPrecios(listOfProductos As IEnumerable(Of Tuple(Of Integer, Boolean, ProductosNE)), precio As String, porcentaje As Boolean)
+		Try
+			helpersDa.ChequearConexion(db)
+			'Itero todos los ids a modificar
+			Dim ids = ""
+			For i = 0 To listOfProductos.Count - 1
+				If listOfProductos(i).Item2 = True Then
+					ids += listOfProductos(i).Item3.Id.ToString()
+				End If
+				If Not i = listOfProductos.Count - 1 Then
+					ids += ","
+				End If
+			Next
+
+			'Segun el tipo de modificacion que sea es el cambio que realizo
+			Dim type = ""
+			If porcentaje Then 'Si es por porcentaje lo multiplico segun lo recibido
+				type = "round(precio *" + precio + ",2)"
+			Else 'Si es precio exacto, lo igualo a lo solicitado
+				type = "round(" + precio.Replace(",", ".") + ",2)"
+			End If
+
+			Dim control As New SqlCommand("update Productos set precio = " + type + " where id in(" + ids + ")", db)
+			control.CommandType = CommandType.Text
+			control.ExecuteNonQuery()
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+	End Sub
+
 	Public Function CargarCMBcategoria2(ByVal idcat1 As Integer)
 		helpersDa.ChequearConexion(db)
 
