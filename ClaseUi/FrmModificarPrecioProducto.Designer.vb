@@ -143,7 +143,6 @@ Partial Class FrmModificarPrecioProducto
 		Me.cboProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
 		Me.cboProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.cboProveedor.FormattingEnabled = True
-		Me.cboProveedor.Items.AddRange(New Object() {"Física", "Jurídica"})
 		Me.cboProveedor.Location = New System.Drawing.Point(442, 17)
 		Me.cboProveedor.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboProveedor.Name = "cboProveedor"

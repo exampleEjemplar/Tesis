@@ -7,7 +7,7 @@ Imports ClaseNe
 Public Class FrmModificarPrecioProducto
 	Private productometodo As New ProductoLN
 	Private helpersLN As New HelpersLN
-	Private listaDeProductos As New List(Of Tuple(Of Integer, Boolean, ProductosNE))
+	Private listaDeProductos As List(Of Tuple(Of Integer, Boolean, ProductosNE))
 
 	Private Sub FrmModificarPrecioProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Cargar()
@@ -73,6 +73,11 @@ Public Class FrmModificarPrecioProducto
 	Private Sub Cargar()
 		txtMonto.Text = ""
 		txtPorcentaje.Text = ""
+		lbldesde.Visible = False
+		lblFechaExacta.Visible = False
+		lblHasta.Visible = False
+		LimpiarFiltros()
+		LlenarCboProveedores()
 		CheckedListBox1.Items.Clear()
 		listaDeProductos = New List(Of Tuple(Of Integer, Boolean, ProductosNE))
 		Dim productos = helpersLN.CargarTodosProductos(New Dictionary(Of String, String)).Tables(0)
@@ -96,72 +101,57 @@ Public Class FrmModificarPrecioProducto
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 		If MsgBox("Desea chequear todos los productos?", MsgBoxStyle.YesNo, "Producto") = MsgBoxResult.Yes Then
 			Dim count = ChequearDeschequearGeneral(True)
-			MsgBox(count + " productos fueron chequeados", MsgBoxStyle.OkOnly, "Producto")
+			MsgBox(count.ToString() + " producto/os fueron chequeados", MsgBoxStyle.OkOnly, "Producto")
 		End If
 	End Sub
 
 	Private Sub btnLimpiarFiltros_Click(sender As Object, e As EventArgs) Handles btnLimpiarFiltros.Click
 		If MsgBox("Desea deschequear todos los productos y limpiar los filtros?", MsgBoxStyle.YesNo, "Producto") = MsgBoxResult.Yes Then
+			LimpiarFiltros()
 			Dim count = ChequearDeschequearGeneral(False)
-			MsgBox(count + " productos fueron deschequeados", MsgBoxStyle.OkOnly, "Producto")
+			MsgBox(count.ToString() + " producto/os fueron deschequeados", MsgBoxStyle.OkOnly, "Producto")
 		End If
 	End Sub
 
 	Private Function ChequearDeschequearGeneral(chequear As Boolean)
 		Dim count = 0
 		For i As Integer = 0 To CheckedListBox1.Items.Count - 1
+			If Not CheckedListBox1.GetItemChecked(i) = chequear Then
+				count += 1
+			End If
 			Me.CheckedListBox1.SetItemChecked(i, chequear)
-			count += 1
 		Next
 		Return count
 	End Function
 
 	Private Function ChequearDeschequearConFiltros(parametros As Dictionary(Of String, String), chequear As Boolean)
-		Dim listaDeIntegers = New List(Of Integer)
+		Dim listaDeTuplas = New List(Of Tuple(Of Integer, Boolean, ProductosNE))
+		For Each asdasdasd As Tuple(Of Integer, Boolean, ProductosNE) In listaDeProductos
+			listaDeTuplas.Add(asdasdasd)
+		Next
 		For Each item As KeyValuePair(Of String, String) In parametros
-			If item.Key = "Proveedor" Then
-				For Each tupla As Tuple(Of Integer, Boolean, ProductosNE) In listaDeProductos.Where(Function(x) x.Item3.proveedorId = item.Value)
-					If Not listaDeIntegers.Contains(tupla.Item1) Then
-						listaDeIntegers.Add(tupla.Item1)
+			Select Case item.Key
+				Case "Proveedor"
+					listaDeTuplas.RemoveAll(Function(x) x.Item3.proveedorId <> item.Value)
+				Case "Nombre"
+					listaDeTuplas.RemoveAll(Function(x) x.Item3.nombreprducto <> item.Value)
+				Case "FechaDesde"
+					Dim fechadesde = Date.ParseExact(item.Value, "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+					listaDeTuplas.RemoveAll(Function(x) x.Item3.FechaAlta < fechadesde)
+					If parametros.Keys.Contains("FechaHasta") Then
+						Dim fechaHasta = Date.ParseExact(parametros.Where(Function(x) x.Key = "FechaHasta").FirstOrDefault().Value, "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+						listaDeTuplas.RemoveAll(Function(x) x.Item3.FechaAlta > fechaHasta.AddHours(23).AddMinutes(59).AddSeconds(59))
+					Else
+						listaDeTuplas.RemoveAll(Function(x) x.Item3.FechaAlta > fechadesde.AddHours(23).AddMinutes(59).AddSeconds(59))
 					End If
-				Next
-				Continue For
-			End If
-			If item.Key = "Nombre" Then
-				For Each tupla As Tuple(Of Integer, Boolean, ProductosNE) In listaDeProductos.Where(Function(x) x.Item3.nombreprducto = item.Value)
-					If Not listaDeIntegers.Contains(tupla.Item1) Then
-						listaDeIntegers.Add(tupla.Item1)
-					End If
-				Next
-				Continue For
-			End If
-			If item.Key = "FechaDesde" And Not parametros.Keys.Contains("FechaHasta") Then
-				Dim fecha = Date.ParseExact(item.Value, "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-				For Each tupla As Tuple(Of Integer, Boolean, ProductosNE) In listaDeProductos.Where(Function(x) x.Item3.FechaAlta > fecha).Where(Function(x) x.Item3.FechaAlta < fecha.AddHours(23).AddMinutes(59))
-					If Not listaDeIntegers.Contains(tupla.Item1) Then
-						listaDeIntegers.Add(tupla.Item1)
-					End If
-				Next
-				Continue For
-			End If
-			If item.Key = "FechaDesde" And parametros.Keys.Contains("FechaHasta") Then
-				'Dim fechadesde = Date.ParseExact(item.Value, "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
-				'For Each tupla As Tuple(Of Integer, Boolean, ProductosNE) In listaDeProductos.Where(Function(x) x.Item3.FechaAlta > fecha).Where(Function(x) x.Item3.FechaAlta < fecha.AddHours(23).AddMinutes(59))
-				'	If Not listaDeIntegers.Contains(tupla.Item1) Then
-				'		listaDeIntegers.Add(tupla.Item1)
-				'	End If
-				'Next
-				Continue For
-			End If
-			If item.Key = "FechaHasta" Then
-
-				Continue For
-			End If
+			End Select
 		Next
 		Dim count = 0
-		For i As Integer = 0 To CheckedListBox1.Items.Count - 1
-			Me.CheckedListBox1.SetItemChecked(i, chequear)
-			count += 1
+		For i = 0 To listaDeTuplas.Count - 1
+			If Not CheckedListBox1.GetItemChecked(listaDeTuplas(i).Item1) Then
+				count += 1
+			End If
+			Me.CheckedListBox1.SetItemChecked(listaDeTuplas(i).Item1, chequear)
 		Next
 		Return count
 	End Function
@@ -209,8 +199,6 @@ Public Class FrmModificarPrecioProducto
 	End Sub
 
 	Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-		'dtpFechaHasta.Visible = False
-		'dtpFechaDesde.Visible = True
 		Dim parametros As Dictionary(Of String, String) = New Dictionary(Of String, String)
 		If String.IsNullOrWhiteSpace(dtpFechaDesde.Value.ToString()) = False And dtpFechaDesde.Visible Then
 			parametros.Add("FechaDesde", dtpFechaDesde.Value.Date.ToString("dd/MM/yyyy HH:mm:ss"))
@@ -225,9 +213,22 @@ Public Class FrmModificarPrecioProducto
 		If String.IsNullOrWhiteSpace(txtBusNombreProducto.Text) = False Then
 			parametros.Add("Nombre", txtBusNombreProducto.Text)
 		End If
-		If String.IsNullOrWhiteSpace(txtBusNombreProducto.Text) = False Then
+		If String.IsNullOrWhiteSpace(cboProveedor.SelectedValue) = False Then
 			parametros.Add("Proveedor", cboProveedor.SelectedValue)
 		End If
+		Dim count = ChequearDeschequearConFiltros(parametros, True)
+		MsgBox(count.ToString() + " producto/os fueron chequeados", MsgBoxStyle.OkOnly, "Producto")
+	End Sub
+
+	Private Sub LimpiarFiltros()
+		rbtEntreFechas.Checked = False
+		rbtFechaExacta.Checked = False
+		dtpFechaDesde.Value = Date.Now
+		dtpFechaHasta.Value = Date.Now
+		dtpFechaDesde.Visible = False
+		dtpFechaHasta.Visible = False
+		LlenarCboProveedores()
+		txtBusNombreProducto.Text = ""
 	End Sub
 
 End Class
