@@ -270,9 +270,9 @@ Partial Class FrmGestionCliente
 		Me.lblApellido.Location = New System.Drawing.Point(657, 60)
 		Me.lblApellido.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblApellido.Name = "lblApellido"
-		Me.lblApellido.Size = New System.Drawing.Size(71, 17)
+		Me.lblApellido.Size = New System.Drawing.Size(77, 17)
 		Me.lblApellido.TabIndex = 22
-		Me.lblApellido.Text = "Apellido "
+		Me.lblApellido.Text = "Apellido *"
 		'
 		'lblNombre
 		'
@@ -281,9 +281,9 @@ Partial Class FrmGestionCliente
 		Me.lblNombre.Location = New System.Drawing.Point(133, 59)
 		Me.lblNombre.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblNombre.Name = "lblNombre"
-		Me.lblNombre.Size = New System.Drawing.Size(69, 17)
+		Me.lblNombre.Size = New System.Drawing.Size(80, 17)
 		Me.lblNombre.TabIndex = 21
-		Me.lblNombre.Text = "Nombre "
+		Me.lblNombre.Text = "Nombre  *"
 		'
 		'lblNombreFanta
 		'
@@ -292,9 +292,9 @@ Partial Class FrmGestionCliente
 		Me.lblNombreFanta.Location = New System.Drawing.Point(128, 59)
 		Me.lblNombreFanta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblNombreFanta.Name = "lblNombreFanta"
-		Me.lblNombreFanta.Size = New System.Drawing.Size(154, 17)
+		Me.lblNombreFanta.Size = New System.Drawing.Size(165, 17)
 		Me.lblNombreFanta.TabIndex = 0
-		Me.lblNombreFanta.Text = "Nombre de Fantasía"
+		Me.lblNombreFanta.Text = "Nombre de Fantasía *"
 		'
 		'tbmail
 		'
@@ -354,9 +354,9 @@ Partial Class FrmGestionCliente
 		Me.lblRazonSoc.Location = New System.Drawing.Point(628, 59)
 		Me.lblRazonSoc.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblRazonSoc.Name = "lblRazonSoc"
-		Me.lblRazonSoc.Size = New System.Drawing.Size(108, 17)
+		Me.lblRazonSoc.Size = New System.Drawing.Size(119, 17)
 		Me.lblRazonSoc.TabIndex = 11
-		Me.lblRazonSoc.Text = "Razón Social "
+		Me.lblRazonSoc.Text = "Razón Social  *"
 		'
 		'GroupBox3
 		'

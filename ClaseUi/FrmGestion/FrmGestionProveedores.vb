@@ -260,12 +260,14 @@ Public Class FrmGestionProveedores
 			pro.FechaNacimiento = dtpfechanac.Value
 		End If
 		If String.IsNullOrEmpty(tbApellido.Text) Then
-			pro.Apellido = ""
+			MsgBox("Debe Cargar un Apellido/Razon Social", MsgBoxStyle.Critical, "Error")
+			Return False
 		Else
 			pro.Apellido = helpersUI.NormalizarTexto(tbApellido.Text)
 		End If
 		If String.IsNullOrEmpty(tbNombre.Text) Then
-			pro.Nombre = ""
+			MsgBox("Debe Cargar un Nombre/Nombre Fantasía", MsgBoxStyle.Critical, "Error")
+			Return False
 		Else
 			pro.Nombre = helpersUI.NormalizarTexto(tbNombre.Text)
 		End If

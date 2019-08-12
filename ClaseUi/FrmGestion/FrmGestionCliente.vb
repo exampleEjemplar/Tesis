@@ -252,12 +252,14 @@ Public Class FrmGestionCliente
 			cli.FechaNacimiento = dtpfechanac.Value
 		End If
 		If String.IsNullOrEmpty(tbApellido.Text) Then
-			cli.Apellido = ""
+			MsgBox("Debe Cargar un Apellido/Razon Social", MsgBoxStyle.Critical, "Error")
+			Return False
 		Else
 			cli.Apellido = helpersUI.NormalizarTexto(tbApellido.Text)
 		End If
 		If String.IsNullOrEmpty(tbNombre.Text) Then
-			cli.Nombre = ""
+			MsgBox("Debe Cargar un Nombre/Nombre Fantasía", MsgBoxStyle.Critical, "Error")
+			Return False
 		Else
 			cli.Nombre = helpersUI.NormalizarTexto(tbNombre.Text)
 		End If
