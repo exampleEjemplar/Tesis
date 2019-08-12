@@ -13,4 +13,18 @@ Public Class MovimientoStockDA
         com.Connection = db
     End Sub
 
+	Public Sub Registrar(productoId As Integer, movimiento As Integer)
+		helpersDa.ChequearConexion(db)
+
+		Try
+			Dim insert As New SqlCommand("insert into ventas MovimientosStock (" & movimiento & ", " & productoId & ",GETDATE())", db)
+			insert.CommandType = CommandType.Text
+			insert.ExecuteNonQuery()
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+	End Sub
+
 End Class

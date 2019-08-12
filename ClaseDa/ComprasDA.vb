@@ -6,6 +6,8 @@ Public Class ComprasDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
 	Private ds1 As DataSet
+	Private movimientoStockDA As New MovimientoStockDA
+
 
 	Public Sub New()
 		Dim objcon As New ConexionDA
@@ -79,6 +81,8 @@ Public Class ComprasDA
 
 				Dim insert2 As New SqlCommand("Declare @compraID int SELECT @compraID = MAX(Id) FROM compras insert into DetalleCompras VALUES(@compraID," & compraDetalle.ProductoId & "," & compraDetalle.Cantidad & "," & parcial & "," & parcial & ",NULL)", db)
 				insert2.ExecuteNonQuery()
+
+				movimientoStockDA.Registrar(compraDetalle.ProductoId, compraDetalle.Cantidad)
 			Next
 			db.Close()
 		Catch ex As Exception

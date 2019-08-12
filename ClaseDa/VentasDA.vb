@@ -6,6 +6,8 @@ Public Class VentasDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
 	Private ds1 As DataSet
+	Private movimientoStockDA As New MovimientoStockDA
+	Private metodoProductoDA As New MetodoProductoDA
 
 	Public Sub New()
 		Dim objcon As New ConexionDA
@@ -68,7 +70,6 @@ Public Class VentasDA
 
 		helpersDa.ChequearConexion(db)
 
-
 		Try
 			Dim totalizado = total.ToString().Replace(",", ".")
 			Dim insert As New SqlCommand("insert into ventas Values (GETDATE()," & clienteId & ", " & totalizado & ",1)", db)
@@ -79,6 +80,8 @@ Public Class VentasDA
 
 				Dim insert2 As New SqlCommand("Declare @ventaID int SELECT @ventaID = MAX(Id) FROM ventas insert into DetalleVentas VALUES(@ventaID," & ventaDetalle.ProductoId & "," & ventaDetalle.Cantidad & "," & parcial & "," & parcial & ",NULL)", db)
 				insert2.ExecuteNonQuery()
+
+				movimientoStockDA.Registrar(ventaDetalle.ProductoId, ventaDetalle.Cantidad * -1)
 			Next
 			db.Close()
 		Catch ex As Exception

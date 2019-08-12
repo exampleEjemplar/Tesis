@@ -146,6 +146,10 @@ Public Class MetodoProductoDA
 		End Try
 	End Sub
 
+	Friend Sub MovimientoStock(productoId As Integer, v As Double)
+		Throw New NotImplementedException()
+	End Sub
+
 	Public Function CargarCMBcategoria2(ByVal idcat1 As Integer)
 		helpersDa.ChequearConexion(db)
 
