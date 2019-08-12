@@ -82,7 +82,11 @@ Public Class FrmModificarPrecioProducto
 		listaDeProductos = New List(Of Tuple(Of Integer, Boolean, ProductosNE))
 		Dim productos = helpersLN.CargarTodosProductos(New Dictionary(Of String, String)).Tables(0)
 		For i As Integer = 0 To productos.Rows.Count - 1
-			CheckedListBox1.Items.Add(productos.Rows(i)(1) + "                      $" + productos.Rows(i)(3).ToString(), CheckState.Unchecked)
+			Dim stringProducto = productos.Rows(i)(1)
+			For y As Integer = productos.Rows(i)(1).length To 40
+				stringProducto += " "
+			Next
+			CheckedListBox1.Items.Add(stringProducto + productos.Rows(i)(3).ToString(), CheckState.Unchecked)
 			Dim producto = New ProductosNE With {
 			.Id = productos.Rows(i)(0),
 			.nombreprducto = productos.Rows(i)(1),

@@ -53,12 +53,12 @@ Partial Class FrmModificarPrecioProducto
 		Me.CheckedListBox1.FormattingEnabled = True
 		Me.CheckedListBox1.Location = New System.Drawing.Point(12, 222)
 		Me.CheckedListBox1.Name = "CheckedListBox1"
-		Me.CheckedListBox1.Size = New System.Drawing.Size(763, 276)
+		Me.CheckedListBox1.Size = New System.Drawing.Size(535, 276)
 		Me.CheckedListBox1.TabIndex = 0
 		'
 		'Label1
 		'
-		Me.Label1.Location = New System.Drawing.Point(780, 9)
+		Me.Label1.Location = New System.Drawing.Point(580, 222)
 		Me.Label1.Name = "Label1"
 		Me.Label1.Size = New System.Drawing.Size(109, 41)
 		Me.Label1.TabIndex = 39
@@ -66,7 +66,7 @@ Partial Class FrmModificarPrecioProducto
 		'
 		'Label2
 		'
-		Me.Label2.Location = New System.Drawing.Point(780, 88)
+		Me.Label2.Location = New System.Drawing.Point(580, 301)
 		Me.Label2.Name = "Label2"
 		Me.Label2.Size = New System.Drawing.Size(112, 41)
 		Me.Label2.TabIndex = 41
@@ -85,14 +85,14 @@ Partial Class FrmModificarPrecioProducto
 		'
 		'txtPorcentaje
 		'
-		Me.txtPorcentaje.Location = New System.Drawing.Point(783, 53)
+		Me.txtPorcentaje.Location = New System.Drawing.Point(583, 266)
 		Me.txtPorcentaje.Name = "txtPorcentaje"
 		Me.txtPorcentaje.Size = New System.Drawing.Size(100, 22)
 		Me.txtPorcentaje.TabIndex = 45
 		'
 		'txtMonto
 		'
-		Me.txtMonto.Location = New System.Drawing.Point(783, 132)
+		Me.txtMonto.Location = New System.Drawing.Point(583, 345)
 		Me.txtMonto.Name = "txtMonto"
 		Me.txtMonto.Size = New System.Drawing.Size(100, 22)
 		Me.txtMonto.TabIndex = 46
@@ -117,7 +117,7 @@ Partial Class FrmModificarPrecioProducto
 		Me.gboFiltros.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.gboFiltros.Name = "gboFiltros"
 		Me.gboFiltros.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.gboFiltros.Size = New System.Drawing.Size(763, 137)
+		Me.gboFiltros.Size = New System.Drawing.Size(828, 137)
 		Me.gboFiltros.TabIndex = 47
 		Me.gboFiltros.TabStop = False
 		Me.gboFiltros.Text = "Filtros para chequear"
@@ -129,7 +129,7 @@ Partial Class FrmModificarPrecioProducto
 		Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.Button1.FlatAppearance.BorderSize = 0
 		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button1.Location = New System.Drawing.Point(687, 64)
+		Me.Button1.Location = New System.Drawing.Point(757, 68)
 		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button1.Name = "Button1"
 		Me.Button1.Size = New System.Drawing.Size(64, 63)
@@ -167,10 +167,10 @@ Partial Class FrmModificarPrecioProducto
 		Me.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
 		Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(615, 58)
+		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(685, 64)
 		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
-		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(64, 73)
+		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(64, 67)
 		Me.btnLimpiarFiltros.TabIndex = 38
 		Me.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnLimpiarFiltros.UseVisualStyleBackColor = False
@@ -182,10 +182,10 @@ Partial Class FrmModificarPrecioProducto
 		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnBuscar.FlatAppearance.BorderSize = 0
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(543, 58)
+		Me.btnBuscar.Location = New System.Drawing.Point(594, 62)
 		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
-		Me.btnBuscar.Size = New System.Drawing.Size(64, 69)
+		Me.btnBuscar.Size = New System.Drawing.Size(83, 69)
 		Me.btnBuscar.TabIndex = 38
 		Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnBuscar.UseVisualStyleBackColor = False
@@ -288,7 +288,7 @@ Partial Class FrmModificarPrecioProducto
 		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnNuevo.FlatAppearance.BorderSize = 0
 		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnNuevo.Location = New System.Drawing.Point(785, 292)
+		Me.btnNuevo.Location = New System.Drawing.Point(733, 301)
 		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(107, 98)
@@ -304,7 +304,7 @@ Partial Class FrmModificarPrecioProducto
 		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnSalir.FlatAppearance.BorderSize = 0
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalir.Location = New System.Drawing.Point(782, 398)
+		Me.btnSalir.Location = New System.Drawing.Point(730, 407)
 		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
 		Me.btnSalir.Size = New System.Drawing.Size(107, 100)
@@ -317,7 +317,7 @@ Partial Class FrmModificarPrecioProducto
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(896, 510)
+		Me.ClientSize = New System.Drawing.Size(852, 510)
 		Me.Controls.Add(Me.gboFiltros)
 		Me.Controls.Add(Me.txtMonto)
 		Me.Controls.Add(Me.txtPorcentaje)
