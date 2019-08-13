@@ -139,4 +139,8 @@ Public Class MDIPrincipal
 			MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
 		End If
 	End Sub
+
+	Private Sub btnStock_Click(sender As Object, e As EventArgs) Handles btnStock.Click
+		FrmGestionStock.Show()
+	End Sub
 End Class

@@ -128,6 +128,12 @@
     <Compile Include="FrmConsultaCotizaciones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmConsultaMovimientoStock.Designer.vb">
+      <DependentUpon>FrmConsultaMovimientoStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsultaMovimientoStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmEstadisticacliente.Designer.vb">
       <DependentUpon>FrmEstadisticacliente.vb</DependentUpon>
     </Compile>
@@ -174,6 +180,12 @@
       <DependentUpon>FrmGestionProveedores.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmGestion\FrmGestionProveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestion\FrmGestionStock.Designer.vb">
+      <DependentUpon>FrmGestionStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestion\FrmGestionStock.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmGestion\FrmGestionTipoDeProducto.Designer.vb">
@@ -301,6 +313,9 @@
     <EmbeddedResource Include="FrmConsultaCotizaciones.resx">
       <DependentUpon>FrmConsultaCotizaciones.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaMovimientoStock.resx">
+      <DependentUpon>FrmConsultaMovimientoStock.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleProductoCatalogo.resx">
       <DependentUpon>FrmDetalleProductoCatalogo.Vb</DependentUpon>
     </EmbeddedResource>
@@ -324,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionProveedores.resx">
       <DependentUpon>FrmGestionProveedores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestion\FrmGestionStock.resx">
+      <DependentUpon>FrmGestionStock.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionTipoDeProducto.resx">
       <DependentUpon>FrmGestionTipoDeProducto.vb</DependentUpon>

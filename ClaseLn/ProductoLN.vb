@@ -14,7 +14,16 @@ Public Class ProductoLN
 
     End Sub
 
-    Public Function CargarCMBTipo()
+	Public Function CargarGrillaStock() As DataSet
+		Return objproductosAD.CargarGrillaStock()
+	End Function
+
+	Public Function CargarTodosMovimientos(productoId As String) As DataSet
+		Return objproductosAD.CargarTodosMovimientos(productoId)
+	End Function
+
+
+	Public Function CargarCMBTipo()
 
         Return objproductosAD.CargarCMBtIpo
     End Function

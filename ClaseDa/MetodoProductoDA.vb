@@ -14,6 +14,8 @@ Public Class MetodoProductoDA
 	Private helpersDa As New HelpersDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
+
+
 	Dim Rs As SqlDataReader
 	Private ds As DataSet
 	Public qidproductos As Integer
@@ -25,12 +27,44 @@ Public Class MetodoProductoDA
 		com.Connection = db
 	End Sub
 
+	Public Function CargarTodosMovimientos(productoId As String) As DataSet
+		helpersDa.ChequearConexion(db)
+		Dim sqlStr As String
+		ds = New DataSet
+		sqlStr = "select m.id, m.Cantidad as Movimiento, p.Nombre, m.Fecha, pro.Nombre + ' ' + pro.Apellido as Proveedor from MovimientosStock as m inner join Productos as p on p.id = m.ProductoId inner join Proveedores as pro on pro.id = p.ProveedorId where ProductoId =  " + productoId + " order by m.fecha desc"
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+		Return ds
+	End Function
+
+	Public Function CargarGrillaStock() As DataSet
+		helpersDa.ChequearConexion(db)
+		Dim sqlStr As String
+		ds = New DataSet
+		sqlStr = "SELECT p.id, p.Nombre, SUM(m.cantidad) as 'Stock Actual', p.StockMax as 'Stock Maximo',p.StockMin as 'Stock Minimo' FROM Productos as p inner join MovimientosStock as m on m.ProductoId = p.Id GROUP BY p.Nombre, p.Id, p.StockMax, p.StockMin"
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+		Return ds
+	End Function
+
 	Public Function CargarCMBtIpo()
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds = New DataSet
-        sqlStr = "select * from TipoProductos Order By Descripcion "
-        Try
+		sqlStr = "select * from TipoProductos Order By Descripcion "
+		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
 			db.Close()

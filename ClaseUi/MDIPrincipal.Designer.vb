@@ -56,6 +56,7 @@ Partial Class MDIPrincipal
 		Me.btnArticulos = New System.Windows.Forms.Button()
 		Me.btnCompras = New System.Windows.Forms.Button()
 		Me.btnVentas = New System.Windows.Forms.Button()
+		Me.btnStock = New System.Windows.Forms.Button()
 		Me.MenuStrip.SuspendLayout()
 		Me.SuspendLayout()
 		'
@@ -366,6 +367,24 @@ Partial Class MDIPrincipal
 		Me.btnVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
 		Me.btnVentas.UseVisualStyleBackColor = False
 		'
+		'btnStock
+		'
+		Me.btnStock.BackColor = System.Drawing.Color.LightSteelBlue
+		Me.btnStock.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_cancel_62
+		Me.btnStock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnStock.FlatAppearance.BorderSize = 0
+		Me.btnStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnStock.Location = New System.Drawing.Point(172, 374)
+		Me.btnStock.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnStock.Name = "btnStock"
+		Me.btnStock.Size = New System.Drawing.Size(165, 112)
+		Me.btnStock.TabIndex = 32
+		Me.btnStock.Text = "Stock"
+		Me.btnStock.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnStock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+		Me.btnStock.UseVisualStyleBackColor = False
+		'
 		'MDIPrincipal
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -374,6 +393,7 @@ Partial Class MDIPrincipal
 		Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.ClientSize = New System.Drawing.Size(1349, 762)
 		Me.ControlBox = False
+		Me.Controls.Add(Me.btnStock)
 		Me.Controls.Add(Me.Button4)
 		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.Button1)
@@ -427,4 +447,5 @@ Partial Class MDIPrincipal
     Friend WithEvents ComprasToolStripMenuItem As Windows.Forms.ToolStripMenuItem
     Friend WithEvents Button4 As Windows.Forms.Button
     Friend WithEvents GestionDeUsuariosToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+	Friend WithEvents btnStock As Windows.Forms.Button
 End Class
