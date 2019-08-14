@@ -42,4 +42,15 @@
 			_Tipo = CStr(value)
 		End Set
 	End Property
+
+	Private _Movimiento As String
+
+	Public Property Movimiento As String
+		Get
+			Return _Movimiento
+		End Get
+		Set(ByVal value As String)
+			_Movimiento = CStr(value)
+		End Set
+	End Property
 End Class
