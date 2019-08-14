@@ -22,13 +22,50 @@ Public Class FrmGestionStock
 	End Sub
 
 	Private Sub FrmGestionStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		Cargar()
 		CargarGrilla(New Dictionary(Of String, String))
-		LlenarCboProveedores()
+	End Sub
+
+	'Validas los radio buton de fecha de cargado de producto
+	Private Sub RbtEntreFechas_CheckedChanged(sender As Object, e As EventArgs) Handles rbtEntreFechas.CheckedChanged, rbtFechaExacta.CheckedChanged
+
+		If rbtFechaExacta.Checked Then
+			lblFechaExacta.Visible = True
+			lbldesde.Visible = False
+			rbtEntreFechas.Checked = False
+			lblHasta.Visible = False
+			dtpFechaHasta.Visible = False
+			dtpFechaDesde.Visible = True
+		ElseIf rbtEntreFechas.Checked Then
+			lblFechaExacta.Visible = False
+			rbtFechaExacta.Checked = False
+			lblHasta.Visible = True
+			dtpFechaHasta.Visible = True
+			dtpFechaDesde.Visible = True
+			lbldesde.Visible = True
+		ElseIf Not rbtEntreFechas.Checked And Not rbtFechaExacta.Checked Then
+			dtpFechaHasta.Visible = False
+			dtpFechaDesde.Visible = False
+			lblFechaExacta.Visible = False
+			lblHasta.Visible = False
+			lbldesde.Visible = False
+		End If
+
 	End Sub
 
 	'Agrega los parametros de busqueda al diccionario y llama al metodo que carga el LVI
 	Public Sub Search()
 		Dim parametros As Dictionary(Of String, String) = New Dictionary(Of String, String)
+		If String.IsNullOrWhiteSpace(dtpFechaDesde.Value.ToString()) = False And dtpFechaDesde.Visible Then
+			parametros.Add("FechaDesde", dtpFechaDesde.Value.Date.ToString("dd/MM/yyyy"))
+		End If
+		If String.IsNullOrWhiteSpace(dtpFechaHasta.Value.ToString()) = False And dtpFechaDesde.Visible And dtpFechaHasta.Visible Then
+			If dtpFechaHasta.Value <= dtpFechaDesde.Value Then
+				MsgBox("La fecha desde no puede ser mayor que la fecha hasta", MsgBoxStyle.OkOnly, "Error")
+				Return
+			End If
+			parametros.Add("FechaHasta", dtpFechaHasta.Value.Date.ToString("dd/MM/yyyy"))
+		End If
 		If String.IsNullOrWhiteSpace(txtBusNombreProducto.Text) = False Then
 			parametros.Add("Nombre", txtBusNombreProducto.Text)
 		End If
@@ -70,10 +107,23 @@ Public Class FrmGestionStock
 		Search()
 	End Sub
 
+	Private Sub Cargar()
+		txtBusNombreProducto.Text = ""
+		dtpFechaDesde.Value = Date.Now
+		dtpFechaHasta.Value = Date.Now
+		dtpFechaHasta.Visible = False
+		dtpFechaDesde.Visible = False
+		lblFechaExacta.Visible = False
+		lblHasta.Visible = False
+		lbldesde.Visible = False
+		rbtEntreFechas.Checked = False
+		rbtFechaExacta.Checked = False
+		LlenarCboProveedores()
+	End Sub
+
 	Private Sub btnLimpiarFiltros_Click(sender As Object, e As EventArgs) Handles btnLimpiarFiltros.Click
 		If MsgBox("Desea quitar todos los filtros", MsgBoxStyle.YesNo, "Filtros") = MsgBoxResult.Yes Then
-			txtBusNombreProducto.Text = ""
-			LlenarCboProveedores()
+			Cargar()
 			Search()
 		End If
 	End Sub

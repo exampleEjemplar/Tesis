@@ -152,6 +152,12 @@
     <Compile Include="FrmDetalleProductoCatalogo.Vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmGestion\FrmGestionCaja.Designer.vb">
+      <DependentUpon>FrmGestionCaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestion\FrmGestionCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmGestion\FrmGestionCategorías.Designer.vb">
       <DependentUpon>FrmGestionCategorías.vb</DependentUpon>
     </Compile>
@@ -321,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEstadisticacliente.resx">
       <DependentUpon>FrmEstadisticacliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestion\FrmGestionCaja.resx">
+      <DependentUpon>FrmGestionCaja.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionCategorías.resx">
       <DependentUpon>FrmGestionCategorías.vb</DependentUpon>

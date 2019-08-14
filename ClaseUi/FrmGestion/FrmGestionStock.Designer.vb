@@ -33,6 +33,13 @@ Partial Class FrmGestionStock
 		Me.Label8 = New System.Windows.Forms.Label()
 		Me.btnLimpiarFiltros = New System.Windows.Forms.Button()
 		Me.btnBuscar = New System.Windows.Forms.Button()
+		Me.lbldesde = New System.Windows.Forms.Label()
+		Me.rbtEntreFechas = New System.Windows.Forms.CheckBox()
+		Me.lblHasta = New System.Windows.Forms.Label()
+		Me.rbtFechaExacta = New System.Windows.Forms.CheckBox()
+		Me.dtpFechaHasta = New System.Windows.Forms.DateTimePicker()
+		Me.dtpFechaDesde = New System.Windows.Forms.DateTimePicker()
+		Me.lblFechaExacta = New System.Windows.Forms.Label()
 		CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox2.SuspendLayout()
 		Me.SuspendLayout()
@@ -47,7 +54,7 @@ Partial Class FrmGestionStock
 		Me.dgvGrilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
 		Me.dgvGrilla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
 		Me.dgvGrilla.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
-		Me.dgvGrilla.Location = New System.Drawing.Point(12, 157)
+		Me.dgvGrilla.Location = New System.Drawing.Point(12, 237)
 		Me.dgvGrilla.Margin = New System.Windows.Forms.Padding(4)
 		Me.dgvGrilla.MultiSelect = False
 		Me.dgvGrilla.Name = "dgvGrilla"
@@ -108,7 +115,7 @@ Partial Class FrmGestionStock
 		Me.btnSalirr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnSalirr.FlatAppearance.BorderSize = 0
 		Me.btnSalirr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalirr.Location = New System.Drawing.Point(728, 235)
+		Me.btnSalirr.Location = New System.Drawing.Point(728, 315)
 		Me.btnSalirr.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalirr.Name = "btnSalirr"
 		Me.btnSalirr.Size = New System.Drawing.Size(115, 110)
@@ -166,7 +173,7 @@ Partial Class FrmGestionStock
 		Me.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
 		Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(563, 63)
+		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(563, 131)
 		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
 		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(74, 76)
@@ -181,7 +188,7 @@ Partial Class FrmGestionStock
 		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnBuscar.FlatAppearance.BorderSize = 0
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(645, 66)
+		Me.btnBuscar.Location = New System.Drawing.Point(645, 134)
 		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(74, 73)
@@ -189,11 +196,91 @@ Partial Class FrmGestionStock
 		Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnBuscar.UseVisualStyleBackColor = False
 		'
+		'lbldesde
+		'
+		Me.lbldesde.AutoSize = True
+		Me.lbldesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
+		Me.lbldesde.Location = New System.Drawing.Point(110, 185)
+		Me.lbldesde.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lbldesde.Name = "lbldesde"
+		Me.lbldesde.Size = New System.Drawing.Size(54, 16)
+		Me.lbldesde.TabIndex = 70
+		Me.lbldesde.Text = "Desde"
+		'
+		'rbtEntreFechas
+		'
+		Me.rbtEntreFechas.AutoSize = True
+		Me.rbtEntreFechas.Location = New System.Drawing.Point(340, 147)
+		Me.rbtEntreFechas.Name = "rbtEntreFechas"
+		Me.rbtEntreFechas.Size = New System.Drawing.Size(177, 21)
+		Me.rbtEntreFechas.TabIndex = 67
+		Me.rbtEntreFechas.Text = "Busqueda entre fechas"
+		Me.rbtEntreFechas.UseVisualStyleBackColor = True
+		'
+		'lblHasta
+		'
+		Me.lblHasta.AutoSize = True
+		Me.lblHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
+		Me.lblHasta.Location = New System.Drawing.Point(331, 185)
+		Me.lblHasta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lblHasta.Name = "lblHasta"
+		Me.lblHasta.Size = New System.Drawing.Size(49, 16)
+		Me.lblHasta.TabIndex = 69
+		Me.lblHasta.Text = "Hasta"
+		'
+		'rbtFechaExacta
+		'
+		Me.rbtFechaExacta.AutoSize = True
+		Me.rbtFechaExacta.Location = New System.Drawing.Point(16, 147)
+		Me.rbtFechaExacta.Name = "rbtFechaExacta"
+		Me.rbtFechaExacta.Size = New System.Drawing.Size(318, 21)
+		Me.rbtFechaExacta.TabIndex = 68
+		Me.rbtFechaExacta.Text = "Busqueda fecha exacta de carga de producto"
+		Me.rbtFechaExacta.UseVisualStyleBackColor = True
+		'
+		'dtpFechaHasta
+		'
+		Me.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+		Me.dtpFechaHasta.Location = New System.Drawing.Point(389, 181)
+		Me.dtpFechaHasta.Margin = New System.Windows.Forms.Padding(4)
+		Me.dtpFechaHasta.Name = "dtpFechaHasta"
+		Me.dtpFechaHasta.Size = New System.Drawing.Size(151, 22)
+		Me.dtpFechaHasta.TabIndex = 66
+		Me.dtpFechaHasta.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
+		'
+		'dtpFechaDesde
+		'
+		Me.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+		Me.dtpFechaDesde.Location = New System.Drawing.Point(172, 181)
+		Me.dtpFechaDesde.Margin = New System.Windows.Forms.Padding(4)
+		Me.dtpFechaDesde.Name = "dtpFechaDesde"
+		Me.dtpFechaDesde.Size = New System.Drawing.Size(151, 22)
+		Me.dtpFechaDesde.TabIndex = 65
+		Me.dtpFechaDesde.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
+		'
+		'lblFechaExacta
+		'
+		Me.lblFechaExacta.AutoSize = True
+		Me.lblFechaExacta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
+		Me.lblFechaExacta.Location = New System.Drawing.Point(13, 185)
+		Me.lblFechaExacta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lblFechaExacta.Name = "lblFechaExacta"
+		Me.lblFechaExacta.Size = New System.Drawing.Size(95, 16)
+		Me.lblFechaExacta.TabIndex = 64
+		Me.lblFechaExacta.Text = "Fecha carga"
+		'
 		'FrmGestionStock
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(861, 359)
+		Me.ClientSize = New System.Drawing.Size(854, 449)
+		Me.Controls.Add(Me.lbldesde)
+		Me.Controls.Add(Me.rbtEntreFechas)
+		Me.Controls.Add(Me.lblHasta)
+		Me.Controls.Add(Me.rbtFechaExacta)
+		Me.Controls.Add(Me.dtpFechaHasta)
+		Me.Controls.Add(Me.dtpFechaDesde)
+		Me.Controls.Add(Me.lblFechaExacta)
 		Me.Controls.Add(Me.btnLimpiarFiltros)
 		Me.Controls.Add(Me.btnBuscar)
 		Me.Controls.Add(Me.txtBusNombreProducto)
@@ -224,4 +311,11 @@ Partial Class FrmGestionStock
 	Friend WithEvents Label8 As Windows.Forms.Label
 	Friend WithEvents btnLimpiarFiltros As Windows.Forms.Button
 	Friend WithEvents btnBuscar As Windows.Forms.Button
+	Friend WithEvents lbldesde As Windows.Forms.Label
+	Friend WithEvents rbtEntreFechas As Windows.Forms.CheckBox
+	Friend WithEvents lblHasta As Windows.Forms.Label
+	Friend WithEvents rbtFechaExacta As Windows.Forms.CheckBox
+	Friend WithEvents dtpFechaHasta As Windows.Forms.DateTimePicker
+	Friend WithEvents dtpFechaDesde As Windows.Forms.DateTimePicker
+	Friend WithEvents lblFechaExacta As Windows.Forms.Label
 End Class
