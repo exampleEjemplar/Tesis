@@ -43,11 +43,30 @@ Public Class MetodoProductoDA
 		Return ds
 	End Function
 
-	Public Function CargarGrillaStock() As DataSet
+	Public Function CargarGrillaStock(parametros As Dictionary(Of String, String)) As DataSet
 		helpersDa.ChequearConexion(db)
-		Dim sqlStr As String
 		ds = New DataSet
-		sqlStr = "SELECT p.id, p.Nombre, SUM(m.cantidad) as 'Stock Actual', p.StockMax as 'Stock Maximo',p.StockMin as 'Stock Minimo' FROM Productos as p inner join MovimientosStock as m on m.ProductoId = p.Id GROUP BY p.Nombre, p.Id, p.StockMax, p.StockMin"
+
+		Dim text = ""
+		If parametros.Count <> 0 Then
+			text += " where "
+			Dim count = parametros.Count
+			For Each item As KeyValuePair(Of String, String) In parametros
+				If item.Key = "ProveedorId" Then
+					count = count - 1
+					text = text & "p.proveedorid" & " = " & item.Value & " " & If(count <> 0, " and ", "")
+					Continue For
+				End If
+				If item.Key = "Nombre" Then
+					count = count - 1
+					text = text & "p.nombre" & " like '%" & item.Value & "%' " & If(count <> 0, " and ", "")
+					Continue For
+				End If
+			Next
+		End If
+
+		Dim sqlStr = "SELECT p.id, p.Nombre, SUM(m.cantidad) as 'Stock Actual', p.StockMax as 'Stock Maximo',p.StockMin as 'Stock Minimo' FROM Productos as p inner join MovimientosStock as m on m.ProductoId = p.Id  " + text + "  GROUP BY p.Nombre, p.Id, p.StockMax, p.StockMin"
+
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
