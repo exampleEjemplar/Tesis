@@ -42,15 +42,15 @@ Partial Class FrmGestionCaja
 		Me.Button2 = New System.Windows.Forms.Button()
 		Me.TextBox1 = New System.Windows.Forms.TextBox()
 		Me.Label4 = New System.Windows.Forms.Label()
-		Me.txtCantidadMov = New System.Windows.Forms.TextBox()
+		Me.txtIngresos = New System.Windows.Forms.TextBox()
 		Me.Label3 = New System.Windows.Forms.Label()
-		Me.txtStockActual = New System.Windows.Forms.TextBox()
+		Me.txtMontoFinal = New System.Windows.Forms.TextBox()
 		Me.Label2 = New System.Windows.Forms.Label()
-		Me.txtProveedor = New System.Windows.Forms.TextBox()
+		Me.txtCantidadMov = New System.Windows.Forms.TextBox()
 		Me.Label11 = New System.Windows.Forms.Label()
-		Me.txtProducto = New System.Windows.Forms.TextBox()
+		Me.txtUsuario = New System.Windows.Forms.TextBox()
 		Me.Label1 = New System.Windows.Forms.Label()
-		Me.TextBox2 = New System.Windows.Forms.TextBox()
+		Me.txtEgresos = New System.Windows.Forms.TextBox()
 		Me.GroupBox2.SuspendLayout()
 		CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox1.SuspendLayout()
@@ -65,7 +65,7 @@ Partial Class FrmGestionCaja
 		Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.GroupBox2.Name = "GroupBox2"
 		Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.GroupBox2.Size = New System.Drawing.Size(707, 28)
+		Me.GroupBox2.Size = New System.Drawing.Size(791, 28)
 		Me.GroupBox2.TabIndex = 65
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "Gestión Caja"
@@ -103,7 +103,7 @@ Partial Class FrmGestionCaja
 		Me.btnSalirr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnSalirr.FlatAppearance.BorderSize = 0
 		Me.btnSalirr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalirr.Location = New System.Drawing.Point(731, 512)
+		Me.btnSalirr.Location = New System.Drawing.Point(814, 499)
 		Me.btnSalirr.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalirr.Name = "btnSalirr"
 		Me.btnSalirr.Size = New System.Drawing.Size(115, 110)
@@ -178,7 +178,7 @@ Partial Class FrmGestionCaja
 		'
 		Me.lblFechaExacta.AutoSize = True
 		Me.lblFechaExacta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
-		Me.lblFechaExacta.Location = New System.Drawing.Point(76, 113)
+		Me.lblFechaExacta.Location = New System.Drawing.Point(76, 111)
 		Me.lblFechaExacta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblFechaExacta.Name = "lblFechaExacta"
 		Me.lblFechaExacta.Size = New System.Drawing.Size(82, 16)
@@ -192,7 +192,7 @@ Partial Class FrmGestionCaja
 		Me.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
 		Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(539, 56)
+		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(621, 67)
 		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
 		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(74, 76)
@@ -207,7 +207,7 @@ Partial Class FrmGestionCaja
 		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnBuscar.FlatAppearance.BorderSize = 0
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(626, 59)
+		Me.btnBuscar.Location = New System.Drawing.Point(710, 67)
 		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(74, 73)
@@ -249,7 +249,7 @@ Partial Class FrmGestionCaja
 		Me.dgvGrilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
 		Me.dgvGrilla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
 		Me.dgvGrilla.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
-		Me.dgvGrilla.Location = New System.Drawing.Point(12, 345)
+		Me.dgvGrilla.Location = New System.Drawing.Point(12, 332)
 		Me.dgvGrilla.Margin = New System.Windows.Forms.Padding(4)
 		Me.dgvGrilla.MultiSelect = False
 		Me.dgvGrilla.Name = "dgvGrilla"
@@ -260,7 +260,7 @@ Partial Class FrmGestionCaja
 		Me.dgvGrilla.RowHeadersWidth = 56
 		Me.dgvGrilla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
 		Me.dgvGrilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.dgvGrilla.Size = New System.Drawing.Size(707, 277)
+		Me.dgvGrilla.Size = New System.Drawing.Size(791, 277)
 		Me.dgvGrilla.TabIndex = 66
 		'
 		'GroupBox1
@@ -283,7 +283,7 @@ Partial Class FrmGestionCaja
 		Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.GroupBox1.Name = "GroupBox1"
 		Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.GroupBox1.Size = New System.Drawing.Size(707, 149)
+		Me.GroupBox1.Size = New System.Drawing.Size(791, 149)
 		Me.GroupBox1.TabIndex = 66
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "Filtros"
@@ -318,41 +318,45 @@ Partial Class FrmGestionCaja
 		'
 		Me.Label4.AutoSize = True
 		Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
-		Me.Label4.Location = New System.Drawing.Point(13, 315)
+		Me.Label4.Location = New System.Drawing.Point(16, 283)
 		Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label4.Name = "Label4"
 		Me.Label4.Size = New System.Drawing.Size(73, 18)
 		Me.Label4.TabIndex = 92
 		Me.Label4.Text = "Ingresos"
 		'
-		'txtCantidadMov
+		'txtIngresos
 		'
-		Me.txtCantidadMov.Location = New System.Drawing.Point(119, 315)
-		Me.txtCantidadMov.Margin = New System.Windows.Forms.Padding(4)
-		Me.txtCantidadMov.MaxLength = 30
-		Me.txtCantidadMov.Name = "txtCantidadMov"
-		Me.txtCantidadMov.Size = New System.Drawing.Size(185, 22)
-		Me.txtCantidadMov.TabIndex = 91
+		Me.txtIngresos.Location = New System.Drawing.Point(105, 282)
+		Me.txtIngresos.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtIngresos.MaxLength = 30
+		Me.txtIngresos.Name = "txtIngresos"
+		Me.txtIngresos.ReadOnly = True
+		Me.txtIngresos.Size = New System.Drawing.Size(141, 22)
+		Me.txtIngresos.TabIndex = 91
+		Me.txtIngresos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
 		'
 		'Label3
 		'
 		Me.Label3.AutoSize = True
 		Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
-		Me.Label3.Location = New System.Drawing.Point(13, 287)
+		Me.Label3.Location = New System.Drawing.Point(575, 282)
 		Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label3.Name = "Label3"
 		Me.Label3.Size = New System.Drawing.Size(92, 18)
 		Me.Label3.TabIndex = 90
 		Me.Label3.Text = "Monto final"
 		'
-		'txtStockActual
+		'txtMontoFinal
 		'
-		Me.txtStockActual.Location = New System.Drawing.Point(395, 282)
-		Me.txtStockActual.Margin = New System.Windows.Forms.Padding(4)
-		Me.txtStockActual.MaxLength = 30
-		Me.txtStockActual.Name = "txtStockActual"
-		Me.txtStockActual.Size = New System.Drawing.Size(324, 22)
-		Me.txtStockActual.TabIndex = 89
+		Me.txtMontoFinal.Location = New System.Drawing.Point(687, 281)
+		Me.txtMontoFinal.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtMontoFinal.MaxLength = 30
+		Me.txtMontoFinal.Name = "txtMontoFinal"
+		Me.txtMontoFinal.ReadOnly = True
+		Me.txtMontoFinal.Size = New System.Drawing.Size(116, 22)
+		Me.txtMontoFinal.TabIndex = 89
+		Me.txtMontoFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
 		'
 		'Label2
 		'
@@ -365,14 +369,15 @@ Partial Class FrmGestionCaja
 		Me.Label2.TabIndex = 88
 		Me.Label2.Text = "Cantidad de movimientos en el período de tiempo"
 		'
-		'txtProveedor
+		'txtCantidadMov
 		'
-		Me.txtProveedor.Location = New System.Drawing.Point(395, 250)
-		Me.txtProveedor.Margin = New System.Windows.Forms.Padding(4)
-		Me.txtProveedor.MaxLength = 30
-		Me.txtProveedor.Name = "txtProveedor"
-		Me.txtProveedor.Size = New System.Drawing.Size(324, 22)
-		Me.txtProveedor.TabIndex = 87
+		Me.txtCantidadMov.Location = New System.Drawing.Point(479, 246)
+		Me.txtCantidadMov.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtCantidadMov.MaxLength = 30
+		Me.txtCantidadMov.Name = "txtCantidadMov"
+		Me.txtCantidadMov.ReadOnly = True
+		Me.txtCantidadMov.Size = New System.Drawing.Size(324, 22)
+		Me.txtCantidadMov.TabIndex = 87
 		'
 		'Label11
 		'
@@ -381,54 +386,57 @@ Partial Class FrmGestionCaja
 		Me.Label11.Location = New System.Drawing.Point(13, 216)
 		Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label11.Name = "Label11"
-		Me.Label11.Size = New System.Drawing.Size(67, 18)
+		Me.Label11.Size = New System.Drawing.Size(76, 18)
 		Me.Label11.TabIndex = 86
-		Me.Label11.Text = "Usuario"
+		Me.Label11.Text = "Usuarios"
 		'
-		'txtProducto
+		'txtUsuario
 		'
-		Me.txtProducto.Location = New System.Drawing.Point(395, 220)
-		Me.txtProducto.Margin = New System.Windows.Forms.Padding(4)
-		Me.txtProducto.MaxLength = 30
-		Me.txtProducto.Name = "txtProducto"
-		Me.txtProducto.Size = New System.Drawing.Size(324, 22)
-		Me.txtProducto.TabIndex = 85
+		Me.txtUsuario.Location = New System.Drawing.Point(163, 216)
+		Me.txtUsuario.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtUsuario.MaxLength = 30
+		Me.txtUsuario.Name = "txtUsuario"
+		Me.txtUsuario.ReadOnly = True
+		Me.txtUsuario.Size = New System.Drawing.Size(640, 22)
+		Me.txtUsuario.TabIndex = 85
 		'
 		'Label1
 		'
 		Me.Label1.AutoSize = True
 		Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
-		Me.Label1.Location = New System.Drawing.Point(444, 315)
+		Me.Label1.Location = New System.Drawing.Point(307, 284)
 		Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label1.Name = "Label1"
 		Me.Label1.Size = New System.Drawing.Size(71, 18)
 		Me.Label1.TabIndex = 94
 		Me.Label1.Text = "Egresos"
 		'
-		'TextBox2
+		'txtEgresos
 		'
-		Me.TextBox2.Location = New System.Drawing.Point(534, 315)
-		Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
-		Me.TextBox2.MaxLength = 30
-		Me.TextBox2.Name = "TextBox2"
-		Me.TextBox2.Size = New System.Drawing.Size(185, 22)
-		Me.TextBox2.TabIndex = 93
+		Me.txtEgresos.Location = New System.Drawing.Point(394, 281)
+		Me.txtEgresos.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtEgresos.MaxLength = 30
+		Me.txtEgresos.Name = "txtEgresos"
+		Me.txtEgresos.ReadOnly = True
+		Me.txtEgresos.Size = New System.Drawing.Size(136, 22)
+		Me.txtEgresos.TabIndex = 93
+		Me.txtEgresos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
 		'
 		'FrmGestionCaja
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(867, 635)
+		Me.ClientSize = New System.Drawing.Size(942, 617)
 		Me.Controls.Add(Me.Label1)
-		Me.Controls.Add(Me.TextBox2)
+		Me.Controls.Add(Me.txtEgresos)
 		Me.Controls.Add(Me.Label4)
-		Me.Controls.Add(Me.txtCantidadMov)
+		Me.Controls.Add(Me.txtIngresos)
 		Me.Controls.Add(Me.Label3)
-		Me.Controls.Add(Me.txtStockActual)
+		Me.Controls.Add(Me.txtMontoFinal)
 		Me.Controls.Add(Me.Label2)
-		Me.Controls.Add(Me.txtProveedor)
+		Me.Controls.Add(Me.txtCantidadMov)
 		Me.Controls.Add(Me.Label11)
-		Me.Controls.Add(Me.txtProducto)
+		Me.Controls.Add(Me.txtUsuario)
 		Me.Controls.Add(Me.GroupBox1)
 		Me.Controls.Add(Me.dgvGrilla)
 		Me.Controls.Add(Me.GroupBox2)
@@ -464,13 +472,13 @@ Partial Class FrmGestionCaja
 	Friend WithEvents Button2 As Windows.Forms.Button
 	Friend WithEvents TextBox1 As Windows.Forms.TextBox
 	Friend WithEvents Label4 As Windows.Forms.Label
-	Friend WithEvents txtCantidadMov As Windows.Forms.TextBox
+	Friend WithEvents txtIngresos As Windows.Forms.TextBox
 	Friend WithEvents Label3 As Windows.Forms.Label
-	Friend WithEvents txtStockActual As Windows.Forms.TextBox
+	Friend WithEvents txtMontoFinal As Windows.Forms.TextBox
 	Friend WithEvents Label2 As Windows.Forms.Label
-	Friend WithEvents txtProveedor As Windows.Forms.TextBox
+	Friend WithEvents txtCantidadMov As Windows.Forms.TextBox
 	Friend WithEvents Label11 As Windows.Forms.Label
-	Friend WithEvents txtProducto As Windows.Forms.TextBox
+	Friend WithEvents txtUsuario As Windows.Forms.TextBox
 	Friend WithEvents Label1 As Windows.Forms.Label
-	Friend WithEvents TextBox2 As Windows.Forms.TextBox
+	Friend WithEvents txtEgresos As Windows.Forms.TextBox
 End Class

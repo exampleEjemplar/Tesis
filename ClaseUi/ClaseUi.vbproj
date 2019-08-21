@@ -128,6 +128,12 @@
     <Compile Include="FrmConsultaCotizaciones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmConsultaMovimientoCaja.Designer.vb">
+      <DependentUpon>FrmConsultaMovimientoCaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsultaMovimientoCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmConsultaMovimientoStock.Designer.vb">
       <DependentUpon>FrmConsultaMovimientoStock.vb</DependentUpon>
     </Compile>
@@ -318,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaCotizaciones.resx">
       <DependentUpon>FrmConsultaCotizaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaMovimientoCaja.resx">
+      <DependentUpon>FrmConsultaMovimientoCaja.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaMovimientoStock.resx">
       <DependentUpon>FrmConsultaMovimientoStock.vb</DependentUpon>

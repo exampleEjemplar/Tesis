@@ -24,17 +24,17 @@ Public Class CajaDA
 			For Each item As KeyValuePair(Of String, String) In parametros
 				If item.Key = "UsuarioId" Then
 					count = count - 1
-					text = text & "UsuarioId" & " = " & item.Value & " " & If(count <> 0, " and ", "")
+					text = text & "v.UsuarioId" & " = " & item.Value & " " & If(count <> 0, " and ", "")
 					Continue For
 				End If
 				If item.Key = "FechaDesde" And Not parametros.Keys.Contains("FechaHasta") Then
 					count = count - 1
-					text = text & "fecha" & " between '" & item.Value & " 00:00:00' and '" & item.Value & " 23:59:59'" & If(count <> 0, " and ", "")
+					text = text & "v.fecha" & " between '" & item.Value & " 00:00:00' and '" & item.Value & " 23:59:59'" & If(count <> 0, " and ", "")
 					Continue For
 				End If
 				If item.Key = "FechaDesde" And parametros.Keys.Contains("FechaHasta") Then
 					count = count - 1
-					text = text & "fecha" & " between '" & item.Value & " 00:00:00' and "
+					text = text & "v.fecha" & " between '" & item.Value & " 00:00:00' and "
 					Continue For
 				End If
 				If item.Key = "FechaHasta" Then
@@ -45,7 +45,24 @@ Public Class CajaDA
 			Next
 		End If
 		'SE LLAMA TEXT EL PARAMETRO
-		Dim sqlStr = "Select id,fecha,Total,UsuarioID from ventas" + text + "  GO Select id,fecha,Total,UsuarioID from compras" + text
+		Dim sqlStr = "set dateformat dmy Select v.id,v.fecha,v.Total,u.Username from ventas as v inner join usuarios as u on u.id = v.usuarioId " + text + " set dateformat dmy Select v.id,v.fecha,v.Total,u.Username from compras as v inner join usuarios as u on u.id = v.usuarioId " + text
+
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+		Return ds
+	End Function
+
+	Public Function CargarUnMovimiento(movimientoId As Tuple(Of Integer, String)) As DataSet
+		helpersDA.ChequearConexion(db)
+		Dim ds = New DataSet
+
+		Dim sqlStr = "Select cov.id,cov.fecha,cov.Total,u.username from " + movimientoId.Item2 + "s as cov inner join usuarios as u on u.id = cov.usuarioID where cov.id = " + movimientoId.Item1.ToString()
 
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)

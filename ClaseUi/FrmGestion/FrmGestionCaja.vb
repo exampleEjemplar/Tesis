@@ -7,44 +7,66 @@ Public Class FrmGestionCaja
 
 	Private cajaLN As New CajaLN
 	Private helpersln As New HelpersLN
-	Public productoId As String
+	Public movCajaId As Tuple(Of Integer, String)
 
 	Public Sub CargarGrilla(parametros As Dictionary(Of String, String))
 		dgvGrilla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 
 		Dim ds As DataSet = cajaLN.CargarGrillaMovimientos(parametros)
 
-		Dim total = 0
-		Dim totalEgresos = 0
-		Dim totalIngresos = 0
+		Dim totalEgresos = 0F
+		Dim totalIngresos = 0F
+		Dim cantidadMovimientos = 0
+		Dim usuarios As List(Of String) = New List(Of String)
 
 
 		Dim cajas = New List(Of CajaNE)
-		For i = 0 To ds.Tables.Count
+		For i = 0 To ds.Tables.Count - 1
 			Dim tabla = ds.Tables(i)
-			For y = 0 To tabla.Rows.Count
+			For y = 0 To tabla.Rows.Count - 1
 				Dim fila = tabla.Rows(y)
 				Dim tipo = ""
 				If i = 0 Then
-					tipo = "ventas"
+					tipo = "Venta"
+					totalIngresos += fila(2)
 				Else
-					tipo = "compras"
+					tipo = "Compra"
+					totalEgresos += fila(2)
 				End If
+				Dim usuario = fila(3).ToString()
 				cajas.Add(New CajaNE With {
 							.Id = fila(0).ToString(),
-							.Tipo = If(i = 0, "ventas", "compras"),
+							.Tipo = tipo,
 							.Fecha = fila(1),
-							.Movimiento = If(i = 0, fila(2).ToString, (fila(2) * -1).ToString()),
-							.UsuarioId = fila(3).ToString()
+							.Movimiento = If(tipo = "Venta", fila(2).ToString, (fila(2) * -1).ToString()),
+							.Usuario = usuario
 				})
+				If Not usuarios.Contains(usuario) Then
+					usuarios.Add(usuario)
+				End If
+				cantidadMovimientos += 1
 			Next
 		Next
 
 		dgvGrilla.DataSource = cajas
+		dgvGrilla.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 		dgvGrilla.Columns("Id").Visible = False
+		dgvGrilla.Columns("UsuarioId").Visible = False
+		dgvGrilla.Columns("Movimiento").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+
+		txtCantidadMov.Text = cantidadMovimientos.ToString()
+		txtEgresos.Text = totalEgresos.ToString("0.00")
+		txtIngresos.Text = totalIngresos.ToString("0.00")
+		If (totalIngresos - totalEgresos) > 0 Then
+			txtMontoFinal.BackColor = Drawing.Color.GreenYellow
+		Else
+			txtMontoFinal.BackColor = Drawing.Color.Red
+		End If
+		txtMontoFinal.Text = (totalIngresos - totalEgresos).ToString()
+		txtUsuario.Text = String.Join(" // ", usuarios)
 
 		If ds.Tables(0).Rows.Count = 0 Then
-			MsgBox("No se obtuvieron movimientos de stock para la busqueda", MsgBoxStyle.OkOnly, "Movimiento Stock")
+			MsgBox("No se obtuvieron movimientos de caja para la busqueda", MsgBoxStyle.OkOnly, "Movimiento caja")
 		End If
 	End Sub
 
@@ -108,8 +130,8 @@ Public Class FrmGestionCaja
 		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
 			selectedRow = dgvGrilla.Rows(e.RowIndex)
 		End If
-		productoId = selectedRow.Cells("id").Value
-		FrmConsultaMovimientoStock.ShowDialog()
+		movCajaId = New Tuple(Of Integer, String)(selectedRow.Cells("id").Value, selectedRow.Cells("Tipo").Value)
+		FrmConsultaMovimientoCaja.ShowDialog()
 	End Sub
 
 	'Llena el combobox proveedores

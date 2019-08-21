@@ -53,4 +53,15 @@
 			_Movimiento = CStr(value)
 		End Set
 	End Property
+
+	Private _Usuario As String
+
+	Public Property Usuario As String
+		Get
+			Return _Usuario
+		End Get
+		Set(ByVal value As String)
+			_Usuario = CStr(value)
+		End Set
+	End Property
 End Class

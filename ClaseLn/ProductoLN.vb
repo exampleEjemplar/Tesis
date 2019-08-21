@@ -18,7 +18,7 @@ Public Class ProductoLN
 		Return objproductosAD.CargarGrillaStock(parametros)
 	End Function
 
-	Public Function CargarTodosMovimientos(productoId As String) As DataSet
+	Public Function CargarTodosMovimientos(productoId As Integer) As DataSet
 		Return objproductosAD.CargarTodosMovimientos(productoId)
 	End Function
 

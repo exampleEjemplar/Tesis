@@ -20,6 +20,7 @@ Public Class FrmComprobanteVenta
 
 		'Si accedo desde el frmGestionVenta uso ese Id, si no, uso el ultimo.
 		Dim ventaDeGestion As Integer = FrmGestionVentas.idVenta
+		ventaDeGestion = FrmConsultaMovimientoCaja.compId
 		If ventaDeGestion = 0 Then
 			idVenta = VentasLN.ObtenerUltimaVenta().Tables(0).Rows(0).Item(0).ToString
 		Else

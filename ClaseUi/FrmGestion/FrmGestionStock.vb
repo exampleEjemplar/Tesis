@@ -6,7 +6,7 @@ Public Class FrmGestionStock
 
 	Private productosLN As New ProductoLN
 	Private helpersln As New HelpersLN
-	Public productoId As String
+	Public productoId As Integer
 
 	Public Sub CargarGrilla(parametros As Dictionary(Of String, String))
 		dgvGrilla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill

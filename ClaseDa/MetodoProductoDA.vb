@@ -27,11 +27,11 @@ Public Class MetodoProductoDA
 		com.Connection = db
 	End Sub
 
-	Public Function CargarTodosMovimientos(productoId As String) As DataSet
+	Public Function CargarTodosMovimientos(productoId As integer) As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds = New DataSet
-		sqlStr = "select m.id, m.Cantidad as Movimiento, p.Nombre, m.Fecha, pro.Nombre + ' ' + pro.Apellido as Proveedor from MovimientosStock as m inner join Productos as p on p.id = m.ProductoId inner join Proveedores as pro on pro.id = p.ProveedorId where ProductoId =  " + productoId + " order by m.fecha desc"
+		sqlStr = "select m.id, m.Cantidad as Movimiento, p.Nombre, m.Fecha, pro.Nombre + ' ' + pro.Apellido as Proveedor from MovimientosStock as m inner join Productos as p on p.id = m.ProductoId inner join Proveedores as pro on pro.id = p.ProveedorId where ProductoId =  " + productoId.ToString() + " order by m.fecha desc"
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
