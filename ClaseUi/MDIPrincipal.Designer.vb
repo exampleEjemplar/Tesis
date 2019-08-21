@@ -37,6 +37,7 @@ Partial Class MDIPrincipal
 		Me.CajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.ComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.StockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
 		Me.NewWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.CascadeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -56,8 +57,6 @@ Partial Class MDIPrincipal
 		Me.btnArticulos = New System.Windows.Forms.Button()
 		Me.btnCompras = New System.Windows.Forms.Button()
 		Me.btnVentas = New System.Windows.Forms.Button()
-		Me.btnStock = New System.Windows.Forms.Button()
-		Me.Button3 = New System.Windows.Forms.Button()
 		Me.MenuStrip.SuspendLayout()
 		Me.SuspendLayout()
 		'
@@ -110,40 +109,46 @@ Partial Class MDIPrincipal
 		'
 		'EstaditicasToolStripMenuItem
 		'
-		Me.EstaditicasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.CajaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ComprasToolStripMenuItem})
+		Me.EstaditicasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.CajaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ComprasToolStripMenuItem, Me.StockToolStripMenuItem})
 		Me.EstaditicasToolStripMenuItem.Name = "EstaditicasToolStripMenuItem"
-		Me.EstaditicasToolStripMenuItem.Size = New System.Drawing.Size(160, 26)
+		Me.EstaditicasToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
 		Me.EstaditicasToolStripMenuItem.Text = "Estadísticas"
 		'
 		'ClientesToolStripMenuItem
 		'
 		Me.ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
-		Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(170, 26)
+		Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
 		Me.ClientesToolStripMenuItem.Text = "Clientes"
 		'
 		'ProveedoresToolStripMenuItem
 		'
 		Me.ProveedoresToolStripMenuItem.Name = "ProveedoresToolStripMenuItem"
-		Me.ProveedoresToolStripMenuItem.Size = New System.Drawing.Size(170, 26)
+		Me.ProveedoresToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
 		Me.ProveedoresToolStripMenuItem.Text = "Proveedores"
 		'
 		'CajaToolStripMenuItem
 		'
 		Me.CajaToolStripMenuItem.Name = "CajaToolStripMenuItem"
-		Me.CajaToolStripMenuItem.Size = New System.Drawing.Size(170, 26)
+		Me.CajaToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
 		Me.CajaToolStripMenuItem.Text = "Caja"
 		'
 		'VentasToolStripMenuItem
 		'
 		Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
-		Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(170, 26)
+		Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
 		Me.VentasToolStripMenuItem.Text = "Ventas"
 		'
 		'ComprasToolStripMenuItem
 		'
 		Me.ComprasToolStripMenuItem.Name = "ComprasToolStripMenuItem"
-		Me.ComprasToolStripMenuItem.Size = New System.Drawing.Size(170, 26)
+		Me.ComprasToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
 		Me.ComprasToolStripMenuItem.Text = "Compras"
+		'
+		'StockToolStripMenuItem
+		'
+		Me.StockToolStripMenuItem.Name = "StockToolStripMenuItem"
+		Me.StockToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+		Me.StockToolStripMenuItem.Text = "Stock"
 		'
 		'WindowsMenu
 		'
@@ -368,42 +373,6 @@ Partial Class MDIPrincipal
 		Me.btnVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
 		Me.btnVentas.UseVisualStyleBackColor = False
 		'
-		'btnStock
-		'
-		Me.btnStock.BackColor = System.Drawing.Color.LightSteelBlue
-		Me.btnStock.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_cancel_62
-		Me.btnStock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnStock.FlatAppearance.BorderSize = 0
-		Me.btnStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnStock.Location = New System.Drawing.Point(172, 374)
-		Me.btnStock.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnStock.Name = "btnStock"
-		Me.btnStock.Size = New System.Drawing.Size(165, 112)
-		Me.btnStock.TabIndex = 32
-		Me.btnStock.Text = "Stock"
-		Me.btnStock.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnStock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-		Me.btnStock.UseVisualStyleBackColor = False
-		'
-		'Button3
-		'
-		Me.Button3.BackColor = System.Drawing.Color.LightSteelBlue
-		Me.Button3.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_cancel_62
-		Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button3.FlatAppearance.BorderSize = 0
-		Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Button3.Location = New System.Drawing.Point(414, 441)
-		Me.Button3.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button3.Name = "Button3"
-		Me.Button3.Size = New System.Drawing.Size(165, 112)
-		Me.Button3.TabIndex = 34
-		Me.Button3.Text = "Caja mov"
-		Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-		Me.Button3.UseVisualStyleBackColor = False
-		'
 		'MDIPrincipal
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -412,8 +381,6 @@ Partial Class MDIPrincipal
 		Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.ClientSize = New System.Drawing.Size(1349, 762)
 		Me.ControlBox = False
-		Me.Controls.Add(Me.Button3)
-		Me.Controls.Add(Me.btnStock)
 		Me.Controls.Add(Me.Button4)
 		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.Button1)
@@ -467,6 +434,5 @@ Partial Class MDIPrincipal
     Friend WithEvents ComprasToolStripMenuItem As Windows.Forms.ToolStripMenuItem
     Friend WithEvents Button4 As Windows.Forms.Button
     Friend WithEvents GestionDeUsuariosToolStripMenuItem As Windows.Forms.ToolStripMenuItem
-	Friend WithEvents btnStock As Windows.Forms.Button
-	Friend WithEvents Button3 As Windows.Forms.Button
+	Friend WithEvents StockToolStripMenuItem As Windows.Forms.ToolStripMenuItem
 End Class

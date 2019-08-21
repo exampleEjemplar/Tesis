@@ -22,7 +22,7 @@ Partial Class FrmConsultaMovimientoStock
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.txtProducto = New System.Windows.Forms.TextBox()
 		Me.btnSalir = New System.Windows.Forms.Button()
@@ -86,8 +86,8 @@ Partial Class FrmConsultaMovimientoStock
 		Me.dgvCotizaciones.ReadOnly = True
 		Me.dgvCotizaciones.RowHeadersVisible = False
 		Me.dgvCotizaciones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-		DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-		Me.dgvCotizaciones.RowsDefaultCellStyle = DataGridViewCellStyle2
+		DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+		Me.dgvCotizaciones.RowsDefaultCellStyle = DataGridViewCellStyle1
 		Me.dgvCotizaciones.Size = New System.Drawing.Size(511, 251)
 		Me.dgvCotizaciones.TabIndex = 54
 		'
@@ -178,7 +178,9 @@ Partial Class FrmConsultaMovimientoStock
 		Me.Controls.Add(Me.txtProducto)
 		Me.Controls.Add(Me.btnSalir)
 		Me.Controls.Add(Me.dgvCotizaciones)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
 		Me.Name = "FrmConsultaMovimientoStock"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "FrmConsultaMovimientoStock"
 		CType(Me.dgvCotizaciones, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)

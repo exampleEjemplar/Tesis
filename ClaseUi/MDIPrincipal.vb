@@ -140,11 +140,12 @@ Public Class MDIPrincipal
 		End If
 	End Sub
 
-	Private Sub btnStock_Click(sender As Object, e As EventArgs) Handles btnStock.Click
-		FrmGestionStock.Show()
+
+	Private Sub btnCaja_Click(sender As Object, e As EventArgs) Handles btnCaja.Click
+		FrmGestionCaja.Show()
 	End Sub
 
-	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-		FrmGestionCaja.Show()
+	Private Sub StockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StockToolStripMenuItem.Click
+		FrmGestionStock.Show()
 	End Sub
 End Class

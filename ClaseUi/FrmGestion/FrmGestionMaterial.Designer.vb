@@ -66,7 +66,7 @@ Partial Class FrmGestionMaterial
 		Me.Button1.FlatAppearance.BorderSize = 0
 		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.Button1.Location = New System.Drawing.Point(736, 274)
-		Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button1.Name = "Button1"
 		Me.Button1.Size = New System.Drawing.Size(107, 110)
 		Me.Button1.TabIndex = 42
@@ -78,7 +78,7 @@ Partial Class FrmGestionMaterial
 		'
 		Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.TextBox3.Location = New System.Drawing.Point(253, -386)
-		Me.TextBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.TextBox3.Margin = New System.Windows.Forms.Padding(4)
 		Me.TextBox3.MaxLength = 30
 		Me.TextBox3.Name = "TextBox3"
 		Me.TextBox3.Size = New System.Drawing.Size(321, 23)
@@ -92,7 +92,7 @@ Partial Class FrmGestionMaterial
 		Me.btnSalirr.FlatAppearance.BorderSize = 0
 		Me.btnSalirr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnSalirr.Location = New System.Drawing.Point(731, 256)
-		Me.btnSalirr.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnSalirr.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalirr.Name = "btnSalirr"
 		Me.btnSalirr.Size = New System.Drawing.Size(115, 110)
 		Me.btnSalirr.TabIndex = 48
@@ -108,7 +108,7 @@ Partial Class FrmGestionMaterial
 		Me.btnGuardar.FlatAppearance.BorderSize = 0
 		Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnGuardar.Location = New System.Drawing.Point(731, 138)
-		Me.btnGuardar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnGuardar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnGuardar.Name = "btnGuardar"
 		Me.btnGuardar.Size = New System.Drawing.Size(115, 110)
 		Me.btnGuardar.TabIndex = 47
@@ -124,7 +124,7 @@ Partial Class FrmGestionMaterial
 		Me.btnNuevo.FlatAppearance.BorderSize = 0
 		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnNuevo.Location = New System.Drawing.Point(731, 25)
-		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(115, 106)
 		Me.btnNuevo.TabIndex = 46
@@ -161,7 +161,7 @@ Partial Class FrmGestionMaterial
 		Me.btnCotizacionesHist.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnCotizacionesHist.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
 		Me.btnCotizacionesHist.Location = New System.Drawing.Point(581, 31)
-		Me.btnCotizacionesHist.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnCotizacionesHist.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnCotizacionesHist.Name = "btnCotizacionesHist"
 		Me.btnCotizacionesHist.Size = New System.Drawing.Size(115, 126)
 		Me.btnCotizacionesHist.TabIndex = 50
@@ -185,7 +185,7 @@ Partial Class FrmGestionMaterial
 		Me.dtpfecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
 		Me.dtpfecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom
 		Me.dtpfecha.Location = New System.Drawing.Point(7, 132)
-		Me.dtpfecha.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.dtpfecha.Margin = New System.Windows.Forms.Padding(4)
 		Me.dtpfecha.Name = "dtpfecha"
 		Me.dtpfecha.Size = New System.Drawing.Size(236, 23)
 		Me.dtpfecha.TabIndex = 45
@@ -195,7 +195,7 @@ Partial Class FrmGestionMaterial
 		'
 		Me.txtCoti.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtCoti.Location = New System.Drawing.Point(283, 66)
-		Me.txtCoti.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtCoti.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtCoti.MaxLength = 30
 		Me.txtCoti.Name = "txtCoti"
 		Me.txtCoti.Size = New System.Drawing.Size(236, 23)
@@ -221,7 +221,7 @@ Partial Class FrmGestionMaterial
 		Me.btnSalir.FlatAppearance.BorderSize = 0
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnSalir.Location = New System.Drawing.Point(736, 274)
-		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
 		Me.btnSalir.Size = New System.Drawing.Size(107, 110)
 		Me.btnSalir.TabIndex = 42
@@ -233,7 +233,7 @@ Partial Class FrmGestionMaterial
 		'
 		Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.TextBox2.Location = New System.Drawing.Point(253, -386)
-		Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
 		Me.TextBox2.MaxLength = 30
 		Me.TextBox2.Name = "TextBox2"
 		Me.TextBox2.Size = New System.Drawing.Size(321, 23)
@@ -243,7 +243,7 @@ Partial Class FrmGestionMaterial
 		'
 		Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtNombre.Location = New System.Drawing.Point(7, 66)
-		Me.txtNombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtNombre.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtNombre.MaxLength = 30
 		Me.txtNombre.Name = "txtNombre"
 		Me.txtNombre.Size = New System.Drawing.Size(236, 23)
@@ -271,7 +271,7 @@ Partial Class FrmGestionMaterial
 		Me.dgvmaterial.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
 		Me.dgvmaterial.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
 		Me.dgvmaterial.Location = New System.Drawing.Point(12, 181)
-		Me.dgvmaterial.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.dgvmaterial.Margin = New System.Windows.Forms.Padding(4)
 		Me.dgvmaterial.MultiSelect = False
 		Me.dgvmaterial.Name = "dgvmaterial"
 		Me.dgvmaterial.ReadOnly = True
@@ -295,6 +295,7 @@ Partial Class FrmGestionMaterial
 		Me.Controls.Add(Me.btnGuardar)
 		Me.Controls.Add(Me.btnNuevo)
 		Me.Controls.Add(Me.GroupBox1)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
 		Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.Name = "FrmGestionMaterial"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

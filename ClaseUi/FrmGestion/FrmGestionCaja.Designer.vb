@@ -441,7 +441,10 @@ Partial Class FrmGestionCaja
 		Me.Controls.Add(Me.dgvGrilla)
 		Me.Controls.Add(Me.GroupBox2)
 		Me.Controls.Add(Me.btnSalirr)
+		Me.Cursor = System.Windows.Forms.Cursors.Default
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
 		Me.Name = "FrmGestionCaja"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "FrmGestionCaja"
 		Me.GroupBox2.ResumeLayout(False)
 		Me.GroupBox2.PerformLayout()

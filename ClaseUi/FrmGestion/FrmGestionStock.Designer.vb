@@ -290,7 +290,9 @@ Partial Class FrmGestionStock
 		Me.Controls.Add(Me.dgvGrilla)
 		Me.Controls.Add(Me.GroupBox2)
 		Me.Controls.Add(Me.btnSalirr)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
 		Me.Name = "FrmGestionStock"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "FrmGestionStock"
 		CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox2.ResumeLayout(False)

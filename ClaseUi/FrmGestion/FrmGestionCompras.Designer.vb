@@ -272,7 +272,9 @@ Partial Class FrmGestionCompras
 		Me.Controls.Add(Me.Label1)
 		Me.Controls.Add(Me.btnNuevo)
 		Me.Controls.Add(Me.btnSalir)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
 		Me.Name = "FrmGestionCompras"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "FrmGestionCompras"
 		Me.GroupBox5.ResumeLayout(False)
 		Me.GroupBox5.PerformLayout()

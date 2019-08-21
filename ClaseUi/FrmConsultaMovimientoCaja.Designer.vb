@@ -203,7 +203,9 @@ Partial Class FrmConsultaMovimientoCaja
 		Me.Controls.Add(Me.Label1)
 		Me.Controls.Add(Me.txtUsuario)
 		Me.Controls.Add(Me.btnSalir)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
 		Me.Name = "FrmConsultaMovimientoCaja"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "FrmConsultaMovimientoCaja"
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
