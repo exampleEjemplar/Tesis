@@ -23,6 +23,7 @@ Partial Class FrmConsultaMovimientoStock
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
 		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmConsultaMovimientoStock))
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.txtProducto = New System.Windows.Forms.TextBox()
 		Me.btnSalir = New System.Windows.Forms.Button()
@@ -54,6 +55,7 @@ Partial Class FrmConsultaMovimientoStock
 		Me.txtProducto.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtProducto.MaxLength = 30
 		Me.txtProducto.Name = "txtProducto"
+		Me.txtProducto.ReadOnly = True
 		Me.txtProducto.Size = New System.Drawing.Size(354, 22)
 		Me.txtProducto.TabIndex = 56
 		'
@@ -119,6 +121,7 @@ Partial Class FrmConsultaMovimientoStock
 		Me.txtProveedor.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtProveedor.MaxLength = 30
 		Me.txtProveedor.Name = "txtProveedor"
+		Me.txtProveedor.ReadOnly = True
 		Me.txtProveedor.Size = New System.Drawing.Size(354, 22)
 		Me.txtProveedor.TabIndex = 59
 		'
@@ -139,6 +142,7 @@ Partial Class FrmConsultaMovimientoStock
 		Me.txtStockActual.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtStockActual.MaxLength = 30
 		Me.txtStockActual.Name = "txtStockActual"
+		Me.txtStockActual.ReadOnly = True
 		Me.txtStockActual.Size = New System.Drawing.Size(114, 22)
 		Me.txtStockActual.TabIndex = 61
 		'
@@ -159,6 +163,7 @@ Partial Class FrmConsultaMovimientoStock
 		Me.txtCantidadMov.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtCantidadMov.MaxLength = 30
 		Me.txtCantidadMov.Name = "txtCantidadMov"
+		Me.txtCantidadMov.ReadOnly = True
 		Me.txtCantidadMov.Size = New System.Drawing.Size(114, 22)
 		Me.txtCantidadMov.TabIndex = 63
 		'
@@ -178,10 +183,10 @@ Partial Class FrmConsultaMovimientoStock
 		Me.Controls.Add(Me.txtProducto)
 		Me.Controls.Add(Me.btnSalir)
 		Me.Controls.Add(Me.dgvCotizaciones)
-		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.Name = "FrmConsultaMovimientoStock"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-		Me.Text = "FrmConsultaMovimientoStock"
+		Me.Text = "Movimiento de stock"
 		CType(Me.dgvCotizaciones, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()

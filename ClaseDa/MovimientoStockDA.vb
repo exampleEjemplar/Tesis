@@ -17,7 +17,7 @@ Public Class MovimientoStockDA
 		helpersDa.ChequearConexion(db)
 
 		Try
-			Dim insert As New SqlCommand("insert into ventas MovimientosStock (" & movimiento & ", " & productoId & ",GETDATE())", db)
+			Dim insert As New SqlCommand("insert into MovimientosStock (Cantidad,ProductoId,Fecha) VALUES (" & movimiento & ", " & productoId & ",GETDATE())", db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
 			db.Close()

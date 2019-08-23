@@ -22,6 +22,7 @@ Partial Class FrmModificarPrecioProducto
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmModificarPrecioProducto))
 		Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.Label2 = New System.Windows.Forms.Label()
@@ -327,8 +328,10 @@ Partial Class FrmModificarPrecioProducto
 		Me.Controls.Add(Me.btnNuevo)
 		Me.Controls.Add(Me.btnSalir)
 		Me.Controls.Add(Me.CheckedListBox1)
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.Name = "FrmModificarPrecioProducto"
-		Me.Text = "FrmModificarPrecioProducto"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+		Me.Text = "Modificar precios productos"
 		Me.gboFiltros.ResumeLayout(False)
 		Me.gboFiltros.PerformLayout()
 		Me.ResumeLayout(False)
