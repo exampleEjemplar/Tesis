@@ -334,39 +334,75 @@ Public Class MetodoProductoDA
 
 	End Function
 
-	Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As String) As DataTable
+    Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As Integer) As DataTable
 
-		Try
-			helpersDa.ChequearConexion(db)
-			com = New SqlCommand("SP_MostrarProductoconbusquedaCAT", db)
-			com.CommandType = CommandType.StoredProcedure
-			With com.Parameters
-				.AddWithValue("@codigo", codigo)
-				.AddWithValue("@Nombre", nombre)
-				.AddWithValue("@Categoria", categoria)
-			End With
+        Try
+            helpersDa.ChequearConexion(db)
+            com = New SqlCommand("SP_MostrarProductoconbusquedaCAT", db)
+            com.CommandType = CommandType.StoredProcedure
+            With com.Parameters
+                .AddWithValue("@codigo", codigo)
+                .AddWithValue("@Nombre", nombre)
+                .AddWithValue("@Categoria", categoria)
+            End With
 
-			com.ExecuteNonQuery()
-			If com.ExecuteNonQuery() Then
-				Dim da As New SqlDataAdapter(com)
-				CargaGrillaproductosCONbusquedaCAT = New DataTable
-				da.Fill(CargaGrillaproductosCONbusquedaCAT)
+            com.ExecuteNonQuery()
+            If com.ExecuteNonQuery() Then
+                Dim da As New SqlDataAdapter(com)
+                CargaGrillaproductosCONbusquedaCAT = New DataTable
+                da.Fill(CargaGrillaproductosCONbusquedaCAT)
 
-				Return CargaGrillaproductosCONbusquedaCAT
-			Else
-				Return Nothing
-			End If
+                Return CargaGrillaproductosCONbusquedaCAT
+            Else
+                Return Nothing
+            End If
 
-		Catch ex As Exception
-			MsgBox(ex.Message)
-			Return Nothing
-		Finally
-			db.Close()
-		End Try
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            db.Close()
+        End Try
 
-	End Function
+    End Function
 
-	Public Sub Modificarproductos(ByVal pro As ProductosNE)
+    Public Function CargaGrillaproductosCONbusquedaproducto(ByVal codigo As String, ByVal nombre As String, ByVal categoria As Integer) As DataTable
+
+        Try
+            helpersDa.ChequearConexion(db)
+            com = New SqlCommand("SP_MostrarProductoconbusquedaPRODUCTO", db)
+            com.CommandType = CommandType.StoredProcedure
+            With com.Parameters
+
+                .AddWithValue("@Nombre", nombre)
+
+            End With
+
+            com.ExecuteNonQuery()
+            If com.ExecuteNonQuery() Then
+                Dim da As New SqlDataAdapter(com)
+                CargaGrillaproductosCONbusquedaproducto = New DataTable
+                da.Fill(CargaGrillaproductosCONbusquedaproducto)
+
+                Return CargaGrillaproductosCONbusquedaproducto
+            Else
+                Return Nothing
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            db.Close()
+        End Try
+
+    End Function
+
+
+
+
+
+    Public Sub Modificarproductos(ByVal pro As ProductosNE)
 		Try
 			helpersDa.ChequearConexion(db)
 
@@ -386,10 +422,10 @@ Public Class MetodoProductoDA
 				.AddWithValue("@Color", pro.color)
 				.AddWithValue("@ProveedorId", pro.proveedorId)
 				.AddWithValue("@StockMin", pro.stockmin)
-				.AddWithValue("@StockMax", pro.stockmax)
-				.AddWithValue("@categoria2id", pro.TipodeProductoId)
-				.AddWithValue("@UnidadDePeso", 1)
-				.AddWithValue("@CategoriaId", pro.categoriaId)
+                .AddWithValue("@StockMax", pro.stockmax)
+                .AddWithValue("@TipoProductoId", pro.TipodeProductoId)
+                .AddWithValue("@UnidadDePeso", 1)
+                .AddWithValue("@CategoriaId", pro.categoriaId)
 				.AddWithValue("@StockODeTercero", pro.StockODeTercero)
 			End With
 

@@ -230,6 +230,12 @@
     <Compile Include="FrmModificarPrecioProducto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ImagenAmpliada.Designer.vb">
+      <DependentUpon>ImagenAmpliada.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImagenAmpliada.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="JoyeriaCrisol11DataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -372,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmModificarPrecioProducto.resx">
       <DependentUpon>FrmModificarPrecioProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImagenAmpliada.resx">
+      <DependentUpon>ImagenAmpliada.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ComprobanteVenta.rdlc" />
     <EmbeddedResource Include="Reportes\FrmComprobanteCompra.resx">

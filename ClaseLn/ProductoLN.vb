@@ -83,12 +83,21 @@ Public Class ProductoLN
         Return objproductosAD.CargaGrillaproductosconbusqueda(codigo, nombre)
     End Function
 
-	Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As String) As DataTable
+    Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As Integer) As DataTable
 
-		Return objproductosAD.CargaGrillaproductosCONbusquedaCAT(codigo, nombre, categoria)
-	End Function
+        Return objproductosAD.CargaGrillaproductosCONbusquedaCAT(codigo, nombre, categoria)
+    End Function
 
-	Public Function CargarUnProducto(id As Integer)
+    Public Function CargaGrillaproductosCONbusquedaproducto(ByVal codigo As String, ByVal nombre As String, ByVal categoria As Integer) As DataTable
+
+        Return objproductosAD.CargaGrillaproductosCONbusquedaproducto(codigo, nombre, categoria)
+    End Function
+
+
+
+
+
+    Public Function CargarUnProducto(id As Integer)
 		Return objproductosAD.CargarUnProducto(id)
 	End Function
 

@@ -25,9 +25,11 @@ Partial Class FrmCatalogo
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.CH3 = New System.Windows.Forms.CheckBox()
+        Me.CH2 = New System.Windows.Forms.CheckBox()
+        Me.CH1 = New System.Windows.Forms.CheckBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnSalir = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.CmbCategoria = New System.Windows.Forms.ComboBox()
         Me.tbBusnombre = New System.Windows.Forms.TextBox()
@@ -35,6 +37,7 @@ Partial Class FrmCatalogo
         Me.tbBuscod = New System.Windows.Forms.TextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.lblBusNombre = New System.Windows.Forms.Label()
+        Me.btnSalir = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox5.SuspendLayout()
@@ -43,9 +46,11 @@ Partial Class FrmCatalogo
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.CH3)
+        Me.GroupBox5.Controls.Add(Me.CH2)
+        Me.GroupBox5.Controls.Add(Me.CH1)
         Me.GroupBox5.Controls.Add(Me.Button2)
         Me.GroupBox5.Controls.Add(Me.Button1)
-        Me.GroupBox5.Controls.Add(Me.btnSalir)
         Me.GroupBox5.Controls.Add(Me.Label8)
         Me.GroupBox5.Controls.Add(Me.CmbCategoria)
         Me.GroupBox5.Controls.Add(Me.tbBusnombre)
@@ -56,10 +61,37 @@ Partial Class FrmCatalogo
         Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox5.Location = New System.Drawing.Point(21, 42)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(903, 139)
+        Me.GroupBox5.Size = New System.Drawing.Size(780, 139)
         Me.GroupBox5.TabIndex = 37
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Búsqueda"
+        '
+        'CH3
+        '
+        Me.CH3.AutoSize = True
+        Me.CH3.Location = New System.Drawing.Point(361, 102)
+        Me.CH3.Name = "CH3"
+        Me.CH3.Size = New System.Drawing.Size(15, 14)
+        Me.CH3.TabIndex = 48
+        Me.CH3.UseVisualStyleBackColor = True
+        '
+        'CH2
+        '
+        Me.CH2.AutoSize = True
+        Me.CH2.Location = New System.Drawing.Point(361, 75)
+        Me.CH2.Name = "CH2"
+        Me.CH2.Size = New System.Drawing.Size(15, 14)
+        Me.CH2.TabIndex = 47
+        Me.CH2.UseVisualStyleBackColor = True
+        '
+        'CH1
+        '
+        Me.CH1.AutoSize = True
+        Me.CH1.Location = New System.Drawing.Point(361, 48)
+        Me.CH1.Name = "CH1"
+        Me.CH1.Size = New System.Drawing.Size(15, 14)
+        Me.CH1.TabIndex = 46
+        Me.CH1.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -91,21 +123,6 @@ Partial Class FrmCatalogo
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'btnSalir
-        '
-        Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
-        Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
-        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnSalir.FlatAppearance.BorderSize = 0
-        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Location = New System.Drawing.Point(751, 31)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(89, 89)
-        Me.btnSalir.TabIndex = 43
-        Me.btnSalir.Text = "Salir"
-        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnSalir.UseVisualStyleBackColor = False
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -121,7 +138,7 @@ Partial Class FrmCatalogo
         Me.CmbCategoria.FormattingEnabled = True
         Me.CmbCategoria.Location = New System.Drawing.Point(123, 45)
         Me.CmbCategoria.Name = "CmbCategoria"
-        Me.CmbCategoria.Size = New System.Drawing.Size(181, 21)
+        Me.CmbCategoria.Size = New System.Drawing.Size(232, 21)
         Me.CmbCategoria.TabIndex = 36
         '
         'tbBusnombre
@@ -129,7 +146,7 @@ Partial Class FrmCatalogo
         Me.tbBusnombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbBusnombre.Location = New System.Drawing.Point(123, 98)
         Me.tbBusnombre.Name = "tbBusnombre"
-        Me.tbBusnombre.Size = New System.Drawing.Size(291, 20)
+        Me.tbBusnombre.Size = New System.Drawing.Size(232, 20)
         Me.tbBusnombre.TabIndex = 28
         '
         'lblBusApellido
@@ -147,7 +164,7 @@ Partial Class FrmCatalogo
         Me.tbBuscod.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbBuscod.Location = New System.Drawing.Point(123, 72)
         Me.tbBuscod.Name = "tbBuscod"
-        Me.tbBuscod.Size = New System.Drawing.Size(95, 20)
+        Me.tbBuscod.Size = New System.Drawing.Size(232, 20)
         Me.tbBuscod.TabIndex = 26
         '
         'btnBuscar
@@ -174,6 +191,21 @@ Partial Class FrmCatalogo
         Me.lblBusNombre.Size = New System.Drawing.Size(46, 13)
         Me.lblBusNombre.TabIndex = 25
         Me.lblBusNombre.Text = "Codigo"
+        '
+        'btnSalir
+        '
+        Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
+        Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnSalir.FlatAppearance.BorderSize = 0
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Location = New System.Drawing.Point(823, 67)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(89, 89)
+        Me.btnSalir.TabIndex = 43
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSalir.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -228,6 +260,7 @@ Partial Class FrmCatalogo
         Me.ControlBox = False
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.GroupBox5)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FrmCatalogo"
@@ -255,4 +288,7 @@ Partial Class FrmCatalogo
     Friend WithEvents Button1 As Windows.Forms.Button
     Friend WithEvents Button2 As Windows.Forms.Button
     Friend WithEvents DataGridView1 As Windows.Forms.DataGridView
+    Friend WithEvents CH3 As Windows.Forms.CheckBox
+    Friend WithEvents CH2 As Windows.Forms.CheckBox
+    Friend WithEvents CH1 As Windows.Forms.CheckBox
 End Class
