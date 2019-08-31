@@ -236,7 +236,7 @@ Public Class HelpersDA
 		ChequearConexion(db)
 		Dim sqlStr As String
 		ds = New DataSet
-		sqlStr = "set dateformat dmy select p.Id,p.Nombre,p.Foto,p.Precio,prov.Nombre as Proveedor, prov.id, p.FechaAlta from Productos as p inner join proveedores as prov on prov.id = p.ProveedorId "
+		sqlStr = "set dateformat dmy select p.Id,p.Nombre,p.Foto,p.Precio,prov.Nombre as Proveedor, prov.id, p.FechaAlta, p.CategoriaId from Productos as p inner join proveedores as prov on prov.id = p.ProveedorId "
 
 		If parametros.Count <> 0 Then
 			Dim count = parametros.Count

@@ -202,7 +202,7 @@ Public Class MetodoProductoDA
 				type = "round(precio *" + precio + ",2)"
 			ElseIf tipo = "monto" Then 'Si es precio exacto, lo igualo a lo solicitado
 				type = "round(" + precio.Replace(",", ".") + ",2)"
-			Else
+			Else 'Si es adicion lo agrego
 				type = "round(precio +" + precio.Replace(",", ".") + ",2)"
 			End If
 

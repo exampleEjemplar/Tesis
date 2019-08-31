@@ -6,6 +6,8 @@ Imports ClaseNe
 
 Public Class FrmModificarPrecioProducto
 	Private productometodo As New ProductoLN
+	Private categoriasLn As New CategoriasLN
+
 	Private helpersLN As New HelpersLN
 	Private listaDeProductos As List(Of Tuple(Of Integer, Boolean, ProductosNE))
 
@@ -62,21 +64,6 @@ Public Class FrmModificarPrecioProducto
 			productometodo.ModificarPrecios(listaDeProductos.Where(Function(s) s.Item2 = True), value.ToString(), "monto")
 		End If
 
-		'If Not String.IsNullOrEmpty(txtMonto.Text) Then
-		'	Dim value As Decimal
-		'	Dim newText = txtMonto.Text.Replace(",", ".")
-		'	If Not Decimal.TryParse(newText, value) Then
-		'		MsgBox("Ingrese el precio en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
-		'		Return
-		'	End If
-		'	If value < 0 Then
-		'		MsgBox("El valor de un producto no puede ser negativo", MsgBoxStyle.Critical, "Producto")
-		'		Return
-		'	End If
-		'	value = Decimal.Parse(newText, CultureInfo.InvariantCulture)
-		'	productometodo.ModificarPrecios(listaDeProductos.Where(Function(s) s.Item2 = True), value.ToString(), False)
-		'End If
-
 		If porcentaje Then
 			Dim value As Decimal
 			Dim newText = txtPorcentaje.Text.Replace(",", ".")
@@ -99,18 +86,6 @@ Public Class FrmModificarPrecioProducto
 			productometodo.ModificarPrecios(listaDeProductos.Where(Function(s) s.Item2 = True), value.ToString(), "adicion")
 		End If
 
-		'If Not String.IsNullOrEmpty(txtPorcentaje.Text) Then
-		'	Dim value As Decimal
-		'	Dim newText = txtPorcentaje.Text.Replace(",", ".")
-		'	If Not Decimal.TryParse(newText, value) Then
-		'		MsgBox("Ingrese el porcentaje en un formato correcto (95)", MsgBoxStyle.Critical, "Producto")
-		'		Return
-		'	End If
-		'	newText = ((value / 100) + 1).ToString().Replace(",", ".")
-		'	productometodo.ModificarPrecios(listaDeProductos.Where(Function(s) s.Item2 = True), newText, True)
-		'End If
-
-
 		MsgBox("Precios modificados", MsgBoxStyle.OkOnly, "Producto")
 		Cargar()
 	End Sub
@@ -118,11 +93,13 @@ Public Class FrmModificarPrecioProducto
 	Private Sub Cargar()
 		txtMonto.Text = ""
 		txtPorcentaje.Text = ""
+		txtAdicionar.Text = ""
 		lbldesde.Visible = False
 		lblFechaExacta.Visible = False
 		lblHasta.Visible = False
 		LimpiarFiltros()
 		LlenarCboProveedores()
+		LlenarCboCategorias()
 		CheckedListBox1.Items.Clear()
 		listaDeProductos = New List(Of Tuple(Of Integer, Boolean, ProductosNE))
 		Dim productos = helpersLN.CargarTodosProductos(New Dictionary(Of String, String)).Tables(0)
@@ -136,7 +113,8 @@ Public Class FrmModificarPrecioProducto
 			.Id = productos.Rows(i)(0),
 			.nombreprducto = productos.Rows(i)(1),
 			.proveedorId = productos.Rows(i)(5),
-			.FechaAlta = productos.Rows(i)(6)
+			.FechaAlta = productos.Rows(i)(6),
+			.categoriaId = productos.Rows(i)(7)
 			}
 			' p.Id,p.Nombre,p.Foto,p.Precio,prov.Nombre as Proveedor, prov.id , fechaalta
 			listaDeProductos.Add(New Tuple(Of Integer, Boolean, ProductosNE)(CheckedListBox1.Items.Count - 1, False, producto))
@@ -182,6 +160,8 @@ Public Class FrmModificarPrecioProducto
 			Select Case item.Key
 				Case "Proveedor"
 					listaDeTuplas.RemoveAll(Function(x) x.Item3.proveedorId <> item.Value)
+				Case "Categoria"
+					listaDeTuplas.RemoveAll(Function(x) x.Item3.categoriaId <> item.Value)
 				Case "Nombre"
 					listaDeTuplas.RemoveAll(Function(x) x.Item3.nombreprducto <> item.Value)
 				Case "FechaDesde"
@@ -214,6 +194,21 @@ Public Class FrmModificarPrecioProducto
 			cboProveedor.DisplayMember = "Nombre"
 			cboProveedor.ValueMember = "id"
 			cboProveedor.SelectedValue = 0
+		Catch ex As Exception
+			MessageBox.Show(ex.Message)
+		End Try
+		Return cboProveedor.SelectedValue
+	End Function
+
+	'Llena el combobox proveedores
+	Public Function LlenarCboCategorias()
+		Try
+			Dim ds1 As DataSet
+			ds1 = categoriasLn.CargarGrillaCategorías()
+			cboCategorias.DataSource = ds1.Tables(0)
+			cboCategorias.DisplayMember = "Nombre"
+			cboCategorias.ValueMember = "id"
+			cboCategorias.SelectedValue = 0
 		Catch ex As Exception
 			MessageBox.Show(ex.Message)
 		End Try
@@ -264,6 +259,9 @@ Public Class FrmModificarPrecioProducto
 		End If
 		If String.IsNullOrWhiteSpace(cboProveedor.SelectedValue) = False Then
 			parametros.Add("Proveedor", cboProveedor.SelectedValue)
+		End If
+		If String.IsNullOrWhiteSpace(cboCategorias.SelectedValue) = False Then
+			parametros.Add("Categoria", cboCategorias.SelectedValue)
 		End If
 		Dim count = ChequearDeschequearConFiltros(parametros, True)
 		MsgBox(count.ToString() + " producto/os fueron chequeados", MsgBoxStyle.OkOnly, "Producto")
