@@ -182,7 +182,7 @@ Public Class MetodoProductoDA
 
 	End Function
 
-	Public Sub ModificarPrecios(listOfProductos As IEnumerable(Of Tuple(Of Integer, Boolean, ProductosNE)), precio As String, porcentaje As Boolean)
+	Public Sub ModificarPrecios(listOfProductos As IEnumerable(Of Tuple(Of Integer, Boolean, ProductosNE)), precio As String, tipo As String)
 		Try
 			helpersDa.ChequearConexion(db)
 			'Itero todos los ids a modificar
@@ -198,10 +198,12 @@ Public Class MetodoProductoDA
 
 			'Segun el tipo de modificacion que sea es el cambio que realizo
 			Dim type = ""
-			If porcentaje Then 'Si es por porcentaje lo multiplico segun lo recibido
+			If tipo = "porcentaje" Then 'Si es por porcentaje lo multiplico segun lo recibido
 				type = "round(precio *" + precio + ",2)"
-			Else 'Si es precio exacto, lo igualo a lo solicitado
+			ElseIf tipo = "monto" Then 'Si es precio exacto, lo igualo a lo solicitado
 				type = "round(" + precio.Replace(",", ".") + ",2)"
+			Else
+				type = "round(precio +" + precio.Replace(",", ".") + ",2)"
 			End If
 
 			Dim control As New SqlCommand("update Productos set precio = " + type + " where id in(" + ids + ")", db)

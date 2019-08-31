@@ -31,16 +31,23 @@ Public Class FrmModificarPrecioProducto
 			Return
 		End If
 
-		If String.IsNullOrEmpty(txtMonto.Text) And String.IsNullOrEmpty(txtPorcentaje.Text) Then
+		Dim cantidad = 0
+		Dim monto = Not String.IsNullOrWhiteSpace(txtMonto.Text)
+		cantidad = If(monto, cantidad + 1, cantidad)
+		Dim porcentaje = Not String.IsNullOrWhiteSpace(txtPorcentaje.Text)
+		cantidad = If(porcentaje, cantidad + 1, cantidad)
+		Dim adicion = Not String.IsNullOrWhiteSpace(txtAdicionar.Text)
+		cantidad = If(adicion, cantidad + 1, cantidad)
+
+		If cantidad > 1 Then
+			MsgBox("Debe seleccionar solo un tipo de cambio de precio", MsgBoxStyle.Critical, "Producto")
+			Return
+		ElseIf cantidad = 0 Then
 			MsgBox("Debe escribir algun tipo de cambio de precio", MsgBoxStyle.Critical, "Producto")
 			Return
 		End If
-		If Not String.IsNullOrEmpty(txtMonto.Text) And Not String.IsNullOrEmpty(txtPorcentaje.Text) Then
-			MsgBox("Debe seleccionar solo un tipo de cambio de precio", MsgBoxStyle.Critical, "Producto")
-			Return
-		End If
 
-		If Not String.IsNullOrEmpty(txtMonto.Text) Then
+		If monto Then
 			Dim value As Decimal
 			Dim newText = txtMonto.Text.Replace(",", ".")
 			If Not Decimal.TryParse(newText, value) Then
@@ -52,10 +59,25 @@ Public Class FrmModificarPrecioProducto
 				Return
 			End If
 			value = Decimal.Parse(newText, CultureInfo.InvariantCulture)
-			productometodo.ModificarPrecios(listaDeProductos.Where(Function(s) s.Item2 = True), value.ToString(), False)
+			productometodo.ModificarPrecios(listaDeProductos.Where(Function(s) s.Item2 = True), value.ToString(), "monto")
 		End If
 
-		If Not String.IsNullOrEmpty(txtPorcentaje.Text) Then
+		'If Not String.IsNullOrEmpty(txtMonto.Text) Then
+		'	Dim value As Decimal
+		'	Dim newText = txtMonto.Text.Replace(",", ".")
+		'	If Not Decimal.TryParse(newText, value) Then
+		'		MsgBox("Ingrese el precio en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
+		'		Return
+		'	End If
+		'	If value < 0 Then
+		'		MsgBox("El valor de un producto no puede ser negativo", MsgBoxStyle.Critical, "Producto")
+		'		Return
+		'	End If
+		'	value = Decimal.Parse(newText, CultureInfo.InvariantCulture)
+		'	productometodo.ModificarPrecios(listaDeProductos.Where(Function(s) s.Item2 = True), value.ToString(), False)
+		'End If
+
+		If porcentaje Then
 			Dim value As Decimal
 			Dim newText = txtPorcentaje.Text.Replace(",", ".")
 			If Not Decimal.TryParse(newText, value) Then
@@ -63,8 +85,31 @@ Public Class FrmModificarPrecioProducto
 				Return
 			End If
 			newText = ((value / 100) + 1).ToString().Replace(",", ".")
-			productometodo.ModificarPrecios(listaDeProductos.Where(Function(s) s.Item2 = True), newText, True)
+			productometodo.ModificarPrecios(listaDeProductos.Where(Function(s) s.Item2 = True), newText, "porcentaje")
 		End If
+
+		If adicion Then
+			Dim value As Decimal
+			Dim newText = txtAdicionar.Text.Replace(",", ".")
+			If Not Decimal.TryParse(newText, value) Then
+				MsgBox("Ingrese el precio en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
+				Return
+			End If
+			value = Decimal.Parse(newText, CultureInfo.InvariantCulture)
+			productometodo.ModificarPrecios(listaDeProductos.Where(Function(s) s.Item2 = True), value.ToString(), "adicion")
+		End If
+
+		'If Not String.IsNullOrEmpty(txtPorcentaje.Text) Then
+		'	Dim value As Decimal
+		'	Dim newText = txtPorcentaje.Text.Replace(",", ".")
+		'	If Not Decimal.TryParse(newText, value) Then
+		'		MsgBox("Ingrese el porcentaje en un formato correcto (95)", MsgBoxStyle.Critical, "Producto")
+		'		Return
+		'	End If
+		'	newText = ((value / 100) + 1).ToString().Replace(",", ".")
+		'	productometodo.ModificarPrecios(listaDeProductos.Where(Function(s) s.Item2 = True), newText, True)
+		'End If
+
 
 		MsgBox("Precios modificados", MsgBoxStyle.OkOnly, "Producto")
 		Cargar()

@@ -46,6 +46,9 @@ Partial Class FrmModificarPrecioProducto
 		Me.Label8 = New System.Windows.Forms.Label()
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.btnSalir = New System.Windows.Forms.Button()
+		Me.txtAdicionar = New System.Windows.Forms.TextBox()
+		Me.Label4 = New System.Windows.Forms.Label()
+		Me.Label11 = New System.Windows.Forms.Label()
 		Me.gboFiltros.SuspendLayout()
 		Me.SuspendLayout()
 		'
@@ -59,7 +62,7 @@ Partial Class FrmModificarPrecioProducto
 		'
 		'Label1
 		'
-		Me.Label1.Location = New System.Drawing.Point(580, 222)
+		Me.Label1.Location = New System.Drawing.Point(580, 275)
 		Me.Label1.Name = "Label1"
 		Me.Label1.Size = New System.Drawing.Size(109, 41)
 		Me.Label1.TabIndex = 39
@@ -67,11 +70,11 @@ Partial Class FrmModificarPrecioProducto
 		'
 		'Label2
 		'
-		Me.Label2.Location = New System.Drawing.Point(580, 301)
+		Me.Label2.Location = New System.Drawing.Point(580, 354)
 		Me.Label2.Name = "Label2"
 		Me.Label2.Size = New System.Drawing.Size(112, 41)
 		Me.Label2.TabIndex = 41
-		Me.Label2.Text = "Monto exacto a modificar"
+		Me.Label2.Text = "Monto exacto nuevo"
 		'
 		'Label3
 		'
@@ -86,14 +89,14 @@ Partial Class FrmModificarPrecioProducto
 		'
 		'txtPorcentaje
 		'
-		Me.txtPorcentaje.Location = New System.Drawing.Point(583, 266)
+		Me.txtPorcentaje.Location = New System.Drawing.Point(583, 319)
 		Me.txtPorcentaje.Name = "txtPorcentaje"
 		Me.txtPorcentaje.Size = New System.Drawing.Size(100, 22)
 		Me.txtPorcentaje.TabIndex = 45
 		'
 		'txtMonto
 		'
-		Me.txtMonto.Location = New System.Drawing.Point(583, 345)
+		Me.txtMonto.Location = New System.Drawing.Point(583, 398)
 		Me.txtMonto.Name = "txtMonto"
 		Me.txtMonto.Size = New System.Drawing.Size(100, 22)
 		Me.txtMonto.TabIndex = 46
@@ -314,11 +317,39 @@ Partial Class FrmModificarPrecioProducto
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnSalir.UseVisualStyleBackColor = False
 		'
+		'txtAdicionar
+		'
+		Me.txtAdicionar.Location = New System.Drawing.Point(583, 475)
+		Me.txtAdicionar.Name = "txtAdicionar"
+		Me.txtAdicionar.Size = New System.Drawing.Size(100, 22)
+		Me.txtAdicionar.TabIndex = 49
+		'
+		'Label4
+		'
+		Me.Label4.Location = New System.Drawing.Point(580, 431)
+		Me.Label4.Name = "Label4"
+		Me.Label4.Size = New System.Drawing.Size(112, 41)
+		Me.Label4.TabIndex = 48
+		Me.Label4.Text = "Monto a adicionar"
+		'
+		'Label11
+		'
+		Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
+		Me.Label11.Location = New System.Drawing.Point(579, 203)
+		Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label11.Name = "Label11"
+		Me.Label11.Size = New System.Drawing.Size(115, 64)
+		Me.Label11.TabIndex = 50
+		Me.Label11.Text = "Complete un campo a modificar"
+		'
 		'FrmModificarPrecioProducto
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(852, 510)
+		Me.Controls.Add(Me.Label11)
+		Me.Controls.Add(Me.txtAdicionar)
+		Me.Controls.Add(Me.Label4)
 		Me.Controls.Add(Me.gboFiltros)
 		Me.Controls.Add(Me.txtMonto)
 		Me.Controls.Add(Me.txtPorcentaje)
@@ -362,4 +393,7 @@ Partial Class FrmModificarPrecioProducto
 	Friend WithEvents Button1 As Windows.Forms.Button
 	Friend WithEvents cboProveedor As Windows.Forms.ComboBox
 	Friend WithEvents Label17 As Windows.Forms.Label
+	Friend WithEvents txtAdicionar As Windows.Forms.TextBox
+	Friend WithEvents Label4 As Windows.Forms.Label
+	Friend WithEvents Label11 As Windows.Forms.Label
 End Class

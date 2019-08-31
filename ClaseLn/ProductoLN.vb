@@ -101,8 +101,8 @@ Public Class ProductoLN
 		Return objproductosAD.CargarUnProducto(id)
 	End Function
 
-	Public Sub ModificarPrecios(listOfProductos As IEnumerable(Of Tuple(Of Integer, Boolean, ProductosNE)), precio As String, porcentaje As Boolean)
-		objproductosAD.ModificarPrecios(listOfProductos, precio, porcentaje)
+	Public Sub ModificarPrecios(listOfProductos As IEnumerable(Of Tuple(Of Integer, Boolean, ProductosNE)), precio As String, tipo As String)
+		objproductosAD.ModificarPrecios(listOfProductos, precio, tipo)
 	End Sub
 
 
