@@ -104,6 +104,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dslistadocliente.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dslistadocliente.vb">
+      <DependentUpon>dslistadocliente.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Formprueba1.Designer.vb">
       <DependentUpon>Formprueba1.vb</DependentUpon>
     </Compile>
@@ -247,34 +250,6 @@
     </Compile>
     <Compile Include="ImagenAmpliada.vb">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="JoyeriaCrisol11DataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JoyeriaCrisol11DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="JoyeriaCrisol12DataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JoyeriaCrisol12DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="JoyeriaCrisol2DataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JoyeriaCrisol2DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="JoyeriaCrisolDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JoyeriaCrisolDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="JoyeriaCrisolDataSet.vb">
-      <DependentUpon>JoyeriaCrisolDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="JoyeriaCrisolDataSet1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JoyeriaCrisolDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reportes\FrmComprobanteCompra.Designer.vb">
       <DependentUpon>FrmComprobanteCompra.vb</DependentUpon>
@@ -438,61 +413,6 @@
     </None>
     <None Include="dslistadocliente.xss">
       <DependentUpon>dslistadocliente.xsd</DependentUpon>
-    </None>
-    <None Include="JoyeriaCrisol11DataSet.xsc">
-      <DependentUpon>JoyeriaCrisol11DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="JoyeriaCrisol11DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>JoyeriaCrisol11DataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="JoyeriaCrisol11DataSet.xss">
-      <DependentUpon>JoyeriaCrisol11DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="JoyeriaCrisol12DataSet.xsc">
-      <DependentUpon>JoyeriaCrisol12DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="JoyeriaCrisol12DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>JoyeriaCrisol12DataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="JoyeriaCrisol12DataSet.xss">
-      <DependentUpon>JoyeriaCrisol12DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="JoyeriaCrisol2DataSet.xsc">
-      <DependentUpon>JoyeriaCrisol2DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="JoyeriaCrisol2DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>JoyeriaCrisol2DataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="JoyeriaCrisol2DataSet.xss">
-      <DependentUpon>JoyeriaCrisol2DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="JoyeriaCrisolDataSet.xsc">
-      <DependentUpon>JoyeriaCrisolDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="JoyeriaCrisolDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>JoyeriaCrisolDataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="JoyeriaCrisolDataSet.xss">
-      <DependentUpon>JoyeriaCrisolDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="JoyeriaCrisolDataSet1.xsc">
-      <DependentUpon>JoyeriaCrisolDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="JoyeriaCrisolDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>JoyeriaCrisolDataSet1.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="JoyeriaCrisolDataSet1.xss">
-      <DependentUpon>JoyeriaCrisolDataSet1.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
