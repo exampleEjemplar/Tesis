@@ -116,6 +116,12 @@
     <Compile Include="FrmArmado\FrmArmadoCompra.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmArmado\FrmArmadoPedido.Designer.vb">
+      <DependentUpon>FrmArmadoPedido.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmArmado\FrmArmadoPedido.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmArmado\FrmArmadoVenta.Designer.vb">
       <DependentUpon>FrmArmadoVenta.vb</DependentUpon>
     </Compile>
@@ -321,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmArmado\FrmArmadoCompra.resx">
       <DependentUpon>FrmArmadoCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmArmado\FrmArmadoPedido.resx">
+      <DependentUpon>FrmArmadoPedido.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmArmado\FrmArmadoVenta.resx">
       <DependentUpon>FrmArmadoVenta.vb</DependentUpon>
@@ -623,6 +632,8 @@
     <None Include="Resources\iconfinder_money-2_322464.png" />
     <None Include="Resources\check-all-icon-54-32x32.png" />
     <None Include="Resources\check-all-icon-54-64x64.png" />
+    <None Include="Resources\PinClipart.com_to-send-clipart_2133056 %281%29.png" />
+    <None Include="Resources\PinClipart.com_to-send-clipart_2133056 %281%291.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

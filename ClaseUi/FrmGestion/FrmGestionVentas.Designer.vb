@@ -31,14 +31,14 @@ Partial Class FrmGestionVentas
 		Me.rbtEntreFechas = New System.Windows.Forms.CheckBox()
 		Me.dtpFechaHasta = New System.Windows.Forms.DateTimePicker()
 		Me.dtpFechaDesde = New System.Windows.Forms.DateTimePicker()
-		Me.btnBuscar = New System.Windows.Forms.Button()
 		Me.cboCliente = New System.Windows.Forms.ComboBox()
 		Me.Label17 = New System.Windows.Forms.Label()
 		Me.lblFechaExacta = New System.Windows.Forms.Label()
-		Me.btnNuevo = New System.Windows.Forms.Button()
-		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.dgvProveedores = New System.Windows.Forms.DataGridView()
+		Me.btnBuscar = New System.Windows.Forms.Button()
+		Me.btnNuevo = New System.Windows.Forms.Button()
+		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.GroupBox5.SuspendLayout()
 		CType(Me.dgvProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
@@ -128,22 +128,6 @@ Partial Class FrmGestionVentas
 		Me.dtpFechaDesde.Value = New Date(2019, 7, 23, 0, 0, 0, 0)
 		Me.dtpFechaDesde.Visible = False
 		'
-		'btnBuscar
-		'
-		Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
-		Me.btnBuscar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.loupe_78956__1_
-		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnBuscar.FlatAppearance.BorderSize = 0
-		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(563, 15)
-		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnBuscar.Name = "btnBuscar"
-		Me.btnBuscar.Size = New System.Drawing.Size(137, 110)
-		Me.btnBuscar.TabIndex = 5
-		Me.btnBuscar.Text = "Buscar"
-		Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnBuscar.UseVisualStyleBackColor = False
-		'
 		'cboCliente
 		'
 		Me.cboCliente.AccessibleDescription = ""
@@ -178,38 +162,6 @@ Partial Class FrmGestionVentas
 		Me.lblFechaExacta.Size = New System.Drawing.Size(151, 17)
 		Me.lblFechaExacta.TabIndex = 21
 		Me.lblFechaExacta.Text = "Fecha comprobante"
-		'
-		'btnNuevo
-		'
-		Me.btnNuevo.BackColor = System.Drawing.SystemColors.Control
-		Me.btnNuevo.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
-		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnNuevo.FlatAppearance.BorderSize = 0
-		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnNuevo.Location = New System.Drawing.Point(576, 203)
-		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnNuevo.Name = "btnNuevo"
-		Me.btnNuevo.Size = New System.Drawing.Size(116, 95)
-		Me.btnNuevo.TabIndex = 33
-		Me.btnNuevo.Text = "Nueva"
-		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnNuevo.UseVisualStyleBackColor = False
-		'
-		'btnSalir
-		'
-		Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
-		Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
-		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnSalir.FlatAppearance.BorderSize = 0
-		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalir.Location = New System.Drawing.Point(576, 306)
-		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnSalir.Name = "btnSalir"
-		Me.btnSalir.Size = New System.Drawing.Size(116, 111)
-		Me.btnSalir.TabIndex = 32
-		Me.btnSalir.Text = "Salir"
-		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnSalir.UseVisualStyleBackColor = False
 		'
 		'Label1
 		'
@@ -259,14 +211,62 @@ Partial Class FrmGestionVentas
 		Me.dgvProveedores.RowHeadersWidth = 56
 		Me.dgvProveedores.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
 		Me.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.dgvProveedores.Size = New System.Drawing.Size(549, 208)
+		Me.dgvProveedores.Size = New System.Drawing.Size(549, 228)
 		Me.dgvProveedores.TabIndex = 45
+		'
+		'btnBuscar
+		'
+		Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
+		Me.btnBuscar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.loupe_78956__1_
+		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnBuscar.FlatAppearance.BorderSize = 0
+		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnBuscar.Location = New System.Drawing.Point(563, 15)
+		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnBuscar.Name = "btnBuscar"
+		Me.btnBuscar.Size = New System.Drawing.Size(137, 110)
+		Me.btnBuscar.TabIndex = 5
+		Me.btnBuscar.Text = "Buscar"
+		Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnBuscar.UseVisualStyleBackColor = False
+		'
+		'btnNuevo
+		'
+		Me.btnNuevo.BackColor = System.Drawing.SystemColors.Control
+		Me.btnNuevo.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
+		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnNuevo.FlatAppearance.BorderSize = 0
+		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnNuevo.Location = New System.Drawing.Point(576, 195)
+		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnNuevo.Name = "btnNuevo"
+		Me.btnNuevo.Size = New System.Drawing.Size(116, 113)
+		Me.btnNuevo.TabIndex = 33
+		Me.btnNuevo.Text = "Nueva Venta"
+		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnNuevo.UseVisualStyleBackColor = False
+		'
+		'btnSalir
+		'
+		Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
+		Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnSalir.FlatAppearance.BorderSize = 0
+		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnSalir.Location = New System.Drawing.Point(576, 316)
+		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnSalir.Name = "btnSalir"
+		Me.btnSalir.Size = New System.Drawing.Size(116, 111)
+		Me.btnSalir.TabIndex = 32
+		Me.btnSalir.Text = "Salir"
+		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnSalir.UseVisualStyleBackColor = False
 		'
 		'FrmGestionVentas
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(736, 424)
+		Me.ClientSize = New System.Drawing.Size(727, 446)
 		Me.Controls.Add(Me.dgvProveedores)
 		Me.Controls.Add(Me.Label1)
 		Me.Controls.Add(Me.GroupBox5)

@@ -321,6 +321,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.lstProdDispo.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.lstProdDispo.GridLines = True
+		Me.lstProdDispo.HideSelection = False
 		Me.lstProdDispo.Location = New System.Drawing.Point(10, 18)
 		Me.lstProdDispo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.lstProdDispo.Name = "lstProdDispo"
@@ -346,6 +347,7 @@ Partial Class FrmArmadoVenta
 		'
 		Me.ListView1.AllowDrop = True
 		Me.ListView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!)
+		Me.ListView1.HideSelection = False
 		Me.ListView1.Location = New System.Drawing.Point(11, 26)
 		Me.ListView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.ListView1.Name = "ListView1"

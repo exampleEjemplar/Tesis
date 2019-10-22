@@ -52,7 +52,7 @@ Partial Class MDIPrincipal
 		Me.Button2 = New System.Windows.Forms.Button()
 		Me.Button1 = New System.Windows.Forms.Button()
 		Me.btnSalir = New System.Windows.Forms.Button()
-		Me.btnAjustes = New System.Windows.Forms.Button()
+		Me.btnPedidos = New System.Windows.Forms.Button()
 		Me.btnCaja = New System.Windows.Forms.Button()
 		Me.btnArticulos = New System.Windows.Forms.Button()
 		Me.btnCompras = New System.Windows.Forms.Button()
@@ -111,43 +111,43 @@ Partial Class MDIPrincipal
 		'
 		Me.EstaditicasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.ProveedoresToolStripMenuItem, Me.CajaToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ComprasToolStripMenuItem, Me.StockToolStripMenuItem})
 		Me.EstaditicasToolStripMenuItem.Name = "EstaditicasToolStripMenuItem"
-		Me.EstaditicasToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+		Me.EstaditicasToolStripMenuItem.Size = New System.Drawing.Size(160, 26)
 		Me.EstaditicasToolStripMenuItem.Text = "Estadísticas"
 		'
 		'ClientesToolStripMenuItem
 		'
 		Me.ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
-		Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+		Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(170, 26)
 		Me.ClientesToolStripMenuItem.Text = "Clientes"
 		'
 		'ProveedoresToolStripMenuItem
 		'
 		Me.ProveedoresToolStripMenuItem.Name = "ProveedoresToolStripMenuItem"
-		Me.ProveedoresToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+		Me.ProveedoresToolStripMenuItem.Size = New System.Drawing.Size(170, 26)
 		Me.ProveedoresToolStripMenuItem.Text = "Proveedores"
 		'
 		'CajaToolStripMenuItem
 		'
 		Me.CajaToolStripMenuItem.Name = "CajaToolStripMenuItem"
-		Me.CajaToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+		Me.CajaToolStripMenuItem.Size = New System.Drawing.Size(170, 26)
 		Me.CajaToolStripMenuItem.Text = "Caja"
 		'
 		'VentasToolStripMenuItem
 		'
 		Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
-		Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+		Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(170, 26)
 		Me.VentasToolStripMenuItem.Text = "Ventas"
 		'
 		'ComprasToolStripMenuItem
 		'
 		Me.ComprasToolStripMenuItem.Name = "ComprasToolStripMenuItem"
-		Me.ComprasToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+		Me.ComprasToolStripMenuItem.Size = New System.Drawing.Size(170, 26)
 		Me.ComprasToolStripMenuItem.Text = "Compras"
 		'
 		'StockToolStripMenuItem
 		'
 		Me.StockToolStripMenuItem.Name = "StockToolStripMenuItem"
-		Me.StockToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
+		Me.StockToolStripMenuItem.Size = New System.Drawing.Size(170, 26)
 		Me.StockToolStripMenuItem.Text = "Stock"
 		'
 		'WindowsMenu
@@ -283,23 +283,23 @@ Partial Class MDIPrincipal
 		Me.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
 		Me.btnSalir.UseVisualStyleBackColor = False
 		'
-		'btnAjustes
+		'btnPedidos
 		'
-		Me.btnAjustes.BackColor = System.Drawing.Color.LightSteelBlue
-		Me.btnAjustes.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_services_62
-		Me.btnAjustes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnAjustes.FlatAppearance.BorderSize = 0
-		Me.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnAjustes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnAjustes.Location = New System.Drawing.Point(1148, 132)
-		Me.btnAjustes.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnAjustes.Name = "btnAjustes"
-		Me.btnAjustes.Size = New System.Drawing.Size(165, 111)
-		Me.btnAjustes.TabIndex = 20
-		Me.btnAjustes.Text = "Ajustes"
-		Me.btnAjustes.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnAjustes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-		Me.btnAjustes.UseVisualStyleBackColor = False
+		Me.btnPedidos.BackColor = System.Drawing.Color.LightSteelBlue
+		Me.btnPedidos.BackgroundImage = Global.ClaseUi.My.Resources.Resources.PinClipart1
+		Me.btnPedidos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnPedidos.FlatAppearance.BorderSize = 0
+		Me.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnPedidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnPedidos.Location = New System.Drawing.Point(1148, 132)
+		Me.btnPedidos.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnPedidos.Name = "btnPedidos"
+		Me.btnPedidos.Size = New System.Drawing.Size(165, 111)
+		Me.btnPedidos.TabIndex = 20
+		Me.btnPedidos.Text = "Pedidos"
+		Me.btnPedidos.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnPedidos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+		Me.btnPedidos.UseVisualStyleBackColor = False
 		'
 		'btnCaja
 		'
@@ -385,7 +385,7 @@ Partial Class MDIPrincipal
 		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.Button1)
 		Me.Controls.Add(Me.btnSalir)
-		Me.Controls.Add(Me.btnAjustes)
+		Me.Controls.Add(Me.btnPedidos)
 		Me.Controls.Add(Me.btnCaja)
 		Me.Controls.Add(Me.btnArticulos)
 		Me.Controls.Add(Me.btnCompras)
@@ -403,7 +403,7 @@ Partial Class MDIPrincipal
 
 	End Sub
 	Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
-    Friend WithEvents btnAjustes As Windows.Forms.Button
+    Friend WithEvents btnPedidos As Windows.Forms.Button
     Friend WithEvents btnCaja As Windows.Forms.Button
     Friend WithEvents btnArticulos As Windows.Forms.Button
     Friend WithEvents btnCompras As Windows.Forms.Button

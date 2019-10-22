@@ -43,6 +43,17 @@
 			_Total = CStr(value)
 		End Set
 	End Property
+
+	Private _Seña As Double
+
+	Public Property Seña As Double
+		Get
+			Return _Seña
+		End Get
+		Set(ByVal value As Double)
+			_Seña = CStr(value)
+		End Set
+	End Property
 End Class
 
 Public Class TipoDeVentasNE
