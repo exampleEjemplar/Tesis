@@ -49,7 +49,6 @@ Partial Class FrmCatalogo
         Me.GroupBox5.Controls.Add(Me.CH3)
         Me.GroupBox5.Controls.Add(Me.CH2)
         Me.GroupBox5.Controls.Add(Me.CH1)
-        Me.GroupBox5.Controls.Add(Me.Button2)
         Me.GroupBox5.Controls.Add(Me.Button1)
         Me.GroupBox5.Controls.Add(Me.Label8)
         Me.GroupBox5.Controls.Add(Me.CmbCategoria)
@@ -61,7 +60,7 @@ Partial Class FrmCatalogo
         Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox5.Location = New System.Drawing.Point(21, 42)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(780, 139)
+        Me.GroupBox5.Size = New System.Drawing.Size(654, 139)
         Me.GroupBox5.TabIndex = 37
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Búsqueda"
@@ -100,11 +99,11 @@ Partial Class FrmCatalogo
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(656, 28)
+        Me.Button2.Location = New System.Drawing.Point(715, 50)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(89, 89)
+        Me.Button2.Size = New System.Drawing.Size(89, 108)
         Me.Button2.TabIndex = 45
-        Me.Button2.Text = "Imprimir"
+        Me.Button2.Text = "Imprimir Catálogo"
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button2.UseVisualStyleBackColor = False
         '
@@ -199,9 +198,9 @@ Partial Class FrmCatalogo
         Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Location = New System.Drawing.Point(823, 67)
+        Me.btnSalir.Location = New System.Drawing.Point(823, 50)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(89, 89)
+        Me.btnSalir.Size = New System.Drawing.Size(89, 106)
         Me.btnSalir.TabIndex = 43
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -261,6 +260,7 @@ Partial Class FrmCatalogo
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnSalir)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.GroupBox5)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FrmCatalogo"
