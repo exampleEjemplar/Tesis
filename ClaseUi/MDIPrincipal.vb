@@ -150,6 +150,6 @@ Public Class MDIPrincipal
 	End Sub
 
 	Private Sub btnPedidos_Click(sender As Object, e As EventArgs) Handles btnPedidos.Click
-		FrmArmadoPedido.ShowDialog()
+		FrmGestionPedidos.ShowDialog()
 	End Sub
 End Class

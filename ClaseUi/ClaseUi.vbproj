@@ -194,6 +194,12 @@
     <Compile Include="FrmGestion\FrmGestionMaterial.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmGestion\FrmGestionPedidos.Designer.vb">
+      <DependentUpon>FrmGestionPedidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestion\FrmGestionPedidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmGestion\FrmGestionProveedores.Designer.vb">
       <DependentUpon>FrmGestionProveedores.vb</DependentUpon>
     </Compile>
@@ -366,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionMaterial.resx">
       <DependentUpon>FrmGestionMaterial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestion\FrmGestionPedidos.resx">
+      <DependentUpon>FrmGestionPedidos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionProducto.resx">
       <DependentUpon>FrmGestionProducto.vb</DependentUpon>

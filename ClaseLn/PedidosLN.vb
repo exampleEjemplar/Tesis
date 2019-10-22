@@ -8,12 +8,12 @@ Public Class PedidosLN
 		pedidosDA = New PedidosDA
 	End Sub
 
-	Public Function CargarGrillaVentas(ByVal parametros As Dictionary(Of String, String))
+	Public Function CargarGrillaPedidos(ByVal parametros As Dictionary(Of String, String))
 		Return pedidosDA.CargarGrillaVentas(parametros)
 	End Function
 
-	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer)
-		pedidosDA.Registrar(listaDeProductosId, clienteId)
+	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer, seña As Double)
+		pedidosDA.Registrar(listaDeProductosId, clienteId, seña)
 	End Sub
 
 	Public Function ObtenerUltimoPedido()

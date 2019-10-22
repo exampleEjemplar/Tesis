@@ -180,7 +180,7 @@ Public Class FrmArmadoPedido
 			FrmComprobanteVenta.ListaVentas.Add(venta)
 		Next
 
-		pedidosLN.Registrar(listaDeVentas, cboCliente.SelectedValue)
+		pedidosLN.Registrar(listaDeVentas, cboCliente.SelectedValue, If(chkSeñaManual.Checked, Double.Parse(txtSeña.Text), Double.Parse(lblSeña.Text)))
 		MsgBox("Pedido realizado con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
 		modificado = True
