@@ -46,20 +46,25 @@ Partial Class FrmModificarPrecioProducto
 		Me.Label8 = New System.Windows.Forms.Label()
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.btnSalir = New System.Windows.Forms.Button()
+		Me.txtAdicionar = New System.Windows.Forms.TextBox()
+		Me.Label4 = New System.Windows.Forms.Label()
+		Me.Label11 = New System.Windows.Forms.Label()
+		Me.cboCategorias = New System.Windows.Forms.ComboBox()
+		Me.Label5 = New System.Windows.Forms.Label()
 		Me.gboFiltros.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'CheckedListBox1
 		'
 		Me.CheckedListBox1.FormattingEnabled = True
-		Me.CheckedListBox1.Location = New System.Drawing.Point(12, 222)
+		Me.CheckedListBox1.Location = New System.Drawing.Point(12, 296)
 		Me.CheckedListBox1.Name = "CheckedListBox1"
 		Me.CheckedListBox1.Size = New System.Drawing.Size(535, 276)
 		Me.CheckedListBox1.TabIndex = 0
 		'
 		'Label1
 		'
-		Me.Label1.Location = New System.Drawing.Point(580, 222)
+		Me.Label1.Location = New System.Drawing.Point(555, 346)
 		Me.Label1.Name = "Label1"
 		Me.Label1.Size = New System.Drawing.Size(109, 41)
 		Me.Label1.TabIndex = 39
@@ -67,11 +72,11 @@ Partial Class FrmModificarPrecioProducto
 		'
 		'Label2
 		'
-		Me.Label2.Location = New System.Drawing.Point(580, 301)
+		Me.Label2.Location = New System.Drawing.Point(555, 425)
 		Me.Label2.Name = "Label2"
 		Me.Label2.Size = New System.Drawing.Size(112, 41)
 		Me.Label2.TabIndex = 41
-		Me.Label2.Text = "Monto exacto a modificar"
+		Me.Label2.Text = "Monto exacto nuevo"
 		'
 		'Label3
 		'
@@ -80,45 +85,47 @@ Partial Class FrmModificarPrecioProducto
 		Me.Label3.Location = New System.Drawing.Point(7, 9)
 		Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label3.Name = "Label3"
-		Me.Label3.Size = New System.Drawing.Size(384, 25)
+		Me.Label3.Size = New System.Drawing.Size(392, 25)
 		Me.Label3.TabIndex = 44
-		Me.Label3.Text = "Modificador de precios de producto"
+		Me.Label3.Text = "Actualizador de precios de producto"
 		'
 		'txtPorcentaje
 		'
-		Me.txtPorcentaje.Location = New System.Drawing.Point(583, 266)
+		Me.txtPorcentaje.Location = New System.Drawing.Point(558, 390)
 		Me.txtPorcentaje.Name = "txtPorcentaje"
 		Me.txtPorcentaje.Size = New System.Drawing.Size(100, 22)
 		Me.txtPorcentaje.TabIndex = 45
 		'
 		'txtMonto
 		'
-		Me.txtMonto.Location = New System.Drawing.Point(583, 345)
+		Me.txtMonto.Location = New System.Drawing.Point(558, 469)
 		Me.txtMonto.Name = "txtMonto"
 		Me.txtMonto.Size = New System.Drawing.Size(100, 22)
 		Me.txtMonto.TabIndex = 46
 		'
 		'gboFiltros
 		'
+		Me.gboFiltros.Controls.Add(Me.cboCategorias)
+		Me.gboFiltros.Controls.Add(Me.Label5)
 		Me.gboFiltros.Controls.Add(Me.Button1)
 		Me.gboFiltros.Controls.Add(Me.cboProveedor)
 		Me.gboFiltros.Controls.Add(Me.Label17)
-		Me.gboFiltros.Controls.Add(Me.btnLimpiarFiltros)
-		Me.gboFiltros.Controls.Add(Me.btnBuscar)
 		Me.gboFiltros.Controls.Add(Me.lbldesde)
+		Me.gboFiltros.Controls.Add(Me.btnLimpiarFiltros)
 		Me.gboFiltros.Controls.Add(Me.rbtEntreFechas)
 		Me.gboFiltros.Controls.Add(Me.lblHasta)
+		Me.gboFiltros.Controls.Add(Me.btnBuscar)
 		Me.gboFiltros.Controls.Add(Me.rbtFechaExacta)
 		Me.gboFiltros.Controls.Add(Me.dtpFechaHasta)
 		Me.gboFiltros.Controls.Add(Me.dtpFechaDesde)
 		Me.gboFiltros.Controls.Add(Me.lblFechaExacta)
 		Me.gboFiltros.Controls.Add(Me.txtBusNombreProducto)
 		Me.gboFiltros.Controls.Add(Me.Label8)
-		Me.gboFiltros.Location = New System.Drawing.Point(12, 61)
+		Me.gboFiltros.Location = New System.Drawing.Point(12, 36)
 		Me.gboFiltros.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.gboFiltros.Name = "gboFiltros"
 		Me.gboFiltros.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.gboFiltros.Size = New System.Drawing.Size(828, 137)
+		Me.gboFiltros.Size = New System.Drawing.Size(772, 189)
 		Me.gboFiltros.TabIndex = 47
 		Me.gboFiltros.TabStop = False
 		Me.gboFiltros.Text = "Filtros para chequear"
@@ -130,7 +137,7 @@ Partial Class FrmModificarPrecioProducto
 		Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.Button1.FlatAppearance.BorderSize = 0
 		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button1.Location = New System.Drawing.Point(757, 68)
+		Me.Button1.Location = New System.Drawing.Point(695, 93)
 		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button1.Name = "Button1"
 		Me.Button1.Size = New System.Drawing.Size(64, 63)
@@ -144,17 +151,17 @@ Partial Class FrmModificarPrecioProducto
 		Me.cboProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
 		Me.cboProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.cboProveedor.FormattingEnabled = True
-		Me.cboProveedor.Location = New System.Drawing.Point(442, 17)
+		Me.cboProveedor.Location = New System.Drawing.Point(240, 58)
 		Me.cboProveedor.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboProveedor.Name = "cboProveedor"
-		Me.cboProveedor.Size = New System.Drawing.Size(309, 25)
+		Me.cboProveedor.Size = New System.Drawing.Size(254, 25)
 		Me.cboProveedor.TabIndex = 53
 		'
 		'Label17
 		'
 		Me.Label17.AutoSize = True
 		Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label17.Location = New System.Drawing.Point(351, 21)
+		Me.Label17.Location = New System.Drawing.Point(237, 26)
 		Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label17.Name = "Label17"
 		Me.Label17.Size = New System.Drawing.Size(83, 17)
@@ -168,7 +175,7 @@ Partial Class FrmModificarPrecioProducto
 		Me.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
 		Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(685, 64)
+		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(623, 93)
 		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
 		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(64, 67)
@@ -183,10 +190,10 @@ Partial Class FrmModificarPrecioProducto
 		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnBuscar.FlatAppearance.BorderSize = 0
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(594, 62)
+		Me.btnBuscar.Location = New System.Drawing.Point(542, 93)
 		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
-		Me.btnBuscar.Size = New System.Drawing.Size(83, 69)
+		Me.btnBuscar.Size = New System.Drawing.Size(73, 63)
 		Me.btnBuscar.TabIndex = 38
 		Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnBuscar.UseVisualStyleBackColor = False
@@ -195,7 +202,7 @@ Partial Class FrmModificarPrecioProducto
 		'
 		Me.lbldesde.AutoSize = True
 		Me.lbldesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
-		Me.lbldesde.Location = New System.Drawing.Point(105, 100)
+		Me.lbldesde.Location = New System.Drawing.Point(104, 130)
 		Me.lbldesde.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lbldesde.Name = "lbldesde"
 		Me.lbldesde.Size = New System.Drawing.Size(54, 16)
@@ -205,7 +212,7 @@ Partial Class FrmModificarPrecioProducto
 		'rbtEntreFechas
 		'
 		Me.rbtEntreFechas.AutoSize = True
-		Me.rbtEntreFechas.Location = New System.Drawing.Point(335, 62)
+		Me.rbtEntreFechas.Location = New System.Drawing.Point(334, 92)
 		Me.rbtEntreFechas.Name = "rbtEntreFechas"
 		Me.rbtEntreFechas.Size = New System.Drawing.Size(177, 21)
 		Me.rbtEntreFechas.TabIndex = 49
@@ -216,7 +223,7 @@ Partial Class FrmModificarPrecioProducto
 		'
 		Me.lblHasta.AutoSize = True
 		Me.lblHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
-		Me.lblHasta.Location = New System.Drawing.Point(326, 100)
+		Me.lblHasta.Location = New System.Drawing.Point(325, 130)
 		Me.lblHasta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblHasta.Name = "lblHasta"
 		Me.lblHasta.Size = New System.Drawing.Size(49, 16)
@@ -226,7 +233,7 @@ Partial Class FrmModificarPrecioProducto
 		'rbtFechaExacta
 		'
 		Me.rbtFechaExacta.AutoSize = True
-		Me.rbtFechaExacta.Location = New System.Drawing.Point(11, 62)
+		Me.rbtFechaExacta.Location = New System.Drawing.Point(10, 92)
 		Me.rbtFechaExacta.Name = "rbtFechaExacta"
 		Me.rbtFechaExacta.Size = New System.Drawing.Size(318, 21)
 		Me.rbtFechaExacta.TabIndex = 50
@@ -236,7 +243,7 @@ Partial Class FrmModificarPrecioProducto
 		'dtpFechaHasta
 		'
 		Me.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-		Me.dtpFechaHasta.Location = New System.Drawing.Point(384, 96)
+		Me.dtpFechaHasta.Location = New System.Drawing.Point(383, 126)
 		Me.dtpFechaHasta.Margin = New System.Windows.Forms.Padding(4)
 		Me.dtpFechaHasta.Name = "dtpFechaHasta"
 		Me.dtpFechaHasta.Size = New System.Drawing.Size(151, 22)
@@ -246,7 +253,7 @@ Partial Class FrmModificarPrecioProducto
 		'dtpFechaDesde
 		'
 		Me.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-		Me.dtpFechaDesde.Location = New System.Drawing.Point(167, 96)
+		Me.dtpFechaDesde.Location = New System.Drawing.Point(166, 126)
 		Me.dtpFechaDesde.Margin = New System.Windows.Forms.Padding(4)
 		Me.dtpFechaDesde.Name = "dtpFechaDesde"
 		Me.dtpFechaDesde.Size = New System.Drawing.Size(151, 22)
@@ -257,7 +264,7 @@ Partial Class FrmModificarPrecioProducto
 		'
 		Me.lblFechaExacta.AutoSize = True
 		Me.lblFechaExacta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
-		Me.lblFechaExacta.Location = New System.Drawing.Point(8, 100)
+		Me.lblFechaExacta.Location = New System.Drawing.Point(7, 130)
 		Me.lblFechaExacta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblFechaExacta.Name = "lblFechaExacta"
 		Me.lblFechaExacta.Size = New System.Drawing.Size(95, 16)
@@ -266,7 +273,7 @@ Partial Class FrmModificarPrecioProducto
 		'
 		'txtBusNombreProducto
 		'
-		Me.txtBusNombreProducto.Location = New System.Drawing.Point(143, 18)
+		Me.txtBusNombreProducto.Location = New System.Drawing.Point(6, 59)
 		Me.txtBusNombreProducto.Name = "txtBusNombreProducto"
 		Me.txtBusNombreProducto.Size = New System.Drawing.Size(201, 22)
 		Me.txtBusNombreProducto.TabIndex = 41
@@ -275,7 +282,7 @@ Partial Class FrmModificarPrecioProducto
 		'
 		Me.Label8.AutoSize = True
 		Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
-		Me.Label8.Location = New System.Drawing.Point(8, 21)
+		Me.Label8.Location = New System.Drawing.Point(3, 26)
 		Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label8.Name = "Label8"
 		Me.Label8.Size = New System.Drawing.Size(128, 16)
@@ -289,7 +296,7 @@ Partial Class FrmModificarPrecioProducto
 		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnNuevo.FlatAppearance.BorderSize = 0
 		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnNuevo.Location = New System.Drawing.Point(733, 301)
+		Me.btnNuevo.Location = New System.Drawing.Point(680, 366)
 		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(107, 98)
@@ -305,7 +312,7 @@ Partial Class FrmModificarPrecioProducto
 		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnSalir.FlatAppearance.BorderSize = 0
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalir.Location = New System.Drawing.Point(730, 407)
+		Me.btnSalir.Location = New System.Drawing.Point(677, 472)
 		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
 		Me.btnSalir.Size = New System.Drawing.Size(107, 100)
@@ -314,11 +321,62 @@ Partial Class FrmModificarPrecioProducto
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnSalir.UseVisualStyleBackColor = False
 		'
+		'txtAdicionar
+		'
+		Me.txtAdicionar.Location = New System.Drawing.Point(558, 546)
+		Me.txtAdicionar.Name = "txtAdicionar"
+		Me.txtAdicionar.Size = New System.Drawing.Size(100, 22)
+		Me.txtAdicionar.TabIndex = 49
+		'
+		'Label4
+		'
+		Me.Label4.Location = New System.Drawing.Point(555, 502)
+		Me.Label4.Name = "Label4"
+		Me.Label4.Size = New System.Drawing.Size(112, 41)
+		Me.Label4.TabIndex = 48
+		Me.Label4.Text = "Monto a adicionar"
+		'
+		'Label11
+		'
+		Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
+		Me.Label11.Location = New System.Drawing.Point(554, 256)
+		Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label11.Name = "Label11"
+		Me.Label11.Size = New System.Drawing.Size(115, 82)
+		Me.Label11.TabIndex = 50
+		Me.Label11.Text = "Complete un campo a actualizar"
+		'
+		'cboCategorias
+		'
+		Me.cboCategorias.AccessibleDescription = ""
+		Me.cboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cboCategorias.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.cboCategorias.FormattingEnabled = True
+		Me.cboCategorias.Location = New System.Drawing.Point(527, 59)
+		Me.cboCategorias.Margin = New System.Windows.Forms.Padding(4)
+		Me.cboCategorias.Name = "cboCategorias"
+		Me.cboCategorias.Size = New System.Drawing.Size(228, 25)
+		Me.cboCategorias.TabIndex = 56
+		'
+		'Label5
+		'
+		Me.Label5.AutoSize = True
+		Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label5.Location = New System.Drawing.Point(524, 26)
+		Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label5.Name = "Label5"
+		Me.Label5.Size = New System.Drawing.Size(170, 17)
+		Me.Label5.TabIndex = 57
+		Me.Label5.Text = "Categoria de producto"
+		'
 		'FrmModificarPrecioProducto
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(852, 510)
+		Me.ClientSize = New System.Drawing.Size(819, 586)
+		Me.Controls.Add(Me.Label11)
+		Me.Controls.Add(Me.txtAdicionar)
+		Me.Controls.Add(Me.Label4)
 		Me.Controls.Add(Me.gboFiltros)
 		Me.Controls.Add(Me.txtMonto)
 		Me.Controls.Add(Me.txtPorcentaje)
@@ -362,4 +420,9 @@ Partial Class FrmModificarPrecioProducto
 	Friend WithEvents Button1 As Windows.Forms.Button
 	Friend WithEvents cboProveedor As Windows.Forms.ComboBox
 	Friend WithEvents Label17 As Windows.Forms.Label
+	Friend WithEvents txtAdicionar As Windows.Forms.TextBox
+	Friend WithEvents Label4 As Windows.Forms.Label
+	Friend WithEvents Label11 As Windows.Forms.Label
+	Friend WithEvents cboCategorias As Windows.Forms.ComboBox
+	Friend WithEvents Label5 As Windows.Forms.Label
 End Class

@@ -92,6 +92,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ComprasDA.vb" />
+    <Compile Include="PedidosDA.vb" />
     <Compile Include="VentasDA.vb" />
   </ItemGroup>
   <ItemGroup>

@@ -12,11 +12,11 @@ Public Class VentasLN
 		Return ventasDA.CargarGrillaVentas(parametros)
 	End Function
 
-    Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer)
-        ventasDA.Registrar(listaDeProductosId, clienteId)
-    End Sub
+	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer)
+		ventasDA.Registrar(listaDeProductosId, clienteId)
+	End Sub
 
-    Public Function ObtenerUltimaVenta()
+	Public Function ObtenerUltimaVenta()
         Return ventasDA.ObtenerUltimaVenta
     End Function
     Public Function ObtenerDatosCliente(ByVal idventa As String) As DataSet

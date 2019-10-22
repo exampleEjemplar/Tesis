@@ -237,6 +237,7 @@ Public Class FrmArmadoVenta
 		txtBusNombreProducto.Text = ""
 		dtpFechaDesde.Value = Date.Now
 		dtpFechaHasta.Value = Date.Now
+		Search()
 	End Sub
 
 	Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click

@@ -139,6 +139,16 @@ UsuarioId Int,
 CONSTRAINT Venta_Cliente FOREIGN KEY (ClienteId) REFERENCES Clientes(ID)
 )
 GO
+CREATE TABLE Pedidos(
+Id INT IDENTITY PRIMARY KEY,
+Fecha DATETIME,
+ClienteId INT,
+Seña FLOAT,
+Total FLOAT,
+UsuarioId Int,
+CONSTRAINT Pedido_Cliente FOREIGN KEY (ClienteId) REFERENCES Clientes(ID)
+)
+GO
 CREATE TABLE UnidadesDePeso(
 Id INT IDENTITY PRIMARY KEY,
 Nombre VARCHAR(MAX)
@@ -188,6 +198,18 @@ SubTotal FLOAT,
 IVA FLOAT,
 CONSTRAINT DetalleVenta_Venta FOREIGN KEY (VentaId) REFERENCES Ventas(ID),
 CONSTRAINT DetalleVenta_Producto FOREIGN KEY (ProductoId) REFERENCES Productos(ID),
+)
+GO
+CREATE TABLE DetallePedidos(
+Id INT IDENTITY PRIMARY KEY,
+PedidoId INT,
+ProductoId INT,
+Cantidad INT,
+Precio FLOAT,
+SubTotal FLOAT,
+IVA FLOAT,
+CONSTRAINT DetallePedido_Pedido FOREIGN KEY (PedidoId) REFERENCES Pedidos(ID),
+CONSTRAINT DetallePedido_Producto FOREIGN KEY (ProductoId) REFERENCES Productos(ID),
 )
 GO
 CREATE TABLE Compras(
@@ -23145,6 +23167,51 @@ insert into productos  values(@Cod_Barra,
 @StockODeTercero,
 @FechaAlta)
 end
+
+USE [JoyeriaCrisol]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MostrarProductoconbusquedaCAT]    Script Date: 23/8/2019 17:09:26 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[SP_MostrarProductoconbusquedaCAT]
+@codigo int,
+@Nombre varchar(max),
+@categoria integer
+
+
+AS
+SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto, 
+p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.TipoProductoID, p.UnidadDePeso, 
+p.CategoriaID, p.StockODeTercero FROM productos as p
+inner join TipoProductos t on p.TipoProductoID=t.id
+inner join Materiales m On p.MaterialId=m.id
+inner join categorias ca on p.CategoriaID= ca.Id
+where p.id = @codigo OR  p.nombre like '%'+@nombre+'%' OR  p.CategoriaID = @categoria;
+
+
+
+USE [JoyeriaCrisol]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_MostrarProductoconbusquedaPRODUCTO]    Script Date: 23/8/2019 20:55:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_MostrarProductoconbusquedaPRODUCTO]
+
+@Nombre varchar(max)
+
+AS
+SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto, 
+p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.TipoProductoID, p.UnidadDePeso, 
+p.CategoriaID, p.StockODeTercero FROM productos as p
+inner join TipoProductos t on p.TipoProductoID=t.id
+inner join Materiales m On p.MaterialId=m.id
+inner join categorias ca on p.CategoriaID= ca.Id
+where p.nombre like '%'+@nombre+'%';
+
 
 
 
