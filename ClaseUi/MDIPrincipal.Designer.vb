@@ -57,6 +57,8 @@ Partial Class MDIPrincipal
 		Me.btnArticulos = New System.Windows.Forms.Button()
 		Me.btnCompras = New System.Windows.Forms.Button()
 		Me.btnVentas = New System.Windows.Forms.Button()
+		Me.btnPagos = New System.Windows.Forms.Button()
+		Me.Button3 = New System.Windows.Forms.Button()
 		Me.MenuStrip.SuspendLayout()
 		Me.SuspendLayout()
 		'
@@ -373,6 +375,42 @@ Partial Class MDIPrincipal
 		Me.btnVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
 		Me.btnVentas.UseVisualStyleBackColor = False
 		'
+		'btnPagos
+		'
+		Me.btnPagos.BackColor = System.Drawing.Color.LightSteelBlue
+		Me.btnPagos.BackgroundImage = Global.ClaseUi.My.Resources.Resources.money_PNG3544__1_
+		Me.btnPagos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnPagos.FlatAppearance.BorderSize = 0
+		Me.btnPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnPagos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnPagos.Location = New System.Drawing.Point(367, 137)
+		Me.btnPagos.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnPagos.Name = "btnPagos"
+		Me.btnPagos.Size = New System.Drawing.Size(165, 111)
+		Me.btnPagos.TabIndex = 32
+		Me.btnPagos.Text = "Pagos"
+		Me.btnPagos.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+		Me.btnPagos.UseVisualStyleBackColor = False
+		'
+		'Button3
+		'
+		Me.Button3.BackColor = System.Drawing.Color.LightSteelBlue
+		Me.Button3.BackgroundImage = Global.ClaseUi.My.Resources.Resources.Appliance_Plug_PNG_Photo__1_
+		Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button3.FlatAppearance.BorderSize = 0
+		Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Button3.Location = New System.Drawing.Point(367, 256)
+		Me.Button3.Margin = New System.Windows.Forms.Padding(4)
+		Me.Button3.Name = "Button3"
+		Me.Button3.Size = New System.Drawing.Size(165, 111)
+		Me.Button3.TabIndex = 34
+		Me.Button3.Text = "Servicios"
+		Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.Button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+		Me.Button3.UseVisualStyleBackColor = False
+		'
 		'MDIPrincipal
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -381,6 +419,8 @@ Partial Class MDIPrincipal
 		Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.ClientSize = New System.Drawing.Size(1349, 762)
 		Me.ControlBox = False
+		Me.Controls.Add(Me.Button3)
+		Me.Controls.Add(Me.btnPagos)
 		Me.Controls.Add(Me.Button4)
 		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.Button1)
@@ -435,4 +475,6 @@ Partial Class MDIPrincipal
     Friend WithEvents Button4 As Windows.Forms.Button
     Friend WithEvents GestionDeUsuariosToolStripMenuItem As Windows.Forms.ToolStripMenuItem
 	Friend WithEvents StockToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+	Friend WithEvents btnPagos As Windows.Forms.Button
+	Friend WithEvents Button3 As Windows.Forms.Button
 End Class

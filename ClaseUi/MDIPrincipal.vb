@@ -152,4 +152,12 @@ Public Class MDIPrincipal
 	Private Sub btnPedidos_Click(sender As Object, e As EventArgs) Handles btnPedidos.Click
 		FrmGestionPedidos.ShowDialog()
 	End Sub
+
+	Private Sub btnPagos_Click(sender As Object, e As EventArgs) Handles btnPagos.Click
+		FrmGestionPagos.ShowDialog()
+	End Sub
+
+	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+		FrmGestionServicio.ShowDialog()
+	End Sub
 End Class

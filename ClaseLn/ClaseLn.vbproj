@@ -63,6 +63,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PagosLN.vb" />
     <Compile Include="MaterialesLN.vb" />
     <Compile Include="TipoDeProductosLN.vb" />
     <Compile Include="CategoriasLN.vb" />

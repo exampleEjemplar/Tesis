@@ -195,12 +195,20 @@ Public Class HelpersDA
 
 	End Function
 
-	Public Function CargarCboTodosProveedores()
+	Public Function CargarCboTodosProveedores(ByVal proveeServicios As String)
 
 		ChequearConexion(db)
 		Dim sqlStr As String
+		Dim text As String
 		ds = New DataSet
-		sqlStr = "select Id,Nombre +' '+ Apellido as Nombre from Proveedores Order By Nombre  "
+		If proveeServicios = "True" Then
+			text = "where proveeservicios = 'S'"
+		ElseIf proveeServicios = "False" Then
+			text = "where proveeservicios = 'N'"
+		Else
+			text = ""
+		End If
+		sqlStr = "select Id,Nombre +' '+ Apellido as Nombre from Proveedores " + text + " Order By Nombre"
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)

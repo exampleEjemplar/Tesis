@@ -96,6 +96,7 @@ ActivoSN CHAR(1),
 UsuarioId INT,
 Email VARCHAR(MAX),
 FisicaOJuridica VARCHAR(MAX),
+ProveeServicios CHAR(1),
 CONSTRAINT Proveedor_TipoDocumento FOREIGN KEY (TipoDocumentoId) REFERENCES TipoDocumentos(ID),
 CONSTRAINT Proveedor_Ciudad FOREIGN KEY (CiudadId) REFERENCES Ciudades(ID),
 CONSTRAINT Proveedor_Usuario FOREIGN KEY (UsuarioId) REFERENCES Usuarios(ID)
@@ -173,6 +174,7 @@ UnidadDePeso int,
 CategoriaID INT,
 StockODeTercero INT,
 FechaAlta DATETIME,
+EsServicio CHAR(1),
 CONSTRAINT Producto_Material FOREIGN KEY (MaterialId) REFERENCES Materiales(ID),
 CONSTRAINT Producto_Proveedor FOREIGN KEY (ProveedorId) REFERENCES Proveedores(ID),
 CONSTRAINT Producto_Categoria FOREIGN KEY (CategoriaID) REFERENCES Categorias(ID),
@@ -221,6 +223,15 @@ UsuarioId Int,
 CONSTRAINT Compra_Cliente FOREIGN KEY (ProveedorId) REFERENCES Proveedores(ID)
 )
 GO
+CREATE TABLE Pagos(
+Id INT IDENTITY PRIMARY KEY,
+Fecha DATETIME,
+ProveedorId INT,
+Total FLOAT,
+UsuarioId Int,
+CONSTRAINT Pago_Cliente FOREIGN KEY (ProveedorId) REFERENCES Proveedores(ID)
+)
+GO
 CREATE TABLE DetalleCompras(
 Id INT IDENTITY PRIMARY KEY,
 CompraId INT,
@@ -231,6 +242,18 @@ SubTotal FLOAT,
 IVA FLOAT,
 CONSTRAINT DetalleCompra_Compra FOREIGN KEY (CompraId) REFERENCES Compras(ID),
 CONSTRAINT DetalleCompra_Producto FOREIGN KEY (ProductoId) REFERENCES Productos(ID)
+)
+GO
+CREATE TABLE DetallePagos(
+Id INT IDENTITY PRIMARY KEY,
+PagoId INT,
+ProductoId INT,
+Cantidad INT,
+Precio FLOAT,
+SubTotal FLOAT,
+IVA FLOAT,
+CONSTRAINT DetallePago_Pago FOREIGN KEY (PagoId) REFERENCES Pagos(ID),
+CONSTRAINT DetallePago_Producto FOREIGN KEY (ProductoId) REFERENCES Productos(ID)
 )
 GO
 INSERT INTO provincias VALUES (1, 'Buenos Aires')
@@ -23109,7 +23132,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 create PROCEDURE [dbo].[SP_MostrarProductosinbusqueda]
 @codigo int,
-@Nombre varchar(max)
+@Nombre varchar(max),
+@EsServicio char(1)
 
 AS
 SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto, 
@@ -23118,6 +23142,7 @@ p.CategoriaID, p.StockODeTercero FROM productos as p
 inner join TipoProductos t on p.TipoProductoID=t.id
 inner join Materiales m On p.MaterialId=m.id
 inner join categorias ca on p.CategoriaID= ca.Id
+where p.esservicio = @EsServicio
 GO
 
 USE [JoyeriaCrisol]
@@ -23190,7 +23215,7 @@ inner join Materiales m On p.MaterialId=m.id
 inner join categorias ca on p.CategoriaID= ca.Id
 where p.id = @codigo OR  p.nombre like '%'+@nombre+'%' OR  p.CategoriaID = @categoria;
 
-
+GO
 
 USE [JoyeriaCrisol]
 GO

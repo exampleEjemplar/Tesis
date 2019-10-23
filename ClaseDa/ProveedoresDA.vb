@@ -23,7 +23,7 @@ Public Class ProveedoresDA
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = "select c.FisicaOJuridica , t.Descripcion, c.NumeroDocumento,         c.Nombre, c.Apellido,         c.FechaNacimiento, c.Calle, c.NumeroCalle, ciu.iD,        c.Car_celular, c.NumeroCelular, c.Car_telefono,c.NumeroTelefono,        c.Email ,c.piso , c.Departamento, c.manzana,c.lote,c.barrio,c.Id  ,ciu.ProvinciaId,ciu.Nombre      from Proveedores as c        inner join TipoDocumentos t on t.Id = c.TipoDocumentoId        inner join Ciudades ciu on c.CiudadId = Ciu.Id  where c.Id = " & Id
+		sqlStr = "select c.FisicaOJuridica , t.Descripcion, c.NumeroDocumento,         c.Nombre, c.Apellido,         c.FechaNacimiento, c.Calle, c.NumeroCalle, ciu.iD,        c.Car_celular, c.NumeroCelular, c.Car_telefono,c.NumeroTelefono,        c.Email ,c.piso , c.Departamento, c.manzana,c.lote,c.barrio,c.Id  ,ciu.ProvinciaId,ciu.Nombre ,c.proveeservicios     from Proveedores as c        inner join TipoDocumentos t on t.Id = c.TipoDocumentoId        inner join Ciudades ciu on c.CiudadId = Ciu.Id  where c.Id = " & Id
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
@@ -112,7 +112,7 @@ Public Class ProveedoresDA
 			If(cli.Apellido <> "", "'" + cli.Apellido + "'", "NULL") & "," & If(cli.FechaNacimiento.ToString("dd/MM/yyyy") <> "", "'" + cli.FechaNacimiento.ToString("dd/MM/yyyy") + "'", "NULL") & ", getdate(), " & If(cli.Calle <> "", "'" + cli.Calle + "'", "NULL") & ", " & If(cli.NumeroCalle <> "", "'" + cli.NumeroCalle + "'", "NULL") & "," & If(cli.Departamento <> "", "'" + cli.Departamento + "'", "NULL") & "," &
 			If(cli.Barrio <> "", "'" + cli.Barrio + "'", "NULL") & "," & If(cli.Piso <> "", "'" + cli.Piso + "'", "NULL") & "," & If(cli.Manzana <> "", "'" + cli.Manzana + "'", "NULL") & "," & If(cli.Lote <> "", "'" + cli.Lote + "'", "NULL") & ",'" & cli.CiudadId & "' ," & If(cli.Car_Telefono <> "", "'" + cli.Car_Telefono + "'", "NULL") &
 			"," & If(cli.NumeroTelefono <> "", "'" + cli.NumeroTelefono + "'", "NULL") & "," & If(cli.Car_Celular <> "", "'" + cli.Car_Celular + "'", "NULL") & "," & If(cli.NumeroCelular <> "", "'" + cli.NumeroCelular + "'", "NULL") & ", 'S','" & cli.UsuarioId & "'," & If(cli.Email <> "", "'" + cli.Email + "'", "NULL") &
-			",'" & cli.FisicaOJuridica & "')", db)
+			",'" & cli.FisicaOJuridica & "','" & cli.ProveeServicios & "')", db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
 			db.Close()

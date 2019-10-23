@@ -1,10 +1,10 @@
 ﻿Imports System.Windows.Forms
 Imports ClaseLn
 
-Public Class FrmGestionCompras
+Public Class FrmGestionPagos
 
 	Private helpersLN As New HelpersLN
-	Private comprasLN As New ComprasLN
+	Private pagosLN As New PagosLN
 	Public idCompra As Integer
 
 #Region "Eventos"
@@ -71,7 +71,7 @@ Public Class FrmGestionCompras
 	Public Function LlenarCboProveedores()
 		Try
 			Dim ds1 As DataSet
-			ds1 = helpersLN.CargarCboTodosProveedores("False")
+			ds1 = helpersLN.CargarCboTodosProveedores("True")
 			cboProveedor.DataSource = ds1.Tables(0)
 			cboProveedor.DisplayMember = "Nombre"
 			cboProveedor.ValueMember = "id"
@@ -86,7 +86,7 @@ Public Class FrmGestionCompras
 
 	Public Function LlenarDgv(ByVal parametros As Dictionary(Of String, String), Optional type As String = "") As DataSet
 		Dim dsa1 As DataSet
-		dsa1 = comprasLN.CargarGrillaCompras(parametros) 'Si parametros esta vacio, busca todos las compras en la bd
+		dsa1 = pagosLN.CargarGrillaPagos(parametros) 'Si parametros esta vacio, busca todos las compras en la bd
 		dgvProveedores.DataSource = dsa1.Tables(0)
 		dgvProveedores.Columns("Id").Visible = False
 		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft

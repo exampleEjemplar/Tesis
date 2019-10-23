@@ -130,6 +130,11 @@ Public Class FrmGestionProveedores
 				txtLote.Text = ds.Tables(0).Rows(i)(17).ToString()
 				txtBarrio.Text = ds.Tables(0).Rows(i)(18).ToString()
 				ProveedorId = ds.Tables(0).Rows(i)(19).ToString()
+				If ds.Tables(0).Rows(i)(22).ToString() = "S" Then
+					chkProveeServicios.Checked = True
+				Else
+					chkProveeServicios.Checked = False
+				End If
 				Unblock()
 				GroupBox6.Visible = True
 				Modificando = True
@@ -210,6 +215,7 @@ Public Class FrmGestionProveedores
 		pro.FisicaOJuridica = fisicaOJuridica
 		pro.TipoDocumentoId = cbtipodni.SelectedValue
 		pro.NumeroDocumento = tbNroDoc.Text
+		pro.ProveeServicios = If(chkProveeServicios.Checked, "S", "N")
 
 		If Not String.IsNullOrEmpty(tbmail.Text) Then
 			If helpersUI.IsEmail(tbmail.Text) = False Then

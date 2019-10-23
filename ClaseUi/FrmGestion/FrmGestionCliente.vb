@@ -610,7 +610,7 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 	End Sub
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-		FrmListadoClientes.Show()
+		'FrmListadoClientes.Show()
 
 	End Sub
 

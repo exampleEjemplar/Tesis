@@ -197,4 +197,15 @@
 			_FechaAlta = CStr(value)
 		End Set
 	End Property
+
+	Private _EsServicio As String
+
+	Public Property EsServicio As String
+		Get
+			Return _EsServicio
+		End Get
+		Set(ByVal value As String)
+			_EsServicio = CStr(value)
+		End Set
+	End Property
 End Class

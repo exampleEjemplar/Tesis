@@ -27,6 +27,47 @@ Public Class MetodoProductoDA
 		com.Connection = db
 	End Sub
 
+
+	Public Sub RegistrarServicio(pro As ProductosNE)
+		helpersDa.ChequearConexion(db)
+		Dim sqlStr As String
+		ds = New DataSet
+		Dim valor As String = pro.precio.Replace(",", ".")
+		sqlStr = "insert into productos (Nombre,ProveedorId,Precio,EsServicio) VALUES('" + pro.nombreprducto + "'," + pro.proveedorId.ToString() + ", " + valor + ",'S')"
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+	End Sub
+
+	Public Function BuscaServicios(servicioNombre As String)
+		helpersDa.ChequearConexion(db)
+		Dim sqlStr As String
+		ds = New DataSet
+		Dim text As String
+		If String.IsNullOrWhiteSpace(servicioNombre) Then
+			text = "where"
+		Else
+			text = "where p.nombre like '%" + servicioNombre + "%' and"
+		End If
+		sqlStr = "select p.Nombre, pro.Nombre, p.precio from productos as p inner join proveedores as pro on pro.id = p.proveedorId " + text + " p.EsServicio = 'S'"
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+		Return ds
+	End Function
+
+
+
 	Public Function CargarTodosMovimientos(productoId As integer) As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
@@ -313,10 +354,11 @@ Public Class MetodoProductoDA
 			With com.Parameters
 				.AddWithValue("@codigo", codigo)
 				.AddWithValue("@Nombre", nombre)
+				.AddWithValue("@EsServicio", "N")
 
 			End With
 
-			com.ExecuteNonQuery()
+			'com.ExecuteNonQuery()
 			If com.ExecuteNonQuery() Then
 				Dim da As New SqlDataAdapter(com)
 				CargaGrillaproductossinbusqueda = New DataTable

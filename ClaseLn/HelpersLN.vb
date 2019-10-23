@@ -39,8 +39,8 @@ Public Class HelpersLN
 		Return helpersDA.CargarCboTodosClientes()
 	End Function
 
-	Public Function CargarCboTodosProveedores()
-		Return helpersDA.CargarCboTodosProveedores()
+	Public Function CargarCboTodosProveedores(ByVal proveeServicios As String)
+		Return helpersDA.CargarCboTodosProveedores(proveeServicios)
 	End Function
 
 	Public Function CargarCboTodosUsuarios()

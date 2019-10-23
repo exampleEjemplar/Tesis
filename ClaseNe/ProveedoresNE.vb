@@ -244,12 +244,24 @@
 
     Private _FechaAlta As Date
 
-    Public Property FechaAlta As Date
-        Get
-            Return _FechaAlta
-        End Get
-        Set(ByVal value As Date)
-            _FechaAlta = CStr(value)
-        End Set
-    End Property
+	Public Property FechaAlta As Date
+		Get
+			Return _FechaAlta
+		End Get
+		Set(ByVal value As Date)
+			_FechaAlta = CStr(value)
+		End Set
+	End Property
+
+	Private _ProveeServicios As String
+
+	Public Property ProveeServicios As String
+		Get
+			Return _ProveeServicios
+		End Get
+		Set(ByVal value As String)
+			_ProveeServicios = CStr(value)
+		End Set
+	End Property
+
 End Class
