@@ -239,7 +239,7 @@ Public Class HelpersDA
 
 	End Function
 
-	Public Function CargarTodosProductos(ByVal parametros As Dictionary(Of String, String))
+	Public Function CargarTodosProductos(ByVal parametros As Dictionary(Of String, String), Optional esServicio As String = "")
 
 		ChequearConexion(db)
 		Dim sqlStr As String
@@ -249,6 +249,9 @@ Public Class HelpersDA
 		If parametros.Count <> 0 Then
 			Dim count = parametros.Count
 			Dim text = " where "
+			If Not String.IsNullOrWhiteSpace(esServicio) Then
+				text += " esServicio='S' and "
+			End If
 			For Each item As KeyValuePair(Of String, String) In parametros
 				If item.Key = "ProveedorId" Then
 					count = count - 1
@@ -276,9 +279,15 @@ Public Class HelpersDA
 					Continue For
 				End If
 			Next
+			If Not String.IsNullOrWhiteSpace(esServicio) Then
+				text += " esServicio='S' "
+			End If
 			sqlStr = sqlStr + text + " order By ProveedorId "
 		End If
 
+		If Not String.IsNullOrWhiteSpace(esServicio) Then
+			sqlStr += " where esServicio='S' "
+		End If
 
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)

@@ -24,6 +24,7 @@ Public Class FrmArmadoPago
 
 	Private Sub FrmArmadoCompra_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Cargar()
+		PrepararTodo()
 		modificado = False
 	End Sub
 
@@ -41,15 +42,15 @@ Public Class FrmArmadoPago
 		lstProdDispo.Clear()
 		total = 0.00
 		lblTotal.Text = total.ToString("0.00")
-		LlenarCboProveedores()
-		GroupBox1.Visible = False
+		'LlenarCboProveedores()
+		'GroupBox1.Visible = False
 		gboFiltros.Enabled = False
 		dtpFechaHasta.Visible = False
 		dtpFechaDesde.Visible = False
 		lblFechaExacta.Visible = False
 		lblHasta.Visible = False
 		lbldesde.Visible = False
-		lblInstrucciones.Visible = True
+		'lblInstrucciones.Visible = True
 		btnLimpiar.Enabled = False
 		btnQuitarItem.Enabled = False
 	End Sub
@@ -58,61 +59,61 @@ Public Class FrmArmadoPago
 		Me.Close()
 	End Sub
 
-	'Carga todos los datos del proveedor seleccionado y carga el LVI segun ese proveedor
-	Private Sub CboCliente_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboProveedor.SelectionChangeCommitted
-		lblInstrucciones.Visible = False
-		GroupBox1.Visible = True
+	Private Sub PrepararTodo()
+		'lblInstrucciones.Visible = False
+		'GroupBox1.Visible = True
 		'Traemos los datos del un proveedor seleccionado
-		Dim ds As DataSet = proveedoresLN.ConsultaModificacion(cboProveedor.SelectedValue)
-		'Y validamos si tiene ciertos datos para armar la información
-		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
-			'Nombre + apellido o Nombre Fiscal + Razon Social
-			lblNombre.Text = ds.Tables(0).Rows(i)(3).ToString() + " " + ds.Tables(0).Rows(i)(4).ToString()
+		'Dim ds As DataSet = proveedoresLN.ConsultaModificacion(cboProveedor.SelectedValue)
+		''Y validamos si tiene ciertos datos para armar la información
+		'For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+		'	'Nombre + apellido o Nombre Fiscal + Razon Social
+		'	'lblNombre.Text = ds.Tables(0).Rows(i)(3).ToString() + " " + ds.Tables(0).Rows(i)(4).ToString()
 
-			'TODO Seria mas facil identificar lso datos poniendolos en variables.
+		'	'TODO Seria mas facil identificar lso datos poniendolos en variables.
 
-			'							Si											el dato no esta vacío											le agregamos la leyenda correspondiente + el dato, si no, va vacío
-			Dim piso As String = If(ds.Tables(0).Rows(i)(14).ToString() <> "" Or ds.Tables(0).Rows(i)(14).ToString() <> Nothing, "Piso " + ds.Tables(0).Rows(i)(14).ToString() + " ", "")
-			Dim dpto As String = If(ds.Tables(0).Rows(i)(15).ToString() <> "" Or ds.Tables(0).Rows(i)(15).ToString() <> Nothing, "Dpto " + ds.Tables(0).Rows(i)(15).ToString() + " ", "")
-			Dim mzan As String = If(ds.Tables(0).Rows(i)(16).ToString() <> "" Or ds.Tables(0).Rows(i)(16).ToString() <> Nothing, "Manzana " + ds.Tables(0).Rows(i)(16).ToString() + " ", "")
-			Dim lote As String = If(ds.Tables(0).Rows(i)(17).ToString() <> "" Or ds.Tables(0).Rows(i)(17).ToString() <> Nothing, "Lote " + ds.Tables(0).Rows(i)(17).ToString() + " ", "")
-			Dim barrio As String = If(ds.Tables(0).Rows(i)(18).ToString() <> "" Or ds.Tables(0).Rows(i)(18).ToString() <> Nothing, "B° " + ds.Tables(0).Rows(i)(18).ToString() + " ", "")
+		'	'							Si											el dato no esta vacío											le agregamos la leyenda correspondiente + el dato, si no, va vacío
+		'	Dim piso As String = If(ds.Tables(0).Rows(i)(14).ToString() <> "" Or ds.Tables(0).Rows(i)(14).ToString() <> Nothing, "Piso " + ds.Tables(0).Rows(i)(14).ToString() + " ", "")
+		'	Dim dpto As String = If(ds.Tables(0).Rows(i)(15).ToString() <> "" Or ds.Tables(0).Rows(i)(15).ToString() <> Nothing, "Dpto " + ds.Tables(0).Rows(i)(15).ToString() + " ", "")
+		'	Dim mzan As String = If(ds.Tables(0).Rows(i)(16).ToString() <> "" Or ds.Tables(0).Rows(i)(16).ToString() <> Nothing, "Manzana " + ds.Tables(0).Rows(i)(16).ToString() + " ", "")
+		'	Dim lote As String = If(ds.Tables(0).Rows(i)(17).ToString() <> "" Or ds.Tables(0).Rows(i)(17).ToString() <> Nothing, "Lote " + ds.Tables(0).Rows(i)(17).ToString() + " ", "")
+		'	Dim barrio As String = If(ds.Tables(0).Rows(i)(18).ToString() <> "" Or ds.Tables(0).Rows(i)(18).ToString() <> Nothing, "B° " + ds.Tables(0).Rows(i)(18).ToString() + " ", "")
 
-			'Aca sumo todos los datos que acabamos de validar
-			Dim direccionSinLocalidad = ds.Tables(0).Rows(i)(6).ToString() + " " + ds.Tables(0).Rows(i)(7).ToString() + piso + dpto + mzan + lote + barrio
+		'	'Aca sumo todos los datos que acabamos de validar
+		'	Dim direccionSinLocalidad = ds.Tables(0).Rows(i)(6).ToString() + " " + ds.Tables(0).Rows(i)(7).ToString() + piso + dpto + mzan + lote + barrio
 
-			'Obtengo la localidad y le seteo el valor
-			Dim ds1 As DataSet = helpersLN.CargarCMBLocalidadesUnico(ds.Tables(0).Rows(i)(8).ToString())
-			Dim localidad As String = ds1.Tables(0).Rows(0)(1).ToString()
+		'	'Obtengo la localidad y le seteo el valor
+		'	Dim ds1 As DataSet = helpersLN.CargarCMBLocalidadesUnico(ds.Tables(0).Rows(i)(8).ToString())
+		'	Dim localidad As String = ds1.Tables(0).Rows(0)(1).ToString()
 
-			'Si los datos validados tienen algo, lo sumamos a la localidad, si no solo ponemos la localidad que es el unico dato obligatorio
-			lblClienteDireccion.Text = If(direccionSinLocalidad <> " ", direccionSinLocalidad + ", " + localidad, localidad)
-			'Tipo DNI + N°
-			lblClienteDNI.Text = ds.Tables(0).Rows(i)(1).ToString() + "  " + ds.Tables(0).Rows(i)(2).ToString()
+		'	'Si los datos validados tienen algo, lo sumamos a la localidad, si no solo ponemos la localidad que es el unico dato obligatorio
+		'	'lblClienteDireccion.Text = If(direccionSinLocalidad <> " ", direccionSinLocalidad + ", " + localidad, localidad)
+		'	''Tipo DNI + N°
+		'	'lblClienteDNI.Text = ds.Tables(0).Rows(i)(1).ToString() + "  " + ds.Tables(0).Rows(i)(2).ToString()
 
-			'Validamos si el teléfono tiene datos o no y de que tipo es.
-			'Tiene mas prioridad el celular, si esta vacio caracteristica o numero, paso a chequear telefono. Caso contrario no muestro nada.
-			If Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(9).ToString()) And Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(14).ToString()) Then
-				lblClienteTelefono.Text = ds.Tables(0).Rows(i)(9).ToString() + ds.Tables(0).Rows(i)(10).ToString()
-			ElseIf Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(11).ToString()) And Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(14).ToString()) Then
-				lblClienteTelefono.Text = ds.Tables(0).Rows(i)(11).ToString() + ds.Tables(0).Rows(i)(12).ToString()
-			End If
+		'	'Validamos si el teléfono tiene datos o no y de que tipo es.
+		'	'Tiene mas prioridad el celular, si esta vacio caracteristica o numero, paso a chequear telefono. Caso contrario no muestro nada.
+		'	'If Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(9).ToString()) And Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(14).ToString()) Then
+		'	'	lblClienteTelefono.Text = ds.Tables(0).Rows(i)(9).ToString() + ds.Tables(0).Rows(i)(10).ToString()
+		'	'ElseIf Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(11).ToString()) And Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(14).ToString()) Then
+		'	'	lblClienteTelefono.Text = ds.Tables(0).Rows(i)(11).ToString() + ds.Tables(0).Rows(i)(12).ToString()
+		'	'End If
 
-			If String.IsNullOrEmpty(lblClienteTelefono.Text) Then
-				lblClienteTelefono.Visible = False
-			End If
+		'	'If String.IsNullOrEmpty(lblClienteTelefono.Text) Then
+		'	'	lblClienteTelefono.Visible = False
+		'	'End If
 
-		Next
+		'Next
 
-		Dim parametros = New Dictionary(Of String, String) From {
-			{"ProveedorId", cboProveedor.SelectedValue}
-		}
+		Dim parametros = New Dictionary(Of String, String)
+		'From {
+		'	'{"ProveedorId", cboProveedor.SelectedValue}
+		'}
 		'Lleno el ListViewItem con los productos del proveedor seleccionado
 		LlenarLvi(parametros)
 		btnLimpiar.Enabled = True
 		btnQuitarItem.Enabled = True
-
 	End Sub
+
 
 	'Agrega la nueva compra y abre el comprobante correspondiente
 	Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -150,23 +151,24 @@ Public Class FrmArmadoPago
 			Dim compra = New TipoDeComprasNE With {
 				.Cantidad = item.Value,
 				.ProductoId = item.Key,
-				.Precio = product.precio
+				.Precio = product.precio,
+				.ProveedorId = product.proveedorId
 			}
 			listaDeCompras.Add(compra)
 			FrmComprobanteCompra.ListaCompras.Add(compra)
 		Next
 
 		'Registramos la compra y sus respectivos detalles
-		pagosLN.Registrar(listaDeCompras, cboProveedor.SelectedValue)
-		MsgBox("Compra realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
+		pagosLN.Registrar(listaDeCompras)
+		MsgBox("Pago realizado con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
 		'Imprimimos el comprobante
-		FrmComprobanteVenta.Show()
+		'FrmComprobanteVenta.Show()
 		modificado = True
 
 
-		ListView1.Clear()
-		LlenarCboProveedores()
+		'ListView1.Clear()
+		'LlenarCboProveedores()
 
 	End Sub
 
@@ -185,6 +187,7 @@ Public Class FrmArmadoPago
 			ListView1.Items.Remove(selectedProducto)
 			total -= selectedProducto.Tag(3)
 			lblTotal.Text = total.ToString("0.00")
+			selectedProducto = Nothing
 		End If
 	End Sub
 
@@ -304,25 +307,10 @@ Public Class FrmArmadoPago
 		LlenarLvi(parametros)
 	End Sub
 
-	'Llena el combobox proveedores
-	Public Function LlenarCboProveedores()
-		Try
-			Dim ds1 As DataSet
-			ds1 = helpersLN.CargarCboTodosProveedores("True")
-			cboProveedor.DataSource = ds1.Tables(0)
-			cboProveedor.DisplayMember = "Nombre"
-			cboProveedor.ValueMember = "id"
-			cboProveedor.SelectedValue = 0
-		Catch ex As Exception
-			MessageBox.Show(ex.Message)
-		End Try
-		Return cboProveedor.SelectedValue
-	End Function
-
 	'Llena el ListViewItem de la derecha con los productos disponibles segun filtro
 	Public Sub LlenarLvi(ByVal parametros As Dictionary(Of String, String))
 		'Cargamos el dataset con los productos seleccionados por filtro
-		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros)
+		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, "true")
 		'Vaciamos el LVI por si llegara a haber items 
 		lstProdDispo.Clear()
 		lstProdDispo.Scrollable = True
@@ -348,17 +336,17 @@ Public Class FrmArmadoPago
 			Else
 				ik += 1
 			End If
-			Dim ms As MemoryStream = New MemoryStream()
+			'Dim ms As MemoryStream = New MemoryStream()
 
-			Dim img As Byte() = CType(ds2.Tables(0).Rows(i).Item(2), Byte())
-			If img IsNot Nothing Then
-				ms.Write(img, 0, img.GetUpperBound(0) + 1)
-				Dim imgImagen As Image = Image.FromStream(ms)
+			'Dim img As Byte() = CType(ds2.Tables(0).Rows(i).Item(2), Byte())
+			'If img IsNot Nothing Then
+			'	ms.Write(img, 0, img.GetUpperBound(0) + 1)
+			'	Dim imgImagen As Image = Image.FromStream(ms)
 
-				ImageList.Images.Add(Image.FromStream(ms))
-				ImageList.ImageSize = New Size(90, 90)
+			'	ImageList.Images.Add(Image.FromStream(ms))
+			'	ImageList.ImageSize = New Size(90, 90)
 
-			End If
+			'End If
 #End Region
 			'Asignamos el texto del item
 			listaViewItem.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
@@ -382,6 +370,7 @@ Public Class FrmArmadoPago
 		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
 			producto.Id = ds.Tables(0).Rows(i).Item(0)
 			producto.precio = ds.Tables(0).Rows(i).Item(4)
+			producto.proveedorId = ds.Tables(0).Rows(i).Item(10)
 		Next
 		Return producto
 	End Function
@@ -404,7 +393,7 @@ Public Class FrmArmadoPago
 		If FrmGestionProveedores.modificado Then
 			Cargar()
 			ListView1.Clear()
-			LlenarCboProveedores()
+			'LlenarCboProveedores()
 			FrmGestionProveedores.modificado = False
 		End If
 	End Sub

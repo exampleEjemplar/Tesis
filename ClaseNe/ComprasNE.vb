@@ -80,6 +80,17 @@ Public Class TipoDeComprasNE
 		End Set
 	End Property
 
+	Private _ProveedorId As Integer
+
+	Public Property ProveedorId As Integer
+		Get
+			Return _ProveedorId
+		End Get
+		Set(ByVal value As Integer)
+			_ProveedorId = CStr(value)
+		End Set
+	End Property
+
 	Private _Cantidad As Double
 
 	Public Property Cantidad As Double

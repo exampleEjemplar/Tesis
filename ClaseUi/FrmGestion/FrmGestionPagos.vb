@@ -24,9 +24,9 @@ Public Class FrmGestionPagos
 	End Sub
 
 	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-		If FrmArmadoCompra.modificado Then
+		If FrmArmadoPago.modificado Then
 			Busqueda()
-			FrmArmadoCompra.modificado = False
+			FrmArmadoPago.modificado = False
 		End If
 	End Sub
 
@@ -49,7 +49,7 @@ Public Class FrmGestionPagos
 	End Sub
 
 	Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
-		FrmArmadoCompra.ShowDialog()
+		FrmArmadoPago.ShowDialog()
 	End Sub
 
 	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles dgvProveedores.CellMouseDoubleClick

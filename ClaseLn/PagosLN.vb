@@ -12,8 +12,8 @@ Public Class PagosLN
 		Return pagosDA.CargarGrillaPagos(parametros)
 	End Function
 
-	Public Sub Registrar(listaDeProductosId As List(Of TipoDeComprasNE), clienteId As Integer)
-		pagosDA.Registrar(listaDeProductosId, clienteId)
+	Public Sub Registrar(listaDeProductosId As List(Of TipoDeComprasNE))
+		pagosDA.Registrar(listaDeProductosId)
 	End Sub
 
 	Public Function ObtenerUltimoPago()

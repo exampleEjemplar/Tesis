@@ -61,7 +61,7 @@ Public Class PagosDA
 		db.Close()
 	End Function
 
-	Public Sub Registrar(listaDeProductosId As List(Of TipoDeComprasNE), proveedorId As Integer)
+	Public Sub Registrar(listaDeProductosId As List(Of TipoDeComprasNE))
 		Dim total As Double
 		For Each compraDetalle As TipoDeComprasNE In listaDeProductosId
 			total += (compraDetalle.Precio * compraDetalle.Cantidad)
@@ -70,10 +70,13 @@ Public Class PagosDA
 
 		helpersDa.ChequearConexion(db)
 
+		'Dim insert As New SqlCommand("insert into pagos Values (GETDATE()," & proveedorId & ", " & totalizado & ",1)", db)
 
 		Try
 			Dim totalizado = total.ToString().Replace(",", ".")
-			Dim insert As New SqlCommand("insert into pagos Values (GETDATE()," & proveedorId & ", " & totalizado & ",1)", db)
+			'TODO esto esta mal!
+			Dim insert As New SqlCommand("insert into pagos Values (GETDATE()," & listaDeProductosId.FirstOrDefault().ProveedorId.ToString() & ", " & totalizado & ",1)", db)
+			'END TODO
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
 			For Each compraDetalle As TipoDeComprasNE In listaDeProductosId

@@ -47,8 +47,8 @@ Public Class HelpersLN
 		Return helpersDA.CargarCboTodosUsuarios()
 	End Function
 
-	Public Function CargarTodosProductos(ByVal parametros As Dictionary(Of String, String))
-		Return helpersDA.CargarTodosProductos(parametros)
+	Public Function CargarTodosProductos(ByVal parametros As Dictionary(Of String, String), Optional esServicio As String = "")
+		Return helpersDA.CargarTodosProductos(parametros, esServicio)
 	End Function
 
 
