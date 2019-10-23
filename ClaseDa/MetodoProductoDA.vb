@@ -303,6 +303,7 @@ Public Class MetodoProductoDA
 				.AddWithValue("@CategoriaId", pro.categoriaId)
 				.AddWithValue("@StockODeTercero", pro.StockODeTercero)
 				.AddWithValue("@FechaAlta", Date.Now)
+				.AddWithValue("@EsServicio", "N")
 			End With
 
 			com.ExecuteNonQuery()

@@ -23144,7 +23144,6 @@ inner join Materiales m On p.MaterialId=m.id
 inner join categorias ca on p.CategoriaID= ca.Id
 where p.esservicio = @EsServicio
 GO
-
 USE [JoyeriaCrisol]
 GO
 /****** Object:  StoredProcedure [dbo].[SP_RegistrarProducto]    Script Date: 7/6/2019 01:38:54 ******/
@@ -23170,7 +23169,8 @@ CREATE PROCEDURE [dbo].[SP_RegistrarProducto]
 @UnidadDePeso int,
 @CategoriaId int,
 @StockODeTercero int,
-@FechaAlta datetime
+@FechaAlta datetime,
+@EsServicio char(1)
 AS
 
 begin
@@ -23190,9 +23190,9 @@ insert into productos  values(@Cod_Barra,
 @UnidadDePeso,
 @CategoriaId,
 @StockODeTercero,
-@FechaAlta)
+@FechaAlta,
+@EsServicio)
 end
-
 USE [JoyeriaCrisol]
 GO
 /****** Object:  StoredProcedure [dbo].[SP_MostrarProductoconbusquedaCAT]    Script Date: 23/8/2019 17:09:26 ******/

@@ -437,7 +437,7 @@ Public Class FrmGestionProducto
 	Public Function LlenarCMBproveedor()
 		Try
 			Dim ds1 As DataSet
-			ds1 = productometodo.CargarCMBproveerdor()
+			ds1 = helpersLN.CargarCboTodosProveedores("False")
 			cmbProveedor.DataSource = ds1.Tables(0)
 			cmbProveedor.DisplayMember = "Nombre"
 			cmbProveedor.ValueMember = "id"
