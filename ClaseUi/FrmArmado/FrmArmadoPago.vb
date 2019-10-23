@@ -30,7 +30,7 @@ Public Class FrmArmadoPago
 
 	'Te lleva al frm de gestion de producto.
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
-		FrmGestionProducto.ShowDialog()
+		FrmGestionServicio.ShowDialog()
 	End Sub
 
 	'Te lleva al frm de gestion de proveedores.
@@ -39,7 +39,7 @@ Public Class FrmArmadoPago
 	End Sub
 
 	Private Sub Cargar()
-		lstProdDispo.Clear()
+		ListView1.Clear()
 		total = 0.00
 		lblTotal.Text = total.ToString("0.00")
 		'LlenarCboProveedores()
@@ -162,6 +162,7 @@ Public Class FrmArmadoPago
 		pagosLN.Registrar(listaDeCompras)
 		MsgBox("Pago realizado con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
+		PrepararTodo()
 		'Imprimimos el comprobante
 		'FrmComprobanteVenta.Show()
 		modificado = True
@@ -386,13 +387,12 @@ Public Class FrmArmadoPago
 	'Verifica si se hicieron cambios en los frm externos solo si salieron desde este.
 	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
 		'En caso de que haya habido algun cambio, recarga los datos correspondientes
-		If FrmGestionProducto.modificado Then
+		If FrmGestionServicio.modificado Then
 			Search()
-			FrmGestionProducto.modificado = False
+			FrmGestionServicio.modificado = False
 		End If
 		If FrmGestionProveedores.modificado Then
 			Cargar()
-			ListView1.Clear()
 			'LlenarCboProveedores()
 			FrmGestionProveedores.modificado = False
 		End If

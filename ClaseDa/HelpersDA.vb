@@ -279,15 +279,13 @@ Public Class HelpersDA
 					Continue For
 				End If
 			Next
-			If Not String.IsNullOrWhiteSpace(esServicio) Then
-				text += " esServicio='S' "
-			End If
 			sqlStr = sqlStr + text + " order By ProveedorId "
+		Else
+			If Not String.IsNullOrWhiteSpace(esServicio) Then
+				sqlStr += " where esServicio='S' "
+			End If
 		End If
 
-		If Not String.IsNullOrWhiteSpace(esServicio) Then
-			sqlStr += " where esServicio='S' "
-		End If
 
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)

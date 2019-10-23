@@ -12,6 +12,8 @@ Public Class FrmGestionServicio
 
 	Public Sub Dgvproductosset()
 		DataGridView1.DataSource = productometodo.BuscaServicios(txtBusNombreProd.Text).Tables(0)
+		DataGridView1.Columns("Nombre1").HeaderText = "Proveedor"
+		DataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 	End Sub
 
 	Private Sub FrmGestionServicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -51,6 +53,7 @@ Public Class FrmGestionServicio
 
 	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
 		gboServicio.Enabled = True
+		btnNuevo.Enabled = False
 		btnguardarmodificacion.Enabled = True
 	End Sub
 
@@ -89,6 +92,8 @@ Public Class FrmGestionServicio
 		gboServicio.Enabled = False
 		gbousqueda.Enabled = False
 		btnguardarmodificacion.Enabled = False
+		btnNuevo.Enabled = True
+
 	End Sub
 
 
