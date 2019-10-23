@@ -1,7 +1,7 @@
-﻿Partial Class dslistadocliente
+﻿Partial Class DataSetReportes
 End Class
 
-Namespace ClaseUi.dslistadoclienteTableAdapters
+Namespace DataSetReportesTableAdapters
 
     Partial Public Class SP_ListadodeClientesPorfechaTableAdapter
     End Class

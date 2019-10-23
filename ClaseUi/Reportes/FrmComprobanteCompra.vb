@@ -68,6 +68,14 @@ Public Class FrmComprobanteCompra
 		Me.Close()
 	End Sub
 
+    Private Sub ComprobanteVentasNEBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles ComprobanteVentasNEBindingSource.CurrentChanged
+
+    End Sub
+
+    Private Sub rpCompras_Load(sender As Object, e As EventArgs) Handles rpCompras.Load
+
+    End Sub
+
 #End Region
 
 End Class

@@ -67,6 +67,10 @@ Public Class FrmComprobanteVenta
 		Me.Close()
 	End Sub
 
+    Private Sub ComprobanteVentasNEBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles ComprobanteVentasNEBindingSource.CurrentChanged
+
+    End Sub
+
 #End Region
 
 End Class

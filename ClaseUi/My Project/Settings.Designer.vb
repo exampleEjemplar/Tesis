@@ -97,6 +97,17 @@ Namespace My
                 Return CType(Me("JoyeriaCrisol12"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol;Integrated S"& _ 
+            "ecurity=True")>  _
+        Public ReadOnly Property JoyeriaCrisolTableAdapter() As String
+            Get
+                Return CType(Me("JoyeriaCrisolTableAdapter"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
