@@ -78,33 +78,33 @@ Public Class MetodoClientesDA
 		Return ds1
 	End Function
 
-	Public Function CargaGrillaclienteslistado(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
-		helpersDa.ChequearConexion(db)
-		Dim sqlStr As String
-		ds1 = New DataSet
-		sqlStr = "select p.FisicaOJuridica as 'Tipo de Persona', t.Descripcion as 'Tipo de Dni', p.NumeroDocumento as 'Numero de identificacion', " &
-			 "p.Nombre as 'Nombre - Nombre de Fantasia', p.Apellido as 'Apellido - Razon Social', " &
-			 "p.FechaNacimiento as 'Nacimiento', p.FechaAlta as 'Fecha de Alta', p.Calle, p.NumeroCalle as 'Numero de calle', ciu.Nombre As Ciudad," &
-			 "p.Car_celular +' '+ p.NumeroCelular as Celular, p.Car_telefono+' '+ p.NumeroTelefono as Telefono," &
-			 "p.Email , p.id " &
-			 "from Clientes as p " &
-			 "inner join TipoDocumentos t on t.Id = p.TipoDocumentoId " &
-			 "inner join Ciudades ciu on p.CiudadId = Ciu.Id  " &
-			 "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "'"
+    'Public Function CargaGrillaclienteslistado(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+    '	helpersDa.ChequearConexion(db)
+    '	Dim sqlStr As String
+    '	ds1 = New DataSet
+    '	sqlStr = "select p.FisicaOJuridica as 'Tipo de Persona', t.Descripcion as 'Tipo de Dni', p.NumeroDocumento as 'Numero de identificacion', " &
+    '		 "p.Nombre as 'Nombre - Nombre de Fantasia', p.Apellido as 'Apellido - Razon Social', " &
+    '		 "p.FechaNacimiento as 'Nacimiento', p.FechaAlta as 'Fecha de Alta', p.Calle, p.NumeroCalle as 'Numero de calle', ciu.Nombre As Ciudad," &
+    '		 "p.Car_celular +' '+ p.NumeroCelular as Celular, p.Car_telefono+' '+ p.NumeroTelefono as Telefono," &
+    '		 "p.Email , p.id " &
+    '		 "from Clientes as p " &
+    '		 "inner join TipoDocumentos t on t.Id = p.TipoDocumentoId " &
+    '		 "inner join Ciudades ciu on p.CiudadId = Ciu.Id  " &
+    '		 "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "'"
 
 
-		Try
-			da = New SqlDataAdapter(sqlStr, db)
-			da.Fill(ds1)
-			db.Close()
-		Catch ex As Exception
-			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
-		End Try
-		Return ds1
-	End Function
+    '	Try
+    '		da = New SqlDataAdapter(sqlStr, db)
+    '		da.Fill(ds1)
+    '		db.Close()
+    '	Catch ex As Exception
+    '		MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+    '		db.Close()
+    '	End Try
+    '	Return ds1
+    'End Function
 
-	Public Sub GrabarClientes(ByVal cli As ClientesNE)
+    Public Sub GrabarClientes(ByVal cli As ClientesNE)
 		helpersDa.ChequearConexion(db)
 		Try
 			Dim insert As New SqlCommand("set dateformat dmy insert into Clientes values (" & cli.TipoDocumentoId & "," & cli.NumeroDocumento & "," & If(cli.Nombre <> "", "'" + cli.Nombre + "'", "NULL") & "," &
@@ -199,22 +199,54 @@ Public Class MetodoClientesDA
 
 	End Function
 
-	Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
-		Try
+    Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
+        Try
 
-			helpersDa.ChequearConexion(db)
-			Dim control As New SqlCommand("set dateformat ymd select count(*) from clientes where FechaAlta BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' ", db)
-			control.CommandType = CommandType.Text
-			Rs = control.ExecuteReader()
-			Rs.Read()
-			contador = Rs(0)
+            helpersDa.ChequearConexion(db)
+            Dim control As New SqlCommand("set dateformat ymd select count(*) from clientes where FechaAlta BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' ", db)
+            control.CommandType = CommandType.Text
+            Rs = control.ExecuteReader()
+            Rs.Read()
+            contador = Rs(0)
 
-		Catch ex As Exception
-			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-		End Try
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
 
-		db.Close()
+        db.Close()
 
-	End Sub
+    End Sub
+
+    Public Function CargaGrillaclienteslistado(ByVal fechadesde As String, ByVal fechahasta As String) As DataTable
+
+        Try
+            helpersDa.ChequearConexion(db)
+            com = New SqlCommand("SP_MostrarProductoconbusquedaCAT", db)
+            com.CommandType = CommandType.StoredProcedure
+            With com.Parameters
+                .AddWithValue("@fechadesde", fechadesde)
+                .AddWithValue("@fechahasta", fechahasta)
+
+            End With
+
+            com.ExecuteNonQuery()
+            If com.ExecuteNonQuery() Then
+                Dim da As New SqlDataAdapter(com)
+                CargaGrillaclienteslistado = New DataTable
+                da.Fill(CargaGrillaclienteslistado)
+
+                Return CargaGrillaclienteslistado
+            Else
+                Return Nothing
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            db.Close()
+        End Try
+
+    End Function
 
 End Class

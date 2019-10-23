@@ -50,7 +50,6 @@
     <StartupObject>ClaseUi.My.MyApplication</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevComponents.DotNetBar2, Version=10.0.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -98,14 +97,6 @@
     </Compile>
     <Compile Include="CantidadDragAndDrop.vb">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="dslistadocliente.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dslistadocliente.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="dslistadocliente.vb">
-      <DependentUpon>dslistadocliente.xsd</DependentUpon>
     </Compile>
     <Compile Include="Formprueba1.Designer.vb">
       <DependentUpon>Formprueba1.vb</DependentUpon>
@@ -269,6 +260,20 @@
     <Compile Include="ImagenAmpliada.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\DataSetReportes.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetReportes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DataSetReportes.vb">
+      <DependentUpon>DataSetReportes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\FrmComprobanteCompra.Designer.vb">
       <DependentUpon>FrmComprobanteCompra.vb</DependentUpon>
     </Compile>
@@ -279,12 +284,6 @@
       <DependentUpon>FrmComprobanteVenta.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\FrmComprobanteVenta.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\FrmListadoClientes.Designer.vb">
-      <DependentUpon>FrmListadoClientes.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\FrmListadoClientes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HelpersUI.vb" />
@@ -403,15 +402,14 @@
       <DependentUpon>ImagenAmpliada.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ComprobanteVenta.rdlc" />
+    <EmbeddedResource Include="Reportes\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmComprobanteCompra.resx">
       <DependentUpon>FrmComprobanteCompra.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmComprobanteVenta.resx">
       <DependentUpon>FrmComprobanteVenta.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ListadoClientePorFecha.rdlc" />
-    <EmbeddedResource Include="Reportes\FrmListadoClientes.resx">
-      <DependentUpon>FrmListadoClientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.vb</DependentUpon>
@@ -425,21 +423,11 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ListadoClientesPorfecha.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="dslistadocliente.xsc">
-      <DependentUpon>dslistadocliente.xsd</DependentUpon>
-    </None>
-    <None Include="dslistadocliente.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dslistadocliente.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dslistadocliente.xss">
-      <DependentUpon>dslistadocliente.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -454,6 +442,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Reportes\DataSetReportes.xsc">
+      <DependentUpon>DataSetReportes.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSetReportes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetReportes.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DataSetReportes.xss">
+      <DependentUpon>DataSetReportes.xsd</DependentUpon>
+    </None>
     <None Include="Resources\icons8-create-document-62.png" />
   </ItemGroup>
   <ItemGroup>

@@ -40,11 +40,11 @@ Public Class ClientesLN
         Return objclientesAD.GeneraGraficousuario(fechadesde, fechahasta)
     End Function
 
-    Public Function CargaGrillaclienteslistado(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+    Public Function CargaGrillaclienteslistado(ByVal fechadesde As String, ByVal fechahasta As String) As DataTable
         Return objclientesAD.CargaGrillaclienteslistado(fechadesde, fechahasta)
     End Function
 
-	Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
+    Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
 		objclientesAD.Controlfecha(fechadesde, fechahasta)
 		contador = objclientesAD.contador
 	End Sub

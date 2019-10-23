@@ -1,19 +1,23 @@
 ﻿Imports System.Data.SqlClient
-Imports ClaseNE
+Imports System.Configuration
+Imports System.Data
+
+
 
 Public Class ConexionDA
 
-	Public Shared scon As New SqlConnection
+	Public Shared cn
+
 	Public Function Abrir() As SqlConnection
-		Dim con As String
+		cn = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
+		'Dim con As String
 		' con = "Data Source=EQUIPO007608\SQLEXPRESS;Initial Catalog=JoyeriaCrisol;Integrated Security=True"
-		' con = "Data Source= DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol;Integrated Security=True"
-		con = "Data Source= DESKTOP-PDNSPVO\LOCAL;Initial Catalog=JoyeriaCrisol8;Integrated Security=True"
+		'con = "Data Source= DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol;Integrated Security=True"
+		'con = "Data Source= DESKTOP-PDNSPVO\LOCAL;Initial Catalog=JoyeriaCrisol5;Integrated Security=True"
 		' con = "Data Source= I73770-PEDRO\LOCALDB;Initial Catalog=JoyeriaCrisol;Integrated Security=True"
 
-		scon = New SqlConnection(con)
-		scon.Open()
-		Return scon
+		cn.Open()
+		Return cn
 	End Function
 
 
