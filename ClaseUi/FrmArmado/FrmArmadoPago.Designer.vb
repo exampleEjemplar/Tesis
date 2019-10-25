@@ -59,14 +59,14 @@ Partial Class FrmArmadoPago
 		'
 		'GroupBox5
 		'
-		Me.GroupBox5.Controls.Add(Me.btnQuitarItem)
 		Me.GroupBox5.Controls.Add(Me.GroupBox4)
+		Me.GroupBox5.Controls.Add(Me.btnQuitarItem)
 		Me.GroupBox5.Controls.Add(Me.btnLimpiar)
-		Me.GroupBox5.Location = New System.Drawing.Point(874, 285)
+		Me.GroupBox5.Location = New System.Drawing.Point(507, 315)
 		Me.GroupBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.GroupBox5.Name = "GroupBox5"
 		Me.GroupBox5.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.GroupBox5.Size = New System.Drawing.Size(351, 665)
+		Me.GroupBox5.Size = New System.Drawing.Size(289, 646)
 		Me.GroupBox5.TabIndex = 59
 		Me.GroupBox5.TabStop = False
 		'
@@ -77,10 +77,10 @@ Partial Class FrmArmadoPago
 		Me.btnQuitarItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnQuitarItem.FlatAppearance.BorderSize = 0
 		Me.btnQuitarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnQuitarItem.Location = New System.Drawing.Point(6, 13)
+		Me.btnQuitarItem.Location = New System.Drawing.Point(11, 10)
 		Me.btnQuitarItem.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnQuitarItem.Name = "btnQuitarItem"
-		Me.btnQuitarItem.Size = New System.Drawing.Size(134, 103)
+		Me.btnQuitarItem.Size = New System.Drawing.Size(129, 95)
 		Me.btnQuitarItem.TabIndex = 37
 		Me.btnQuitarItem.Text = "Quitar item"
 		Me.btnQuitarItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -89,11 +89,11 @@ Partial Class FrmArmadoPago
 		'GroupBox4
 		'
 		Me.GroupBox4.Controls.Add(Me.ListView1)
-		Me.GroupBox4.Location = New System.Drawing.Point(6, 141)
+		Me.GroupBox4.Location = New System.Drawing.Point(6, 111)
 		Me.GroupBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.GroupBox4.Name = "GroupBox4"
 		Me.GroupBox4.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.GroupBox4.Size = New System.Drawing.Size(339, 596)
+		Me.GroupBox4.Size = New System.Drawing.Size(289, 626)
 		Me.GroupBox4.TabIndex = 32
 		Me.GroupBox4.TabStop = False
 		Me.GroupBox4.Text = "Servicios en el pago"
@@ -103,10 +103,10 @@ Partial Class FrmArmadoPago
 		Me.ListView1.AllowDrop = True
 		Me.ListView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!)
 		Me.ListView1.HideSelection = False
-		Me.ListView1.Location = New System.Drawing.Point(11, 26)
+		Me.ListView1.Location = New System.Drawing.Point(11, 37)
 		Me.ListView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.ListView1.Name = "ListView1"
-		Me.ListView1.Size = New System.Drawing.Size(322, 451)
+		Me.ListView1.Size = New System.Drawing.Size(266, 440)
 		Me.ListView1.TabIndex = 1
 		Me.ListView1.TileSize = New System.Drawing.Size(120, 25)
 		Me.ListView1.UseCompatibleStateImageBehavior = False
@@ -119,10 +119,10 @@ Partial Class FrmArmadoPago
 		Me.btnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnLimpiar.FlatAppearance.BorderSize = 0
 		Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnLimpiar.Location = New System.Drawing.Point(219, 15)
+		Me.btnLimpiar.Location = New System.Drawing.Point(162, 10)
 		Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnLimpiar.Name = "btnLimpiar"
-		Me.btnLimpiar.Size = New System.Drawing.Size(126, 103)
+		Me.btnLimpiar.Size = New System.Drawing.Size(120, 95)
 		Me.btnLimpiar.TabIndex = 36
 		Me.btnLimpiar.Text = "Limpiar todo"
 		Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -133,10 +133,10 @@ Partial Class FrmArmadoPago
 		Me.lstProdDispo.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.lstProdDispo.GridLines = True
 		Me.lstProdDispo.HideSelection = False
-		Me.lstProdDispo.Location = New System.Drawing.Point(10, 18)
+		Me.lstProdDispo.Location = New System.Drawing.Point(10, 26)
 		Me.lstProdDispo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.lstProdDispo.Name = "lstProdDispo"
-		Me.lstProdDispo.Size = New System.Drawing.Size(841, 459)
+		Me.lstProdDispo.Size = New System.Drawing.Size(482, 451)
 		Me.lstProdDispo.Sorting = System.Windows.Forms.SortOrder.Ascending
 		Me.lstProdDispo.TabIndex = 0
 		Me.lstProdDispo.TileSize = New System.Drawing.Size(120, 25)
@@ -144,13 +144,13 @@ Partial Class FrmArmadoPago
 		'
 		'gboTotales
 		'
-		Me.gboTotales.Controls.Add(Me.Label11)
 		Me.gboTotales.Controls.Add(Me.lblTotal)
-		Me.gboTotales.Location = New System.Drawing.Point(3, 86)
+		Me.gboTotales.Controls.Add(Me.Label11)
+		Me.gboTotales.Location = New System.Drawing.Point(3, 112)
 		Me.gboTotales.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.gboTotales.Name = "gboTotales"
 		Me.gboTotales.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.gboTotales.Size = New System.Drawing.Size(230, 175)
+		Me.gboTotales.Size = New System.Drawing.Size(174, 131)
 		Me.gboTotales.TabIndex = 62
 		Me.gboTotales.TabStop = False
 		Me.gboTotales.Text = "Totales"
@@ -158,7 +158,7 @@ Partial Class FrmArmadoPago
 		'Label11
 		'
 		Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label11.Location = New System.Drawing.Point(49, 21)
+		Me.Label11.Location = New System.Drawing.Point(2, 33)
 		Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label11.Name = "Label11"
 		Me.Label11.Size = New System.Drawing.Size(156, 56)
@@ -169,7 +169,7 @@ Partial Class FrmArmadoPago
 		'
 		Me.lblTotal.AutoSize = True
 		Me.lblTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
-		Me.lblTotal.Location = New System.Drawing.Point(49, 103)
+		Me.lblTotal.Location = New System.Drawing.Point(7, 77)
 		Me.lblTotal.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblTotal.Name = "lblTotal"
 		Me.lblTotal.Size = New System.Drawing.Size(49, 24)
@@ -186,6 +186,7 @@ Partial Class FrmArmadoPago
 		Me.gboFiltros.Controls.Add(Me.btnBuscar)
 		Me.gboFiltros.Controls.Add(Me.lbldesde)
 		Me.gboFiltros.Controls.Add(Me.rbtEntreFechas)
+		Me.gboFiltros.Controls.Add(Me.btnAgregarProducto)
 		Me.gboFiltros.Controls.Add(Me.lblHasta)
 		Me.gboFiltros.Controls.Add(Me.rbtFechaExacta)
 		Me.gboFiltros.Controls.Add(Me.dtpFechaHasta)
@@ -193,11 +194,11 @@ Partial Class FrmArmadoPago
 		Me.gboFiltros.Controls.Add(Me.lblFechaExacta)
 		Me.gboFiltros.Controls.Add(Me.txtBusNombreProducto)
 		Me.gboFiltros.Controls.Add(Me.Label8)
-		Me.gboFiltros.Location = New System.Drawing.Point(3, 285)
+		Me.gboFiltros.Location = New System.Drawing.Point(183, 112)
 		Me.gboFiltros.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.gboFiltros.Name = "gboFiltros"
 		Me.gboFiltros.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.gboFiltros.Size = New System.Drawing.Size(731, 137)
+		Me.gboFiltros.Size = New System.Drawing.Size(613, 207)
 		Me.gboFiltros.TabIndex = 58
 		Me.gboFiltros.TabStop = False
 		Me.gboFiltros.Text = "Filtros"
@@ -209,7 +210,7 @@ Partial Class FrmArmadoPago
 		Me.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
 		Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(568, 55)
+		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(11, 124)
 		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
 		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(74, 76)
@@ -224,7 +225,7 @@ Partial Class FrmArmadoPago
 		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnBuscar.FlatAppearance.BorderSize = 0
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(650, 58)
+		Me.btnBuscar.Location = New System.Drawing.Point(93, 127)
 		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(74, 73)
@@ -330,10 +331,10 @@ Partial Class FrmArmadoPago
 		Me.btnAgregarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnAgregarProducto.FlatAppearance.BorderSize = 0
 		Me.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnAgregarProducto.Location = New System.Drawing.Point(748, 306)
+		Me.btnAgregarProducto.Location = New System.Drawing.Point(451, 124)
 		Me.btnAgregarProducto.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnAgregarProducto.Name = "btnAgregarProducto"
-		Me.btnAgregarProducto.Size = New System.Drawing.Size(106, 101)
+		Me.btnAgregarProducto.Size = New System.Drawing.Size(139, 73)
 		Me.btnAgregarProducto.TabIndex = 66
 		Me.btnAgregarProducto.Text = "Agregar servicio"
 		Me.btnAgregarProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -346,10 +347,10 @@ Partial Class FrmArmadoPago
 		Me.btnAgregarProveedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnAgregarProveedor.FlatAppearance.BorderSize = 0
 		Me.btnAgregarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnAgregarProveedor.Location = New System.Drawing.Point(900, 2)
+		Me.btnAgregarProveedor.Location = New System.Drawing.Point(421, -4)
 		Me.btnAgregarProveedor.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnAgregarProveedor.Name = "btnAgregarProveedor"
-		Me.btnAgregarProveedor.Size = New System.Drawing.Size(106, 101)
+		Me.btnAgregarProveedor.Size = New System.Drawing.Size(137, 110)
 		Me.btnAgregarProveedor.TabIndex = 67
 		Me.btnAgregarProveedor.Text = "Agregar Proveedor"
 		Me.btnAgregarProveedor.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -362,10 +363,10 @@ Partial Class FrmArmadoPago
 		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnNuevo.FlatAppearance.BorderSize = 0
 		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnNuevo.Location = New System.Drawing.Point(1014, 5)
+		Me.btnNuevo.Location = New System.Drawing.Point(559, -1)
 		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
-		Me.btnNuevo.Size = New System.Drawing.Size(123, 98)
+		Me.btnNuevo.Size = New System.Drawing.Size(130, 107)
 		Me.btnNuevo.TabIndex = 64
 		Me.btnNuevo.Text = "Finalizar"
 		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -385,11 +386,11 @@ Partial Class FrmArmadoPago
 		'GroupBox3
 		'
 		Me.GroupBox3.Controls.Add(Me.lstProdDispo)
-		Me.GroupBox3.Location = New System.Drawing.Point(3, 426)
+		Me.GroupBox3.Location = New System.Drawing.Point(3, 437)
 		Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.GroupBox3.Name = "GroupBox3"
 		Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.GroupBox3.Size = New System.Drawing.Size(859, 528)
+		Me.GroupBox3.Size = New System.Drawing.Size(498, 517)
 		Me.GroupBox3.TabIndex = 60
 		Me.GroupBox3.TabStop = False
 		Me.GroupBox3.Text = "Servicios disponibles"
@@ -401,10 +402,10 @@ Partial Class FrmArmadoPago
 		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnSalir.FlatAppearance.BorderSize = 0
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalir.Location = New System.Drawing.Point(1136, 5)
+		Me.btnSalir.Location = New System.Drawing.Point(689, -1)
 		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
-		Me.btnSalir.Size = New System.Drawing.Size(107, 100)
+		Me.btnSalir.Size = New System.Drawing.Size(107, 107)
 		Me.btnSalir.TabIndex = 63
 		Me.btnSalir.Text = "Salir"
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -414,11 +415,10 @@ Partial Class FrmArmadoPago
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(1246, 847)
+		Me.ClientSize = New System.Drawing.Size(821, 847)
 		Me.Controls.Add(Me.GroupBox5)
 		Me.Controls.Add(Me.gboTotales)
 		Me.Controls.Add(Me.gboFiltros)
-		Me.Controls.Add(Me.btnAgregarProducto)
 		Me.Controls.Add(Me.btnAgregarProveedor)
 		Me.Controls.Add(Me.btnNuevo)
 		Me.Controls.Add(Me.Label1)

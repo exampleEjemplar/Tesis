@@ -221,7 +221,7 @@ Partial Class MDIPrincipal
 		Me.Button4.FlatAppearance.BorderSize = 0
 		Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Button4.Location = New System.Drawing.Point(952, 256)
+		Me.Button4.Location = New System.Drawing.Point(1002, 252)
 		Me.Button4.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button4.Name = "Button4"
 		Me.Button4.Size = New System.Drawing.Size(165, 111)
@@ -239,7 +239,7 @@ Partial Class MDIPrincipal
 		Me.Button2.FlatAppearance.BorderSize = 0
 		Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Button2.Location = New System.Drawing.Point(763, 256)
+		Me.Button2.Location = New System.Drawing.Point(813, 252)
 		Me.Button2.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button2.Name = "Button2"
 		Me.Button2.Size = New System.Drawing.Size(165, 111)
@@ -257,7 +257,7 @@ Partial Class MDIPrincipal
 		Me.Button1.FlatAppearance.BorderSize = 0
 		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Button1.Location = New System.Drawing.Point(763, 137)
+		Me.Button1.Location = New System.Drawing.Point(813, 133)
 		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button1.Name = "Button1"
 		Me.Button1.Size = New System.Drawing.Size(165, 111)
@@ -275,7 +275,7 @@ Partial Class MDIPrincipal
 		Me.btnSalir.FlatAppearance.BorderSize = 0
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnSalir.Location = New System.Drawing.Point(859, 374)
+		Me.btnSalir.Location = New System.Drawing.Point(909, 370)
 		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
 		Me.btnSalir.Size = New System.Drawing.Size(165, 112)
@@ -293,7 +293,7 @@ Partial Class MDIPrincipal
 		Me.btnPedidos.FlatAppearance.BorderSize = 0
 		Me.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnPedidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnPedidos.Location = New System.Drawing.Point(1148, 132)
+		Me.btnPedidos.Location = New System.Drawing.Point(1198, 128)
 		Me.btnPedidos.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnPedidos.Name = "btnPedidos"
 		Me.btnPedidos.Size = New System.Drawing.Size(165, 111)
@@ -311,7 +311,7 @@ Partial Class MDIPrincipal
 		Me.btnCaja.FlatAppearance.BorderSize = 0
 		Me.btnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnCaja.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnCaja.Location = New System.Drawing.Point(1148, 256)
+		Me.btnCaja.Location = New System.Drawing.Point(1198, 252)
 		Me.btnCaja.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnCaja.Name = "btnCaja"
 		Me.btnCaja.Size = New System.Drawing.Size(165, 111)
@@ -329,7 +329,7 @@ Partial Class MDIPrincipal
 		Me.btnArticulos.FlatAppearance.BorderSize = 0
 		Me.btnArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnArticulos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnArticulos.Location = New System.Drawing.Point(952, 132)
+		Me.btnArticulos.Location = New System.Drawing.Point(1002, 128)
 		Me.btnArticulos.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnArticulos.Name = "btnArticulos"
 		Me.btnArticulos.Size = New System.Drawing.Size(165, 111)
@@ -347,7 +347,7 @@ Partial Class MDIPrincipal
 		Me.btnCompras.FlatAppearance.BorderSize = 0
 		Me.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnCompras.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnCompras.Location = New System.Drawing.Point(567, 256)
+		Me.btnCompras.Location = New System.Drawing.Point(617, 252)
 		Me.btnCompras.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnCompras.Name = "btnCompras"
 		Me.btnCompras.Size = New System.Drawing.Size(165, 111)
@@ -365,7 +365,7 @@ Partial Class MDIPrincipal
 		Me.btnVentas.FlatAppearance.BorderSize = 0
 		Me.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnVentas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnVentas.Location = New System.Drawing.Point(567, 137)
+		Me.btnVentas.Location = New System.Drawing.Point(617, 133)
 		Me.btnVentas.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnVentas.Name = "btnVentas"
 		Me.btnVentas.Size = New System.Drawing.Size(165, 111)
@@ -383,7 +383,7 @@ Partial Class MDIPrincipal
 		Me.btnPagos.FlatAppearance.BorderSize = 0
 		Me.btnPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnPagos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnPagos.Location = New System.Drawing.Point(367, 137)
+		Me.btnPagos.Location = New System.Drawing.Point(417, 133)
 		Me.btnPagos.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnPagos.Name = "btnPagos"
 		Me.btnPagos.Size = New System.Drawing.Size(165, 111)
@@ -401,7 +401,7 @@ Partial Class MDIPrincipal
 		Me.Button3.FlatAppearance.BorderSize = 0
 		Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Button3.Location = New System.Drawing.Point(367, 256)
+		Me.Button3.Location = New System.Drawing.Point(417, 252)
 		Me.Button3.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button3.Name = "Button3"
 		Me.Button3.Size = New System.Drawing.Size(165, 111)

@@ -242,7 +242,7 @@ Partial Class FrmGestionPagos
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(116, 95)
 		Me.btnNuevo.TabIndex = 53
-		Me.btnNuevo.Text = "Nueva"
+		Me.btnNuevo.Text = "Nuevo"
 		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnNuevo.UseVisualStyleBackColor = False
 		'

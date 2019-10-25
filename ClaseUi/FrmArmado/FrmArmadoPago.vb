@@ -266,13 +266,11 @@ Public Class FrmArmadoPago
 
 		Dim ItemSelected = listita.Where(Function(s) s.Text = e.Data.GetData(DataFormats.Text)).FirstOrDefault()
 		If ItemSelected IsNot Nothing Then
-			CantidadDragAndDrop.ShowDialog()
-			For index = 1 To CantidadDragAndDrop.cantidad
-				Dim cloneOfItem = ItemSelected.Clone()
-				ListView1.Items.Add(cloneOfItem)
-				total += ItemSelected.Tag(3)
-				lblTotal.Text = total.ToString("0.00")
-			Next
+			Dim cloneOfItem = ItemSelected.Clone()
+			ListView1.Items.Add(cloneOfItem)
+			total += ItemSelected.Tag(3)
+			lblTotal.Text = total.ToString("0.00")
+			'lstProdDispo.Items.RemoveAt(cloneOfItem.)
 		End If
 
 	End Sub

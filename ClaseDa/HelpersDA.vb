@@ -251,6 +251,8 @@ Public Class HelpersDA
 			Dim text = " where "
 			If Not String.IsNullOrWhiteSpace(esServicio) Then
 				text += " esServicio='S' and "
+			Else
+				text += " esServicio='N' and "
 			End If
 			For Each item As KeyValuePair(Of String, String) In parametros
 				If item.Key = "ProveedorId" Then
@@ -283,6 +285,8 @@ Public Class HelpersDA
 		Else
 			If Not String.IsNullOrWhiteSpace(esServicio) Then
 				sqlStr += " where esServicio='S' "
+			Else
+				sqlStr += "where esServicio='N' "
 			End If
 		End If
 
