@@ -288,7 +288,7 @@ Public Class FrmArmadoVenta
 	Public Function LlenarCboProveedores()
 		Try
 			Dim ds1 As DataSet
-			ds1 = helpersLN.CargarCboTodosProveedores()
+			ds1 = helpersLN.CargarCboTodosProveedores("False")
 			cboBusProveedor.DataSource = ds1.Tables(0)
 			cboBusProveedor.DisplayMember = "Nombre"
 			cboBusProveedor.ValueMember = "id"

@@ -89,6 +89,7 @@ Partial Class FrmGestionProveedores
 		Me.Label9 = New System.Windows.Forms.Label()
 		Me.Label10 = New System.Windows.Forms.Label()
 		Me.tbcodcel = New System.Windows.Forms.TextBox()
+		Me.chkProveeServicios = New System.Windows.Forms.CheckBox()
 		Me.GroupBox2.SuspendLayout()
 		Me.GroupBox5.SuspendLayout()
 		CType(Me.Dgvproveedores, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,7 +102,7 @@ Partial Class FrmGestionProveedores
 		'tbcel
 		'
 		Me.tbcel.Location = New System.Drawing.Point(311, 17)
-		Me.tbcel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.tbcel.Margin = New System.Windows.Forms.Padding(4)
 		Me.tbcel.MaxLength = 12
 		Me.tbcel.Name = "tbcel"
 		Me.tbcel.Size = New System.Drawing.Size(239, 23)
@@ -120,7 +121,7 @@ Partial Class FrmGestionProveedores
 		'tbcodtel
 		'
 		Me.tbcodtel.Location = New System.Drawing.Point(796, 14)
-		Me.tbcodtel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.tbcodtel.Margin = New System.Windows.Forms.Padding(4)
 		Me.tbcodtel.MaxLength = 4
 		Me.tbcodtel.Name = "tbcodtel"
 		Me.tbcodtel.Size = New System.Drawing.Size(55, 23)
@@ -149,9 +150,9 @@ Partial Class FrmGestionProveedores
 		Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.GroupBox2.ForeColor = System.Drawing.Color.Black
 		Me.GroupBox2.Location = New System.Drawing.Point(12, 191)
-		Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
 		Me.GroupBox2.Size = New System.Drawing.Size(1232, 106)
 		Me.GroupBox2.TabIndex = 12
 		Me.GroupBox2.TabStop = False
@@ -170,7 +171,7 @@ Partial Class FrmGestionProveedores
 		'txtBarrio
 		'
 		Me.txtBarrio.Location = New System.Drawing.Point(1021, 63)
-		Me.txtBarrio.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtBarrio.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtBarrio.MaxLength = 50
 		Me.txtBarrio.Name = "txtBarrio"
 		Me.txtBarrio.Size = New System.Drawing.Size(169, 23)
@@ -189,7 +190,7 @@ Partial Class FrmGestionProveedores
 		'txtPiso
 		'
 		Me.txtPiso.Location = New System.Drawing.Point(697, 27)
-		Me.txtPiso.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtPiso.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtPiso.MaxLength = 2
 		Me.txtPiso.Name = "txtPiso"
 		Me.txtPiso.Size = New System.Drawing.Size(33, 23)
@@ -208,7 +209,7 @@ Partial Class FrmGestionProveedores
 		'txtManzana
 		'
 		Me.txtManzana.Location = New System.Drawing.Point(888, 63)
-		Me.txtManzana.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtManzana.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtManzana.MaxLength = 5
 		Me.txtManzana.Name = "txtManzana"
 		Me.txtManzana.Size = New System.Drawing.Size(57, 23)
@@ -227,7 +228,7 @@ Partial Class FrmGestionProveedores
 		'txtLote
 		'
 		Me.txtLote.Location = New System.Drawing.Point(999, 31)
-		Me.txtLote.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtLote.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtLote.MaxLength = 3
 		Me.txtLote.Name = "txtLote"
 		Me.txtLote.Size = New System.Drawing.Size(57, 23)
@@ -259,7 +260,7 @@ Partial Class FrmGestionProveedores
 		Me.cmbLocalidades.FormattingEnabled = True
 		Me.cmbLocalidades.ItemHeight = 17
 		Me.cmbLocalidades.Location = New System.Drawing.Point(551, 62)
-		Me.cmbLocalidades.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cmbLocalidades.Margin = New System.Windows.Forms.Padding(4)
 		Me.cmbLocalidades.Name = "cmbLocalidades"
 		Me.cmbLocalidades.Size = New System.Drawing.Size(213, 25)
 		Me.cmbLocalidades.TabIndex = 7
@@ -270,7 +271,7 @@ Partial Class FrmGestionProveedores
 		Me.cmbProvincias.FormattingEnabled = True
 		Me.cmbProvincias.ItemHeight = 17
 		Me.cmbProvincias.Location = New System.Drawing.Point(216, 62)
-		Me.cmbProvincias.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cmbProvincias.Margin = New System.Windows.Forms.Padding(4)
 		Me.cmbProvincias.Name = "cmbProvincias"
 		Me.cmbProvincias.Size = New System.Drawing.Size(232, 25)
 		Me.cmbProvincias.TabIndex = 6
@@ -308,7 +309,7 @@ Partial Class FrmGestionProveedores
 		'tbcalle
 		'
 		Me.tbcalle.Location = New System.Drawing.Point(183, 28)
-		Me.tbcalle.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.tbcalle.Margin = New System.Windows.Forms.Padding(4)
 		Me.tbcalle.MaxLength = 30
 		Me.tbcalle.Name = "tbcalle"
 		Me.tbcalle.Size = New System.Drawing.Size(315, 23)
@@ -317,7 +318,7 @@ Partial Class FrmGestionProveedores
 		'tbNro
 		'
 		Me.tbNro.Location = New System.Drawing.Point(588, 25)
-		Me.tbNro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.tbNro.Margin = New System.Windows.Forms.Padding(4)
 		Me.tbNro.MaxLength = 5
 		Me.tbNro.Name = "tbNro"
 		Me.tbNro.Size = New System.Drawing.Size(57, 23)
@@ -326,7 +327,7 @@ Partial Class FrmGestionProveedores
 		'tbDpto
 		'
 		Me.tbDpto.Location = New System.Drawing.Point(875, 28)
-		Me.tbDpto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.tbDpto.Margin = New System.Windows.Forms.Padding(4)
 		Me.tbDpto.MaxLength = 5
 		Me.tbDpto.Name = "tbDpto"
 		Me.tbDpto.Size = New System.Drawing.Size(51, 23)
@@ -347,9 +348,9 @@ Partial Class FrmGestionProveedores
 		Me.GroupBox5.Controls.Add(Me.Label16)
 		Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.GroupBox5.Location = New System.Drawing.Point(13, 380)
-		Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4)
 		Me.GroupBox5.Name = "GroupBox5"
-		Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4)
 		Me.GroupBox5.Size = New System.Drawing.Size(608, 182)
 		Me.GroupBox5.TabIndex = 31
 		Me.GroupBox5.TabStop = False
@@ -363,7 +364,7 @@ Partial Class FrmGestionProveedores
 		Me.btnBuscar.FlatAppearance.BorderSize = 0
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnBuscar.Location = New System.Drawing.Point(460, 38)
-		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(137, 110)
 		Me.btnBuscar.TabIndex = 33
@@ -379,7 +380,7 @@ Partial Class FrmGestionProveedores
 		Me.cboBusTipoPersona.FormattingEnabled = True
 		Me.cboBusTipoPersona.Items.AddRange(New Object() {"Física", "Jurídica"})
 		Me.cboBusTipoPersona.Location = New System.Drawing.Point(256, 21)
-		Me.cboBusTipoPersona.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cboBusTipoPersona.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboBusTipoPersona.Name = "cboBusTipoPersona"
 		Me.cboBusTipoPersona.Size = New System.Drawing.Size(187, 25)
 		Me.cboBusTipoPersona.TabIndex = 28
@@ -388,7 +389,7 @@ Partial Class FrmGestionProveedores
 		'
 		Me.txtBusApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtBusApellido.Location = New System.Drawing.Point(257, 151)
-		Me.txtBusApellido.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtBusApellido.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtBusApellido.MaxLength = 30
 		Me.txtBusApellido.Name = "txtBusApellido"
 		Me.txtBusApellido.Size = New System.Drawing.Size(187, 23)
@@ -420,7 +421,7 @@ Partial Class FrmGestionProveedores
 		'
 		Me.txtBusNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtBusNombre.Location = New System.Drawing.Point(256, 121)
-		Me.txtBusNombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtBusNombre.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtBusNombre.MaxLength = 30
 		Me.txtBusNombre.Name = "txtBusNombre"
 		Me.txtBusNombre.Size = New System.Drawing.Size(187, 23)
@@ -441,7 +442,7 @@ Partial Class FrmGestionProveedores
 		'
 		Me.txtBusDocNro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtBusDocNro.Location = New System.Drawing.Point(257, 87)
-		Me.txtBusDocNro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtBusDocNro.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtBusDocNro.MaxLength = 12
 		Me.txtBusDocNro.Name = "txtBusDocNro"
 		Me.txtBusDocNro.Size = New System.Drawing.Size(185, 23)
@@ -454,7 +455,7 @@ Partial Class FrmGestionProveedores
 		Me.cboBusTipoDNI.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.cboBusTipoDNI.FormattingEnabled = True
 		Me.cboBusTipoDNI.Location = New System.Drawing.Point(257, 54)
-		Me.cboBusTipoDNI.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cboBusTipoDNI.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboBusTipoDNI.Name = "cboBusTipoDNI"
 		Me.cboBusTipoDNI.Size = New System.Drawing.Size(185, 25)
 		Me.cboBusTipoDNI.TabIndex = 29
@@ -489,7 +490,7 @@ Partial Class FrmGestionProveedores
 		Me.btnGuardar.FlatAppearance.BorderSize = 0
 		Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnGuardar.Location = New System.Drawing.Point(932, 420)
-		Me.btnGuardar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnGuardar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnGuardar.Name = "btnGuardar"
 		Me.btnGuardar.Size = New System.Drawing.Size(115, 110)
 		Me.btnGuardar.TabIndex = 33
@@ -515,7 +516,7 @@ Partial Class FrmGestionProveedores
 		Me.btnLimpiar.FlatAppearance.BorderSize = 0
 		Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnLimpiar.Location = New System.Drawing.Point(785, 420)
-		Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnLimpiar.Name = "btnLimpiar"
 		Me.btnLimpiar.Size = New System.Drawing.Size(115, 110)
 		Me.btnLimpiar.TabIndex = 37
@@ -531,7 +532,7 @@ Partial Class FrmGestionProveedores
 		Me.Button1.FlatAppearance.BorderSize = 0
 		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.Button1.Location = New System.Drawing.Point(1209, 569)
-		Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button1.Name = "Button1"
 		Me.Button1.Size = New System.Drawing.Size(107, 110)
 		Me.Button1.TabIndex = 36
@@ -547,7 +548,7 @@ Partial Class FrmGestionProveedores
 		Me.Dgvproveedores.AllowUserToResizeRows = False
 		Me.Dgvproveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
 		Me.Dgvproveedores.Location = New System.Drawing.Point(21, 569)
-		Me.Dgvproveedores.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Dgvproveedores.Margin = New System.Windows.Forms.Padding(4)
 		Me.Dgvproveedores.MultiSelect = False
 		Me.Dgvproveedores.Name = "Dgvproveedores"
 		Me.Dgvproveedores.ReadOnly = True
@@ -565,7 +566,7 @@ Partial Class FrmGestionProveedores
 		Me.btnNuevo.FlatAppearance.BorderSize = 0
 		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnNuevo.Location = New System.Drawing.Point(619, 418)
-		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(137, 112)
 		Me.btnNuevo.TabIndex = 34
@@ -581,7 +582,7 @@ Partial Class FrmGestionProveedores
 		Me.btnSalir.FlatAppearance.BorderSize = 0
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnSalir.Location = New System.Drawing.Point(1209, 710)
-		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
 		Me.btnSalir.Size = New System.Drawing.Size(107, 110)
 		Me.btnSalir.TabIndex = 35
@@ -638,9 +639,9 @@ Partial Class FrmGestionProveedores
 		Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.GroupBox4.ForeColor = System.Drawing.Color.Black
 		Me.GroupBox4.Location = New System.Drawing.Point(8, 100)
-		Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
 		Me.GroupBox4.Name = "GroupBox4"
-		Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
 		Me.GroupBox4.Size = New System.Drawing.Size(1236, 92)
 		Me.GroupBox4.TabIndex = 14
 		Me.GroupBox4.TabStop = False
@@ -671,7 +672,7 @@ Partial Class FrmGestionProveedores
 		'tbmail
 		'
 		Me.tbmail.Location = New System.Drawing.Point(291, 21)
-		Me.tbmail.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.tbmail.Margin = New System.Windows.Forms.Padding(4)
 		Me.tbmail.MaxLength = 40
 		Me.tbmail.Name = "tbmail"
 		Me.tbmail.Size = New System.Drawing.Size(272, 23)
@@ -682,7 +683,7 @@ Partial Class FrmGestionProveedores
 		Me.dtpfechanac.CustomFormat = "dd/MM/yyy"
 		Me.dtpfechanac.Format = System.Windows.Forms.DateTimePickerFormat.Custom
 		Me.dtpfechanac.Location = New System.Drawing.Point(864, 22)
-		Me.dtpfechanac.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.dtpfechanac.Margin = New System.Windows.Forms.Padding(4)
 		Me.dtpfechanac.Name = "dtpfechanac"
 		Me.dtpfechanac.Size = New System.Drawing.Size(215, 23)
 		Me.dtpfechanac.TabIndex = 7
@@ -692,7 +693,7 @@ Partial Class FrmGestionProveedores
 		'
 		Me.tbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.tbNombre.Location = New System.Drawing.Point(304, 57)
-		Me.tbNombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.tbNombre.Margin = New System.Windows.Forms.Padding(4)
 		Me.tbNombre.MaxLength = 30
 		Me.tbNombre.Name = "tbNombre"
 		Me.tbNombre.Size = New System.Drawing.Size(308, 23)
@@ -713,7 +714,7 @@ Partial Class FrmGestionProveedores
 		'
 		Me.tbApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.tbApellido.Location = New System.Drawing.Point(757, 52)
-		Me.tbApellido.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.tbApellido.Margin = New System.Windows.Forms.Padding(4)
 		Me.tbApellido.MaxLength = 30
 		Me.tbApellido.Name = "tbApellido"
 		Me.tbApellido.Size = New System.Drawing.Size(321, 23)
@@ -734,7 +735,7 @@ Partial Class FrmGestionProveedores
 		'
 		Me.tbNroDoc.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.tbNroDoc.Location = New System.Drawing.Point(703, 47)
-		Me.tbNroDoc.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.tbNroDoc.Margin = New System.Windows.Forms.Padding(4)
 		Me.tbNroDoc.MaxLength = 12
 		Me.tbNroDoc.Name = "tbNroDoc"
 		Me.tbNroDoc.Size = New System.Drawing.Size(176, 23)
@@ -747,7 +748,7 @@ Partial Class FrmGestionProveedores
 		Me.cbtipodni.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.cbtipodni.FormattingEnabled = True
 		Me.cbtipodni.Location = New System.Drawing.Point(287, 47)
-		Me.cbtipodni.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cbtipodni.Margin = New System.Windows.Forms.Padding(4)
 		Me.cbtipodni.Name = "cbtipodni"
 		Me.cbtipodni.Size = New System.Drawing.Size(197, 25)
 		Me.cbtipodni.TabIndex = 2
@@ -771,7 +772,7 @@ Partial Class FrmGestionProveedores
 		Me.btnValidarDNI1.FlatAppearance.BorderSize = 0
 		Me.btnValidarDNI1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnValidarDNI1.Location = New System.Drawing.Point(888, 14)
-		Me.btnValidarDNI1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnValidarDNI1.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnValidarDNI1.Name = "btnValidarDNI1"
 		Me.btnValidarDNI1.Size = New System.Drawing.Size(217, 60)
 		Me.btnValidarDNI1.TabIndex = 4
@@ -797,13 +798,14 @@ Partial Class FrmGestionProveedores
 		Me.cboTipoPersona.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.cboTipoPersona.FormattingEnabled = True
 		Me.cboTipoPersona.Location = New System.Drawing.Point(287, 17)
-		Me.cboTipoPersona.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cboTipoPersona.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboTipoPersona.Name = "cboTipoPersona"
 		Me.cboTipoPersona.Size = New System.Drawing.Size(100, 25)
 		Me.cboTipoPersona.TabIndex = 1
 		'
 		'GroupBox6
 		'
+		Me.GroupBox6.Controls.Add(Me.chkProveeServicios)
 		Me.GroupBox6.Controls.Add(Me.btnValidarDNI1)
 		Me.GroupBox6.Controls.Add(Me.lblTipoIdentificacion)
 		Me.GroupBox6.Controls.Add(Me.cboTipoPersona)
@@ -814,9 +816,9 @@ Partial Class FrmGestionProveedores
 		Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.GroupBox6.ForeColor = System.Drawing.Color.Black
 		Me.GroupBox6.Location = New System.Drawing.Point(12, 18)
-		Me.GroupBox6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox6.Margin = New System.Windows.Forms.Padding(4)
 		Me.GroupBox6.Name = "GroupBox6"
-		Me.GroupBox6.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox6.Padding = New System.Windows.Forms.Padding(4)
 		Me.GroupBox6.Size = New System.Drawing.Size(1232, 84)
 		Me.GroupBox6.TabIndex = 3
 		Me.GroupBox6.TabStop = False
@@ -840,9 +842,9 @@ Partial Class FrmGestionProveedores
 		Me.GroupBox1.Controls.Add(Me.GroupBox2)
 		Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.GroupBox1.Location = New System.Drawing.Point(13, 14)
-		Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
 		Me.GroupBox1.Name = "GroupBox1"
-		Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
 		Me.GroupBox1.Size = New System.Drawing.Size(1272, 359)
 		Me.GroupBox1.TabIndex = 30
 		Me.GroupBox1.TabStop = False
@@ -861,9 +863,9 @@ Partial Class FrmGestionProveedores
 		Me.GroupBox3.Controls.Add(Me.tbcodtel)
 		Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.GroupBox3.Location = New System.Drawing.Point(8, 304)
-		Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
 		Me.GroupBox3.Name = "GroupBox3"
-		Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
 		Me.GroupBox3.Size = New System.Drawing.Size(1236, 50)
 		Me.GroupBox3.TabIndex = 14
 		Me.GroupBox3.TabStop = False
@@ -872,7 +874,7 @@ Partial Class FrmGestionProveedores
 		'tbtelefono
 		'
 		Me.tbtelefono.Location = New System.Drawing.Point(877, 14)
-		Me.tbtelefono.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.tbtelefono.Margin = New System.Windows.Forms.Padding(4)
 		Me.tbtelefono.MaxLength = 12
 		Me.tbtelefono.Name = "tbtelefono"
 		Me.tbtelefono.Size = New System.Drawing.Size(239, 23)
@@ -901,11 +903,21 @@ Partial Class FrmGestionProveedores
 		'tbcodcel
 		'
 		Me.tbcodcel.Location = New System.Drawing.Point(215, 17)
-		Me.tbcodcel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.tbcodcel.Margin = New System.Windows.Forms.Padding(4)
 		Me.tbcodcel.MaxLength = 4
 		Me.tbcodcel.Name = "tbcodcel"
 		Me.tbcodcel.Size = New System.Drawing.Size(65, 23)
 		Me.tbcodcel.TabIndex = 21
+		'
+		'chkProveeServicios
+		'
+		Me.chkProveeServicios.AutoSize = True
+		Me.chkProveeServicios.Location = New System.Drawing.Point(511, 17)
+		Me.chkProveeServicios.Name = "chkProveeServicios"
+		Me.chkProveeServicios.Size = New System.Drawing.Size(159, 21)
+		Me.chkProveeServicios.TabIndex = 38
+		Me.chkProveeServicios.Text = "Provee servicios?"
+		Me.chkProveeServicios.UseVisualStyleBackColor = True
 		'
 		'FrmGestionProveedores
 		'
@@ -1009,4 +1021,5 @@ Partial Class FrmGestionProveedores
 	Friend WithEvents Label9 As Windows.Forms.Label
 	Friend WithEvents Label10 As Windows.Forms.Label
 	Friend WithEvents tbcodcel As Windows.Forms.TextBox
+	Friend WithEvents chkProveeServicios As Windows.Forms.CheckBox
 End Class

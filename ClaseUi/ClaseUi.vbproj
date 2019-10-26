@@ -111,6 +111,12 @@
     <Compile Include="FrmArmado\FrmArmadoCompra.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmArmado\FrmArmadoPago.Designer.vb">
+      <DependentUpon>FrmArmadoPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmArmado\FrmArmadoPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmArmado\FrmArmadoPedido.Designer.vb">
       <DependentUpon>FrmArmadoPedido.vb</DependentUpon>
     </Compile>
@@ -189,6 +195,12 @@
     <Compile Include="FrmGestion\FrmGestionMaterial.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmGestion\FrmGestionPagos.Designer.vb">
+      <DependentUpon>FrmGestionPagos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestion\FrmGestionPagos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmGestion\FrmGestionPedidos.Designer.vb">
       <DependentUpon>FrmGestionPedidos.vb</DependentUpon>
     </Compile>
@@ -199,6 +211,12 @@
       <DependentUpon>FrmGestionProveedores.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmGestion\FrmGestionProveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestion\FrmGestionServicio.Designer.vb">
+      <DependentUpon>FrmGestionServicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestion\FrmGestionServicio.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmGestion\FrmGestionStock.Designer.vb">
@@ -309,6 +327,9 @@
     <EmbeddedResource Include="FrmArmado\FrmArmadoCompra.resx">
       <DependentUpon>FrmArmadoCompra.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmArmado\FrmArmadoPago.resx">
+      <DependentUpon>FrmArmadoPago.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmArmado\FrmArmadoPedido.resx">
       <DependentUpon>FrmArmadoPedido.vb</DependentUpon>
     </EmbeddedResource>
@@ -348,6 +369,9 @@
     <EmbeddedResource Include="FrmGestion\FrmGestionMaterial.resx">
       <DependentUpon>FrmGestionMaterial.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestion\FrmGestionPagos.resx">
+      <DependentUpon>FrmGestionPagos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionPedidos.resx">
       <DependentUpon>FrmGestionPedidos.vb</DependentUpon>
     </EmbeddedResource>
@@ -356,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionProveedores.resx">
       <DependentUpon>FrmGestionProveedores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestion\FrmGestionServicio.resx">
+      <DependentUpon>FrmGestionServicio.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionStock.resx">
       <DependentUpon>FrmGestionStock.vb</DependentUpon>
@@ -563,6 +590,8 @@
     <None Include="Resources\check-all-icon-54-64x64.png" />
     <None Include="Resources\PinClipart.com_to-send-clipart_2133056 %281%29.png" />
     <None Include="Resources\PinClipart.com_to-send-clipart_2133056 %281%291.png" />
+    <None Include="Resources\money_PNG3544 %281%29.png" />
+    <None Include="Resources\Appliance-Plug-PNG-Photo %281%29.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

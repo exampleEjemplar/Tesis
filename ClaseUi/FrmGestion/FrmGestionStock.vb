@@ -92,7 +92,7 @@ Public Class FrmGestionStock
 	Public Function LlenarCboProveedores()
 		Try
 			Dim ds1 As DataSet
-			ds1 = helpersln.CargarCboTodosProveedores()
+			ds1 = helpersLN.CargarCboTodosProveedores("False")
 			cboProveedor.DataSource = ds1.Tables(0)
 			cboProveedor.DisplayMember = "Nombre"
 			cboProveedor.ValueMember = "id"
