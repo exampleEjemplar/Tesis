@@ -1,5 +1,8 @@
 ﻿Imports System.Data.SqlClient
 Imports ClaseNe
+Imports System.Net
+Imports System.IO
+
 Public Class VentasDA
 	Private db As New SqlConnection
 	Private helpersDa As New HelpersDA
@@ -16,7 +19,9 @@ Public Class VentasDA
 	End Sub
 
 
-	Public Function CargarGrillaVentas(ByVal parametros As Dictionary(Of String, String)) As DataSet
+
+
+    Public Function CargarGrillaVentas(ByVal parametros As Dictionary(Of String, String)) As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet

@@ -1,11 +1,14 @@
 ﻿Imports System.Windows.Forms
+Imports System.Net
+Imports System.IO
+
 
 Public Class MDIPrincipal
 
 	Private helpersUi As New HelpersUI
 
 
-	Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewWindowToolStripMenuItem.Click
+    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewWindowToolStripMenuItem.Click
 		' Cree una nueva instancia del formulario secundario.
 		Dim ChildForm As New System.Windows.Forms.Form
 		' Conviértalo en un elemento secundario de este formulario MDI antes de mostrarlo.
@@ -84,13 +87,31 @@ Public Class MDIPrincipal
 
 	Private m_ChildFormNumber As Integer
 
-	Private Sub MDIPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub MDIPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            Dim CLIENTE As New WebClient
+            Dim PAGINA As Stream = CLIENTE.OpenRead("https://www.precio-dolar.com.ar/")
+            Dim LECTOR As New StreamReader(PAGINA)
+            Dim MIHTML As String = LECTOR.ReadToEnd
+            Dim COTIZACION As String = MIHTML.Remove(0, MIHTML.IndexOf("Venta:") + 25)
+            COTIZACION = COTIZACION.Substring(0, COTIZACION.IndexOf("<"))
 
-		Me.WindowState = FormWindowState.Maximized
 
-	End Sub
+            Dim fecha As String = MIHTML.Remove(0, MIHTML.IndexOf("currency-updated-on-datetime") + 30)
+            fecha = fecha.Substring(0, fecha.IndexOf("<"))
 
-	Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+            Label1.Text = "La cotización del DOLAR, HOY " + fecha + " es de " + COTIZACION + " Pesos Argentinos.-"
+            PAGINA.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
+
+
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 		Me.Close()
 
 	End Sub
@@ -152,4 +173,6 @@ Public Class MDIPrincipal
 	Private Sub btnPedidos_Click(sender As Object, e As EventArgs) Handles btnPedidos.Click
 		FrmGestionPedidos.ShowDialog()
 	End Sub
+
+
 End Class
