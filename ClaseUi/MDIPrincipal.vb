@@ -5,7 +5,7 @@ Public Class MDIPrincipal
 	Private helpersUi As New HelpersUI
 
 
-	Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewWindowToolStripMenuItem.Click
+	Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs)
 		' Cree una nueva instancia del formulario secundario.
 		Dim ChildForm As New System.Windows.Forms.Form
 		' Conviértalo en un elemento secundario de este formulario MDI antes de mostrarlo.
@@ -59,23 +59,23 @@ Public Class MDIPrincipal
 
 
 
-	Private Sub CascadeToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CascadeToolStripMenuItem.Click
+	Private Sub CascadeToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
 		Me.LayoutMdi(MdiLayout.Cascade)
 	End Sub
 
-	Private Sub TileVerticalToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles TileVerticalToolStripMenuItem.Click
+	Private Sub TileVerticalToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
 		Me.LayoutMdi(MdiLayout.TileVertical)
 	End Sub
 
-	Private Sub TileHorizontalToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles TileHorizontalToolStripMenuItem.Click
+	Private Sub TileHorizontalToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
 		Me.LayoutMdi(MdiLayout.TileHorizontal)
 	End Sub
 
-	Private Sub ArrangeIconsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ArrangeIconsToolStripMenuItem.Click
+	Private Sub ArrangeIconsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
 		Me.LayoutMdi(MdiLayout.ArrangeIcons)
 	End Sub
 
-	Private Sub CloseAllToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CloseAllToolStripMenuItem.Click
+	Private Sub CloseAllToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
 		' Cierre todos los formularios secundarios del principal.
 		For Each ChildForm As Form In Me.MdiChildren
 			ChildForm.Close()
@@ -86,7 +86,7 @@ Public Class MDIPrincipal
 
 	Private Sub MDIPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-		Me.WindowState = FormWindowState.Maximized
+		Me.WindowState = FormWindowState.Normal
 
 	End Sub
 
@@ -119,7 +119,7 @@ Public Class MDIPrincipal
 
 	End Sub
 
-	Private Sub GestionDeUsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionDeUsuariosToolStripMenuItem.Click
+	Private Sub GestionDeUsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs)
 		FrmGestionUsuario.Show()
 	End Sub
 
@@ -132,6 +132,14 @@ Public Class MDIPrincipal
 
 	End Sub
 
+	Private Sub VentaToolStripMenuItemClick(sender As Object, e As EventArgs) Handles VentaToolStripMenuItem.Click
+		If helpersUi.ValidarOperacion(NameOf(FrmArmadoVenta)) Then
+			FrmArmadoVenta.Show()
+		Else
+			MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+		End If
+	End Sub
+
 	Private Sub btnCompras_Click(sender As Object, e As EventArgs) Handles btnCompras.Click
 		If helpersUi.ValidarOperacion(NameOf(FrmGestionCompras)) Then
 			FrmGestionCompras.Show()
@@ -140,6 +148,13 @@ Public Class MDIPrincipal
 		End If
 	End Sub
 
+	Private Sub CompraToolStripMenuItemClick(sender As Object, e As EventArgs) Handles CompraToolStripMenuItem.Click
+		If helpersUi.ValidarOperacion(NameOf(FrmArmadoCompra)) Then
+			FrmArmadoCompra.Show()
+		Else
+			MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+		End If
+	End Sub
 
 	Private Sub btnCaja_Click(sender As Object, e As EventArgs) Handles btnCaja.Click
 		FrmGestionCaja.Show()
@@ -154,10 +169,25 @@ Public Class MDIPrincipal
 	End Sub
 
 	Private Sub btnPagos_Click(sender As Object, e As EventArgs) Handles btnPagos.Click
-		FrmGestionPagos.ShowDialog()
+		If helpersUi.ValidarOperacion(NameOf(FrmGestionPagos)) Then
+			FrmGestionPagos.Show()
+		Else
+			MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+		End If
 	End Sub
 
-	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-		FrmGestionServicio.ShowDialog()
+	Private Sub PagosToolStripMenuItemClick(sender As Object, e As EventArgs) Handles PagosToolStripMenuItem.Click
+		If helpersUi.ValidarOperacion(NameOf(FrmArmadoPago)) Then
+			FrmArmadoPago.Show()
+		Else
+			MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+		End If
+	End Sub
+
+	Private Sub CerrarSesiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CerrarSesiónToolStripMenuItem.Click
+		With LogIn
+		End With
+		LogIn.Show()
+		Me.Close()
 	End Sub
 End Class

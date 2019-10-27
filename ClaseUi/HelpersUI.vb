@@ -42,6 +42,22 @@ Public Class HelpersUI
 				If rolUsuario = 2 Then
 					Return True
 				End If
+			Case "FrmGestionPagos"
+				If rolUsuario = 2 Then
+					Return True
+				End If
+			Case "FrmArmadoVenta"
+				If rolUsuario = 2 Then
+					Return True
+				End If
+			Case "FrmArmadoCompra"
+				If rolUsuario = 2 Then
+					Return True
+				End If
+			Case "FrmArmadoPago"
+				If rolUsuario = 2 Then
+					Return True
+				End If
 			Case Else
 				Return False
 		End Select

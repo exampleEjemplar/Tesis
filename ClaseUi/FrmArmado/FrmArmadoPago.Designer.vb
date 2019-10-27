@@ -23,20 +23,21 @@ Partial Class FrmArmadoPago
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-		Me.btnQuitarItem = New System.Windows.Forms.Button()
 		Me.GroupBox4 = New System.Windows.Forms.GroupBox()
 		Me.ListView1 = New System.Windows.Forms.ListView()
+		Me.btnQuitarItem = New System.Windows.Forms.Button()
 		Me.btnLimpiar = New System.Windows.Forms.Button()
 		Me.lstProdDispo = New System.Windows.Forms.ListView()
 		Me.gboTotales = New System.Windows.Forms.GroupBox()
-		Me.Label11 = New System.Windows.Forms.Label()
 		Me.lblTotal = New System.Windows.Forms.Label()
+		Me.Label11 = New System.Windows.Forms.Label()
 		Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
 		Me.gboFiltros = New System.Windows.Forms.GroupBox()
 		Me.btnLimpiarFiltros = New System.Windows.Forms.Button()
 		Me.btnBuscar = New System.Windows.Forms.Button()
 		Me.lbldesde = New System.Windows.Forms.Label()
 		Me.rbtEntreFechas = New System.Windows.Forms.CheckBox()
+		Me.btnAgregarProducto = New System.Windows.Forms.Button()
 		Me.lblHasta = New System.Windows.Forms.Label()
 		Me.rbtFechaExacta = New System.Windows.Forms.CheckBox()
 		Me.dtpFechaHasta = New System.Windows.Forms.DateTimePicker()
@@ -44,7 +45,6 @@ Partial Class FrmArmadoPago
 		Me.lblFechaExacta = New System.Windows.Forms.Label()
 		Me.txtBusNombreProducto = New System.Windows.Forms.TextBox()
 		Me.Label8 = New System.Windows.Forms.Label()
-		Me.btnAgregarProducto = New System.Windows.Forms.Button()
 		Me.btnAgregarProveedor = New System.Windows.Forms.Button()
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.Label1 = New System.Windows.Forms.Label()
@@ -69,22 +69,6 @@ Partial Class FrmArmadoPago
 		Me.GroupBox5.Size = New System.Drawing.Size(289, 646)
 		Me.GroupBox5.TabIndex = 59
 		Me.GroupBox5.TabStop = False
-		'
-		'btnQuitarItem
-		'
-		Me.btnQuitarItem.BackColor = System.Drawing.SystemColors.Control
-		Me.btnQuitarItem.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_cancel_62
-		Me.btnQuitarItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnQuitarItem.FlatAppearance.BorderSize = 0
-		Me.btnQuitarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnQuitarItem.Location = New System.Drawing.Point(11, 10)
-		Me.btnQuitarItem.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnQuitarItem.Name = "btnQuitarItem"
-		Me.btnQuitarItem.Size = New System.Drawing.Size(129, 95)
-		Me.btnQuitarItem.TabIndex = 37
-		Me.btnQuitarItem.Text = "Quitar item"
-		Me.btnQuitarItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnQuitarItem.UseVisualStyleBackColor = False
 		'
 		'GroupBox4
 		'
@@ -111,6 +95,22 @@ Partial Class FrmArmadoPago
 		Me.ListView1.TileSize = New System.Drawing.Size(120, 25)
 		Me.ListView1.UseCompatibleStateImageBehavior = False
 		Me.ListView1.View = System.Windows.Forms.View.List
+		'
+		'btnQuitarItem
+		'
+		Me.btnQuitarItem.BackColor = System.Drawing.SystemColors.Control
+		Me.btnQuitarItem.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_cancel_62
+		Me.btnQuitarItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnQuitarItem.FlatAppearance.BorderSize = 0
+		Me.btnQuitarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnQuitarItem.Location = New System.Drawing.Point(11, 10)
+		Me.btnQuitarItem.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnQuitarItem.Name = "btnQuitarItem"
+		Me.btnQuitarItem.Size = New System.Drawing.Size(129, 95)
+		Me.btnQuitarItem.TabIndex = 37
+		Me.btnQuitarItem.Text = "Quitar item"
+		Me.btnQuitarItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnQuitarItem.UseVisualStyleBackColor = False
 		'
 		'btnLimpiar
 		'
@@ -155,16 +155,6 @@ Partial Class FrmArmadoPago
 		Me.gboTotales.TabStop = False
 		Me.gboTotales.Text = "Totales"
 		'
-		'Label11
-		'
-		Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label11.Location = New System.Drawing.Point(2, 33)
-		Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label11.Name = "Label11"
-		Me.Label11.Size = New System.Drawing.Size(156, 56)
-		Me.Label11.TabIndex = 30
-		Me.Label11.Text = "Total del pago"
-		'
 		'lblTotal
 		'
 		Me.lblTotal.AutoSize = True
@@ -175,6 +165,16 @@ Partial Class FrmArmadoPago
 		Me.lblTotal.Size = New System.Drawing.Size(49, 24)
 		Me.lblTotal.TabIndex = 26
 		Me.lblTotal.Text = "0.00"
+		'
+		'Label11
+		'
+		Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
+		Me.Label11.Location = New System.Drawing.Point(2, 33)
+		Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label11.Name = "Label11"
+		Me.Label11.Size = New System.Drawing.Size(156, 56)
+		Me.Label11.TabIndex = 30
+		Me.Label11.Text = "Total del pago"
 		'
 		'PrintDialog1
 		'
@@ -254,6 +254,22 @@ Partial Class FrmArmadoPago
 		Me.rbtEntreFechas.Text = "Busqueda entre fechas"
 		Me.rbtEntreFechas.UseVisualStyleBackColor = True
 		'
+		'btnAgregarProducto
+		'
+		Me.btnAgregarProducto.BackColor = System.Drawing.SystemColors.Control
+		Me.btnAgregarProducto.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_add_354
+		Me.btnAgregarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnAgregarProducto.FlatAppearance.BorderSize = 0
+		Me.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnAgregarProducto.Location = New System.Drawing.Point(451, 124)
+		Me.btnAgregarProducto.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnAgregarProducto.Name = "btnAgregarProducto"
+		Me.btnAgregarProducto.Size = New System.Drawing.Size(139, 73)
+		Me.btnAgregarProducto.TabIndex = 66
+		Me.btnAgregarProducto.Text = "Agregar servicio"
+		Me.btnAgregarProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnAgregarProducto.UseVisualStyleBackColor = False
+		'
 		'lblHasta
 		'
 		Me.lblHasta.AutoSize = True
@@ -323,22 +339,6 @@ Partial Class FrmArmadoPago
 		Me.Label8.Size = New System.Drawing.Size(122, 16)
 		Me.Label8.TabIndex = 40
 		Me.Label8.Text = "Nombre servicio"
-		'
-		'btnAgregarProducto
-		'
-		Me.btnAgregarProducto.BackColor = System.Drawing.SystemColors.Control
-		Me.btnAgregarProducto.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_add_354
-		Me.btnAgregarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnAgregarProducto.FlatAppearance.BorderSize = 0
-		Me.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnAgregarProducto.Location = New System.Drawing.Point(451, 124)
-		Me.btnAgregarProducto.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnAgregarProducto.Name = "btnAgregarProducto"
-		Me.btnAgregarProducto.Size = New System.Drawing.Size(139, 73)
-		Me.btnAgregarProducto.TabIndex = 66
-		Me.btnAgregarProducto.Text = "Agregar servicio"
-		Me.btnAgregarProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnAgregarProducto.UseVisualStyleBackColor = False
 		'
 		'btnAgregarProveedor
 		'
