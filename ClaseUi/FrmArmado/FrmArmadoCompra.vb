@@ -157,7 +157,8 @@ Public Class FrmArmadoCompra
 		Next
 
 		'Registramos la compra y sus respectivos detalles
-		comprasLn.Registrar(listaDeCompras, cboProveedor.SelectedValue)
+
+		comprasLn.Registrar(listaDeCompras, cboProveedor.SelectedValue, CargarDatosComprobante())
 		MsgBox("Compra realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
 		'Imprimimos el comprobante
@@ -388,10 +389,13 @@ Public Class FrmArmadoCompra
 
 	'Trae el numero de comprobante segun el ID en BD
 	Private Function CargarDatosComprobante()
-		Dim CompComprasNE As New ComprobanteComprasNE With {
-			.Comprobante = helpersUI.AgregarNumerosComprobante(comprasLn.ObtenerUltimaCompra)
-		}
-		Return CompComprasNE
+		Dim nroComprobante = ""
+		If String.IsNullOrWhiteSpace(txtNroComprobante.Text) Then
+			nroComprobante = helpersUI.AgregarNumerosComprobante(comprasLn.ObtenerUltimaCompra)
+		Else
+			nroComprobante = txtNroComprobante.Text
+		End If
+		Return nroComprobante
 	End Function
 
 	'Verifica si se hicieron cambios en los frm externos solo si salieron desde este.

@@ -8,12 +8,16 @@ Public Class ComprasLN
 		ComprasDA = New ComprasDA
 	End Sub
 
+	Public Function ObtenerUnaCompra(id As Integer)
+		Return ComprasDA.ObtenerUnaCompra(id)
+	End Function
+
 	Public Function CargarGrillaCompras(ByVal parametros As Dictionary(Of String, String))
 		Return ComprasDA.CargarGrillaCompras(parametros)
 	End Function
 
-	Public Sub Registrar(listaDeProductosId As List(Of TipoDeComprasNE), clienteId As Integer)
-		ComprasDA.Registrar(listaDeProductosId, clienteId)
+	Public Sub Registrar(listaDeProductosId As List(Of TipoDeComprasNE), clienteId As Integer, nroComprobante As String)
+		ComprasDA.Registrar(listaDeProductosId, clienteId, nroComprobante)
 	End Sub
 
 	Public Function ObtenerUltimaCompra()

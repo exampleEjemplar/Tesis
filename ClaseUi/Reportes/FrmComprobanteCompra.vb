@@ -16,27 +16,28 @@ Public Class FrmComprobanteCompra
 
 		Dim rpComprasDS As New ReportDataSource
 		Dim ListaDeCompComprasNE As List(Of ComprobanteComprasNE) = New List(Of ComprobanteComprasNE)
-		Dim idVenta As Integer
+		Dim idCompra As Integer
 
 		'Si accedo desde el frmGestionVenta uso ese Id, si no, uso el ultimo.
-		Dim ventaDeGestion As Integer = FrmGestionCompras.idCompra
-		ventaDeGestion = FrmConsultaMovimientoCaja.compId
-		If ventaDeGestion = 0 Then
-			idVenta = ComprasLN.ObtenerUltimaCompra().Tables(0).Rows(0).Item(0).ToString
+		Dim compraDeGestion As Integer = FrmGestionCompras.idCompra
+		compraDeGestion = FrmConsultaMovimientoCaja.compId
+		If compraDeGestion = 0 Then
+			idCompra = ComprasLN.ObtenerUltimaCompra().Tables(0).Rows(0).Item(0).ToString
 		Else
-			idVenta = ventaDeGestion
+			idCompra = compraDeGestion
 		End If
 
 		'Consulto los productos y cliente de la venta
-		Dim dsProducto As DataSet = ComprasLN.ObtenerDatosProducto(idVenta)
-		Dim dsCliente As DataSet = ComprasLN.ObtenerDatosCliente(idVenta)
+		Dim dsProducto As DataSet = ComprasLN.ObtenerDatosProducto(idCompra)
+		Dim dsCliente As DataSet = ComprasLN.ObtenerDatosCliente(idCompra)
+		Dim dsCompra As DataSet = ComprasLN.ObtenerUnaCompra(idCompra)
 
 		Try
 			'Cargo datos de los productos en la lista de productos del comprobante
 			For i As Integer = 0 To dsProducto.Tables(0).Rows.Count - 1
 
 				Dim CompComprasNE As New ComprobanteComprasNE With {
-					.Comprobante = helpersUI.AgregarNumerosComprobante(idVenta),
+					.Comprobante = dsCompra.Tables(0).Rows(0).Item(5).ToString,
 					.Producto = dsProducto.Tables(0).Rows(i)(1).ToString,
 					.PrecioUnit = dsProducto.Tables(0).Rows(i).Item(2).ToString,
 					.UnidadPeso = dsProducto.Tables(0).Rows(i).Item(3).ToString,

@@ -43,6 +43,17 @@
 			_Total = CStr(value)
 		End Set
 	End Property
+
+	Private _NroComprobante As String
+
+	Public Property NroComprobante As String
+		Get
+			Return _NroComprobante
+		End Get
+		Set(ByVal value As String)
+			_NroComprobante = CStr(value)
+		End Set
+	End Property
 End Class
 
 Public Class TipoDeComprasNE
