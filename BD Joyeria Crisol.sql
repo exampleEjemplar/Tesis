@@ -220,6 +220,7 @@ Fecha DATETIME,
 ProveedorId INT,
 Total FLOAT,
 UsuarioId Int,
+NroComprobante Varchar(MAX),
 CONSTRAINT Compra_Cliente FOREIGN KEY (ProveedorId) REFERENCES Proveedores(ID)
 )
 GO

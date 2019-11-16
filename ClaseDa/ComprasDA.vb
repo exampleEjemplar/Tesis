@@ -15,6 +15,21 @@ Public Class ComprasDA
 		com.Connection = db
 	End Sub
 
+	Public Function ObtenerUnaCompra(id As Integer)
+		helpersDa.ChequearConexion(db)
+		Dim sqlStr As String
+		sqlStr = "SELECT * FROM Compras WHERE Id = " + id
+		ds1 = New DataSet
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+		End Try
+		Return ds1
+	End Function
+
 
 	Public Function CargarGrillaCompras(ByVal parametros As Dictionary(Of String, String)) As DataSet
 		helpersDa.ChequearConexion(db)
@@ -61,7 +76,7 @@ Public Class ComprasDA
 		db.Close()
 	End Function
 
-	Public Sub Registrar(listaDeProductosId As List(Of TipoDeComprasNE), proveedorId As Integer)
+	Public Sub Registrar(listaDeProductosId As List(Of TipoDeComprasNE), proveedorId As Integer, nroComprobante As String)
 		Dim total As Double
 		For Each compraDetalle As TipoDeComprasNE In listaDeProductosId
 			total += (compraDetalle.Precio * compraDetalle.Cantidad)

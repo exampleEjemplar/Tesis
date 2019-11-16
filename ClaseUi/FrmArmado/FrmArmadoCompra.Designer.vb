@@ -69,6 +69,8 @@ Partial Class FrmArmadoCompra
 		Me.Label6 = New System.Windows.Forms.Label()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.Label1 = New System.Windows.Forms.Label()
+		Me.txtNroComprobante = New System.Windows.Forms.TextBox()
+		Me.Label7 = New System.Windows.Forms.Label()
 		Me.gboFiltros.SuspendLayout()
 		Me.gboTotales.SuspendLayout()
 		Me.GroupBox5.SuspendLayout()
@@ -332,6 +334,7 @@ Partial Class FrmArmadoCompra
 		'
 		Me.ListView1.AllowDrop = True
 		Me.ListView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!)
+		Me.ListView1.HideSelection = False
 		Me.ListView1.Location = New System.Drawing.Point(11, 26)
 		Me.ListView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.ListView1.Name = "ListView1"
@@ -451,6 +454,7 @@ Partial Class FrmArmadoCompra
 		'
 		Me.lstProdDispo.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.lstProdDispo.GridLines = True
+		Me.lstProdDispo.HideSelection = False
 		Me.lstProdDispo.Location = New System.Drawing.Point(10, 18)
 		Me.lstProdDispo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.lstProdDispo.Name = "lstProdDispo"
@@ -654,11 +658,31 @@ Partial Class FrmArmadoCompra
 		Me.Label1.TabIndex = 42
 		Me.Label1.Text = "Armado de comprobante de compra"
 		'
+		'txtNroComprobante
+		'
+		Me.txtNroComprobante.Location = New System.Drawing.Point(701, 17)
+		Me.txtNroComprobante.Name = "txtNroComprobante"
+		Me.txtNroComprobante.Size = New System.Drawing.Size(201, 22)
+		Me.txtNroComprobante.TabIndex = 53
+		'
+		'Label7
+		'
+		Me.Label7.AutoSize = True
+		Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
+		Me.Label7.Location = New System.Drawing.Point(508, 17)
+		Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label7.Name = "Label7"
+		Me.Label7.Size = New System.Drawing.Size(186, 17)
+		Me.Label7.TabIndex = 54
+		Me.Label7.Text = "Numero de comprobante"
+		'
 		'FrmArmadoCompra
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(1243, 857)
+		Me.Controls.Add(Me.Label7)
+		Me.Controls.Add(Me.txtNroComprobante)
 		Me.Controls.Add(Me.btnAgregarProducto)
 		Me.Controls.Add(Me.gboFiltros)
 		Me.Controls.Add(Me.gboTotales)
@@ -739,4 +763,6 @@ Partial Class FrmArmadoCompra
 	Friend WithEvents Label6 As Windows.Forms.Label
 	Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
 	Friend WithEvents Label1 As Windows.Forms.Label
+	Friend WithEvents txtNroComprobante As Windows.Forms.TextBox
+	Friend WithEvents Label7 As Windows.Forms.Label
 End Class
