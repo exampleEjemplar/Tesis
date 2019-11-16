@@ -279,7 +279,7 @@ Public Class FrmCatalogo
 
     Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
 
-        FrmDetalleProductoCatalogo.Show()
+        FrmDetalleProductoCatalogo.ShowDialog()
         FrmDetalleProductoCatalogo.TBCODIGO.Text = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
         FrmDetalleProductoCatalogo.TBCODIGOBARRA.Text = (DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value)
 
@@ -310,7 +310,7 @@ Public Class FrmCatalogo
             ms.Write(img, 0, img.GetUpperBound(0) + 1)
             Dim imgImagen As System.Drawing.Image = System.Drawing.Image.FromStream(ms)
             ImagenAmpliada.pbImagen.Image = imgImagen
-            ImagenAmpliada.Show()
+            ImagenAmpliada.ShowDialog()
         End If
 
     End Sub

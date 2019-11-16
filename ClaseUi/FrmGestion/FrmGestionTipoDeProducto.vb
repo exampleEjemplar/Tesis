@@ -71,7 +71,7 @@ Public Class FrmGestionTipoDeProducto
 
 		With FrmGestionProducto
 		End With
-		FrmGestionProducto.Show()
+		FrmGestionProducto.ShowDialog()
 		modificado = True
 		Me.Close()
 	End Sub

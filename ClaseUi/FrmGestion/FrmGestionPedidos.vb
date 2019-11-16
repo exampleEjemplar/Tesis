@@ -46,7 +46,6 @@ Public Class FrmGestionPedidos
 
 	Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 		Me.Close()
-		MDIPrincipal.Show()
 	End Sub
 
 	Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click

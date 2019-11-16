@@ -18,7 +18,7 @@ Public Class FrmConsultaCotizaciones
 
 		With FrmGestionMaterial
 		End With
-		FrmGestionMaterial.Show()
+		FrmGestionMaterial.ShowDialog()
 		Me.Close()
 
 	End Sub
