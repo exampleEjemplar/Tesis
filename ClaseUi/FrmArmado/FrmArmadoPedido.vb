@@ -180,6 +180,10 @@ Public Class FrmArmadoPedido
 			FrmComprobanteVenta.ListaVentas.Add(venta)
 		Next
 
+		If SeñaStuff() = False Then
+			Return
+		End If
+
 		pedidosLN.Registrar(listaDeVentas, cboCliente.SelectedValue, If(chkSeñaManual.Checked, Double.Parse(txtSeña.Text), Double.Parse(lblSeña.Text)))
 		MsgBox("Pedido realizado con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
@@ -369,7 +373,7 @@ Public Class FrmArmadoPedido
 	Public Function LlenarCboProveedores()
 		Try
 			Dim ds1 As DataSet
-			ds1 = helpersLN.CargarCboTodosProveedores()
+			ds1 = helpersLN.CargarCboTodosProveedores("False")
 			cboBusProveedor.DataSource = ds1.Tables(0)
 			cboBusProveedor.DisplayMember = "Nombre"
 			cboBusProveedor.ValueMember = "id"

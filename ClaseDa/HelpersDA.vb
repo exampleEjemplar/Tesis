@@ -195,12 +195,20 @@ Public Class HelpersDA
 
 	End Function
 
-	Public Function CargarCboTodosProveedores()
+	Public Function CargarCboTodosProveedores(ByVal proveeServicios As String)
 
 		ChequearConexion(db)
 		Dim sqlStr As String
+		Dim text As String
 		ds = New DataSet
-		sqlStr = "select Id,Nombre +' '+ Apellido as Nombre from Proveedores Order By Nombre  "
+		If proveeServicios = "True" Then
+			text = "where proveeservicios = 'S'"
+		ElseIf proveeServicios = "False" Then
+			text = "where proveeservicios = 'N'"
+		Else
+			text = ""
+		End If
+		sqlStr = "select Id,Nombre +' '+ Apellido as Nombre from Proveedores " + text + " Order By Nombre"
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
@@ -231,7 +239,7 @@ Public Class HelpersDA
 
 	End Function
 
-	Public Function CargarTodosProductos(ByVal parametros As Dictionary(Of String, String))
+	Public Function CargarTodosProductos(ByVal parametros As Dictionary(Of String, String), Optional esServicio As String = "")
 
 		ChequearConexion(db)
 		Dim sqlStr As String
@@ -241,6 +249,11 @@ Public Class HelpersDA
 		If parametros.Count <> 0 Then
 			Dim count = parametros.Count
 			Dim text = " where "
+			If Not String.IsNullOrWhiteSpace(esServicio) Then
+				text += " esServicio='S' and "
+			Else
+				text += " esServicio='N' and "
+			End If
 			For Each item As KeyValuePair(Of String, String) In parametros
 				If item.Key = "ProveedorId" Then
 					count = count - 1
@@ -269,6 +282,12 @@ Public Class HelpersDA
 				End If
 			Next
 			sqlStr = sqlStr + text + " order By ProveedorId "
+		Else
+			If Not String.IsNullOrWhiteSpace(esServicio) Then
+				sqlStr += " where esServicio='S' "
+			Else
+				sqlStr += "where esServicio='N' "
+			End If
 		End If
 
 

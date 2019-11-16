@@ -9,10 +9,18 @@ Public Class ProductoLN
     Public QPacientesMod As Integer
     Public IdPaciente1 As Integer
 
-    Public Sub New()
-        objproductosAD = New MetodoProductoDA
+	Public Sub New()
+		objproductosAD = New MetodoProductoDA
 
-    End Sub
+	End Sub
+
+	Public Function BuscaServicios(servicioNombre As String)
+		Return objproductosAD.BuscaServicios(servicioNombre)
+	End Function
+
+	Public Sub RegistrarServicio(pro As ProductosNE)
+		objproductosAD.RegistrarServicio(pro)
+	End Sub
 
 	Public Function CargarGrillaStock(parametros As Dictionary(Of String, String)) As DataSet
 		Return objproductosAD.CargarGrillaStock(parametros)
