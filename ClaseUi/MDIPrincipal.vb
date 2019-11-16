@@ -1,14 +1,14 @@
 ﻿Imports System.Windows.Forms
 Imports System.Net
 Imports System.IO
-
+Imports System.Drawing
 
 Public Class MDIPrincipal
 
     Private helpersUi As New HelpersUI
 
 
-    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewWindowToolStripMenuItem.Click
+    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs)
         ' Cree una nueva instancia del formulario secundario.
         Dim ChildForm As New System.Windows.Forms.Form
         ' Conviértalo en un elemento secundario de este formulario MDI antes de mostrarlo.
@@ -88,21 +88,20 @@ Public Class MDIPrincipal
     Private m_ChildFormNumber As Integer
 
     Private Sub MDIPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		Try
-			Dim CLIENTE As New WebClient
-			Dim PAGINA As Stream = CLIENTE.OpenRead("https://www.precio-dolar.com.ar/")
-			Dim LECTOR As New StreamReader(PAGINA)
-			Dim MIHTML As String = LECTOR.ReadToEnd
-			Dim COTIZACION As String = MIHTML.Remove(0, MIHTML.IndexOf("Venta:") + 25)
-			COTIZACION = COTIZACION.Substring(0, COTIZACION.IndexOf("<"))
+        Try
+            Dim CLIENTE As New WebClient
+            Dim PAGINA As Stream = CLIENTE.OpenRead("https://www.precio-dolar.com.ar/")
+            Dim LECTOR As New StreamReader(PAGINA)
+            Dim MIHTML As String = LECTOR.ReadToEnd
+            Dim COTIZACION As String = MIHTML.Remove(0, MIHTML.IndexOf("Venta:") + 25)
+            COTIZACION = COTIZACION.Substring(0, COTIZACION.IndexOf("<"))
 
+            Me.WindowState = FormWindowState.Maximized
+        Catch
 
-			Me.WindowState = FormWindowState.Maximized
-		Catch
+        End Try
 
-		End Try
-
-	End Sub
+    End Sub
 
 
 
@@ -125,7 +124,7 @@ Public Class MDIPrincipal
 
     End Sub
 
-    Private Sub ClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClientesToolStripMenuItem.Click
+    Private Sub ClientesToolStripMenuItem_Click(sender As Object, e As EventArgs)
         FrmEstadisticacliente.Show()
 
 
@@ -149,15 +148,15 @@ Public Class MDIPrincipal
 
     End Sub
 
-	'Private Sub VentaToolStripMenuItemClick(sender As Object, e As EventArgs) Handles VentaToolStripMenuItem.Click
-	'    If helpersUi.ValidarOperacion(NameOf(FrmArmadoVenta)) Then
-	'        FrmArmadoVenta.Show()
-	'    Else
-	'        MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
-	'    End If
-	'End Sub
+    'Private Sub VentaToolStripMenuItemClick(sender As Object, e As EventArgs) Handles VentaToolStripMenuItem.Click
+    '    If helpersUi.ValidarOperacion(NameOf(FrmArmadoVenta)) Then
+    '        FrmArmadoVenta.Show()
+    '    Else
+    '        MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+    '    End If
+    'End Sub
 
-	Private Sub btnCompras_Click(sender As Object, e As EventArgs) Handles btnCompras.Click
+    Private Sub btnCompras_Click(sender As Object, e As EventArgs) Handles btnCompras.Click
         If helpersUi.ValidarOperacion(NameOf(FrmGestionCompras)) Then
             FrmGestionCompras.Show()
         Else
@@ -165,19 +164,19 @@ Public Class MDIPrincipal
         End If
     End Sub
 
-	'Private Sub CompraToolStripMenuItemClick(sender As Object, e As EventArgs) Handles CompraToolStripMenuItem.Click
-	'    If helpersUi.ValidarOperacion(NameOf(FrmArmadoCompra)) Then
-	'        FrmArmadoCompra.Show()
-	'    Else
-	'        MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
-	'    End If
-	'End Sub
+    'Private Sub CompraToolStripMenuItemClick(sender As Object, e As EventArgs) Handles CompraToolStripMenuItem.Click
+    '    If helpersUi.ValidarOperacion(NameOf(FrmArmadoCompra)) Then
+    '        FrmArmadoCompra.Show()
+    '    Else
+    '        MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+    '    End If
+    'End Sub
 
-	Private Sub btnCaja_Click(sender As Object, e As EventArgs) Handles btnCaja.Click
+    Private Sub btnCaja_Click(sender As Object, e As EventArgs) Handles btnCaja.Click
         FrmGestionCaja.Show()
     End Sub
 
-    Private Sub StockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StockToolStripMenuItem.Click
+    Private Sub StockToolStripMenuItem_Click(sender As Object, e As EventArgs)
         FrmGestionStock.Show()
     End Sub
 
