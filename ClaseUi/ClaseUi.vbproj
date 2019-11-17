@@ -148,10 +148,10 @@
     <Compile Include="FrmConsultaMovimientoStock.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEstadisticacliente.Designer.vb">
+    <Compile Include="FrmEstadistica\FrmEstadisticacliente.Designer.vb">
       <DependentUpon>FrmEstadisticacliente.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmEstadisticacliente.vb">
+    <Compile Include="FrmEstadistica\FrmEstadisticacliente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCatalogo.Designer.vb">
@@ -270,10 +270,10 @@
     <Compile Include="Reportes\DataSetReportes.vb">
       <DependentUpon>DataSetReportes.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Reportes\ListadodeClientes.Designer.vb">
+      <DependentUpon>ListadodeClientes.vb</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Form1.vb">
+    <Compile Include="Reportes\ListadodeClientes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\FrmComprobanteCompra.Designer.vb">
@@ -352,7 +352,7 @@
     <EmbeddedResource Include="FrmDetalleProductoCatalogo.resx">
       <DependentUpon>FrmDetalleProductoCatalogo.Vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEstadisticacliente.resx">
+    <EmbeddedResource Include="FrmEstadistica\FrmEstadisticacliente.resx">
       <DependentUpon>FrmEstadisticacliente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionCaja.resx">
@@ -404,8 +404,8 @@
       <DependentUpon>ImagenAmpliada.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ComprobanteVenta.rdlc" />
-    <EmbeddedResource Include="Reportes\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Reportes\ListadodeClientes.resx">
+      <DependentUpon>ListadodeClientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmComprobanteCompra.resx">
       <DependentUpon>FrmComprobanteCompra.vb</DependentUpon>
@@ -614,5 +614,6 @@
   <ItemGroup>
     <WebReferences Include="Web References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
