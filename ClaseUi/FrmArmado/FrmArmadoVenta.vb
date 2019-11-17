@@ -172,7 +172,7 @@ Public Class FrmArmadoVenta
 		Cargar()
 		modificado = True
 
-		FrmComprobanteVenta.Show()
+		FrmComprobanteVenta.ShowDialog()
 
 
 		ListView1.Clear()

@@ -119,7 +119,7 @@ Public Class FrmGestionMaterial
 	End Sub
 
 	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnCotizacionesHist.Click
-		FrmConsultaCotizaciones.Show()
+		FrmConsultaCotizaciones.ShowDialog()
 	End Sub
 
 	Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -132,7 +132,7 @@ Public Class FrmGestionMaterial
 	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSalirr.Click
 		With FrmGestionProducto
 		End With
-		FrmGestionProducto.Show()
+		FrmGestionProducto.ShowDialog()
 		modificado = True
 		Me.Close()
 	End Sub

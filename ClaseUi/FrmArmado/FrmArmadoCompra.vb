@@ -162,7 +162,7 @@ Public Class FrmArmadoCompra
 		MsgBox("Compra realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
 		'Imprimimos el comprobante
-		FrmComprobanteVenta.Show()
+		FrmComprobanteVenta.ShowDialog()
 		modificado = True
 
 

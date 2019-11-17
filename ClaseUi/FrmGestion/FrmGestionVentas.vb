@@ -45,11 +45,10 @@ Public Class FrmGestionVentas
 
 	Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 		Me.Close()
-		MDIPrincipal.Show()
 	End Sub
 
 	Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
-		FrmArmadoVenta.Show()
+		FrmArmadoVenta.ShowDialog()
 	End Sub
 
 	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles dgvProveedores.CellMouseDoubleClick

@@ -69,7 +69,6 @@ Public Class FrmGestionCliente
 
 	Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 		Me.Close()
-		MDIPrincipal.Show()
 	End Sub
 
 	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles Dgvclientes.CellMouseDoubleClick
@@ -610,7 +609,7 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 	End Sub
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-		'FrmListadoClientes.Show()
+		'FrmListadoClientes.ShowDialog()
 
 	End Sub
 

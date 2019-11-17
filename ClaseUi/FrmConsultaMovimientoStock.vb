@@ -46,7 +46,7 @@ Public Class FrmConsultaMovimientoStock
 
 		With FrmGestionStock
 		End With
-		FrmGestionStock.Show()
+		FrmGestionStock.ShowDialog()
 		Close()
 
 	End Sub

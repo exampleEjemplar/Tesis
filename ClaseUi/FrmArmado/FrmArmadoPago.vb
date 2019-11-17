@@ -111,7 +111,7 @@ Public Class FrmArmadoPago
 		Cargar()
 		PrepararTodo()
 		'Imprimimos el comprobante
-		'FrmComprobanteVenta.Show()
+		'FrmComprobanteVenta.ShowDialog()
 		modificado = True
 
 

@@ -669,15 +669,15 @@ Public Class FrmGestionProducto
 	End Sub
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnNuevaCategoria.Click
-		FrmGestionCategorías.Show()
+		FrmGestionCategorías.ShowDialog()
 	End Sub
 
 	Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnNuevoTipo.Click
-		FrmGestionTipoDeProducto.Show()
+		FrmGestionTipoDeProducto.ShowDialog()
 	End Sub
 
 	Private Sub Button6_Click_1(sender As Object, e As EventArgs) Handles btnNuevoMaterial.Click
-		FrmGestionMaterial.Show()
+		FrmGestionMaterial.ShowDialog()
 	End Sub
 
 	Private Sub FrmGestionProducto_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
@@ -725,11 +725,11 @@ Public Class FrmGestionProducto
 	End Sub
 
 	Private Sub BtnProveedor_Click(sender As Object, e As EventArgs) Handles btnProveedor.Click
-		FrmGestionProveedores.Show()
+		FrmGestionProveedores.ShowDialog()
 
 	End Sub
 
 	Private Sub BtnModificarPrecios_Click(sender As Object, e As EventArgs) Handles btnModificarPrecios.Click
-		FrmModificarPrecioProducto.Show()
+		FrmModificarPrecioProducto.ShowDialog()
 	End Sub
 End Class

@@ -20,7 +20,7 @@ Public Class FrmGestionPagos
 
 	Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 		Me.Close()
-		MDIPrincipal.Show()
+		MDIPrincipal.ShowDialog()
 	End Sub
 
 	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated

@@ -59,7 +59,7 @@ Public Class FrmGestionUsuario
 
 	Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 		Me.Close()
-		MDIPrincipal.Show()
+		MDIPrincipal.ShowDialog()
 	End Sub
 
 	Private Sub DgvProveedores_DoubleClick(sender As Object, e As System.EventArgs) Handles dgvUsuarios.DoubleClick

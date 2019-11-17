@@ -22,7 +22,7 @@ Public Class FrmConsultaMovimientoCaja
 
 		With FrmGestionCaja
 		End With
-		FrmGestionCaja.Show()
+		FrmGestionCaja.ShowDialog()
 		Close()
 
 		End Sub
