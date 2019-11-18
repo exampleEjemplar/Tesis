@@ -38,6 +38,11 @@ Public Class VentasLN
     Public Function GeneraGraficoCantidadVendedor(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
         Return ventasDA.GeneraGraficoCantidadVendedor(fechadesde, fechahasta)
     End Function
+
+    Public Function GeneraGraficoFacturacionPorMes(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return ventasDA.GeneraGraficoFacturacionPorMes(fechadesde, fechahasta)
+    End Function
+
     Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
         ventasDA.Controlfecha(fechadesde, fechahasta)
         contador = ventasDA.contador

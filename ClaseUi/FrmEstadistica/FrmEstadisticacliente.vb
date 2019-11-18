@@ -41,15 +41,23 @@ Public Class FrmEstadisticacliente
 
         fechadesde = Format(dtpdesde.Value, "yyyy/MM/dd")
         fechahasta = Format(dtphasta.Value.AddDays(1), "yyyy/MM/dd")
-        controlfecha()
 
-        If contador > 0 Then
-            gbFiltro.Visible = True
+        If fechadesde <= fechahasta Then
+
+            controlfecha()
+
+            If contador > 0 Then
+                gbFiltro.Visible = True
+            Else
+
+                MsgBox("No existe registro en ese intervalo de fechas", MsgBoxStyle.Critical, "Error")
+
+            End If
         Else
-
-            MsgBox("No existe registro en ese intervalo de fechas", MsgBoxStyle.Critical, "Error")
-
+            MsgBox("La fecha hasta NO puede ser menor que la fecha desde", MsgBoxStyle.Critical, "Error")
+            Return
         End If
+
 
 
 

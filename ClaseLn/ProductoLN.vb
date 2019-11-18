@@ -102,7 +102,9 @@ Public Class ProductoLN
     End Function
 
 
-
+    Public Function CargaGrillaProductos(ByVal parametros As Dictionary(Of String, String)) As DataSet
+        Return objproductosAD.CargaGrillaProductos(parametros)
+    End Function
 
 
     Public Function CargarUnProducto(id As Integer)

@@ -288,6 +288,12 @@
     <Compile Include="Reportes\Frmlistadodeventas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\ListadodeMovimientoCaja.Designer.vb">
+      <DependentUpon>ListadodeMovimientoCaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ListadodeMovimientoCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\ListadodeProveedores.Designer.vb">
       <DependentUpon>ListadodeProveedores.vb</DependentUpon>
     </Compile>
@@ -464,6 +470,7 @@
     <EmbeddedResource Include="Reportes\ListadoClientesPorfecha.rdlc" />
     <EmbeddedResource Include="Reportes\ListadoProveedoresPorFecha.rdlc" />
     <EmbeddedResource Include="Reportes\ListadodeVentasporFecha.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteCaja.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

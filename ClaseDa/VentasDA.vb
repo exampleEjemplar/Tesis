@@ -196,12 +196,34 @@ Public Class VentasDA
     End Function
 
 
+    Public Function GeneraGraficoFacturacionPorMes(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        helpersDa.ChequearConexion(db)
+
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "select sum(total) AS Facturacion, MONTH(fecha) as Mes from ventas " &
+"where Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+"group by MONTH(Fecha)"
+
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return ds1
+        db.Close()
+
+    End Function
+
     Public Function GeneraGraficoCantidadVendedor(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
         helpersDa.ChequearConexion(db)
 
         Dim sqlStr As String
         ds1 = New DataSet
-        sqlStr = " select sum(cantidad) AS Cantidad, u.UserName from Detalleventas dv inner join ventas v on dv.VentaId=v.id inner join Productos p on dv.ProductoId=p.id inner join Usuarios u on v.UsuarioId=u.id " &
+        sqlStr = " select count(v.id) AS Cantidad, u.UserName from Detalleventas dv inner join ventas v on dv.VentaId=v.id inner join Productos p on dv.ProductoId=p.id inner join Usuarios u on v.UsuarioId=u.id " &
 "where v.Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
 "group by u.UserName"
 
