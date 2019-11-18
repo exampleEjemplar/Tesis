@@ -94,6 +94,18 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackupCliente.Designer.vb">
+      <DependentUpon>BackupCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BackupCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackupProov.Designer.vb">
+      <DependentUpon>BackupProov.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BackupProov.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CantidadDragAndDrop.Designer.vb">
       <DependentUpon>CantidadDragAndDrop.vb</DependentUpon>
     </Compile>
@@ -348,6 +360,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BackupCliente.resx">
+      <DependentUpon>BackupCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackupProov.resx">
+      <DependentUpon>BackupProov.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CantidadDragAndDrop.resx">
       <DependentUpon>CantidadDragAndDrop.vb</DependentUpon>
       <SubType>Designer</SubType>

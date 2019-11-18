@@ -347,69 +347,93 @@ Public Class MetodoProductoDA
 	End Function
 
 	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
+		'Try
+		'	helpersDa.ChequearConexion(db)
+		'	Dim ds = New DataSet
+		'	'com = New SqlCommand("SP_MostrarProductosinbusqueda", db)
+		'	'com.CommandType = CommandType.StoredProcedure
+		'	'With com.Parameters
+		'	'	.AddWithValue("@codigo", codigo)
+		'	'	.AddWithValue("@Nombre", nombre)
+		'	'	.AddWithValue("@EsServicio", "N")
+
+		'	'End With
+
+		'	''com.ExecuteNonQuery()
+		'	'If com.ExecuteNonQuery() Then
+		'	'	Dim da As New SqlDataAdapter(com)
+		'	'	CargaGrillaproductossinbusqueda = New DataTable
+		'	'	da.Fill(CargaGrillaproductossinbusqueda)
+
+		'	'	Return CargaGrillaproductossinbusqueda
+		'	'Else
+		'	'	Return Nothing
+		'	'End If
+
+
+		'Catch ex As Exception
+		'	MsgBox(ex.Message)
+		'	Return Nothing
+		'Finally
+		'	db.Close()
+		'End Try
+		Dim sqlstr = "SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto, p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.TipoProductoID, p.UnidadDePeso, p.CategoriaID, p.StockODeTercero FROM productos as p inner join TipoProductos t on p.TipoProductoID=t.id inner join Materiales m On p.MaterialId=m.id inner join categorias ca on p.CategoriaID= ca.Id where p.esservicio = 'N' "
+
+		Dim dt As New DataTable
 		Try
-			helpersDa.ChequearConexion(db)
-
-			com = New SqlCommand("SP_MostrarProductosinbusqueda", db)
-			com.CommandType = CommandType.StoredProcedure
-			With com.Parameters
-				.AddWithValue("@codigo", codigo)
-				.AddWithValue("@Nombre", nombre)
-				.AddWithValue("@EsServicio", "N")
-
-			End With
-
-			'com.ExecuteNonQuery()
-			If com.ExecuteNonQuery() Then
-				Dim da As New SqlDataAdapter(com)
-				CargaGrillaproductossinbusqueda = New DataTable
-				da.Fill(CargaGrillaproductossinbusqueda)
-
-				Return CargaGrillaproductossinbusqueda
-			Else
-				Return Nothing
-			End If
-
+			Dim da As New SqlDataAdapter(sqlstr, db)
+			da.Fill(dt)
+			db.Close()
 		Catch ex As Exception
-			MsgBox(ex.Message)
-			Return Nothing
-		Finally
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
 			db.Close()
 		End Try
+		Return dt
 
 	End Function
 
-    Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As Integer) As DataTable
+	Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As Integer) As DataTable
 
-        Try
-            helpersDa.ChequearConexion(db)
-            com = New SqlCommand("SP_MostrarProductoconbusquedaCAT", db)
-            com.CommandType = CommandType.StoredProcedure
-            With com.Parameters
-                .AddWithValue("@codigo", codigo)
-                .AddWithValue("@Nombre", nombre)
-                .AddWithValue("@Categoria", categoria)
-            End With
+		'     Try
+		'         helpersDa.ChequearConexion(db)
+		'         com = New SqlCommand("SP_MostrarProductoconbusquedaCAT", db)
+		'         com.CommandType = CommandType.StoredProcedure
+		'         With com.Parameters
+		'             .AddWithValue("@codigo", codigo)
+		'             .AddWithValue("@Nombre", nombre)
+		'             .AddWithValue("@Categoria", categoria)
+		'         End With
 
-            com.ExecuteNonQuery()
-            If com.ExecuteNonQuery() Then
-                Dim da As New SqlDataAdapter(com)
-                CargaGrillaproductosCONbusquedaCAT = New DataTable
-                da.Fill(CargaGrillaproductosCONbusquedaCAT)
+		''com.ExecuteNonQuery()
+		'If com.ExecuteNonQuery() Then
+		'             Dim da As New SqlDataAdapter(com)
+		'             CargaGrillaproductosCONbusquedaCAT = New DataTable
+		'             da.Fill(CargaGrillaproductosCONbusquedaCAT)
 
-                Return CargaGrillaproductosCONbusquedaCAT
-            Else
-                Return Nothing
-            End If
+		'             Return CargaGrillaproductosCONbusquedaCAT
+		'         Else
+		'             Return Nothing
+		'         End If
 
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return Nothing
-        Finally
-            db.Close()
-        End Try
+		'     Catch ex As Exception
+		'         MsgBox(ex.Message)
+		'         Return Nothing
+		'     Finally
+		'         db.Close()
+		'     End Try
+		Dim dt As New DataTable
+		Dim sqlstr = "SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto,  p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.TipoProductoID, p.UnidadDePeso,  p.CategoriaID, p.StockODeTercero FROM productos as p inner join TipoProductos t on p.TipoProductoID=t.id inner join Materiales m On p.MaterialId=m.id inner join categorias ca on p.CategoriaID= ca.Id where" + If(String.IsNullOrWhiteSpace(codigo.ToString()), "", " p.id = " + codigo.ToString()) + If(String.IsNullOrWhiteSpace(nombre.ToString()), "", " p.nombre Like  '%" + nombre.ToString() + "%'") + If(Not String.IsNullOrWhiteSpace(categoria.ToString()) And Not categoria = 0, " p.CategoriaID = " + categoria.ToString(), "")
+		Try
+			Dim da As New SqlDataAdapter(sqlstr, db)
+			da.Fill(dt)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+		Return dt
 
-    End Function
+	End Function
 
     Public Function CargaGrillaproductosCONbusquedaproducto(ByVal codigo As String, ByVal nombre As String, ByVal categoria As Integer) As DataTable
 

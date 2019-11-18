@@ -149,14 +149,6 @@ Public Class MDIPrincipal
 
 	End Sub
 
-	'Private Sub VentaToolStripMenuItemClick(sender As Object, e As EventArgs) Handles VentaToolStripMenuItem.Click
-	'    If helpersUi.ValidarOperacion(NameOf(FrmArmadoVenta)) Then
-	'        FrmArmadoVenta.ShowDialog()
-	'    Else
-	'        MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
-	'    End If
-	'End Sub
-
 	Private Sub btnCompras_Click(sender As Object, e As EventArgs) Handles btnCompras.Click
 		If helpersUi.ValidarOperacion(NameOf(FrmGestionCompras)) Then
 			FrmGestionCompras.ShowDialog()
@@ -164,14 +156,6 @@ Public Class MDIPrincipal
 			MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
 		End If
 	End Sub
-
-	'Private Sub CompraToolStripMenuItemClick(sender As Object, e As EventArgs) Handles CompraToolStripMenuItem.Click
-	'    If helpersUi.ValidarOperacion(NameOf(FrmArmadoCompra)) Then
-	'        FrmArmadoCompra.ShowDialog()
-	'    Else
-	'        MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
-	'    End If
-	'End Sub
 
 	Private Sub btnCaja_Click(sender As Object, e As EventArgs) Handles btnCaja.Click
 		FrmGestionCaja.ShowDialog()
