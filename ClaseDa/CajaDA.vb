@@ -58,22 +58,25 @@ Public Class CajaDA
 		Return ds
 	End Function
 
-    Public Function CargarUnMovimiento(movimientoId As Tuple(Of Integer, String)) As DataSet
-        helpersDA.ChequearConexion(db)
-        Dim ds = New DataSet
+	Public Function CargarUnMovimiento(movimientoId As Tuple(Of Integer, String)) As DataSet
+		helpersDA.ChequearConexion(db)
+		Dim ds = New DataSet
+		Dim text = ""
+		If movimientoId.Item2 = "Compra" Then
+			text = ", cov.NroComprobante "
+		End If
+		Dim sqlStr = "Select cov.id,cov.fecha,cov.Total,u.username " + text + " from " + movimientoId.Item2 + "s as cov inner join usuarios as u on u.id = cov.usuarioID where cov.id = " + movimientoId.Item1.ToString()
 
-        Dim sqlStr = "Select cov.id,cov.fecha,cov.Total,u.username from " + movimientoId.Item2 + "s as cov inner join usuarios as u on u.id = cov.usuarioID where cov.id = " + movimientoId.Item1.ToString()
-
-        Try
-            Dim da As New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            db.Close()
-        End Try
-        Return ds
-    End Function
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			db.Close()
+		End Try
+		Return ds
+	End Function
 
 
 

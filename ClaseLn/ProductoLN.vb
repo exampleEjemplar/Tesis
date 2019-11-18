@@ -106,8 +106,8 @@ Public Class ProductoLN
 	End Function
 
 
-	Public Function CargarUnProducto(id As Integer)
-		Return objproductosAD.CargarUnProducto(id)
+	Public Function CargarUnProducto(id As Integer, nombre As String)
+		Return objproductosAD.CargarUnProducto(id, nombre)
 	End Function
 
 	Public Sub ModificarPrecios(listOfProductos As IEnumerable(Of Tuple(Of Integer, Boolean, ProductosNE)), precio As String, tipo As String)
