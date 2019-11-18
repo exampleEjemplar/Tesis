@@ -49,14 +49,16 @@ Partial Class FrmModificarPrecioProducto
 		Me.txtAdicionar = New System.Windows.Forms.TextBox()
 		Me.Label4 = New System.Windows.Forms.Label()
 		Me.Label11 = New System.Windows.Forms.Label()
-		Me.Button5 = New System.Windows.Forms.Button()
-		Me.Button4 = New System.Windows.Forms.Button()
-		Me.Button3 = New System.Windows.Forms.Button()
-		Me.Button2 = New System.Windows.Forms.Button()
+		Me.btnTtpAdicion = New System.Windows.Forms.Button()
+		Me.btnTtpExacto = New System.Windows.Forms.Button()
+		Me.btnTtpPorcentaje = New System.Windows.Forms.Button()
+		Me.btnTtpGral = New System.Windows.Forms.Button()
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.ttpInfoGral = New System.Windows.Forms.RichTextBox()
-		Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+		Me.ttpPorcentaje = New System.Windows.Forms.RichTextBox()
+		Me.ttpExacto = New System.Windows.Forms.RichTextBox()
+		Me.ttpAdicionar = New System.Windows.Forms.RichTextBox()
 		Me.gboFiltros.SuspendLayout()
 		Me.SuspendLayout()
 		'
@@ -343,66 +345,66 @@ Partial Class FrmModificarPrecioProducto
 		Me.Label11.TabIndex = 50
 		Me.Label11.Text = "Complete un campo a actualizar"
 		'
-		'Button5
+		'btnTtpAdicion
 		'
-		Me.Button5.BackColor = System.Drawing.SystemColors.Control
-		Me.Button5.BackgroundImage = Global.ClaseUi.My.Resources.Resources.PNGIX_com_ask_icon_png_3810269__2_
-		Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button5.FlatAppearance.BorderSize = 0
-		Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button5.Location = New System.Drawing.Point(667, 502)
-		Me.Button5.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button5.Name = "Button5"
-		Me.Button5.Size = New System.Drawing.Size(39, 41)
-		Me.Button5.TabIndex = 54
-		Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button5.UseVisualStyleBackColor = False
+		Me.btnTtpAdicion.BackColor = System.Drawing.SystemColors.Control
+		Me.btnTtpAdicion.BackgroundImage = Global.ClaseUi.My.Resources.Resources.PNGIX_com_ask_icon_png_3810269__2_
+		Me.btnTtpAdicion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnTtpAdicion.FlatAppearance.BorderSize = 0
+		Me.btnTtpAdicion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnTtpAdicion.Location = New System.Drawing.Point(667, 502)
+		Me.btnTtpAdicion.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnTtpAdicion.Name = "btnTtpAdicion"
+		Me.btnTtpAdicion.Size = New System.Drawing.Size(39, 41)
+		Me.btnTtpAdicion.TabIndex = 54
+		Me.btnTtpAdicion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnTtpAdicion.UseVisualStyleBackColor = False
 		'
-		'Button4
+		'btnTtpExacto
 		'
-		Me.Button4.BackColor = System.Drawing.SystemColors.Control
-		Me.Button4.BackgroundImage = Global.ClaseUi.My.Resources.Resources.PNGIX_com_ask_icon_png_3810269__2_
-		Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button4.FlatAppearance.BorderSize = 0
-		Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button4.Location = New System.Drawing.Point(667, 425)
-		Me.Button4.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button4.Name = "Button4"
-		Me.Button4.Size = New System.Drawing.Size(39, 41)
-		Me.Button4.TabIndex = 53
-		Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button4.UseVisualStyleBackColor = False
+		Me.btnTtpExacto.BackColor = System.Drawing.SystemColors.Control
+		Me.btnTtpExacto.BackgroundImage = Global.ClaseUi.My.Resources.Resources.PNGIX_com_ask_icon_png_3810269__2_
+		Me.btnTtpExacto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnTtpExacto.FlatAppearance.BorderSize = 0
+		Me.btnTtpExacto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnTtpExacto.Location = New System.Drawing.Point(667, 425)
+		Me.btnTtpExacto.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnTtpExacto.Name = "btnTtpExacto"
+		Me.btnTtpExacto.Size = New System.Drawing.Size(39, 41)
+		Me.btnTtpExacto.TabIndex = 53
+		Me.btnTtpExacto.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnTtpExacto.UseVisualStyleBackColor = False
 		'
-		'Button3
+		'btnTtpPorcentaje
 		'
-		Me.Button3.BackColor = System.Drawing.SystemColors.Control
-		Me.Button3.BackgroundImage = Global.ClaseUi.My.Resources.Resources.PNGIX_com_ask_icon_png_3810269__2_
-		Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button3.FlatAppearance.BorderSize = 0
-		Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button3.Location = New System.Drawing.Point(667, 346)
-		Me.Button3.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button3.Name = "Button3"
-		Me.Button3.Size = New System.Drawing.Size(39, 41)
-		Me.Button3.TabIndex = 52
-		Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button3.UseVisualStyleBackColor = False
+		Me.btnTtpPorcentaje.BackColor = System.Drawing.SystemColors.Control
+		Me.btnTtpPorcentaje.BackgroundImage = Global.ClaseUi.My.Resources.Resources.PNGIX_com_ask_icon_png_3810269__2_
+		Me.btnTtpPorcentaje.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnTtpPorcentaje.FlatAppearance.BorderSize = 0
+		Me.btnTtpPorcentaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnTtpPorcentaje.Location = New System.Drawing.Point(667, 346)
+		Me.btnTtpPorcentaje.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnTtpPorcentaje.Name = "btnTtpPorcentaje"
+		Me.btnTtpPorcentaje.Size = New System.Drawing.Size(39, 41)
+		Me.btnTtpPorcentaje.TabIndex = 52
+		Me.btnTtpPorcentaje.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnTtpPorcentaje.UseVisualStyleBackColor = False
 		'
-		'Button2
+		'btnTtpGral
 		'
-		Me.Button2.BackColor = System.Drawing.SystemColors.Control
-		Me.Button2.BackgroundImage = Global.ClaseUi.My.Resources.Resources.PNGIX_com_ask_icon_png_3810269__2_
-		Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button2.FlatAppearance.BorderSize = 0
-		Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button2.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.Button2.Location = New System.Drawing.Point(670, 256)
-		Me.Button2.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button2.Name = "Button2"
-		Me.Button2.Size = New System.Drawing.Size(29, 27)
-		Me.Button2.TabIndex = 51
-		Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button2.UseVisualStyleBackColor = False
+		Me.btnTtpGral.BackColor = System.Drawing.SystemColors.Control
+		Me.btnTtpGral.BackgroundImage = Global.ClaseUi.My.Resources.Resources.PNGIX_com_ask_icon_png_3810269__2_
+		Me.btnTtpGral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnTtpGral.FlatAppearance.BorderSize = 0
+		Me.btnTtpGral.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnTtpGral.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.btnTtpGral.Location = New System.Drawing.Point(670, 256)
+		Me.btnTtpGral.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnTtpGral.Name = "btnTtpGral"
+		Me.btnTtpGral.Size = New System.Drawing.Size(29, 27)
+		Me.btnTtpGral.TabIndex = 51
+		Me.btnTtpGral.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnTtpGral.UseVisualStyleBackColor = False
 		'
 		'btnNuevo
 		'
@@ -439,37 +441,59 @@ Partial Class FrmModificarPrecioProducto
 		'ttpInfoGral
 		'
 		Me.ttpInfoGral.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.ttpInfoGral.Location = New System.Drawing.Point(395, 215)
+		Me.ttpInfoGral.Location = New System.Drawing.Point(390, 215)
 		Me.ttpInfoGral.Name = "ttpInfoGral"
 		Me.ttpInfoGral.Size = New System.Drawing.Size(419, 38)
 		Me.ttpInfoGral.TabIndex = 55
-		Me.ttpInfoGral.Text = "Puede modificar el precio de uno o varios productos rellenando cualquiera de los " &
-	 "campos de abajo"
+		Me.ttpInfoGral.Text = "Puede incrementar o decrecer el precio de uno o varios productos "
 		Me.ttpInfoGral.Visible = False
 		'
-		'RichTextBox1
+		'ttpPorcentaje
 		'
-		Me.RichTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.RichTextBox1.Location = New System.Drawing.Point(308, 296)
-		Me.RichTextBox1.Name = "RichTextBox1"
-		Me.RichTextBox1.Size = New System.Drawing.Size(506, 55)
-		Me.RichTextBox1.TabIndex = 56
-		Me.RichTextBox1.Text = "Escribiendo en este cuadro puede incrementar o decrecer el precio de uno o varios" &
-	 " productos introduciendo el porcentaje deseado. Ej: 15 aumentará 15 por ciento. " &
-	 "-2 bajará 2 por ciento"
-		Me.RichTextBox1.Visible = False
+		Me.ttpPorcentaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.ttpPorcentaje.Location = New System.Drawing.Point(305, 283)
+		Me.ttpPorcentaje.Name = "ttpPorcentaje"
+		Me.ttpPorcentaje.Size = New System.Drawing.Size(506, 55)
+		Me.ttpPorcentaje.TabIndex = 56
+		Me.ttpPorcentaje.Text = "En este campo, introduciendo el porcentaje deseado. Ej: 15 aumentará 15 por cient" &
+	 "o. -2 bajará 2 por ciento"
+		Me.ttpPorcentaje.Visible = False
+		'
+		'ttpExacto
+		'
+		Me.ttpExacto.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.ttpExacto.Location = New System.Drawing.Point(305, 367)
+		Me.ttpExacto.Name = "ttpExacto"
+		Me.ttpExacto.Size = New System.Drawing.Size(506, 55)
+		Me.ttpExacto.TabIndex = 57
+		Me.ttpExacto.Text = "En este campo, el numero que ingrese será el nuevo precio de los productos selecc" &
+	 "ionados. Ej. 150 hará que el nuevo precio de todos los productos seleccionados s" &
+	 "ea de $150"
+		Me.ttpExacto.Visible = False
+		'
+		'ttpAdicionar
+		'
+		Me.ttpAdicionar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.ttpAdicionar.Location = New System.Drawing.Point(308, 442)
+		Me.ttpAdicionar.Name = "ttpAdicionar"
+		Me.ttpAdicionar.Size = New System.Drawing.Size(506, 70)
+		Me.ttpAdicionar.TabIndex = 58
+		Me.ttpAdicionar.Text = resources.GetString("ttpAdicionar.Text")
+		Me.ttpAdicionar.Visible = False
 		'
 		'FrmModificarPrecioProducto
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(819, 586)
-		Me.Controls.Add(Me.RichTextBox1)
+		Me.Controls.Add(Me.ttpAdicionar)
+		Me.Controls.Add(Me.ttpExacto)
+		Me.Controls.Add(Me.ttpPorcentaje)
 		Me.Controls.Add(Me.ttpInfoGral)
-		Me.Controls.Add(Me.Button5)
-		Me.Controls.Add(Me.Button4)
-		Me.Controls.Add(Me.Button3)
-		Me.Controls.Add(Me.Button2)
+		Me.Controls.Add(Me.btnTtpAdicion)
+		Me.Controls.Add(Me.btnTtpExacto)
+		Me.Controls.Add(Me.btnTtpPorcentaje)
+		Me.Controls.Add(Me.btnTtpGral)
 		Me.Controls.Add(Me.Label11)
 		Me.Controls.Add(Me.txtAdicionar)
 		Me.Controls.Add(Me.Label4)
@@ -521,10 +545,12 @@ Partial Class FrmModificarPrecioProducto
 	Friend WithEvents Label11 As Windows.Forms.Label
 	Friend WithEvents cboCategorias As Windows.Forms.ComboBox
 	Friend WithEvents Label5 As Windows.Forms.Label
-	Friend WithEvents Button2 As Windows.Forms.Button
-	Friend WithEvents Button3 As Windows.Forms.Button
-	Friend WithEvents Button4 As Windows.Forms.Button
-	Friend WithEvents Button5 As Windows.Forms.Button
+	Friend WithEvents btnTtpGral As Windows.Forms.Button
+	Friend WithEvents btnTtpPorcentaje As Windows.Forms.Button
+	Friend WithEvents btnTtpExacto As Windows.Forms.Button
+	Friend WithEvents btnTtpAdicion As Windows.Forms.Button
 	Friend WithEvents ttpInfoGral As Windows.Forms.RichTextBox
-	Friend WithEvents RichTextBox1 As Windows.Forms.RichTextBox
+	Friend WithEvents ttpPorcentaje As Windows.Forms.RichTextBox
+	Friend WithEvents ttpExacto As Windows.Forms.RichTextBox
+	Friend WithEvents ttpAdicionar As Windows.Forms.RichTextBox
 End Class
