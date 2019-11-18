@@ -65,7 +65,7 @@ Public Class FrmGestionCaja
 		txtMontoFinal.Text = (totalIngresos - totalEgresos).ToString()
 		txtUsuario.Text = String.Join(" // ", usuarios)
 
-		If ds.Tables(0).Rows.Count = 0 Then
+		If cantidadMovimientos = 0 Then
 			MsgBox("No se obtuvieron movimientos de caja para la busqueda", MsgBoxStyle.OkOnly, "Movimiento caja")
 		End If
 	End Sub

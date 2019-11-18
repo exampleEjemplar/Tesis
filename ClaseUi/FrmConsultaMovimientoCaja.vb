@@ -11,7 +11,7 @@ Public Class FrmConsultaMovimientoCaja
 
 		txtUsuario.Text = fila(3)
 		txtTipo.Text = FrmGestionCaja.movCajaId.Item2
-		txtNumeroDeComprobante.Text = "0001-" + helpersUI.AgregarNumerosComprobante(fila(0))
+		txtNumeroDeComprobante.Text = fila(4)
 		txtMonto.Text = fila(2)
 		txtFecha.Text = fila(1)
 		compId = fila(0)
