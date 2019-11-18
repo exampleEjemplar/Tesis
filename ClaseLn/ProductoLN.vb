@@ -2,12 +2,12 @@
 Imports ClaseNe
 Public Class ProductoLN
 
-    Private objproductosAD As MetodoProductoDA
+	Private objproductosAD As MetodoProductoDA
 
-    Public idProv As Integer
-    Public QProducto As Integer
-    Public QPacientesMod As Integer
-    Public IdPaciente1 As Integer
+	Public idProv As Integer
+	Public QProducto As Integer
+	Public QPacientesMod As Integer
+	Public IdPaciente1 As Integer
 
 	Public Sub New()
 		objproductosAD = New MetodoProductoDA
@@ -33,52 +33,52 @@ Public Class ProductoLN
 
 	Public Function CargarCMBTipo()
 
-        Return objproductosAD.CargarCMBtIpo
-    End Function
+		Return objproductosAD.CargarCMBtIpo
+	End Function
 
-    Public Function CargarCMBmaterial()
+	Public Function CargarCMBmaterial()
 
-        Return objproductosAD.CargarCMBmaterial
-    End Function
+		Return objproductosAD.CargarCMBmaterial
+	End Function
 
-    Public Function CargarCMBproveerdor()
-
-
-        Return objproductosAD.CargarCMBproveerdor()
-
-    End Function
-    Public Sub ConsultarCodigo()
-
-        objproductosAD.ControlID()
-        QProducto = objproductosAD.qidproductos
-    End Sub
+	Public Function CargarCMBproveerdor()
 
 
-    Public Function LlenarCMBCategoria()
+		Return objproductosAD.CargarCMBproveerdor()
+
+	End Function
+	Public Sub ConsultarCodigo()
+
+		objproductosAD.ControlID()
+		QProducto = objproductosAD.qidproductos
+	End Sub
 
 
-        Return objproductosAD.LlenarCMBCategoria()
+	Public Function LlenarCMBCategoria()
 
-    End Function
 
-    Public Function Cargargrilladobleclick()
+		Return objproductosAD.LlenarCMBCategoria()
 
-        Return objproductosAD.Cargargrilladobleclick()
+	End Function
 
-    End Function
+	Public Function Cargargrilladobleclick()
 
-    Public Function CargarCMBcategoria2(ByVal idcat1 As Integer)
+		Return objproductosAD.Cargargrilladobleclick()
 
-        Return objproductosAD.CargarCMBcategoria2(idcat1)
+	End Function
 
-    End Function
-    Public Sub Grabarproductos(ByVal pro As ProductosNE)
-        objproductosAD.Grabarproductos(pro)
-    End Sub
+	Public Function CargarCMBcategoria2(ByVal idcat1 As Integer)
 
-    Public Sub modificarproductos(ByVal pro As ProductosNE)
-        objproductosAD.modificarproductos(pro)
-    End Sub
+		Return objproductosAD.CargarCMBcategoria2(idcat1)
+
+	End Function
+	Public Sub Grabarproductos(ByVal pro As ProductosNE)
+		objproductosAD.Grabarproductos(pro)
+	End Sub
+
+	Public Sub modificarproductos(ByVal pro As ProductosNE)
+		objproductosAD.modificarproductos(pro)
+	End Sub
 
 	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
 
@@ -87,21 +87,27 @@ Public Class ProductoLN
 
 	Public Function CargaGrillaproductosconbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
 
-        Return objproductosAD.CargaGrillaproductosconbusqueda(codigo, nombre)
-    End Function
+		Return objproductosAD.CargaGrillaproductosconbusqueda(codigo, nombre)
+	End Function
 
-    Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As Integer) As DataTable
+	Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As Integer) As DataTable
 
-        Return objproductosAD.CargaGrillaproductosCONbusquedaCAT(codigo, nombre, categoria)
-    End Function
+		Return objproductosAD.CargaGrillaproductosCONbusquedaCAT(codigo, nombre, categoria)
+	End Function
 
-    Public Function CargaGrillaproductosCONbusquedaproducto(ByVal codigo As String, ByVal nombre As String, ByVal categoria As Integer) As DataTable
+	Public Function CargaGrillaproductosCONbusquedaproducto(ByVal codigo As String, ByVal nombre As String, ByVal categoria As Integer) As DataTable
 
-        Return objproductosAD.CargaGrillaproductosCONbusquedaproducto(codigo, nombre, categoria)
-    End Function
+		Return objproductosAD.CargaGrillaproductosCONbusquedaproducto(codigo, nombre, categoria)
+	End Function
 
-	Public Function CargarUnProducto(id As Integer, nombre As String)
-		Return objproductosAD.CargarUnProducto(id, nombre)
+
+	Public Function CargaGrillaProductos(ByVal parametros As Dictionary(Of String, String)) As DataSet
+		Return objproductosAD.CargaGrillaProductos(parametros)
+	End Function
+
+
+	Public Function CargarUnProducto(id As Integer)
+		Return objproductosAD.CargarUnProducto(id)
 	End Function
 
 	Public Sub ModificarPrecios(listOfProductos As IEnumerable(Of Tuple(Of Integer, Boolean, ProductosNE)), precio As String, tipo As String)

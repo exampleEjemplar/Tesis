@@ -11,14 +11,32 @@ Public Class FrmCatalogo
     Dim busqcod As String
     Dim categoria As Integer
     Dim qidproductos As Integer
+    Dim parametros As New Dictionary(Of String, String)
+
+    Public Function LlenarCMBCategoria()
+        Try
+            Dim ds1 As DataSet
+            ds1 = productometodo.LlenarCMBCategoria
+            CmbCategoria.DataSource = ds1.Tables(0)
+            CmbCategoria.DisplayMember = "nombre"
+            CmbCategoria.ValueMember = "id"
+            CmbCategoria.SelectedValue = 0
+
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return CmbCategoria.SelectedValue
+    End Function
 
 
 
-    Public Sub Dgvproductos()
+    Public Function DgvclientesSet(ByVal parametros As Dictionary(Of String, String)) As DataSet
+        Dim dsa1 As DataSet
+        dsa1 = productometodo.CargaGrillaProductos(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
+
+        DataGridView1.DataSource = dsa1.Tables(0)
         Dim btncolumnaimagen = New DataGridViewButtonColumn
-		Dim dsa1 As DataTable
-		dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
-        DataGridView1.DataSource = dsa1
         DataGridView1.Columns(0).HeaderText = "Código"
         DataGridView1.Columns(1).Visible = False
         DataGridView1.Columns(2).HeaderText = "Nombre de Producto"
@@ -39,9 +57,6 @@ Public Class FrmCatalogo
         DataGridView1.Columns(16).Visible = False
         DataGridView1.Columns(17).Visible = False
         DataGridView1.Columns(18).Visible = False
-        DataGridView1.Columns(19).Visible = False
-        DataGridView1.Columns(20).Visible = False
-        DataGridView1.Columns(21).Visible = False
         DataGridView1.Columns(1).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridView1.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         DataGridView1.Columns(0).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
@@ -55,7 +70,7 @@ Public Class FrmCatalogo
         DataGridView1.Columns(5).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridView1.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         DataGridView1.Sort(DataGridView1.Columns(2), System.ComponentModel.ListSortDirection.Ascending)
-        DataGridView1.Columns(0).Width = 80
+        '  DataGridView1.Columns(0).Width = 80
         DataGridView1.AllowUserToAddRows = False
         DataGridView1.AllowUserToDeleteRows = False
         For X = 0 To DataGridView1.Rows.Count - 1
@@ -71,97 +86,19 @@ Public Class FrmCatalogo
         btncolumnaimagen.HeaderText = "Imagen"
         btncolumnaimagen.UseColumnTextForButtonValue = True
 
-
-
-
-
-
-    End Sub
-
-
-
-
-
-
-
-    Public Function LlenarCMBCategoria()
-        Try
-            Dim ds1 As DataSet
-            ds1 = productometodo.LlenarCMBCategoria
-            CmbCategoria.DataSource = ds1.Tables(0)
-            CmbCategoria.DisplayMember = "nombre"
-            CmbCategoria.ValueMember = "id"
-            CmbCategoria.SelectedValue = 0
-
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-        Return CmbCategoria.SelectedValue
+        Return dsa1
     End Function
 
-    Public Sub Dgvproductosconbusqueda()
-        Dim btncolumnaimagen = New DataGridViewButtonColumn
-        Dim dsa1 As DataTable
-        dsa1 = productometodo.CargaGrillaproductosCONbusquedaCAT(busqcod, busqprod, categoria) 'Si parametros esta vacio, busca todos los clientes en la bd
-        DataGridView1.DataSource = dsa1
-        DataGridView1.Columns(0).HeaderText = "Código"
-        DataGridView1.Columns(1).Visible = False
-		DataGridView1.Columns(2).HeaderText = "Nombre de Producto"
-		DataGridView1.Columns(3).Visible = False
-        DataGridView1.Columns(4).Visible = False
-        DataGridView1.Columns(5).Visible = False
-        DataGridView1.Columns(6).Visible = False
-        DataGridView1.Columns(7).Visible = False
-        DataGridView1.Columns(8).Visible = False
-        DataGridView1.Columns(9).Visible = False
-        DataGridView1.Columns(10).Visible = False
-        DataGridView1.Columns(11).Visible = False
-        DataGridView1.Columns(12).Visible = False
-        DataGridView1.Columns(13).Visible = False
-        DataGridView1.Columns(14).Visible = False
-        DataGridView1.Columns(15).Visible = False
-        DataGridView1.Columns(16).Visible = False
-        DataGridView1.Columns(17).Visible = False
-        DataGridView1.Columns(18).Visible = False
-        DataGridView1.Columns(19).Visible = False
-        DataGridView1.Columns(20).Visible = False
-        DataGridView1.Columns(21).Visible = False
-        DataGridView1.Columns(1).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridView1.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        DataGridView1.Columns(0).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridView1.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        DataGridView1.Columns(2).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridView1.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        DataGridView1.Columns(3).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridView1.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        DataGridView1.Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridView1.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        DataGridView1.Columns(5).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridView1.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        DataGridView1.Sort(DataGridView1.Columns(2), System.ComponentModel.ListSortDirection.Ascending)
-        DataGridView1.Columns(0).Width = 80
-        DataGridView1.AllowUserToAddRows = False
-        DataGridView1.AllowUserToDeleteRows = False
-        For X = 0 To DataGridView1.Rows.Count - 1
-            If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
-                DataGridView1.Rows.Remove(DataGridView1.Rows(X))
-            End If
-        Next
 
-        DataGridView1.Columns.Add(btncolumnaimagen)
-        btncolumnaimagen.Text = "Ver Imagen"
-        btncolumnaimagen.FlatStyle = FlatStyle.Standard
-        btncolumnaimagen.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-        btncolumnaimagen.Width = 50
-        btncolumnaimagen.HeaderText = "Imagen"
-        btncolumnaimagen.UseColumnTextForButtonValue = True
 
-    End Sub
+
+
+
 
     Public Sub DgvproductosconbusquedaProducto()
         Dim btncolumnaimagen = New DataGridViewButtonColumn
         Dim dsa1 As DataTable
+
         dsa1 = productometodo.CargaGrillaproductosCONbusquedaproducto(busqcod, busqprod, categoria) 'Si parametros esta vacio, busca todos los clientes en la bd
         DataGridView1.DataSource = dsa1
         DataGridView1.Columns(0).HeaderText = "Código"
@@ -219,12 +156,16 @@ Public Class FrmCatalogo
 
     End Sub
     Private Sub FrmCatalogo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        btnBuscar.Enabled = True
+
+        DataGridView1.Columns.Clear()
+        btnBuscar.Enabled = False
         DataGridView1.RowTemplate.Height = 50
         busqprod = ""
         busqcod = ""
+
         LlenarCMBCategoria()
-        Dgvproductos()
+        DgvclientesSet(parametros)
+
         tbBuscod.Enabled = False
         tbBusnombre.Enabled = False
         CmbCategoria.Enabled = False
@@ -240,23 +181,34 @@ Public Class FrmCatalogo
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
 
-
-        busqcod = tbBuscod.Text
-        busqprod = tbBusnombre.Text
-        categoria = CmbCategoria.SelectedValue
         DataGridView1.Columns.Clear()
-        Dgvproductosconbusqueda()
+
+        Dim parametros As New Dictionary(Of String, String)
+        If String.IsNullOrWhiteSpace(CmbCategoria.SelectedValue) = False Then
+            parametros.Add("CategoriaID", CmbCategoria.SelectedValue)
+        End If
+        If String.IsNullOrWhiteSpace(tbBuscod.Text) = False Then
+            parametros.Add("id", tbBuscod.Text)
+        End If
+        If String.IsNullOrWhiteSpace(tbBusnombre.Text) = False Then
+            parametros.Add("Nombre", tbBusnombre.Text)
+        End If
+
+        If DgvclientesSet(parametros).Tables(0).Rows.Count = 0 Then
+            MsgBox("La búsqueda no arrojo resultados", MsgBoxStyle.Critical, "Error")
+        End If
+
 
     End Sub
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        btnBuscar.Enabled = False
         DataGridView1.Columns.Clear()
         busqprod = ""
         busqcod = ""
         LlenarCMBCategoria()
-        Dgvproductos()
-        btnBuscar.Enabled = True
+        DgvclientesSet(parametros)
         tbBuscod.Enabled = False
         tbBusnombre.Enabled = False
         CmbCategoria.Enabled = False
@@ -269,11 +221,11 @@ Public Class FrmCatalogo
     End Sub
 
     Private Sub CmbCategoria_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CmbCategoria.SelectionChangeCommitted
-		'CmbCategoria.Enabled = False
-		'btnBuscar.Enabled = True
-		'tbBuscod.Enabled = True
-		'tbBusnombre.Enabled = True
-	End Sub
+        CmbCategoria.Enabled = False
+        btnBuscar.Enabled = True
+        tbBuscod.Enabled = True
+        tbBusnombre.Enabled = True
+    End Sub
 
 
     Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
@@ -283,7 +235,7 @@ Public Class FrmCatalogo
         FrmDetalleProductoCatalogo.TBCODIGOBARRA.Text = (DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value)
 
         Dim ms As MemoryStream = New MemoryStream()
-        Dim img As Byte() = CType((DataGridView1.Item(9, DataGridView1.CurrentRow.Index).Value), Byte())
+        Dim img As Byte() = CType((DataGridView1.Item(7, DataGridView1.CurrentRow.Index).Value), Byte())
         If img Is Nothing Then
             MessageBox.Show("Imagen no encontrada en la base de datos")
         End If
@@ -292,7 +244,7 @@ Public Class FrmCatalogo
 
         FrmDetalleProductoCatalogo.PBFOTO.Image = imgImagen
         FrmDetalleProductoCatalogo.TBNOMBREPROD.Text = (DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value)
-        FrmDetalleProductoCatalogo.TBPRECIO.Text = (DataGridView1.Item(6, DataGridView1.CurrentRow.Index).Value)
+        FrmDetalleProductoCatalogo.TBPRECIO.Text = (DataGridView1.Item(5, DataGridView1.CurrentRow.Index).Value)
 
 
     End Sub
@@ -302,7 +254,7 @@ Public Class FrmCatalogo
         If DataGridView1.Columns(e.ColumnIndex).HeaderText = "Imagen" Then
 
             Dim ms As MemoryStream = New MemoryStream()
-            Dim img As Byte() = CType((DataGridView1.Item(9, DataGridView1.CurrentRow.Index).Value), Byte())
+            Dim img As Byte() = CType((DataGridView1.Item(7, DataGridView1.CurrentRow.Index).Value), Byte())
             If img Is Nothing Then
                 MessageBox.Show("Imagen no encontrada en la base de datos")
             End If
@@ -315,11 +267,13 @@ Public Class FrmCatalogo
     End Sub
 
     Private Sub CH1_CheckedChanged(sender As Object, e As EventArgs) Handles CH1.CheckedChanged
+        btnBuscar.Enabled = True
         CmbCategoria.SelectedValue = 0
         CmbCategoria.Enabled = True
         CH2.Enabled = False
         CH3.Enabled = False
         If CH1.Checked = False Then
+            btnBuscar.Enabled = False
             CmbCategoria.Enabled = False
             tbBuscod.Enabled = False
             tbBusnombre.Enabled = False
@@ -329,11 +283,13 @@ Public Class FrmCatalogo
         End If
     End Sub
     Private Sub CH2_CheckedChanged(sender As Object, e As EventArgs) Handles CH2.CheckedChanged
+        btnBuscar.Enabled = True
         tbBuscod.Text = ""
         tbBuscod.Enabled = True
         CH1.Enabled = False
         CH3.Enabled = False
         If CH2.Checked = False Then
+            btnBuscar.Enabled = False
             tbBuscod.Enabled = False
             CmbCategoria.Enabled = False
             tbBusnombre.Enabled = False
@@ -345,11 +301,13 @@ Public Class FrmCatalogo
 
 
     Private Sub CH3_CheckedChanged(sender As Object, e As EventArgs) Handles CH3.CheckedChanged
+        btnBuscar.Enabled = True
         tbBusnombre.Text = ""
         tbBusnombre.Enabled = True
         CH1.Enabled = False
         CH2.Enabled = False
         If CH3.Checked = False Then
+            btnBuscar.Enabled = False
             tbBuscod.Enabled = False
             CmbCategoria.Enabled = False
             tbBusnombre.Enabled = False
@@ -360,8 +318,8 @@ Public Class FrmCatalogo
     End Sub
 
     Private Sub tbBusnombre_TextChanged(sender As Object, e As EventArgs) Handles tbBusnombre.TextChanged
-		busqcod = tbBuscod.Text
-		busqprod = tbBusnombre.Text
+        busqcod = tbBuscod.Text
+        busqprod = tbBusnombre.Text
         categoria = CmbCategoria.SelectedValue
         DataGridView1.Columns.Clear()
         DgvproductosconbusquedaProducto()
