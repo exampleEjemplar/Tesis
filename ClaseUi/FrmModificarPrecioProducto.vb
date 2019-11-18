@@ -278,4 +278,32 @@ Public Class FrmModificarPrecioProducto
 		txtBusNombreProducto.Text = ""
 	End Sub
 
+	Private Sub Button2_MouseHover(sender As Object, e As EventArgs) Handles btnTtpGral.MouseHover, btnTtpAdicion.MouseHover, btnTtpExacto.MouseHover, btnTtpPorcentaje.MouseHover
+		Select Case sender.Name
+			Case "btnTtpGral"
+				ttpInfoGral.Visible = True
+			Case "btnTtpAdicion"
+				ttpAdicionar.Visible = True
+			Case "btnTtpExacto"
+				ttpExacto.Visible = True
+			Case "btnTtpPorcentaje"
+				ttpPorcentaje.Visible = True
+			Case Else
+		End Select
+	End Sub
+
+	Private Sub Button2_MouseLeave(sender As Object, e As EventArgs) Handles btnTtpGral.MouseLeave, btnTtpAdicion.MouseLeave, btnTtpExacto.MouseLeave, btnTtpPorcentaje.MouseLeave
+		Select Case sender.Name
+			Case "btnTtpGral"
+				ttpInfoGral.Visible = False
+			Case "btnTtpAdicion"
+				ttpAdicionar.Visible = False
+			Case "btnTtpExacto"
+				ttpExacto.Visible = False
+			Case "btnTtpPorcentaje"
+				ttpPorcentaje.Visible = False
+			Case Else
+		End Select
+	End Sub
+
 End Class
