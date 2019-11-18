@@ -46,6 +46,11 @@ Public Class PedidosDA
 					text = text & "'" & item.Value & " 23:59:59' " & If(count <> 0, " and ", "")
 					Continue For
 				End If
+				If item.Key = "EsReparacion" Then
+					count = count - 1
+					text = text & "v.EsReparacion = '" + item.Value + "'"
+					Continue For
+				End If
 			Next
 			sqlStr = sqlStr + text
 		End If
@@ -73,7 +78,7 @@ Public Class PedidosDA
 		Try
 			Dim totalizado = total.ToString("0.00").Replace(",", ".")
 			Dim señalizado = seña.ToString("0.00").Replace(",", ".")
-			Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalizado & ",2),1)", db)
+			Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalizado & ",2),1), N, 1", db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
 			For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId

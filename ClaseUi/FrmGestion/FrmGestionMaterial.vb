@@ -130,10 +130,10 @@ Public Class FrmGestionMaterial
 	End Sub
 
 	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSalirr.Click
-		With FrmGestionProducto
-		End With
-
-        modificado = True
+		'With FrmGestionProducto
+		'End With
+		'FrmGestionProducto.ShowDialog()
+		'modificado = True
 		Me.Close()
 	End Sub
 

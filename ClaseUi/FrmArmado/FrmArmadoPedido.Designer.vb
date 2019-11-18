@@ -40,6 +40,8 @@ Partial Class FrmArmadoPedido
 		Me.cboBusProveedor = New System.Windows.Forms.ComboBox()
 		Me.Label7 = New System.Windows.Forms.Label()
 		Me.gboTotales = New System.Windows.Forms.GroupBox()
+		Me.chkSeñaManual = New System.Windows.Forms.CheckBox()
+		Me.txtSeña = New System.Windows.Forms.TextBox()
 		Me.Label18 = New System.Windows.Forms.Label()
 		Me.lblRestaCobrar = New System.Windows.Forms.Label()
 		Me.cboPorcentaje = New System.Windows.Forms.ComboBox()
@@ -77,8 +79,6 @@ Partial Class FrmArmadoPedido
 		Me.Label6 = New System.Windows.Forms.Label()
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
 		Me.lstProdDispo = New System.Windows.Forms.ListView()
-		Me.txtSeña = New System.Windows.Forms.TextBox()
-		Me.chkSeñaManual = New System.Windows.Forms.CheckBox()
 		Me.gboFiltros.SuspendLayout()
 		Me.gboTotales.SuspendLayout()
 		Me.GroupBox5.SuspendLayout()
@@ -326,6 +326,24 @@ Partial Class FrmArmadoPedido
 		Me.gboTotales.TabStop = False
 		Me.gboTotales.Text = "Totales"
 		'
+		'chkSeñaManual
+		'
+		Me.chkSeñaManual.AutoSize = True
+		Me.chkSeñaManual.Location = New System.Drawing.Point(10, 37)
+		Me.chkSeñaManual.Name = "chkSeñaManual"
+		Me.chkSeñaManual.Size = New System.Drawing.Size(212, 21)
+		Me.chkSeñaManual.TabIndex = 57
+		Me.chkSeñaManual.Text = "Cargar manualmente la seña"
+		Me.chkSeñaManual.UseVisualStyleBackColor = True
+		'
+		'txtSeña
+		'
+		Me.txtSeña.Location = New System.Drawing.Point(133, 117)
+		Me.txtSeña.MaxLength = 10
+		Me.txtSeña.Name = "txtSeña"
+		Me.txtSeña.Size = New System.Drawing.Size(126, 22)
+		Me.txtSeña.TabIndex = 53
+		'
 		'Label18
 		'
 		Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
@@ -399,7 +417,7 @@ Partial Class FrmArmadoPedido
 		Me.Label11.Name = "Label11"
 		Me.Label11.Size = New System.Drawing.Size(115, 56)
 		Me.Label11.TabIndex = 30
-		Me.Label11.Text = "Total de la venta"
+		Me.Label11.Text = "Total del pedido"
 		'
 		'lblTotal
 		'
@@ -639,9 +657,9 @@ Partial Class FrmArmadoPedido
 		Me.Label1.Location = New System.Drawing.Point(13, 25)
 		Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label1.Name = "Label1"
-		Me.Label1.Size = New System.Drawing.Size(366, 25)
+		Me.Label1.Size = New System.Drawing.Size(379, 25)
 		Me.Label1.TabIndex = 42
-		Me.Label1.Text = "Armado de comprobante de venta"
+		Me.Label1.Text = "Armado de comprobante de pedido"
 		'
 		'GroupBox2
 		'
@@ -763,24 +781,6 @@ Partial Class FrmArmadoPedido
 		Me.lstProdDispo.TabIndex = 0
 		Me.lstProdDispo.TileSize = New System.Drawing.Size(120, 25)
 		Me.lstProdDispo.UseCompatibleStateImageBehavior = False
-		'
-		'txtSeña
-		'
-		Me.txtSeña.Location = New System.Drawing.Point(133, 117)
-		Me.txtSeña.MaxLength = 10
-		Me.txtSeña.Name = "txtSeña"
-		Me.txtSeña.Size = New System.Drawing.Size(126, 22)
-		Me.txtSeña.TabIndex = 53
-		'
-		'chkSeñaManual
-		'
-		Me.chkSeñaManual.AutoSize = True
-		Me.chkSeñaManual.Location = New System.Drawing.Point(10, 37)
-		Me.chkSeñaManual.Name = "chkSeñaManual"
-		Me.chkSeñaManual.Size = New System.Drawing.Size(212, 21)
-		Me.chkSeñaManual.TabIndex = 57
-		Me.chkSeñaManual.Text = "Cargar manualmente la seña"
-		Me.chkSeñaManual.UseVisualStyleBackColor = True
 		'
 		'FrmArmadoPedido
 		'

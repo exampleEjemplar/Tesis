@@ -162,7 +162,7 @@ Public Class FrmArmadoCompra
 		MsgBox("Compra realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
 		'Imprimimos el comprobante
-		FrmComprobanteVenta.ShowDialog()
+		FrmComprobanteCompra.ShowDialog()
 		modificado = True
 
 
@@ -379,7 +379,7 @@ Public Class FrmArmadoCompra
 	'Traemos toda la informacion de un producto en especifico para los comprobantes.
 	Private Function ObtainProductInformation(ByVal id As Integer) As ProductosNE
 		Dim producto = New ProductosNE
-		Dim ds = product.CargarUnProducto(id)
+		Dim ds = product.CargarUnProducto(id, "")
 		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
 			producto.Id = ds.Tables(0).Rows(i).Item(0)
 			producto.precio = ds.Tables(0).Rows(i).Item(4)
@@ -391,7 +391,7 @@ Public Class FrmArmadoCompra
 	Private Function CargarDatosComprobante()
 		Dim nroComprobante = ""
 		If String.IsNullOrWhiteSpace(txtNroComprobante.Text) Then
-			nroComprobante = helpersUI.AgregarNumerosComprobante(comprasLn.ObtenerUltimaCompra)
+			nroComprobante = helpersUI.AgregarNumerosComprobante(comprasLn.ObtenerUltimaCompra.Tables(0).Rows(0).Item(0))
 		Else
 			nroComprobante = txtNroComprobante.Text
 		End If

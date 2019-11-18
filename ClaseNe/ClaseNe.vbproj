@@ -86,6 +86,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ComprasNE.vb" />
+    <Compile Include="EstadosPedidos.vb" />
     <Compile Include="VentasNE.vb" />
   </ItemGroup>
   <ItemGroup>

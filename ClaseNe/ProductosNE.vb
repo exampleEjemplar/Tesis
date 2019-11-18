@@ -208,4 +208,27 @@
 			_EsServicio = CStr(value)
 		End Set
 	End Property
+
+	Private _EsReparacion As String
+
+	Public Property EsReparacion As String
+		Get
+			Return _EsReparacion
+		End Get
+		Set(ByVal value As String)
+			_EsReparacion = CStr(value)
+		End Set
+	End Property
+
+	Private _Problema As String
+
+	Public Property Problema As String
+		Get
+			Return _Problema
+		End Get
+		Set(ByVal value As String)
+			_Problema = CStr(value)
+		End Set
+	End Property
+
 End Class

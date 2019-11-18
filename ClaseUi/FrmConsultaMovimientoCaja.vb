@@ -20,9 +20,9 @@ Public Class FrmConsultaMovimientoCaja
 
 		Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 
-		With FrmGestionCaja
-		End With
-		FrmGestionCaja.ShowDialog()
+		'With FrmGestionCaja
+		'End With
+		'FrmGestionCaja.ShowDialog()
 		Close()
 
 		End Sub

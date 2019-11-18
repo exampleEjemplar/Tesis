@@ -1,7 +1,7 @@
 ﻿Imports System.Windows.Forms
 Imports ClaseLn
 Imports ClaseNe
-Public Class FrmGestionPedidos
+Public Class FrmGestionReparaciones
 
 	Private helpersLN As New HelpersLN
 	Private pedidosLN As New PedidosLN
@@ -28,7 +28,7 @@ Public Class FrmGestionPedidos
 
 	Private Sub Busqueda(Optional ByVal type As String = "")
 		Dim parametros As Dictionary(Of String, String) = New Dictionary(Of String, String)
-		parametros.Add("EsReparacion", "N")
+		parametros.Add("EsReparacion", "S")
 		If String.IsNullOrWhiteSpace(cboCliente.SelectedValue) = False Then
 			parametros.Add("ClienteId", cboCliente.SelectedValue)
 		End If
@@ -50,7 +50,7 @@ Public Class FrmGestionPedidos
 	End Sub
 
 	Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
-		FrmArmadoPedido.ShowDialog()
+		FrmArmadoReparacion.ShowDialog()
 	End Sub
 
 	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles dgvProveedores.CellMouseDoubleClick
@@ -68,9 +68,9 @@ Public Class FrmGestionPedidos
 	End Sub
 
 	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-		If FrmArmadoPedido.modificado Then
+		If FrmArmadoReparacion.modificado Then
 			Busqueda()
-			FrmArmadoPedido.modificado = False
+			FrmArmadoReparacion.modificado = False
 		End If
 	End Sub
 #End Region
@@ -158,6 +158,7 @@ Public Class FrmGestionPedidos
 	Private Sub Button1_Click(sender As Object, e As EventArgs)
 		FrmArmadoPedido.ShowDialog()
 	End Sub
+
 
 #End Region
 
