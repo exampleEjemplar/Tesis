@@ -273,11 +273,11 @@ Partial Class MDIPrincipal
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(1344, 632)
-        Me.ControlBox = False
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.IsMdiContainer = True
+        Me.MaximizeBox = False
         Me.Name = "MDIPrincipal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MDIPrincipal"

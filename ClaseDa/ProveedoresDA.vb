@@ -39,16 +39,16 @@ Public Class ProveedoresDA
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = "select p.FisicaOJuridica as 'Tipo de Persona', t.Descripcion as 'Tipo de Dni', p.NumeroDocumento as 'Numero de identificacion', " &
-			 "p.Nombre as 'Nombre - Nombre de Fantasia', p.Apellido as 'Apellido - Razon Social', " &
-			 "p.FechaNacimiento as 'Nacimiento', p.FechaAlta as 'Fecha de Alta', p.Calle, p.NumeroCalle as 'Numero de calle', ciu.Nombre As Ciudad," &
-			 "p.Car_celular +' '+ p.NumeroCelular as Celular, p.Car_telefono+' '+ p.NumeroTelefono as Telefono," &
-			 "p.Email , p.id " &
-			 "from Proveedores as p " &
-			 "inner join TipoDocumentos t on t.Id = p.TipoDocumentoId " &
-			 "inner join Ciudades ciu on p.CiudadId = Ciu.Id  "
+        sqlStr = "select p.FisicaOJuridica as 'Tipo de Persona', t.Descripcion as 'Tipo de Dni', p.NumeroDocumento as 'Numero de identificacion', " &
+             "p.Nombre as 'Nombre - Nombre de Fantasia', p.Apellido as 'Apellido - Razon Social', " &
+             "p.FechaNacimiento as 'Nacimiento', p.FechaAlta as 'Fecha de Alta', p.Calle, p.NumeroCalle as 'Numero de calle', ciu.Nombre As Ciudad," &
+             "CONCAT(p.Car_Celular, '-', cast(p.NumeroCelular as int)) as Celular, CONCAT(p.Car_telefono, '-', cast(p.NumeroTelefono as int)) as Telefono," &
+             "p.Email , p.id " &
+             "from Proveedores as p " &
+             "inner join TipoDocumentos t on t.Id = p.TipoDocumentoId " &
+             "inner join Ciudades ciu on p.CiudadId = Ciu.Id  "
 
-		If parametros.Count > 0 Then
+        If parametros.Count > 0 Then
 			Dim extraText As String = String.Empty
 			Dim count As Integer = 0
 			For Each parametro As KeyValuePair(Of String, String) In parametros
