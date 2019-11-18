@@ -593,6 +593,8 @@
     <None Include="Resources\PinClipart.com_to-send-clipart_2133056 %281%291.png" />
     <None Include="Resources\money_PNG3544 %281%29.png" />
     <None Include="Resources\Appliance-Plug-PNG-Photo %281%29.png" />
+    <None Include="Resources\PNGIX.com_ask-icon-png_3810269 %281%29.png" />
+    <None Include="Resources\PNGIX.com_ask-icon-png_3810269 %282%29.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

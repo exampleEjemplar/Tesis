@@ -30,27 +30,33 @@ Partial Class FrmModificarPrecioProducto
 		Me.txtPorcentaje = New System.Windows.Forms.TextBox()
 		Me.txtMonto = New System.Windows.Forms.TextBox()
 		Me.gboFiltros = New System.Windows.Forms.GroupBox()
+		Me.cboCategorias = New System.Windows.Forms.ComboBox()
+		Me.Label5 = New System.Windows.Forms.Label()
 		Me.Button1 = New System.Windows.Forms.Button()
 		Me.cboProveedor = New System.Windows.Forms.ComboBox()
 		Me.Label17 = New System.Windows.Forms.Label()
-		Me.btnLimpiarFiltros = New System.Windows.Forms.Button()
-		Me.btnBuscar = New System.Windows.Forms.Button()
 		Me.lbldesde = New System.Windows.Forms.Label()
+		Me.btnLimpiarFiltros = New System.Windows.Forms.Button()
 		Me.rbtEntreFechas = New System.Windows.Forms.CheckBox()
 		Me.lblHasta = New System.Windows.Forms.Label()
+		Me.btnBuscar = New System.Windows.Forms.Button()
 		Me.rbtFechaExacta = New System.Windows.Forms.CheckBox()
 		Me.dtpFechaHasta = New System.Windows.Forms.DateTimePicker()
 		Me.dtpFechaDesde = New System.Windows.Forms.DateTimePicker()
 		Me.lblFechaExacta = New System.Windows.Forms.Label()
 		Me.txtBusNombreProducto = New System.Windows.Forms.TextBox()
 		Me.Label8 = New System.Windows.Forms.Label()
-		Me.btnNuevo = New System.Windows.Forms.Button()
-		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.txtAdicionar = New System.Windows.Forms.TextBox()
 		Me.Label4 = New System.Windows.Forms.Label()
 		Me.Label11 = New System.Windows.Forms.Label()
-		Me.cboCategorias = New System.Windows.Forms.ComboBox()
-		Me.Label5 = New System.Windows.Forms.Label()
+		Me.Button5 = New System.Windows.Forms.Button()
+		Me.Button4 = New System.Windows.Forms.Button()
+		Me.Button3 = New System.Windows.Forms.Button()
+		Me.Button2 = New System.Windows.Forms.Button()
+		Me.btnNuevo = New System.Windows.Forms.Button()
+		Me.btnSalir = New System.Windows.Forms.Button()
+		Me.ttpInfoGral = New System.Windows.Forms.RichTextBox()
+		Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
 		Me.gboFiltros.SuspendLayout()
 		Me.SuspendLayout()
 		'
@@ -130,6 +136,29 @@ Partial Class FrmModificarPrecioProducto
 		Me.gboFiltros.TabStop = False
 		Me.gboFiltros.Text = "Filtros para chequear"
 		'
+		'cboCategorias
+		'
+		Me.cboCategorias.AccessibleDescription = ""
+		Me.cboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cboCategorias.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.cboCategorias.FormattingEnabled = True
+		Me.cboCategorias.Location = New System.Drawing.Point(527, 59)
+		Me.cboCategorias.Margin = New System.Windows.Forms.Padding(4)
+		Me.cboCategorias.Name = "cboCategorias"
+		Me.cboCategorias.Size = New System.Drawing.Size(228, 25)
+		Me.cboCategorias.TabIndex = 56
+		'
+		'Label5
+		'
+		Me.Label5.AutoSize = True
+		Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label5.Location = New System.Drawing.Point(524, 26)
+		Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label5.Name = "Label5"
+		Me.Label5.Size = New System.Drawing.Size(170, 17)
+		Me.Label5.TabIndex = 57
+		Me.Label5.Text = "Categoria de producto"
+		'
 		'Button1
 		'
 		Me.Button1.BackColor = System.Drawing.SystemColors.Control
@@ -168,6 +197,17 @@ Partial Class FrmModificarPrecioProducto
 		Me.Label17.TabIndex = 54
 		Me.Label17.Text = "Proveedor"
 		'
+		'lbldesde
+		'
+		Me.lbldesde.AutoSize = True
+		Me.lbldesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
+		Me.lbldesde.Location = New System.Drawing.Point(104, 130)
+		Me.lbldesde.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lbldesde.Name = "lbldesde"
+		Me.lbldesde.Size = New System.Drawing.Size(54, 16)
+		Me.lbldesde.TabIndex = 52
+		Me.lbldesde.Text = "Desde"
+		'
 		'btnLimpiarFiltros
 		'
 		Me.btnLimpiarFiltros.BackColor = System.Drawing.SystemColors.Control
@@ -182,32 +222,6 @@ Partial Class FrmModificarPrecioProducto
 		Me.btnLimpiarFiltros.TabIndex = 38
 		Me.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnLimpiarFiltros.UseVisualStyleBackColor = False
-		'
-		'btnBuscar
-		'
-		Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
-		Me.btnBuscar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_checkmark_62
-		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnBuscar.FlatAppearance.BorderSize = 0
-		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(542, 93)
-		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnBuscar.Name = "btnBuscar"
-		Me.btnBuscar.Size = New System.Drawing.Size(73, 63)
-		Me.btnBuscar.TabIndex = 38
-		Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnBuscar.UseVisualStyleBackColor = False
-		'
-		'lbldesde
-		'
-		Me.lbldesde.AutoSize = True
-		Me.lbldesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
-		Me.lbldesde.Location = New System.Drawing.Point(104, 130)
-		Me.lbldesde.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.lbldesde.Name = "lbldesde"
-		Me.lbldesde.Size = New System.Drawing.Size(54, 16)
-		Me.lbldesde.TabIndex = 52
-		Me.lbldesde.Text = "Desde"
 		'
 		'rbtEntreFechas
 		'
@@ -229,6 +243,21 @@ Partial Class FrmModificarPrecioProducto
 		Me.lblHasta.Size = New System.Drawing.Size(49, 16)
 		Me.lblHasta.TabIndex = 51
 		Me.lblHasta.Text = "Hasta"
+		'
+		'btnBuscar
+		'
+		Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
+		Me.btnBuscar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_checkmark_62
+		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnBuscar.FlatAppearance.BorderSize = 0
+		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnBuscar.Location = New System.Drawing.Point(542, 93)
+		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnBuscar.Name = "btnBuscar"
+		Me.btnBuscar.Size = New System.Drawing.Size(73, 63)
+		Me.btnBuscar.TabIndex = 38
+		Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnBuscar.UseVisualStyleBackColor = False
 		'
 		'rbtFechaExacta
 		'
@@ -289,38 +318,6 @@ Partial Class FrmModificarPrecioProducto
 		Me.Label8.TabIndex = 40
 		Me.Label8.Text = "Nombre producto"
 		'
-		'btnNuevo
-		'
-		Me.btnNuevo.BackColor = System.Drawing.SystemColors.Control
-		Me.btnNuevo.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
-		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnNuevo.FlatAppearance.BorderSize = 0
-		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnNuevo.Location = New System.Drawing.Point(680, 366)
-		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnNuevo.Name = "btnNuevo"
-		Me.btnNuevo.Size = New System.Drawing.Size(107, 98)
-		Me.btnNuevo.TabIndex = 37
-		Me.btnNuevo.Text = "Finalizar"
-		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnNuevo.UseVisualStyleBackColor = False
-		'
-		'btnSalir
-		'
-		Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
-		Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
-		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnSalir.FlatAppearance.BorderSize = 0
-		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalir.Location = New System.Drawing.Point(677, 472)
-		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnSalir.Name = "btnSalir"
-		Me.btnSalir.Size = New System.Drawing.Size(107, 100)
-		Me.btnSalir.TabIndex = 36
-		Me.btnSalir.Text = "Salir"
-		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnSalir.UseVisualStyleBackColor = False
-		'
 		'txtAdicionar
 		'
 		Me.txtAdicionar.Location = New System.Drawing.Point(558, 546)
@@ -346,34 +343,133 @@ Partial Class FrmModificarPrecioProducto
 		Me.Label11.TabIndex = 50
 		Me.Label11.Text = "Complete un campo a actualizar"
 		'
-		'cboCategorias
+		'Button5
 		'
-		Me.cboCategorias.AccessibleDescription = ""
-		Me.cboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.cboCategorias.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.cboCategorias.FormattingEnabled = True
-		Me.cboCategorias.Location = New System.Drawing.Point(527, 59)
-		Me.cboCategorias.Margin = New System.Windows.Forms.Padding(4)
-		Me.cboCategorias.Name = "cboCategorias"
-		Me.cboCategorias.Size = New System.Drawing.Size(228, 25)
-		Me.cboCategorias.TabIndex = 56
+		Me.Button5.BackColor = System.Drawing.SystemColors.Control
+		Me.Button5.BackgroundImage = Global.ClaseUi.My.Resources.Resources.PNGIX_com_ask_icon_png_3810269__2_
+		Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button5.FlatAppearance.BorderSize = 0
+		Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button5.Location = New System.Drawing.Point(667, 502)
+		Me.Button5.Margin = New System.Windows.Forms.Padding(4)
+		Me.Button5.Name = "Button5"
+		Me.Button5.Size = New System.Drawing.Size(39, 41)
+		Me.Button5.TabIndex = 54
+		Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.Button5.UseVisualStyleBackColor = False
 		'
-		'Label5
+		'Button4
 		'
-		Me.Label5.AutoSize = True
-		Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label5.Location = New System.Drawing.Point(524, 26)
-		Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label5.Name = "Label5"
-		Me.Label5.Size = New System.Drawing.Size(170, 17)
-		Me.Label5.TabIndex = 57
-		Me.Label5.Text = "Categoria de producto"
+		Me.Button4.BackColor = System.Drawing.SystemColors.Control
+		Me.Button4.BackgroundImage = Global.ClaseUi.My.Resources.Resources.PNGIX_com_ask_icon_png_3810269__2_
+		Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button4.FlatAppearance.BorderSize = 0
+		Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button4.Location = New System.Drawing.Point(667, 425)
+		Me.Button4.Margin = New System.Windows.Forms.Padding(4)
+		Me.Button4.Name = "Button4"
+		Me.Button4.Size = New System.Drawing.Size(39, 41)
+		Me.Button4.TabIndex = 53
+		Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.Button4.UseVisualStyleBackColor = False
+		'
+		'Button3
+		'
+		Me.Button3.BackColor = System.Drawing.SystemColors.Control
+		Me.Button3.BackgroundImage = Global.ClaseUi.My.Resources.Resources.PNGIX_com_ask_icon_png_3810269__2_
+		Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button3.FlatAppearance.BorderSize = 0
+		Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button3.Location = New System.Drawing.Point(667, 346)
+		Me.Button3.Margin = New System.Windows.Forms.Padding(4)
+		Me.Button3.Name = "Button3"
+		Me.Button3.Size = New System.Drawing.Size(39, 41)
+		Me.Button3.TabIndex = 52
+		Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.Button3.UseVisualStyleBackColor = False
+		'
+		'Button2
+		'
+		Me.Button2.BackColor = System.Drawing.SystemColors.Control
+		Me.Button2.BackgroundImage = Global.ClaseUi.My.Resources.Resources.PNGIX_com_ask_icon_png_3810269__2_
+		Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button2.FlatAppearance.BorderSize = 0
+		Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button2.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.Button2.Location = New System.Drawing.Point(670, 256)
+		Me.Button2.Margin = New System.Windows.Forms.Padding(4)
+		Me.Button2.Name = "Button2"
+		Me.Button2.Size = New System.Drawing.Size(29, 27)
+		Me.Button2.TabIndex = 51
+		Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.Button2.UseVisualStyleBackColor = False
+		'
+		'btnNuevo
+		'
+		Me.btnNuevo.BackColor = System.Drawing.SystemColors.Control
+		Me.btnNuevo.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
+		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnNuevo.FlatAppearance.BorderSize = 0
+		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnNuevo.Location = New System.Drawing.Point(707, 368)
+		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnNuevo.Name = "btnNuevo"
+		Me.btnNuevo.Size = New System.Drawing.Size(107, 98)
+		Me.btnNuevo.TabIndex = 37
+		Me.btnNuevo.Text = "Finalizar"
+		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnNuevo.UseVisualStyleBackColor = False
+		'
+		'btnSalir
+		'
+		Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
+		Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnSalir.FlatAppearance.BorderSize = 0
+		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnSalir.Location = New System.Drawing.Point(704, 474)
+		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnSalir.Name = "btnSalir"
+		Me.btnSalir.Size = New System.Drawing.Size(107, 100)
+		Me.btnSalir.TabIndex = 36
+		Me.btnSalir.Text = "Salir"
+		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnSalir.UseVisualStyleBackColor = False
+		'
+		'ttpInfoGral
+		'
+		Me.ttpInfoGral.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.ttpInfoGral.Location = New System.Drawing.Point(395, 215)
+		Me.ttpInfoGral.Name = "ttpInfoGral"
+		Me.ttpInfoGral.Size = New System.Drawing.Size(419, 38)
+		Me.ttpInfoGral.TabIndex = 55
+		Me.ttpInfoGral.Text = "Puede modificar el precio de uno o varios productos rellenando cualquiera de los " &
+	 "campos de abajo"
+		Me.ttpInfoGral.Visible = False
+		'
+		'RichTextBox1
+		'
+		Me.RichTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.RichTextBox1.Location = New System.Drawing.Point(308, 296)
+		Me.RichTextBox1.Name = "RichTextBox1"
+		Me.RichTextBox1.Size = New System.Drawing.Size(506, 55)
+		Me.RichTextBox1.TabIndex = 56
+		Me.RichTextBox1.Text = "Escribiendo en este cuadro puede incrementar o decrecer el precio de uno o varios" &
+	 " productos introduciendo el porcentaje deseado. Ej: 15 aumentará 15 por ciento. " &
+	 "-2 bajará 2 por ciento"
+		Me.RichTextBox1.Visible = False
 		'
 		'FrmModificarPrecioProducto
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(819, 586)
+		Me.Controls.Add(Me.RichTextBox1)
+		Me.Controls.Add(Me.ttpInfoGral)
+		Me.Controls.Add(Me.Button5)
+		Me.Controls.Add(Me.Button4)
+		Me.Controls.Add(Me.Button3)
+		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.Label11)
 		Me.Controls.Add(Me.txtAdicionar)
 		Me.Controls.Add(Me.Label4)
@@ -425,4 +521,10 @@ Partial Class FrmModificarPrecioProducto
 	Friend WithEvents Label11 As Windows.Forms.Label
 	Friend WithEvents cboCategorias As Windows.Forms.ComboBox
 	Friend WithEvents Label5 As Windows.Forms.Label
+	Friend WithEvents Button2 As Windows.Forms.Button
+	Friend WithEvents Button3 As Windows.Forms.Button
+	Friend WithEvents Button4 As Windows.Forms.Button
+	Friend WithEvents Button5 As Windows.Forms.Button
+	Friend WithEvents ttpInfoGral As Windows.Forms.RichTextBox
+	Friend WithEvents RichTextBox1 As Windows.Forms.RichTextBox
 End Class

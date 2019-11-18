@@ -278,4 +278,11 @@ Public Class FrmModificarPrecioProducto
 		txtBusNombreProducto.Text = ""
 	End Sub
 
+	Private Sub Button2_MouseHover(sender As Object, e As EventArgs) Handles Button2.MouseHover
+		ttpInfoGral.Visible = True
+	End Sub
+
+	Private Sub Button2_MouseLeave(sender As Object, e As EventArgs) Handles Button2.MouseLeave
+		ttpInfoGral.Visible = False
+	End Sub
 End Class
