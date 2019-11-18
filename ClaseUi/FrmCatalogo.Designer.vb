@@ -28,7 +28,6 @@ Partial Class FrmCatalogo
         Me.CH3 = New System.Windows.Forms.CheckBox()
         Me.CH2 = New System.Windows.Forms.CheckBox()
         Me.CH1 = New System.Windows.Forms.CheckBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.CmbCategoria = New System.Windows.Forms.ComboBox()
@@ -91,21 +90,6 @@ Partial Class FrmCatalogo
         Me.CH1.Size = New System.Drawing.Size(15, 14)
         Me.CH1.TabIndex = 46
         Me.CH1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.SystemColors.Control
-        Me.Button2.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_send_to_printer_60
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(715, 50)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(89, 108)
-        Me.Button2.TabIndex = 45
-        Me.Button2.Text = "Imprimir Catálogo"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.UseVisualStyleBackColor = False
         '
         'Button1
         '
@@ -198,7 +182,7 @@ Partial Class FrmCatalogo
         Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Location = New System.Drawing.Point(823, 50)
+        Me.btnSalir.Location = New System.Drawing.Point(786, 56)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(89, 106)
         Me.btnSalir.TabIndex = 43
@@ -260,7 +244,6 @@ Partial Class FrmCatalogo
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnSalir)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.GroupBox5)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FrmCatalogo"
@@ -286,7 +269,6 @@ Partial Class FrmCatalogo
     Friend WithEvents btnSalir As Windows.Forms.Button
     Friend WithEvents Label1 As Windows.Forms.Label
     Friend WithEvents Button1 As Windows.Forms.Button
-    Friend WithEvents Button2 As Windows.Forms.Button
     Friend WithEvents DataGridView1 As Windows.Forms.DataGridView
     Friend WithEvents CH3 As Windows.Forms.CheckBox
     Friend WithEvents CH2 As Windows.Forms.CheckBox
