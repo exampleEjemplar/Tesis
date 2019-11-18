@@ -106,7 +106,7 @@ Public Class MDIPrincipal
 
 
 
-	Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+	Private Sub Button5_Click(sender As Object, e As EventArgs) 
         MDIEstadisticas.Show()
 
 

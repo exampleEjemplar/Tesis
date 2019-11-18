@@ -29,7 +29,6 @@ Partial Class MDIPrincipal
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnPedidos = New System.Windows.Forms.Button()
         Me.btnCaja = New System.Windows.Forms.Button()
         Me.btnArticulos = New System.Windows.Forms.Button()
@@ -98,24 +97,6 @@ Partial Class MDIPrincipal
         Me.Button1.Text = "Clientes"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button1.UseVisualStyleBackColor = False
-        '
-        'btnSalir
-        '
-        Me.btnSalir.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnSalir.FlatAppearance.BorderSize = 0
-        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.check_all_icon_54_32x32
-        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSalir.Location = New System.Drawing.Point(3, 339)
-        Me.btnSalir.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(124, 40)
-        Me.btnSalir.TabIndex = 22
-        Me.btnSalir.Text = "Estadisticas"
-        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSalir.UseVisualStyleBackColor = False
         '
         'btnPedidos
         '
@@ -219,7 +200,6 @@ Partial Class MDIPrincipal
         Me.FlowLayoutPanel1.Controls.Add(Me.btnPedidos)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnCaja)
         Me.FlowLayoutPanel1.Controls.Add(Me.Button4)
-        Me.FlowLayoutPanel1.Controls.Add(Me.btnSalir)
         Me.FlowLayoutPanel1.Controls.Add(Me.Button3)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
@@ -237,7 +217,7 @@ Partial Class MDIPrincipal
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(3, 381)
+        Me.Button3.Location = New System.Drawing.Point(3, 339)
         Me.Button3.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(124, 40)
@@ -319,7 +299,6 @@ Partial Class MDIPrincipal
     Friend WithEvents btnArticulos As Windows.Forms.Button
     Friend WithEvents btnCompras As Windows.Forms.Button
     Friend WithEvents btnVentas As Windows.Forms.Button
-    Friend WithEvents btnSalir As Windows.Forms.Button
     Friend WithEvents Button1 As Windows.Forms.Button
     Friend WithEvents Button2 As Windows.Forms.Button
     Friend WithEvents Button4 As Windows.Forms.Button

@@ -135,6 +135,10 @@ Public Class FrmGestionVentas
 
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        FrmEstadisticaVentas.Show()
+    End Sub
+
 #End Region
 
 End Class

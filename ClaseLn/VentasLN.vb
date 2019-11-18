@@ -31,6 +31,13 @@ Public Class VentasLN
         Return ventasDA.GeneraGraficoCantVentasFecha(fechadesde, fechahasta)
     End Function
 
+    Public Function GeneraGraficoCantidadportipo(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return ventasDA.GeneraGraficoCantidadportipo(fechadesde, fechahasta)
+    End Function
+
+    Public Function GeneraGraficoCantidadVendedor(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return ventasDA.GeneraGraficoCantidadVendedor(fechadesde, fechahasta)
+    End Function
     Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
         ventasDA.Controlfecha(fechadesde, fechahasta)
         contador = ventasDA.contador
