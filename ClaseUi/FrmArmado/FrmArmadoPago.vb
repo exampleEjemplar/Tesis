@@ -267,6 +267,7 @@ Public Class FrmArmadoPago
 	'Llena el ListViewItem de la derecha con los productos disponibles segun filtro
 	Public Sub LlenarLvi(ByVal parametros As Dictionary(Of String, String))
 		'Cargamos el dataset con los productos seleccionados por filtro
+		parametros.Add("EsReparacion", "N")
 		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, "true")
 		'Vaciamos el LVI por si llegara a haber items 
 		lstProdDispo.Clear()
