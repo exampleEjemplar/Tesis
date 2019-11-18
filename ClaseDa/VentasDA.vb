@@ -11,8 +11,10 @@ Public Class VentasDA
 	Private ds1 As DataSet
 	Private movimientoStockDA As New MovimientoStockDA
 	Private metodoProductoDA As New MetodoProductoDA
+    Dim Rs As SqlDataReader
+    Public contador As Integer
 
-	Public Sub New()
+    Public Sub New()
 		Dim objcon As New ConexionDA
 		db = objcon.Abrir
 		com.Connection = db
@@ -148,5 +150,45 @@ Public Class VentasDA
 
 		Return ds
 	End Function
+
+
+    Public Function GeneraGraficoCantVentasFecha(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        helpersDa.ChequearConexion(db)
+
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "Select count(*) As cantidad, MONTH(fecha) As mes from ventas " &
+"where Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+"group by MONTH(fecha)"
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return ds1
+        db.Close()
+
+    End Function
+
+    Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
+        Try
+
+            helpersDa.ChequearConexion(db)
+            Dim control As New SqlCommand("set dateformat ymd select count(*) from ventas where Fecha BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' ", db)
+            control.CommandType = CommandType.Text
+            Rs = control.ExecuteReader()
+            Rs.Read()
+            contador = Rs(0)
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+
+        db.Close()
+
+    End Sub
 
 End Class

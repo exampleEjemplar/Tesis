@@ -39,7 +39,6 @@ Partial Class FrmComprobanteCompra
         '
         'rpCompras
         '
-        Me.rpCompras.Dock = System.Windows.Forms.DockStyle.Fill
         ReportDataSource1.Name = "dsComprobanteVentas"
         ReportDataSource1.Value = Me.ComprobanteVentasNEBindingSource
         Me.rpCompras.LocalReport.DataSources.Add(ReportDataSource1)
@@ -54,7 +53,7 @@ Partial Class FrmComprobanteCompra
         '
         Me.lblTitulo.AutoSize = True
         Me.lblTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitulo.Location = New System.Drawing.Point(317, 31)
+        Me.lblTitulo.Location = New System.Drawing.Point(312, 9)
         Me.lblTitulo.Name = "lblTitulo"
         Me.lblTitulo.Size = New System.Drawing.Size(201, 24)
         Me.lblTitulo.TabIndex = 6
@@ -65,9 +64,9 @@ Partial Class FrmComprobanteCompra
         '
         Me.Panel1.Controls.Add(Me.rpCompras)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 62)
+        Me.Panel1.Location = New System.Drawing.Point(0, 86)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(817, 503)
+        Me.Panel1.Size = New System.Drawing.Size(817, 479)
         Me.Panel1.TabIndex = 5
         '
         'btnSalir
@@ -78,7 +77,7 @@ Partial Class FrmComprobanteCompra
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Location = New System.Drawing.Point(706, -2)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(77, 85)
+        Me.btnSalir.Size = New System.Drawing.Size(73, 82)
         Me.btnSalir.TabIndex = 7
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -92,7 +91,7 @@ Partial Class FrmComprobanteCompra
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.lblTitulo)
         Me.Controls.Add(Me.Panel1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmComprobanteCompra"
         Me.Text = "FrmComprobanteCompra"
         CType(Me.ComprobanteVentasNEBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
