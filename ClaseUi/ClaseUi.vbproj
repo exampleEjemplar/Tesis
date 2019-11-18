@@ -488,6 +488,9 @@
     <EmbeddedResource Include="Reportes\Frmlistadodeventas.resx">
       <DependentUpon>Frmlistadodeventas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ListadodeMovimientoCaja.resx">
+      <DependentUpon>ListadodeMovimientoCaja.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ListadodeProveedores.resx">
       <DependentUpon>ListadodeProveedores.vb</DependentUpon>
     </EmbeddedResource>
