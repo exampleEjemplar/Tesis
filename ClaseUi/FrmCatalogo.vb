@@ -16,8 +16,8 @@ Public Class FrmCatalogo
 
     Public Sub Dgvproductos()
         Dim btncolumnaimagen = New DataGridViewButtonColumn
-        Dim dsa1 As DataTable
-        dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
+		Dim dsa1 As DataTable
+		dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
         DataGridView1.DataSource = dsa1
         DataGridView1.Columns(0).HeaderText = "Código"
         DataGridView1.Columns(1).Visible = False
@@ -107,9 +107,8 @@ Public Class FrmCatalogo
         DataGridView1.DataSource = dsa1
         DataGridView1.Columns(0).HeaderText = "Código"
         DataGridView1.Columns(1).Visible = False
-        DataGridView1.Columns(2).HeaderText = "Nombre de Producto"
-        ' DataGridView1.Columns(9).HeaderText = ""
-        DataGridView1.Columns(3).Visible = False
+		DataGridView1.Columns(2).HeaderText = "Nombre de Producto"
+		DataGridView1.Columns(3).Visible = False
         DataGridView1.Columns(4).Visible = False
         DataGridView1.Columns(5).Visible = False
         DataGridView1.Columns(6).Visible = False
@@ -270,11 +269,11 @@ Public Class FrmCatalogo
     End Sub
 
     Private Sub CmbCategoria_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CmbCategoria.SelectionChangeCommitted
-        CmbCategoria.Enabled = False
-        btnBuscar.Enabled = True
-        tbBuscod.Enabled = True
-        tbBusnombre.Enabled = True
-    End Sub
+		'CmbCategoria.Enabled = False
+		'btnBuscar.Enabled = True
+		'tbBuscod.Enabled = True
+		'tbBusnombre.Enabled = True
+	End Sub
 
 
     Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
@@ -361,8 +360,8 @@ Public Class FrmCatalogo
     End Sub
 
     Private Sub tbBusnombre_TextChanged(sender As Object, e As EventArgs) Handles tbBusnombre.TextChanged
-        busqcod = tbBuscod.Text
-        busqprod = tbBusnombre.Text
+		busqcod = tbBuscod.Text
+		busqprod = tbBusnombre.Text
         categoria = CmbCategoria.SelectedValue
         DataGridView1.Columns.Clear()
         DgvproductosconbusquedaProducto()
