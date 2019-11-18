@@ -15,6 +15,11 @@ Public Class FrmEstadisticacliente
 
 
     Private Sub FrmEstadisticacliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        limpiar()
+
+    End Sub
+    Private Sub limpiar()
+
         dtpdesde.Format = DateTimePickerFormat.Custom
         dtpdesde.CustomFormat = " dd/MM/yyyy"
         dtphasta.Format = DateTimePickerFormat.Custom
@@ -23,10 +28,17 @@ Public Class FrmEstadisticacliente
         Chart1.Visible = False
         Chart2.Visible = False
         Chart3.Visible = False
+        dtpdesde.Enabled = True
+        dtphasta.Enabled = True
+        Button1.Enabled = True
+
 
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        RadioButton3.Enabled = True
+        RadioButton2.Enabled = True
+
         fechadesde = Format(dtpdesde.Value, "yyyy/MM/dd")
         fechahasta = Format(dtphasta.Value.AddDays(1), "yyyy/MM/dd")
         controlfecha()
@@ -52,16 +64,17 @@ Public Class FrmEstadisticacliente
     End Sub
 
 
-    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs)
         Chart3.Visible = True
         Chart2.Visible = False
         Chart1.Visible = False
         GeneraGraficousuario()
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
-        'RadioButton3.Enabled = False
-        'RadioButton2.Enabled = False
-        ' RadioButton1.Enabled = False
+        RadioButton3.Enabled = False
+        RadioButton2.Enabled = False
+
+        Button1.Enabled = False
     End Sub
 
 
@@ -145,22 +158,26 @@ Public Class FrmEstadisticacliente
         GeneraGraficoprovincia()
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
-        'RadioButton3.Enabled = False
-        'RadioButton2.Enabled = False
-        'RadioButton1.Enabled = False
+        RadioButton3.Enabled = False
+        RadioButton2.Enabled = False
+
+        Button1.Enabled = False
     End Sub
 
     Private Sub RadioButton2_Click(sender As Object, e As EventArgs) Handles RadioButton2.Click
         Chart2.Visible = True
         Chart1.Visible = False
         Chart3.Visible = False
-        'RadioButton3.Enabled = False
-        'RadioButton2.Enabled = False
-        ' RadioButton1.Enabled = False
+        RadioButton3.Enabled = False
+        RadioButton2.Enabled = False
+        Button1.Enabled = False
         GeneraGraficopersoneria()
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        limpiar()
 
+    End Sub
 End Class

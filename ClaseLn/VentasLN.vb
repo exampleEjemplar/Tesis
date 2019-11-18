@@ -2,9 +2,9 @@
 Imports ClaseNe
 Public Class VentasLN
 	Private ventasDA As VentasDA
+    Public contador As Integer
 
-
-	Public Sub New()
+    Public Sub New()
 		ventasDA = New VentasDA
 	End Sub
 
@@ -26,4 +26,20 @@ Public Class VentasLN
     Public Function ObtenerDatosProducto(ByVal idventa As String) As DataSet
         Return ventasDA.ObtenerDatosProducto(idventa)
     End Function
+
+    Public Function GeneraGraficoCantVentasFecha(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return ventasDA.GeneraGraficoCantVentasFecha(fechadesde, fechahasta)
+    End Function
+
+    Public Function GeneraGraficoCantidadportipo(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return ventasDA.GeneraGraficoCantidadportipo(fechadesde, fechahasta)
+    End Function
+
+    Public Function GeneraGraficoCantidadVendedor(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return ventasDA.GeneraGraficoCantidadVendedor(fechadesde, fechahasta)
+    End Function
+    Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
+        ventasDA.Controlfecha(fechadesde, fechahasta)
+        contador = ventasDA.contador
+    End Sub
 End Class

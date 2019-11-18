@@ -29,16 +29,17 @@ Partial Class MDIPrincipal
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnPedidos = New System.Windows.Forms.Button()
         Me.btnCaja = New System.Windows.Forms.Button()
         Me.btnArticulos = New System.Windows.Forms.Button()
         Me.btnCompras = New System.Windows.Forms.Button()
         Me.btnVentas = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblCrizol = New System.Windows.Forms.Label()
         Me.lblUsuario = New System.Windows.Forms.Label()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -96,24 +97,6 @@ Partial Class MDIPrincipal
         Me.Button1.Text = "Clientes"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button1.UseVisualStyleBackColor = False
-        '
-        'btnSalir
-        '
-        Me.btnSalir.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnSalir.FlatAppearance.BorderSize = 0
-        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
-        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSalir.Location = New System.Drawing.Point(3, 339)
-        Me.btnSalir.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(124, 40)
-        Me.btnSalir.TabIndex = 22
-        Me.btnSalir.Text = "SALIR"
-        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSalir.UseVisualStyleBackColor = False
         '
         'btnPedidos
         '
@@ -217,13 +200,31 @@ Partial Class MDIPrincipal
         Me.FlowLayoutPanel1.Controls.Add(Me.btnPedidos)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnCaja)
         Me.FlowLayoutPanel1.Controls.Add(Me.Button4)
-        Me.FlowLayoutPanel1.Controls.Add(Me.btnSalir)
+        Me.FlowLayoutPanel1.Controls.Add(Me.Button3)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 40)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 82)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(131, 592)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(127, 550)
         Me.FlowLayoutPanel1.TabIndex = 32
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button3.Location = New System.Drawing.Point(3, 339)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(124, 40)
+        Me.Button3.TabIndex = 31
+        Me.Button3.Text = "SALIR"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'TableLayoutPanel1
         '
@@ -239,7 +240,7 @@ Partial Class MDIPrincipal
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1344, 40)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1344, 82)
         Me.TableLayoutPanel1.TabIndex = 34
         '
         'lblCrizol
@@ -249,7 +250,7 @@ Partial Class MDIPrincipal
         Me.lblCrizol.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCrizol.Location = New System.Drawing.Point(3, 0)
         Me.lblCrizol.Name = "lblCrizol"
-        Me.lblCrizol.Size = New System.Drawing.Size(124, 40)
+        Me.lblCrizol.Size = New System.Drawing.Size(124, 82)
         Me.lblCrizol.TabIndex = 0
         Me.lblCrizol.Text = "Crizol"
         Me.lblCrizol.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -261,10 +262,15 @@ Partial Class MDIPrincipal
         Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsuario.Location = New System.Drawing.Point(1200, 0)
         Me.lblUsuario.Name = "lblUsuario"
-        Me.lblUsuario.Size = New System.Drawing.Size(141, 40)
+        Me.lblUsuario.Size = New System.Drawing.Size(141, 82)
         Me.lblUsuario.TabIndex = 1
         Me.lblUsuario.Text = "Usuario"
         Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
         'MDIPrincipal
         '
@@ -293,7 +299,6 @@ Partial Class MDIPrincipal
     Friend WithEvents btnArticulos As Windows.Forms.Button
     Friend WithEvents btnCompras As Windows.Forms.Button
     Friend WithEvents btnVentas As Windows.Forms.Button
-    Friend WithEvents btnSalir As Windows.Forms.Button
     Friend WithEvents Button1 As Windows.Forms.Button
     Friend WithEvents Button2 As Windows.Forms.Button
     Friend WithEvents Button4 As Windows.Forms.Button
@@ -301,4 +306,6 @@ Partial Class MDIPrincipal
     Friend WithEvents TableLayoutPanel1 As Windows.Forms.TableLayoutPanel
     Friend WithEvents lblCrizol As Windows.Forms.Label
     Friend WithEvents lblUsuario As Windows.Forms.Label
+    Friend WithEvents Button3 As Windows.Forms.Button
+    Friend WithEvents ContextMenuStrip1 As Windows.Forms.ContextMenuStrip
 End Class

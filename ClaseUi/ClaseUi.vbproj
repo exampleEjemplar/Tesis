@@ -160,10 +160,16 @@
     <Compile Include="FrmConsultaMovimientoStock.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEstadisticacliente.Designer.vb">
+    <Compile Include="FrmEstadistica\FrmEstadisticaVentas.Designer.vb">
+      <DependentUpon>FrmEstadisticaVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEstadistica\FrmEstadisticaVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEstadistica\FrmEstadisticacliente.Designer.vb">
       <DependentUpon>FrmEstadisticacliente.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmEstadisticacliente.vb">
+    <Compile Include="FrmEstadistica\FrmEstadisticacliente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCatalogo.Designer.vb">
@@ -176,6 +182,12 @@
       <DependentUpon>FrmDetalleProductoCatalogo.Vb</DependentUpon>
     </Compile>
     <Compile Include="FrmDetalleProductoCatalogo.Vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEstadistica\MDIEstadisticas.Designer.vb">
+      <DependentUpon>MDIEstadisticas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEstadistica\MDIEstadisticas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmGestion\FrmGestionCaja.Designer.vb">
@@ -282,10 +294,22 @@
     <Compile Include="Reportes\DataSetReportes.vb">
       <DependentUpon>DataSetReportes.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Reportes\Frmlistadodeventas.Designer.vb">
+      <DependentUpon>Frmlistadodeventas.vb</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Form1.vb">
+    <Compile Include="Reportes\Frmlistadodeventas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ListadodeProveedores.Designer.vb">
+      <DependentUpon>ListadodeProveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ListadodeProveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ListadodeClientes.Designer.vb">
+      <DependentUpon>ListadodeClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ListadodeClientes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\FrmComprobanteCompra.Designer.vb">
@@ -370,8 +394,14 @@
     <EmbeddedResource Include="FrmDetalleProductoCatalogo.resx">
       <DependentUpon>FrmDetalleProductoCatalogo.Vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEstadisticacliente.resx">
+    <EmbeddedResource Include="FrmEstadistica\FrmEstadisticacliente.resx">
       <DependentUpon>FrmEstadisticacliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEstadistica\FrmEstadisticaVentas.resx">
+      <DependentUpon>FrmEstadisticaVentas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEstadistica\MDIEstadisticas.resx">
+      <DependentUpon>MDIEstadisticas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionCaja.resx">
       <DependentUpon>FrmGestionCaja.vb</DependentUpon>
@@ -422,8 +452,14 @@
       <DependentUpon>ImagenAmpliada.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ComprobanteVenta.rdlc" />
-    <EmbeddedResource Include="Reportes\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Reportes\Frmlistadodeventas.resx">
+      <DependentUpon>Frmlistadodeventas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ListadodeProveedores.resx">
+      <DependentUpon>ListadodeProveedores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ListadodeClientes.resx">
+      <DependentUpon>ListadodeClientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmComprobanteCompra.resx">
       <DependentUpon>FrmComprobanteCompra.vb</DependentUpon>
@@ -444,6 +480,8 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ListadoClientesPorfecha.rdlc" />
+    <EmbeddedResource Include="Reportes\ListadoProveedoresPorFecha.rdlc" />
+    <EmbeddedResource Include="Reportes\ListadodeVentasporFecha.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -611,6 +649,8 @@
     <None Include="Resources\PinClipart.com_to-send-clipart_2133056 %281%291.png" />
     <None Include="Resources\money_PNG3544 %281%29.png" />
     <None Include="Resources\Appliance-Plug-PNG-Photo %281%29.png" />
+    <None Include="Resources\PNGIX.com_ask-icon-png_3810269 %281%29.png" />
+    <None Include="Resources\PNGIX.com_ask-icon-png_3810269 %282%29.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
@@ -632,5 +672,6 @@
   <ItemGroup>
     <WebReferences Include="Web References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
