@@ -85,7 +85,6 @@ Public Class ProductoLN
 		Return objproductosAD.CargaGrillaproductossinbusqueda(codigo, nombre)
 	End Function
 
-
 	Public Function CargaGrillaproductosconbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
 
         Return objproductosAD.CargaGrillaproductosconbusqueda(codigo, nombre)
@@ -101,34 +100,14 @@ Public Class ProductoLN
         Return objproductosAD.CargaGrillaproductosCONbusquedaproducto(codigo, nombre, categoria)
     End Function
 
-
-
-
-
-    Public Function CargarUnProducto(id As Integer)
-		Return objproductosAD.CargarUnProducto(id)
+	Public Function CargarUnProducto(id As Integer, nombre As String)
+		Return objproductosAD.CargarUnProducto(id, nombre)
 	End Function
 
 	Public Sub ModificarPrecios(listOfProductos As IEnumerable(Of Tuple(Of Integer, Boolean, ProductosNE)), precio As String, tipo As String)
 		objproductosAD.ModificarPrecios(listOfProductos, precio, tipo)
 	End Sub
 
-
-
-	''
-	'Public Function ConsultaModificacion(ByVal nroDoc As Integer)
-
-	'    Return objclientesAD.ConsultaModificacion(nroDoc)
-
-	'End Function
-
-
-
-
-
-	'Public Sub ActualizarClientes(ByVal cli As ClientesNE)
-	'    objclientesAD.ActualizarClientes(cli)
-	'End Sub
 
 End Class
 

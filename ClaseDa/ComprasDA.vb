@@ -18,7 +18,7 @@ Public Class ComprasDA
 	Public Function ObtenerUnaCompra(id As Integer)
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
-		sqlStr = "SELECT * FROM Compras WHERE Id = " + id
+		sqlStr = "SELECT * FROM Compras WHERE Id = " + id.ToString()
 		ds1 = New DataSet
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
@@ -88,7 +88,7 @@ Public Class ComprasDA
 
 		Try
 			Dim totalizado = total.ToString().Replace(",", ".")
-			Dim insert As New SqlCommand("insert into compras Values (GETDATE()," & proveedorId & ", " & totalizado & ",1)", db)
+			Dim insert As New SqlCommand("insert into compras Values (GETDATE()," & proveedorId & ", " & totalizado & ",1,'" + nroComprobante + "')", db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
 			For Each compraDetalle As TipoDeComprasNE In listaDeProductosId

@@ -124,6 +124,12 @@
     <Compile Include="FrmArmado\FrmArmadoPedido.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmArmado\FrmArmadoReparacion.Designer.vb">
+      <DependentUpon>FrmArmadoReparacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmArmado\FrmArmadoReparacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmArmado\FrmArmadoVenta.Designer.vb">
       <DependentUpon>FrmArmadoVenta.vb</DependentUpon>
     </Compile>
@@ -220,10 +226,22 @@
     <Compile Include="FrmGestion\FrmGestionPedidos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmGestion\FrmGestionProductoAReparar.Designer.vb">
+      <DependentUpon>FrmGestionProductoAReparar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestion\FrmGestionProductoAReparar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmGestion\FrmGestionProveedores.Designer.vb">
       <DependentUpon>FrmGestionProveedores.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmGestion\FrmGestionProveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestion\FrmGestionReparaciones.Designer.vb">
+      <DependentUpon>FrmGestionReparaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestion\FrmGestionReparaciones.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmGestion\FrmGestionServicio.Designer.vb">
@@ -358,6 +376,9 @@
     <EmbeddedResource Include="FrmArmado\FrmArmadoPedido.resx">
       <DependentUpon>FrmArmadoPedido.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmArmado\FrmArmadoReparacion.resx">
+      <DependentUpon>FrmArmadoReparacion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmArmado\FrmArmadoVenta.resx">
       <DependentUpon>FrmArmadoVenta.vb</DependentUpon>
     </EmbeddedResource>
@@ -409,8 +430,14 @@
     <EmbeddedResource Include="FrmGestion\FrmGestionProducto.resx">
       <DependentUpon>FrmGestionProducto.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestion\FrmGestionProductoAReparar.resx">
+      <DependentUpon>FrmGestionProductoAReparar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionProveedores.resx">
       <DependentUpon>FrmGestionProveedores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestion\FrmGestionReparaciones.resx">
+      <DependentUpon>FrmGestionReparaciones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionServicio.resx">
       <DependentUpon>FrmGestionServicio.vb</DependentUpon>

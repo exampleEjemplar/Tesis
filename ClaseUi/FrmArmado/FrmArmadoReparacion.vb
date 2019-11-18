@@ -1,12 +1,11 @@
 ﻿Imports System.Drawing
-Imports System.Globalization
 Imports System.IO
 Imports System.Windows.Forms
 Imports System.Windows.Forms.ListView
 Imports ClaseLn
 Imports ClaseNe
 
-Public Class FrmArmadoPedido
+Public Class FrmArmadoReparacion
 
 	Private helpersLN As New HelpersLN
 	Private helpersUI As New HelpersUI
@@ -18,7 +17,8 @@ Public Class FrmArmadoPedido
 	Dim product As New ProductoLN
 	Dim total As Double
 	Public modificado = False
-	Dim porcentajeSeña As Integer
+
+
 
 #Region "Eventos"
 
@@ -28,26 +28,12 @@ Public Class FrmArmadoPedido
 	End Sub
 
 	Private Sub Cargar()
-		cboPorcentaje.SelectedItem = "50"
-		porcentajeSeña = Integer.Parse("50")
-		chkSeñaManual.Checked = False
-		txtSeña.Visible = False
-		lblSeña.Text = "0.00"
-		lblRestaCobrar.Text = "0.00"
-
-
 		lstProdDispo.Clear()
 		total = 0.00
 		lblTotal.Text = total.ToString("0.00")
 		LlenarCboClientes()
-		LlenarCboProveedores()
 		GroupBox1.Visible = False
 		gboFiltros.Enabled = False
-		dtpFechaHasta.Visible = False
-		dtpFechaDesde.Visible = False
-		lblFechaExacta.Visible = False
-		lblHasta.Visible = False
-		lbldesde.Visible = False
 		lblInstrucciones.Visible = True
 		btnLimpiar.Enabled = False
 		lblClienteTelefono.Visible = True
@@ -127,11 +113,6 @@ Public Class FrmArmadoPedido
 				ListView1.Items.Add(cloneOfItem)
 				total += ItemSelected.Tag(3)
 				lblTotal.Text = total.ToString("0.00")
-
-				If Not SeñaStuff() Then
-					QuitarItem(cloneOfItem)
-				End If
-
 			Next
 		End If
 
@@ -180,14 +161,13 @@ Public Class FrmArmadoPedido
 			FrmComprobanteVenta.ListaVentas.Add(venta)
 		Next
 
-		If SeñaStuff() = False Then
-			Return
-		End If
-
-		pedidosLN.Registrar(listaDeVentas, cboCliente.SelectedValue, If(chkSeñaManual.Checked, Double.Parse(txtSeña.Text), Double.Parse(lblSeña.Text)))
-		MsgBox("Pedido realizado con éxito", MsgBoxStyle.OkOnly, "Exito")
+		'pedidosLN.Registrar(listaDeVentas, cboCliente.SelectedValue,)
+		MsgBox("Venta realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
 		modificado = True
+
+		FrmComprobanteVenta.ShowDialog()
+
 
 		ListView1.Clear()
 		LlenarCboClientes()
@@ -199,35 +179,14 @@ Public Class FrmArmadoPedido
 			ListView1.Clear()
 			total = 0.0
 			lblTotal.Text = total.ToString("0.00")
-			lblRestaCobrar.Text = "0.00"
-			txtSeña.Text = ""
-			porcentajeSeña = 0.00
-			lblSeña.Text = "0.00"
 		End If
 	End Sub
 
 	Private Sub BtnQuitarItem_Click(sender As Object, e As EventArgs) Handles btnQuitarItem.Click
-		QuitarItem("")
-	End Sub
-
-	Private Sub QuitarItem(Optional item As Object = "")
 		If selectedProducto IsNot Nothing Then
 			ListView1.Items.Remove(selectedProducto)
 			total -= selectedProducto.Tag(3)
-			If chkSeñaManual.Checked Then
-				txtSeña.Text = ""
-				lblRestaCobrar.Text = "0.00"
-			Else
-				SeñaStuff()
-			End If
 			lblTotal.Text = total.ToString("0.00")
-			selectedProducto = Nothing
-		ElseIf item IsNot "" Then
-			ListView1.Items.Remove(item)
-			total -= item.Tag(3)
-			lblTotal.Text = total.ToString("0.00")
-		Else
-			MsgBox("Debe seleccionar un producto a quitar", MsgBoxStyle.OkOnly, "Error")
 		End If
 	End Sub
 
@@ -235,98 +194,16 @@ Public Class FrmArmadoPedido
 		selectedProducto = ListView1.FocusedItem
 	End Sub
 
-	Private Sub RbtEntreFechas_CheckedChanged(sender As Object, e As EventArgs) Handles rbtEntreFechas.CheckedChanged, rbtFechaExacta.CheckedChanged
-
-		If rbtFechaExacta.Checked Then
-			lblFechaExacta.Visible = True
-			lbldesde.Visible = False
-			rbtEntreFechas.Checked = False
-			lblHasta.Visible = False
-			dtpFechaHasta.Visible = False
-			dtpFechaDesde.Visible = True
-		ElseIf rbtEntreFechas.Checked Then
-			lblFechaExacta.Visible = False
-			rbtFechaExacta.Checked = False
-			lblHasta.Visible = True
-			dtpFechaHasta.Visible = True
-			dtpFechaDesde.Visible = True
-			lbldesde.Visible = True
-		ElseIf Not rbtEntreFechas.Checked And Not rbtFechaExacta.Checked Then
-			dtpFechaHasta.Visible = False
-			dtpFechaDesde.Visible = False
-			lblFechaExacta.Visible = False
-			lblHasta.Visible = False
-			lbldesde.Visible = False
-		End If
-
-	End Sub
-
 	Private Sub BtnLimpiarFiltros_Click(sender As Object, e As EventArgs) Handles btnLimpiarFiltros.Click
 		If MsgBox("Desea limpiar los filtros?", MsgBoxStyle.YesNo, "Filtros") = MsgBoxResult.No Then
 			Return
 		End If
-		cboBusProveedor.SelectedValue = 0
-		cboBusProveedor.SelectedItem = Nothing
-		rbtEntreFechas.Checked = False
-		rbtFechaExacta.Checked = False
 		txtBusNombreProducto.Text = ""
-		dtpFechaDesde.Value = Date.Now
-		dtpFechaHasta.Value = Date.Now
 		Search()
 	End Sub
 
 	Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
 		Search()
-	End Sub
-
-
-	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
-		FrmGestionProducto.ShowDialog()
-	End Sub
-
-	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-		If FrmGestionProducto.modificado Then
-			Search()
-			FrmGestionProducto.modificado = False
-		End If
-		If FrmGestionCliente.modificado Then
-			Cargar()
-			ListView1.Clear()
-			LlenarCboClientes()
-			FrmGestionCliente.modificado = False
-		End If
-	End Sub
-
-	Private Sub BtnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarCliente.Click
-		FrmGestionCliente.ShowDialog()
-	End Sub
-
-	Private Sub cboPorcentaje_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cboPorcentaje.SelectionChangeCommitted
-		porcentajeSeña = Integer.Parse(cboPorcentaje.SelectedItem)
-		If Not Double.Parse(lblTotal.Text) = 0 Then
-			SeñaStuff()
-		End If
-	End Sub
-
-	Private Sub chkSeñaManual_CheckStateChanged(sender As Object, e As EventArgs) Handles chkSeñaManual.CheckStateChanged
-		If chkSeñaManual.Checked Then
-			cboPorcentaje.SelectedItem = ""
-			cboPorcentaje.Enabled = False
-			txtSeña.Visible = True
-			txtSeña.Text = ""
-			lblRestaCobrar.Text = "0.00"
-		Else
-			cboPorcentaje.SelectedItem = "50"
-			cboPorcentaje.Enabled = True
-			txtSeña.Visible = False
-			txtSeña.Text = ""
-			porcentajeSeña = 50
-			SeñaStuff()
-		End If
-	End Sub
-
-	Private Sub txtSeña_KeyUp(sender As Object, e As KeyEventArgs) Handles txtSeña.KeyUp
-		SeñaStuff()
 	End Sub
 
 #End Region
@@ -335,19 +212,6 @@ Public Class FrmArmadoPedido
 
 	Public Sub Search()
 		Dim parametros As Dictionary(Of String, String) = New Dictionary(Of String, String)
-		If String.IsNullOrWhiteSpace(cboBusProveedor.SelectedValue) = False Then
-			parametros.Add("ProveedorId", cboBusProveedor.SelectedValue)
-		End If
-		If String.IsNullOrWhiteSpace(dtpFechaDesde.Value.ToString()) = False And dtpFechaDesde.Visible Then
-			parametros.Add("FechaDesde", dtpFechaDesde.Value.Date.ToString("dd/MM/yyyy"))
-		End If
-		If String.IsNullOrWhiteSpace(dtpFechaHasta.Value.ToString()) = False And dtpFechaDesde.Visible And dtpFechaHasta.Visible Then
-			If dtpFechaHasta.Value <= dtpFechaDesde.Value Then
-				MsgBox("La fecha desde no puede ser mayor que la fecha hasta", MsgBoxStyle.OkOnly, "Error")
-				Return
-			End If
-			parametros.Add("FechaHasta", dtpFechaHasta.Value.Date.ToString("dd/MM/yyyy"))
-		End If
 		If String.IsNullOrWhiteSpace(txtBusNombreProducto.Text) = False Then
 			parametros.Add("Nombre", txtBusNombreProducto.Text)
 		End If
@@ -363,21 +227,6 @@ Public Class FrmArmadoPedido
 			cboCliente.ValueMember = "id"
 			cboCliente.SelectedValue = 0
 
-		Catch ex As Exception
-			MessageBox.Show(ex.Message)
-		End Try
-		Return cboCliente.SelectedValue
-		MessageBox.Show(cboCliente.SelectedValue)
-	End Function
-
-	Public Function LlenarCboProveedores()
-		Try
-			Dim ds1 As DataSet
-			ds1 = helpersLN.CargarCboTodosProveedores("False")
-			cboBusProveedor.DataSource = ds1.Tables(0)
-			cboBusProveedor.DisplayMember = "Nombre"
-			cboBusProveedor.ValueMember = "id"
-			cboBusProveedor.SelectedValue = 0
 		Catch ex As Exception
 			MessageBox.Show(ex.Message)
 		End Try
@@ -440,52 +289,27 @@ Public Class FrmArmadoPedido
 		Return producto
 	End Function
 
-	Private Function CargarDatosComprobante()
-		Dim CompVentasNE As New ComprobanteVentasNE With {
-			.Comprobante = helpersUI.AgregarNumerosComprobante(pedidosLN.ObtenerUltimoPedido)
-		}
-		Return CompVentasNE
-	End Function
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
+		FrmGestionProductoAReparar.ShowDialog()
+	End Sub
 
-	Private Function SeñaStuff()
-		Dim señaEnPlata As Double
-		If chkSeñaManual.Checked Then
-			If lstProdDispo.Items.Count = 0 Or ListView1.Items.Count = 0 Then
-				Return False
-			End If
-			If String.IsNullOrWhiteSpace(txtSeña.Text) Then
-				MsgBox("Ingrese un monto en el campo seña o cambie el modo de ingreso de seña", MsgBoxStyle.Critical, "Seña")
-				Return False
-			End If
-			txtSeña.Text.Replace(",", ".")
-			If Not Double.TryParse(txtSeña.Text, señaEnPlata) Then
-				MsgBox("Ingrese la seña en un formato correcto (123.00)", MsgBoxStyle.Critical, "Seña")
-				txtSeña.Text = ""
-				Return False
-			Else
-				señaEnPlata = Double.Parse(txtSeña.Text, CultureInfo.InvariantCulture)
-			End If
-
-			lblSeña.Text = señaEnPlata.ToString("0.00")
-			Dim resultado = total - señaEnPlata
-			If resultado < 0 Then
-				MsgBox("La seña debe ser menor al monto total", MsgBoxStyle.Critical, "Seña")
-				txtSeña.Text = ""
-				lblRestaCobrar.Text = "0.00"
-				Return False
-			Else
-				lblRestaCobrar.Text = resultado.ToString("0.00")
-			End If
-
-		Else
-
-			señaEnPlata = total / 100 * porcentajeSeña
-			lblSeña.Text = señaEnPlata.ToString("0.00")
-			lblRestaCobrar.Text = (total - señaEnPlata).ToString("0.00")
-
+	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+		If FrmGestionProductoAReparar.modificado Then
+			Search()
+			FrmGestionProductoAReparar.modificado = False
 		End If
-		Return True
-	End Function
+		If FrmGestionCliente.modificado Then
+			Cargar()
+			ListView1.Clear()
+			LlenarCboClientes()
+			FrmGestionCliente.modificado = False
+		End If
+	End Sub
+
+	Private Sub BtnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarCliente.Click
+		FrmGestionCliente.ShowDialog()
+	End Sub
+
 
 #End Region
 

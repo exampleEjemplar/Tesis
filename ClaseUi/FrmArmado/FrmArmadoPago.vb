@@ -300,7 +300,7 @@ Public Class FrmArmadoPago
 	'Traemos toda la informacion de un producto en especifico para los comprobantes.
 	Private Function ObtainProductInformation(ByVal id As Integer) As ProductosNE
 		Dim producto = New ProductosNE
-		Dim ds = product.CargarUnProducto(id)
+		Dim ds = product.CargarUnProducto(id, "")
 		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
 			producto.Id = ds.Tables(0).Rows(i).Item(0)
 			producto.precio = ds.Tables(0).Rows(i).Item(4)

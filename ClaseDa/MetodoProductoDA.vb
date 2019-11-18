@@ -304,6 +304,8 @@ Public Class MetodoProductoDA
 				.AddWithValue("@StockODeTercero", pro.StockODeTercero)
 				.AddWithValue("@FechaAlta", Date.Now)
 				.AddWithValue("@EsServicio", "N")
+				.AddWithValue("@EsReparacion", "N")
+				.AddWithValue("@Problema", "")
 			End With
 
 			com.ExecuteNonQuery()
@@ -524,11 +526,15 @@ Public Class MetodoProductoDA
 
 	End Sub
 
-	Public Function CargarUnProducto(id As Integer)
+	Public Function CargarUnProducto(id As Integer, nombre As String)
 		helpersDa.ChequearConexion(db)
-		Dim sqlStr As String
+		Dim sqlStr As String = ""
 		Dim ds1 = New DataSet
-		sqlStr = "select * from productos where id =" & id
+		If Not String.IsNullOrWhiteSpace(id) And Not id = 0 Then
+			sqlStr = "select * from productos where id =" & id.ToString()
+		ElseIf Not String.IsNullOrWhiteSpace(nombre) Then
+			sqlStr = "select * from productos where nombre =" & nombre
+		End If
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
