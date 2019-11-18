@@ -23239,6 +23239,36 @@ inner join categorias ca on p.CategoriaID= ca.Id
 where p.nombre like '%'+@nombre+'%';
 
 
+USE [JoyeriaCrisol]
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_ListadodeProveedoresPorfecha]    Script Date: 17/11/2019 19:58:09 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SP_ListadodeProveedoresPorfecha]
+(@fechadesde as datetime,
+@fechahasta as datetime
+)
+as
+begin
+
+SELECT
+t.descripcion, p.Nombre, p.Apellido, p.FechaAlta, p.FisicaOJuridica, p.Car_celular +' '+ p.NumeroCelular as Celular, p.Car_telefono+' '+ p.NumeroTelefono as Telefono,
+p.Email
+from Proveedores p
+
+	inner join TipoDocumentos t on t.Id = p.TipoDocumentoId 
+inner join Ciudades ciu on p.CiudadId = Ciu.Id
+where FechaAlta BETWEEN @fechadesde and @fechahasta
+end
+
+
+
+GO
 
 
 

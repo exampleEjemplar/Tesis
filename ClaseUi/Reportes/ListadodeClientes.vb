@@ -17,8 +17,16 @@ Public Class ListadodeClientes
 
         Else
 
-            Me.SP_ListadodeClientesPorfechaTableAdapter.Fill(Me.DataSetReportes.SP_ListadodeClientesPorfecha, DateTimePicker1.Text, DateTimePicker2.Text)
-            Me.ReportViewer1.RefreshReport()
+            If DateTimePicker2.Value <= DateTimePicker1.Value Then
+                MsgBox("La fecha desde no puede ser mayor que la fecha hasta", MsgBoxStyle.OkOnly, "Error")
+                Return
+            Else
+                Me.SP_ListadodeClientesPorfechaTableAdapter.Fill(Me.DataSetReportes.SP_ListadodeClientesPorfecha, DateTimePicker1.Value.Date.ToString("dd/MM/yyyy HH:mm:ss"), DateTimePicker2.Value.Date.ToString("dd/MM/yyyy HH:mm:ss"))
+                Me.ReportViewer1.RefreshReport()
+
+
+            End If
+
 
 
         End If

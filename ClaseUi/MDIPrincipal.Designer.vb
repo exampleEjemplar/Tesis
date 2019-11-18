@@ -36,10 +36,11 @@ Partial Class MDIPrincipal
         Me.btnCompras = New System.Windows.Forms.Button()
         Me.btnVentas = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblCrizol = New System.Windows.Forms.Label()
         Me.lblUsuario = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -222,51 +223,10 @@ Partial Class MDIPrincipal
         Me.FlowLayoutPanel1.Controls.Add(Me.Button3)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 40)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 82)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(131, 592)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(127, 550)
         Me.FlowLayoutPanel1.TabIndex = 32
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(131, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(188, Byte), Integer))
-        Me.TableLayoutPanel1.ColumnCount = 3
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.lblCrizol, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.lblUsuario, 2, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1344, 40)
-        Me.TableLayoutPanel1.TabIndex = 34
-        '
-        'lblCrizol
-        '
-        Me.lblCrizol.AutoSize = True
-        Me.lblCrizol.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblCrizol.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCrizol.Location = New System.Drawing.Point(3, 0)
-        Me.lblCrizol.Name = "lblCrizol"
-        Me.lblCrizol.Size = New System.Drawing.Size(124, 40)
-        Me.lblCrizol.TabIndex = 0
-        Me.lblCrizol.Text = "Crizol"
-        Me.lblCrizol.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblUsuario
-        '
-        Me.lblUsuario.AutoSize = True
-        Me.lblUsuario.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUsuario.Location = New System.Drawing.Point(1200, 0)
-        Me.lblUsuario.Name = "lblUsuario"
-        Me.lblUsuario.Size = New System.Drawing.Size(141, 40)
-        Me.lblUsuario.TabIndex = 1
-        Me.lblUsuario.Text = "Usuario"
-        Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Button3
         '
@@ -285,6 +245,52 @@ Partial Class MDIPrincipal
         Me.Button3.Text = "SALIR"
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button3.UseVisualStyleBackColor = False
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(131, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(188, Byte), Integer))
+        Me.TableLayoutPanel1.ColumnCount = 3
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.lblCrizol, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.lblUsuario, 2, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1344, 82)
+        Me.TableLayoutPanel1.TabIndex = 34
+        '
+        'lblCrizol
+        '
+        Me.lblCrizol.AutoSize = True
+        Me.lblCrizol.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblCrizol.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCrizol.Location = New System.Drawing.Point(3, 0)
+        Me.lblCrizol.Name = "lblCrizol"
+        Me.lblCrizol.Size = New System.Drawing.Size(124, 82)
+        Me.lblCrizol.TabIndex = 0
+        Me.lblCrizol.Text = "Crizol"
+        Me.lblCrizol.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblUsuario
+        '
+        Me.lblUsuario.AutoSize = True
+        Me.lblUsuario.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUsuario.Location = New System.Drawing.Point(1200, 0)
+        Me.lblUsuario.Name = "lblUsuario"
+        Me.lblUsuario.Size = New System.Drawing.Size(141, 82)
+        Me.lblUsuario.TabIndex = 1
+        Me.lblUsuario.Text = "Usuario"
+        Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
         'MDIPrincipal
         '
@@ -322,4 +328,5 @@ Partial Class MDIPrincipal
     Friend WithEvents lblCrizol As Windows.Forms.Label
     Friend WithEvents lblUsuario As Windows.Forms.Label
     Friend WithEvents Button3 As Windows.Forms.Button
+    Friend WithEvents ContextMenuStrip1 As Windows.Forms.ContextMenuStrip
 End Class

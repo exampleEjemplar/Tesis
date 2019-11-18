@@ -101,15 +101,16 @@ Public Class MDIPrincipal
 
 		End Try
 
-	End Sub
+    End Sub
 
 
 
 
 	Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-		Me.Close()
+        MDIEstadisticas.Show()
 
-	End Sub
+
+    End Sub
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 		FrmGestionCliente.ShowDialog()
@@ -182,5 +183,14 @@ Public Class MDIPrincipal
 
     Private Sub btnPedidos_Click(sender As Object, e As EventArgs) Handles btnPedidos.Click
         FrmGestionPedidos.ShowDialog()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Close()
+
+    End Sub
+
+    Private Sub btnSalir_MouseClick(sender As Object, e As MouseEventArgs)
+
     End Sub
 End Class

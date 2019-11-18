@@ -609,9 +609,10 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 	End Sub
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-		'FrmListadoClientes.ShowDialog()
+        ListadodeClientes.Show()
 
-	End Sub
+
+    End Sub
 
 	Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
 		Dim resp = MsgBox("Está seguro que desea limpiar los campos?", MsgBoxStyle.YesNo, "Limpiar")
