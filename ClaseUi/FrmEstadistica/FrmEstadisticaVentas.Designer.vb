@@ -38,8 +38,8 @@ Partial Class FrmEstadisticaVentas
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.gbFiltro = New System.Windows.Forms.GroupBox()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -48,6 +48,7 @@ Partial Class FrmEstadisticaVentas
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.gbFiltro.SuspendLayout()
@@ -114,9 +115,9 @@ Partial Class FrmEstadisticaVentas
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(472, 10)
+        Me.Button1.Location = New System.Drawing.Point(567, 10)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(114, 74)
+        Me.Button1.Size = New System.Drawing.Size(60, 74)
         Me.Button1.TabIndex = 17
         Me.Button1.Tag = ""
         Me.Button1.Text = "Buscar"
@@ -125,8 +126,8 @@ Partial Class FrmEstadisticaVentas
         '
         'gbFiltro
         '
-        Me.gbFiltro.Controls.Add(Me.RadioButton2)
         Me.gbFiltro.Controls.Add(Me.RadioButton3)
+        Me.gbFiltro.Controls.Add(Me.RadioButton2)
         Me.gbFiltro.Controls.Add(Me.RadioButton1)
         Me.gbFiltro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbFiltro.Location = New System.Drawing.Point(6, 90)
@@ -136,40 +137,40 @@ Partial Class FrmEstadisticaVentas
         Me.gbFiltro.TabStop = False
         Me.gbFiltro.Text = "Filtro"
         '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton3.Location = New System.Drawing.Point(396, 19)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(102, 17)
+        Me.RadioButton3.TabIndex = 3
+        Me.RadioButton3.TabStop = True
+        Me.RadioButton3.Text = "Por Vendedor"
+        Me.RadioButton3.UseVisualStyleBackColor = True
+        '
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RadioButton2.Location = New System.Drawing.Point(215, 19)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(93, 17)
+        Me.RadioButton2.Size = New System.Drawing.Size(152, 17)
         Me.RadioButton2.TabIndex = 1
         Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Por Clientes"
+        Me.RadioButton2.Text = "Por Tipo de Productos"
         Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton3
-        '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton3.Location = New System.Drawing.Point(6, 19)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(184, 17)
-        Me.RadioButton3.TabIndex = 2
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "Cantidad de ventas por Mes"
-        Me.RadioButton3.UseVisualStyleBackColor = True
         '
         'RadioButton1
         '
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton1.Location = New System.Drawing.Point(351, 19)
+        Me.RadioButton1.Location = New System.Drawing.Point(6, 19)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(286, 17)
-        Me.RadioButton1.TabIndex = 0
+        Me.RadioButton1.Size = New System.Drawing.Size(184, 17)
+        Me.RadioButton1.TabIndex = 2
         Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Cantidad de Registros realizados por Usuarios"
+        Me.RadioButton1.Text = "Cantidad de ventas por Mes"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'Label2
@@ -196,7 +197,7 @@ Partial Class FrmEstadisticaVentas
         Me.dtphasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtphasta.Location = New System.Drawing.Point(335, 37)
         Me.dtphasta.Name = "dtphasta"
-        Me.dtphasta.Size = New System.Drawing.Size(111, 20)
+        Me.dtphasta.Size = New System.Drawing.Size(145, 20)
         Me.dtphasta.TabIndex = 4
         '
         'dtpdesde
@@ -204,7 +205,7 @@ Partial Class FrmEstadisticaVentas
         Me.dtpdesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpdesde.Location = New System.Drawing.Point(117, 37)
         Me.dtpdesde.Name = "dtpdesde"
-        Me.dtpdesde.Size = New System.Drawing.Size(106, 20)
+        Me.dtpdesde.Size = New System.Drawing.Size(148, 20)
         Me.dtpdesde.TabIndex = 3
         '
         'btnSalir
@@ -263,10 +264,10 @@ Partial Class FrmEstadisticaVentas
         Me.Chart2.BorderlineColor = System.Drawing.Color.Black
         Me.Chart2.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart2.BorderlineWidth = 2
-        ChartArea6.AxisX.Title = "Usuario"
+        ChartArea6.AxisX.Title = "Tipo de Productos"
         ChartArea6.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far
         ChartArea6.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea6.AxisY.Title = "Cantidad"
+        ChartArea6.AxisY.Title = "Cantidad de Productos"
         ChartArea6.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         ChartArea6.Name = "ChartArea1"
         Me.Chart2.ChartAreas.Add(ChartArea6)
@@ -274,7 +275,7 @@ Partial Class FrmEstadisticaVentas
         Legend6.IsTextAutoFit = False
         Legend6.Name = "Legend1"
         Me.Chart2.Legends.Add(Legend6)
-        Me.Chart2.Location = New System.Drawing.Point(-113, 178)
+        Me.Chart2.Location = New System.Drawing.Point(12, 178)
         Me.Chart2.Name = "Chart2"
         Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
         Series6.ChartArea = "ChartArea1"
@@ -290,21 +291,42 @@ Partial Class FrmEstadisticaVentas
         Me.Chart2.Text = "Chart2"
         Title6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Title6.Name = "Title1"
-        Title6.Text = "Clientes Registrados por Usuario"
+        Title6.Text = "Ventas  por Tipo de Productos"
         Me.Chart2.Titles.Add(Title6)
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.SystemColors.Control
+        Me.Button2.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_clear_filters_60
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(694, 314)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(80, 116)
+        Me.Button2.TabIndex = 18
+        Me.Button2.Tag = ""
+        Me.Button2.Text = "Borrar Filtro"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'FrmEstadisticaVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 562)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Chart2)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.Chart3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnSalir)
         Me.Name = "FrmEstadisticaVentas"
-        Me.Text = "Form1"
+        Me.ShowIcon = False
+        Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -321,7 +343,6 @@ Partial Class FrmEstadisticaVentas
     Friend WithEvents Button1 As Windows.Forms.Button
     Friend WithEvents gbFiltro As Windows.Forms.GroupBox
     Friend WithEvents RadioButton2 As Windows.Forms.RadioButton
-    Friend WithEvents RadioButton3 As Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As Windows.Forms.RadioButton
     Friend WithEvents Label2 As Windows.Forms.Label
     Friend WithEvents Label1 As Windows.Forms.Label
@@ -330,4 +351,6 @@ Partial Class FrmEstadisticaVentas
     Friend WithEvents btnSalir As Windows.Forms.Button
     Friend WithEvents Chart1 As Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents Chart2 As Windows.Forms.DataVisualization.Charting.Chart
+    Friend WithEvents RadioButton3 As Windows.Forms.RadioButton
+    Friend WithEvents Button2 As Windows.Forms.Button
 End Class
