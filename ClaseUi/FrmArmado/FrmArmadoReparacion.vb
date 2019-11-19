@@ -235,6 +235,7 @@ Public Class FrmArmadoReparacion
 	End Function
 
 	Public Sub LlenarLvi(ByVal parametros As Dictionary(Of String, String))
+		parametros.Add("EsReparacion", "S")
 		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros)
 		lstProdDispo.Clear()
 		lstProdDispo.Scrollable = True

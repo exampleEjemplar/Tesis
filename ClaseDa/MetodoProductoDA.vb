@@ -303,9 +303,9 @@ Public Class MetodoProductoDA
 				.AddWithValue("@CategoriaId", pro.categoriaId)
 				.AddWithValue("@StockODeTercero", pro.StockODeTercero)
 				.AddWithValue("@FechaAlta", Date.Now)
-				.AddWithValue("@EsServicio", "N")
-				.AddWithValue("@EsReparacion", "N")
-				.AddWithValue("@Problema", "")
+				.AddWithValue("@EsServicio", If(Not String.IsNullOrWhiteSpace(pro.EsServicio), pro.EsServicio, "N"))
+				.AddWithValue("@EsReparacion", If(Not String.IsNullOrWhiteSpace(pro.EsReparacion), pro.EsReparacion, "N"))
+				.AddWithValue("@Problema", pro.Problema)
 			End With
 
 			com.ExecuteNonQuery()
@@ -348,7 +348,7 @@ Public Class MetodoProductoDA
 
 	End Function
 
-	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
+	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, Optional esReparacion As String = "") As DataTable
 		'Try
 		'	helpersDa.ChequearConexion(db)
 		'	Dim ds = New DataSet
@@ -380,7 +380,7 @@ Public Class MetodoProductoDA
 		'	db.Close()
 		'End Try
 		Dim sqlstr = "SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto, p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.TipoProductoID, p.UnidadDePeso, p.CategoriaID, p.StockODeTercero FROM productos as p inner join TipoProductos t on p.TipoProductoID=t.id inner join Materiales m On p.MaterialId=m.id inner join categorias ca on p.CategoriaID= ca.Id where p.esservicio = 'N' "
-
+		sqlstr = If(String.IsNullOrWhiteSpace(esReparacion), sqlstr, sqlstr + " and esParaReparacion = 'S'")
 		Dim dt As New DataTable
 		Try
 			Dim da As New SqlDataAdapter(sqlstr, db)

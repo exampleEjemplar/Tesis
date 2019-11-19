@@ -221,11 +221,11 @@ Public Class FrmCatalogo
     End Sub
 
     Private Sub CmbCategoria_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CmbCategoria.SelectionChangeCommitted
-        CmbCategoria.Enabled = False
-        btnBuscar.Enabled = True
-        tbBuscod.Enabled = True
-        tbBusnombre.Enabled = True
-    End Sub
+		'CmbCategoria.Enabled = False
+		'btnBuscar.Enabled = True
+		'tbBuscod.Enabled = True
+		'tbBusnombre.Enabled = True
+	End Sub
 
 
     Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick

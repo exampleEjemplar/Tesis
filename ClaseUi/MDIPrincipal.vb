@@ -169,12 +169,11 @@ Public Class MDIPrincipal
         FrmGestionPedidos.ShowDialog()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Me.Close()
+	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+		Me.Close()
+	End Sub
 
-    End Sub
-
-    Private Sub btnSalir_MouseClick(sender As Object, e As MouseEventArgs)
-
-    End Sub
+	Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles btnReparaciones.Click
+		FrmGestionReparaciones.ShowDialog()
+	End Sub
 End Class

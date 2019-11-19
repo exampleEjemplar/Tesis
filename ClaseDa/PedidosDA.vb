@@ -48,7 +48,7 @@ Public Class PedidosDA
 				End If
 				If item.Key = "EsReparacion" Then
 					count = count - 1
-					text = text & "v.EsReparacion = '" + item.Value + "'"
+					text = text & " v.EsReparacion = '" + item.Value + "'" & If(count <> 0, " and ", "")
 					Continue For
 				End If
 			Next

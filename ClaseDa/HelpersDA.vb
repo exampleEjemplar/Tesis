@@ -250,9 +250,9 @@ Public Class HelpersDA
 			Dim count = parametros.Count
 			Dim text = " where "
 			If Not String.IsNullOrWhiteSpace(esServicio) Then
-				text += " esServicio='S' and "
+				text += " p.esServicio='S' and "
 			Else
-				text += " esServicio='N' and "
+				text += " p.esServicio='N' and "
 			End If
 			For Each item As KeyValuePair(Of String, String) In parametros
 				If item.Key = "ProveedorId" Then
@@ -280,13 +280,18 @@ Public Class HelpersDA
 					text = text & "'" & item.Value & " 23:59:59' " & If(count <> 0, " and ", "")
 					Continue For
 				End If
+				If item.Key = "EsReparacion" Then
+					count = count - 1
+					text = text & "p.EsParaReparacion" & " = '" & item.Value & "' " & If(count <> 0, " and ", "")
+					Continue For
+				End If
 			Next
 			sqlStr = sqlStr + text + " order By ProveedorId "
 		Else
 			If Not String.IsNullOrWhiteSpace(esServicio) Then
-				sqlStr += " where esServicio='S' "
+				sqlStr += " where p.esServicio='S' "
 			Else
-				sqlStr += "where esServicio='N' "
+				sqlStr += "where p.esServicio='N' "
 			End If
 		End If
 

@@ -102,7 +102,9 @@ Public Class FrmModificarPrecioProducto
 		LlenarCboCategorias()
 		CheckedListBox1.Items.Clear()
 		listaDeProductos = New List(Of Tuple(Of Integer, Boolean, ProductosNE))
-		Dim productos = helpersLN.CargarTodosProductos(New Dictionary(Of String, String)).Tables(0)
+		Dim parametros = New Dictionary(Of String, String)
+		parametros.Add("EsReparacion", "N")
+		Dim productos = helpersLN.CargarTodosProductos(parametros).Tables(0)
 		For i As Integer = 0 To productos.Rows.Count - 1
 			Dim stringProducto = productos.Rows(i)(1)
 			For y As Integer = productos.Rows(i)(1).length To 40
