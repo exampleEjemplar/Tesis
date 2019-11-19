@@ -138,6 +138,12 @@ Public Class FrmGestionProductoAReparar
 #End Region
 #Region "tamaño"
 			If Not String.IsNullOrEmpty(TbTamaño.Text) Then
+				Dim value As Decimal
+				Dim newText = TbTamaño.Text.Replace(",", ".")
+				If Not Decimal.TryParse(newText, value) Then
+					MsgBox("Ingrese el tamaño en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
 				pro.tamaño = TbTamaño.Text
 			Else
 				MsgBox("Debe seleccionar un tamaño", MsgBoxStyle.Critical, "Producto")
@@ -152,7 +158,9 @@ Public Class FrmGestionProductoAReparar
 				Return
 			End If
 #End Region
-
+			pro.EsReparacion = "S"
+			pro.EsServicio = "N"
+			pro.CodBarra = "-"
 			productometodo.Grabarproductos(pro)
 			idProductoNuevo = productometodo.CargarUnProducto(0, pro.nombreprducto)
 		Catch ex As Exception
@@ -170,7 +178,7 @@ Public Class FrmGestionProductoAReparar
 		DataGridView1.RowTemplate.Height = 30
 		busqcod = ""
 		busqprod = ""
-		bloquearcampos()
+		Habilitarcampos()
 		LlenarCMBTipo()
 		LlenarCMBMaterial()
 		LlenarCMBUnidadDePeso()
@@ -186,7 +194,7 @@ Public Class FrmGestionProductoAReparar
 
 
 			Dim dsa1 As DataTable
-			dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
+			dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod, "S") 'Si parametros esta vacio, busca todos los clientes en la bd
 			DataGridView1.DataSource = dsa1
 			DataGridView1.Columns(0).HeaderText = "Código"
 			DataGridView1.Columns(1).HeaderText = "Código Barras"

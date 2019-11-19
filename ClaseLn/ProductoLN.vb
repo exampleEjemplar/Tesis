@@ -80,9 +80,9 @@ Public Class ProductoLN
 		objproductosAD.modificarproductos(pro)
 	End Sub
 
-	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
+	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, Optional esReparacion As String = "") As DataTable
 
-		Return objproductosAD.CargaGrillaproductossinbusqueda(codigo, nombre)
+		Return objproductosAD.CargaGrillaproductossinbusqueda(codigo, nombre, esReparacion)
 	End Function
 
 	Public Function CargaGrillaproductosconbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
