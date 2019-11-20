@@ -96,10 +96,10 @@ Public Class MDIPrincipal
 			Dim COTIZACION As String = MIHTML.Remove(0, MIHTML.IndexOf("Venta:") + 25)
 			COTIZACION = COTIZACION.Substring(0, COTIZACION.IndexOf("<"))
 
-			Me.WindowState = FormWindowState.Maximized
-		Catch
+            Me.WindowState = FormWindowState.Maximized
+        Catch
 
-		End Try
+        End Try
 
     End Sub
 
@@ -173,7 +173,16 @@ Public Class MDIPrincipal
 		Me.Close()
 	End Sub
 
-	Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles btnReparaciones.Click
-		FrmGestionReparaciones.ShowDialog()
-	End Sub
+    Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles btnReparaciones.Click
+        FrmGestionReparaciones.ShowDialog()
+    End Sub
+
+    Private Const CP_NOCLOSE_BUTTON As Integer = &H200
+    Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
+        Get
+            Dim myCp As CreateParams = MyBase.CreateParams
+            myCp.ClassStyle = myCp.ClassStyle Or CP_NOCLOSE_BUTTON
+            Return myCp
+        End Get
+    End Property
 End Class
