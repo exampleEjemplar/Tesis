@@ -35,12 +35,12 @@ Partial Class MDIPrincipal
 		Me.btnCompras = New System.Windows.Forms.Button()
 		Me.btnVentas = New System.Windows.Forms.Button()
 		Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+		Me.btnReparaciones = New System.Windows.Forms.Button()
 		Me.Button3 = New System.Windows.Forms.Button()
 		Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
 		Me.lblCrizol = New System.Windows.Forms.Label()
 		Me.lblUsuario = New System.Windows.Forms.Label()
 		Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-		Me.btnReparaciones = New System.Windows.Forms.Button()
 		Me.FlowLayoutPanel1.SuspendLayout()
 		Me.TableLayoutPanel1.SuspendLayout()
 		Me.SuspendLayout()
@@ -211,6 +211,24 @@ Partial Class MDIPrincipal
 		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(169, 677)
 		Me.FlowLayoutPanel1.TabIndex = 32
 		'
+		'btnReparaciones
+		'
+		Me.btnReparaciones.BackColor = System.Drawing.Color.LightSteelBlue
+		Me.btnReparaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnReparaciones.FlatAppearance.BorderSize = 0
+		Me.btnReparaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnReparaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnReparaciones.Image = CType(resources.GetObject("btnReparaciones.Image"), System.Drawing.Image)
+		Me.btnReparaciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.btnReparaciones.Location = New System.Drawing.Point(4, 412)
+		Me.btnReparaciones.Margin = New System.Windows.Forms.Padding(4, 0, 4, 2)
+		Me.btnReparaciones.Name = "btnReparaciones"
+		Me.btnReparaciones.Size = New System.Drawing.Size(165, 49)
+		Me.btnReparaciones.TabIndex = 32
+		Me.btnReparaciones.Text = "Reparaciones"
+		Me.btnReparaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.btnReparaciones.UseVisualStyleBackColor = False
+		'
 		'Button3
 		'
 		Me.Button3.BackColor = System.Drawing.Color.LightSteelBlue
@@ -279,24 +297,6 @@ Partial Class MDIPrincipal
 		Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
 		Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
 		'
-		'btnReparaciones
-		'
-		Me.btnReparaciones.BackColor = System.Drawing.Color.LightSteelBlue
-		Me.btnReparaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnReparaciones.FlatAppearance.BorderSize = 0
-		Me.btnReparaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnReparaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnReparaciones.Image = CType(resources.GetObject("btnReparaciones.Image"), System.Drawing.Image)
-		Me.btnReparaciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.btnReparaciones.Location = New System.Drawing.Point(4, 412)
-		Me.btnReparaciones.Margin = New System.Windows.Forms.Padding(4, 0, 4, 2)
-		Me.btnReparaciones.Name = "btnReparaciones"
-		Me.btnReparaciones.Size = New System.Drawing.Size(165, 49)
-		Me.btnReparaciones.TabIndex = 32
-		Me.btnReparaciones.Text = "Reparaciones"
-		Me.btnReparaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		Me.btnReparaciones.UseVisualStyleBackColor = False
-		'
 		'MDIPrincipal
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -307,12 +307,14 @@ Partial Class MDIPrincipal
 		Me.Controls.Add(Me.FlowLayoutPanel1)
 		Me.Controls.Add(Me.TableLayoutPanel1)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.IsMdiContainer = True
 		Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
 		Me.MaximizeBox = False
 		Me.Name = "MDIPrincipal"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "MDIPrincipal"
+		Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
 		Me.FlowLayoutPanel1.ResumeLayout(False)
 		Me.TableLayoutPanel1.ResumeLayout(False)
 		Me.TableLayoutPanel1.PerformLayout()

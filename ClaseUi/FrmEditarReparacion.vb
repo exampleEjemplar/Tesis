@@ -2,7 +2,7 @@
 Imports ClaseLn
 Imports ClaseNe
 
-Public Class FrmEditarReparaciones
+Public Class FrmEditarReparacion
 	Private pedidosLN As New PedidosLN
 	Private helpersUI As New HelpersUI
 	Private idReparacion As Integer
@@ -46,7 +46,7 @@ Public Class FrmEditarReparaciones
 		Return cboEstado.SelectedValue
 	End Function
 
-	Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+	Private Sub btnSalir_Click(sender As Object, e As EventArgs)
 		Close()
 	End Sub
 
@@ -58,4 +58,5 @@ Public Class FrmEditarReparaciones
 		MsgBox("Reparación modificada", MsgBoxStyle.OkOnly, "Reparacion")
 		modificado = True
 	End Sub
+
 End Class

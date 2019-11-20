@@ -1,28 +1,27 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmGestionCaja
-	Inherits System.Windows.Forms.Form
+    Inherits System.Windows.Forms.Form
 
-	'Form reemplaza a Dispose para limpiar la lista de componentes.
-	<System.Diagnostics.DebuggerNonUserCode()> _
-	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-		Try
-			If disposing AndAlso components IsNot Nothing Then
-				components.Dispose()
-			End If
-		Finally
-			MyBase.Dispose(disposing)
-		End Try
-	End Sub
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()>
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
 
-	'Requerido por el Diseñador de Windows Forms
-	Private components As System.ComponentModel.IContainer
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
 
-	'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
-	'Se puede modificar usando el Diseñador de Windows Forms.  
-	'No lo modifique con el editor de código.
-	<System.Diagnostics.DebuggerStepThrough()> _
-	Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionCaja))
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()>
+    Private Sub InitializeComponent()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -52,8 +51,6 @@ Partial Class FrmGestionCaja
         Me.txtUsuario = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtEgresos = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -65,9 +62,9 @@ Partial Class FrmGestionCaja
         Me.GroupBox2.Controls.Add(Me.TextBox3)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
         Me.GroupBox2.Location = New System.Drawing.Point(9, 9)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(593, 23)
         Me.GroupBox2.TabIndex = 65
         Me.GroupBox2.TabStop = False
@@ -126,7 +123,7 @@ Partial Class FrmGestionCaja
         '
         Me.rbtEntreFechas.AutoSize = True
         Me.rbtEntreFechas.Location = New System.Drawing.Point(246, 59)
-        Me.rbtEntreFechas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbtEntreFechas.Margin = New System.Windows.Forms.Padding(2)
         Me.rbtEntreFechas.Name = "rbtEntreFechas"
         Me.rbtEntreFechas.Size = New System.Drawing.Size(157, 17)
         Me.rbtEntreFechas.TabIndex = 80
@@ -147,7 +144,7 @@ Partial Class FrmGestionCaja
         '
         Me.rbtFechaExacta.AutoSize = True
         Me.rbtFechaExacta.Location = New System.Drawing.Point(8, 59)
-        Me.rbtFechaExacta.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbtFechaExacta.Margin = New System.Windows.Forms.Padding(2)
         Me.rbtFechaExacta.Name = "rbtFechaExacta"
         Me.rbtFechaExacta.Size = New System.Drawing.Size(145, 17)
         Me.rbtFechaExacta.TabIndex = 81
@@ -272,9 +269,9 @@ Partial Class FrmGestionCaja
         Me.GroupBox1.Controls.Add(Me.btnLimpiarFiltros)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.GroupBox1.Location = New System.Drawing.Point(9, 47)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(593, 121)
         Me.GroupBox1.TabIndex = 66
         Me.GroupBox1.TabStop = False
@@ -402,43 +399,11 @@ Partial Class FrmGestionCaja
         Me.txtEgresos.TabIndex = 93
         Me.txtEgresos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.SystemColors.Control
-        Me.Button3.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_checklist_62
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Location = New System.Drawing.Point(626, 255)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(80, 89)
-        Me.Button3.TabIndex = 95
-        Me.Button3.Text = "Listar"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button3.UseVisualStyleBackColor = False
-        '
-        'Button4
-        '
-        Me.Button4.BackColor = System.Drawing.SystemColors.Control
-        Me.Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), System.Drawing.Image)
-        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Location = New System.Drawing.Point(626, 361)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(80, 89)
-        Me.Button4.TabIndex = 96
-        Me.Button4.Text = "Estadíticas"
-        Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button4.UseVisualStyleBackColor = False
-        '
         'FrmGestionCaja
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(721, 557)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtEgresos)
         Me.Controls.Add(Me.Label4)
@@ -455,7 +420,7 @@ Partial Class FrmGestionCaja
         Me.Controls.Add(Me.btnSalirr)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "FrmGestionCaja"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmGestionCaja"
@@ -469,34 +434,32 @@ Partial Class FrmGestionCaja
 
     End Sub
     Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
-	Friend WithEvents Button1 As Windows.Forms.Button
-	Friend WithEvents TextBox3 As Windows.Forms.TextBox
-	Friend WithEvents btnSalirr As Windows.Forms.Button
-	Friend WithEvents lbldesde As Windows.Forms.Label
-	Friend WithEvents rbtEntreFechas As Windows.Forms.CheckBox
-	Friend WithEvents lblHasta As Windows.Forms.Label
-	Friend WithEvents rbtFechaExacta As Windows.Forms.CheckBox
-	Friend WithEvents dtpFechaHasta As Windows.Forms.DateTimePicker
-	Friend WithEvents dtpFechaDesde As Windows.Forms.DateTimePicker
-	Friend WithEvents lblFechaExacta As Windows.Forms.Label
-	Friend WithEvents btnLimpiarFiltros As Windows.Forms.Button
-	Friend WithEvents btnBuscar As Windows.Forms.Button
-	Friend WithEvents cboUsuarios As Windows.Forms.ComboBox
-	Friend WithEvents Label17 As Windows.Forms.Label
-	Friend WithEvents dgvGrilla As Windows.Forms.DataGridView
-	Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
-	Friend WithEvents Button2 As Windows.Forms.Button
-	Friend WithEvents TextBox1 As Windows.Forms.TextBox
-	Friend WithEvents Label4 As Windows.Forms.Label
-	Friend WithEvents txtIngresos As Windows.Forms.TextBox
-	Friend WithEvents Label3 As Windows.Forms.Label
-	Friend WithEvents txtMontoFinal As Windows.Forms.TextBox
-	Friend WithEvents Label2 As Windows.Forms.Label
-	Friend WithEvents txtCantidadMov As Windows.Forms.TextBox
-	Friend WithEvents Label11 As Windows.Forms.Label
-	Friend WithEvents txtUsuario As Windows.Forms.TextBox
-	Friend WithEvents Label1 As Windows.Forms.Label
-	Friend WithEvents txtEgresos As Windows.Forms.TextBox
-    Friend WithEvents Button3 As Windows.Forms.Button
-    Friend WithEvents Button4 As Windows.Forms.Button
+    Friend WithEvents Button1 As Windows.Forms.Button
+    Friend WithEvents TextBox3 As Windows.Forms.TextBox
+    Friend WithEvents btnSalirr As Windows.Forms.Button
+    Friend WithEvents lbldesde As Windows.Forms.Label
+    Friend WithEvents rbtEntreFechas As Windows.Forms.CheckBox
+    Friend WithEvents lblHasta As Windows.Forms.Label
+    Friend WithEvents rbtFechaExacta As Windows.Forms.CheckBox
+    Friend WithEvents dtpFechaHasta As Windows.Forms.DateTimePicker
+    Friend WithEvents dtpFechaDesde As Windows.Forms.DateTimePicker
+    Friend WithEvents lblFechaExacta As Windows.Forms.Label
+    Friend WithEvents btnLimpiarFiltros As Windows.Forms.Button
+    Friend WithEvents btnBuscar As Windows.Forms.Button
+    Friend WithEvents cboUsuarios As Windows.Forms.ComboBox
+    Friend WithEvents Label17 As Windows.Forms.Label
+    Friend WithEvents dgvGrilla As Windows.Forms.DataGridView
+    Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
+    Friend WithEvents Button2 As Windows.Forms.Button
+    Friend WithEvents TextBox1 As Windows.Forms.TextBox
+    Friend WithEvents Label4 As Windows.Forms.Label
+    Friend WithEvents txtIngresos As Windows.Forms.TextBox
+    Friend WithEvents Label3 As Windows.Forms.Label
+    Friend WithEvents txtMontoFinal As Windows.Forms.TextBox
+    Friend WithEvents Label2 As Windows.Forms.Label
+    Friend WithEvents txtCantidadMov As Windows.Forms.TextBox
+    Friend WithEvents Label11 As Windows.Forms.Label
+    Friend WithEvents txtUsuario As Windows.Forms.TextBox
+    Friend WithEvents Label1 As Windows.Forms.Label
+    Friend WithEvents txtEgresos As Windows.Forms.TextBox
 End Class

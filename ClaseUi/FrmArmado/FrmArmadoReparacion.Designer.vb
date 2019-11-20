@@ -595,11 +595,11 @@ Partial Class FrmArmadoReparacion
 		'chkSoloCliente
 		'
 		Me.chkSoloCliente.AutoSize = True
-		Me.chkSoloCliente.Location = New System.Drawing.Point(10, 59)
+		Me.chkSoloCliente.Location = New System.Drawing.Point(11, 55)
 		Me.chkSoloCliente.Name = "chkSoloCliente"
-		Me.chkSoloCliente.Size = New System.Drawing.Size(256, 21)
+		Me.chkSoloCliente.Size = New System.Drawing.Size(257, 21)
 		Me.chkSoloCliente.TabIndex = 42
-		Me.chkSoloCliente.Text = "Solo productos a reparar del cliente"
+		Me.chkSoloCliente.Text = "Solo productos traidos por el cliente"
 		Me.chkSoloCliente.UseVisualStyleBackColor = True
 		'
 		'FrmArmadoReparacion

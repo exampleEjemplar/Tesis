@@ -1,14 +1,17 @@
 ﻿Imports System.Windows.Forms
 Imports System.Net
 Imports System.IO
+Imports ClaseLn
 Imports System.Drawing
 
 Public Class MDIPrincipal
 
-    Private helpersUi As New HelpersUI
+	Private helpersUi As New HelpersUI
+	Private loginLN As New LoginLN
+	Private usuarioLn As New UsuariosLN
 
 
-    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs)
+	Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs)
         ' Cree una nueva instancia del formulario secundario.
         Dim ChildForm As New System.Windows.Forms.Form
         ' Conviértalo en un elemento secundario de este formulario MDI antes de mostrarlo.
@@ -97,9 +100,11 @@ Public Class MDIPrincipal
 			COTIZACION = COTIZACION.Substring(0, COTIZACION.IndexOf("<"))
 
 			Me.WindowState = FormWindowState.Maximized
+			Dim usuario = usuarioLn.CargarUnUsuario(loginLN.ChequearEnSesion())
+			lblUsuario.Text = "Hola " + usuario.Tables(0).Rows(0)(0).ToString() + "!"
 		Catch
 
-		End Try
+        End Try
 
     End Sub
 
@@ -173,7 +178,16 @@ Public Class MDIPrincipal
 		Me.Close()
 	End Sub
 
-	Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles btnReparaciones.Click
-		FrmGestionReparaciones.ShowDialog()
-	End Sub
+    Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles btnReparaciones.Click
+        FrmGestionReparaciones.ShowDialog()
+    End Sub
+
+    Private Const CP_NOCLOSE_BUTTON As Integer = &H200
+    Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
+        Get
+            Dim myCp As CreateParams = MyBase.CreateParams
+            myCp.ClassStyle = myCp.ClassStyle Or CP_NOCLOSE_BUTTON
+            Return myCp
+        End Get
+    End Property
 End Class

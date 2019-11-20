@@ -12,6 +12,11 @@ Public Class FrmCatalogo
     Dim categoria As Integer
     Dim qidproductos As Integer
     Dim parametros As New Dictionary(Of String, String)
+    Public TBCODIGO = ""
+    Public TBCODIGOBARRA = ""
+    Public PBFOTO As Drawing.Image = Nothing
+    Public TBNOMBREPROD = ""
+    Public TBPRECIO = ""
 
     Public Function LlenarCMBCategoria()
         Try
@@ -230,41 +235,47 @@ Public Class FrmCatalogo
 
     Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
 
+        Dim imgImagen = CargarImagen(DataGridView1.CurrentRow.Index)
+
+        'FrmDetalleProductoCatalogo.TBCODIGO.Text = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
+        'FrmDetalleProductoCatalogo.TBCODIGOBARRA.Text = (DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value)
+        'FrmDetalleProductoCatalogo.PBFOTO.Image = imgImagen
+        'FrmDetalleProductoCatalogo.TBNOMBREPROD.Text = (DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value)
+        'FrmDetalleProductoCatalogo.TBPRECIO.Text = (DataGridView1.Item(5, DataGridView1.CurrentRow.Index).Value)
+
+
+        TBCODIGO = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
+        TBCODIGOBARRA = (DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value)
+        PBFOTO = imgImagen
+        TBNOMBREPROD = (DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value)
+        TBPRECIO = (DataGridView1.Item(5, DataGridView1.CurrentRow.Index).Value)
+
         FrmDetalleProductoCatalogo.ShowDialog()
-        FrmDetalleProductoCatalogo.TBCODIGO.Text = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
-        FrmDetalleProductoCatalogo.TBCODIGOBARRA.Text = (DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value)
-
-        Dim ms As MemoryStream = New MemoryStream()
-        Dim img As Byte() = CType((DataGridView1.Item(7, DataGridView1.CurrentRow.Index).Value), Byte())
-        If img Is Nothing Then
-            MessageBox.Show("Imagen no encontrada en la base de datos")
-        End If
-        ms.Write(img, 0, img.GetUpperBound(0) + 1)
-        Dim imgImagen As System.Drawing.Image = System.Drawing.Image.FromStream(ms)
-
-        FrmDetalleProductoCatalogo.PBFOTO.Image = imgImagen
-        FrmDetalleProductoCatalogo.TBNOMBREPROD.Text = (DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value)
-        FrmDetalleProductoCatalogo.TBPRECIO.Text = (DataGridView1.Item(5, DataGridView1.CurrentRow.Index).Value)
-
-
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-
         If DataGridView1.Columns(e.ColumnIndex).HeaderText = "Imagen" Then
+            Dim imgImagen = CargarImagen(e.ColumnIndex)
+            ImagenAmpliada.pbImagen.Image = imgImagen
+            ImagenAmpliada.ShowDialog()
+        End If
+    End Sub
+
+    Public Function CargarImagen(index As Integer)
+        Dim imgImagen As System.Drawing.Image = Nothing
+
+
+        Dim producto = productometodo.CargarUnProducto(DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value, "").Tables(0).Rows(0)
 
             Dim ms As MemoryStream = New MemoryStream()
-            Dim img As Byte() = CType((DataGridView1.Item(7, DataGridView1.CurrentRow.Index).Value), Byte())
+            Dim img As Byte() = CType(producto(3), Byte())
             If img Is Nothing Then
                 MessageBox.Show("Imagen no encontrada en la base de datos")
             End If
             ms.Write(img, 0, img.GetUpperBound(0) + 1)
-            Dim imgImagen As System.Drawing.Image = System.Drawing.Image.FromStream(ms)
-            ImagenAmpliada.pbImagen.Image = imgImagen
-            ImagenAmpliada.ShowDialog()
-        End If
-
-    End Sub
+            imgImagen = System.Drawing.Image.FromStream(ms)
+        Return imgImagen
+    End Function
 
     Private Sub CH1_CheckedChanged(sender As Object, e As EventArgs) Handles CH1.CheckedChanged
         btnBuscar.Enabled = True

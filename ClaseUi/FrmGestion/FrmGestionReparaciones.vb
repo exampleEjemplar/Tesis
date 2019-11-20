@@ -64,7 +64,7 @@ Public Class FrmGestionReparaciones
 		End If
 		Try
 			idReparacion = selectedRow.Cells("id").Value
-			FrmEditarReparaciones.ShowDialog()
+			FrmEditarReparacion.ShowDialog()
 		Catch ex As Exception
 			MessageBox.Show(ex.Message)
 		End Try
@@ -76,9 +76,9 @@ Public Class FrmGestionReparaciones
 			Busqueda()
 			FrmArmadoReparacion.modificado = False
 		End If
-		If FrmEditarReparaciones.modificado Then
+		If FrmEditarReparacion.modificado Then
 			Busqueda()
-			FrmEditarReparaciones.modificado = False
+			FrmEditarReparacion.modificado = False
 		End If
 	End Sub
 #End Region
@@ -127,8 +127,9 @@ Public Class FrmGestionReparaciones
 		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
 		dgvProveedores.Columns("EstaVencido").Visible = False
 		dgvProveedores.Columns("estado").HeaderText = "Estado"
-		dgvProveedores.Columns("FechaVencimientoSeña").HeaderText = "Fecha de entrega artículo"
+		dgvProveedores.Columns("FechaVencimientoSeña").HeaderText = "Fecha de entrega"
 		dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+		dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 		dgvProveedores.ReadOnly = True
 		If dsa1.Tables(0).Rows.Count() = 0 And type = "" Then
 			MsgBox("La busqueda no arrojo resultados", MsgBoxStyle.OkOnly, "Pedidos")

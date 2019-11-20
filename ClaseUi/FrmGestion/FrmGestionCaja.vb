@@ -173,7 +173,7 @@ Public Class FrmGestionCaja
 		End If
 	End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) 
 
     End Sub
 End Class

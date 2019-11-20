@@ -232,7 +232,7 @@ Public Class FrmGestionProducto
 				'End If
 
 			End If
-			pro.Problema = ""
+
 			productometodo.Grabarproductos(pro)
 			Dgvproductosset()
 			cereacampos()
@@ -292,8 +292,8 @@ Public Class FrmGestionProducto
 			DataGridView1.Columns(3).HeaderText = "Categoría de Producto"
 			DataGridView1.Columns(4).HeaderText = "Tipo de Produco"
 			DataGridView1.Columns(5).HeaderText = "Material de Producto"
-			DataGridView1.Columns(6).HeaderText = "Precio al Público"
-			DataGridView1.Columns(7).Visible = False
+            DataGridView1.Columns(6).HeaderText = "Precio Público"
+            DataGridView1.Columns(7).Visible = False
 			DataGridView1.Columns(8).Visible = False
 			DataGridView1.Columns(9).Visible = False
 			DataGridView1.Columns(10).Visible = False
@@ -307,20 +307,25 @@ Public Class FrmGestionProducto
 			DataGridView1.Columns(18).Visible = False
 			DataGridView1.Columns(19).Visible = False
 			DataGridView1.Columns(20).Visible = False
-			DataGridView1.Columns(21).Visible = False
-			DataGridView1.Columns(1).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(0).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(2).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(3).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(5).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Sort(DataGridView1.Columns(2), System.ComponentModel.ListSortDirection.Ascending)
+            DataGridView1.Columns(21).Visible = False
+            DataGridView1.Columns(0).Width = 60
+            DataGridView1.Columns(1).Width = 60
+            DataGridView1.Columns(2).Width = 150
+            DataGridView1.Columns(1).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(0).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(2).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            DataGridView1.Columns(3).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            DataGridView1.Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            DataGridView1.Columns(5).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            DataGridView1.Columns(6).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+            DataGridView1.Columns(6).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            DataGridView1.Sort(DataGridView1.Columns(2), System.ComponentModel.ListSortDirection.Ascending)
 
 			DataGridView1.AllowUserToAddRows = False
 			DataGridView1.AllowUserToDeleteRows = False

@@ -9,6 +9,11 @@ Public Class FrmDetalleProductoCatalogo
 
 
     Private Sub FrmDetalleProductoCatalogo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TBCODIGO.Text = FrmCatalogo.TBCODIGO
+        TBCODIGOBARRA.Text = FrmCatalogo.TBCODIGOBARRA
+        PBFOTO.Image = FrmCatalogo.PBFOTO
+        TBNOMBREPROD.Text = FrmCatalogo.TBNOMBREPROD
+        TBPRECIO.Text = FrmCatalogo.TBPRECIO
         TBCODIGO.Enabled = False
         TBCODIGOBARRA.Enabled = False
         TBNOMBREPROD.Enabled = False
