@@ -33,8 +33,19 @@ Partial Class FrmGestionProducto
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.gboImagen = New System.Windows.Forms.GroupBox()
+        Me.btncargarimagen = New System.Windows.Forms.Button()
+        Me.PBfoto = New System.Windows.Forms.PictureBox()
         Me.gboProducto = New System.Windows.Forms.GroupBox()
         Me.lblprod = New System.Windows.Forms.Label()
+        Me.rdpropios = New System.Windows.Forms.RadioButton()
+        Me.rdterceros = New System.Windows.Forms.RadioButton()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.tbCodBarra = New System.Windows.Forms.TextBox()
+        Me.tbCodigo = New System.Windows.Forms.TextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.TbNombreProducto = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
         Me.gboStock = New System.Windows.Forms.GroupBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.TbStockmin = New System.Windows.Forms.TextBox()
@@ -63,21 +74,11 @@ Partial Class FrmGestionProducto
         Me.Label26 = New System.Windows.Forms.Label()
         Me.cmbProveedor = New System.Windows.Forms.ComboBox()
         Me.gboPrecio = New System.Windows.Forms.GroupBox()
+        Me.btnModificarPrecios = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TbPrecio = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.TbUtilidad = New System.Windows.Forms.TextBox()
-        Me.rdterceros = New System.Windows.Forms.RadioButton()
-        Me.rdpropios = New System.Windows.Forms.RadioButton()
-        Me.tbCodigo = New System.Windows.Forms.TextBox()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.btncargarimagen = New System.Windows.Forms.Button()
-        Me.PBfoto = New System.Windows.Forms.PictureBox()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.tbCodBarra = New System.Windows.Forms.TextBox()
-        Me.TbNombreProducto = New System.Windows.Forms.TextBox()
-        Me.btnModificarPrecios = New System.Windows.Forms.Button()
         Me.btnguardarmodificacion = New System.Windows.Forms.Button()
         Me.btncancelar = New System.Windows.Forms.Button()
         Me.btnmodificar = New System.Windows.Forms.Button()
@@ -85,17 +86,16 @@ Partial Class FrmGestionProducto
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.gboImagen = New System.Windows.Forms.GroupBox()
         Me.gbbusqueda.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        Me.gboImagen.SuspendLayout()
+        CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gboProducto.SuspendLayout()
         Me.gboStock.SuspendLayout()
         Me.gboCaracteristicas.SuspendLayout()
         Me.gboCategorias.SuspendLayout()
         Me.gboPrecio.SuspendLayout()
-        CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gboImagen.SuspendLayout()
         Me.SuspendLayout()
         '
         'gbbusqueda
@@ -206,7 +206,7 @@ Partial Class FrmGestionProducto
         Me.DataGridView1.RowHeadersWidth = 56
         Me.DataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(502, 309)
+        Me.DataGridView1.Size = New System.Drawing.Size(512, 309)
         Me.DataGridView1.TabIndex = 37
         '
         'GroupBox2
@@ -224,6 +224,46 @@ Partial Class FrmGestionProducto
         Me.GroupBox2.TabIndex = 35
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Gestion de producto"
+        '
+        'gboImagen
+        '
+        Me.gboImagen.Controls.Add(Me.btncargarimagen)
+        Me.gboImagen.Controls.Add(Me.PBfoto)
+        Me.gboImagen.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gboImagen.Location = New System.Drawing.Point(610, 21)
+        Me.gboImagen.Name = "gboImagen"
+        Me.gboImagen.Size = New System.Drawing.Size(166, 242)
+        Me.gboImagen.TabIndex = 59
+        Me.gboImagen.TabStop = False
+        Me.gboImagen.Text = "Imagen del Producto"
+        '
+        'btncargarimagen
+        '
+        Me.btncargarimagen.BackColor = System.Drawing.SystemColors.Control
+        Me.btncargarimagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btncargarimagen.FlatAppearance.BorderSize = 0
+        Me.btncargarimagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btncargarimagen.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btncargarimagen.Image = CType(resources.GetObject("btncargarimagen.Image"), System.Drawing.Image)
+        Me.btncargarimagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btncargarimagen.Location = New System.Drawing.Point(6, 180)
+        Me.btncargarimagen.Name = "btncargarimagen"
+        Me.btncargarimagen.Size = New System.Drawing.Size(153, 52)
+        Me.btncargarimagen.TabIndex = 40
+        Me.btncargarimagen.Text = "Cargar Imagen"
+        Me.btncargarimagen.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btncargarimagen.UseVisualStyleBackColor = False
+        '
+        'PBfoto
+        '
+        Me.PBfoto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PBfoto.ImageLocation = ""
+        Me.PBfoto.Location = New System.Drawing.Point(6, 18)
+        Me.PBfoto.Name = "PBfoto"
+        Me.PBfoto.Size = New System.Drawing.Size(153, 156)
+        Me.PBfoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PBfoto.TabIndex = 0
+        Me.PBfoto.TabStop = False
         '
         'gboProducto
         '
@@ -253,6 +293,81 @@ Partial Class FrmGestionProducto
         Me.lblprod.Size = New System.Drawing.Size(78, 13)
         Me.lblprod.TabIndex = 45
         Me.lblprod.Text = "Procedencia"
+        '
+        'rdpropios
+        '
+        Me.rdpropios.AutoSize = True
+        Me.rdpropios.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdpropios.Location = New System.Drawing.Point(9, 35)
+        Me.rdpropios.Name = "rdpropios"
+        Me.rdpropios.Size = New System.Drawing.Size(67, 17)
+        Me.rdpropios.TabIndex = 46
+        Me.rdpropios.TabStop = True
+        Me.rdpropios.Text = "Propios"
+        Me.rdpropios.UseVisualStyleBackColor = True
+        '
+        'rdterceros
+        '
+        Me.rdterceros.AutoSize = True
+        Me.rdterceros.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdterceros.Location = New System.Drawing.Point(9, 62)
+        Me.rdterceros.Name = "rdterceros"
+        Me.rdterceros.Size = New System.Drawing.Size(75, 17)
+        Me.rdterceros.TabIndex = 47
+        Me.rdterceros.TabStop = True
+        Me.rdterceros.Text = "Terceros"
+        Me.rdterceros.UseVisualStyleBackColor = True
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.Location = New System.Drawing.Point(97, 37)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(46, 13)
+        Me.Label29.TabIndex = 42
+        Me.Label29.Text = "Código"
+        '
+        'tbCodBarra
+        '
+        Me.tbCodBarra.Location = New System.Drawing.Point(425, 34)
+        Me.tbCodBarra.Name = "tbCodBarra"
+        Me.tbCodBarra.Size = New System.Drawing.Size(146, 20)
+        Me.tbCodBarra.TabIndex = 1
+        '
+        'tbCodigo
+        '
+        Me.tbCodigo.Location = New System.Drawing.Point(159, 34)
+        Me.tbCodigo.Name = "tbCodigo"
+        Me.tbCodigo.Size = New System.Drawing.Size(140, 20)
+        Me.tbCodigo.TabIndex = 43
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.Location = New System.Drawing.Point(305, 37)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(104, 13)
+        Me.Label27.TabIndex = 7
+        Me.Label27.Text = "Codigo de Barras"
+        '
+        'TbNombreProducto
+        '
+        Me.TbNombreProducto.Location = New System.Drawing.Point(229, 61)
+        Me.TbNombreProducto.Name = "TbNombreProducto"
+        Me.TbNombreProducto.Size = New System.Drawing.Size(342, 20)
+        Me.TbNombreProducto.TabIndex = 5
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.Location = New System.Drawing.Point(97, 64)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(126, 13)
+        Me.Label32.TabIndex = 10
+        Me.Label32.Text = "Nombre del Producto"
         '
         'gboStock
         '
@@ -555,6 +670,24 @@ Partial Class FrmGestionProducto
         Me.gboPrecio.TabStop = False
         Me.gboPrecio.Text = "Precio"
         '
+        'btnModificarPrecios
+        '
+        Me.btnModificarPrecios.BackColor = System.Drawing.SystemColors.Control
+        Me.btnModificarPrecios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnModificarPrecios.FlatAppearance.BorderSize = 0
+        Me.btnModificarPrecios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificarPrecios.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificarPrecios.Image = CType(resources.GetObject("btnModificarPrecios.Image"), System.Drawing.Image)
+        Me.btnModificarPrecios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnModificarPrecios.Location = New System.Drawing.Point(40, 74)
+        Me.btnModificarPrecios.Name = "btnModificarPrecios"
+        Me.btnModificarPrecios.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btnModificarPrecios.Size = New System.Drawing.Size(97, 37)
+        Me.btnModificarPrecios.TabIndex = 38
+        Me.btnModificarPrecios.Text = "Modificar precios"
+        Me.btnModificarPrecios.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnModificarPrecios.UseVisualStyleBackColor = False
+        '
         'Label20
         '
         Me.Label20.AutoSize = True
@@ -588,127 +721,6 @@ Partial Class FrmGestionProducto
         Me.TbUtilidad.Name = "TbUtilidad"
         Me.TbUtilidad.Size = New System.Drawing.Size(94, 20)
         Me.TbUtilidad.TabIndex = 39
-        '
-        'rdterceros
-        '
-        Me.rdterceros.AutoSize = True
-        Me.rdterceros.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdterceros.Location = New System.Drawing.Point(9, 62)
-        Me.rdterceros.Name = "rdterceros"
-        Me.rdterceros.Size = New System.Drawing.Size(75, 17)
-        Me.rdterceros.TabIndex = 47
-        Me.rdterceros.TabStop = True
-        Me.rdterceros.Text = "Terceros"
-        Me.rdterceros.UseVisualStyleBackColor = True
-        '
-        'rdpropios
-        '
-        Me.rdpropios.AutoSize = True
-        Me.rdpropios.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rdpropios.Location = New System.Drawing.Point(9, 35)
-        Me.rdpropios.Name = "rdpropios"
-        Me.rdpropios.Size = New System.Drawing.Size(67, 17)
-        Me.rdpropios.TabIndex = 46
-        Me.rdpropios.TabStop = True
-        Me.rdpropios.Text = "Propios"
-        Me.rdpropios.UseVisualStyleBackColor = True
-        '
-        'tbCodigo
-        '
-        Me.tbCodigo.Location = New System.Drawing.Point(159, 34)
-        Me.tbCodigo.Name = "tbCodigo"
-        Me.tbCodigo.Size = New System.Drawing.Size(140, 20)
-        Me.tbCodigo.TabIndex = 43
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(97, 37)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(46, 13)
-        Me.Label29.TabIndex = 42
-        Me.Label29.Text = "Código"
-        '
-        'btncargarimagen
-        '
-        Me.btncargarimagen.BackColor = System.Drawing.SystemColors.Control
-        Me.btncargarimagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btncargarimagen.FlatAppearance.BorderSize = 0
-        Me.btncargarimagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btncargarimagen.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btncargarimagen.Image = CType(resources.GetObject("btncargarimagen.Image"), System.Drawing.Image)
-        Me.btncargarimagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btncargarimagen.Location = New System.Drawing.Point(6, 180)
-        Me.btncargarimagen.Name = "btncargarimagen"
-        Me.btncargarimagen.Size = New System.Drawing.Size(153, 52)
-        Me.btncargarimagen.TabIndex = 40
-        Me.btncargarimagen.Text = "Cargar Imagen"
-        Me.btncargarimagen.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btncargarimagen.UseVisualStyleBackColor = False
-        '
-        'PBfoto
-        '
-        Me.PBfoto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PBfoto.ImageLocation = ""
-        Me.PBfoto.Location = New System.Drawing.Point(6, 18)
-        Me.PBfoto.Name = "PBfoto"
-        Me.PBfoto.Size = New System.Drawing.Size(153, 156)
-        Me.PBfoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PBfoto.TabIndex = 0
-        Me.PBfoto.TabStop = False
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.Location = New System.Drawing.Point(97, 64)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(126, 13)
-        Me.Label32.TabIndex = 10
-        Me.Label32.Text = "Nombre del Producto"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(305, 37)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(104, 13)
-        Me.Label27.TabIndex = 7
-        Me.Label27.Text = "Codigo de Barras"
-        '
-        'tbCodBarra
-        '
-        Me.tbCodBarra.Location = New System.Drawing.Point(425, 34)
-        Me.tbCodBarra.Name = "tbCodBarra"
-        Me.tbCodBarra.Size = New System.Drawing.Size(146, 20)
-        Me.tbCodBarra.TabIndex = 1
-        '
-        'TbNombreProducto
-        '
-        Me.TbNombreProducto.Location = New System.Drawing.Point(229, 61)
-        Me.TbNombreProducto.Name = "TbNombreProducto"
-        Me.TbNombreProducto.Size = New System.Drawing.Size(342, 20)
-        Me.TbNombreProducto.TabIndex = 5
-        '
-        'btnModificarPrecios
-        '
-        Me.btnModificarPrecios.BackColor = System.Drawing.SystemColors.Control
-        Me.btnModificarPrecios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnModificarPrecios.FlatAppearance.BorderSize = 0
-        Me.btnModificarPrecios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnModificarPrecios.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnModificarPrecios.Image = CType(resources.GetObject("btnModificarPrecios.Image"), System.Drawing.Image)
-        Me.btnModificarPrecios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnModificarPrecios.Location = New System.Drawing.Point(40, 74)
-        Me.btnModificarPrecios.Name = "btnModificarPrecios"
-        Me.btnModificarPrecios.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnModificarPrecios.Size = New System.Drawing.Size(97, 37)
-        Me.btnModificarPrecios.TabIndex = 38
-        Me.btnModificarPrecios.Text = "Modificar precios"
-        Me.btnModificarPrecios.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnModificarPrecios.UseVisualStyleBackColor = False
         '
         'btnguardarmodificacion
         '
@@ -769,7 +781,7 @@ Partial Class FrmGestionProducto
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
-        Me.btnBuscar.Location = New System.Drawing.Point(1205, 29)
+        Me.btnBuscar.Location = New System.Drawing.Point(1213, 29)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(69, 85)
         Me.btnBuscar.TabIndex = 6
@@ -828,23 +840,11 @@ Partial Class FrmGestionProducto
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnGuardar.UseVisualStyleBackColor = False
         '
-        'gboImagen
-        '
-        Me.gboImagen.Controls.Add(Me.btncargarimagen)
-        Me.gboImagen.Controls.Add(Me.PBfoto)
-        Me.gboImagen.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gboImagen.Location = New System.Drawing.Point(610, 21)
-        Me.gboImagen.Name = "gboImagen"
-        Me.gboImagen.Size = New System.Drawing.Size(166, 242)
-        Me.gboImagen.TabIndex = 59
-        Me.gboImagen.TabStop = False
-        Me.gboImagen.Text = "Imagen del Producto"
-        '
         'FrmGestionProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1300, 451)
+        Me.ClientSize = New System.Drawing.Size(1315, 451)
         Me.ControlBox = False
         Me.Controls.Add(Me.btnguardarmodificacion)
         Me.Controls.Add(Me.btncancelar)
@@ -864,6 +864,8 @@ Partial Class FrmGestionProducto
         Me.gbbusqueda.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
+        Me.gboImagen.ResumeLayout(False)
+        CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gboProducto.ResumeLayout(False)
         Me.gboProducto.PerformLayout()
         Me.gboStock.ResumeLayout(False)
@@ -874,8 +876,6 @@ Partial Class FrmGestionProducto
         Me.gboCategorias.PerformLayout()
         Me.gboPrecio.ResumeLayout(False)
         Me.gboPrecio.PerformLayout()
-        CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gboImagen.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

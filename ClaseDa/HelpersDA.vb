@@ -243,8 +243,12 @@ Public Class HelpersDA
 
 		ChequearConexion(db)
 		Dim sqlStr As String
+		Dim innerJoin As String = ""
+		If parametros.FirstOrDefault(Function(x) x.Key = "ClienteId").Key IsNot Nothing Then
+			innerJoin = "inner join DetallePedidos dp on dp.ProductoId = p.id inner join pedidos ped on dp.PedidoId = ped.Id "
+		End If
 		ds = New DataSet
-		sqlStr = "set dateformat dmy select p.Id,p.Nombre,p.Foto,p.Precio,prov.Nombre as Proveedor, prov.id, p.FechaAlta, p.CategoriaId from Productos as p inner join proveedores as prov on prov.id = p.ProveedorId "
+		sqlStr = "set dateformat dmy select p.Id,p.Nombre,p.Foto,p.Precio,prov.Nombre as Proveedor, prov.id, p.FechaAlta, p.CategoriaId from Productos as p inner join proveedores as prov on prov.id = p.ProveedorId " + innerJoin
 
 		If parametros.Count <> 0 Then
 			Dim count = parametros.Count
@@ -258,6 +262,11 @@ Public Class HelpersDA
 				If item.Key = "ProveedorId" Then
 					count = count - 1
 					text = text & "prov.id" & " = " & item.Value & " " & If(count <> 0, " and ", "")
+					Continue For
+				End If
+				If item.Key = "ClienteId" Then
+					count = count - 1
+					text = text & "ped.ClienteId" & " = " & item.Value & " " & If(count <> 0, " and ", "")
 					Continue For
 				End If
 				If item.Key = "Nombre" Then
@@ -286,7 +295,7 @@ Public Class HelpersDA
 					Continue For
 				End If
 			Next
-			sqlStr = sqlStr + text + " order By ProveedorId "
+			sqlStr = sqlStr + text + " order By p.ProveedorId "
 		Else
 			If Not String.IsNullOrWhiteSpace(esServicio) Then
 				sqlStr += " where p.esServicio='S' "

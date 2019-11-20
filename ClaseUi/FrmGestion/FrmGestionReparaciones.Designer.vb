@@ -22,8 +22,11 @@ Partial Class FrmGestionReparaciones
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionReparaciones))
 		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Me.Button1 = New System.Windows.Forms.Button()
+		Me.Button2 = New System.Windows.Forms.Button()
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
 		Me.lbldesde = New System.Windows.Forms.Label()
 		Me.lblHasta = New System.Windows.Forms.Label()
@@ -37,12 +40,43 @@ Partial Class FrmGestionReparaciones
 		Me.lblFechaExacta = New System.Windows.Forms.Label()
 		Me.dgvProveedores = New System.Windows.Forms.DataGridView()
 		Me.Label1 = New System.Windows.Forms.Label()
-		Me.Button1 = New System.Windows.Forms.Button()
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.GroupBox5.SuspendLayout()
 		CType(Me.dgvProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
+		'
+		'Button1
+		'
+		Me.Button1.BackColor = System.Drawing.SystemColors.Control
+		Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_checklist_62
+		Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button1.FlatAppearance.BorderSize = 0
+		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button1.Location = New System.Drawing.Point(585, 303)
+		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+		Me.Button1.Name = "Button1"
+		Me.Button1.Size = New System.Drawing.Size(107, 110)
+		Me.Button1.TabIndex = 59
+		Me.Button1.Text = "Listar"
+		Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.Button1.UseVisualStyleBackColor = False
+		'
+		'Button2
+		'
+		Me.Button2.BackColor = System.Drawing.SystemColors.Control
+		Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
+		Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button2.FlatAppearance.BorderSize = 0
+		Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button2.Location = New System.Drawing.Point(585, 419)
+		Me.Button2.Margin = New System.Windows.Forms.Padding(4)
+		Me.Button2.Name = "Button2"
+		Me.Button2.Size = New System.Drawing.Size(107, 110)
+		Me.Button2.TabIndex = 58
+		Me.Button2.Text = "Estadíticas"
+		Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.Button2.UseVisualStyleBackColor = False
 		'
 		'GroupBox5
 		'
@@ -57,12 +91,12 @@ Partial Class FrmGestionReparaciones
 		Me.GroupBox5.Controls.Add(Me.Label17)
 		Me.GroupBox5.Controls.Add(Me.lblFechaExacta)
 		Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.GroupBox5.Location = New System.Drawing.Point(13, 62)
+		Me.GroupBox5.Location = New System.Drawing.Point(13, 60)
 		Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4)
 		Me.GroupBox5.Name = "GroupBox5"
 		Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4)
-		Me.GroupBox5.Size = New System.Drawing.Size(917, 133)
-		Me.GroupBox5.TabIndex = 55
+		Me.GroupBox5.Size = New System.Drawing.Size(703, 133)
+		Me.GroupBox5.TabIndex = 56
 		Me.GroupBox5.TabStop = False
 		Me.GroupBox5.Text = "Búsqueda"
 		'
@@ -118,7 +152,7 @@ Partial Class FrmGestionReparaciones
 		Me.dtpFechaHasta.Name = "dtpFechaHasta"
 		Me.dtpFechaHasta.Size = New System.Drawing.Size(151, 23)
 		Me.dtpFechaHasta.TabIndex = 37
-		Me.dtpFechaHasta.Value = New Date(2019, 7, 23, 0, 1, 0, 0)
+		Me.dtpFechaHasta.Value = New Date(2019, 7, 23, 0, 0, 1, 0)
 		'
 		'dtpFechaDesde
 		'
@@ -138,7 +172,7 @@ Partial Class FrmGestionReparaciones
 		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnBuscar.FlatAppearance.BorderSize = 0
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(772, 16)
+		Me.btnBuscar.Location = New System.Drawing.Point(563, 15)
 		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(137, 110)
@@ -154,7 +188,7 @@ Partial Class FrmGestionReparaciones
 		Me.cboCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.cboCliente.FormattingEnabled = True
 		Me.cboCliente.Items.AddRange(New Object() {"Física", "Jurídica"})
-		Me.cboCliente.Location = New System.Drawing.Point(77, 21)
+		Me.cboCliente.Location = New System.Drawing.Point(152, 22)
 		Me.cboCliente.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboCliente.Name = "cboCliente"
 		Me.cboCliente.Size = New System.Drawing.Size(367, 25)
@@ -208,7 +242,7 @@ Partial Class FrmGestionReparaciones
 		DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
 		Me.dgvProveedores.DefaultCellStyle = DataGridViewCellStyle2
 		Me.dgvProveedores.EnableHeadersVisualStyles = False
-		Me.dgvProveedores.Location = New System.Drawing.Point(19, 203)
+		Me.dgvProveedores.Location = New System.Drawing.Point(19, 201)
 		Me.dgvProveedores.Margin = New System.Windows.Forms.Padding(4)
 		Me.dgvProveedores.MultiSelect = False
 		Me.dgvProveedores.Name = "dgvProveedores"
@@ -219,35 +253,19 @@ Partial Class FrmGestionReparaciones
 		Me.dgvProveedores.RowHeadersWidth = 56
 		Me.dgvProveedores.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
 		Me.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.dgvProveedores.Size = New System.Drawing.Size(788, 341)
-		Me.dgvProveedores.TabIndex = 56
+		Me.dgvProveedores.Size = New System.Drawing.Size(549, 446)
+		Me.dgvProveedores.TabIndex = 57
 		'
 		'Label1
 		'
 		Me.Label1.AutoSize = True
 		Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.25!, System.Drawing.FontStyle.Bold)
-		Me.Label1.Location = New System.Drawing.Point(13, 9)
+		Me.Label1.Location = New System.Drawing.Point(13, 7)
 		Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label1.Name = "Label1"
 		Me.Label1.Size = New System.Drawing.Size(237, 25)
-		Me.Label1.TabIndex = 52
+		Me.Label1.TabIndex = 53
 		Me.Label1.Text = "Gestión reparaciones"
-		'
-		'Button1
-		'
-		Me.Button1.BackColor = System.Drawing.SystemColors.Control
-		Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_checklist_62
-		Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button1.FlatAppearance.BorderSize = 0
-		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button1.Location = New System.Drawing.Point(820, 323)
-		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button1.Name = "Button1"
-		Me.Button1.Size = New System.Drawing.Size(107, 110)
-		Me.Button1.TabIndex = 57
-		Me.Button1.Text = "Listar"
-		Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button1.UseVisualStyleBackColor = False
 		'
 		'btnNuevo
 		'
@@ -256,12 +274,12 @@ Partial Class FrmGestionReparaciones
 		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnNuevo.FlatAppearance.BorderSize = 0
 		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnNuevo.Location = New System.Drawing.Point(813, 196)
+		Me.btnNuevo.Location = New System.Drawing.Point(585, 200)
 		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
-		Me.btnNuevo.Size = New System.Drawing.Size(116, 120)
-		Me.btnNuevo.TabIndex = 54
-		Me.btnNuevo.Text = "Nueva reparación"
+		Me.btnNuevo.Size = New System.Drawing.Size(116, 95)
+		Me.btnNuevo.TabIndex = 55
+		Me.btnNuevo.Text = "Nueva"
 		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnNuevo.UseVisualStyleBackColor = False
 		'
@@ -272,11 +290,11 @@ Partial Class FrmGestionReparaciones
 		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnSalir.FlatAppearance.BorderSize = 0
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalir.Location = New System.Drawing.Point(811, 433)
+		Me.btnSalir.Location = New System.Drawing.Point(585, 536)
 		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
 		Me.btnSalir.Size = New System.Drawing.Size(116, 111)
-		Me.btnSalir.TabIndex = 53
+		Me.btnSalir.TabIndex = 54
 		Me.btnSalir.Text = "Salir"
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnSalir.UseVisualStyleBackColor = False
@@ -285,14 +303,20 @@ Partial Class FrmGestionReparaciones
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(954, 561)
+		Me.ClientSize = New System.Drawing.Size(728, 681)
 		Me.Controls.Add(Me.Button1)
+		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.GroupBox5)
 		Me.Controls.Add(Me.dgvProveedores)
 		Me.Controls.Add(Me.Label1)
 		Me.Controls.Add(Me.btnNuevo)
 		Me.Controls.Add(Me.btnSalir)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+		Me.MaximizeBox = False
+		Me.MinimizeBox = False
 		Me.Name = "FrmGestionReparaciones"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
 		Me.Text = "FrmGestionReparaciones"
 		Me.GroupBox5.ResumeLayout(False)
 		Me.GroupBox5.PerformLayout()
@@ -303,6 +327,7 @@ Partial Class FrmGestionReparaciones
 	End Sub
 
 	Friend WithEvents Button1 As Windows.Forms.Button
+	Friend WithEvents Button2 As Windows.Forms.Button
 	Friend WithEvents GroupBox5 As Windows.Forms.GroupBox
 	Friend WithEvents lbldesde As Windows.Forms.Label
 	Friend WithEvents lblHasta As Windows.Forms.Label

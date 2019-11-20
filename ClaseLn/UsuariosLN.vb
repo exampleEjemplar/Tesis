@@ -12,8 +12,12 @@ Public Class UsuariosLN
     Public Sub New()
         usuariosDA = New UsuariosDA
     End Sub
+	Public Function CargarUnUsuario(ByVal id As Integer) As DataSet
+		Return usuariosDA.CargarUnUsuario(id)
+	End Function
 
-    Public Function ConsultaModificacion(ByVal username As String)
+
+	Public Function ConsultaModificacion(ByVal username As String)
         Return usuariosDA.ConsultaModificacion(username)
     End Function
 
