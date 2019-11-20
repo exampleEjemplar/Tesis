@@ -23,8 +23,11 @@ Partial Class ListadodeProveedores
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.SP_ListadodeProveedoresPorfechaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSetReportes = New ClaseUi.DataSetReportes()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnSalir = New System.Windows.Forms.Button()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
@@ -33,16 +36,26 @@ Partial Class ListadodeProveedores
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.DataSetReportes = New ClaseUi.DataSetReportes()
-        Me.SP_ListadodeProveedoresPorfechaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SP_ListadodeProveedoresPorfechaTableAdapter = New ClaseUi.DataSetReportesTableAdapters.SP_ListadodeProveedoresPorfechaTableAdapter()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.SP_ListadodeProveedoresPorfechaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'SP_ListadodeProveedoresPorfechaBindingSource
+        '
+        Me.SP_ListadodeProveedoresPorfechaBindingSource.DataMember = "SP_ListadodeProveedoresPorfecha"
+        Me.SP_ListadodeProveedoresPorfechaBindingSource.DataSource = Me.DataSetReportes
+        '
+        'DataSetReportes
+        '
+        Me.DataSetReportes.DataSetName = "DataSetReportes"
+        Me.DataSetReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnSalir)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.DateTimePicker2)
@@ -50,12 +63,27 @@ Partial Class ListadodeProveedores
         Me.GroupBox1.Controls.Add(Me.btnBuscar)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 73)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(776, 114)
+        Me.GroupBox1.Size = New System.Drawing.Size(889, 114)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = " Filtro Listado de Proveedores"
+        '
+        'btnSalir
+        '
+        Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
+        Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnSalir.FlatAppearance.BorderSize = 0
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Location = New System.Drawing.Point(797, 14)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(86, 89)
+        Me.btnSalir.TabIndex = 56
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSalir.UseVisualStyleBackColor = False
         '
         'CheckBox1
         '
@@ -124,44 +152,46 @@ Partial Class ListadodeProveedores
         '
         'ReportViewer1
         '
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.SP_ListadodeProveedoresPorfechaBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.SP_ListadodeProveedoresPorfechaBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "ClaseUi.ListadoProveedoresPorFecha.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 132)
+        Me.ReportViewer1.Location = New System.Drawing.Point(12, 193)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(776, 299)
+        Me.ReportViewer1.Size = New System.Drawing.Size(889, 299)
         Me.ReportViewer1.TabIndex = 5
-        '
-        'DataSetReportes
-        '
-        Me.DataSetReportes.DataSetName = "DataSetReportes"
-        Me.DataSetReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'SP_ListadodeProveedoresPorfechaBindingSource
-        '
-        Me.SP_ListadodeProveedoresPorfechaBindingSource.DataMember = "SP_ListadodeProveedoresPorfecha"
-        Me.SP_ListadodeProveedoresPorfechaBindingSource.DataSource = Me.DataSetReportes
         '
         'SP_ListadodeProveedoresPorfechaTableAdapter
         '
         Me.SP_ListadodeProveedoresPorfechaTableAdapter.ClearBeforeFill = True
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(322, 9)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(262, 25)
+        Me.Label4.TabIndex = 9
+        Me.Label4.Text = "Listado de Proveedores"
+        '
         'ListadodeProveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(913, 524)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "ListadodeProveedores"
         Me.Text = "Listado de proveedores por fecha de alta"
+        CType(Me.SP_ListadodeProveedoresPorfechaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SP_ListadodeProveedoresPorfechaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -177,4 +207,6 @@ Partial Class ListadodeProveedores
     Friend WithEvents SP_ListadodeProveedoresPorfechaBindingSource As Windows.Forms.BindingSource
     Friend WithEvents DataSetReportes As DataSetReportes
     Friend WithEvents SP_ListadodeProveedoresPorfechaTableAdapter As DataSetReportesTableAdapters.SP_ListadodeProveedoresPorfechaTableAdapter
+    Friend WithEvents btnSalir As Windows.Forms.Button
+    Friend WithEvents Label4 As Windows.Forms.Label
 End Class

@@ -12,3 +12,11 @@ Namespace DataSetReportesTableAdapters
     Partial Public Class SP_ListadodeClientesPorfechaTableAdapter
     End Class
 End Namespace
+
+
+Partial Public Class DataSetReportes
+End Class
+
+
+Partial Public Class DataSetReportes
+End Class

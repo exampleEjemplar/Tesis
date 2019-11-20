@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Frmlistadodeventas
+Partial Class FrmListadoCompra
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -24,8 +24,6 @@ Partial Class Frmlistadodeventas
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.SP_ListadodeVentasPorfechaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSetReportes = New ClaseUi.DataSetReportes()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -36,22 +34,14 @@ Partial Class Frmlistadodeventas
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.SP_ListadodeVentasPorfechaTableAdapter = New ClaseUi.DataSetReportesTableAdapters.SP_ListadodeVentasPorfechaTableAdapter()
         Me.Label4 = New System.Windows.Forms.Label()
-        CType(Me.SP_ListadodeVentasPorfechaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DataSetReportes = New ClaseUi.DataSetReportes()
+        Me.SP_ListadodecomprasPorfechaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SP_ListadodecomprasPorfechaTableAdapter = New ClaseUi.DataSetReportesTableAdapters.SP_ListadodecomprasPorfechaTableAdapter()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SP_ListadodecomprasPorfechaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'SP_ListadodeVentasPorfechaBindingSource
-        '
-        Me.SP_ListadodeVentasPorfechaBindingSource.DataMember = "SP_ListadodeVentasPorfecha"
-        Me.SP_ListadodeVentasPorfechaBindingSource.DataSource = Me.DataSetReportes
-        '
-        'DataSetReportes
-        '
-        Me.DataSetReportes.DataSetName = "DataSetReportes"
-        Me.DataSetReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox1
         '
@@ -63,12 +53,12 @@ Partial Class Frmlistadodeventas
         Me.GroupBox1.Controls.Add(Me.btnBuscar)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 63)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 61)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(892, 114)
-        Me.GroupBox1.TabIndex = 5
+        Me.GroupBox1.Size = New System.Drawing.Size(883, 114)
+        Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = " Filtro Listado de ventas"
+        Me.GroupBox1.Text = " Filtro Listado de Compras"
         '
         'btnSalir
         '
@@ -77,7 +67,7 @@ Partial Class Frmlistadodeventas
         Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Location = New System.Drawing.Point(800, 19)
+        Me.btnSalir.Location = New System.Drawing.Point(785, 15)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(86, 89)
         Me.btnSalir.TabIndex = 56
@@ -124,7 +114,7 @@ Partial Class Frmlistadodeventas
         Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnBuscar.FlatAppearance.BorderSize = 0
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Location = New System.Drawing.Point(681, 19)
+        Me.btnBuscar.Location = New System.Drawing.Point(687, 22)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(89, 89)
         Me.btnBuscar.TabIndex = 35
@@ -153,44 +143,54 @@ Partial Class Frmlistadodeventas
         'ReportViewer1
         '
         ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.SP_ListadodeVentasPorfechaBindingSource
+        ReportDataSource1.Value = Me.SP_ListadodecomprasPorfechaBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "ClaseUi.ListadodeVentasporFecha.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 183)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "ClaseUi.ListadodeComprasPorFecha.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(12, 181)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(892, 350)
-        Me.ReportViewer1.TabIndex = 4
-        '
-        'SP_ListadodeVentasPorfechaTableAdapter
-        '
-        Me.SP_ListadodeVentasPorfechaTableAdapter.ClearBeforeFill = True
+        Me.ReportViewer1.Size = New System.Drawing.Size(883, 353)
+        Me.ReportViewer1.TabIndex = 6
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(338, 9)
+        Me.Label4.Location = New System.Drawing.Point(335, 9)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(202, 25)
-        Me.Label4.TabIndex = 9
-        Me.Label4.Text = "Listado de Ventas"
+        Me.Label4.Size = New System.Drawing.Size(222, 25)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "Listado de Compras"
         '
-        'Frmlistadodeventas
+        'DataSetReportes
+        '
+        Me.DataSetReportes.DataSetName = "DataSetReportes"
+        Me.DataSetReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'SP_ListadodecomprasPorfechaBindingSource
+        '
+        Me.SP_ListadodecomprasPorfechaBindingSource.DataMember = "SP_ListadodecomprasPorfecha"
+        Me.SP_ListadodecomprasPorfechaBindingSource.DataSource = Me.DataSetReportes
+        '
+        'SP_ListadodecomprasPorfechaTableAdapter
+        '
+        Me.SP_ListadodecomprasPorfechaTableAdapter.ClearBeforeFill = True
+        '
+        'FrmListadoCompra
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(941, 575)
+        Me.ClientSize = New System.Drawing.Size(907, 546)
         Me.ControlBox = False
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ReportViewer1)
-        Me.Name = "Frmlistadodeventas"
+        Me.Name = "FrmListadoCompra"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        CType(Me.SP_ListadodeVentasPorfechaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SP_ListadodecomprasPorfechaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -205,9 +205,9 @@ Partial Class Frmlistadodeventas
     Friend WithEvents Label2 As Windows.Forms.Label
     Friend WithEvents Label1 As Windows.Forms.Label
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents SP_ListadodeVentasPorfechaBindingSource As Windows.Forms.BindingSource
-    Friend WithEvents DataSetReportes As DataSetReportes
-    Friend WithEvents SP_ListadodeVentasPorfechaTableAdapter As DataSetReportesTableAdapters.SP_ListadodeVentasPorfechaTableAdapter
     Friend WithEvents btnSalir As Windows.Forms.Button
     Friend WithEvents Label4 As Windows.Forms.Label
+    Friend WithEvents SP_ListadodecomprasPorfechaBindingSource As Windows.Forms.BindingSource
+    Friend WithEvents DataSetReportes As DataSetReportes
+    Friend WithEvents SP_ListadodecomprasPorfechaTableAdapter As DataSetReportesTableAdapters.SP_ListadodecomprasPorfechaTableAdapter
 End Class

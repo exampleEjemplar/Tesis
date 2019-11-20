@@ -23282,6 +23282,41 @@ end
 GO
 
 
+cREATE PROCEDURE [dbo].[SP_ListadodeventasPorfecha]
+(@fechadesde as datetime,
+@fechahasta as datetime
+)
+as
+begin
+
+SELECT
+c.fecha, p.Nombre +' '+ p.Apellido as Proveedor, c.total
+from ventas c
+inner join clientes p on c.ClienteId=p.Id
+where FechaAlta BETWEEN @fechadesde and @fechahasta
+end
+
+
+
+GO
+CREATE PROCEDURE [dbo].[SP_ListadodecomprasPorfecha]
+(@fechadesde as datetime,
+@fechahasta as datetime
+)
+as
+begin
+
+SELECT
+c.fecha, p.Nombre +' '+ p.Apellido as Proveedor, c.total, c.nrocomprobante
+from Compras c
+inner join Proveedores p on c.ProveedorId=p.Id
+
+where FechaAlta BETWEEN @fechadesde and @fechahasta
+end
+
+
+
+GO
 
 
 
