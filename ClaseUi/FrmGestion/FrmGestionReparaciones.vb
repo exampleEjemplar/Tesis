@@ -6,7 +6,9 @@ Imports ClaseNe
 Public Class FrmGestionReparaciones
 
 	Private helpersLN As New HelpersLN
+	Private helperUI As New HelpersUI
 	Private pedidosLN As New PedidosLN
+	Public idReparacion As Integer = 0
 
 	Public Sub New()
 
@@ -56,16 +58,16 @@ Public Class FrmGestionReparaciones
 	End Sub
 
 	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles dgvProveedores.CellMouseDoubleClick
-		'Dim selectedRow As DataGridViewRow
-		'If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-		'	selectedRow = dgvProveedores.Rows(e.RowIndex)
-		'End If
-		'Try
-		'	idVenta = selectedRow.Cells("id").Value
-		'	FrmComprobanteVenta.ShowDialog()
-		'Catch ex As Exception
-		'	MessageBox.Show(ex.Message)
-		'End Try
+		Dim selectedRow As DataGridViewRow = Nothing
+		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+			selectedRow = dgvProveedores.Rows(e.RowIndex)
+		End If
+		Try
+			idReparacion = selectedRow.Cells("id").Value
+			FrmEditarReparaciones.ShowDialog()
+		Catch ex As Exception
+			MessageBox.Show(ex.Message)
+		End Try
 
 	End Sub
 
@@ -73,6 +75,10 @@ Public Class FrmGestionReparaciones
 		If FrmArmadoReparacion.modificado Then
 			Busqueda()
 			FrmArmadoReparacion.modificado = False
+		End If
+		If FrmEditarReparaciones.modificado Then
+			Busqueda()
+			FrmEditarReparaciones.modificado = False
 		End If
 	End Sub
 #End Region
@@ -103,7 +109,7 @@ Public Class FrmGestionReparaciones
 			Dim fecha = CType(dsa1.Tables(0).Rows(i)(1), Date).Date
 			Dim fechaVencimientoSeña = fecha.AddDays(dsa1.Tables(0).Rows(i)(6)).Date
 
-			Dim estado = GetEnumDescription(DirectCast(dsa1.Tables(0).Rows(i)(5), EstadosPedidos))
+			Dim estado = helperUI.GetEnumDescription(DirectCast(dsa1.Tables(0).Rows(i)(5), EstadosPedidos))
 
 			listaDePedidos.Add(New VentasNE With {
 				.Cliente = dsa1.Tables(0).Rows(i)(2).ToString(),
@@ -128,19 +134,6 @@ Public Class FrmGestionReparaciones
 			MsgBox("La busqueda no arrojo resultados", MsgBoxStyle.OkOnly, "Pedidos")
 		End If
 		Return dsa1
-	End Function
-
-	Public Shared Function GetEnumDescription(ByVal EnumConstant As [Enum]) As String
-		Dim fi As FieldInfo = EnumConstant.GetType().GetField(EnumConstant.ToString())
-		Dim attr() As DescriptionAttribute =
-						DirectCast(fi.GetCustomAttributes(GetType(DescriptionAttribute),
-						False), DescriptionAttribute())
-
-		If attr.Length > 0 Then
-			Return attr(0).Description
-		Else
-			Return EnumConstant.ToString()
-		End If
 	End Function
 
 	Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click

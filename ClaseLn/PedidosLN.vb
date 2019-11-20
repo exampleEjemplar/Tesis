@@ -7,6 +7,13 @@ Public Class PedidosLN
 	Public Sub New()
 		pedidosDA = New PedidosDA
 	End Sub
+	Public Sub Actualizar(ped As VentasNE)
+		pedidosDA.Actualizar(ped)
+	End Sub
+
+	Public Function ObtenerUnPedido(id As Integer) As DataSet
+		Return pedidosDA.ObtenerUnPedido(id)
+	End Function
 
 	Public Function CargarGrillaPedidos(ByVal parametros As Dictionary(Of String, String))
 		Return pedidosDA.CargarGrillaPedidos(parametros)

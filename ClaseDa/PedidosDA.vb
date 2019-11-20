@@ -15,7 +15,6 @@ Public Class PedidosDA
 		com.Connection = db
 	End Sub
 
-
 	Public Function CargarGrillaPedidos(ByVal parametros As Dictionary(Of String, String)) As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
@@ -103,7 +102,22 @@ Public Class PedidosDA
 
 	Public Function ObtenerUltimoPedido()
 		helpersDa.ChequearConexion(db)
-		Dim da As New SqlDataAdapter("Select Max(id) as [Id] from ventas", db)
+		Dim da As New SqlDataAdapter("Select Max(id) as [Id] from pedidos", db)
+		Dim ds As New DataSet
+		Try
+			da.Fill(ds)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+		End Try
+
+		Return ds
+
+	End Function
+
+	Public Function ObtenerUnPedido(id As Integer)
+		helpersDa.ChequearConexion(db)
+		Dim da As New SqlDataAdapter("Select p.*, c.Nombre + ' ' + c.apellido as 'Nombre' from pedidos p inner join clientes c on c.id = p.clienteId where p.id =" + id.ToString(), db)
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)
@@ -154,5 +168,17 @@ Public Class PedidosDA
 
 		Return ds
 	End Function
+
+	Public Sub Actualizar(ped As VentasNE)
+		helpersDa.ChequearConexion(db)
+		Dim update As New SqlCommand("update pedidos set estado = " + ped.Estado + " where id = " + ped.Id.ToString(), db)
+		update.CommandType = CommandType.Text
+		Try
+			update.ExecuteNonQuery()
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+		End Try
+	End Sub
 
 End Class
