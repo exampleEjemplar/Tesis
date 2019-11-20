@@ -7,12 +7,19 @@ Public Class PedidosLN
 	Public Sub New()
 		pedidosDA = New PedidosDA
 	End Sub
+	Public Sub Actualizar(ped As VentasNE)
+		pedidosDA.Actualizar(ped)
+	End Sub
 
-	Public Function CargarGrillaPedidos(ByVal parametros As Dictionary(Of String, String))
-		Return pedidosDA.CargarGrillaVentas(parametros)
+	Public Function ObtenerUnPedido(id As Integer) As DataSet
+		Return pedidosDA.ObtenerUnPedido(id)
 	End Function
 
-	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer, seña As Double)
+	Public Function CargarGrillaPedidos(ByVal parametros As Dictionary(Of String, String))
+		Return pedidosDA.CargarGrillaPedidos(parametros)
+	End Function
+
+	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer, Optional seña As Double = 0.0)
 		pedidosDA.Registrar(listaDeProductosId, clienteId, seña)
 	End Sub
 

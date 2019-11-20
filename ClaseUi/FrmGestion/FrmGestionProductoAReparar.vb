@@ -4,7 +4,6 @@ Imports ClaseLn
 Imports ClaseNe
 Imports System.IO
 Imports System.Windows.Forms
-Imports System.Globalization
 
 Public Class FrmGestionProductoAReparar
 
@@ -158,11 +157,21 @@ Public Class FrmGestionProductoAReparar
 				Return
 			End If
 #End Region
+#Region "problema"
+			If Not String.IsNullOrEmpty(tbProblema.Text) Then
+				pro.Problema = helpersUi.NormalizarTexto(tbProblema.Text)
+			Else
+				MsgBox("Debe cargar un problema", MsgBoxStyle.Critical, "Producto")
+				Return
+			End If
+#End Region
 			pro.EsReparacion = "S"
 			pro.EsServicio = "N"
 			pro.CodBarra = "-"
 			productometodo.Grabarproductos(pro)
-			idProductoNuevo = productometodo.CargarUnProducto(0, pro.nombreprducto)
+			idProductoNuevo = Convert.ToInt32(productometodo.CargarUnProducto(0, pro.nombreprducto).Tables(0).Rows(0).Item(0))
+			MsgBox("Producto a reparar agregado!", MsgBoxStyle.OkOnly, "Producto")
+			Close()
 		Catch ex As Exception
 			MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
 			Exit Sub
@@ -175,126 +184,14 @@ Public Class FrmGestionProductoAReparar
 	End Sub
 
 	Private Sub FrmGestionProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		DataGridView1.RowTemplate.Height = 30
-		busqcod = ""
 		busqprod = ""
 		Habilitarcampos()
 		LlenarCMBTipo()
 		LlenarCMBMaterial()
 		LlenarCMBUnidadDePeso()
 		LlenarCMBCategoria()
-		Dgvproductosset()
 		modificado = False
 
-
-	End Sub
-
-	Public Sub Dgvproductosset()
-		Try
-
-
-			Dim dsa1 As DataTable
-			dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod, "S") 'Si parametros esta vacio, busca todos los clientes en la bd
-			DataGridView1.DataSource = dsa1
-			DataGridView1.Columns(0).HeaderText = "Código"
-			DataGridView1.Columns(1).HeaderText = "Código Barras"
-			DataGridView1.Columns(2).HeaderText = "Nombre de Producto"
-			DataGridView1.Columns(3).HeaderText = "Categoría de Producto"
-			DataGridView1.Columns(4).HeaderText = "Tipo de Produco"
-			DataGridView1.Columns(5).HeaderText = "Material de Producto"
-			DataGridView1.Columns(6).HeaderText = "Precio al Público"
-			DataGridView1.Columns(7).Visible = False
-			DataGridView1.Columns(8).Visible = False
-			DataGridView1.Columns(9).Visible = False
-			DataGridView1.Columns(10).Visible = False
-			DataGridView1.Columns(11).Visible = False
-			DataGridView1.Columns(12).Visible = False
-			DataGridView1.Columns(13).Visible = False
-			DataGridView1.Columns(14).Visible = False
-			DataGridView1.Columns(15).Visible = False
-			DataGridView1.Columns(16).Visible = False
-			DataGridView1.Columns(17).Visible = False
-			DataGridView1.Columns(18).Visible = False
-			DataGridView1.Columns(19).Visible = False
-			DataGridView1.Columns(20).Visible = False
-			DataGridView1.Columns(21).Visible = False
-			DataGridView1.Columns(1).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(0).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(2).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(3).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(5).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Sort(DataGridView1.Columns(2), System.ComponentModel.ListSortDirection.Ascending)
-
-			DataGridView1.AllowUserToAddRows = False
-			DataGridView1.AllowUserToDeleteRows = False
-			For X = 0 To DataGridView1.Rows.Count - 1
-				If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
-					DataGridView1.Rows.Remove(DataGridView1.Rows(X))
-				End If
-			Next
-
-		Catch ex As Exception
-			MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
-			Exit Sub
-		End Try
-	End Sub
-
-	Public Sub DgvproductosBusq()
-		Try
-			Dim dsa1 As DataTable
-			dsa1 = productometodo.CargaGrillaproductosconbusqueda(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
-			DataGridView1.DataSource = dsa1
-			DataGridView1.AllowUserToAddRows = False
-			DataGridView1.AllowUserToDeleteRows = False
-			For X = 0 To DataGridView1.Rows.Count - 1
-				If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
-					DataGridView1.Rows.Remove(DataGridView1.Rows(X))
-				End If
-			Next
-
-		Catch ex As Exception
-			MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
-			Exit Sub
-		End Try
-
-
-	End Sub
-
-	Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
-		productometodo.Cargargrilladobleclick()
-
-		Dim ms As MemoryStream = New MemoryStream()
-
-		Dim img As Byte() = CType((DataGridView1.Item(9, DataGridView1.CurrentRow.Index).Value), Byte())
-
-
-		If img Is Nothing Then
-			MessageBox.Show("Imagen no encontrada en la base de datos")
-		End If
-
-		ms.Write(img, 0, img.GetUpperBound(0) + 1)
-		Dim imgImagen As System.Drawing.Image = System.Drawing.Image.FromStream(ms)
-
-		PBfoto.Image = imgImagen
-		TbNombreProducto.Text = (DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value)
-		tbPrecio.Text = (DataGridView1.Item(10, DataGridView1.CurrentRow.Index).Value)
-		CmbMaterial.SelectedValue = (DataGridView1.Item(8, DataGridView1.CurrentRow.Index).Value)
-		TbPeso.Text = (DataGridView1.Item(12, DataGridView1.CurrentRow.Index).Value)
-		TbTamaño.Text = (DataGridView1.Item(13, DataGridView1.CurrentRow.Index).Value)
-		TbColor.Text = (DataGridView1.Item(14, DataGridView1.CurrentRow.Index).Value)
-		CmbTipoprodcuto.SelectedValue = (DataGridView1.Item(8, DataGridView1.CurrentRow.Index).Value)
-		cmbUnidad.Text = (DataGridView1.Item(19, DataGridView1.CurrentRow.Index).Value)
-		CmbCategoria.SelectedValue = (DataGridView1.Item(20, DataGridView1.CurrentRow.Index).Value)
-		btnGuardar.Visible = False
-		bloquearcampos()
-		btncargarimagen.Enabled = False
 
 	End Sub
 
@@ -379,22 +276,29 @@ Public Class FrmGestionProductoAReparar
 	End Sub
 
 	Public Sub Habilitarcampos()
-		TbColor.Enabled = True
-		TbNombreProducto.Enabled = True
-		TbPeso.Enabled = True
-		tbPrecio.Enabled = True
-		TbTamaño.Enabled = True
-		cmbUnidad.Enabled = True
-		CmbTipoprodcuto.Enabled = True
-		CmbCategoria.Enabled = True
-		CmbMaterial.Enabled = True
-		btncargarimagen.Enabled = True
+		'TbColor.Enabled = True
+		'TbNombreProducto.Enabled = True
+		'TbPeso.Enabled = True
+		'tbPrecio.Enabled = True
+		'TbTamaño.Enabled = True
+		TbColor.Text = ""
+		TbNombreProducto.Text = ""
+		TbPeso.Text = ""
+		tbPrecio.Text = ""
+		TbTamaño.Text = ""
+		tbProblema.Text = ""
+		cereacampos()
+		'cmbUnidad.Enabled = True
+		'CmbTipoprodcuto.Enabled = True
+		'CmbCategoria.Enabled = True
+		'CmbMaterial.Enabled = True
+		'btncargarimagen.Enabled = True
 
-		btnNuevaCategoria.Enabled = True
-		btnNuevoMaterial.Enabled = True
-		btnNuevoTipo.Enabled = True
+		'btnNuevaCategoria.Enabled = True
+		'btnNuevoMaterial.Enabled = True
+		'btnNuevoTipo.Enabled = True
 
-		btnGuardar.Enabled = True
+		'btnGuardar.Enabled = True
 
 	End Sub
 
@@ -438,4 +342,5 @@ Public Class FrmGestionProductoAReparar
 			FrmGestionCategorías.modificado = False
 		End If
 	End Sub
+
 End Class

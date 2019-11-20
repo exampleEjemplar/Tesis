@@ -572,7 +572,7 @@ Public Class MetodoProductoDA
 		If Not String.IsNullOrWhiteSpace(id) And Not id = 0 Then
 			sqlStr = "select * from productos where id =" & id.ToString()
 		ElseIf Not String.IsNullOrWhiteSpace(nombre) Then
-			sqlStr = "select * from productos where nombre =" & nombre
+			sqlStr = "select * from productos where nombre ='" & nombre + "'"
 		End If
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
