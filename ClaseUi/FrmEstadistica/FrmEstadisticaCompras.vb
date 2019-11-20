@@ -171,4 +171,8 @@ Public Class FrmEstadisticaCompras
     Private Sub FrmEstadisticaCompras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         limpiar()
     End Sub
+
+    Private Sub Chart2_Click(sender As Object, e As EventArgs) Handles Chart2.Click
+
+    End Sub
 End Class
