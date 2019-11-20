@@ -28,7 +28,7 @@ Public Class FrmEstadisticaCompras
                 gbFiltro.Visible = True
             Else
 
-                MsgBox("No existe registro en ese intervalo de fechas", MsgBoxStyle.Critical, "Error")
+                MsgBox("No existe registro en ese intervalo de fecha", MsgBoxStyle.Critical, "Error")
 
             End If
         Else
