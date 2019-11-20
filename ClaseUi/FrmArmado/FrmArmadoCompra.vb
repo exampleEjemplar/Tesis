@@ -390,11 +390,13 @@ Public Class FrmArmadoCompra
 
 	'Trae el numero de comprobante segun el ID en BD
 	Private Function CargarDatosComprobante()
-		If Not String.IsNullOrWhiteSpace(txtNroComprobante.Text) Then
-			Return txtNroComprobante.Text
+		Dim nroComprobante = ""
+		If String.IsNullOrWhiteSpace(txtNroComprobante.Text) Then
+			nroComprobante = helpersUI.AgregarNumerosComprobante(comprasLn.ObtenerUltimaCompra.Tables(0).Rows(0).Item(0))
 		Else
-			Return ""
+			nroComprobante = txtNroComprobante.Text
 		End If
+		Return nroComprobante
 	End Function
 
 	'Verifica si se hicieron cambios en los frm externos solo si salieron desde este.

@@ -149,30 +149,24 @@ Public Class FrmArmadoReparacion
 			Return
 		End If
 
-		If String.IsNullOrWhiteSpace(txtDevolucion.Text) Then
-			MsgBox("El pedido de reparación debe tener algún tiempo aproximado de entrega", MsgBoxStyle.OkOnly, "Error")
-			Return
-		End If
-
 		Dim listaDeVentas = New List(Of TipoDeVentasNE)
 		For Each item As KeyValuePair(Of Integer, Integer) In DiccionarioDeStringYCantidad
 			Dim product = ObtainProductInformation(item.Key)
 			Dim venta = New TipoDeVentasNE With {
 				.Cantidad = item.Value,
 				.ProductoId = item.Key,
-				.Precio = product.precio,
-				.Dias = txtDevolucion.Text
+				.Precio = product.precio
 			}
 			listaDeVentas.Add(venta)
 			FrmComprobanteVenta.ListaVentas.Add(venta)
 		Next
 
-		pedidosLN.Registrar(listaDeVentas, cboCliente.SelectedValue)
-		MsgBox("Pedido de reparacion realizado con éxito", MsgBoxStyle.OkOnly, "Exito")
+		'pedidosLN.Registrar(listaDeVentas, cboCliente.SelectedValue,)
+		MsgBox("Venta realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
 		modificado = True
 
-		'FrmComprobanteVenta.ShowDialog()
+		FrmComprobanteVenta.ShowDialog()
 
 
 		ListView1.Clear()
@@ -205,7 +199,6 @@ Public Class FrmArmadoReparacion
 			Return
 		End If
 		txtBusNombreProducto.Text = ""
-		chkSoloCliente.Checked = False
 		Search()
 	End Sub
 
@@ -221,9 +214,6 @@ Public Class FrmArmadoReparacion
 		Dim parametros As Dictionary(Of String, String) = New Dictionary(Of String, String)
 		If String.IsNullOrWhiteSpace(txtBusNombreProducto.Text) = False Then
 			parametros.Add("Nombre", txtBusNombreProducto.Text)
-		End If
-		If chkSoloCliente.Checked Then
-			parametros.Add("ClienteId", cboCliente.SelectedValue)
 		End If
 		LlenarLvi(parametros)
 	End Sub
@@ -320,7 +310,6 @@ Public Class FrmArmadoReparacion
 	Private Sub BtnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarCliente.Click
 		FrmGestionCliente.ShowDialog()
 	End Sub
-
 
 
 #End Region

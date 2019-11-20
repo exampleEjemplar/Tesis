@@ -149,7 +149,6 @@ Total FLOAT,
 UsuarioId Int,
 EsReparacion Char(1),
 Estado Int,
-Dias Int,
 CONSTRAINT Pedido_Cliente FOREIGN KEY (ClienteId) REFERENCES Clientes(ID)
 )
 GO
@@ -23008,7 +23007,7 @@ VALUES
 GO
 set dateformat dmy insert into Clientes values (1,123456789,'Cliente','Test','13/07/2001', getdate(), 'Calle', '123','B','San Martin','1','1','2','16157' ,NULL,NULL,'351','153934180', 'S','1','cliente@cliente.com','F')
 GO
-set dateformat dmy insert into Proveedores values (1,987654321,'Proveedor','Reparaciones','13/07/2001', getdate(), 'Calle', '123','B','San Martin','1','1','2','16157' ,NULL,NULL,'351','153934180', 'S','1','prov@prov.com','F','N')
+set dateformat dmy insert into Proveedores values (1,987654321,'Proveedor','Reparaciones','13/07/2001', getdate(), 'Calle', '123','B','San Martin','1','1','2','16157' ,NULL,NULL,'351','153934180', 'S','1','prov@prov.com','F')
 GO
 
  USE [JoyeriaCrisol]

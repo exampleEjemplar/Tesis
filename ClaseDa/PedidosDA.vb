@@ -15,11 +15,12 @@ Public Class PedidosDA
 		com.Connection = db
 	End Sub
 
-	Public Function CargarGrillaPedidos(ByVal parametros As Dictionary(Of String, String)) As DataSet
+
+	Public Function CargarGrillaVentas(ByVal parametros As Dictionary(Of String, String)) As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = "set dateformat dmy select v.Id, v.Fecha,c.Nombre +' '+ c.Apellido as Nombre ,v.Total, v.Seña, v.estado, v.dias from pedidos as v inner join Clientes as c on c.Id = v.ClienteId"
+		sqlStr = "set dateformat dmy select v.Id, v.Fecha,c.Nombre +' '+ c.Apellido as Nombre ,v.Total, v.Seña from pedidos as v inner join Clientes as c on c.Id = v.ClienteId"
 
 		If parametros.Count <> 0 Then
 			Dim count = parametros.Count
@@ -65,7 +66,7 @@ Public Class PedidosDA
 		db.Close()
 	End Function
 
-	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer, Optional seña As Double = 0.0)
+	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer, seña As Double)
 		Dim total As Double
 		For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId
 			total += (ventaDetalle.Precio * ventaDetalle.Cantidad)
@@ -73,18 +74,13 @@ Public Class PedidosDA
 		total = Math.Round(total, 2)
 
 		helpersDa.ChequearConexion(db)
+
 		Try
 			Dim totalizado = total.ToString("0.00").Replace(",", ".")
-			If Not seña = 0.0 Then
-				Dim señalizado = seña.ToString("0.00").Replace(",", ".")
-				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalizado & ",2),1, 'N', 1, " + If(totalizado = señalizado, "60", "30") + ")", db)
-				insert.CommandType = CommandType.Text
-				insert.ExecuteNonQuery()
-			Else
-				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", 0 ,round(" & totalizado & ",2),1, 'S', 1, " + listaDeProductosId.FirstOrDefault().Dias.ToString() + ")", db)
-				insert.CommandType = CommandType.Text
-				insert.ExecuteNonQuery()
-			End If
+			Dim señalizado = seña.ToString("0.00").Replace(",", ".")
+			Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalizado & ",2),1), N, 1", db)
+			insert.CommandType = CommandType.Text
+			insert.ExecuteNonQuery()
 			For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId
 				Dim parcial = (ventaDetalle.Precio * ventaDetalle.Cantidad).ToString().Replace(",", ".")
 
@@ -102,22 +98,7 @@ Public Class PedidosDA
 
 	Public Function ObtenerUltimoPedido()
 		helpersDa.ChequearConexion(db)
-		Dim da As New SqlDataAdapter("Select Max(id) as [Id] from pedidos", db)
-		Dim ds As New DataSet
-		Try
-			da.Fill(ds)
-			db.Close()
-		Catch ex As Exception
-			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-		End Try
-
-		Return ds
-
-	End Function
-
-	Public Function ObtenerUnPedido(id As Integer)
-		helpersDa.ChequearConexion(db)
-		Dim da As New SqlDataAdapter("Select p.*, c.Nombre + ' ' + c.apellido as 'Nombre' from pedidos p inner join clientes c on c.id = p.clienteId where p.id =" + id.ToString(), db)
+		Dim da As New SqlDataAdapter("Select Max(id) as [Id] from ventas", db)
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)
@@ -168,17 +149,5 @@ Public Class PedidosDA
 
 		Return ds
 	End Function
-
-	Public Sub Actualizar(ped As VentasNE)
-		helpersDa.ChequearConexion(db)
-		Dim update As New SqlCommand("update pedidos set estado = " + ped.Estado + " where id = " + ped.Id.ToString(), db)
-		update.CommandType = CommandType.Text
-		Try
-			update.ExecuteNonQuery()
-			db.Close()
-		Catch ex As Exception
-			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-		End Try
-	End Sub
 
 End Class

@@ -256,10 +256,10 @@ Partial Class FrmGestionReparaciones
 		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnNuevo.FlatAppearance.BorderSize = 0
 		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnNuevo.Location = New System.Drawing.Point(813, 160)
+		Me.btnNuevo.Location = New System.Drawing.Point(813, 196)
 		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
-		Me.btnNuevo.Size = New System.Drawing.Size(114, 156)
+		Me.btnNuevo.Size = New System.Drawing.Size(116, 120)
 		Me.btnNuevo.TabIndex = 54
 		Me.btnNuevo.Text = "Nueva reparación"
 		Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -290,8 +290,8 @@ Partial Class FrmGestionReparaciones
 		Me.Controls.Add(Me.GroupBox5)
 		Me.Controls.Add(Me.dgvProveedores)
 		Me.Controls.Add(Me.Label1)
-		Me.Controls.Add(Me.btnSalir)
 		Me.Controls.Add(Me.btnNuevo)
+		Me.Controls.Add(Me.btnSalir)
 		Me.Name = "FrmGestionReparaciones"
 		Me.Text = "FrmGestionReparaciones"
 		Me.GroupBox5.ResumeLayout(False)

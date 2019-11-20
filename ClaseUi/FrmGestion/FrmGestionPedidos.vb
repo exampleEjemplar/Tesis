@@ -98,7 +98,8 @@ Public Class FrmGestionPedidos
 		Dim listaDePedidos = New List(Of VentasNE)
 		For i As Integer = 0 To dsa1.Tables(0).Rows.Count - 1
 			Dim fecha = CType(dsa1.Tables(0).Rows(i)(1), Date).Date
-			Dim fechaVencimientoSeña = CType(dsa1.Tables(0).Rows(i)(1), Date).AddDays(dsa1.Tables(0).Rows(i)(6)).Date
+			Dim fechaVencimientoSeña = If(CType(dsa1.Tables(0).Rows(i)(3), Integer) = CType(dsa1.Tables(0).Rows(i)(4), Integer), fecha.AddDays(60).Date, fecha.AddDays(30).Date)
+
 			listaDePedidos.Add(New VentasNE With {
 				.Cliente = dsa1.Tables(0).Rows(i)(2).ToString(),
 				.Id = dsa1.Tables(0).Rows(i)(0).ToString(),
@@ -106,14 +107,12 @@ Public Class FrmGestionPedidos
 				.Total = Convert.ToDouble(dsa1.Tables(0).Rows(i)(3)).ToString("0.00"),
 				.Seña = Convert.ToDouble(dsa1.Tables(0).Rows(i)(4)).ToString("0.00"),
 				.FechaVencimientoSeña = fechaVencimientoSeña,
-				.EstaVencido = If(fechaVencimientoSeña < DateTime.Now.Date, "Si", "No"),
-				.Estado = 1
+				.EstaVencido = If(fechaVencimientoSeña.Date < DateTime.Now.Date, "Si", "No")
 			})
 		Next
 		dgvProveedores.DataSource = listaDePedidos
 		dgvProveedores.Columns("Id").Visible = False
 		dgvProveedores.Columns("ClienteId").Visible = False
-		dgvProveedores.Columns("Estado").Visible = False
 		dgvProveedores.Columns("EstaVencido").HeaderText = "Vencido?"
 		dgvProveedores.Columns("FechaVencimientoSeña").HeaderText = "Vencimiento Seña"
 		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft

@@ -64,7 +64,6 @@ Partial Class FrmArmadoReparacion
 		Me.Label8 = New System.Windows.Forms.Label()
 		Me.txtDevolucion = New System.Windows.Forms.TextBox()
 		Me.Label15 = New System.Windows.Forms.Label()
-		Me.chkSoloCliente = New System.Windows.Forms.CheckBox()
 		Me.gboTotales.SuspendLayout()
 		Me.GroupBox5.SuspendLayout()
 		Me.GroupBox4.SuspendLayout()
@@ -510,7 +509,6 @@ Partial Class FrmArmadoReparacion
 		'
 		'gboFiltros
 		'
-		Me.gboFiltros.Controls.Add(Me.chkSoloCliente)
 		Me.gboFiltros.Controls.Add(Me.btnLimpiarFiltros)
 		Me.gboFiltros.Controls.Add(Me.btnBuscar)
 		Me.gboFiltros.Controls.Add(Me.txtBusNombreProducto)
@@ -591,16 +589,6 @@ Partial Class FrmArmadoReparacion
 		Me.Label15.Size = New System.Drawing.Size(264, 16)
 		Me.Label15.TabIndex = 53
 		Me.Label15.Text = "Días para la devolución del producto"
-		'
-		'chkSoloCliente
-		'
-		Me.chkSoloCliente.AutoSize = True
-		Me.chkSoloCliente.Location = New System.Drawing.Point(10, 59)
-		Me.chkSoloCliente.Name = "chkSoloCliente"
-		Me.chkSoloCliente.Size = New System.Drawing.Size(256, 21)
-		Me.chkSoloCliente.TabIndex = 42
-		Me.chkSoloCliente.Text = "Solo productos a reparar del cliente"
-		Me.chkSoloCliente.UseVisualStyleBackColor = True
 		'
 		'FrmArmadoReparacion
 		'
@@ -683,5 +671,4 @@ Partial Class FrmArmadoReparacion
 	Friend WithEvents Label8 As Windows.Forms.Label
 	Friend WithEvents txtDevolucion As Windows.Forms.TextBox
 	Friend WithEvents Label15 As Windows.Forms.Label
-	Friend WithEvents chkSoloCliente As Windows.Forms.CheckBox
 End Class
