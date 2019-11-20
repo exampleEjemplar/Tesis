@@ -9,10 +9,10 @@ Public Class PedidosLN
 	End Sub
 
 	Public Function CargarGrillaPedidos(ByVal parametros As Dictionary(Of String, String))
-		Return pedidosDA.CargarGrillaVentas(parametros)
+		Return pedidosDA.CargarGrillaPedidos(parametros)
 	End Function
 
-	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer, seña As Double)
+	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer, Optional seña As Double = 0.0)
 		pedidosDA.Registrar(listaDeProductosId, clienteId, seña)
 	End Sub
 

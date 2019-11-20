@@ -1,4 +1,6 @@
-﻿Imports System.Windows.Forms
+﻿Imports System.ComponentModel
+Imports System.Reflection
+Imports System.Windows.Forms
 Imports ClaseLn
 Imports ClaseNe
 Public Class FrmGestionReparaciones
@@ -95,34 +97,51 @@ Public Class FrmGestionReparaciones
 	Public Function LlenarDgv(ByVal parametros As Dictionary(Of String, String), Optional type As String = "") As DataSet
 		Dim dsa1 As DataSet
 		dsa1 = pedidosLN.CargarGrillaPedidos(parametros) 'Si parametros esta vacio, busca todos los pedidos en la bd
+
 		Dim listaDePedidos = New List(Of VentasNE)
 		For i As Integer = 0 To dsa1.Tables(0).Rows.Count - 1
 			Dim fecha = CType(dsa1.Tables(0).Rows(i)(1), Date).Date
-			Dim fechaVencimientoSeña = If(CType(dsa1.Tables(0).Rows(i)(3), Integer) = CType(dsa1.Tables(0).Rows(i)(4), Integer), fecha.AddDays(60).Date, fecha.AddDays(30).Date)
+			Dim fechaVencimientoSeña = fecha.AddDays(dsa1.Tables(0).Rows(i)(6)).Date
+
+			Dim estado = GetEnumDescription(DirectCast(dsa1.Tables(0).Rows(i)(5), EstadosPedidos))
 
 			listaDePedidos.Add(New VentasNE With {
 				.Cliente = dsa1.Tables(0).Rows(i)(2).ToString(),
 				.Id = dsa1.Tables(0).Rows(i)(0).ToString(),
 				.Fecha = fecha,
 				.Total = Convert.ToDouble(dsa1.Tables(0).Rows(i)(3)).ToString("0.00"),
-				.Seña = Convert.ToDouble(dsa1.Tables(0).Rows(i)(4)).ToString("0.00"),
 				.FechaVencimientoSeña = fechaVencimientoSeña,
-				.EstaVencido = If(fechaVencimientoSeña.Date < DateTime.Now.Date, "Si", "No")
+				.Estado = estado
 			})
 		Next
 		dgvProveedores.DataSource = listaDePedidos
 		dgvProveedores.Columns("Id").Visible = False
 		dgvProveedores.Columns("ClienteId").Visible = False
-		dgvProveedores.Columns("EstaVencido").HeaderText = "Vencido?"
-		dgvProveedores.Columns("FechaVencimientoSeña").HeaderText = "Vencimiento Seña"
+		dgvProveedores.Columns("Seña").Visible = False
+		'dgvProveedores.Columns("FechaVencimientoSeña").Visible = False
 		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-		dgvProveedores.Columns("Seña").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+		dgvProveedores.Columns("EstaVencido").Visible = False
+		dgvProveedores.Columns("estado").HeaderText = "Estado"
+		dgvProveedores.Columns("FechaVencimientoSeña").HeaderText = "Fecha de entrega artículo"
 		dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
 		dgvProveedores.ReadOnly = True
 		If dsa1.Tables(0).Rows.Count() = 0 And type = "" Then
 			MsgBox("La busqueda no arrojo resultados", MsgBoxStyle.OkOnly, "Pedidos")
 		End If
 		Return dsa1
+	End Function
+
+	Public Shared Function GetEnumDescription(ByVal EnumConstant As [Enum]) As String
+		Dim fi As FieldInfo = EnumConstant.GetType().GetField(EnumConstant.ToString())
+		Dim attr() As DescriptionAttribute =
+						DirectCast(fi.GetCustomAttributes(GetType(DescriptionAttribute),
+						False), DescriptionAttribute())
+
+		If attr.Length > 0 Then
+			Return attr(0).Description
+		Else
+			Return EnumConstant.ToString()
+		End If
 	End Function
 
 	Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click

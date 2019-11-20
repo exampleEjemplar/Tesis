@@ -106,7 +106,7 @@ Public Class ProductoLN
 	End Function
 
 
-	Public Function CargarUnProducto(id As Integer, nombre As String)
+	Public Function CargarUnProducto(id As Integer, nombre As String) As DataSet
 		Return objproductosAD.CargarUnProducto(id, nombre)
 	End Function
 
