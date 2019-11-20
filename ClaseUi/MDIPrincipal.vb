@@ -1,14 +1,17 @@
 ﻿Imports System.Windows.Forms
 Imports System.Net
 Imports System.IO
+Imports ClaseLn
 Imports System.Drawing
 
 Public Class MDIPrincipal
 
-    Private helpersUi As New HelpersUI
+	Private helpersUi As New HelpersUI
+	Private loginLN As New LoginLN
+	Private usuarioLn As New UsuariosLN
 
 
-    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs)
+	Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs)
         ' Cree una nueva instancia del formulario secundario.
         Dim ChildForm As New System.Windows.Forms.Form
         ' Conviértalo en un elemento secundario de este formulario MDI antes de mostrarlo.
@@ -96,8 +99,10 @@ Public Class MDIPrincipal
 			Dim COTIZACION As String = MIHTML.Remove(0, MIHTML.IndexOf("Venta:") + 25)
 			COTIZACION = COTIZACION.Substring(0, COTIZACION.IndexOf("<"))
 
-            Me.WindowState = FormWindowState.Maximized
-        Catch
+			Me.WindowState = FormWindowState.Maximized
+			Dim usuario = usuarioLn.CargarUnUsuario(loginLN.ChequearEnSesion())
+			lblUsuario.Text = "Hola " + usuario.Tables(0).Rows(0)(0).ToString() + "!"
+		Catch
 
         End Try
 

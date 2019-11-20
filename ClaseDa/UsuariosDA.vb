@@ -16,7 +16,24 @@ Public Class UsuariosDA
         com.Connection = db
     End Sub
 
-    Public Function ConsultaModificacion(ByVal username As String) As DataSet
+
+	Public Function CargarUnUsuario(ByVal id As Integer) As DataSet
+		helpersDA.ChequearConexion(db)
+		Dim sqlStr As String
+		ds1 = New DataSet
+		sqlStr = "select UserName,Contrasena,RolId,ActivoSN,Id from usuarios where id = " & id
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+		End Try
+		Return ds1
+		db.Close()
+	End Function
+
+	Public Function ConsultaModificacion(ByVal username As String) As DataSet
 		helpersDA.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
