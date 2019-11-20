@@ -118,7 +118,6 @@ Public Class FrmGestionReparaciones
 		dgvProveedores.Columns("Id").Visible = False
 		dgvProveedores.Columns("ClienteId").Visible = False
 		dgvProveedores.Columns("Seña").Visible = False
-		'dgvProveedores.Columns("FechaVencimientoSeña").Visible = False
 		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
 		dgvProveedores.Columns("EstaVencido").Visible = False
 		dgvProveedores.Columns("estado").HeaderText = "Estado"

@@ -91,10 +91,17 @@ Public Class ComprasDA
 			Dim insert As New SqlCommand("insert into compras Values (GETDATE()," & proveedorId & ", " & totalizado & ",1,'" + nroComprobante + "')", db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
+			If String.IsNullOrWhiteSpace(nroComprobante) Then
+				Dim ultimoId = ObtenerUltimaCompra().Tables(0).Rows(0)(0)
+				Dim insert3 As New SqlCommand("update compras set nrocomprobante ='" + AgregarNumerosComprobante(ultimoId) + "' where id =" + ultimoId.ToString(), db)
+				helpersDa.ChequearConexion(db)
+				insert3.ExecuteNonQuery()
+			End If
 			For Each compraDetalle As TipoDeComprasNE In listaDeProductosId
 				Dim parcial = (compraDetalle.Precio * compraDetalle.Cantidad).ToString().Replace(",", ".")
 
 				Dim insert2 As New SqlCommand("Declare @compraID int SELECT @compraID = MAX(Id) FROM compras insert into DetalleCompras VALUES(@compraID," & compraDetalle.ProductoId & "," & compraDetalle.Cantidad & "," & parcial & "," & parcial & ",NULL)", db)
+				helpersDa.ChequearConexion(db)
 				insert2.ExecuteNonQuery()
 
 				movimientoStockDA.Registrar(compraDetalle.ProductoId, compraDetalle.Cantidad)
@@ -106,7 +113,16 @@ Public Class ComprasDA
 		End Try
 	End Sub
 
-	Public Function ObtenerUltimaCompra()
+	Function AgregarNumerosComprobante(ByVal numero As Integer) As String
+		Dim amountOfZeros As Integer = 8 - numero.ToString().Length
+		Dim text As String = String.Empty
+		For i = 1 To amountOfZeros
+			text = text + "0"
+		Next
+		Return text + numero.ToString()
+	End Function
+
+	Public Function ObtenerUltimaCompra() As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim da As New SqlDataAdapter("Select Max(id) as [Id] from compras", db)
 		Dim ds As New DataSet
