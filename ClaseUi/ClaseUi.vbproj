@@ -166,6 +166,12 @@
     <Compile Include="FrmConsultaMovimientoStock.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmEditarReparacion.Designer.vb">
+      <DependentUpon>FrmEditarReparacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditarReparacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmEstadistica\FrmEstadisticaCompras.Designer.vb">
       <DependentUpon>FrmEstadisticaCompras.vb</DependentUpon>
     </Compile>
@@ -432,6 +438,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleProductoCatalogo.resx">
       <DependentUpon>FrmDetalleProductoCatalogo.Vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditarReparacion.resx">
+      <DependentUpon>FrmEditarReparacion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEstadistica\FrmEstadisticacliente.resx">
       <DependentUpon>FrmEstadisticacliente.vb</DependentUpon>
