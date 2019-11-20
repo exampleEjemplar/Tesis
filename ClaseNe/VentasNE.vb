@@ -87,6 +87,17 @@
 			_Seña = CStr(value)
 		End Set
 	End Property
+
+	Private _Estado As String
+
+	Public Property Estado As String
+		Get
+			Return _Estado
+		End Get
+		Set(ByVal value As String)
+			_Estado = value
+		End Set
+	End Property
 End Class
 
 Public Class TipoDeVentasNE
@@ -178,6 +189,17 @@ Public Class TipoDeVentasNE
 		End Get
 		Set(ByVal value As Double)
 			_Seña = CStr(value)
+		End Set
+	End Property
+
+	Private _Dias As Integer
+
+	Public Property Dias As Integer
+		Get
+			Return _Dias
+		End Get
+		Set(ByVal value As Integer)
+			_Dias = CStr(value)
 		End Set
 	End Property
 End Class

@@ -232,7 +232,7 @@ Public Class FrmGestionProducto
 				'End If
 
 			End If
-
+			pro.Problema = ""
 			productometodo.Grabarproductos(pro)
 			Dgvproductosset()
 			cereacampos()
