@@ -307,11 +307,8 @@ Public Class FrmGestionProducto
 			DataGridView1.Columns(18).Visible = False
 			DataGridView1.Columns(19).Visible = False
 			DataGridView1.Columns(20).Visible = False
-            DataGridView1.Columns(21).Visible = False
-            DataGridView1.Columns(0).Width = 60
-            DataGridView1.Columns(1).Width = 60
-            DataGridView1.Columns(2).Width = 150
-            DataGridView1.Columns(1).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+			DataGridView1.Columns(21).Visible = False
+			DataGridView1.Columns(1).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
             DataGridView1.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
             DataGridView1.Columns(0).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
             DataGridView1.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
