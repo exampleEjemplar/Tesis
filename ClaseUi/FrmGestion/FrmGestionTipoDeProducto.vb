@@ -20,28 +20,28 @@ Public Class FrmGestionTipoDeProducto
 		dgvCategorias.Columns("Id").Visible = False
         dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
     End Sub
-    Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs)
-        Try
-            Dim selectedRow As DataGridViewRow
-            If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-                selectedRow = dgvCategorias.Rows(e.RowIndex)
-            End If
-            Dim ds As DataSet = tipoDeProductoLN.ConsultaModificacion(selectedRow.Cells("id").Value)
-            For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
-                tipoDeProductoId = ds.Tables(0).Rows(i)(0).ToString()
-                txtNombre.Text = ds.Tables(0).Rows(i)(1).ToString()
-                txtDescripcion.Text = ds.Tables(0).Rows(i)(2).ToString()
-                modificando = True
-            Next
-            GroupBox1.Visible = True
-            btnGuardar.Enabled = True
-            btnNuevo.Enabled = False
-        Catch ex As Exception
-            MsgBox("Disculpe las molestias, intente nuevamente", MsgBoxStyle.Critical, "Tipo de producto")
-        End Try
-    End Sub
+	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgvCategorias.CellMouseDoubleClick
+		Try
+			Dim selectedRow As DataGridViewRow
+			If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+				selectedRow = dgvCategorias.Rows(e.RowIndex)
+			End If
+			Dim ds As DataSet = tipoDeProductoLN.ConsultaModificacion(selectedRow.Cells("id").Value)
+			For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+				tipoDeProductoId = ds.Tables(0).Rows(i)(0).ToString()
+				txtNombre.Text = ds.Tables(0).Rows(i)(1).ToString()
+				txtDescripcion.Text = ds.Tables(0).Rows(i)(2).ToString()
+				modificando = True
+			Next
+			GroupBox1.Visible = True
+			btnGuardar.Enabled = True
+			btnNuevo.Enabled = False
+		Catch ex As Exception
+			MsgBox("Disculpe las molestias, intente nuevamente", MsgBoxStyle.Critical, "Tipo de producto")
+		End Try
+	End Sub
 
-    Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
 		GroupBox1.Visible = True
 		btnGuardar.Enabled = True
 	End Sub

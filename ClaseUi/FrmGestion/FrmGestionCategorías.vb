@@ -20,7 +20,7 @@ Public Class FrmGestionCategorías
 		dgvCategorias.Columns("Id").Visible = False
         dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
     End Sub
-	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) 
+	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgvCategorias.CellMouseDoubleClick
 		Dim selectedRow As DataGridViewRow
 		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
 			selectedRow = dgvCategorias.Rows(e.RowIndex)

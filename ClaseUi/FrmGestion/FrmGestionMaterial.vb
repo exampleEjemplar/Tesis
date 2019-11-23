@@ -90,21 +90,28 @@ Public Class FrmGestionMaterial
 			Return
 		End If
 
-
 		Dim value As Decimal
-		txtCoti.Text.Replace(",", ".")
-		If Not Decimal.TryParse(txtCoti.Text, value) Then
-			MsgBox("Ingrese la cotizacion del material en un formato correcto (123.00)", MsgBoxStyle.Critical, "Material")
+		Dim replaced = txtCoti.Text.Replace(",", ".")
+		If Not Double.TryParse(replaced, value) Then
+			MsgBox("Ingrese la seña en un formato correcto (123.00)", MsgBoxStyle.Critical, "Seña")
+			txtCoti.Text = ""
 			Return
-		Else
-			value = Decimal.Parse(txtCoti.Text, CultureInfo.InvariantCulture)
 		End If
 
+		'Dim value As Decimal
+		'txtCoti.Text.Replace(",", ".")
+		'If Not Decimal.TryParse(txtCoti.Text, value) Then
+		'	MsgBox("Ingrese la cotizacion del material en un formato correcto (123.00)", MsgBoxStyle.Critical, "Material")
+		'	Return
+		'Else
+		'	value = Decimal.Parse(txtCoti.Text, CultureInfo.InvariantCulture)
+		'End If
+
 		If modificando Then
-			materialesLN.NuevaCotizacion(materialId, value)
+			materialesLN.NuevaCotizacion(materialId, replaced)
 			MsgBox("Cotizacion de material agregada", MsgBoxStyle.OkOnly, "Material")
 		Else
-			materialesLN.GuardarNuevo(helpersUi.NormalizarTexto(txtNombre.Text), value)
+			materialesLN.GuardarNuevo(helpersUi.NormalizarTexto(txtNombre.Text), replaced)
 			MsgBox("Material agregado", MsgBoxStyle.OkOnly, "Material")
 		End If
 
@@ -130,12 +137,8 @@ Public Class FrmGestionMaterial
 	End Sub
 
 	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSalirr.Click
-        'With FrmGestionProducto
-        'End With
-        'FrmGestionProducto.ShowDialog()
-        'modificado = True
-        Me.Close()
-    End Sub
+		Me.Close()
+	End Sub
 
 	Private Sub FrmGestionMaterial_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 		modificado = True
