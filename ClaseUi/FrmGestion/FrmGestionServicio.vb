@@ -11,9 +11,12 @@ Public Class FrmGestionServicio
 	Public modificado As Boolean
 
 	Public Sub Dgvproductosset()
-		DataGridView1.DataSource = productometodo.BuscaServicios(txtBusNombreProd.Text).Tables(0)
-		DataGridView1.Columns("Nombre1").HeaderText = "Proveedor"
-		DataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+		Dim parametros As New Dictionary(Of String, String)
+		DataGridView1.DataSource = productometodo.BuscaServicios(parametros).Tables(0)
+		'DataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+		DataGridView1.Columns("Costo").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+		DataGridView1.Columns("Proveedor").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+		DataGridView1.Columns("Nombre").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 	End Sub
 
 	Private Sub FrmGestionServicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -40,15 +43,26 @@ Public Class FrmGestionServicio
 		Close()
 	End Sub
 
-	Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-		txtBusNombreProd.Text = ""
-		gbousqueda.Enabled = True
-		btnBuscar.Enabled = True
+	Private Sub btnBuscar_Click(sender As Object, e As EventArgs)
+		Search()
 	End Sub
 
-	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-		gbousqueda.Enabled = False
-		txtBusNombreProd.Text = ""
+	Sub Search()
+		Dim parametros As Dictionary(Of String, String) = New Dictionary(Of String, String)
+		If String.IsNullOrWhiteSpace(cboProveedor.SelectedValue) = False Then
+			parametros.Add("ProveedorId", cboProveedor.SelectedValue)
+		End If
+		If String.IsNullOrWhiteSpace(dtpFechaDesde.Value.ToString()) = False And dtpFechaDesde.Visible Then
+			parametros.Add("FechaDesde", dtpFechaDesde.Value.Date.ToString("dd/MM/yyyy"))
+		End If
+		If String.IsNullOrWhiteSpace(dtpFechaHasta.Value.ToString()) = False And dtpFechaDesde.Visible And dtpFechaHasta.Visible Then
+			If dtpFechaHasta.Value <= dtpFechaDesde.Value Then
+				MsgBox("La fecha desde no puede ser mayor que la fecha hasta", MsgBoxStyle.OkOnly, "Error")
+				Return
+			End If
+			parametros.Add("FechaHasta", dtpFechaHasta.Value.Date.ToString("dd/MM/yyyy"))
+		End If
+		Dgvproductosset()
 	End Sub
 
 	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -68,10 +82,6 @@ Public Class FrmGestionServicio
 		End If
 	End Sub
 
-	Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-		Dgvproductosset()
-	End Sub
-
 	Private Sub btnguardarmodificacion_Click(sender As Object, e As EventArgs) Handles btnguardarmodificacion.Click
 		If Not ValidarDatos() Then
 			Return
@@ -84,15 +94,47 @@ Public Class FrmGestionServicio
 	End Sub
 
 	Private Sub Cargar()
+		rbtEntreFechas.Checked = False
+		rbtFechaExacta.Checked = False
+		dtpFechaDesde.Visible = False
+		dtpFechaHasta.Visible = False
+		lbldesde.Visible = False
+		lblFechaExacta.Visible = False
+		lblHasta.Visible = False
 		cmbProveedor.SelectedValue = 0
 		TbPrecio.Text = ""
 		TbNombreServicio.Text = ""
 		Dgvproductosset()
 		LlenarCboProveedores()
 		gboServicio.Enabled = False
-		gbousqueda.Enabled = False
 		btnguardarmodificacion.Enabled = False
 		btnNuevo.Enabled = True
+
+	End Sub
+
+	Private Sub RbtEntreFechas_CheckedChanged(sender As Object, e As EventArgs) Handles rbtEntreFechas.CheckedChanged, rbtFechaExacta.CheckedChanged
+
+		If rbtFechaExacta.Checked Then
+			lblFechaExacta.Visible = True
+			lbldesde.Visible = False
+			rbtEntreFechas.Checked = False
+			lblHasta.Visible = False
+			dtpFechaHasta.Visible = False
+			dtpFechaDesde.Visible = True
+		ElseIf rbtEntreFechas.Checked Then
+			lblFechaExacta.Visible = False
+			rbtFechaExacta.Checked = False
+			lblHasta.Visible = True
+			dtpFechaHasta.Visible = True
+			dtpFechaDesde.Visible = True
+			lbldesde.Visible = True
+		ElseIf Not rbtEntreFechas.Checked And Not rbtFechaExacta.Checked Then
+			dtpFechaHasta.Visible = False
+			dtpFechaDesde.Visible = False
+			lblFechaExacta.Visible = False
+			lblHasta.Visible = False
+			lbldesde.Visible = False
+		End If
 
 	End Sub
 
@@ -128,4 +170,5 @@ Public Class FrmGestionServicio
 		End If
 		Return True
 	End Function
+
 End Class

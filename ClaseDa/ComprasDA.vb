@@ -74,7 +74,6 @@ Public Class ComprasDA
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
 		End Try
 		Return ds1
-		db.Close()
 	End Function
 
 	Public Sub Registrar(listaDeProductosId As List(Of TipoDeComprasNE), proveedorId As Integer, nroComprobante As String)

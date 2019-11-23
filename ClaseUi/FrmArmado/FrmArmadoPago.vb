@@ -24,7 +24,7 @@ Public Class FrmArmadoPago
 
 	Private Sub FrmArmadoCompra_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Cargar()
-		PrepararTodo()
+		LlenarCboProveedores()
 		modificado = False
 	End Sub
 
@@ -39,7 +39,9 @@ Public Class FrmArmadoPago
 	End Sub
 
 	Private Sub Cargar()
+		cboProveedor.Enabled = True
 		ListView1.Clear()
+		lstProdDispo.Clear()
 		total = 0.00
 		lblTotal.Text = total.ToString("0.00")
 		gboFiltros.Enabled = False
@@ -57,7 +59,6 @@ Public Class FrmArmadoPago
 	End Sub
 
 	Private Sub PrepararTodo()
-		LlenarLvi(New Dictionary(Of String, String))
 		btnLimpiar.Enabled = True
 		btnQuitarItem.Enabled = True
 	End Sub
@@ -110,6 +111,7 @@ Public Class FrmArmadoPago
 		MsgBox("Pago realizado con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
 		PrepararTodo()
+		LlenarCboProveedores()
 		'Imprimimos el comprobante
 		'FrmComprobanteVenta.ShowDialog()
 		modificado = True
@@ -122,10 +124,13 @@ Public Class FrmArmadoPago
 
 	'Limpia el LVI de la derecha y recalcula el total de la compra
 	Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-		If MsgBox("Desea limpiar la lista de compras?", MsgBoxStyle.YesNo, "Compras") = MsgBoxResult.Yes Then
+		If MsgBox("Desea limpiar la lista de servicios?", MsgBoxStyle.YesNo, "Compras") = MsgBoxResult.Yes Then
 			ListView1.Clear()
 			total = 0.0
 			lblTotal.Text = total.ToString("0.00")
+		End If
+		If lstProdDispo.Items.Count = 0 Then
+			CargarProductosConProveedor()
 		End If
 	End Sub
 
@@ -136,6 +141,11 @@ Public Class FrmArmadoPago
 			total -= selectedProducto.Tag(3)
 			lblTotal.Text = total.ToString("0.00")
 			selectedProducto = Nothing
+			If lstProdDispo.Items.Count = 0 Then
+				CargarProductosConProveedor()
+			End If
+		Else
+			MsgBox("Debe seleccionar un producto", MsgBoxStyle.OkOnly, "Compras")
 		End If
 	End Sub
 
@@ -245,6 +255,20 @@ Public Class FrmArmadoPago
 
 #Region "Metodos"
 
+	Public Function LlenarCboProveedores()
+		Try
+			Dim ds1 As DataSet
+			ds1 = helpersLN.CargarCboTodosProveedores("True")
+			cboProveedor.DataSource = ds1.Tables(0)
+			cboProveedor.DisplayMember = "Nombre"
+			cboProveedor.ValueMember = "id"
+			cboProveedor.SelectedValue = 0
+		Catch ex As Exception
+			MessageBox.Show(ex.Message)
+		End Try
+		Return cboProveedor.SelectedValue
+	End Function
+
 	'Agrega los parametros de busqueda al diccionario y llama al metodo que carga el LVI
 	Public Sub Search()
 		Dim parametros As Dictionary(Of String, String) = New Dictionary(Of String, String)
@@ -286,12 +310,14 @@ Public Class FrmArmadoPago
 
 			'Asignamos el texto del item
 			listaViewItem.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
+			Dim font = New Font("Arial", 7)
+			listaViewItem.Font = font
 			'Asignamos toda la info para cuando se pase a la otra columna
 			listaViewItem.Tag = ds2.Tables(0).Rows(i)
 
 			listaViewItem.BackColor = Color.AliceBlue
 			'Y a las listas para tenerlo en el resto del frm
-			lstProdDispo.Items.Add(ds2.Tables(0).Rows(i).Item(1).ToString(), 12)
+			lstProdDispo.Items.Add(listaViewItem)
 			listita.Add(listaViewItem)
 		Next
 
@@ -330,6 +356,18 @@ Public Class FrmArmadoPago
 			'LlenarCboProveedores()
 			FrmGestionProveedores.modificado = False
 		End If
+	End Sub
+
+	Private Sub cboProveedor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboProveedor.SelectionChangeCommitted
+		CargarProductosConProveedor()
+	End Sub
+
+	Sub CargarProductosConProveedor()
+		PrepararTodo()
+		Dim parametros As New Dictionary(Of String, String)
+		parametros.Add("ProveedorId", cboProveedor.SelectedValue.ToString())
+		LlenarLvi(parametros)
+		cboProveedor.Enabled = False
 	End Sub
 
 #End Region

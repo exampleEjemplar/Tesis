@@ -195,4 +195,8 @@ Public Class MDIPrincipal
         FrmCierreDeCaja.ShowDialog()
 
     End Sub
+
+	Private Sub btnServicios_Click(sender As Object, e As EventArgs) Handles btnServicios.Click
+		FrmGestionPagos.ShowDialog()
+	End Sub
 End Class

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmArmadoPago
 	Inherits System.Windows.Forms.Form
 
 	'Form reemplaza a Dispose para limpiar la lista de componentes.
-	<System.Diagnostics.DebuggerNonUserCode()> _
+	<System.Diagnostics.DebuggerNonUserCode()>
 	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
 		Try
 			If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmArmadoPago
 	'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
 	'Se puede modificar usando el Diseñador de Windows Forms.  
 	'No lo modifique con el editor de código.
-	<System.Diagnostics.DebuggerStepThrough()> _
+	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
 		Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -50,6 +50,8 @@ Partial Class FrmArmadoPago
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
 		Me.btnSalir = New System.Windows.Forms.Button()
+		Me.cboProveedor = New System.Windows.Forms.ComboBox()
+		Me.Label17 = New System.Windows.Forms.Label()
 		Me.GroupBox5.SuspendLayout()
 		Me.GroupBox4.SuspendLayout()
 		Me.gboTotales.SuspendLayout()
@@ -347,12 +349,11 @@ Partial Class FrmArmadoPago
 		Me.btnAgregarProveedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnAgregarProveedor.FlatAppearance.BorderSize = 0
 		Me.btnAgregarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnAgregarProveedor.Location = New System.Drawing.Point(421, -4)
+		Me.btnAgregarProveedor.Location = New System.Drawing.Point(473, 57)
 		Me.btnAgregarProveedor.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnAgregarProveedor.Name = "btnAgregarProveedor"
-		Me.btnAgregarProveedor.Size = New System.Drawing.Size(137, 110)
+		Me.btnAgregarProveedor.Size = New System.Drawing.Size(50, 49)
 		Me.btnAgregarProveedor.TabIndex = 67
-		Me.btnAgregarProveedor.Text = "Agregar Proveedor"
 		Me.btnAgregarProveedor.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnAgregarProveedor.UseVisualStyleBackColor = False
 		'
@@ -411,11 +412,37 @@ Partial Class FrmArmadoPago
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnSalir.UseVisualStyleBackColor = False
 		'
+		'cboProveedor
+		'
+		Me.cboProveedor.AccessibleDescription = ""
+		Me.cboProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cboProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.cboProveedor.FormattingEnabled = True
+		Me.cboProveedor.Items.AddRange(New Object() {"Física", "Jurídica"})
+		Me.cboProveedor.Location = New System.Drawing.Point(98, 71)
+		Me.cboProveedor.Margin = New System.Windows.Forms.Padding(4)
+		Me.cboProveedor.Name = "cboProveedor"
+		Me.cboProveedor.Size = New System.Drawing.Size(367, 25)
+		Me.cboProveedor.TabIndex = 68
+		'
+		'Label17
+		'
+		Me.Label17.AutoSize = True
+		Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label17.Location = New System.Drawing.Point(7, 74)
+		Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label17.Name = "Label17"
+		Me.Label17.Size = New System.Drawing.Size(83, 17)
+		Me.Label17.TabIndex = 69
+		Me.Label17.Text = "Proveedor"
+		'
 		'FrmArmadoPago
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(821, 847)
+		Me.Controls.Add(Me.cboProveedor)
+		Me.Controls.Add(Me.Label17)
 		Me.Controls.Add(Me.GroupBox5)
 		Me.Controls.Add(Me.gboTotales)
 		Me.Controls.Add(Me.gboFiltros)
@@ -424,8 +451,10 @@ Partial Class FrmArmadoPago
 		Me.Controls.Add(Me.Label1)
 		Me.Controls.Add(Me.GroupBox3)
 		Me.Controls.Add(Me.btnSalir)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
 		Me.Name = "FrmArmadoPago"
-		Me.Text = "FrmArmadoPago"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+		Me.Text = "Armado de pago"
 		Me.GroupBox5.ResumeLayout(False)
 		Me.GroupBox4.ResumeLayout(False)
 		Me.gboTotales.ResumeLayout(False)
@@ -465,4 +494,6 @@ Partial Class FrmArmadoPago
 	Friend WithEvents Label1 As Windows.Forms.Label
 	Friend WithEvents GroupBox3 As Windows.Forms.GroupBox
 	Friend WithEvents btnSalir As Windows.Forms.Button
+	Friend WithEvents cboProveedor As Windows.Forms.ComboBox
+	Friend WithEvents Label17 As Windows.Forms.Label
 End Class

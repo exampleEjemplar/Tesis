@@ -14,8 +14,8 @@ Public Class ProductoLN
 
 	End Sub
 
-	Public Function BuscaServicios(servicioNombre As String)
-		Return objproductosAD.BuscaServicios(servicioNombre)
+	Public Function BuscaServicios(ByVal parametros As Dictionary(Of String, String))
+		Return objproductosAD.BuscaServicios(parametros)
 	End Function
 
 	Public Sub RegistrarServicio(pro As ProductosNE)

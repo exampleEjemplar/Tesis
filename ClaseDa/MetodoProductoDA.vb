@@ -33,7 +33,7 @@ Public Class MetodoProductoDA
 		Dim sqlStr As String
 		ds = New DataSet
 		Dim valor As String = pro.precio.Replace(",", ".")
-		sqlStr = "insert into productos (Nombre,ProveedorId,Precio,EsServicio) VALUES('" + pro.nombreprducto + "'," + pro.proveedorId.ToString() + ", " + valor + ",'S')"
+		sqlStr = "insert into productos (Nombre,ProveedorId,Precio,EsServicio,EsParaReparacion,FechaAlta) VALUES('" + pro.nombreprducto + "'," + pro.proveedorId.ToString() + ", " + valor + ",'S','N', getdate())"
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
@@ -44,26 +44,78 @@ Public Class MetodoProductoDA
 		End Try
 	End Sub
 
-	Public Function BuscaServicios(servicioNombre As String)
+	Public Function BuscaServicios(ByVal parametros As Dictionary(Of String, String))
+
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
-		ds = New DataSet
-		Dim text As String
-		If String.IsNullOrWhiteSpace(servicioNombre) Then
-			text = "where"
+		Dim ds1 = New DataSet
+		Dim text = ""
+		If parametros.Count <> 0 Then
+			Dim count = parametros.Count
+			text = " where "
+			For Each item As KeyValuePair(Of String, String) In parametros
+				If item.Key = "ProveedorId" Then
+					count = count - 1
+					text = text & "pro.id" & " = " & item.Value & " " & If(count <> 0, " and ", "")
+					Continue For
+				End If
+				If item.Key = "Nombre" Then
+					count = count - 1
+					text = text & "p.Nombre" & " = " & item.Value & " " & If(count <> 0, " and ", "")
+					Continue For
+				End If
+				If item.Key = "FechaDesde" And Not parametros.Keys.Contains("FechaHasta") Then
+					count = count - 1
+					text = text & "c.fecha" & " between '" & item.Value & " 00:00:00' and '" & item.Value & " 23:59:59'" & If(count <> 0, " and ", "")
+					Continue For
+				End If
+				If item.Key = "FechaDesde" And parametros.Keys.Contains("FechaHasta") Then
+					count = count - 1
+					text = text & "c.fecha" & " between '" & item.Value & " 00:00:00' and "
+					Continue For
+				End If
+				If item.Key = "FechaHasta" Then
+					count = count - 1
+					text = text & "'" & item.Value & " 23:59:59' " & If(count <> 0, " and ", "")
+					Continue For
+				End If
+			Next
 		Else
-			text = "where p.nombre like '%" + servicioNombre + "%' and"
+			text = " where "
 		End If
-		sqlStr = "select p.Nombre, pro.Nombre, p.precio from productos as p inner join proveedores as pro on pro.id = p.proveedorId " + text + " p.EsServicio = 'S'"
+		sqlStr = "select p.Nombre, pro.Nombre as 'Proveedor', p.precio as 'Costo' from productos as p inner join proveedores as pro on pro.id = p.proveedorId " + text + " p.EsServicio = 'S'"
+
+		'sqlStr = "select p.Fecha, p.Total, pro.Nombre as 'Proveedor', u.username as 'Usuario'from pagos as p inner join proveedores as pro on pro.id = p.proveedorId inner join usuarios as u on u.id = p.usuarioid"
 		Try
-			Dim da As New SqlDataAdapter(sqlStr, db)
-			da.Fill(ds)
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
 			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
 		End Try
-		Return ds
+		Return ds1
+
+
+
+		'helpersDa.ChequearConexion(db)
+		'Dim sqlStr As String
+		'ds = New DataSet
+		'Dim text As String
+		'If String.IsNullOrWhiteSpace(servicioNombre) Then
+		'	text = "where"
+		'Else
+		'	text = "where p.nombre like '%" + servicioNombre + "%' and"
+		'End If
+		'sqlStr = "select p.Nombre, pro.Nombre, p.precio from productos as p inner join proveedores as pro on pro.id = p.proveedorId " + text + " p.EsServicio = 'S'"
+		'Try
+		'	Dim da As New SqlDataAdapter(sqlStr, db)
+		'	da.Fill(ds)
+		'	db.Close()
+		'Catch ex As Exception
+		'	MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+		'	db.Close()
+		'End Try
+		'Return ds
 	End Function
 
 
