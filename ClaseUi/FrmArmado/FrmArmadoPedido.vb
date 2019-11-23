@@ -488,6 +488,14 @@ Public Class FrmArmadoPedido
 		Return True
 	End Function
 
+	Private Sub GroupBox4_Enter(sender As Object, e As EventArgs) Handles GroupBox4.Enter
+
+	End Sub
+
+	Private Sub GroupBox5_Enter(sender As Object, e As EventArgs) Handles GroupBox5.Enter
+
+	End Sub
+
 #End Region
 
 End Class

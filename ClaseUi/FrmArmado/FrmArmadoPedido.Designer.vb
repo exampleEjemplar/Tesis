@@ -321,7 +321,7 @@ Partial Class FrmArmadoPedido
 		Me.gboTotales.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.gboTotales.Name = "gboTotales"
 		Me.gboTotales.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.gboTotales.Size = New System.Drawing.Size(269, 241)
+		Me.gboTotales.Size = New System.Drawing.Size(390, 241)
 		Me.gboTotales.TabIndex = 48
 		Me.gboTotales.TabStop = False
 		Me.gboTotales.Text = "Totales"
@@ -338,10 +338,10 @@ Partial Class FrmArmadoPedido
 		'
 		'txtSeña
 		'
-		Me.txtSeña.Location = New System.Drawing.Point(133, 117)
+		Me.txtSeña.Location = New System.Drawing.Point(235, 115)
 		Me.txtSeña.MaxLength = 10
 		Me.txtSeña.Name = "txtSeña"
-		Me.txtSeña.Size = New System.Drawing.Size(126, 22)
+		Me.txtSeña.Size = New System.Drawing.Size(149, 22)
 		Me.txtSeña.TabIndex = 53
 		'
 		'Label18
@@ -372,7 +372,7 @@ Partial Class FrmArmadoPedido
 		Me.cboPorcentaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.cboPorcentaje.FormattingEnabled = True
 		Me.cboPorcentaje.Items.AddRange(New Object() {"50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100"})
-		Me.cboPorcentaje.Location = New System.Drawing.Point(144, 203)
+		Me.cboPorcentaje.Location = New System.Drawing.Point(235, 204)
 		Me.cboPorcentaje.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboPorcentaje.Name = "cboPorcentaje"
 		Me.cboPorcentaje.Size = New System.Drawing.Size(82, 25)
@@ -381,7 +381,7 @@ Partial Class FrmArmadoPedido
 		'Label16
 		'
 		Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label16.Location = New System.Drawing.Point(140, 147)
+		Me.Label16.Location = New System.Drawing.Point(231, 143)
 		Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label16.Name = "Label16"
 		Me.Label16.Size = New System.Drawing.Size(122, 52)
@@ -391,7 +391,7 @@ Partial Class FrmArmadoPedido
 		'Label15
 		'
 		Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label15.Location = New System.Drawing.Point(156, 82)
+		Me.Label15.Location = New System.Drawing.Point(231, 81)
 		Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label15.Name = "Label15"
 		Me.Label15.Size = New System.Drawing.Size(70, 31)
@@ -402,7 +402,7 @@ Partial Class FrmArmadoPedido
 		'
 		Me.lblSeña.AutoSize = True
 		Me.lblSeña.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
-		Me.lblSeña.Location = New System.Drawing.Point(161, 115)
+		Me.lblSeña.Location = New System.Drawing.Point(231, 113)
 		Me.lblSeña.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblSeña.Name = "lblSeña"
 		Me.lblSeña.Size = New System.Drawing.Size(49, 24)
@@ -412,7 +412,7 @@ Partial Class FrmArmadoPedido
 		'Label11
 		'
 		Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
-		Me.Label11.Location = New System.Drawing.Point(6, 82)
+		Me.Label11.Location = New System.Drawing.Point(7, 82)
 		Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label11.Name = "Label11"
 		Me.Label11.Size = New System.Drawing.Size(115, 56)
@@ -439,7 +439,7 @@ Partial Class FrmArmadoPedido
 		Me.GroupBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.GroupBox5.Name = "GroupBox5"
 		Me.GroupBox5.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.GroupBox5.Size = New System.Drawing.Size(390, 665)
+		Me.GroupBox5.Size = New System.Drawing.Size(514, 665)
 		Me.GroupBox5.TabIndex = 45
 		Me.GroupBox5.TabStop = False
 		'
@@ -450,7 +450,7 @@ Partial Class FrmArmadoPedido
 		Me.GroupBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.GroupBox4.Name = "GroupBox4"
 		Me.GroupBox4.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.GroupBox4.Size = New System.Drawing.Size(384, 596)
+		Me.GroupBox4.Size = New System.Drawing.Size(508, 596)
 		Me.GroupBox4.TabIndex = 32
 		Me.GroupBox4.TabStop = False
 		Me.GroupBox4.Text = "Productos en la venta"
@@ -786,7 +786,7 @@ Partial Class FrmArmadoPedido
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(1340, 927)
+		Me.ClientSize = New System.Drawing.Size(1404, 927)
 		Me.Controls.Add(Me.btnAgregarProducto)
 		Me.Controls.Add(Me.gboFiltros)
 		Me.Controls.Add(Me.gboTotales)
