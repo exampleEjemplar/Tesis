@@ -23088,14 +23088,14 @@ where Id = @id
 end
 GO
 
-USE [JoyeriaCrisol]
+USE [JoyeriaCrisolFinal]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_MostrarProductoconbusqueda]    Script Date: 7/6/2019 01:37:45 ******/
+/** Object:  StoredProcedure [dbo].[SP_MostrarProductoconbusqueda]    Script Date: 23/11/2019 00:19:23 **/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [dbo].[SP_MostrarProductoconbusqueda]
+ALTER PROCEDURE [dbo].[SP_MostrarProductoconbusqueda]
 @codigo int,
 @Nombre varchar(max)
 
@@ -23103,10 +23103,10 @@ AS
 SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto, 
 p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.TipoProductoID, p.UnidadDePeso, 
 p.CategoriaID, p.StockODeTercero FROM productos as p
-inner join Categorias2 t on p.TipoProductoID=t.id
+inner join TipoProductos t on p.TipoProductoID=t.id
 inner join Materiales m On p.MaterialId=m.id
 inner join categorias ca on p.CategoriaID= ca.Id
-where p.id like CONCAT('%', @codigo ,'%') and  p.nombre like  CONCAT('%', @nombre ,'%');
+where p.id = @codigo or  p.nombre like  '%'+@nombre+'%';
 GO 
      
 USE [JoyeriaCrisol]
