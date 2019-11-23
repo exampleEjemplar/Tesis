@@ -75,7 +75,7 @@ Public Class FrmCatalogo
         DataGridView1.Columns(5).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridView1.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         DataGridView1.Sort(DataGridView1.Columns(2), System.ComponentModel.ListSortDirection.Ascending)
-        '  DataGridView1.Columns(0).Width = 80
+        DataGridView1.Columns(0).Width = 80
         DataGridView1.AllowUserToAddRows = False
         DataGridView1.AllowUserToDeleteRows = False
         For X = 0 To DataGridView1.Rows.Count - 1
@@ -180,7 +180,7 @@ Public Class FrmCatalogo
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        Me.Close()
+        Me.Dispose()
 
     End Sub
 
@@ -226,56 +226,52 @@ Public Class FrmCatalogo
     End Sub
 
     Private Sub CmbCategoria_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CmbCategoria.SelectionChangeCommitted
-		'CmbCategoria.Enabled = False
-		'btnBuscar.Enabled = True
-		'tbBuscod.Enabled = True
-		'tbBusnombre.Enabled = True
-	End Sub
-
+        'CmbCategoria.Enabled = False
+        'btnBuscar.Enabled = True
+        'tbBuscod.Enabled = True
+        'tbBusnombre.Enabled = True
+    End Sub
 
     Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
 
-        Dim imgImagen = CargarImagen(DataGridView1.CurrentRow.Index)
+        FrmDetalleProductoCatalogo.Show()
+        FrmDetalleProductoCatalogo.TBCODIGO.Text = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
+        FrmDetalleProductoCatalogo.TBCODIGOBARRA.Text = (DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value)
 
-        'FrmDetalleProductoCatalogo.TBCODIGO.Text = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
-        'FrmDetalleProductoCatalogo.TBCODIGOBARRA.Text = (DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value)
-        'FrmDetalleProductoCatalogo.PBFOTO.Image = imgImagen
-        'FrmDetalleProductoCatalogo.TBNOMBREPROD.Text = (DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value)
-        'FrmDetalleProductoCatalogo.TBPRECIO.Text = (DataGridView1.Item(5, DataGridView1.CurrentRow.Index).Value)
+        Dim ms As MemoryStream = New MemoryStream()
+        Dim img As Byte() = CType((DataGridView1.Item(7, DataGridView1.CurrentRow.Index).Value), Byte())
+        If img Is Nothing Then
+            MessageBox.Show("Imagen no encontrada en la base de datos")
+        End If
+        ms.Write(img, 0, img.GetUpperBound(0) + 1)
+        Dim imgImagen As System.Drawing.Image = System.Drawing.Image.FromStream(ms)
+
+        FrmDetalleProductoCatalogo.PBFOTO.Image = imgImagen
+        FrmDetalleProductoCatalogo.TBNOMBREPROD.Text = (DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value)
+        FrmDetalleProductoCatalogo.TBPRECIO.Text = (DataGridView1.Item(6, DataGridView1.CurrentRow.Index).Value)
 
 
-        TBCODIGO = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
-        TBCODIGOBARRA = (DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value)
-        PBFOTO = imgImagen
-        TBNOMBREPROD = (DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value)
-        TBPRECIO = (DataGridView1.Item(5, DataGridView1.CurrentRow.Index).Value)
-
-        FrmDetalleProductoCatalogo.ShowDialog()
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+
         If DataGridView1.Columns(e.ColumnIndex).HeaderText = "Imagen" Then
-            Dim imgImagen = CargarImagen(e.ColumnIndex)
-            ImagenAmpliada.pbImagen.Image = imgImagen
-            ImagenAmpliada.ShowDialog()
-        End If
-    End Sub
-
-    Public Function CargarImagen(index As Integer)
-        Dim imgImagen As System.Drawing.Image = Nothing
-
-
-        Dim producto = productometodo.CargarUnProducto(DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value, "").Tables(0).Rows(0)
 
             Dim ms As MemoryStream = New MemoryStream()
-            Dim img As Byte() = CType(producto(3), Byte())
+            Dim img As Byte() = CType((DataGridView1.Item(7, DataGridView1.CurrentRow.Index).Value), Byte())
             If img Is Nothing Then
                 MessageBox.Show("Imagen no encontrada en la base de datos")
             End If
             ms.Write(img, 0, img.GetUpperBound(0) + 1)
-            imgImagen = System.Drawing.Image.FromStream(ms)
-        Return imgImagen
-    End Function
+            Dim imgImagen As System.Drawing.Image = System.Drawing.Image.FromStream(ms)
+            ImagenAmpliada.pbImagen.Image = imgImagen
+            ImagenAmpliada.Show()
+        End If
+
+    End Sub
+
+
+
 
     Private Sub CH1_CheckedChanged(sender As Object, e As EventArgs) Handles CH1.CheckedChanged
         btnBuscar.Enabled = True
