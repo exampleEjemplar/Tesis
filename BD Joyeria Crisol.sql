@@ -23281,6 +23281,38 @@ end
 
 GO
 
+USE [JoyeriaCrisolFinal]
+GO
+
+/****** Object:  Table [dbo].[CierreCajas]    Script Date: 23/11/2019 00:23:04 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[CierreCajas](
+	[cc_id] [int] IDENTITY(1,1) NOT NULL,
+	[usr_id] [int] NOT NULL,
+	[fecha] [datetime] NOT NULL,
+	[Importe] [decimal](18, 0) NULL,
+	[estado] [int] NOT NULL,
+ CONSTRAINT [PK_CierreCajas] PRIMARY KEY CLUSTERED 
+(
+	[cc_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[CierreCajas]  WITH CHECK ADD  CONSTRAINT [FK_CierreCajas_Usuarios] FOREIGN KEY([usr_id])
+REFERENCES [dbo].[Usuarios] ([Id])
+GO
+
+ALTER TABLE [dbo].[CierreCajas] CHECK CONSTRAINT [FK_CierreCajas_Usuarios]
+GO
+
+
+S
 
 
 
