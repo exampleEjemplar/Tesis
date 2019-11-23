@@ -35,13 +35,13 @@ Partial Class MDIPrincipal
         Me.btnCompras = New System.Windows.Forms.Button()
         Me.btnVentas = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.btnReparaciones = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblCrizol = New System.Windows.Forms.Label()
         Me.lblUsuario = New System.Windows.Forms.Label()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -212,6 +212,24 @@ Partial Class MDIPrincipal
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(127, 527)
         Me.FlowLayoutPanel1.TabIndex = 32
         '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button5.Location = New System.Drawing.Point(3, 255)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(124, 40)
+        Me.Button5.TabIndex = 33
+        Me.Button5.Text = "Cierre Caja"
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button5.UseVisualStyleBackColor = False
+        '
         'btnReparaciones
         '
         Me.btnReparaciones.BackColor = System.Drawing.Color.LightSteelBlue
@@ -294,24 +312,6 @@ Partial Class MDIPrincipal
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
-        '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
-        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(3, 255)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(124, 40)
-        Me.Button5.TabIndex = 33
-        Me.Button5.Text = "Cierre Caja"
-        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button5.UseVisualStyleBackColor = False
         '
         'MDIPrincipal
         '

@@ -112,12 +112,6 @@
     <Compile Include="CantidadDragAndDrop.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formprueba1.Designer.vb">
-      <DependentUpon>Formprueba1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formprueba1.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FrmArmado\FrmArmadoCompra.Designer.vb">
       <DependentUpon>FrmArmadoCompra.vb</DependentUpon>
     </Compile>
@@ -411,9 +405,6 @@
     <EmbeddedResource Include="CantidadDragAndDrop.resx">
       <DependentUpon>CantidadDragAndDrop.vb</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formprueba1.resx">
-      <DependentUpon>Formprueba1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmArmado\FrmArmadoCompra.resx">
       <DependentUpon>FrmArmadoCompra.vb</DependentUpon>
