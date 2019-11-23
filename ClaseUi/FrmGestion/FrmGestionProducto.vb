@@ -232,7 +232,8 @@ Public Class FrmGestionProducto
 				'End If
 
 			End If
-
+			pro.Problema = ""
+			pro.EsReparacion = "N"
 			productometodo.Grabarproductos(pro)
 			Dgvproductosset()
 			cereacampos()

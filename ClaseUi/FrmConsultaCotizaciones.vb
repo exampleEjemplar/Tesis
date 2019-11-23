@@ -16,10 +16,7 @@ Public Class FrmConsultaCotizaciones
 
 	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 
-		With FrmGestionMaterial
-		End With
-		FrmGestionMaterial.ShowDialog()
-		Me.Close()
+		Close()
 
 	End Sub
 End Class

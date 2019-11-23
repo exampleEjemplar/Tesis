@@ -28,11 +28,19 @@ Public Class CajaDA
                     text = text & "v.UsuarioId" & " = " & item.Value & " " & If(count <> 0, " and ", "")
                     Continue For
                 End If
-                If item.Key = "FechaDesde" And Not parametros.Keys.Contains("FechaHasta") Then
-                    count = count - 1
-                    text = text & "v.fecha" & " between '" & item.Value & " 00:00:00' and '" & item.Value & " 23:59:59'" & If(count <> 0, " and ", "")
-                    Continue For
-                End If
+				If item.Key = "FechaUnica" And Not parametros.Keys.Contains("FechaHasta") Then
+					count = count - 1
+					text = text & "v.fecha" & " between '" & item.Value & " 00:00:00' and '" & item.Value & " 23:59:59'" & If(count <> 0, " and ", "")
+					Continue For
+				ElseIf item.Key = "FechaHasta" And Not parametros.Keys.Contains("FechaDesde") Then
+					count = count - 1
+					text = text & "v.fecha" & " < '" & item.Value & " 23:59:59'" & If(count <> 0, " and ", "")
+					Continue For
+				ElseIf item.Key = "FechaDesde" And Not parametros.Keys.Contains("FechaHasta") Then
+					count = count - 1
+					text = text & "v.fecha" & " > '" & item.Value & " 00:00:00'" & If(count <> 0, " and ", "")
+					Continue For
+				End If
                 If item.Key = "FechaDesde" And parametros.Keys.Contains("FechaHasta") Then
                     count = count - 1
                     text = text & "v.fecha" & " between '" & item.Value & " 00:00:00' and "
@@ -45,10 +53,10 @@ Public Class CajaDA
                 End If
             Next
         End If
-        'SE LLAMA TEXT EL PARAMETRO
-        Dim sqlStr = "set dateformat dmy Select v.id,v.fecha,v.Total,u.Username from ventas as v inner join usuarios as u on u.id = v.usuarioId " + text + "and estado=1 set dateformat dmy Select v.id,v.fecha,v.Total,u.Username from compras as v inner join usuarios as u on u.id = v.usuarioId " + text + "and estado=1"
+		'SE LLAMA TEXT EL PARAMETRO
+		Dim sqlStr = "set dateformat dmy Select v.id,v.fecha,v.Total,u.Username from ventas as v inner join usuarios as u on u.id = v.usuarioId " + text + "and v.estado=1 set dateformat dmy Select v.id,v.fecha,v.Total,u.Username from compras as v inner join usuarios as u on u.id = v.usuarioId " + text + "and v.estado=1"
 
-        Try
+		Try
             Dim da As New SqlDataAdapter(sqlStr, db)
             da.Fill(ds)
             db.Close()

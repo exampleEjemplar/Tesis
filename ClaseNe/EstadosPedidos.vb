@@ -4,6 +4,6 @@
 	ParaEntregarAlProveedor = 1
 	EnElProveedor = 2
 	DevueltoPorElProveedor = 3
-	EntregadoAlCliente = 3
+	EntregadoAlCliente = 4
 
 End Enum
