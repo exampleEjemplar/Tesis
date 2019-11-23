@@ -56,7 +56,7 @@ Partial Class FrmGestionMaterial
 		Me.GroupBox2.Size = New System.Drawing.Size(707, 28)
 		Me.GroupBox2.TabIndex = 49
 		Me.GroupBox2.TabStop = False
-		Me.GroupBox2.Text = "Gestión Categorías"
+		Me.GroupBox2.Text = "Gestión Material"
 		'
 		'Button1
 		'

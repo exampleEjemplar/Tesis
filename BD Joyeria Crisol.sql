@@ -23310,10 +23310,3 @@ GO
 
 ALTER TABLE [dbo].[CierreCajas] CHECK CONSTRAINT [FK_CierreCajas_Usuarios]
 GO
-
-
-S
-
-
-
-
