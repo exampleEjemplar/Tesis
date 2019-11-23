@@ -79,8 +79,8 @@ Public Class VentasDA
 
 		Try
 			Dim totalizado = total.ToString().Replace(",", ".")
-			Dim insert As New SqlCommand("insert into ventas Values (GETDATE()," & clienteId & ", " & totalizado & ",1)", db)
-			insert.CommandType = CommandType.Text
+            Dim insert As New SqlCommand("insert into ventas Values (GETDATE()," & clienteId & ", " & totalizado & ",1,1)", db)
+            insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
 			For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId
 				Dim parcial = (ventaDetalle.Precio * ventaDetalle.Cantidad).ToString().Replace(",", ".")

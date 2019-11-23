@@ -208,6 +208,12 @@
     <Compile Include="FrmEstadistica\MDIEstadisticas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmGestion\FrmCierreDeCaja.Designer.vb">
+      <DependentUpon>FrmCierreDeCaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestion\FrmCierreDeCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmGestion\FrmGestionCaja.Designer.vb">
       <DependentUpon>FrmGestionCaja.vb</DependentUpon>
     </Compile>
@@ -453,6 +459,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEstadistica\MDIEstadisticas.resx">
       <DependentUpon>MDIEstadisticas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestion\FrmCierreDeCaja.resx">
+      <DependentUpon>FrmCierreDeCaja.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionCaja.resx">
       <DependentUpon>FrmGestionCaja.vb</DependentUpon>

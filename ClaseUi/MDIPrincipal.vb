@@ -190,4 +190,9 @@ Public Class MDIPrincipal
             Return myCp
         End Get
     End Property
+
+    Private Sub Button5_Click_2(sender As Object, e As EventArgs) Handles Button5.Click
+        FrmCierreDeCaja.ShowDialog()
+
+    End Sub
 End Class
