@@ -159,7 +159,7 @@ Public Class FrmGestionProductoAReparar
 			End If
 #End Region
 #Region "problema"
-            If Not String.IsNullOrEmpty(tbProblema.Text) Then
+			If Not String.IsNullOrEmpty(tbProblema.Text) Then
                 pro.Problema = helpersUi.NormalizarTexto(tbProblema.Text)
             Else
                 MsgBox("Debe cargar un problema", MsgBoxStyle.Critical, "Producto")
@@ -187,11 +187,12 @@ Public Class FrmGestionProductoAReparar
 
 	Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles Button2.Click
 		modificado = True
+		Me.Dispose()
 		Me.Close()
 	End Sub
 
 	Private Sub FrmGestionProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		DataGridView1.RowTemplate.Height = 30
+		dgvProducto.RowTemplate.Height = 30
 		busqcod = ""
 		busqprod = ""
 		Habilitarcampos()
@@ -211,49 +212,45 @@ Public Class FrmGestionProductoAReparar
 
 			Dim dsa1 As DataTable
 			dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod, "S") 'Si parametros esta vacio, busca todos los clientes en la bd
-			DataGridView1.DataSource = dsa1
-			DataGridView1.Columns(0).HeaderText = "Código"
-			DataGridView1.Columns(1).HeaderText = "Código Barras"
-			DataGridView1.Columns(2).HeaderText = "Nombre de Producto"
-			DataGridView1.Columns(3).HeaderText = "Categoría de Producto"
-			DataGridView1.Columns(4).HeaderText = "Tipo de Produco"
-			DataGridView1.Columns(5).HeaderText = "Material de Producto"
-			DataGridView1.Columns(6).HeaderText = "Precio al Público"
-			DataGridView1.Columns(7).Visible = False
-			DataGridView1.Columns(8).Visible = False
-			DataGridView1.Columns(9).Visible = False
-			DataGridView1.Columns(10).Visible = False
-			DataGridView1.Columns(11).Visible = False
-			DataGridView1.Columns(12).Visible = False
-			DataGridView1.Columns(13).Visible = False
-			DataGridView1.Columns(14).Visible = False
-			DataGridView1.Columns(15).Visible = False
-			DataGridView1.Columns(16).Visible = False
-			DataGridView1.Columns(17).Visible = False
-			DataGridView1.Columns(18).Visible = False
-			DataGridView1.Columns(19).Visible = False
-			DataGridView1.Columns(20).Visible = False
-			DataGridView1.Columns(21).Visible = False
-			DataGridView1.Columns(1).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(0).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(2).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(3).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(3).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(4).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Columns(5).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
-			DataGridView1.Columns(5).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-			DataGridView1.Sort(DataGridView1.Columns(2), System.ComponentModel.ListSortDirection.Ascending)
+			dgvProducto.DataSource = dsa1
+			dgvProducto.Columns(0).HeaderText = "Código"
+			dgvProducto.Columns(1).Visible = False
+			dgvProducto.Columns(2).HeaderText = "Nombre de Producto"
+			dgvProducto.Columns(3).HeaderText = "Categoría de Producto"
+			dgvProducto.Columns(4).HeaderText = "Tipo de Producto"
+			dgvProducto.Columns(5).HeaderText = "Material de Producto"
+			dgvProducto.Columns(6).HeaderText = "Precio al Público"
+			dgvProducto.Columns(7).Visible = False
+			dgvProducto.Columns(8).Visible = False
+			dgvProducto.Columns(9).Visible = False
+			dgvProducto.Columns(10).Visible = False
+			dgvProducto.Columns(11).Visible = False
+			dgvProducto.Columns(12).Visible = False
+			dgvProducto.Columns(13).Visible = False
+			dgvProducto.Columns(14).Visible = False
+			dgvProducto.Columns(15).Visible = False
+			dgvProducto.Columns(16).Visible = False
+			dgvProducto.Columns(17).Visible = False
+			dgvProducto.Columns(18).Visible = False
+			dgvProducto.Columns(19).Visible = False
+			dgvProducto.Columns(20).Visible = False
+			dgvProducto.Columns(21).Visible = False
+			dgvProducto.Columns(22).Visible = False
+			dgvProducto.Columns(1).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+			dgvProducto.Columns(0).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+			dgvProducto.Columns(2).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+			dgvProducto.Columns(3).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+			dgvProducto.Columns(4).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+			dgvProducto.Columns(5).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+			dgvProducto.Columns(5).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight
+			dgvProducto.Sort(dgvProducto.Columns(2), System.ComponentModel.ListSortDirection.Ascending)
 
-			DataGridView1.AllowUserToAddRows = False
-			DataGridView1.AllowUserToDeleteRows = False
-			DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-			For X = 0 To DataGridView1.Rows.Count - 1
-				If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
-					DataGridView1.Rows.Remove(DataGridView1.Rows(X))
+			dgvProducto.AllowUserToAddRows = False
+			dgvProducto.AllowUserToDeleteRows = False
+			dgvProducto.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+			For X = 0 To dgvProducto.Rows.Count - 1
+				If dgvProducto.Rows(X).Cells(1).Value = Nothing Then
+					dgvProducto.Rows.Remove(dgvProducto.Rows(X))
 				End If
 			Next
 
@@ -263,14 +260,11 @@ Public Class FrmGestionProductoAReparar
 		End Try
 	End Sub
 
-
-
-    Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
-		productometodo.Cargargrilladobleclick()
+	Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles dgvProducto.DoubleClick
 
 		Dim ms As MemoryStream = New MemoryStream()
 
-		Dim img As Byte() = CType((DataGridView1.Item(9, DataGridView1.CurrentRow.Index).Value), Byte())
+		Dim img As Byte() = CType((dgvProducto.Item(9, dgvProducto.CurrentRow.Index).Value), Byte())
 
 
 		If img Is Nothing Then
@@ -281,18 +275,22 @@ Public Class FrmGestionProductoAReparar
 		Dim imgImagen As System.Drawing.Image = System.Drawing.Image.FromStream(ms)
 
 		PBfoto.Image = imgImagen
-		TbNombreProducto.Text = (DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value)
-		tbPrecio.Text = (DataGridView1.Item(10, DataGridView1.CurrentRow.Index).Value)
-		CmbMaterial.SelectedValue = (DataGridView1.Item(8, DataGridView1.CurrentRow.Index).Value)
-		TbPeso.Text = (DataGridView1.Item(12, DataGridView1.CurrentRow.Index).Value)
-		TbTamaño.Text = (DataGridView1.Item(13, DataGridView1.CurrentRow.Index).Value)
-		TbColor.Text = (DataGridView1.Item(14, DataGridView1.CurrentRow.Index).Value)
-		CmbTipoprodcuto.SelectedValue = (DataGridView1.Item(8, DataGridView1.CurrentRow.Index).Value)
-		cmbUnidad.Text = (DataGridView1.Item(19, DataGridView1.CurrentRow.Index).Value)
-		CmbCategoria.SelectedValue = (DataGridView1.Item(20, DataGridView1.CurrentRow.Index).Value)
-		btnGuardar.Visible = False
-		bloquearcampos()
-		btncargarimagen.Enabled = False
+		TbNombreProducto.Text = (dgvProducto.Item(2, dgvProducto.CurrentRow.Index).Value)
+		tbPrecio.Text = (dgvProducto.Item(10, dgvProducto.CurrentRow.Index).Value)
+		CmbMaterial.SelectedValue = (dgvProducto.Item(8, dgvProducto.CurrentRow.Index).Value)
+		TbPeso.Text = (dgvProducto.Item(12, dgvProducto.CurrentRow.Index).Value)
+		TbTamaño.Text = (dgvProducto.Item(13, dgvProducto.CurrentRow.Index).Value)
+		TbColor.Text = (dgvProducto.Item(14, dgvProducto.CurrentRow.Index).Value)
+		tbProblema.Text = (dgvProducto.Item(22, dgvProducto.CurrentRow.Index).Value)
+		CmbTipoprodcuto.SelectedValue = (dgvProducto.Item(8, dgvProducto.CurrentRow.Index).Value)
+		cmbUnidad.SelectedValue = (dgvProducto.Item(19, dgvProducto.CurrentRow.Index).Value)
+		CmbCategoria.SelectedValue = (dgvProducto.Item(20, dgvProducto.CurrentRow.Index).Value)
+		'btnGuardar.Visible = False
+		'bloquearcampos()
+		'btncargarimagen.Enabled = False
+		chkReUtilizar.Checked = False
+		dgvProducto.Visible = False
+		lblDobleclick.Visible = False
 
 	End Sub
 
@@ -435,6 +433,16 @@ Public Class FrmGestionProductoAReparar
 		If FrmGestionCategorías.modificado Then
 			LlenarCMBCategoria()
 			FrmGestionCategorías.modificado = False
+		End If
+	End Sub
+
+	Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles chkReUtilizar.CheckedChanged
+		If dgvProducto.Visible And lblDobleclick.Visible Then
+			dgvProducto.Visible = False
+			lblDobleclick.Visible = False
+		Else
+			dgvProducto.Visible = True
+			lblDobleclick.Visible = True
 		End If
 	End Sub
 End Class

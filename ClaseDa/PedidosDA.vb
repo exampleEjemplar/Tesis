@@ -117,7 +117,7 @@ Public Class PedidosDA
 
 	Public Function ObtenerUnPedido(id As Integer)
 		helpersDa.ChequearConexion(db)
-		Dim da As New SqlDataAdapter("Select p.*, c.Nombre + ' ' + c.apellido as 'Nombre' from pedidos p inner join clientes c on c.id = p.clienteId where p.id =" + id.ToString(), db)
+		Dim da As New SqlDataAdapter("Select p.*, c.Nombre + ' ' + c.apellido as 'Nombre', prod.*, c.id, cast(p.total as decimal(10,2)) from pedidos p inner join clientes c on c.id = p.clienteId inner join DetallePedidos dp on dp.PedidoId = p.Id inner join productos prod on prod.Id = dp.ProductoId where p.id =" + id.ToString(), db)
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)
@@ -169,7 +169,7 @@ Public Class PedidosDA
 		Return ds
 	End Function
 
-	Public Sub Actualizar(ped As VentasNE)
+	Public Sub ActualizarPedido(ped As VentasNE)
 		helpersDa.ChequearConexion(db)
 		Dim update As New SqlCommand("update pedidos set estado = " + ped.Estado + " where id = " + ped.Id.ToString(), db)
 		update.CommandType = CommandType.Text
