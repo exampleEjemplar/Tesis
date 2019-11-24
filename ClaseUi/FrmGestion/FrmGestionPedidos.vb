@@ -5,6 +5,8 @@ Public Class FrmGestionPedidos
 
 	Private helpersLN As New HelpersLN
 	Private pedidosLN As New PedidosLN
+	Private helpersUI As New HelpersUI
+
 
 	Public Sub New()
 
@@ -99,6 +101,7 @@ Public Class FrmGestionPedidos
 		For i As Integer = 0 To dsa1.Tables(0).Rows.Count - 1
 			Dim fecha = CType(dsa1.Tables(0).Rows(i)(1), Date).Date
 			Dim fechaVencimientoSeña = If(CType(dsa1.Tables(0).Rows(i)(3), Integer) = CType(dsa1.Tables(0).Rows(i)(4), Integer), fecha.AddDays(60).Date, fecha.AddDays(30).Date)
+			Dim estado = helpersUI.GetEnumDescription(DirectCast(dsa1.Tables(0).Rows(i)(5), EstadosPedidos))
 
 			listaDePedidos.Add(New VentasNE With {
 				.Cliente = dsa1.Tables(0).Rows(i)(2).ToString(),
@@ -107,7 +110,8 @@ Public Class FrmGestionPedidos
 				.Total = Convert.ToDouble(dsa1.Tables(0).Rows(i)(3)).ToString("0.00"),
 				.Seña = Convert.ToDouble(dsa1.Tables(0).Rows(i)(4)).ToString("0.00"),
 				.FechaVencimientoSeña = fechaVencimientoSeña,
-				.EstaVencido = If(fechaVencimientoSeña.Date < DateTime.Now.Date, "Si", "No")
+				.EstaVencido = If(fechaVencimientoSeña.Date < DateTime.Now.Date, "Si", "No"),
+				.Estado = estado
 			})
 		Next
 		dgvProveedores.DataSource = listaDePedidos

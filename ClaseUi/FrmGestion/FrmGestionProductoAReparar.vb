@@ -170,7 +170,15 @@ Public Class FrmGestionProductoAReparar
 			pro.EsServicio = "N"
 			pro.CodBarra = "-"
 			productometodo.Grabarproductos(pro)
-			idProductoNuevo = productometodo.CargarUnProducto(0, pro.nombreprducto)
+			idProductoNuevo = productometodo.CargarUnProducto(0, pro.nombreprducto).Tables(0).Rows(0)(0)
+			If MsgBox("Producto cargado. Desea seguir cargando?", MsgBoxStyle.YesNo, "Producto") = MsgBoxResult.No Then
+				Me.Dispose()
+				Me.Close()
+			Else
+				cereacampos()
+				Habilitarcampos()
+				Dgvproductosset()
+			End If
 		Catch ex As Exception
 			MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
 			Exit Sub
@@ -242,6 +250,7 @@ Public Class FrmGestionProductoAReparar
 
 			DataGridView1.AllowUserToAddRows = False
 			DataGridView1.AllowUserToDeleteRows = False
+			DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 			For X = 0 To DataGridView1.Rows.Count - 1
 				If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
 					DataGridView1.Rows.Remove(DataGridView1.Rows(X))
@@ -408,6 +417,7 @@ Public Class FrmGestionProductoAReparar
 
 	Public Sub cereacampos()
 		TbColor.Text = ""
+		tbProblema.Text = ""
 		TbNombreProducto.Text = ""
 		TbPeso.Text = ""
 		tbPrecio.Text = ""

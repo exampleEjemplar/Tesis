@@ -53,7 +53,7 @@ Partial Class FrmGestionReparaciones
 		Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.Button1.FlatAppearance.BorderSize = 0
 		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button1.Location = New System.Drawing.Point(585, 303)
+		Me.Button1.Location = New System.Drawing.Point(660, 303)
 		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button1.Name = "Button1"
 		Me.Button1.Size = New System.Drawing.Size(107, 110)
@@ -69,7 +69,7 @@ Partial Class FrmGestionReparaciones
 		Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.Button2.FlatAppearance.BorderSize = 0
 		Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button2.Location = New System.Drawing.Point(585, 419)
+		Me.Button2.Location = New System.Drawing.Point(660, 419)
 		Me.Button2.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button2.Name = "Button2"
 		Me.Button2.Size = New System.Drawing.Size(107, 110)
@@ -95,7 +95,7 @@ Partial Class FrmGestionReparaciones
 		Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4)
 		Me.GroupBox5.Name = "GroupBox5"
 		Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4)
-		Me.GroupBox5.Size = New System.Drawing.Size(703, 133)
+		Me.GroupBox5.Size = New System.Drawing.Size(754, 133)
 		Me.GroupBox5.TabIndex = 56
 		Me.GroupBox5.TabStop = False
 		Me.GroupBox5.Text = "Búsqueda"
@@ -172,7 +172,7 @@ Partial Class FrmGestionReparaciones
 		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnBuscar.FlatAppearance.BorderSize = 0
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(563, 15)
+		Me.btnBuscar.Location = New System.Drawing.Point(609, 15)
 		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(137, 110)
@@ -253,7 +253,7 @@ Partial Class FrmGestionReparaciones
 		Me.dgvProveedores.RowHeadersWidth = 56
 		Me.dgvProveedores.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
 		Me.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.dgvProveedores.Size = New System.Drawing.Size(549, 446)
+		Me.dgvProveedores.Size = New System.Drawing.Size(633, 446)
 		Me.dgvProveedores.TabIndex = 57
 		'
 		'Label1
@@ -274,7 +274,7 @@ Partial Class FrmGestionReparaciones
 		Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnNuevo.FlatAppearance.BorderSize = 0
 		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnNuevo.Location = New System.Drawing.Point(585, 200)
+		Me.btnNuevo.Location = New System.Drawing.Point(660, 200)
 		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(116, 95)
@@ -290,7 +290,7 @@ Partial Class FrmGestionReparaciones
 		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnSalir.FlatAppearance.BorderSize = 0
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalir.Location = New System.Drawing.Point(585, 536)
+		Me.btnSalir.Location = New System.Drawing.Point(660, 536)
 		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
 		Me.btnSalir.Size = New System.Drawing.Size(116, 111)
@@ -303,7 +303,7 @@ Partial Class FrmGestionReparaciones
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(728, 681)
+		Me.ClientSize = New System.Drawing.Size(790, 681)
 		Me.Controls.Add(Me.Button1)
 		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.GroupBox5)
