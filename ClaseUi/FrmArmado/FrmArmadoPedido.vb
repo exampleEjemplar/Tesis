@@ -48,7 +48,7 @@ Public Class FrmArmadoPedido
 		lblFechaExacta.Visible = False
 		lblHasta.Visible = False
 		lbldesde.Visible = False
-		lblInstrucciones.Visible = True
+		'lblInstrucciones.Visible = True
 		btnLimpiar.Enabled = False
 		lblClienteTelefono.Visible = True
 		btnQuitarItem.Enabled = False
@@ -59,7 +59,7 @@ Public Class FrmArmadoPedido
 	End Sub
 
 	Private Sub CboCliente_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCliente.SelectionChangeCommitted
-		lblInstrucciones.Visible = False
+		'lblInstrucciones.Visible = False
 		Dim ds As DataSet = clientesLN.ConsultaModificacion(cboCliente.SelectedValue)
 		GroupBox1.Visible = True
 		'Datos lbl arriba izquierda
@@ -488,13 +488,6 @@ Public Class FrmArmadoPedido
 		Return True
 	End Function
 
-	Private Sub GroupBox4_Enter(sender As Object, e As EventArgs) Handles GroupBox4.Enter
-
-	End Sub
-
-	Private Sub GroupBox5_Enter(sender As Object, e As EventArgs) Handles GroupBox5.Enter
-
-	End Sub
 
 #End Region
 
