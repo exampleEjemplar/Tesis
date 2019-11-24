@@ -12,8 +12,10 @@ Public Class ProveedoresDA
 	Private da As SqlDataAdapter
 	Private ds1 As DataSet
 	Public contador As Integer
+    Dim Rs As SqlDataReader
 
-	Public Sub New()
+
+    Public Sub New()
 		Dim objcon As New ConexionDA
 		db = objcon.Abrir
 		com.Connection = db
@@ -135,90 +137,116 @@ Public Class ProveedoresDA
 		End Try
 	End Sub
 
-	'	Public Function GeneraGrafico(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+    '	Public Function GeneraGrafico(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
 
-	'		Dim sqlStr As String
-	'		ds1 = New DataSet
-	'		sqlStr = "select p.nombre as nombre, count(c.NumeroDocumento) as Cantidad from Clientes c " &
-	'						"inner join Ciudades ciu on c.CiudadId = Ciu.Id " &
-	'						"inner Join Provincias p on ciu.ProvinciaID = p.Id " &
-	'						"where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "'" &
-	'						"group by p.nombre"
+    '		Dim sqlStr As String
+    '		ds1 = New DataSet
+    '		sqlStr = "select p.nombre as nombre, count(c.NumeroDocumento) as Cantidad from Clientes c " &
+    '						"inner join Ciudades ciu on c.CiudadId = Ciu.Id " &
+    '						"inner Join Provincias p on ciu.ProvinciaID = p.Id " &
+    '						"where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "'" &
+    '						"group by p.nombre"
 
-	'		Try
-	'			da = New SqlDataAdapter(sqlStr, db)
-	'			da.Fill(ds1)
-	'			db.Close()
-	'		Catch ex As Exception
-	'			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-	'			db.Close()
-	'		End Try
-	'		Return ds1
-	'	End Function
-
-
-
-
-	'	Public Function GeneraGraficopersoneria(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
-
-	'		Dim sqlStr As String
-	'		ds1 = New DataSet
-	'		sqlStr = "select count(id) as Cantidad, FisicaOJuridica from Clientes " &
-	'"where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-	'"group by FisicaOJuridica"
-
-	'		Try
-	'			da = New SqlDataAdapter(sqlStr, db)
-	'			da.Fill(ds1)
-	'			db.Close()
-	'		Catch ex As Exception
-	'			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-	'		End Try
-	'		Return ds1
-	'		db.Close()
-
-	'	End Function
+    '		Try
+    '			da = New SqlDataAdapter(sqlStr, db)
+    '			da.Fill(ds1)
+    '			db.Close()
+    '		Catch ex As Exception
+    '			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+    '			db.Close()
+    '		End Try
+    '		Return ds1
+    '	End Function
 
 
 
-	'	Public Function GeneraGraficousuario(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
 
-	'		Dim sqlStr As String
-	'		ds1 = New DataSet
-	'		sqlStr = " Select  COUNT(*) As contador, u.UserName as nombre FROM clientes c " &
-	'					 "inner join Usuarios u on c.UsuarioId=u.id " &
-	'					 "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-	'					 "GROUP BY u.UserName"
+    Public Function GeneraGraficopersoneria(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
 
-	'		Try
-	'			da = New SqlDataAdapter(sqlStr, db)
-	'			da.Fill(ds1)
-	'			db.Close()
-	'		Catch ex As Exception
-	'			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-	'		End Try
-	'		Return ds1
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "select count(id) as Cantidad, FisicaOJuridica from Proveedores " &
+"where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+"group by FisicaOJuridica"
 
-	'	End Function
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return ds1
+        db.Close()
 
-	'	Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
+    End Function
 
 
-	'		Try
 
-	'			Dim control As New SqlCommand("set dateformat ymd select count(*) from clientes where FechaAlta BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' ", db)
-	'			control.CommandType = CommandType.Text
-	'			Rs = control.ExecuteReader()
-	'			Rs.Read()
-	'			contador = Rs(0)
+    Public Function GeneraGraficoProveedorPorCantidadProducto(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
 
-	'		Catch ex As Exception
-	'			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-	'		End Try
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "Select  COUNT(*) As contador,p.Nombre+' '+p.Apellido as nombre FROM Productos a " &
+                 " inner Join Proveedores p On a.ProveedorId=p.id " &
+                  "where a.FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+                 "Group By p.Nombre+' '+p.Apellido"
 
-	'		db.Close()
 
-	'	End Sub
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return ds1
+        db.Close()
+    End Function
+
+    Public Function GeneraGraficoPorPago(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "Select sum(total) As Total, p.Nombre+' '+p.Apellido as nombre FROM Pagos a " &
+                 "  inner Join Proveedores p on a.ProveedorId=p.id " &
+                  "where a.Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+                 "Group By p.Nombre+' '+p.Apellido"
+
+
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+        Return ds1
+        db.Close()
+    End Function
+
+
+
+
+    Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
+
+
+        Try
+            helpersDa.ChequearConexion(db)
+            Dim control As New SqlCommand("set dateformat ymd select count(*) from  Proveedores where FechaAlta BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' ", db)
+            control.CommandType = CommandType.Text
+            Rs = control.ExecuteReader()
+            Rs.Read()
+            contador = Rs(0)
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+
+        db.Close()
+
+    End Sub
 
 
 
