@@ -6,6 +6,7 @@ Public Class FrmGestionPedidos
 	Private helpersLN As New HelpersLN
 	Private pedidosLN As New PedidosLN
 	Private helpersUI As New HelpersUI
+	Public idPedido As Integer = 0
 
 
 	Public Sub New()
@@ -58,17 +59,16 @@ Public Class FrmGestionPedidos
 	End Sub
 
 	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles dgvProveedores.CellMouseDoubleClick
-		'Dim selectedRow As DataGridViewRow
-		'If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-		'	selectedRow = dgvProveedores.Rows(e.RowIndex)
-		'End If
-		'Try
-		'	idVenta = selectedRow.Cells("id").Value
-		'	FrmComprobanteVenta.ShowDialog()
-		'Catch ex As Exceptiong
-		'	MessageBox.Show(ex.Message)
-		'End Try
-
+		Dim selectedRow As DataGridViewRow = Nothing
+		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+			selectedRow = dgvProveedores.Rows(e.RowIndex)
+		End If
+		Try
+			idPedido = selectedRow.Cells("id").Value
+			FrmEditarPedido.ShowDialog()
+		Catch ex As Exception
+			MessageBox.Show(ex.Message)
+		End Try
 	End Sub
 
 	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
