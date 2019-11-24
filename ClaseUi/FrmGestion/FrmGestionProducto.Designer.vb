@@ -24,12 +24,12 @@ Partial Class FrmGestionProducto
 	Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionProducto))
         Me.gbbusqueda = New System.Windows.Forms.GroupBox()
-        Me.Button7 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.txtBusNombreProd = New System.Windows.Forms.TextBox()
         Me.lblBusApellido = New System.Windows.Forms.Label()
         Me.txtBusCodigo = New System.Windows.Forms.TextBox()
         Me.lblBusNombre = New System.Windows.Forms.Label()
+        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -81,11 +81,10 @@ Partial Class FrmGestionProducto
         Me.TbUtilidad = New System.Windows.Forms.TextBox()
         Me.btnguardarmodificacion = New System.Windows.Forms.Button()
         Me.btncancelar = New System.Windows.Forms.Button()
-        Me.btnmodificar = New System.Windows.Forms.Button()
-        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.btnmodificar = New System.Windows.Forms.Button()
         Me.gbbusqueda.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -100,35 +99,19 @@ Partial Class FrmGestionProducto
         '
         'gbbusqueda
         '
-        Me.gbbusqueda.Controls.Add(Me.Button7)
         Me.gbbusqueda.Controls.Add(Me.Button4)
         Me.gbbusqueda.Controls.Add(Me.txtBusNombreProd)
         Me.gbbusqueda.Controls.Add(Me.lblBusApellido)
         Me.gbbusqueda.Controls.Add(Me.txtBusCodigo)
         Me.gbbusqueda.Controls.Add(Me.lblBusNombre)
+        Me.gbbusqueda.Controls.Add(Me.btnBuscar)
         Me.gbbusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbbusqueda.Location = New System.Drawing.Point(791, 12)
         Me.gbbusqueda.Name = "gbbusqueda"
-        Me.gbbusqueda.Size = New System.Drawing.Size(394, 112)
+        Me.gbbusqueda.Size = New System.Drawing.Size(512, 112)
         Me.gbbusqueda.TabIndex = 8
         Me.gbbusqueda.TabStop = False
         Me.gbbusqueda.Text = "Búsqueda"
-        '
-        'Button7
-        '
-        Me.Button7.BackColor = System.Drawing.SystemColors.Control
-        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button7.FlatAppearance.BorderSize = 0
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.Image = Global.ClaseUi.My.Resources.Resources.icons8_checkmark_62
-        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button7.Location = New System.Drawing.Point(236, 17)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(69, 85)
-        Me.Button7.TabIndex = 0
-        Me.Button7.Text = "Aceptar"
-        Me.Button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button7.UseVisualStyleBackColor = False
         '
         'Button4
         '
@@ -137,9 +120,9 @@ Partial Class FrmGestionProducto
         Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.Button4.FlatAppearance.BorderSize = 0
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Location = New System.Drawing.Point(311, 17)
+        Me.Button4.Location = New System.Drawing.Point(390, 17)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(69, 85)
+        Me.Button4.Size = New System.Drawing.Size(69, 89)
         Me.Button4.TabIndex = 40
         Me.Button4.Text = "Cancelar"
         Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -180,6 +163,22 @@ Partial Class FrmGestionProducto
         Me.lblBusNombre.Size = New System.Drawing.Size(46, 13)
         Me.lblBusNombre.TabIndex = 25
         Me.lblBusNombre.Text = "Codigo"
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
+        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnBuscar.FlatAppearance.BorderSize = 0
+        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
+        Me.btnBuscar.Location = New System.Drawing.Point(315, 19)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(69, 85)
+        Me.btnBuscar.TabIndex = 6
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnBuscar.UseVisualStyleBackColor = False
         '
         'OpenFileDialog1
         '
@@ -474,17 +473,17 @@ Partial Class FrmGestionProducto
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(134, 47)
+        Me.Label24.Location = New System.Drawing.Point(124, 47)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(35, 13)
+        Me.Label24.Size = New System.Drawing.Size(57, 13)
         Me.Label24.TabIndex = 28
-        Me.Label24.Text = "Peso"
+        Me.Label24.Text = "Cantidad"
         '
         'TbPeso
         '
-        Me.TbPeso.Location = New System.Drawing.Point(175, 44)
+        Me.TbPeso.Location = New System.Drawing.Point(187, 44)
         Me.TbPeso.Name = "TbPeso"
-        Me.TbPeso.Size = New System.Drawing.Size(54, 20)
+        Me.TbPeso.Size = New System.Drawing.Size(42, 20)
         Me.TbPeso.TabIndex = 31
         '
         'Label25
@@ -756,39 +755,6 @@ Partial Class FrmGestionProducto
         Me.btncancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btncancelar.UseVisualStyleBackColor = False
         '
-        'btnmodificar
-        '
-        Me.btnmodificar.BackColor = System.Drawing.SystemColors.Control
-        Me.btnmodificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnmodificar.FlatAppearance.BorderSize = 0
-        Me.btnmodificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnmodificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnmodificar.Image = Global.ClaseUi.My.Resources.Resources.icons8_downloading_updates_64
-        Me.btnmodificar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnmodificar.Location = New System.Drawing.Point(491, 353)
-        Me.btnmodificar.Name = "btnmodificar"
-        Me.btnmodificar.Size = New System.Drawing.Size(69, 85)
-        Me.btnmodificar.TabIndex = 3
-        Me.btnmodificar.Text = "Modificar"
-        Me.btnmodificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnmodificar.UseVisualStyleBackColor = False
-        '
-        'btnBuscar
-        '
-        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
-        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnBuscar.FlatAppearance.BorderSize = 0
-        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
-        Me.btnBuscar.Location = New System.Drawing.Point(1213, 29)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(69, 85)
-        Me.btnBuscar.TabIndex = 6
-        Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnBuscar.UseVisualStyleBackColor = False
-        '
         'btnNuevo
         '
         Me.btnNuevo.BackColor = System.Drawing.SystemColors.Control
@@ -798,7 +764,7 @@ Partial Class FrmGestionProducto
         Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.Image = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnNuevo.Location = New System.Drawing.Point(416, 353)
+        Me.btnNuevo.Location = New System.Drawing.Point(491, 353)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(69, 85)
         Me.btnNuevo.TabIndex = 2
@@ -840,6 +806,23 @@ Partial Class FrmGestionProducto
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnGuardar.UseVisualStyleBackColor = False
         '
+        'btnmodificar
+        '
+        Me.btnmodificar.BackColor = System.Drawing.SystemColors.Control
+        Me.btnmodificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnmodificar.FlatAppearance.BorderSize = 0
+        Me.btnmodificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnmodificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnmodificar.Image = Global.ClaseUi.My.Resources.Resources.icons8_downloading_updates_64
+        Me.btnmodificar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnmodificar.Location = New System.Drawing.Point(416, 354)
+        Me.btnmodificar.Name = "btnmodificar"
+        Me.btnmodificar.Size = New System.Drawing.Size(69, 85)
+        Me.btnmodificar.TabIndex = 3
+        Me.btnmodificar.Text = "Modificar"
+        Me.btnmodificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnmodificar.UseVisualStyleBackColor = False
+        '
         'FrmGestionProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -851,7 +834,6 @@ Partial Class FrmGestionProducto
         Me.Controls.Add(Me.btnmodificar)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.gbbusqueda)
-        Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.Button2)
@@ -890,12 +872,10 @@ Partial Class FrmGestionProducto
 	Friend WithEvents Button2 As Windows.Forms.Button
 	Friend WithEvents DataGridView1 As Windows.Forms.DataGridView
 	Friend WithEvents btnBuscar As Windows.Forms.Button
-	Friend WithEvents btnmodificar As Windows.Forms.Button
-	Friend WithEvents btncancelar As Windows.Forms.Button
-	Friend WithEvents Button4 As Windows.Forms.Button
-	Friend WithEvents Button7 As Windows.Forms.Button
-	Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
-	Friend WithEvents rdterceros As Windows.Forms.RadioButton
+    Friend WithEvents btncancelar As Windows.Forms.Button
+    Friend WithEvents Button4 As Windows.Forms.Button
+    Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
+    Friend WithEvents rdterceros As Windows.Forms.RadioButton
 	Friend WithEvents rdpropios As Windows.Forms.RadioButton
 	Friend WithEvents lblprod As Windows.Forms.Label
 	Friend WithEvents tbCodigo As Windows.Forms.TextBox
@@ -942,4 +922,5 @@ Partial Class FrmGestionProducto
     Friend WithEvents gboCaracteristicas As Windows.Forms.GroupBox
     Friend WithEvents gboCategorias As Windows.Forms.GroupBox
     Friend WithEvents gboImagen As Windows.Forms.GroupBox
+    Friend WithEvents btnmodificar As Windows.Forms.Button
 End Class

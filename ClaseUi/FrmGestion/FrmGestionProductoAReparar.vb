@@ -263,28 +263,9 @@ Public Class FrmGestionProductoAReparar
 		End Try
 	End Sub
 
-	Public Sub DgvproductosBusq()
-		Try
-			Dim dsa1 As DataTable
-			dsa1 = productometodo.CargaGrillaproductosconbusqueda(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
-			DataGridView1.DataSource = dsa1
-			DataGridView1.AllowUserToAddRows = False
-			DataGridView1.AllowUserToDeleteRows = False
-			For X = 0 To DataGridView1.Rows.Count - 1
-				If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
-					DataGridView1.Rows.Remove(DataGridView1.Rows(X))
-				End If
-			Next
-
-		Catch ex As Exception
-			MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
-			Exit Sub
-		End Try
 
 
-	End Sub
-
-	Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
+    Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
 		productometodo.Cargargrilladobleclick()
 
 		Dim ms As MemoryStream = New MemoryStream()

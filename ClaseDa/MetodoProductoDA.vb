@@ -369,38 +369,50 @@ Public Class MetodoProductoDA
 		End Try
 	End Sub
 
-	Public Function CargaGrillaproductosconbusqueda(ByVal codigo As String, ByVal nombre As String) As DataTable
-		helpersDa.ChequearConexion(db)
-		Try
-			com = New SqlCommand("SP_MostrarProductoconbusqueda", db)
-			com.CommandType = CommandType.StoredProcedure
-			With com.Parameters
-				.AddWithValue("@codigo", codigo)
-				.AddWithValue("@Nombre", nombre)
+    Public Function CargaGrillaproductosconbusqueda(ByVal parametros As Dictionary(Of String, String)) As DataSet
 
-			End With
+        helpersDa.ChequearConexion(db)
+        Dim sqlStr As String
+        ds = New DataSet
+        sqlStr = "SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre,  m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.MaterialId, p.foto, " &
+                 "p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.UnidadDePeso,  " &
+                 "p.CategoriaID, p.StockODeTercero FROM productos as p " &
+                 "inner join Materiales m On p.MaterialId=m.id " &
+                 "inner join categorias ca on p.CategoriaID= ca.Id"
 
-			com.ExecuteNonQuery()
-			If com.ExecuteNonQuery() Then
-				Dim da As New SqlDataAdapter(com)
-				CargaGrillaproductosconbusqueda = New DataTable
-				da.Fill(CargaGrillaproductosconbusqueda)
+        If parametros.Count > 0 Then
+            Dim extraText As String = String.Empty
+            Dim count As Integer = 0
+            For Each parametro As KeyValuePair(Of String, String) In parametros
+                If count <> 0 Then
+                    extraText = extraText & " and "
+                Else
+                    extraText = " where "
+                End If
+                Dim value As Integer
+                If Integer.TryParse(parametro.Value, value) Then
+                    extraText = extraText & " p." & parametro.Key & " = " & parametro.Value 'TODO mejorar busqueda para integers
+                Else
+                    extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
+                End If
+                count = count + 1
+            Next
+            sqlStr = sqlStr & extraText
+        End If
 
-				Return CargaGrillaproductosconbusqueda
-			Else
-				Return Nothing
-			End If
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds)
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            db.Close()
+        End Try
+        Return ds
 
-		Catch ex As Exception
-			MsgBox(ex.Message)
-			Return Nothing
-		Finally
-			db.Close()
-		End Try
+    End Function
 
-	End Function
-
-	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, Optional esReparacion As String = "") As DataTable
+    Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, Optional esReparacion As String = "") As DataTable
 		'Try
 		'	helpersDa.ChequearConexion(db)
 		'	Dim ds = New DataSet

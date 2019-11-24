@@ -249,25 +249,23 @@ Public Class FrmGestionProducto
 		End Try
 	End Sub
 
-	Private Sub btnmodificar_Click(sender As Object, e As EventArgs) Handles btnmodificar.Click
-		Habilitarcampos()
+    Private Sub btnmodificar_Click(sender As Object, e As EventArgs) Handles btnmodificar.Click
 
-		btnguardarmodificacion.Visible = True
-		btncargarimagen.Enabled = True
-	End Sub
+    End Sub
 
-	Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles Button2.Click
 		modificado = True
 		Me.Close()
 	End Sub
 
 	Private Sub FrmGestionProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		DataGridView1.RowTemplate.Height = 30
-		busqcod = ""
-		busqprod = ""
-		btnguardarmodificacion.Visible = False
-		gbbusqueda.Visible = False
-		bloquearcampos()
+        busqcod = ""
+        busqprod = ""
+        btnmodificar.Visible = False
+        btnguardarmodificacion.Visible = False
+        'bbusqueda.Visible = False
+          bloquearcampos()
 		LlenarCMBTipo()
 		LlenarCMBMaterial()
 		LlenarCMBproveedor()
@@ -276,9 +274,11 @@ Public Class FrmGestionProducto
 		Dgvproductosset()
 		btnmodificar.Enabled = False
 		modificado = False
+        TbUtilidad.Visible = False
+        Label19.Visible = False
 
 
-	End Sub
+    End Sub
 
 	Public Sub Dgvproductosset()
 		Try
@@ -339,28 +339,30 @@ Public Class FrmGestionProducto
 		End Try
 	End Sub
 
-	Public Sub DgvproductosBusq()
-		Try
-			Dim dsa1 As DataTable
-			dsa1 = productometodo.CargaGrillaproductosconbusqueda(busqcod, busqprod) 'Si parametros esta vacio, busca todos los clientes en la bd
-			DataGridView1.DataSource = dsa1
-			DataGridView1.AllowUserToAddRows = False
-			DataGridView1.AllowUserToDeleteRows = False
-			For X = 0 To DataGridView1.Rows.Count - 1
-				If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
-					DataGridView1.Rows.Remove(DataGridView1.Rows(X))
-				End If
-			Next
+    Public Function DgvproductosBusq(ByVal parametros As Dictionary(Of String, String)) As DataSet
+        Try
+            Dim dsa1 As DataSet
+            dsa1 = productometodo.CargaGrillaProductos(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
+            DataGridView1.DataSource = dsa1.Tables(0)
 
-		Catch ex As Exception
-			MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
-			Exit Sub
-		End Try
+            DataGridView1.AllowUserToAddRows = False
+            DataGridView1.AllowUserToDeleteRows = False
+            For X = 0 To DataGridView1.Rows.Count - 1
+                If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
+                    DataGridView1.Rows.Remove(DataGridView1.Rows(X))
+                End If
+                Return dsa1
+            Next
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+
+        End Try
 
 
-	End Sub
+    End Function
 
-	Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
+    Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
 		productometodo.Cargargrilladobleclick()
 		tbCodigo.Text = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
 		tbCodBarra.Text = (DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value)
@@ -389,8 +391,8 @@ Public Class FrmGestionProducto
 		TbStockmin.Text = (DataGridView1.Item(16, DataGridView1.CurrentRow.Index).Value)
 		TbStockMax.Text = (DataGridView1.Item(17, DataGridView1.CurrentRow.Index).Value)
 		CmbTipoprodcuto.SelectedValue = (DataGridView1.Item(8, DataGridView1.CurrentRow.Index).Value)
-		cmbUnidad.Text = (DataGridView1.Item(19, DataGridView1.CurrentRow.Index).Value)
-		CmbCategoria.SelectedValue = (DataGridView1.Item(20, DataGridView1.CurrentRow.Index).Value)
+        cmbUnidad.SelectedValue = (DataGridView1.Item(19, DataGridView1.CurrentRow.Index).Value)
+        CmbCategoria.SelectedValue = (DataGridView1.Item(20, DataGridView1.CurrentRow.Index).Value)
 		If (DataGridView1.Item(21, DataGridView1.CurrentRow.Index).Value) = 0 Then
 			rdpropios.Checked = True
 		Else
@@ -403,9 +405,11 @@ Public Class FrmGestionProducto
 		btnmodificar.Enabled = True
 		bloquearcampos()
 		btncargarimagen.Enabled = False
+        Habilitarcampos()
+        btnguardarmodificacion.Visible = True
+        btncargarimagen.Enabled = True
 
-
-	End Sub
+    End Sub
 
 	Public Sub LlenarCMBTipo()
 		Try
@@ -490,21 +494,11 @@ Public Class FrmGestionProducto
 
 	End Sub
 
-	Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
 
-	End Sub
-
-	Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-		busqprod = txtBusNombreProd.Text.Trim
-		busqcod = txtBusCodigo.Text.Trim
-		DgvproductosBusq()
-
-	End Sub
-
-	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
 		Dgvproductosset()
-		gbbusqueda.Visible = False
-	End Sub
+        'gbbusqueda.Visible = False
+    End Sub
 
 	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
 		'cargarcodigo()
@@ -539,9 +533,25 @@ Public Class FrmGestionProducto
 		btnNuevaCategoria.Enabled = False
 		btnNuevoMaterial.Enabled = False
 		btnNuevoTipo.Enabled = False
-		btnGuardar.Enabled = False
+        btnGuardar.Enabled = False
+        Label19.Enabled = False
+        Label20.Enabled = False
+        Label21.Enabled = False
+        Label22.Enabled = False
+        Label23.Enabled = False
+        Label24.Enabled = False
+        Label25.Enabled = False
+        Label26.Enabled = False
+        Label27.Enabled = False
+        Label28.Enabled = False
+        Label29.Enabled = False
+        Label30.Enabled = False
+        Label31.Enabled = False
+        Label33.Enabled = False
+        Label32.Enabled = False
 
-	End Sub
+
+    End Sub
 
 	Public Sub Habilitarcampos()
 		tbCodBarra.Enabled = True
@@ -564,13 +574,30 @@ Public Class FrmGestionProducto
 		btnNuevoMaterial.Enabled = True
 		btnNuevoTipo.Enabled = True
 
-		btnGuardar.Enabled = True
+        btnGuardar.Enabled = True
+        Label19.Enabled = True
+        Label20.Enabled = True
+        Label21.Enabled = True
+        Label22.Enabled = True
+        Label23.Enabled = True
+        Label24.Enabled = True
+        Label25.Enabled = True
+        Label26.Enabled = True
+        Label27.Enabled = True
+        Label28.Enabled = True
+        Label29.Enabled = True
+        Label30.Enabled = True
+        Label31.Enabled = True
+        Label33.Enabled = True
+        Label32.Enabled = True
 
-	End Sub
+
+    End Sub
 
 	Public Sub cereacampos()
-		tbCodBarra.Text = ""
-		TbColor.Text = ""
+        tbCodigo.Text = ""
+        tbCodBarra.Text = ""
+        TbColor.Text = ""
 		TbNombreProducto.Text = ""
 		TbPeso.Text = ""
 		TbPrecio.Text = ""
@@ -601,9 +628,24 @@ Public Class FrmGestionProducto
 	End Sub
 
 	Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-		gbbusqueda.Visible = True
 
-	End Sub
+        Dim parametros As New Dictionary(Of String, String)
+
+        If String.IsNullOrWhiteSpace(txtBusCodigo.Text) = False Then
+            parametros.Add("id", txtBusCodigo.Text)
+        End If
+        If String.IsNullOrWhiteSpace(txtBusNombreProd.Text) = False Then
+            parametros.Add("Nombre", txtBusNombreProd.Text)
+        End If
+
+        If DgvproductosBusq(parametros).Tables(0).Rows.Count = 0 Then
+            MsgBox("La búsqueda no arrojo resultados", MsgBoxStyle.Critical, "Error")
+        End If
+
+
+
+
+    End Sub
 
 	Private Sub btnguardarmodificacion_Click(sender As Object, e As EventArgs) Handles btnguardarmodificacion.Click
 
@@ -724,8 +766,23 @@ Public Class FrmGestionProducto
 		btnGuardar.Enabled = True
 		TbNombreProducto.Enabled = True
 		tbCodBarra.Enabled = True
-		btncargarimagen.Enabled = True
-	End Sub
+        btncargarimagen.Enabled = True
+        Label19.Enabled = True
+        Label20.Enabled = True
+        Label21.Enabled = True
+        Label22.Enabled = True
+        Label23.Enabled = True
+        Label24.Enabled = True
+        Label25.Enabled = True
+        Label26.Enabled = True
+        Label27.Enabled = True
+        Label28.Enabled = True
+        Label29.Enabled = True
+        Label30.Enabled = True
+        Label31.Enabled = True
+        Label33.Enabled = True
+        Label32.Enabled = True
+    End Sub
 
 	Private Sub BtnProveedor_Click(sender As Object, e As EventArgs) Handles btnProveedor.Click
 		FrmGestionProveedores.ShowDialog()
@@ -735,4 +792,8 @@ Public Class FrmGestionProducto
 	Private Sub BtnModificarPrecios_Click(sender As Object, e As EventArgs) Handles btnModificarPrecios.Click
 		FrmModificarPrecioProducto.ShowDialog()
 	End Sub
+
+    Private Sub gbbusqueda_Enter(sender As Object, e As EventArgs) Handles gbbusqueda.Enter
+
+    End Sub
 End Class
