@@ -7,8 +7,8 @@ Public Class PedidosLN
 	Public Sub New()
 		pedidosDA = New PedidosDA
 	End Sub
-	Public Sub Actualizar(ped As VentasNE)
-		pedidosDA.Actualizar(ped)
+	Public Sub ActualizarPedido(ped As VentasNE)
+		pedidosDA.ActualizarPedido(ped)
 	End Sub
 
 	Public Function ObtenerUnPedido(id As Integer) As DataSet

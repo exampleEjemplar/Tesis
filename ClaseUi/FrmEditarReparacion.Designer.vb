@@ -35,6 +35,8 @@ Partial Class FrmEditarReparacion
 		Me.Label5 = New System.Windows.Forms.Label()
 		Me.lblCosto = New System.Windows.Forms.Label()
 		Me.Costo = New System.Windows.Forms.Label()
+		Me.lblProducto = New System.Windows.Forms.Label()
+		Me.Label4 = New System.Windows.Forms.Label()
 		Me.SuspendLayout()
 		'
 		'cboEstado
@@ -44,7 +46,7 @@ Partial Class FrmEditarReparacion
 		Me.cboEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.cboEstado.FormattingEnabled = True
 		Me.cboEstado.Items.AddRange(New Object() {"Física", "Jurídica"})
-		Me.cboEstado.Location = New System.Drawing.Point(192, 107)
+		Me.cboEstado.Location = New System.Drawing.Point(173, 99)
 		Me.cboEstado.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboEstado.Name = "cboEstado"
 		Me.cboEstado.Size = New System.Drawing.Size(367, 25)
@@ -54,7 +56,7 @@ Partial Class FrmEditarReparacion
 		'
 		Me.Label17.AutoSize = True
 		Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label17.Location = New System.Drawing.Point(33, 110)
+		Me.Label17.Location = New System.Drawing.Point(11, 102)
 		Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label17.Name = "Label17"
 		Me.Label17.Size = New System.Drawing.Size(58, 17)
@@ -65,7 +67,7 @@ Partial Class FrmEditarReparacion
 		'
 		Me.lblFechaExacta.AutoSize = True
 		Me.lblFechaExacta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblFechaExacta.Location = New System.Drawing.Point(33, 63)
+		Me.lblFechaExacta.Location = New System.Drawing.Point(10, 55)
 		Me.lblFechaExacta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblFechaExacta.Name = "lblFechaExacta"
 		Me.lblFechaExacta.Size = New System.Drawing.Size(58, 17)
@@ -79,10 +81,11 @@ Partial Class FrmEditarReparacion
 		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnSalir.FlatAppearance.BorderSize = 0
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalir.Location = New System.Drawing.Point(542, 293)
+		Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnSalir.Location = New System.Drawing.Point(147, 348)
 		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
-		Me.btnSalir.Size = New System.Drawing.Size(116, 111)
+		Me.btnSalir.Size = New System.Drawing.Size(105, 111)
 		Me.btnSalir.TabIndex = 58
 		Me.btnSalir.Text = "Salir"
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -108,10 +111,10 @@ Partial Class FrmEditarReparacion
 		Me.btnguardarmodificacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnguardarmodificacion.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
 		Me.btnguardarmodificacion.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnguardarmodificacion.Location = New System.Drawing.Point(442, 313)
+		Me.btnguardarmodificacion.Location = New System.Drawing.Point(13, 366)
 		Me.btnguardarmodificacion.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnguardarmodificacion.Name = "btnguardarmodificacion"
-		Me.btnguardarmodificacion.Size = New System.Drawing.Size(92, 105)
+		Me.btnguardarmodificacion.Size = New System.Drawing.Size(104, 93)
 		Me.btnguardarmodificacion.TabIndex = 60
 		Me.btnguardarmodificacion.Text = "Guardar"
 		Me.btnguardarmodificacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -121,7 +124,7 @@ Partial Class FrmEditarReparacion
 		'
 		Me.lblCliente.AutoSize = True
 		Me.lblCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblCliente.Location = New System.Drawing.Point(189, 63)
+		Me.lblCliente.Location = New System.Drawing.Point(170, 55)
 		Me.lblCliente.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblCliente.Name = "lblCliente"
 		Me.lblCliente.Size = New System.Drawing.Size(82, 17)
@@ -132,7 +135,7 @@ Partial Class FrmEditarReparacion
 		'
 		Me.lblFechaPedido.AutoSize = True
 		Me.lblFechaPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblFechaPedido.Location = New System.Drawing.Point(189, 163)
+		Me.lblFechaPedido.Location = New System.Drawing.Point(170, 155)
 		Me.lblFechaPedido.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblFechaPedido.Name = "lblFechaPedido"
 		Me.lblFechaPedido.Size = New System.Drawing.Size(126, 17)
@@ -143,7 +146,7 @@ Partial Class FrmEditarReparacion
 		'
 		Me.Label3.AutoSize = True
 		Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label3.Location = New System.Drawing.Point(33, 163)
+		Me.Label3.Location = New System.Drawing.Point(11, 155)
 		Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label3.Name = "Label3"
 		Me.Label3.Size = New System.Drawing.Size(107, 17)
@@ -154,7 +157,7 @@ Partial Class FrmEditarReparacion
 		'
 		Me.lblFechaPactada.AutoSize = True
 		Me.lblFechaPactada.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblFechaPactada.Location = New System.Drawing.Point(189, 217)
+		Me.lblFechaPactada.Location = New System.Drawing.Point(170, 209)
 		Me.lblFechaPactada.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblFechaPactada.Name = "lblFechaPactada"
 		Me.lblFechaPactada.Size = New System.Drawing.Size(135, 17)
@@ -165,7 +168,7 @@ Partial Class FrmEditarReparacion
 		'
 		Me.Label5.AutoSize = True
 		Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label5.Location = New System.Drawing.Point(33, 217)
+		Me.Label5.Location = New System.Drawing.Point(11, 209)
 		Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label5.Name = "Label5"
 		Me.Label5.Size = New System.Drawing.Size(116, 17)
@@ -176,7 +179,7 @@ Partial Class FrmEditarReparacion
 		'
 		Me.lblCosto.AutoSize = True
 		Me.lblCosto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblCosto.Location = New System.Drawing.Point(189, 270)
+		Me.lblCosto.Location = New System.Drawing.Point(170, 262)
 		Me.lblCosto.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblCosto.Name = "lblCosto"
 		Me.lblCosto.Size = New System.Drawing.Size(73, 17)
@@ -187,18 +190,42 @@ Partial Class FrmEditarReparacion
 		'
 		Me.Costo.AutoSize = True
 		Me.Costo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Costo.Location = New System.Drawing.Point(33, 270)
+		Me.Costo.Location = New System.Drawing.Point(11, 262)
 		Me.Costo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Costo.Name = "Costo"
 		Me.Costo.Size = New System.Drawing.Size(49, 17)
 		Me.Costo.TabIndex = 66
 		Me.Costo.Text = "Costo"
 		'
+		'lblProducto
+		'
+		Me.lblProducto.AutoSize = True
+		Me.lblProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblProducto.Location = New System.Drawing.Point(169, 314)
+		Me.lblProducto.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lblProducto.Name = "lblProducto"
+		Me.lblProducto.Size = New System.Drawing.Size(97, 17)
+		Me.lblProducto.TabIndex = 69
+		Me.lblProducto.Text = "**Producto**"
+		'
+		'Label4
+		'
+		Me.Label4.AutoSize = True
+		Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label4.Location = New System.Drawing.Point(10, 314)
+		Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label4.Name = "Label4"
+		Me.Label4.Size = New System.Drawing.Size(73, 17)
+		Me.Label4.TabIndex = 68
+		Me.Label4.Text = "Producto"
+		'
 		'FrmEditarReparacion
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(754, 559)
+		Me.ClientSize = New System.Drawing.Size(577, 487)
+		Me.Controls.Add(Me.lblProducto)
+		Me.Controls.Add(Me.Label4)
 		Me.Controls.Add(Me.lblCosto)
 		Me.Controls.Add(Me.Costo)
 		Me.Controls.Add(Me.lblFechaPactada)
@@ -213,7 +240,8 @@ Partial Class FrmEditarReparacion
 		Me.Controls.Add(Me.Label1)
 		Me.Controls.Add(Me.btnSalir)
 		Me.Name = "FrmEditarReparacion"
-		Me.Text = "FrmEditarReparacion"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+		Me.Text = "Editar Reparacion"
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -231,4 +259,6 @@ Partial Class FrmEditarReparacion
 	Friend WithEvents Label5 As Windows.Forms.Label
 	Friend WithEvents lblCosto As Windows.Forms.Label
 	Friend WithEvents Costo As Windows.Forms.Label
+	Friend WithEvents lblProducto As Windows.Forms.Label
+	Friend WithEvents Label4 As Windows.Forms.Label
 End Class

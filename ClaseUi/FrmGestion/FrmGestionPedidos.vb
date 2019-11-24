@@ -23,6 +23,8 @@ Public Class FrmGestionPedidos
 		Busqueda("load")
 		dtpFechaHasta.Visible = False
 		dtpFechaDesde.Visible = False
+		dtpFechaHasta.Value = Date.Now
+		dtpFechaDesde.Value = Date.Now
 		lblFechaExacta.Visible = False
 		lblHasta.Visible = False
 		lbldesde.Visible = False
@@ -63,7 +65,7 @@ Public Class FrmGestionPedidos
 		'Try
 		'	idVenta = selectedRow.Cells("id").Value
 		'	FrmComprobanteVenta.ShowDialog()
-		'Catch ex As Exception
+		'Catch ex As Exceptiong
 		'	MessageBox.Show(ex.Message)
 		'End Try
 
@@ -121,7 +123,7 @@ Public Class FrmGestionPedidos
 		dgvProveedores.Columns("FechaVencimientoSeña").HeaderText = "Vencimiento Seña"
 		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
 		dgvProveedores.Columns("Seña").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-		dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+		dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
 		dgvProveedores.ReadOnly = True
 		If dsa1.Tables(0).Rows.Count() = 0 And type = "" Then
 			MsgBox("La busqueda no arrojo resultados", MsgBoxStyle.OkOnly, "Pedidos")

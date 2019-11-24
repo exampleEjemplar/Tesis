@@ -22,7 +22,7 @@ Partial Class FrmGestionProductoAReparar
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+		Me.dgvProducto = New System.Windows.Forms.DataGridView()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
 		Me.tbPrecio = New System.Windows.Forms.TextBox()
 		Me.Label2 = New System.Windows.Forms.Label()
@@ -52,37 +52,38 @@ Partial Class FrmGestionProductoAReparar
 		Me.TbNombreProducto = New System.Windows.Forms.TextBox()
 		Me.Button2 = New System.Windows.Forms.Button()
 		Me.btnGuardar = New System.Windows.Forms.Button()
-		Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-		Me.Label3 = New System.Windows.Forms.Label()
+		Me.chkReUtilizar = New System.Windows.Forms.CheckBox()
+		Me.lblDobleclick = New System.Windows.Forms.Label()
 		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.dgvProducto, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox2.SuspendLayout()
 		CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
-		'DataGridView1
+		'dgvProducto
 		'
-		Me.DataGridView1.AllowDrop = True
-		Me.DataGridView1.AllowUserToAddRows = False
-		Me.DataGridView1.AllowUserToDeleteRows = False
-		Me.DataGridView1.AllowUserToResizeColumns = False
-		Me.DataGridView1.AllowUserToResizeRows = False
-		Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-		Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-		Me.DataGridView1.EnableHeadersVisualStyles = False
-		Me.DataGridView1.Location = New System.Drawing.Point(13, 573)
-		Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
-		Me.DataGridView1.MultiSelect = False
-		Me.DataGridView1.Name = "DataGridView1"
-		Me.DataGridView1.ReadOnly = True
-		Me.DataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No
-		Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-		Me.DataGridView1.RowHeadersVisible = False
-		Me.DataGridView1.RowHeadersWidth = 56
-		Me.DataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-		Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.DataGridView1.Size = New System.Drawing.Size(1087, 233)
-		Me.DataGridView1.TabIndex = 48
+		Me.dgvProducto.AllowDrop = True
+		Me.dgvProducto.AllowUserToAddRows = False
+		Me.dgvProducto.AllowUserToDeleteRows = False
+		Me.dgvProducto.AllowUserToResizeColumns = False
+		Me.dgvProducto.AllowUserToResizeRows = False
+		Me.dgvProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+		Me.dgvProducto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+		Me.dgvProducto.EnableHeadersVisualStyles = False
+		Me.dgvProducto.Location = New System.Drawing.Point(13, 573)
+		Me.dgvProducto.Margin = New System.Windows.Forms.Padding(4)
+		Me.dgvProducto.MultiSelect = False
+		Me.dgvProducto.Name = "dgvProducto"
+		Me.dgvProducto.ReadOnly = True
+		Me.dgvProducto.RightToLeft = System.Windows.Forms.RightToLeft.No
+		Me.dgvProducto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+		Me.dgvProducto.RowHeadersVisible = False
+		Me.dgvProducto.RowHeadersWidth = 56
+		Me.dgvProducto.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.dgvProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+		Me.dgvProducto.Size = New System.Drawing.Size(1087, 233)
+		Me.dgvProducto.TabIndex = 48
+		Me.dgvProducto.Visible = False
 		'
 		'GroupBox2
 		'
@@ -432,26 +433,27 @@ Partial Class FrmGestionProductoAReparar
 		Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnGuardar.UseVisualStyleBackColor = False
 		'
-		'CheckBox1
+		'chkReUtilizar
 		'
-		Me.CheckBox1.AutoSize = True
-		Me.CheckBox1.Location = New System.Drawing.Point(13, 485)
-		Me.CheckBox1.Name = "CheckBox1"
-		Me.CheckBox1.Size = New System.Drawing.Size(391, 21)
-		Me.CheckBox1.TabIndex = 49
-		Me.CheckBox1.Text = "Re utilizar modelo de productos reparados anteriormente"
-		Me.CheckBox1.UseVisualStyleBackColor = True
+		Me.chkReUtilizar.AutoSize = True
+		Me.chkReUtilizar.Location = New System.Drawing.Point(13, 485)
+		Me.chkReUtilizar.Name = "chkReUtilizar"
+		Me.chkReUtilizar.Size = New System.Drawing.Size(391, 21)
+		Me.chkReUtilizar.TabIndex = 49
+		Me.chkReUtilizar.Text = "Re utilizar modelo de productos reparados anteriormente"
+		Me.chkReUtilizar.UseVisualStyleBackColor = True
 		'
-		'Label3
+		'lblDobleclick
 		'
-		Me.Label3.AutoSize = True
-		Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label3.Location = New System.Drawing.Point(13, 538)
-		Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label3.Name = "Label3"
-		Me.Label3.Size = New System.Drawing.Size(236, 17)
-		Me.Label3.TabIndex = 59
-		Me.Label3.Text = "Haga doble click en el deseado"
+		Me.lblDobleclick.AutoSize = True
+		Me.lblDobleclick.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblDobleclick.Location = New System.Drawing.Point(13, 538)
+		Me.lblDobleclick.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lblDobleclick.Name = "lblDobleclick"
+		Me.lblDobleclick.Size = New System.Drawing.Size(236, 17)
+		Me.lblDobleclick.TabIndex = 59
+		Me.lblDobleclick.Text = "Haga doble click en el deseado"
+		Me.lblDobleclick.Visible = False
 		'
 		'OpenFileDialog1
 		'
@@ -462,15 +464,15 @@ Partial Class FrmGestionProductoAReparar
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(1129, 1026)
-		Me.Controls.Add(Me.Label3)
-		Me.Controls.Add(Me.CheckBox1)
-		Me.Controls.Add(Me.DataGridView1)
+		Me.Controls.Add(Me.lblDobleclick)
+		Me.Controls.Add(Me.chkReUtilizar)
+		Me.Controls.Add(Me.dgvProducto)
 		Me.Controls.Add(Me.GroupBox2)
 		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.btnGuardar)
 		Me.Name = "FrmGestionProductoAReparar"
 		Me.Text = "FrmGestionProductoAReparar"
-		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.dgvProducto, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox2.ResumeLayout(False)
 		Me.GroupBox2.PerformLayout()
 		CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).EndInit()
@@ -479,7 +481,7 @@ Partial Class FrmGestionProductoAReparar
 
 	End Sub
 
-	Friend WithEvents DataGridView1 As Windows.Forms.DataGridView
+	Friend WithEvents dgvProducto As Windows.Forms.DataGridView
 	Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
 	Friend WithEvents btnNuevaCategoria As Windows.Forms.Button
 	Friend WithEvents btnNuevoTipo As Windows.Forms.Button
@@ -509,7 +511,7 @@ Partial Class FrmGestionProductoAReparar
 	Friend WithEvents Label18 As Windows.Forms.Label
 	Friend WithEvents btncargarimagen As Windows.Forms.Button
 	Friend WithEvents PBfoto As Windows.Forms.PictureBox
-	Friend WithEvents CheckBox1 As Windows.Forms.CheckBox
-	Friend WithEvents Label3 As Windows.Forms.Label
+	Friend WithEvents chkReUtilizar As Windows.Forms.CheckBox
+	Friend WithEvents lblDobleclick As Windows.Forms.Label
 	Friend WithEvents OpenFileDialog1 As Windows.Forms.OpenFileDialog
 End Class
