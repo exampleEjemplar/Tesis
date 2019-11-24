@@ -162,11 +162,11 @@ Public Class MetodoClientesDA
 
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = "select count(id) as Cantidad, FisicaOJuridica from Clientes " &
+        sqlStr = "select count(id) as Cantidad, CASE FisicaOJuridica WHEN 'F' THEN 'Fisica' WHEN 'J'THEN 'Juridica'ELSE 'Unknown'end as FisicaOJuridica from Clientes " &
 "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
 "group by FisicaOJuridica"
 
-		Try
+        Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
 			db.Close()

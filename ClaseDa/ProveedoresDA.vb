@@ -165,7 +165,7 @@ Public Class ProveedoresDA
 
         Dim sqlStr As String
         ds1 = New DataSet
-        sqlStr = "select count(id) as Cantidad, FisicaOJuridica from Proveedores " &
+        sqlStr = "select count(id) as Cantidad, CASE FisicaOJuridica WHEN 'F' THEN 'Fisica' WHEN 'J'THEN 'Juridica'ELSE 'Unknown'end as FisicaOJuridica from Proveedores " &
 "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
 "group by FisicaOJuridica"
 

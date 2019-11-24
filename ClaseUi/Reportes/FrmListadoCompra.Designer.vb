@@ -23,7 +23,9 @@ Partial Class FrmListadoCompra
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.SP_ListadodecomprasPorfechaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSetReportes = New ClaseUi.DataSetReportes()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -35,13 +37,21 @@ Partial Class FrmListadoCompra
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.DataSetReportes = New ClaseUi.DataSetReportes()
-        Me.SP_ListadodecomprasPorfechaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SP_ListadodecomprasPorfechaTableAdapter = New ClaseUi.DataSetReportesTableAdapters.SP_ListadodecomprasPorfechaTableAdapter()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SP_ListadodecomprasPorfechaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'SP_ListadodecomprasPorfechaBindingSource
+        '
+        Me.SP_ListadodecomprasPorfechaBindingSource.DataMember = "SP_ListadodecomprasPorfecha"
+        Me.SP_ListadodecomprasPorfechaBindingSource.DataSource = Me.DataSetReportes
+        '
+        'DataSetReportes
+        '
+        Me.DataSetReportes.DataSetName = "DataSetReportes"
+        Me.DataSetReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox1
         '
@@ -53,6 +63,7 @@ Partial Class FrmListadoCompra
         Me.GroupBox1.Controls.Add(Me.btnBuscar)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 61)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(883, 114)
@@ -78,7 +89,7 @@ Partial Class FrmListadoCompra
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(369, 90)
+        Me.CheckBox1.Location = New System.Drawing.Point(388, 90)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
         Me.CheckBox1.TabIndex = 39
@@ -89,22 +100,24 @@ Partial Class FrmListadoCompra
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(268, 90)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(95, 13)
+        Me.Label3.Size = New System.Drawing.Size(114, 13)
         Me.Label3.TabIndex = 38
         Me.Label3.Text = "Todos los registros"
         '
         'DateTimePicker2
         '
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePicker2.Location = New System.Drawing.Point(390, 48)
         Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker2.Size = New System.Drawing.Size(144, 20)
         Me.DateTimePicker2.TabIndex = 37
         '
         'DateTimePicker1
         '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePicker1.Location = New System.Drawing.Point(83, 49)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(142, 20)
         Me.DateTimePicker1.TabIndex = 36
         '
         'btnBuscar
@@ -127,7 +140,7 @@ Partial Class FrmListadoCompra
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(39, 55)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(38, 13)
+        Me.Label2.Size = New System.Drawing.Size(43, 13)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Desde"
         '
@@ -136,15 +149,16 @@ Partial Class FrmListadoCompra
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(349, 51)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(35, 13)
+        Me.Label1.Size = New System.Drawing.Size(40, 13)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Hasta"
         '
         'ReportViewer1
         '
-        ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.SP_ListadodecomprasPorfechaBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ReportDataSource2.Name = "DataSet1"
+        ReportDataSource2.Value = Me.SP_ListadodecomprasPorfechaBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "ClaseUi.ListadodeComprasPorFecha.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(12, 181)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -162,16 +176,6 @@ Partial Class FrmListadoCompra
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "Listado de Compras"
         '
-        'DataSetReportes
-        '
-        Me.DataSetReportes.DataSetName = "DataSetReportes"
-        Me.DataSetReportes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'SP_ListadodecomprasPorfechaBindingSource
-        '
-        Me.SP_ListadodecomprasPorfechaBindingSource.DataMember = "SP_ListadodecomprasPorfecha"
-        Me.SP_ListadodecomprasPorfechaBindingSource.DataSource = Me.DataSetReportes
-        '
         'SP_ListadodecomprasPorfechaTableAdapter
         '
         Me.SP_ListadodecomprasPorfechaTableAdapter.ClearBeforeFill = True
@@ -186,11 +190,11 @@ Partial Class FrmListadoCompra
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "FrmListadoCompra"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        CType(Me.SP_ListadodecomprasPorfechaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SP_ListadodecomprasPorfechaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

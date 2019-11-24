@@ -1,3 +1,3 @@
-﻿Public Class ListadodeMovimientoCaja
+﻿Public Class FrmCierreCaja
 
 End Class

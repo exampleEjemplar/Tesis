@@ -527,6 +527,7 @@
     <EmbeddedResource Include="ImagenAmpliada.resx">
       <DependentUpon>ImagenAmpliada.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ComprobanteCierredeCaja.rdlc" />
     <EmbeddedResource Include="Reportes\ComprobanteVenta.rdlc" />
     <EmbeddedResource Include="Reportes\FrmListadoCompra.resx">
       <DependentUpon>FrmListadoCompra.vb</DependentUpon>
