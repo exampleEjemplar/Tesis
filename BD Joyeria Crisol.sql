@@ -23310,3 +23310,25 @@ GO
 
 ALTER TABLE [dbo].[CierreCajas] CHECK CONSTRAINT [FK_CierreCajas_Usuarios]
 GO
+
+USE [JoyeriaCrisolFinal]
+GO
+/****** Object:  StoredProcedure [dbo].[[SP_CierredeCaja]]    Script Date: 24/11/2019 17:01:48 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SP_CierredeCaja]
+(@idusuario as int
+
+)
+as
+begin
+
+select fecha, NroComprobante, p.Nombre+' '+p.apellido, -total from compras c
+inner join Proveedores p on c.ProveedorId=p.id
+where c.UsuarioId=1 and estado=1 
+ union
+ select v.fecha, '', '',v. total from ventas v
+where UsuarioId=@idusuario and estado=1
+end

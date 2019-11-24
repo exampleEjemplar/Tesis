@@ -77,56 +77,62 @@ Public Class FrmCierreDeCaja
 
 
 		Dim cajas = New List(Of CajaNE)
-		For i = 0 To ds.Tables.Count - 1
-			Dim tabla = ds.Tables(i)
-			For y = 0 To tabla.Rows.Count - 1
-				Dim fila = tabla.Rows(y)
-				Dim tipo = ""
-				If i = 0 Then
-					tipo = "Venta"
-					totalIngresos += fila(2)
-				Else
-					tipo = "Compra"
-					totalEgresos += fila(2)
-				End If
-				Dim usuario = fila(3).ToString()
-				cajas.Add(New CajaNE With {
-								.Id = fila(0).ToString(),
-								.Tipo = tipo,
-								.Fecha = fila(1),
-								.Movimiento = If(tipo = "Venta", fila(2).ToString, (fila(2) * -1).ToString()),
-								.Usuario = usuario
-				})
-				If Not usuarios.Contains(usuario) Then
-					usuarios.Add(usuario)
-				End If
-				cantidadMovimientos += 1
-			Next
-		Next
+        For i = 0 To ds.Tables.Count - 1
+            Dim tabla = ds.Tables(i)
+            For y = 0 To tabla.Rows.Count - 1
+                Dim fila = tabla.Rows(y)
+                Dim tipo = ""
+                If i = 0 Then
+                    tipo = "Venta"
+                    totalIngresos += fila(2)
+                Else
+                    tipo = "Compra"
+                    totalEgresos += fila(2)
+                End If
+                Dim usuario = fila(3).ToString()
+                cajas.Add(New CajaNE With {
+                                .Id = fila(0).ToString(),
+                                .Tipo = tipo,
+                                .Fecha = fila(1),
+                                .Movimiento = If(tipo = "Venta", fila(2).ToString, (fila(2) * -1).ToString()),
+                                .Usuario = usuario
+                })
+                If Not usuarios.Contains(usuario) Then
+                    usuarios.Add(usuario)
+                End If
+                cantidadMovimientos += 1
+            Next
+        Next
+        If cantidadMovimientos = 0 And String.IsNullOrWhiteSpace(type) Then
+            MsgBox("No se registraron movimientos de caja para este Usuario", MsgBoxStyle.OkOnly, "Movimiento caja")
+            Me.Close()
+        Else
 
-		dgvGrilla.DataSource = cajas
+
+            dgvGrilla.DataSource = cajas
 		dgvGrilla.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 		dgvGrilla.Columns("Id").Visible = False
 		dgvGrilla.Columns("UsuarioId").Visible = False
 		dgvGrilla.Columns("Movimiento").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
 		txtMontoFinal = (totalIngresos - totalEgresos)
 
-		If cantidadMovimientos = 0 And String.IsNullOrWhiteSpace(type) Then
-			MsgBox("No se registraron movimientos de caja para este Usuario", MsgBoxStyle.OkOnly, "Movimiento caja")
-		End If
+
+        End If
 
 	End Sub
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 		If MessageBox.Show("¿Desea Realizar Cierre de Caja?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
 			cajaLN.grabarCierredeCaja(loginLN.ChequearEnSesion(), txtMontoFinal)
-			cajaLN.updateCierre(loginLN.ChequearEnSesion())
-		Else
+            InformeCierredeCaja.ShowDialog()
+            cajaLN.updateCierre(loginLN.ChequearEnSesion())
+            Me.Close()
+
+        Else
 			Return
 		End If
-		Search()
 
-	End Sub
+    End Sub
 
 	Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
 		Search()

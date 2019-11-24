@@ -337,6 +337,12 @@
     <Compile Include="Reportes\DataSetReportes.vb">
       <DependentUpon>DataSetReportes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\InformeCierredeCaja.Designer.vb">
+      <DependentUpon>InformeCierredeCaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\InformeCierredeCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\FrmListadoCompra.Designer.vb">
       <DependentUpon>FrmListadoCompra.vb</DependentUpon>
     </Compile>
@@ -527,8 +533,11 @@
     <EmbeddedResource Include="ImagenAmpliada.resx">
       <DependentUpon>ImagenAmpliada.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ComprobanteCierredeCaja.rdlc" />
+    <EmbeddedResource Include="Reportes\CierreCaja.rdlc" />
     <EmbeddedResource Include="Reportes\ComprobanteVenta.rdlc" />
+    <EmbeddedResource Include="Reportes\InformeCierredeCaja.resx">
+      <DependentUpon>InformeCierredeCaja.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmListadoCompra.resx">
       <DependentUpon>FrmListadoCompra.vb</DependentUpon>
     </EmbeddedResource>
