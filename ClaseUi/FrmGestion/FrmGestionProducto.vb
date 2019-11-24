@@ -363,7 +363,7 @@ Public Class FrmGestionProducto
     End Function
 
     Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
-		productometodo.Cargargrilladobleclick()
+		'productometodo.Cargargrilladobleclick()
 		tbCodigo.Text = (DataGridView1.Item(0, DataGridView1.CurrentRow.Index).Value)
 		tbCodBarra.Text = (DataGridView1.Item(1, DataGridView1.CurrentRow.Index).Value)
 
