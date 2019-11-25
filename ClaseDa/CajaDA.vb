@@ -6,8 +6,11 @@ Public Class CajaDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
 	Private ds1 As DataSet
+    Dim Rs As SqlDataReader
+    Public contador As Integer
+    Public enunciado As SqlCommand
 
-	Public Sub New()
+    Public Sub New()
 		Dim objcon As New ConexionDA
 		db = objcon.Abrir
 		com.Connection = db
@@ -163,5 +166,27 @@ Public Class CajaDA
         db.Close()
     End Function
 
+
+
+    Public Function ControlCierreCaja() As DataSet
+
+
+        helpersDA.ChequearConexion(db)
+        enunciado = New SqlCommand("select * from COMPRAs c WHERE c.estado=1 union all select fecha, '','',total,'','','' from ventas v WHERE v.estado=1 ", db)
+        Dim ds As New DataSet
+        Try
+            Dim da = New SqlDataAdapter(enunciado)
+            da.Fill(ds)
+            db.Close()
+
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+
+            db.Close()
+        End Try
+        Return ds
+
+    End Function
 
 End Class

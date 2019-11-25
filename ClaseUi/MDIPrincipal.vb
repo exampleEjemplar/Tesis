@@ -8,10 +8,12 @@ Public Class MDIPrincipal
 
 	Private helpersUi As New HelpersUI
 	Private loginLN As New LoginLN
-	Private usuarioLn As New UsuariosLN
+    Private usuarioLn As New UsuariosLN
+    Private cajaln As New CajaLN
 
 
-	Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs)
+
+    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs)
         ' Cree una nueva instancia del formulario secundario.
         Dim ChildForm As New System.Windows.Forms.Form
         ' Conviértalo en un elemento secundario de este formulario MDI antes de mostrarlo.
@@ -175,8 +177,17 @@ Public Class MDIPrincipal
     End Sub
 
 	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-		Me.Close()
-	End Sub
+        Dim cierre = cajaln.ControlCierreCaja.Tables(0)
+        If cierre.Rows.Count > 0 Then
+            MsgBox("Para salir del sistema, debe realizar Cierre de Caja", MsgBoxStyle.OkOnly, "Cierre de Caja")
+        Else
+
+            Me.Close()
+
+        End If
+
+
+    End Sub
 
     Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles btnReparaciones.Click
         FrmGestionReparaciones.ShowDialog()
@@ -196,7 +207,9 @@ Public Class MDIPrincipal
 
     End Sub
 
-	Private Sub btnServicios_Click(sender As Object, e As EventArgs) Handles btnServicios.Click
-		FrmGestionPagos.ShowDialog()
-	End Sub
+    Private Sub btnServicios_Click(sender As Object, e As EventArgs) Handles btnServicios.Click
+        FrmGestionPagos.ShowDialog()
+    End Sub
+
+
 End Class

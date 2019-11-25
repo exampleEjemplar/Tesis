@@ -76,6 +76,10 @@ Public Class LogIn
 		'pictureBox1.BackgroundImageLayout = ImageLayout.Zoom
 	End Sub
 
+    Private Sub panel1_Paint(sender As Object, e As PaintEventArgs) Handles panel1.Paint
+
+    End Sub
+
 
 #End Region
 

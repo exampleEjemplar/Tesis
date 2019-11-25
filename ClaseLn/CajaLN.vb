@@ -24,6 +24,12 @@ Public Class CajaLN
 
     End Sub
 
+    Public Function ControlCierreCaja() As DataSet
+        Return cajaDA.ControlCierreCaja()
+
+    End Function
+
+
     Public Function updateCierre(ByVal idusuario As Integer) As DataSet
         Return cajaDA.updateCierre(idusuario)
 

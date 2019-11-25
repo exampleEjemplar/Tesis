@@ -23,8 +23,12 @@ Public Class FrmCierreDeCaja
 
 
 	Private Sub FrmCierreDeCaja_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		dtpFechaDesde.Value = Today
-		Dim usuario = usuarioLn.CargarUnUsuario(loginLN.ChequearEnSesion())
+        dtpFechaDesde.Visible = False
+        btnBuscar.Visible = False
+        chkFechaDesde.Visible = False
+        Label5.Visible = False
+        dtpFechaDesde.Value = Today
+        Dim usuario = usuarioLn.CargarUnUsuario(loginLN.ChequearEnSesion())
 		lblUsuario.Text = usuario.Tables(0).Rows(0)(0).ToString()
 		Dim fecha As String = Today + " - " + TimeOfDay
 		lblFechacierre.Text = fecha
@@ -110,7 +114,7 @@ Public Class FrmCierreDeCaja
 
 
             dgvGrilla.DataSource = cajas
-		dgvGrilla.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            dgvGrilla.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 		dgvGrilla.Columns("Id").Visible = False
 		dgvGrilla.Columns("UsuarioId").Visible = False
 		dgvGrilla.Columns("Movimiento").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
@@ -127,6 +131,7 @@ Public Class FrmCierreDeCaja
             InformeCierredeCaja.ShowDialog()
             cajaLN.updateCierre(loginLN.ChequearEnSesion())
             Me.Close()
+
 
         Else
 			Return
