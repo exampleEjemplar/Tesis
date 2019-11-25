@@ -24,6 +24,7 @@ Partial Class FrmGestionPedidos
 	Private Sub InitializeComponent()
 		Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionPedidos))
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
 		Me.lbldesde = New System.Windows.Forms.Label()
 		Me.lblHasta = New System.Windows.Forms.Label()
@@ -58,9 +59,9 @@ Partial Class FrmGestionPedidos
 		Me.GroupBox5.Controls.Add(Me.lblFechaExacta)
 		Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.GroupBox5.Location = New System.Drawing.Point(13, 60)
-		Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4)
 		Me.GroupBox5.Name = "GroupBox5"
-		Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4)
 		Me.GroupBox5.Size = New System.Drawing.Size(917, 133)
 		Me.GroupBox5.TabIndex = 49
 		Me.GroupBox5.TabStop = False
@@ -114,7 +115,7 @@ Partial Class FrmGestionPedidos
 		'
 		Me.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
 		Me.dtpFechaHasta.Location = New System.Drawing.Point(404, 98)
-		Me.dtpFechaHasta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.dtpFechaHasta.Margin = New System.Windows.Forms.Padding(4)
 		Me.dtpFechaHasta.Name = "dtpFechaHasta"
 		Me.dtpFechaHasta.Size = New System.Drawing.Size(151, 23)
 		Me.dtpFechaHasta.TabIndex = 37
@@ -124,7 +125,7 @@ Partial Class FrmGestionPedidos
 		'
 		Me.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
 		Me.dtpFechaDesde.Location = New System.Drawing.Point(172, 97)
-		Me.dtpFechaDesde.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.dtpFechaDesde.Margin = New System.Windows.Forms.Padding(4)
 		Me.dtpFechaDesde.Name = "dtpFechaDesde"
 		Me.dtpFechaDesde.Size = New System.Drawing.Size(151, 23)
 		Me.dtpFechaDesde.TabIndex = 22
@@ -139,7 +140,7 @@ Partial Class FrmGestionPedidos
 		Me.btnBuscar.FlatAppearance.BorderSize = 0
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnBuscar.Location = New System.Drawing.Point(772, 16)
-		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(137, 110)
 		Me.btnBuscar.TabIndex = 5
@@ -155,7 +156,7 @@ Partial Class FrmGestionPedidos
 		Me.cboCliente.FormattingEnabled = True
 		Me.cboCliente.Items.AddRange(New Object() {"Física", "Jurídica"})
 		Me.cboCliente.Location = New System.Drawing.Point(77, 21)
-		Me.cboCliente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cboCliente.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboCliente.Name = "cboCliente"
 		Me.cboCliente.Size = New System.Drawing.Size(367, 25)
 		Me.cboCliente.TabIndex = 0
@@ -209,7 +210,7 @@ Partial Class FrmGestionPedidos
 		Me.dgvProveedores.DefaultCellStyle = DataGridViewCellStyle4
 		Me.dgvProveedores.EnableHeadersVisualStyles = False
 		Me.dgvProveedores.Location = New System.Drawing.Point(19, 201)
-		Me.dgvProveedores.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.dgvProveedores.Margin = New System.Windows.Forms.Padding(4)
 		Me.dgvProveedores.MultiSelect = False
 		Me.dgvProveedores.Name = "dgvProveedores"
 		Me.dgvProveedores.ReadOnly = True
@@ -241,7 +242,7 @@ Partial Class FrmGestionPedidos
 		Me.btnNuevo.FlatAppearance.BorderSize = 0
 		Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnNuevo.Location = New System.Drawing.Point(813, 201)
-		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(116, 113)
 		Me.btnNuevo.TabIndex = 48
@@ -257,7 +258,7 @@ Partial Class FrmGestionPedidos
 		Me.btnSalir.FlatAppearance.BorderSize = 0
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnSalir.Location = New System.Drawing.Point(811, 431)
-		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
 		Me.btnSalir.Size = New System.Drawing.Size(116, 111)
 		Me.btnSalir.TabIndex = 47
@@ -273,7 +274,7 @@ Partial Class FrmGestionPedidos
 		Me.Button1.FlatAppearance.BorderSize = 0
 		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.Button1.Location = New System.Drawing.Point(820, 321)
-		Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button1.Name = "Button1"
 		Me.Button1.Size = New System.Drawing.Size(107, 110)
 		Me.Button1.TabIndex = 51
@@ -292,7 +293,11 @@ Partial Class FrmGestionPedidos
 		Me.Controls.Add(Me.Label1)
 		Me.Controls.Add(Me.btnNuevo)
 		Me.Controls.Add(Me.btnSalir)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+		Me.MaximizeBox = False
+		Me.MinimizeBox = False
 		Me.Name = "FrmGestionPedidos"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
 		Me.Text = "Gestion de pedidos"

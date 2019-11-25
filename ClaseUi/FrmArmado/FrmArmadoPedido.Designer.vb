@@ -22,12 +22,11 @@ Partial Class FrmArmadoPedido
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmArmadoPedido))
 		Me.btnAgregarProducto = New System.Windows.Forms.Button()
 		Me.btnQuitarItem = New System.Windows.Forms.Button()
 		Me.btnLimpiar = New System.Windows.Forms.Button()
 		Me.gboFiltros = New System.Windows.Forms.GroupBox()
-		Me.btnLimpiarFiltros = New System.Windows.Forms.Button()
-		Me.btnBuscar = New System.Windows.Forms.Button()
 		Me.lbldesde = New System.Windows.Forms.Label()
 		Me.rbtEntreFechas = New System.Windows.Forms.CheckBox()
 		Me.lblHasta = New System.Windows.Forms.Label()
@@ -39,6 +38,8 @@ Partial Class FrmArmadoPedido
 		Me.Label8 = New System.Windows.Forms.Label()
 		Me.cboBusProveedor = New System.Windows.Forms.ComboBox()
 		Me.Label7 = New System.Windows.Forms.Label()
+		Me.btnLimpiarFiltros = New System.Windows.Forms.Button()
+		Me.btnBuscar = New System.Windows.Forms.Button()
 		Me.gboTotales = New System.Windows.Forms.GroupBox()
 		Me.chkSeñaManual = New System.Windows.Forms.CheckBox()
 		Me.txtSeña = New System.Windows.Forms.TextBox()
@@ -154,36 +155,6 @@ Partial Class FrmArmadoPedido
 		Me.gboFiltros.TabStop = False
 		Me.gboFiltros.Text = "Filtros"
 		'
-		'btnLimpiarFiltros
-		'
-		Me.btnLimpiarFiltros.BackColor = System.Drawing.SystemColors.Control
-		Me.btnLimpiarFiltros.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_clear_filters_40
-		Me.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
-		Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(662, 61)
-		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
-		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(82, 68)
-		Me.btnLimpiarFiltros.TabIndex = 38
-		Me.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnLimpiarFiltros.UseVisualStyleBackColor = False
-		'
-		'btnBuscar
-		'
-		Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
-		Me.btnBuscar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_search_48
-		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnBuscar.FlatAppearance.BorderSize = 0
-		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(760, 62)
-		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnBuscar.Name = "btnBuscar"
-		Me.btnBuscar.Size = New System.Drawing.Size(74, 67)
-		Me.btnBuscar.TabIndex = 38
-		Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnBuscar.UseVisualStyleBackColor = False
-		'
 		'lbldesde
 		'
 		Me.lbldesde.AutoSize = True
@@ -298,6 +269,36 @@ Partial Class FrmArmadoPedido
 		Me.Label7.Size = New System.Drawing.Size(81, 16)
 		Me.Label7.TabIndex = 39
 		Me.Label7.Text = "Proveedor"
+		'
+		'btnLimpiarFiltros
+		'
+		Me.btnLimpiarFiltros.BackColor = System.Drawing.SystemColors.Control
+		Me.btnLimpiarFiltros.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_clear_filters_40
+		Me.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
+		Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(662, 61)
+		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
+		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(82, 68)
+		Me.btnLimpiarFiltros.TabIndex = 38
+		Me.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnLimpiarFiltros.UseVisualStyleBackColor = False
+		'
+		'btnBuscar
+		'
+		Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
+		Me.btnBuscar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_search_48
+		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnBuscar.FlatAppearance.BorderSize = 0
+		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnBuscar.Location = New System.Drawing.Point(760, 62)
+		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnBuscar.Name = "btnBuscar"
+		Me.btnBuscar.Size = New System.Drawing.Size(74, 67)
+		Me.btnBuscar.TabIndex = 38
+		Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnBuscar.UseVisualStyleBackColor = False
 		'
 		'gboTotales
 		'
@@ -746,7 +747,12 @@ Partial Class FrmArmadoPedido
 		Me.Controls.Add(Me.btnLimpiar)
 		Me.Controls.Add(Me.btnNuevo)
 		Me.Controls.Add(Me.btnSalir)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+		Me.MaximizeBox = False
+		Me.MinimizeBox = False
 		Me.Name = "FrmArmadoPedido"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
 		Me.Text = "FrmArmadoPedido"
 		Me.gboFiltros.ResumeLayout(False)
 		Me.gboFiltros.PerformLayout()

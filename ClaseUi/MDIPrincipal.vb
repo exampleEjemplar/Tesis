@@ -162,7 +162,7 @@ Public Class MDIPrincipal
 		End If
 	End Sub
 
-	Private Sub btnCaja_Click(sender As Object, e As EventArgs) Handles btnCaja.Click
+	Private Sub btnCaja_Click(sender As Object, e As EventArgs)
 		FrmGestionCaja.ShowDialog()
 	End Sub
 
