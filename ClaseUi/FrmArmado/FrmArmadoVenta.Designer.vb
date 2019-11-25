@@ -89,7 +89,7 @@ Partial Class FrmArmadoVenta
 		Me.cboCliente.FormattingEnabled = True
 		Me.cboCliente.Items.AddRange(New Object() {"Física", "Jurídica"})
 		Me.cboCliente.Location = New System.Drawing.Point(89, 43)
-		Me.cboCliente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cboCliente.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboCliente.Name = "cboCliente"
 		Me.cboCliente.Size = New System.Drawing.Size(559, 25)
 		Me.cboCliente.TabIndex = 24
@@ -374,7 +374,7 @@ Partial Class FrmArmadoVenta
 		Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
 		Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
 		Me.btnNuevo.Location = New System.Drawing.Point(1, 172)
-		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(92, 105)
 		Me.btnNuevo.TabIndex = 35
@@ -391,7 +391,7 @@ Partial Class FrmArmadoVenta
 		Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
 		Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
 		Me.btnSalir.Location = New System.Drawing.Point(101, 172)
-		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
 		Me.btnSalir.Size = New System.Drawing.Size(92, 105)
 		Me.btnSalir.TabIndex = 34
@@ -408,7 +408,7 @@ Partial Class FrmArmadoVenta
 		Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
 		Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
 		Me.btnLimpiar.Location = New System.Drawing.Point(1, 74)
-		Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnLimpiar.Name = "btnLimpiar"
 		Me.btnLimpiar.Size = New System.Drawing.Size(92, 91)
 		Me.btnLimpiar.TabIndex = 36
@@ -425,7 +425,7 @@ Partial Class FrmArmadoVenta
 		Me.btnQuitarItem.Image = CType(resources.GetObject("btnQuitarItem.Image"), System.Drawing.Image)
 		Me.btnQuitarItem.ImageAlign = System.Drawing.ContentAlignment.TopCenter
 		Me.btnQuitarItem.Location = New System.Drawing.Point(101, 60)
-		Me.btnQuitarItem.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnQuitarItem.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnQuitarItem.Name = "btnQuitarItem"
 		Me.btnQuitarItem.Size = New System.Drawing.Size(92, 105)
 		Me.btnQuitarItem.TabIndex = 37
@@ -466,7 +466,7 @@ Partial Class FrmArmadoVenta
 		Me.btnLimpiarFiltros.Image = CType(resources.GetObject("btnLimpiarFiltros.Image"), System.Drawing.Image)
 		Me.btnLimpiarFiltros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
 		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(496, 63)
-		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
 		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(123, 42)
 		Me.btnLimpiarFiltros.TabIndex = 38
@@ -483,7 +483,7 @@ Partial Class FrmArmadoVenta
 		Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
 		Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
 		Me.btnBuscar.Location = New System.Drawing.Point(496, 17)
-		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(123, 42)
 		Me.btnBuscar.TabIndex = 38
@@ -540,7 +540,7 @@ Partial Class FrmArmadoVenta
 		Me.dtpFechaHasta.CustomFormat = "dd/MM/yyyy"
 		Me.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
 		Me.dtpFechaHasta.Location = New System.Drawing.Point(276, 144)
-		Me.dtpFechaHasta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.dtpFechaHasta.Margin = New System.Windows.Forms.Padding(4)
 		Me.dtpFechaHasta.Name = "dtpFechaHasta"
 		Me.dtpFechaHasta.Size = New System.Drawing.Size(127, 22)
 		Me.dtpFechaHasta.TabIndex = 48
@@ -551,7 +551,7 @@ Partial Class FrmArmadoVenta
 		Me.dtpFechaDesde.CustomFormat = "dd/MM/yyyy"
 		Me.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
 		Me.dtpFechaDesde.Location = New System.Drawing.Point(73, 144)
-		Me.dtpFechaDesde.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.dtpFechaDesde.Margin = New System.Windows.Forms.Padding(4)
 		Me.dtpFechaDesde.Name = "dtpFechaDesde"
 		Me.dtpFechaDesde.Size = New System.Drawing.Size(132, 22)
 		Me.dtpFechaDesde.TabIndex = 47
@@ -595,7 +595,7 @@ Partial Class FrmArmadoVenta
 		Me.cboBusProveedor.FormattingEnabled = True
 		Me.cboBusProveedor.Items.AddRange(New Object() {"Física", "Jurídica"})
 		Me.cboBusProveedor.Location = New System.Drawing.Point(103, 27)
-		Me.cboBusProveedor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cboBusProveedor.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboBusProveedor.Name = "cboBusProveedor"
 		Me.cboBusProveedor.Size = New System.Drawing.Size(372, 25)
 		Me.cboBusProveedor.TabIndex = 38
@@ -680,7 +680,7 @@ Partial Class FrmArmadoVenta
 		Me.btnAgregarProducto.Image = CType(resources.GetObject("btnAgregarProducto.Image"), System.Drawing.Image)
 		Me.btnAgregarProducto.ImageAlign = System.Drawing.ContentAlignment.TopCenter
 		Me.btnAgregarProducto.Location = New System.Drawing.Point(651, 348)
-		Me.btnAgregarProducto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnAgregarProducto.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnAgregarProducto.Name = "btnAgregarProducto"
 		Me.btnAgregarProducto.Size = New System.Drawing.Size(92, 80)
 		Me.btnAgregarProducto.TabIndex = 38
@@ -696,7 +696,7 @@ Partial Class FrmArmadoVenta
 		Me.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnAgregarCliente.Image = CType(resources.GetObject("btnAgregarCliente.Image"), System.Drawing.Image)
 		Me.btnAgregarCliente.Location = New System.Drawing.Point(659, 31)
-		Me.btnAgregarCliente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnAgregarCliente.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnAgregarCliente.Name = "btnAgregarCliente"
 		Me.btnAgregarCliente.Size = New System.Drawing.Size(53, 49)
 		Me.btnAgregarCliente.TabIndex = 39
@@ -722,11 +722,14 @@ Partial Class FrmArmadoVenta
 		Me.Controls.Add(Me.GroupBox2)
 		Me.Controls.Add(Me.GroupBox1)
 		Me.Controls.Add(Me.Label1)
-		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+		Me.MaximizeBox = False
+		Me.MinimizeBox = False
 		Me.Name = "FrmArmadoVenta"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-		Me.Text = "FrmArmadoVenta"
+		Me.Text = "Armado de comprobante de venta"
 		Me.GroupBox1.ResumeLayout(False)
 		Me.GroupBox1.PerformLayout()
 		Me.GroupBox2.ResumeLayout(False)
