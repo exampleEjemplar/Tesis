@@ -1,13 +1,14 @@
-﻿Imports ClaseLn
+﻿Imports System.Windows.Forms
+Imports ClaseLn
 Imports ClaseNe
 Imports Microsoft.Reporting.WinForms
 
 Public Class FrmComprobanteVenta
 
-    Private helpersLN As New HelpersLN
-    Private helpersUI As New HelpersUI
-    Private VentasLN As New VentasLN
-    Public ListaVentas As New List(Of TipoDeVentasNE)
+	Private helpersLN As New HelpersLN
+	Private helpersUI As New HelpersUI
+	Private VentasLN As New VentasLN
+	Public ListaVentas As New List(Of TipoDeVentasNE)
 
 
 #Region "Eventos"
@@ -67,9 +68,9 @@ Public Class FrmComprobanteVenta
 		Me.Close()
 	End Sub
 
-    Private Sub ComprobanteVentasNEBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles ComprobanteVentasNEBindingSource.CurrentChanged
+	Private Sub ComprobanteVentasNEBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles ComprobanteVentasNEBindingSource.CurrentChanged
 
-    End Sub
+	End Sub
 
 #End Region
 	Private Const CP_NOCLOSE_BUTTON As Integer = &H200
