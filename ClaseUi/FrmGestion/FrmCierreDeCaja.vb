@@ -126,16 +126,34 @@ Public Class FrmCierreDeCaja
 	End Sub
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-		If MessageBox.Show("¿Desea Realizar Cierre de Caja?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-			cajaLN.grabarCierredeCaja(loginLN.ChequearEnSesion(), txtMontoFinal)
-            InformeCierredeCaja.ShowDialog()
-            cajaLN.updateCierre(loginLN.ChequearEnSesion())
-            Me.Close()
+
+        Dim cierre = cajaLN.ControlCierreCaja.Tables(0)
+        If cierre.Rows.Count > 0 Then
+
+            If MessageBox.Show("¿Desea Realizar Cierre de Caja?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+                cajaLN.grabarCierredeCaja(loginLN.ChequearEnSesion(), txtMontoFinal)
+                InformeCierredeCaja.ShowDialog()
+                cajaLN.updateCierre(loginLN.ChequearEnSesion())
+                Me.Close()
+
+            Else
+
+                Return
 
 
+
+            End If
         Else
-			Return
-		End If
+            MsgBox("No se registran movimientos de Caja por cerrar", MsgBoxStyle.OkOnly, "Cierre de Caja")
+        End If
+
+
+
+
+
+
+
+
 
     End Sub
 
