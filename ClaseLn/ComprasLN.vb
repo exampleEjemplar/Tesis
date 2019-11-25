@@ -9,6 +9,10 @@ Public Class ComprasLN
 		ComprasDA = New ComprasDA
 	End Sub
 
+	Public Function ChequearSiExisteNumeroComprobante(proveedorId As Integer, nroComprobante As String) As Boolean
+		Return ComprasDA.ChequearSiExisteNumeroComprobante(proveedorId, nroComprobante)
+	End Function
+
 	Public Function ObtenerUnaCompra(id As Integer)
 		Return ComprasDA.ObtenerUnaCompra(id)
 	End Function

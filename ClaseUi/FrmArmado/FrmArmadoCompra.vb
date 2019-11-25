@@ -38,6 +38,7 @@ Public Class FrmArmadoCompra
 	End Sub
 
 	Private Sub Cargar()
+		txtNroComprobante.Text = ""
 		lstProdDispo.Clear()
 		total = 0.00
 		lblTotal.Text = total.ToString("0.00")
@@ -155,6 +156,13 @@ Public Class FrmArmadoCompra
 			listaDeCompras.Add(compra)
 			FrmComprobanteCompra.ListaCompras.Add(compra)
 		Next
+
+		If Not String.IsNullOrEmpty(txtNroComprobante.Text) Then
+			If comprasLn.ChequearSiExisteNumeroComprobante(cboProveedor.SelectedValue, txtNroComprobante.Text) Then
+				MsgBox("El proveedor ya cuenta con ese número de comprobante cargado", MsgBoxStyle.OkOnly, "Error")
+				Return
+			End If
+		End If
 
 		'Registramos la compra y sus respectivos detalles
 

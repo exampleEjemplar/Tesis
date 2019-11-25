@@ -31,6 +31,25 @@ Public Class ComprasDA
 		Return ds1
 	End Function
 
+	Function ChequearSiExisteNumeroComprobante(proveedorId As Integer, nroComprobante As String) As Boolean
+		helpersDa.ChequearConexion(db)
+		Dim sqlStr As String
+		sqlStr = "SELECT * FROM Compras WHERE nrocomprobante = '" + nroComprobante + "' and proveedorId = " + proveedorId.ToString()
+		ds1 = New DataSet
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+			db.Close()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+		End Try
+		If ds1.Tables(0).Rows.Count > 0 Then
+			Return True
+		Else
+			Return False
+		End If
+	End Function
+
 
 	Public Function CargarGrillaCompras(ByVal parametros As Dictionary(Of String, String)) As DataSet
 		helpersDa.ChequearConexion(db)

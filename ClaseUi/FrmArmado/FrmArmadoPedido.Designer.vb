@@ -753,7 +753,7 @@ Partial Class FrmArmadoPedido
 		Me.MinimizeBox = False
 		Me.Name = "FrmArmadoPedido"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-		Me.Text = "FrmArmadoPedido"
+		Me.Text = "Armado de pedido"
 		Me.gboFiltros.ResumeLayout(False)
 		Me.gboFiltros.PerformLayout()
 		Me.gboTotales.ResumeLayout(False)
