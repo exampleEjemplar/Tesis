@@ -133,6 +133,7 @@ Partial Class FrmArmadoVenta
 		Me.GroupBox1.TabIndex = 27
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "Cliente"
+		Me.GroupBox1.Visible = False
 		'
 		'Label10
 		'

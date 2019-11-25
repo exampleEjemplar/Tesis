@@ -22,6 +22,7 @@ Partial Class FrmArmadoReparacion
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmArmadoReparacion))
 		Me.btnAgregarProducto = New System.Windows.Forms.Button()
 		Me.btnQuitarItem = New System.Windows.Forms.Button()
 		Me.btnLimpiar = New System.Windows.Forms.Button()
@@ -58,13 +59,13 @@ Partial Class FrmArmadoReparacion
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.gboFiltros = New System.Windows.Forms.GroupBox()
+		Me.chkSoloCliente = New System.Windows.Forms.CheckBox()
 		Me.btnLimpiarFiltros = New System.Windows.Forms.Button()
 		Me.btnBuscar = New System.Windows.Forms.Button()
 		Me.txtBusNombreProducto = New System.Windows.Forms.TextBox()
 		Me.Label8 = New System.Windows.Forms.Label()
 		Me.txtDevolucion = New System.Windows.Forms.TextBox()
 		Me.Label15 = New System.Windows.Forms.Label()
-		Me.chkSoloCliente = New System.Windows.Forms.CheckBox()
 		Me.gboTotales.SuspendLayout()
 		Me.GroupBox5.SuspendLayout()
 		Me.GroupBox4.SuspendLayout()
@@ -524,6 +525,16 @@ Partial Class FrmArmadoReparacion
 		Me.gboFiltros.TabStop = False
 		Me.gboFiltros.Text = "Filtros"
 		'
+		'chkSoloCliente
+		'
+		Me.chkSoloCliente.AutoSize = True
+		Me.chkSoloCliente.Location = New System.Drawing.Point(11, 55)
+		Me.chkSoloCliente.Name = "chkSoloCliente"
+		Me.chkSoloCliente.Size = New System.Drawing.Size(257, 21)
+		Me.chkSoloCliente.TabIndex = 42
+		Me.chkSoloCliente.Text = "Solo productos traidos por el cliente"
+		Me.chkSoloCliente.UseVisualStyleBackColor = True
+		'
 		'btnLimpiarFiltros
 		'
 		Me.btnLimpiarFiltros.BackColor = System.Drawing.SystemColors.Control
@@ -592,16 +603,6 @@ Partial Class FrmArmadoReparacion
 		Me.Label15.TabIndex = 53
 		Me.Label15.Text = "Días para la devolución del producto"
 		'
-		'chkSoloCliente
-		'
-		Me.chkSoloCliente.AutoSize = True
-		Me.chkSoloCliente.Location = New System.Drawing.Point(11, 55)
-		Me.chkSoloCliente.Name = "chkSoloCliente"
-		Me.chkSoloCliente.Size = New System.Drawing.Size(257, 21)
-		Me.chkSoloCliente.TabIndex = 42
-		Me.chkSoloCliente.Text = "Solo productos traidos por el cliente"
-		Me.chkSoloCliente.UseVisualStyleBackColor = True
-		'
 		'FrmArmadoReparacion
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -623,8 +624,13 @@ Partial Class FrmArmadoReparacion
 		Me.Controls.Add(Me.GroupBox1)
 		Me.Controls.Add(Me.Label1)
 		Me.Controls.Add(Me.btnAgregarProducto)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+		Me.MaximizeBox = False
+		Me.MinimizeBox = False
 		Me.Name = "FrmArmadoReparacion"
-		Me.Text = "FrmArmadoReparacion"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+		Me.Text = "Armado de reparación"
 		Me.gboTotales.ResumeLayout(False)
 		Me.gboTotales.PerformLayout()
 		Me.GroupBox5.ResumeLayout(False)

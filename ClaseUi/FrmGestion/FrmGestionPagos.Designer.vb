@@ -24,6 +24,7 @@ Partial Class FrmGestionPagos
 	Private Sub InitializeComponent()
 		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionPagos))
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
 		Me.lbldesde = New System.Windows.Forms.Label()
 		Me.lblHasta = New System.Windows.Forms.Label()
@@ -272,8 +273,12 @@ Partial Class FrmGestionPagos
 		Me.Controls.Add(Me.Label1)
 		Me.Controls.Add(Me.btnNuevo)
 		Me.Controls.Add(Me.btnSalir)
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+		Me.MaximizeBox = False
+		Me.MinimizeBox = False
 		Me.Name = "FrmGestionPagos"
-		Me.Text = "FrmGestionPagos"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+		Me.Text = "Gestion de pagos"
 		Me.GroupBox5.ResumeLayout(False)
 		Me.GroupBox5.PerformLayout()
 		CType(Me.dgvProveedores, System.ComponentModel.ISupportInitialize).EndInit()

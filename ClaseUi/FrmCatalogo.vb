@@ -168,8 +168,9 @@ Public Class FrmCatalogo
         busqprod = ""
         busqcod = ""
 
-        LlenarCMBCategoria()
-        DgvclientesSet(parametros)
+		LlenarCMBCategoria()
+		parametros.Add("EsParaReparacion", "N")
+		DgvclientesSet(parametros)
 
         tbBuscod.Enabled = False
         tbBusnombre.Enabled = False
@@ -324,11 +325,21 @@ Public Class FrmCatalogo
         End If
     End Sub
 
-    Private Sub tbBusnombre_TextChanged(sender As Object, e As EventArgs) Handles tbBusnombre.TextChanged
-        busqcod = tbBuscod.Text
-        busqprod = tbBusnombre.Text
-        categoria = CmbCategoria.SelectedValue
-        DataGridView1.Columns.Clear()
-        DgvproductosconbusquedaProducto()
-    End Sub
+	Private Sub tbBusnombre_TextChanged(sender As Object, e As EventArgs) Handles tbBusnombre.TextChanged
+		busqcod = tbBuscod.Text
+		busqprod = tbBusnombre.Text
+		categoria = CmbCategoria.SelectedValue
+		DataGridView1.Columns.Clear()
+		DgvproductosconbusquedaProducto()
+	End Sub
+
+
+	Private Const CP_NOCLOSE_BUTTON As Integer = &H200
+	Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
+		Get
+			Dim myCp As CreateParams = MyBase.CreateParams
+			myCp.ClassStyle = myCp.ClassStyle Or CP_NOCLOSE_BUTTON
+			Return myCp
+		End Get
+	End Property
 End Class

@@ -22,6 +22,7 @@ Partial Class FrmGestionServicio
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionServicio))
 		Me.TbPrecio = New System.Windows.Forms.TextBox()
 		Me.Label20 = New System.Windows.Forms.Label()
 		Me.cmbProveedor = New System.Windows.Forms.ComboBox()
@@ -35,6 +36,8 @@ Partial Class FrmGestionServicio
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.Button2 = New System.Windows.Forms.Button()
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+		Me.TextBox1 = New System.Windows.Forms.TextBox()
+		Me.Label1 = New System.Windows.Forms.Label()
 		Me.lbldesde = New System.Windows.Forms.Label()
 		Me.lblHasta = New System.Windows.Forms.Label()
 		Me.rbtFechaExacta = New System.Windows.Forms.CheckBox()
@@ -45,8 +48,6 @@ Partial Class FrmGestionServicio
 		Me.cboProveedor = New System.Windows.Forms.ComboBox()
 		Me.Label17 = New System.Windows.Forms.Label()
 		Me.lblFechaExacta = New System.Windows.Forms.Label()
-		Me.Label1 = New System.Windows.Forms.Label()
-		Me.TextBox1 = New System.Windows.Forms.TextBox()
 		Me.gboServicio.SuspendLayout()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox5.SuspendLayout()
@@ -240,6 +241,25 @@ Partial Class FrmGestionServicio
 		Me.GroupBox5.TabStop = False
 		Me.GroupBox5.Text = "Búsqueda"
 		'
+		'TextBox1
+		'
+		Me.TextBox1.Location = New System.Drawing.Point(152, 141)
+		Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
+		Me.TextBox1.Name = "TextBox1"
+		Me.TextBox1.Size = New System.Drawing.Size(367, 23)
+		Me.TextBox1.TabIndex = 61
+		'
+		'Label1
+		'
+		Me.Label1.AutoSize = True
+		Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label1.Location = New System.Drawing.Point(11, 144)
+		Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label1.Name = "Label1"
+		Me.Label1.Size = New System.Drawing.Size(127, 17)
+		Me.Label1.TabIndex = 42
+		Me.Label1.Text = "Nombre Servicio"
+		'
 		'lbldesde
 		'
 		Me.lbldesde.AutoSize = True
@@ -354,25 +374,6 @@ Partial Class FrmGestionServicio
 		Me.lblFechaExacta.TabIndex = 21
 		Me.lblFechaExacta.Text = "Fecha comprobante"
 		'
-		'Label1
-		'
-		Me.Label1.AutoSize = True
-		Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label1.Location = New System.Drawing.Point(11, 144)
-		Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label1.Name = "Label1"
-		Me.Label1.Size = New System.Drawing.Size(127, 17)
-		Me.Label1.TabIndex = 42
-		Me.Label1.Text = "Nombre Servicio"
-		'
-		'TextBox1
-		'
-		Me.TextBox1.Location = New System.Drawing.Point(152, 141)
-		Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
-		Me.TextBox1.Name = "TextBox1"
-		Me.TextBox1.Size = New System.Drawing.Size(367, 23)
-		Me.TextBox1.TabIndex = 61
-		'
 		'FrmGestionServicio
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -384,7 +385,12 @@ Partial Class FrmGestionServicio
 		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.DataGridView1)
 		Me.Controls.Add(Me.gboServicio)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+		Me.MaximizeBox = False
+		Me.MinimizeBox = False
 		Me.Name = "FrmGestionServicio"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
 		Me.Text = "FrmGestionServicio"
 		Me.gboServicio.ResumeLayout(False)
 		Me.gboServicio.PerformLayout()

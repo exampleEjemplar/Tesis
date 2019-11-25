@@ -22,6 +22,7 @@ Partial Class FrmGestionProductoAReparar
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionProductoAReparar))
 		Me.dgvProducto = New System.Windows.Forms.DataGridView()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
 		Me.tbPrecio = New System.Windows.Forms.TextBox()
@@ -470,8 +471,13 @@ Partial Class FrmGestionProductoAReparar
 		Me.Controls.Add(Me.GroupBox2)
 		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.btnGuardar)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+		Me.MaximizeBox = False
+		Me.MinimizeBox = False
 		Me.Name = "FrmGestionProductoAReparar"
-		Me.Text = "FrmGestionProductoAReparar"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+		Me.Text = "Gestion de producto a reparar"
 		CType(Me.dgvProducto, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox2.ResumeLayout(False)
 		Me.GroupBox2.PerformLayout()

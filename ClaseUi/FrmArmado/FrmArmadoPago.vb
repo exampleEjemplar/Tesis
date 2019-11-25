@@ -29,12 +29,12 @@ Public Class FrmArmadoPago
 	End Sub
 
 	'Te lleva al frm de gestion de producto.
-	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnNuevoServicio.Click
 		FrmGestionServicio.ShowDialog()
 	End Sub
 
 	'Te lleva al frm de gestion de proveedores.
-	Private Sub BtnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnAgregarProveedor.Click
+	Private Sub BtnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnNuevoProveedor.Click
 		FrmGestionProveedores.ShowDialog()
 	End Sub
 
@@ -47,7 +47,7 @@ Public Class FrmArmadoPago
 		gboFiltros.Enabled = False
 		dtpFechaHasta.Visible = False
 		dtpFechaDesde.Visible = False
-		lblFechaExacta.Visible = False
+		'lblFechaExacta.Visible = False
 		lblHasta.Visible = False
 		lbldesde.Visible = False
 		btnLimpiar.Enabled = False
@@ -157,25 +157,25 @@ Public Class FrmArmadoPago
 	Private Sub RbtEntreFechas_CheckedChanged(sender As Object, e As EventArgs) Handles rbtEntreFechas.CheckedChanged, rbtFechaExacta.CheckedChanged
 
 		If rbtFechaExacta.Checked Then
-			lblFechaExacta.Visible = True
-			lbldesde.Visible = False
+			'lblFechaExacta.Visible = True
+			lblDesde.Visible = True
 			rbtEntreFechas.Checked = False
 			lblHasta.Visible = False
 			dtpFechaHasta.Visible = False
 			dtpFechaDesde.Visible = True
 		ElseIf rbtEntreFechas.Checked Then
-			lblFechaExacta.Visible = False
+			'lblFechaExacta.Visible = False
 			rbtFechaExacta.Checked = False
 			lblHasta.Visible = True
 			dtpFechaHasta.Visible = True
 			dtpFechaDesde.Visible = True
-			lbldesde.Visible = True
+			lblDesde.Visible = True
 		ElseIf Not rbtEntreFechas.Checked And Not rbtFechaExacta.Checked Then
 			dtpFechaHasta.Visible = False
 			dtpFechaDesde.Visible = False
-			lblFechaExacta.Visible = False
+			'lblFechaExacta.Visible = False
 			lblHasta.Visible = False
-			lbldesde.Visible = False
+			lblDesde.Visible = False
 		End If
 
 	End Sub
@@ -189,7 +189,10 @@ Public Class FrmArmadoPago
 		txtBusNombreProducto.Text = ""
 		dtpFechaDesde.Value = Date.Now
 		dtpFechaHasta.Value = Date.Now
-		Search()
+		If lstProdDispo.Items.Count = 0 And ListView1.Items.Count = 0 Then
+			CargarProductosConProveedor()
+		End If
+		'Search()
 	End Sub
 
 	Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
@@ -359,6 +362,37 @@ Public Class FrmArmadoPago
 	End Sub
 
 	Private Sub cboProveedor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboProveedor.SelectionChangeCommitted
+		lblInstrucciones.Visible = False
+		Dim ds As DataSet = proveedoresLN.ConsultaModificacion(cboProveedor.SelectedValue)
+		GroupBox1.Visible = True
+		'Datos lbl arriba izquierda
+		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+			lblNombre.Text = ds.Tables(0).Rows(i)(3).ToString() + " " + ds.Tables(0).Rows(i)(4).ToString()
+
+			Dim piso As String = If(ds.Tables(0).Rows(i)(14).ToString() <> "" Or ds.Tables(0).Rows(i)(14).ToString() <> Nothing, "Piso " + ds.Tables(0).Rows(i)(14).ToString() + " ", "")
+			Dim dpto As String = If(ds.Tables(0).Rows(i)(15).ToString() <> "" Or ds.Tables(0).Rows(i)(15).ToString() <> Nothing, "Dpto " + ds.Tables(0).Rows(i)(15).ToString() + " ", "")
+			Dim mzan As String = If(ds.Tables(0).Rows(i)(16).ToString() <> "" Or ds.Tables(0).Rows(i)(16).ToString() <> Nothing, "Manzana " + ds.Tables(0).Rows(i)(16).ToString() + " ", "")
+			Dim lote As String = If(ds.Tables(0).Rows(i)(17).ToString() <> "" Or ds.Tables(0).Rows(i)(17).ToString() <> Nothing, "Lote " + ds.Tables(0).Rows(i)(17).ToString() + " ", "")
+			Dim barrio As String = If(ds.Tables(0).Rows(i)(18).ToString() <> "" Or ds.Tables(0).Rows(i)(18).ToString() <> Nothing, "B° " + ds.Tables(0).Rows(i)(18).ToString() + " ", "")
+
+			'Obtengo la localidad y le seteo el valor
+			Dim ds1 As DataSet = helpersLN.CargarCMBLocalidadesUnico(ds.Tables(0).Rows(i)(8).ToString())
+			Dim localidad As String = ds1.Tables(0).Rows(0)(1).ToString()
+			Dim direccionSinLocalidad = ds.Tables(0).Rows(i)(6).ToString() + " " + ds.Tables(0).Rows(i)(7).ToString() + piso + dpto + mzan + lote + barrio
+
+			lblClienteDireccion.Text = If(direccionSinLocalidad <> " ", direccionSinLocalidad + ", " + localidad, localidad)
+			lblClienteDNI.Text = ds.Tables(0).Rows(i)(1).ToString() + "  " + ds.Tables(0).Rows(i)(2).ToString()
+
+			If Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(9).ToString()) And Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(14).ToString()) Then
+				lblClienteTelefono.Text = ds.Tables(0).Rows(i)(9).ToString() + ds.Tables(0).Rows(i)(10).ToString()
+			ElseIf Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(11).ToString()) And Not String.IsNullOrEmpty(ds.Tables(0).Rows(i)(14).ToString()) Then
+				lblClienteTelefono.Text = ds.Tables(0).Rows(i)(11).ToString() + ds.Tables(0).Rows(i)(12).ToString()
+			Else
+				lblClienteTelefono.Text = "-"
+			End If
+
+
+		Next
 		CargarProductosConProveedor()
 	End Sub
 
@@ -372,4 +406,12 @@ Public Class FrmArmadoPago
 
 #End Region
 
+	Private Const CP_NOCLOSE_BUTTON As Integer = &H200
+	Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
+		Get
+			Dim myCp As CreateParams = MyBase.CreateParams
+			myCp.ClassStyle = myCp.ClassStyle Or CP_NOCLOSE_BUTTON
+			Return myCp
+		End Get
+	End Property
 End Class
