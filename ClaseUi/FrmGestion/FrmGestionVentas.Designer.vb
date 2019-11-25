@@ -22,9 +22,9 @@ Partial Class FrmGestionVentas
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionVentas))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionVentas))
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.lbldesde = New System.Windows.Forms.Label()
         Me.lblHasta = New System.Windows.Forms.Label()
@@ -59,9 +59,9 @@ Partial Class FrmGestionVentas
         Me.GroupBox5.Controls.Add(Me.Label17)
         Me.GroupBox5.Controls.Add(Me.lblFechaExacta)
         Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox5.Location = New System.Drawing.Point(10, 50)
+        Me.GroupBox5.Location = New System.Drawing.Point(12, 30)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(527, 108)
+        Me.GroupBox5.Size = New System.Drawing.Size(509, 123)
         Me.GroupBox5.TabIndex = 34
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Búsqueda"
@@ -70,7 +70,7 @@ Partial Class FrmGestionVentas
         '
         Me.lbldesde.AutoSize = True
         Me.lbldesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbldesde.Location = New System.Drawing.Point(82, 83)
+        Me.lbldesde.Location = New System.Drawing.Point(7, 96)
         Me.lbldesde.Name = "lbldesde"
         Me.lbldesde.Size = New System.Drawing.Size(43, 13)
         Me.lbldesde.TabIndex = 41
@@ -80,7 +80,7 @@ Partial Class FrmGestionVentas
         '
         Me.lblHasta.AutoSize = True
         Me.lblHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHasta.Location = New System.Drawing.Point(260, 80)
+        Me.lblHasta.Location = New System.Drawing.Point(173, 96)
         Me.lblHasta.Name = "lblHasta"
         Me.lblHasta.Size = New System.Drawing.Size(40, 13)
         Me.lblHasta.TabIndex = 40
@@ -89,7 +89,7 @@ Partial Class FrmGestionVentas
         'rbtFechaExacta
         '
         Me.rbtFechaExacta.AutoSize = True
-        Me.rbtFechaExacta.Location = New System.Drawing.Point(10, 50)
+        Me.rbtFechaExacta.Location = New System.Drawing.Point(10, 45)
         Me.rbtFechaExacta.Margin = New System.Windows.Forms.Padding(2)
         Me.rbtFechaExacta.Name = "rbtFechaExacta"
         Me.rbtFechaExacta.Size = New System.Drawing.Size(160, 17)
@@ -100,7 +100,7 @@ Partial Class FrmGestionVentas
         'rbtEntreFechas
         '
         Me.rbtEntreFechas.AutoSize = True
-        Me.rbtEntreFechas.Location = New System.Drawing.Point(230, 50)
+        Me.rbtEntreFechas.Location = New System.Drawing.Point(174, 45)
         Me.rbtEntreFechas.Margin = New System.Windows.Forms.Padding(2)
         Me.rbtEntreFechas.Name = "rbtEntreFechas"
         Me.rbtEntreFechas.Size = New System.Drawing.Size(157, 17)
@@ -110,19 +110,21 @@ Partial Class FrmGestionVentas
         '
         'dtpFechaHasta
         '
-        Me.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaHasta.Location = New System.Drawing.Point(303, 80)
+        Me.dtpFechaHasta.CustomFormat = "dd/MM/yyyy"
+        Me.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFechaHasta.Location = New System.Drawing.Point(219, 93)
         Me.dtpFechaHasta.Name = "dtpFechaHasta"
-        Me.dtpFechaHasta.Size = New System.Drawing.Size(114, 20)
+        Me.dtpFechaHasta.Size = New System.Drawing.Size(111, 20)
         Me.dtpFechaHasta.TabIndex = 37
         Me.dtpFechaHasta.Value = New Date(2019, 7, 23, 0, 1, 0, 0)
         '
         'dtpFechaDesde
         '
-        Me.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaDesde.Location = New System.Drawing.Point(129, 79)
+        Me.dtpFechaDesde.CustomFormat = "dd/MM/yyyy"
+        Me.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFechaDesde.Location = New System.Drawing.Point(56, 93)
         Me.dtpFechaDesde.Name = "dtpFechaDesde"
-        Me.dtpFechaDesde.Size = New System.Drawing.Size(114, 20)
+        Me.dtpFechaDesde.Size = New System.Drawing.Size(111, 20)
         Me.dtpFechaDesde.TabIndex = 22
         Me.dtpFechaDesde.Value = New Date(2019, 7, 23, 0, 0, 0, 0)
         Me.dtpFechaDesde.Visible = False
@@ -130,13 +132,14 @@ Partial Class FrmGestionVentas
         'btnBuscar
         '
         Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
-        Me.btnBuscar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.loupe_78956__1_
         Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnBuscar.FlatAppearance.BorderSize = 0
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Location = New System.Drawing.Point(422, 12)
+        Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
+        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnBuscar.Location = New System.Drawing.Point(424, 24)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(103, 89)
+        Me.btnBuscar.Size = New System.Drawing.Size(69, 81)
         Me.btnBuscar.TabIndex = 5
         Me.btnBuscar.Text = "Buscar"
         Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -149,7 +152,7 @@ Partial Class FrmGestionVentas
         Me.cboCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCliente.FormattingEnabled = True
         Me.cboCliente.Items.AddRange(New Object() {"Física", "Jurídica"})
-        Me.cboCliente.Location = New System.Drawing.Point(58, 17)
+        Me.cboCliente.Location = New System.Drawing.Point(59, 17)
         Me.cboCliente.Name = "cboCliente"
         Me.cboCliente.Size = New System.Drawing.Size(276, 21)
         Me.cboCliente.TabIndex = 0
@@ -158,7 +161,7 @@ Partial Class FrmGestionVentas
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(8, 24)
+        Me.Label17.Location = New System.Drawing.Point(7, 20)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(46, 13)
         Me.Label17.TabIndex = 21
@@ -168,11 +171,11 @@ Partial Class FrmGestionVentas
         '
         Me.lblFechaExacta.AutoSize = True
         Me.lblFechaExacta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaExacta.Location = New System.Drawing.Point(8, 83)
+        Me.lblFechaExacta.Location = New System.Drawing.Point(7, 77)
         Me.lblFechaExacta.Name = "lblFechaExacta"
-        Me.lblFechaExacta.Size = New System.Drawing.Size(119, 13)
+        Me.lblFechaExacta.Size = New System.Drawing.Size(138, 13)
         Me.lblFechaExacta.TabIndex = 21
-        Me.lblFechaExacta.Text = "Fecha comprobante"
+        Me.lblFechaExacta.Text = "Fecha de Comprobante"
         '
         'Label1
         '
@@ -210,7 +213,7 @@ Partial Class FrmGestionVentas
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvProveedores.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgvProveedores.EnableHeadersVisualStyles = False
-        Me.dgvProveedores.Location = New System.Drawing.Point(14, 165)
+        Me.dgvProveedores.Location = New System.Drawing.Point(12, 179)
         Me.dgvProveedores.MultiSelect = False
         Me.dgvProveedores.Name = "dgvProveedores"
         Me.dgvProveedores.ReadOnly = True
@@ -220,34 +223,36 @@ Partial Class FrmGestionVentas
         Me.dgvProveedores.RowHeadersWidth = 56
         Me.dgvProveedores.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvProveedores.Size = New System.Drawing.Size(412, 372)
+        Me.dgvProveedores.Size = New System.Drawing.Size(412, 348)
         Me.dgvProveedores.TabIndex = 45
         '
         'btnNuevo
         '
         Me.btnNuevo.BackColor = System.Drawing.SystemColors.Control
-        Me.btnNuevo.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnNuevo.FlatAppearance.BorderSize = 0
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevo.Location = New System.Drawing.Point(450, 165)
+        Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
+        Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnNuevo.Location = New System.Drawing.Point(436, 179)
         Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(87, 92)
+        Me.btnNuevo.Size = New System.Drawing.Size(69, 81)
         Me.btnNuevo.TabIndex = 33
-        Me.btnNuevo.Text = "Nueva Venta"
+        Me.btnNuevo.Text = "Nueva"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNuevo.UseVisualStyleBackColor = False
         '
         'btnSalir
         '
         Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
-        Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
         Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalir.Location = New System.Drawing.Point(450, 447)
+        Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSalir.Location = New System.Drawing.Point(436, 440)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(87, 90)
+        Me.btnSalir.Size = New System.Drawing.Size(69, 81)
         Me.btnSalir.TabIndex = 32
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -256,13 +261,14 @@ Partial Class FrmGestionVentas
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.SystemColors.Control
-        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(450, 352)
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button2.Location = New System.Drawing.Point(436, 353)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(80, 89)
+        Me.Button2.Size = New System.Drawing.Size(69, 81)
         Me.Button2.TabIndex = 46
         Me.Button2.Text = "Estadíticas"
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -271,13 +277,14 @@ Partial Class FrmGestionVentas
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.Control
-        Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_checklist_62
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(450, 257)
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(436, 266)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(80, 89)
+        Me.Button1.Size = New System.Drawing.Size(69, 81)
         Me.Button1.TabIndex = 47
         Me.Button1.Text = "Listar"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -287,7 +294,7 @@ Partial Class FrmGestionVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(545, 549)
+        Me.ClientSize = New System.Drawing.Size(530, 539)
         Me.ControlBox = False
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button2)
