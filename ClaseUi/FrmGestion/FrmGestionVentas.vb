@@ -11,6 +11,8 @@ Public Class FrmGestionVentas
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		LlenarCboClientes()
 		Busqueda("load")
+		dtpFechaHasta.Value = Date.Now
+		dtpFechaDesde.Value = Date.Now
 		dtpFechaHasta.Visible = False
 		dtpFechaDesde.Visible = False
 		lblFechaExacta.Visible = False

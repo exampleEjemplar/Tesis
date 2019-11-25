@@ -28,6 +28,8 @@ Public Class FrmArmadoVenta
 	End Sub
 
 	Private Sub Cargar()
+		dtpFechaDesde.Value = Date.Now
+		dtpFechaHasta.Value = Date.Now
 		lstProdDispo.Clear()
 		total = 0.00
 		lblTotal.Text = total.ToString("0.00")

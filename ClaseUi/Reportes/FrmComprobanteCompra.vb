@@ -1,4 +1,5 @@
-﻿Imports ClaseLn
+﻿Imports System.Windows.Forms
+Imports ClaseLn
 Imports ClaseNe
 Imports Microsoft.Reporting.WinForms
 

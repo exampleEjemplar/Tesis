@@ -13,6 +13,8 @@ Public Class FrmGestionCompras
 		Busqueda("load")
 		dtpFechaHasta.Visible = False
 		dtpFechaDesde.Visible = False
+		dtpFechaHasta.Value = Date.Now
+		dtpFechaDesde.Value = Date.Now
 		lblFechaExacta.Visible = False
 		lblHasta.Visible = False
 		lbldesde.Visible = False
