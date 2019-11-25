@@ -36,15 +36,15 @@ Public Class LogIn
 				Else
 
 					MessageBox.Show("Contraseña Inválida", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-					Me.ShowDialog()
-				End If
+                    'Me.ShowDialog()
+                End If
 			Else
 
 
 				MessageBox.Show("El usuario no se encuentra registrado", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-				Me.ShowDialog()
+                'Me.ShowDialog()
 
-			End If
+            End If
 		Catch ex As Exception
 			MsgBox(ex.ToString)
 		End Try

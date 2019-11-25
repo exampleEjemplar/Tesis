@@ -711,9 +711,10 @@ Public Class FrmGestionProducto
 		btnmodificar.Enabled = False
 		Dgvproductosset()
 		modificado = True
-	End Sub
+        MsgBox("Producto Modificado", MsgBoxStyle.OkOnly, "Producto")
+    End Sub
 
-	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnNuevaCategoria.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnNuevaCategoria.Click
 		FrmGestionCategorías.ShowDialog()
 	End Sub
 

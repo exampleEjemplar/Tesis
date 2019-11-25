@@ -661,7 +661,7 @@ Partial Class FrmGestionCliente
         '
         'txtBarrio
         '
-        Me.txtBarrio.Location = New System.Drawing.Point(353, 50)
+        Me.txtBarrio.Location = New System.Drawing.Point(363, 50)
         Me.txtBarrio.MaxLength = 50
         Me.txtBarrio.Name = "txtBarrio"
         Me.txtBarrio.Size = New System.Drawing.Size(295, 20)
@@ -712,7 +712,7 @@ Partial Class FrmGestionCliente
         '
         'txtLote
         '
-        Me.txtLote.Location = New System.Drawing.Point(584, 19)
+        Me.txtLote.Location = New System.Drawing.Point(594, 19)
         Me.txtLote.MaxLength = 3
         Me.txtLote.Name = "txtLote"
         Me.txtLote.Size = New System.Drawing.Size(64, 20)
@@ -723,25 +723,25 @@ Partial Class FrmGestionCliente
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(335, 84)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(62, 13)
+        Me.Label8.Size = New System.Drawing.Size(71, 13)
         Me.Label8.TabIndex = 13
-        Me.Label8.Text = "Localidad"
+        Me.Label8.Text = "Localidad *"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(15, 84)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(64, 13)
+        Me.Label7.Size = New System.Drawing.Size(69, 13)
         Me.Label7.TabIndex = 12
-        Me.Label7.Text = "Provincia "
+        Me.Label7.Text = "Provincia *"
         '
         'cmbLocalidades
         '
         Me.cmbLocalidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbLocalidades.FormattingEnabled = True
         Me.cmbLocalidades.ItemHeight = 13
-        Me.cmbLocalidades.Location = New System.Drawing.Point(403, 81)
+        Me.cmbLocalidades.Location = New System.Drawing.Point(413, 81)
         Me.cmbLocalidades.Name = "cmbLocalidades"
         Me.cmbLocalidades.Size = New System.Drawing.Size(245, 21)
         Me.cmbLocalidades.TabIndex = 7
@@ -898,17 +898,18 @@ Partial Class FrmGestionCliente
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1315, 518)
-        Me.ControlBox = False
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.GroupBox1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmGestionCliente"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "FrmGestionCliente"
         CType(Me.Dgvclientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)

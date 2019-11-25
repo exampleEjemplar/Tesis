@@ -316,15 +316,18 @@ Partial Class FrmEstadisticaProveedor
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 625)
-        Me.ControlBox = False
         Me.Controls.Add(Me.Chart2)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Chart3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnSalir)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmEstadisticaProveedor"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Estadisticas de Proveedor"
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

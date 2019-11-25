@@ -6,8 +6,9 @@ Public Class PedidosDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
 	Private ds1 As DataSet
-	Private movimientoStockDA As New MovimientoStockDA
-	Private metodoProductoDA As New MetodoProductoDA
+    Private LoginDa As New MetodoLoginDA
+    Private movimientoStockDA As New MovimientoStockDA
+    Private metodoProductoDA As New MetodoProductoDA
 
 	Public Sub New()
 		Dim objcon As New ConexionDA
@@ -77,12 +78,12 @@ Public Class PedidosDA
 			Dim totalizado = total.ToString("0.00").Replace(",", ".")
 			If Not seña = 0.0 Then
 				Dim señalizado = seña.ToString("0.00").Replace(",", ".")
-				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalizado & ",2),1, 'N', 1, " + If(totalizado = señalizado, "60", "30") + ")", db)
-				insert.CommandType = CommandType.Text
+                Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'N', 1, " + If(totalizado = señalizado, "60", "30") + ")", db)
+                insert.CommandType = CommandType.Text
 				insert.ExecuteNonQuery()
 			Else
-				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", 0 ,round(" & totalizado & ",2),1, 'S', 1, " + listaDeProductosId.FirstOrDefault().Dias.ToString() + ")", db)
-				insert.CommandType = CommandType.Text
+                Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", 0 ,round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'S', 1, " + listaDeProductosId.FirstOrDefault().Dias.ToString() + ")", db)
+                insert.CommandType = CommandType.Text
 				insert.ExecuteNonQuery()
 			End If
 			For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId

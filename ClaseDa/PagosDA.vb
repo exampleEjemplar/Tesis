@@ -5,8 +5,9 @@ Public Class PagosDA
 	Private helpersDa As New HelpersDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
-	Private ds1 As DataSet
-	Private movimientoStockDA As New MovimientoStockDA
+    Private LoginDa As New MetodoLoginDA
+    Private ds1 As DataSet
+    Private movimientoStockDA As New MovimientoStockDA
 
 
 	Public Sub New()
@@ -70,14 +71,12 @@ Public Class PagosDA
 
 		helpersDa.ChequearConexion(db)
 
-		'Dim insert As New SqlCommand("insert into pagos Values (GETDATE()," & proveedorId & ", " & totalizado & ",1)", db)
-
-		Try
+        Try
 			Dim totalizado = total.ToString().Replace(",", ".")
-			'TODO esto esta mal!
-			Dim insert As New SqlCommand("insert into pagos Values (GETDATE()," & listaDeProductosId.FirstOrDefault().ProveedorId.ToString() & ", " & totalizado & ",1)", db)
-			'END TODO
-			insert.CommandType = CommandType.Text
+            'TODO esto esta mal!
+            Dim insert As New SqlCommand("insert into pagos Values (GETDATE()," & listaDeProductosId.FirstOrDefault().ProveedorId.ToString() & ", " & totalizado & "," + LoginDa.ChequearEnSesion() + ")", db)
+            'END TODO
+            insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
 			For Each compraDetalle As TipoDeComprasNE In listaDeProductosId
 				Dim parcial = (compraDetalle.Precio * compraDetalle.Cantidad).ToString().Replace(",", ".")

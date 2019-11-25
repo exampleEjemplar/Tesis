@@ -75,6 +75,7 @@ Public Class FrmEstadisticaProveedor
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
         RadioButton3.Enabled = False
+        RadioButton1.Enabled = False
         RadioButton2.Enabled = False
 
         Button1.Enabled = False
@@ -86,6 +87,7 @@ Public Class FrmEstadisticaProveedor
         Chart3.Visible = False
         RadioButton3.Enabled = False
         RadioButton2.Enabled = False
+        RadioButton1.Enabled = False
         Button1.Enabled = False
         GeneraGraficopersoneria()
         dtpdesde.Enabled = False
@@ -140,7 +142,9 @@ Public Class FrmEstadisticaProveedor
             Dim ds1 As DataSet
             ds1 = Proveedormetodo.GeneraGraficopersoneria(fechadesde, fechahasta)
             Chart2.DataSource = ds1.Tables(0)
+            'For index = 1 To 10
 
+            'Next
             Dim Series2 As Series = Chart2.Series("Series2")
             Series2.Name = "Proveedores"
             Chart2.Series(Series2.Name).XValueMember = "FisicaOJuridica"

@@ -152,6 +152,7 @@ Partial Class FrmDetalleProductoCatalogo
         Me.Name = "FrmDetalleProductoCatalogo"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Detalle Producto"
         CType(Me.PBFOTO, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

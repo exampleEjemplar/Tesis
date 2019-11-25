@@ -240,6 +240,8 @@ Partial Class FrmGestionCategorías
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.GroupBox1)
         Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmGestionCategorías"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmGestionCategorías"

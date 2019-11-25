@@ -95,7 +95,7 @@ Partial Class FrmCierreDeCaja
         Me.chkFechaDesde.AutoSize = True
         Me.chkFechaDesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.chkFechaDesde.Location = New System.Drawing.Point(371, 61)
-        Me.chkFechaDesde.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chkFechaDesde.Margin = New System.Windows.Forms.Padding(2)
         Me.chkFechaDesde.Name = "chkFechaDesde"
         Me.chkFechaDesde.Size = New System.Drawing.Size(147, 17)
         Me.chkFechaDesde.TabIndex = 7
@@ -106,7 +106,7 @@ Partial Class FrmCierreDeCaja
         '
         Me.dtpFechaDesde.Enabled = False
         Me.dtpFechaDesde.Location = New System.Drawing.Point(330, 28)
-        Me.dtpFechaDesde.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dtpFechaDesde.Margin = New System.Windows.Forms.Padding(2)
         Me.dtpFechaDesde.Name = "dtpFechaDesde"
         Me.dtpFechaDesde.Size = New System.Drawing.Size(237, 20)
         Me.dtpFechaDesde.TabIndex = 6
@@ -216,7 +216,6 @@ Partial Class FrmCierreDeCaja
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(699, 513)
-        Me.ControlBox = False
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox1)

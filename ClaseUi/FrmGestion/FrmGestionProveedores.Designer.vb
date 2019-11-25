@@ -25,12 +25,15 @@ Partial Class FrmGestionProveedores
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionProveedores))
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.cboBusTipoPersona = New System.Windows.Forms.ComboBox()
         Me.txtBusApellido = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.lblBusApellido = New System.Windows.Forms.Label()
         Me.txtBusNombre = New System.Windows.Forms.TextBox()
         Me.lblBusNombre = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.txtBusDocNro = New System.Windows.Forms.TextBox()
         Me.cboBusTipoDNI = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -39,6 +42,7 @@ Partial Class FrmGestionProveedores
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.chkProveeServicios = New System.Windows.Forms.CheckBox()
+        Me.btnValidarDNI1 = New System.Windows.Forms.Button()
         Me.lblTipoIdentificacion = New System.Windows.Forms.Label()
         Me.cboTipoPersona = New System.Windows.Forms.ComboBox()
         Me.cbtipodni = New System.Windows.Forms.ComboBox()
@@ -74,9 +78,9 @@ Partial Class FrmGestionProveedores
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtManzana = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtLote = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtLote = New System.Windows.Forms.TextBox()
         Me.cmbLocalidades = New System.Windows.Forms.ComboBox()
         Me.cmbProvincias = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -85,14 +89,10 @@ Partial Class FrmGestionProveedores
         Me.tbcalle = New System.Windows.Forms.TextBox()
         Me.tbNro = New System.Windows.Forms.TextBox()
         Me.tbDpto = New System.Windows.Forms.TextBox()
-        Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
-        Me.btnValidarDNI1 = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         CType(Me.Dgvproveedores, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -137,6 +137,24 @@ Partial Class FrmGestionProveedores
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Búsqueda"
         '
+        'btnBuscar
+        '
+        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
+        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnBuscar.FlatAppearance.BorderSize = 0
+        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
+        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnBuscar.Location = New System.Drawing.Point(342, 61)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(69, 80)
+        Me.btnBuscar.TabIndex = 33
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnBuscar.UseVisualStyleBackColor = False
+        '
         'cboBusTipoPersona
         '
         Me.cboBusTipoPersona.AccessibleDescription = ""
@@ -157,6 +175,24 @@ Partial Class FrmGestionProveedores
         Me.txtBusApellido.Name = "txtBusApellido"
         Me.txtBusApellido.Size = New System.Drawing.Size(150, 20)
         Me.txtBusApellido.TabIndex = 32
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.SystemColors.Control
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(417, 59)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(69, 85)
+        Me.Button1.TabIndex = 50
+        Me.Button1.Text = "Listar"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Label17
         '
@@ -196,6 +232,24 @@ Partial Class FrmGestionProveedores
         Me.lblBusNombre.Size = New System.Drawing.Size(174, 13)
         Me.lblBusNombre.TabIndex = 25
         Me.lblBusNombre.Text = "Nombre - Nombre de fantasía"
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.SystemColors.Control
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button2.Location = New System.Drawing.Point(489, 59)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(80, 85)
+        Me.Button2.TabIndex = 38
+        Me.Button2.Text = "Estadíticas"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'txtBusDocNro
         '
@@ -297,6 +351,22 @@ Partial Class FrmGestionProveedores
         Me.chkProveeServicios.TabIndex = 38
         Me.chkProveeServicios.Text = "Provee servicios?"
         Me.chkProveeServicios.UseVisualStyleBackColor = True
+        '
+        'btnValidarDNI1
+        '
+        Me.btnValidarDNI1.BackColor = System.Drawing.SystemColors.Control
+        Me.btnValidarDNI1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnValidarDNI1.FlatAppearance.BorderSize = 0
+        Me.btnValidarDNI1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnValidarDNI1.Image = CType(resources.GetObject("btnValidarDNI1.Image"), System.Drawing.Image)
+        Me.btnValidarDNI1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnValidarDNI1.Location = New System.Drawing.Point(584, 19)
+        Me.btnValidarDNI1.Name = "btnValidarDNI1"
+        Me.btnValidarDNI1.Size = New System.Drawing.Size(103, 37)
+        Me.btnValidarDNI1.TabIndex = 4
+        Me.btnValidarDNI1.Text = "Verificar "
+        Me.btnValidarDNI1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnValidarDNI1.UseVisualStyleBackColor = False
         '
         'lblTipoIdentificacion
         '
@@ -661,14 +731,6 @@ Partial Class FrmGestionProveedores
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "Lote"
         '
-        'txtLote
-        '
-        Me.txtLote.Location = New System.Drawing.Point(589, 20)
-        Me.txtLote.MaxLength = 3
-        Me.txtLote.Name = "txtLote"
-        Me.txtLote.Size = New System.Drawing.Size(64, 20)
-        Me.txtLote.TabIndex = 13
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -683,9 +745,17 @@ Partial Class FrmGestionProveedores
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(16, 87)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(64, 13)
+        Me.Label7.Size = New System.Drawing.Size(69, 13)
         Me.Label7.TabIndex = 12
-        Me.Label7.Text = "Provincia "
+        Me.Label7.Text = "Provincia *"
+        '
+        'txtLote
+        '
+        Me.txtLote.Location = New System.Drawing.Point(589, 20)
+        Me.txtLote.MaxLength = 3
+        Me.txtLote.Name = "txtLote"
+        Me.txtLote.Size = New System.Drawing.Size(64, 20)
+        Me.txtLote.TabIndex = 13
         '
         'cmbLocalidades
         '
@@ -758,60 +828,6 @@ Partial Class FrmGestionProveedores
         Me.tbDpto.Size = New System.Drawing.Size(58, 20)
         Me.tbDpto.TabIndex = 12
         '
-        'btnBuscar
-        '
-        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
-        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnBuscar.FlatAppearance.BorderSize = 0
-        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
-        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnBuscar.Location = New System.Drawing.Point(342, 61)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(69, 80)
-        Me.btnBuscar.TabIndex = 33
-        Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnBuscar.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.SystemColors.Control
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(417, 59)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(69, 85)
-        Me.Button1.TabIndex = 50
-        Me.Button1.Text = "Listar"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.SystemColors.Control
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(489, 59)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(80, 85)
-        Me.Button2.TabIndex = 38
-        Me.Button2.Text = "Estadíticas"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button2.UseVisualStyleBackColor = False
-        '
         'btnGuardar
         '
         Me.btnGuardar.BackColor = System.Drawing.SystemColors.Control
@@ -880,39 +896,24 @@ Partial Class FrmGestionProveedores
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnSalir.UseVisualStyleBackColor = False
         '
-        'btnValidarDNI1
-        '
-        Me.btnValidarDNI1.BackColor = System.Drawing.SystemColors.Control
-        Me.btnValidarDNI1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnValidarDNI1.FlatAppearance.BorderSize = 0
-        Me.btnValidarDNI1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnValidarDNI1.Image = CType(resources.GetObject("btnValidarDNI1.Image"), System.Drawing.Image)
-        Me.btnValidarDNI1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnValidarDNI1.Location = New System.Drawing.Point(584, 19)
-        Me.btnValidarDNI1.Name = "btnValidarDNI1"
-        Me.btnValidarDNI1.Size = New System.Drawing.Size(103, 37)
-        Me.btnValidarDNI1.TabIndex = 4
-        Me.btnValidarDNI1.Text = "Verificar "
-        Me.btnValidarDNI1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnValidarDNI1.UseVisualStyleBackColor = False
-        '
         'FrmGestionProveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1315, 518)
-        Me.ControlBox = False
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.GroupBox1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmGestionProveedores"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmGestionProveedores"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Gestion proveedores"
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()

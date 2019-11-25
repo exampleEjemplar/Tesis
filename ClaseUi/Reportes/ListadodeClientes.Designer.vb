@@ -23,7 +23,7 @@ Partial Class ListadodeClientes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.SP_ListadodeClientesPorfechaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSetReportes = New ClaseUi.DataSetReportes()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
@@ -55,9 +55,9 @@ Partial Class ListadodeClientes
         '
         'ReportViewer1
         '
-        ReportDataSource2.Name = "ReporteClienteConFecha"
-        ReportDataSource2.Value = Me.SP_ListadodeClientesPorfechaBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource1.Name = "ReporteClienteConFecha"
+        ReportDataSource1.Value = Me.SP_ListadodeClientesPorfechaBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "ClaseUi.ListadoClientesPorfecha.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(5, 197)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -184,12 +184,15 @@ Partial Class ListadodeClientes
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(906, 504)
-        Me.ControlBox = False
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ListadodeClientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Listado de clientes"
         CType(Me.SP_ListadodeClientesPorfechaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

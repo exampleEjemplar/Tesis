@@ -188,4 +188,5 @@ Public Class FrmEstadisticacliente
         limpiar()
 
     End Sub
+
 End Class

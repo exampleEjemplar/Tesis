@@ -211,5 +211,7 @@ Public Class MDIPrincipal
         FrmGestionPagos.ShowDialog()
     End Sub
 
-
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        FrmGestionUsuario.ShowDialog()
+    End Sub
 End Class

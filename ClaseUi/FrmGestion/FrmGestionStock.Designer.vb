@@ -22,287 +22,279 @@ Partial Class FrmGestionStock
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
-		Me.dgvGrilla = New System.Windows.Forms.DataGridView()
-		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-		Me.Button1 = New System.Windows.Forms.Button()
-		Me.TextBox3 = New System.Windows.Forms.TextBox()
-		Me.btnSalirr = New System.Windows.Forms.Button()
-		Me.cboProveedor = New System.Windows.Forms.ComboBox()
-		Me.Label17 = New System.Windows.Forms.Label()
-		Me.txtBusNombreProducto = New System.Windows.Forms.TextBox()
-		Me.Label8 = New System.Windows.Forms.Label()
-		Me.btnLimpiarFiltros = New System.Windows.Forms.Button()
-		Me.btnBuscar = New System.Windows.Forms.Button()
-		Me.lbldesde = New System.Windows.Forms.Label()
-		Me.rbtEntreFechas = New System.Windows.Forms.CheckBox()
-		Me.lblHasta = New System.Windows.Forms.Label()
-		Me.rbtFechaExacta = New System.Windows.Forms.CheckBox()
-		Me.dtpFechaHasta = New System.Windows.Forms.DateTimePicker()
-		Me.dtpFechaDesde = New System.Windows.Forms.DateTimePicker()
-		Me.lblFechaExacta = New System.Windows.Forms.Label()
-		CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).BeginInit()
-		Me.GroupBox2.SuspendLayout()
-		Me.SuspendLayout()
-		'
-		'dgvGrilla
-		'
-		Me.dgvGrilla.AllowDrop = True
-		Me.dgvGrilla.AllowUserToAddRows = False
-		Me.dgvGrilla.AllowUserToDeleteRows = False
-		Me.dgvGrilla.AllowUserToResizeColumns = False
-		Me.dgvGrilla.AllowUserToResizeRows = False
-		Me.dgvGrilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-		Me.dgvGrilla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-		Me.dgvGrilla.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
-		Me.dgvGrilla.Location = New System.Drawing.Point(12, 237)
-		Me.dgvGrilla.Margin = New System.Windows.Forms.Padding(4)
-		Me.dgvGrilla.MultiSelect = False
-		Me.dgvGrilla.Name = "dgvGrilla"
-		Me.dgvGrilla.ReadOnly = True
-		Me.dgvGrilla.RightToLeft = System.Windows.Forms.RightToLeft.No
-		Me.dgvGrilla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-		Me.dgvGrilla.RowHeadersVisible = False
-		Me.dgvGrilla.RowHeadersWidth = 56
-		Me.dgvGrilla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-		Me.dgvGrilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.dgvGrilla.Size = New System.Drawing.Size(707, 188)
-		Me.dgvGrilla.TabIndex = 56
-		'
-		'GroupBox2
-		'
-		Me.GroupBox2.Controls.Add(Me.Button1)
-		Me.GroupBox2.Controls.Add(Me.TextBox3)
-		Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
-		Me.GroupBox2.Location = New System.Drawing.Point(12, 11)
-		Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-		Me.GroupBox2.Size = New System.Drawing.Size(707, 28)
-		Me.GroupBox2.TabIndex = 55
-		Me.GroupBox2.TabStop = False
-		Me.GroupBox2.Text = "Gestión Stock"
-		'
-		'Button1
-		'
-		Me.Button1.BackColor = System.Drawing.SystemColors.Control
-		Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
-		Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button1.FlatAppearance.BorderSize = 0
-		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button1.Location = New System.Drawing.Point(736, 274)
-		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button1.Name = "Button1"
-		Me.Button1.Size = New System.Drawing.Size(107, 110)
-		Me.Button1.TabIndex = 42
-		Me.Button1.Text = "Salir"
-		Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button1.UseVisualStyleBackColor = False
-		'
-		'TextBox3
-		'
-		Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.TextBox3.Location = New System.Drawing.Point(253, -386)
-		Me.TextBox3.Margin = New System.Windows.Forms.Padding(4)
-		Me.TextBox3.MaxLength = 30
-		Me.TextBox3.Name = "TextBox3"
-		Me.TextBox3.Size = New System.Drawing.Size(321, 23)
-		Me.TextBox3.TabIndex = 40
-		'
-		'btnSalirr
-		'
-		Me.btnSalirr.BackColor = System.Drawing.SystemColors.Control
-		Me.btnSalirr.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
-		Me.btnSalirr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnSalirr.FlatAppearance.BorderSize = 0
-		Me.btnSalirr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalirr.Location = New System.Drawing.Point(728, 315)
-		Me.btnSalirr.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnSalirr.Name = "btnSalirr"
-		Me.btnSalirr.Size = New System.Drawing.Size(115, 110)
-		Me.btnSalirr.TabIndex = 54
-		Me.btnSalirr.Text = "Salir"
-		Me.btnSalirr.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnSalirr.UseVisualStyleBackColor = False
-		'
-		'cboProveedor
-		'
-		Me.cboProveedor.AccessibleDescription = ""
-		Me.cboProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.cboProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.cboProveedor.FormattingEnabled = True
-		Me.cboProveedor.Items.AddRange(New Object() {"Física", "Jurídica"})
-		Me.cboProveedor.Location = New System.Drawing.Point(157, 63)
-		Me.cboProveedor.Margin = New System.Windows.Forms.Padding(4)
-		Me.cboProveedor.Name = "cboProveedor"
-		Me.cboProveedor.Size = New System.Drawing.Size(367, 25)
-		Me.cboProveedor.TabIndex = 57
-		'
-		'Label17
-		'
-		Me.Label17.AutoSize = True
-		Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label17.Location = New System.Drawing.Point(13, 66)
-		Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label17.Name = "Label17"
-		Me.Label17.Size = New System.Drawing.Size(83, 17)
-		Me.Label17.TabIndex = 59
-		Me.Label17.Text = "Proveedor"
-		'
-		'txtBusNombreProducto
-		'
-		Me.txtBusNombreProducto.Location = New System.Drawing.Point(157, 107)
-		Me.txtBusNombreProducto.Name = "txtBusNombreProducto"
-		Me.txtBusNombreProducto.Size = New System.Drawing.Size(201, 22)
-		Me.txtBusNombreProducto.TabIndex = 61
-		'
-		'Label8
-		'
-		Me.Label8.AutoSize = True
-		Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
-		Me.Label8.Location = New System.Drawing.Point(13, 113)
-		Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label8.Name = "Label8"
-		Me.Label8.Size = New System.Drawing.Size(128, 16)
-		Me.Label8.TabIndex = 60
-		Me.Label8.Text = "Nombre producto"
-		'
-		'btnLimpiarFiltros
-		'
-		Me.btnLimpiarFiltros.BackColor = System.Drawing.SystemColors.Control
-		Me.btnLimpiarFiltros.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_clear_filters_40
-		Me.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
-		Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(563, 131)
-		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
-		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(74, 76)
-		Me.btnLimpiarFiltros.TabIndex = 62
-		Me.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnLimpiarFiltros.UseVisualStyleBackColor = False
-		'
-		'btnBuscar
-		'
-		Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
-		Me.btnBuscar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_search_48
-		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnBuscar.FlatAppearance.BorderSize = 0
-		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(645, 134)
-		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnBuscar.Name = "btnBuscar"
-		Me.btnBuscar.Size = New System.Drawing.Size(74, 73)
-		Me.btnBuscar.TabIndex = 63
-		Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnBuscar.UseVisualStyleBackColor = False
-		'
-		'lbldesde
-		'
-		Me.lbldesde.AutoSize = True
-		Me.lbldesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
-		Me.lbldesde.Location = New System.Drawing.Point(110, 185)
-		Me.lbldesde.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.lbldesde.Name = "lbldesde"
-		Me.lbldesde.Size = New System.Drawing.Size(54, 16)
-		Me.lbldesde.TabIndex = 70
-		Me.lbldesde.Text = "Desde"
-		'
-		'rbtEntreFechas
-		'
-		Me.rbtEntreFechas.AutoSize = True
-		Me.rbtEntreFechas.Location = New System.Drawing.Point(340, 147)
-		Me.rbtEntreFechas.Name = "rbtEntreFechas"
-		Me.rbtEntreFechas.Size = New System.Drawing.Size(177, 21)
-		Me.rbtEntreFechas.TabIndex = 67
-		Me.rbtEntreFechas.Text = "Busqueda entre fechas"
-		Me.rbtEntreFechas.UseVisualStyleBackColor = True
-		'
-		'lblHasta
-		'
-		Me.lblHasta.AutoSize = True
-		Me.lblHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
-		Me.lblHasta.Location = New System.Drawing.Point(331, 185)
-		Me.lblHasta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.lblHasta.Name = "lblHasta"
-		Me.lblHasta.Size = New System.Drawing.Size(49, 16)
-		Me.lblHasta.TabIndex = 69
-		Me.lblHasta.Text = "Hasta"
-		'
-		'rbtFechaExacta
-		'
-		Me.rbtFechaExacta.AutoSize = True
-		Me.rbtFechaExacta.Location = New System.Drawing.Point(16, 147)
-		Me.rbtFechaExacta.Name = "rbtFechaExacta"
-		Me.rbtFechaExacta.Size = New System.Drawing.Size(318, 21)
-		Me.rbtFechaExacta.TabIndex = 68
-		Me.rbtFechaExacta.Text = "Busqueda fecha exacta de carga de producto"
-		Me.rbtFechaExacta.UseVisualStyleBackColor = True
-		'
-		'dtpFechaHasta
-		'
-		Me.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-		Me.dtpFechaHasta.Location = New System.Drawing.Point(389, 181)
-		Me.dtpFechaHasta.Margin = New System.Windows.Forms.Padding(4)
-		Me.dtpFechaHasta.Name = "dtpFechaHasta"
-		Me.dtpFechaHasta.Size = New System.Drawing.Size(151, 22)
-		Me.dtpFechaHasta.TabIndex = 66
-		Me.dtpFechaHasta.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
-		'
-		'dtpFechaDesde
-		'
-		Me.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-		Me.dtpFechaDesde.Location = New System.Drawing.Point(172, 181)
-		Me.dtpFechaDesde.Margin = New System.Windows.Forms.Padding(4)
-		Me.dtpFechaDesde.Name = "dtpFechaDesde"
-		Me.dtpFechaDesde.Size = New System.Drawing.Size(151, 22)
-		Me.dtpFechaDesde.TabIndex = 65
-		Me.dtpFechaDesde.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
-		'
-		'lblFechaExacta
-		'
-		Me.lblFechaExacta.AutoSize = True
-		Me.lblFechaExacta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
-		Me.lblFechaExacta.Location = New System.Drawing.Point(13, 185)
-		Me.lblFechaExacta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.lblFechaExacta.Name = "lblFechaExacta"
-		Me.lblFechaExacta.Size = New System.Drawing.Size(95, 16)
-		Me.lblFechaExacta.TabIndex = 64
-		Me.lblFechaExacta.Text = "Fecha carga"
-		'
-		'FrmGestionStock
-		'
-		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
-		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(854, 449)
-		Me.Controls.Add(Me.lbldesde)
-		Me.Controls.Add(Me.rbtEntreFechas)
-		Me.Controls.Add(Me.lblHasta)
-		Me.Controls.Add(Me.rbtFechaExacta)
-		Me.Controls.Add(Me.dtpFechaHasta)
-		Me.Controls.Add(Me.dtpFechaDesde)
-		Me.Controls.Add(Me.lblFechaExacta)
-		Me.Controls.Add(Me.btnLimpiarFiltros)
-		Me.Controls.Add(Me.btnBuscar)
-		Me.Controls.Add(Me.txtBusNombreProducto)
-		Me.Controls.Add(Me.Label8)
-		Me.Controls.Add(Me.cboProveedor)
-		Me.Controls.Add(Me.Label17)
-		Me.Controls.Add(Me.dgvGrilla)
-		Me.Controls.Add(Me.GroupBox2)
-		Me.Controls.Add(Me.btnSalirr)
-		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-		Me.Name = "FrmGestionStock"
-		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-		Me.Text = "FrmGestionStock"
-		CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).EndInit()
-		Me.GroupBox2.ResumeLayout(False)
-		Me.GroupBox2.PerformLayout()
-		Me.ResumeLayout(False)
-		Me.PerformLayout()
+        Me.dgvGrilla = New System.Windows.Forms.DataGridView()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.btnSalirr = New System.Windows.Forms.Button()
+        Me.cboProveedor = New System.Windows.Forms.ComboBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtBusNombreProducto = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.btnLimpiarFiltros = New System.Windows.Forms.Button()
+        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.lbldesde = New System.Windows.Forms.Label()
+        Me.rbtEntreFechas = New System.Windows.Forms.CheckBox()
+        Me.lblHasta = New System.Windows.Forms.Label()
+        Me.rbtFechaExacta = New System.Windows.Forms.CheckBox()
+        Me.dtpFechaHasta = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFechaDesde = New System.Windows.Forms.DateTimePicker()
+        Me.lblFechaExacta = New System.Windows.Forms.Label()
+        CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'dgvGrilla
+        '
+        Me.dgvGrilla.AllowDrop = True
+        Me.dgvGrilla.AllowUserToAddRows = False
+        Me.dgvGrilla.AllowUserToDeleteRows = False
+        Me.dgvGrilla.AllowUserToResizeColumns = False
+        Me.dgvGrilla.AllowUserToResizeRows = False
+        Me.dgvGrilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvGrilla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dgvGrilla.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
+        Me.dgvGrilla.Location = New System.Drawing.Point(9, 193)
+        Me.dgvGrilla.MultiSelect = False
+        Me.dgvGrilla.Name = "dgvGrilla"
+        Me.dgvGrilla.ReadOnly = True
+        Me.dgvGrilla.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.dgvGrilla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.dgvGrilla.RowHeadersVisible = False
+        Me.dgvGrilla.RowHeadersWidth = 56
+        Me.dgvGrilla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvGrilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvGrilla.Size = New System.Drawing.Size(530, 153)
+        Me.dgvGrilla.TabIndex = 56
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.Controls.Add(Me.TextBox3)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
+        Me.GroupBox2.Location = New System.Drawing.Point(9, 9)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Size = New System.Drawing.Size(530, 23)
+        Me.GroupBox2.TabIndex = 55
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Gestión Stock"
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.SystemColors.Control
+        Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(552, 223)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(80, 89)
+        Me.Button1.TabIndex = 42
+        Me.Button1.Text = "Salir"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox3.Location = New System.Drawing.Point(190, -314)
+        Me.TextBox3.MaxLength = 30
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(242, 20)
+        Me.TextBox3.TabIndex = 40
+        '
+        'btnSalirr
+        '
+        Me.btnSalirr.BackColor = System.Drawing.SystemColors.Control
+        Me.btnSalirr.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+        Me.btnSalirr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnSalirr.FlatAppearance.BorderSize = 0
+        Me.btnSalirr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalirr.Location = New System.Drawing.Point(546, 256)
+        Me.btnSalirr.Name = "btnSalirr"
+        Me.btnSalirr.Size = New System.Drawing.Size(86, 89)
+        Me.btnSalirr.TabIndex = 54
+        Me.btnSalirr.Text = "Salir"
+        Me.btnSalirr.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSalirr.UseVisualStyleBackColor = False
+        '
+        'cboProveedor
+        '
+        Me.cboProveedor.AccessibleDescription = ""
+        Me.cboProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboProveedor.FormattingEnabled = True
+        Me.cboProveedor.Items.AddRange(New Object() {"Física", "Jurídica"})
+        Me.cboProveedor.Location = New System.Drawing.Point(118, 51)
+        Me.cboProveedor.Name = "cboProveedor"
+        Me.cboProveedor.Size = New System.Drawing.Size(276, 21)
+        Me.cboProveedor.TabIndex = 57
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(10, 54)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(65, 13)
+        Me.Label17.TabIndex = 59
+        Me.Label17.Text = "Proveedor"
+        '
+        'txtBusNombreProducto
+        '
+        Me.txtBusNombreProducto.Location = New System.Drawing.Point(118, 87)
+        Me.txtBusNombreProducto.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtBusNombreProducto.Name = "txtBusNombreProducto"
+        Me.txtBusNombreProducto.Size = New System.Drawing.Size(152, 20)
+        Me.txtBusNombreProducto.TabIndex = 61
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
+        Me.Label8.Location = New System.Drawing.Point(10, 92)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(102, 13)
+        Me.Label8.TabIndex = 60
+        Me.Label8.Text = "Nombre producto"
+        '
+        'btnLimpiarFiltros
+        '
+        Me.btnLimpiarFiltros.BackColor = System.Drawing.SystemColors.Control
+        Me.btnLimpiarFiltros.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_clear_filters_40
+        Me.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
+        Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLimpiarFiltros.Location = New System.Drawing.Point(422, 106)
+        Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
+        Me.btnLimpiarFiltros.Size = New System.Drawing.Size(56, 62)
+        Me.btnLimpiarFiltros.TabIndex = 62
+        Me.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnLimpiarFiltros.UseVisualStyleBackColor = False
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
+        Me.btnBuscar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_search_48
+        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnBuscar.FlatAppearance.BorderSize = 0
+        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscar.Location = New System.Drawing.Point(484, 109)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(56, 59)
+        Me.btnBuscar.TabIndex = 63
+        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnBuscar.UseVisualStyleBackColor = False
+        '
+        'lbldesde
+        '
+        Me.lbldesde.AutoSize = True
+        Me.lbldesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
+        Me.lbldesde.Location = New System.Drawing.Point(82, 150)
+        Me.lbldesde.Name = "lbldesde"
+        Me.lbldesde.Size = New System.Drawing.Size(43, 13)
+        Me.lbldesde.TabIndex = 70
+        Me.lbldesde.Text = "Desde"
+        '
+        'rbtEntreFechas
+        '
+        Me.rbtEntreFechas.AutoSize = True
+        Me.rbtEntreFechas.Location = New System.Drawing.Point(255, 119)
+        Me.rbtEntreFechas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbtEntreFechas.Name = "rbtEntreFechas"
+        Me.rbtEntreFechas.Size = New System.Drawing.Size(136, 17)
+        Me.rbtEntreFechas.TabIndex = 67
+        Me.rbtEntreFechas.Text = "Busqueda entre fechas"
+        Me.rbtEntreFechas.UseVisualStyleBackColor = True
+        '
+        'lblHasta
+        '
+        Me.lblHasta.AutoSize = True
+        Me.lblHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
+        Me.lblHasta.Location = New System.Drawing.Point(248, 150)
+        Me.lblHasta.Name = "lblHasta"
+        Me.lblHasta.Size = New System.Drawing.Size(39, 13)
+        Me.lblHasta.TabIndex = 69
+        Me.lblHasta.Text = "Hasta"
+        '
+        'rbtFechaExacta
+        '
+        Me.rbtFechaExacta.AutoSize = True
+        Me.rbtFechaExacta.Location = New System.Drawing.Point(12, 119)
+        Me.rbtFechaExacta.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbtFechaExacta.Name = "rbtFechaExacta"
+        Me.rbtFechaExacta.Size = New System.Drawing.Size(244, 17)
+        Me.rbtFechaExacta.TabIndex = 68
+        Me.rbtFechaExacta.Text = "Busqueda fecha exacta de carga de producto"
+        Me.rbtFechaExacta.UseVisualStyleBackColor = True
+        '
+        'dtpFechaHasta
+        '
+        Me.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaHasta.Location = New System.Drawing.Point(292, 147)
+        Me.dtpFechaHasta.Name = "dtpFechaHasta"
+        Me.dtpFechaHasta.Size = New System.Drawing.Size(114, 20)
+        Me.dtpFechaHasta.TabIndex = 66
+        Me.dtpFechaHasta.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
+        '
+        'dtpFechaDesde
+        '
+        Me.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaDesde.Location = New System.Drawing.Point(129, 147)
+        Me.dtpFechaDesde.Name = "dtpFechaDesde"
+        Me.dtpFechaDesde.Size = New System.Drawing.Size(114, 20)
+        Me.dtpFechaDesde.TabIndex = 65
+        Me.dtpFechaDesde.Value = New Date(2019, 4, 23, 23, 0, 18, 0)
+        '
+        'lblFechaExacta
+        '
+        Me.lblFechaExacta.AutoSize = True
+        Me.lblFechaExacta.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!, System.Drawing.FontStyle.Bold)
+        Me.lblFechaExacta.Location = New System.Drawing.Point(10, 150)
+        Me.lblFechaExacta.Name = "lblFechaExacta"
+        Me.lblFechaExacta.Size = New System.Drawing.Size(76, 13)
+        Me.lblFechaExacta.TabIndex = 64
+        Me.lblFechaExacta.Text = "Fecha carga"
+        '
+        'FrmGestionStock
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(640, 365)
+        Me.Controls.Add(Me.lbldesde)
+        Me.Controls.Add(Me.rbtEntreFechas)
+        Me.Controls.Add(Me.lblHasta)
+        Me.Controls.Add(Me.rbtFechaExacta)
+        Me.Controls.Add(Me.dtpFechaHasta)
+        Me.Controls.Add(Me.dtpFechaDesde)
+        Me.Controls.Add(Me.lblFechaExacta)
+        Me.Controls.Add(Me.btnLimpiarFiltros)
+        Me.Controls.Add(Me.btnBuscar)
+        Me.Controls.Add(Me.txtBusNombreProducto)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.cboProveedor)
+        Me.Controls.Add(Me.Label17)
+        Me.Controls.Add(Me.dgvGrilla)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.btnSalirr)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
+        Me.Name = "FrmGestionStock"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Gestion Stock"
+        CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
 
-	End Sub
+    End Sub
 
-	Friend WithEvents dgvGrilla As Windows.Forms.DataGridView
+    Friend WithEvents dgvGrilla As Windows.Forms.DataGridView
 	Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
 	Friend WithEvents Button1 As Windows.Forms.Button
 	Friend WithEvents TextBox3 As Windows.Forms.TextBox

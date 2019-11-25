@@ -79,11 +79,14 @@ Partial Class InformeCierredeCaja
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(953, 654)
-        Me.ControlBox = False
         Me.Controls.Add(Me.btnSalirr)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "InformeCierredeCaja"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Listado cierre de caja"
         CType(Me.SP_CierredeCaja1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

@@ -160,8 +160,8 @@ Public Class FrmGestionServicio
 			Return False
 		Else
 			Dim value As Decimal
-			Dim newText = TbPrecio.Text.Replace(".", ",")
-			If Decimal.TryParse(newText, value) Then
+            Dim newText = TbPrecio.Text.Replace(",", ".")
+            If Decimal.TryParse(newText, value) Then
 				pro.precio = value.ToString("0.00")
 			Else
 				MsgBox("Debe colocar un precio valido (123.23)")

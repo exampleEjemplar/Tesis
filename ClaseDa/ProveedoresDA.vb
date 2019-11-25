@@ -59,11 +59,11 @@ Public Class ProveedoresDA
 				Else
 					extraText = " where "
 				End If
-				Dim value As Integer
-				If Integer.TryParse(parametro.Value, value) Then
-					extraText = extraText & " p." & parametro.Key & " = " & parametro.Value 'TODO mejorar busqueda para integers
-				Else
-					extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
+                Dim value As Decimal
+                If Decimal.TryParse(parametro.Value, value) Then
+                    extraText = extraText & " p." & parametro.Key & " = " & parametro.Value 'TODO mejorar busqueda para integers
+                Else
+                    extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
 				End If
 				count = count + 1
 			Next

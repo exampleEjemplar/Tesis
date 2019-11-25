@@ -7,6 +7,7 @@ Public Class ComprasDA
 	Private da As SqlDataAdapter
 	Private ds1 As DataSet
 	Private movimientoStockDA As New MovimientoStockDA
+    Private LoginDa As New MetodoLoginDA
     Dim Rs As SqlDataReader
     Public contador As Integer
 
@@ -63,8 +64,8 @@ Public Class ComprasDA
 			For Each item As KeyValuePair(Of String, String) In parametros
 				If item.Key = "ProveedorId" Then
 					count = count - 1
-					text = text & "c.id" & " = " & item.Value & " " & If(count <> 0, " and ", "")
-					Continue For
+                    text = text & "c.Proveedorid" & " = " & item.Value & " " & If(count <> 0, " and ", "")
+                    Continue For
 				End If
 				If item.Key = "FechaDesde" And Not parametros.Keys.Contains("FechaHasta") Then
 					count = count - 1
@@ -107,7 +108,7 @@ Public Class ComprasDA
 
 		Try
 			Dim totalizado = total.ToString().Replace(",", ".")
-            Dim insert As New SqlCommand("insert into compras Values (GETDATE()," & proveedorId & ", " & totalizado & ",1,'" + nroComprobante + "', 1)", db)
+            Dim insert As New SqlCommand("insert into compras Values (GETDATE()," & proveedorId & ", " & totalizado & "," + LoginDa.ChequearEnSesion() + ",'" + nroComprobante + "', 1)", db)
             insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
 			For Each compraDetalle As TipoDeComprasNE In listaDeProductosId

@@ -10,7 +10,8 @@ Public Class VentasDA
 	Private da As SqlDataAdapter
 	Private ds1 As DataSet
 	Private movimientoStockDA As New MovimientoStockDA
-	Private metodoProductoDA As New MetodoProductoDA
+    Private metodoProductoDA As New MetodoProductoDA
+    Private LoginDa As New MetodoLoginDA
     Dim Rs As SqlDataReader
     Public contador As Integer
 
@@ -77,22 +78,22 @@ Public Class VentasDA
 
 		helpersDa.ChequearConexion(db)
 
-		Try
-			Dim totalizado = total.ToString().Replace(",", ".")
-            Dim insert As New SqlCommand("insert into ventas Values (GETDATE()," & clienteId & ", " & totalizado & ",1,1)", db)
+        Try
+            Dim totalizado = total.ToString().Replace(",", ".")
+            Dim insert As New SqlCommand("insert into ventas Values (GETDATE()," & clienteId & ", " & totalizado & "," + LoginDa.ChequearEnSesion() + ",1)", db)
             insert.CommandType = CommandType.Text
-			insert.ExecuteNonQuery()
-			For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId
-				Dim parcial = (ventaDetalle.Precio * ventaDetalle.Cantidad).ToString().Replace(",", ".")
+            insert.ExecuteNonQuery()
+            For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId
+                Dim parcial = (ventaDetalle.Precio * ventaDetalle.Cantidad).ToString().Replace(",", ".")
 
-				Dim insert2 As New SqlCommand("Declare @ventaID int SELECT @ventaID = MAX(Id) FROM ventas insert into DetalleVentas VALUES(@ventaID," & ventaDetalle.ProductoId & "," & ventaDetalle.Cantidad & "," & parcial & "," & parcial & ",NULL)", db)
-				insert2.ExecuteNonQuery()
+                Dim insert2 As New SqlCommand("Declare @ventaID int SELECT @ventaID = MAX(Id) FROM ventas insert into DetalleVentas VALUES(@ventaID," & ventaDetalle.ProductoId & "," & ventaDetalle.Cantidad & "," & parcial & "," & parcial & ",NULL)", db)
+                insert2.ExecuteNonQuery()
 
-				movimientoStockDA.Registrar(ventaDetalle.ProductoId, ventaDetalle.Cantidad * -1)
-			Next
-			db.Close()
-		Catch ex As Exception
-			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+                movimientoStockDA.Registrar(ventaDetalle.ProductoId, ventaDetalle.Cantidad * -1)
+            Next
+            db.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
 			db.Close()
 		End Try
 	End Sub

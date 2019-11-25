@@ -54,11 +54,11 @@ Public Class FrmArmadoPedido
 		btnQuitarItem.Enabled = False
 	End Sub
 
-	Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-		Me.Close()
-	End Sub
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Me.Close()
+    End Sub
 
-	Private Sub CboCliente_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCliente.SelectionChangeCommitted
+    Private Sub CboCliente_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCliente.SelectionChangeCommitted
 		'lblInstrucciones.Visible = False
 		Dim ds As DataSet = clientesLN.ConsultaModificacion(cboCliente.SelectedValue)
 		GroupBox1.Visible = True
@@ -194,19 +194,19 @@ Public Class FrmArmadoPedido
 
 	End Sub
 
-	Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-		If MsgBox("Desea limpiar la lista de ventas?", MsgBoxStyle.YesNo, "Ventas") = MsgBoxResult.Yes Then
-			ListView1.Clear()
-			total = 0.0
-			lblTotal.Text = total.ToString("0.00")
-			lblRestaCobrar.Text = "0.00"
-			txtSeña.Text = ""
-			porcentajeSeña = 0.00
-			lblSeña.Text = "0.00"
-		End If
-	End Sub
+    Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        If MsgBox("Desea limpiar la lista de ventas?", MsgBoxStyle.YesNo, "Ventas") = MsgBoxResult.Yes Then
+            ListView1.Clear()
+            total = 0.0
+            lblTotal.Text = total.ToString("0.00")
+            lblRestaCobrar.Text = "0.00"
+            txtSeña.Text = ""
+            porcentajeSeña = 0.00
+            lblSeña.Text = "0.00"
+        End If
+    End Sub
 
-	Private Sub BtnQuitarItem_Click(sender As Object, e As EventArgs) Handles btnQuitarItem.Click
+    Private Sub BtnQuitarItem_Click(sender As Object, e As EventArgs) Handles btnQuitarItem.Click
 		QuitarItem("")
 	End Sub
 

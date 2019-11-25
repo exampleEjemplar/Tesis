@@ -184,12 +184,15 @@ Partial Class ListadodeProveedores
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(913, 524)
-        Me.ControlBox = False
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ListadodeProveedores"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Listado de proveedores"
         CType(Me.SP_ListadodeProveedoresPorfechaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

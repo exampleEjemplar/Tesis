@@ -57,12 +57,11 @@ Public Class FrmGestionUsuario
 		cboRol.SelectedItem = Nothing
 	End Sub
 
-	Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-		Me.Close()
-		MDIPrincipal.ShowDialog()
-	End Sub
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Me.Close()
+    End Sub
 
-	Private Sub DgvProveedores_DoubleClick(sender As Object, e As System.EventArgs) Handles dgvUsuarios.DoubleClick
+    Private Sub DgvProveedores_DoubleClick(sender As Object, e As System.EventArgs) Handles dgvUsuarios.DoubleClick
 		If Cambiando Then
 			Return
 		End If
@@ -223,8 +222,9 @@ Public Class FrmGestionUsuario
 	Public Function DgvUSuariosSet(ByVal parametros As Dictionary(Of String, String)) As DataSet
 		Dim dsa1 As DataSet
 		dsa1 = UsuariosMetodo.CargarGrillaUsuarios(parametros) 'Si parametros esta vacio, busca todos los proveedores en la bd
-		dgvUsuarios.DataSource = dsa1.Tables(0)
-		Return dsa1
+        dgvUsuarios.DataSource = dsa1.Tables(0)
+        dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        Return dsa1
 	End Function
 
 	Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click

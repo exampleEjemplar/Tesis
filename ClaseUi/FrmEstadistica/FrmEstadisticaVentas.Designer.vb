@@ -371,7 +371,6 @@ Partial Class FrmEstadisticaVentas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 562)
-        Me.ControlBox = False
         Me.Controls.Add(Me.Chart4)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Chart2)
@@ -379,10 +378,13 @@ Partial Class FrmEstadisticaVentas
         Me.Controls.Add(Me.Chart3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnSalir)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmEstadisticaVentas"
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Estadisticas de Ventas"
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

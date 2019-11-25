@@ -186,8 +186,9 @@ Public Class FrmArmadoCompra
 		If MsgBox("Desea limpiar la lista de compras?", MsgBoxStyle.YesNo, "Compras") = MsgBoxResult.Yes Then
 			ListView1.Clear()
 			total = 0.0
-			lblTotal.Text = total.ToString("0.00")
-		End If
+            lblTotal.Text = total.ToString("0.00")
+            selectedProducto = Nothing
+        End If
 	End Sub
 
 	'Quita el producto seleccionado y recalcula el total de la compra
@@ -195,8 +196,9 @@ Public Class FrmArmadoCompra
 		If selectedProducto IsNot Nothing Then
 			ListView1.Items.Remove(selectedProducto)
 			total -= selectedProducto.Tag(3)
-			lblTotal.Text = total.ToString("0.00")
-		End If
+            lblTotal.Text = total.ToString("0.00")
+            selectedProducto = Nothing
+        End If
 	End Sub
 
 	Private Sub ListView1_ItemSelectionChanged(sender As Object, e As ListViewItemSelectionChangedEventArgs) Handles ListView1.ItemSelectionChanged

@@ -23,7 +23,7 @@ Partial Class Frmlistadodeventas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.SP_ListadodeVentasPorfechaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSetReportes = New ClaseUi.DataSetReportes()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -155,9 +155,9 @@ Partial Class Frmlistadodeventas
         '
         'ReportViewer1
         '
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.SP_ListadodeVentasPorfechaBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.SP_ListadodeVentasPorfechaBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "ClaseUi.ListadodeVentasporFecha.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(12, 183)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -184,12 +184,15 @@ Partial Class Frmlistadodeventas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(941, 575)
-        Me.ControlBox = False
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Frmlistadodeventas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Listado de Ventas"
         CType(Me.SP_ListadodeVentasPorfechaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
