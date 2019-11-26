@@ -18,6 +18,9 @@ Public Class FrmGestionProducto
 	Dim IMAGEN As String
 	Dim busqcod As String
 	Dim busqprod As String
+	Dim paginaInicial As Integer = 0
+	Dim filas As Integer = helpersLN.ContarFilas("Productos").Tables(0).Rows(0)(0)
+	Dim totalEstaPagina As Integer = If(filas < paginaInicial + 20, paginaInicial + 20, filas)
 
 
 	'Metodo que selecciona una imagen y la carga en un PictureBox'
@@ -208,7 +211,9 @@ Public Class FrmGestionProducto
 
 	Private Sub BtnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 		Try
-			ValidarDatos()
+			If ValidarDatos() = False Then
+				Return
+			End If
 			productometodo.Grabarproductos(pro)
 			Dgvproductosset()
 			cereacampos()
@@ -251,7 +256,7 @@ Public Class FrmGestionProducto
 	Public Sub Dgvproductosset()
 		Try
 			Dim dsa1 As DataTable
-			dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod)
+			dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod, "", paginaInicial)
 			DataGridView1.DataSource = dsa1
 			DataGridView1.Columns(0).HeaderText = "Código"
 			DataGridView1.Columns(1).HeaderText = "Código Barras"
@@ -279,7 +284,17 @@ Public Class FrmGestionProducto
 					DataGridView1.Rows.Remove(DataGridView1.Rows(X))
 				End If
 			Next
-
+			If paginaInicial <= 0 Then
+				btnAnterior.Enabled = False
+			Else
+				btnAnterior.Enabled = True
+			End If
+			If filas <= (paginaInicial + 20) Then
+				btnSiguiente.Enabled = False
+			Else
+				btnSiguiente.Enabled = True
+			End If
+			lblPagina.Text = "De " + paginaInicial.ToString() + " a " + totalEstaPagina.ToString() + " productos. " + filas.ToString() + " en total."
 		Catch ex As Exception
 			MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
 			Exit Sub
@@ -597,7 +612,9 @@ Public Class FrmGestionProducto
 	End Sub
 
 	Private Sub btnguardarmodificacion_Click(sender As Object, e As EventArgs) Handles btnguardarmodificacion.Click
-		ValidarDatos()
+		If ValidarDatos() = False Then
+			Return
+		End If
 
 		'pro.EsServicio = proveedoresLN.ConsultaModificacion(cmbProveedor.SelectedValue).Tables(0).Rows(0)(22).ToString()
 
@@ -750,4 +767,16 @@ Public Class FrmGestionProducto
 			Return myCp
 		End Get
 	End Property
+
+	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnAnterior.Click
+		paginaInicial -= 20
+		lblPagina.Text = "De " + paginaInicial.ToString() + " a " + totalEstaPagina.ToString() + " productos. " + filas.ToString() + " en total."
+		Dgvproductosset()
+	End Sub
+
+	Private Sub Button_Click(sender As Object, e As EventArgs) Handles btnSiguiente.Click
+		paginaInicial += 20
+		lblPagina.Text = "De " + paginaInicial.ToString() + " a " + totalEstaPagina.ToString() + " productos. " + filas.ToString() + " en total."
+		Dgvproductosset()
+	End Sub
 End Class

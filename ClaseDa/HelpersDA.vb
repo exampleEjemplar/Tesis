@@ -45,6 +45,23 @@ Public Class HelpersDA
 
 	End Function
 
+	Public Function ContarFilas(tabla As String)
+		ChequearConexion(db)
+		Dim sqlStr As String
+		ds = New DataSet
+		sqlStr = "select count(*) from " + tabla
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			ChequearConexion(db, "close")
+		End Try
+		ChequearConexion(db, "close")
+		Return ds
+		'
+	End Function
+
 
 	Public Function CargarCMBProvincias()
 		ChequearConexion(db)

@@ -15,6 +15,10 @@ Public Class HelpersLN
 		Return helpersDA.LlenarUnidadDePeso()
 	End Function
 
+	Public Function ContarFilas(tabla As String)
+		Return helpersDA.ContarFilas(tabla)
+	End Function
+
 	Public Function CargarCMBLocalidades(ByVal idprov As Integer)
         Return helpersDA.CargarCMBLocalidades(idprov)
     End Function
