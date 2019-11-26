@@ -161,11 +161,11 @@ Public Class ProveedoresDA
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = "select count(id) as Cantidad, CASE FisicaOJuridica WHEN 'F' THEN 'Fisica' WHEN 'J'THEN 'Juridica'ELSE 'Unknown'end as FisicaOJuridica from Proveedores " &
-						"where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-						"group by FisicaOJuridica"
+        sqlStr = "select cast (round ( count(*) * 100.00/ sum(count(*)) over(),2) as numeric(10,2)) as cantidad , CASE FisicaOJuridica WHEN 'F' THEN 'Fisica' WHEN 'J'THEN 'Juridica'ELSE 'Unknown'end as FisicaOJuridica from Proveedores " &
+                        "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+                        "group by FisicaOJuridica"
 
-		Try
+        Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
 		Catch ex As Exception
