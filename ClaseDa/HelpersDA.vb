@@ -18,21 +18,11 @@ Public Class HelpersDA
 	Public Function ChequearConexion(ByVal db As SqlConnection, Optional force As String = "")
 		If force = "close" Then
 			If Not db.State = ConnectionState.Closed Then
-				Dim sqlStr As String
-				Dim ds = New DataSet
-				sqlStr = "insert into bdattempts Values(0,0)"
-				Dim da As New SqlDataAdapter(sqlStr, db)
-				da.Fill(ds)
 				db.Close()
 			End If
 		Else
 			If Not db.State = ConnectionState.Open Then
 				db.Open()
-				Dim sqlStr As String
-				Dim ds = New DataSet
-				sqlStr = "insert into bdattempts Values(1,1)"
-				Dim da As New SqlDataAdapter(sqlStr, db)
-				da.Fill(ds)
 			End If
 		End If
 		Return db
