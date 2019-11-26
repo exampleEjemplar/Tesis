@@ -135,7 +135,7 @@ Public Class VentasDA
 
 	Public Function ObtenerDatosProducto(ByVal idventa As String)
 		helpersDa.ChequearConexion(db)
-		Dim da As New SqlDataAdapter("Select  dv.id, Max(p.Nombre) as [Producto], Max(p.Precio) [PrecioU],
+		Dim da As New SqlDataAdapter("Select  dv.id, Max(p.Nombre) as [Producto], Max(dv.subtotal / dv.cantidad) [PrecioU],
 		                                Max(u.Nombre) as [UnidadMedida],
 		                                Max(dv.cantidad) as [Cantidad], Max(dv.Subtotal) as [Subtotal] from Ventas as v 
                                         INNER JOIN DetalleVentas as dv on dv.VentaId = v.Id 

@@ -93,6 +93,10 @@ Public Class FrmGestionProducto
 				MsgBox("Ingrese el precio en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
 				Return False
 			End If
+			If value = 0 Then
+				MsgBox("Ingrese el precio en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
+				Return False
+			End If
 			pro.precio = newText.ToString()
 		Else
 			MsgBox("Debe agregar un precio", MsgBoxStyle.Critical, "Producto")
@@ -133,7 +137,17 @@ Public Class FrmGestionProducto
 #End Region
 #Region "Utilidad"
 		If Not String.IsNullOrEmpty(TbUtilidad.Text) Then
-			pro.utilidad = TbUtilidad.Text
+			Dim value As Decimal
+			Dim newText = TbUtilidad.Text.Replace(",", ".")
+			If Not Decimal.TryParse(newText, value) Then
+				MsgBox("Ingrese la utilidad en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
+				Return False
+			End If
+			If value = 0 Then
+				MsgBox("Ingrese la utilidad  en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
+				Return False
+			End If
+			pro.utilidad = newText
 		Else
 			MsgBox("Debe agregar una utilidad", MsgBoxStyle.Critical, "Producto")
 			Return False

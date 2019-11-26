@@ -88,6 +88,7 @@ Partial Class FrmGestionProducto
 		Me.btnSiguiente = New System.Windows.Forms.Button()
 		Me.btnAnterior = New System.Windows.Forms.Button()
 		Me.lblPagina = New System.Windows.Forms.Label()
+		Me.Button1 = New System.Windows.Forms.Button()
 		Me.gbbusqueda.SuspendLayout()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox2.SuspendLayout()
@@ -715,6 +716,7 @@ Partial Class FrmGestionProducto
 		'
 		'gboPrecio
 		'
+		Me.gboPrecio.Controls.Add(Me.Button1)
 		Me.gboPrecio.Controls.Add(Me.btnModificarPrecios)
 		Me.gboPrecio.Controls.Add(Me.Label20)
 		Me.gboPrecio.Controls.Add(Me.TbPrecio)
@@ -739,11 +741,11 @@ Partial Class FrmGestionProducto
 		Me.btnModificarPrecios.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnModificarPrecios.Image = CType(resources.GetObject("btnModificarPrecios.Image"), System.Drawing.Image)
 		Me.btnModificarPrecios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.btnModificarPrecios.Location = New System.Drawing.Point(53, 91)
+		Me.btnModificarPrecios.Location = New System.Drawing.Point(112, 90)
 		Me.btnModificarPrecios.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnModificarPrecios.Name = "btnModificarPrecios"
 		Me.btnModificarPrecios.RightToLeft = System.Windows.Forms.RightToLeft.No
-		Me.btnModificarPrecios.Size = New System.Drawing.Size(129, 46)
+		Me.btnModificarPrecios.Size = New System.Drawing.Size(112, 46)
 		Me.btnModificarPrecios.TabIndex = 38
 		Me.btnModificarPrecios.Text = "Modificar precios"
 		Me.btnModificarPrecios.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -938,6 +940,25 @@ Partial Class FrmGestionProducto
 		Me.lblPagina.TabIndex = 36
 		Me.lblPagina.Text = "*pagina*"
 		'
+		'Button1
+		'
+		Me.Button1.BackColor = System.Drawing.SystemColors.Control
+		Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button1.FlatAppearance.BorderSize = 0
+		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold)
+		Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+		Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.Button1.Location = New System.Drawing.Point(5, 84)
+		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+		Me.Button1.Name = "Button1"
+		Me.Button1.RightToLeft = System.Windows.Forms.RightToLeft.No
+		Me.Button1.Size = New System.Drawing.Size(106, 52)
+		Me.Button1.TabIndex = 40
+		Me.Button1.Text = "Utilidad"
+		Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.Button1.UseVisualStyleBackColor = False
+		'
 		'FrmGestionProducto
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1047,4 +1068,5 @@ Partial Class FrmGestionProducto
 	Friend WithEvents btnSiguiente As Windows.Forms.Button
 	Friend WithEvents btnAnterior As Windows.Forms.Button
 	Friend WithEvents lblPagina As Windows.Forms.Label
+	Friend WithEvents Button1 As Windows.Forms.Button
 End Class

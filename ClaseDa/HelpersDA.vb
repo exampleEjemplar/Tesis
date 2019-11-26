@@ -269,7 +269,7 @@ Public Class HelpersDA
 			innerJoin = "inner join DetallePedidos dp on dp.ProductoId = p.id inner join pedidos ped on dp.PedidoId = ped.Id "
 		End If
 		ds = New DataSet
-		sqlStr = "set dateformat dmy select p.Id,p.Nombre,p.Foto,p.Precio,prov.Nombre as Proveedor, prov.id, p.FechaAlta, p.CategoriaId from Productos as p inner join proveedores as prov on prov.id = p.ProveedorId " + innerJoin
+		sqlStr = "set dateformat dmy select p.Id,p.Nombre,p.Foto,cast((( P.precio * P.utilidad)/100+(P.precio)) as decimal(10,2)),prov.Nombre as Proveedor, prov.id, p.FechaAlta, p.CategoriaId from Productos as p inner join proveedores as prov on prov.id = p.ProveedorId " + innerJoin
 
 		If parametros.Count <> 0 Then
 			Dim count = parametros.Count
