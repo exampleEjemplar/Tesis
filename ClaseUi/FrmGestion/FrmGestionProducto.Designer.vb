@@ -109,7 +109,7 @@ Partial Class FrmGestionProducto
 		Me.gbbusqueda.Controls.Add(Me.btnBuscar)
 		Me.gbbusqueda.Controls.Add(Me.Button4)
 		Me.gbbusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.gbbusqueda.Location = New System.Drawing.Point(4, 549)
+		Me.gbbusqueda.Location = New System.Drawing.Point(1055, 15)
 		Me.gbbusqueda.Margin = New System.Windows.Forms.Padding(4)
 		Me.gbbusqueda.Name = "gbbusqueda"
 		Me.gbbusqueda.Padding = New System.Windows.Forms.Padding(4)
@@ -206,7 +206,7 @@ Partial Class FrmGestionProducto
 		Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
 		Me.DataGridView1.ColumnHeadersHeight = 45
 		Me.DataGridView1.EnableHeadersVisualStyles = False
-		Me.DataGridView1.Location = New System.Drawing.Point(4, 705)
+		Me.DataGridView1.Location = New System.Drawing.Point(1055, 171)
 		Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
 		Me.DataGridView1.MultiSelect = False
 		Me.DataGridView1.Name = "DataGridView1"
@@ -903,7 +903,7 @@ Partial Class FrmGestionProducto
 		Me.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnSiguiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnSiguiente.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnSiguiente.Location = New System.Drawing.Point(538, 669)
+		Me.btnSiguiente.Location = New System.Drawing.Point(1589, 135)
 		Me.btnSiguiente.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSiguiente.Name = "btnSiguiente"
 		Me.btnSiguiente.Size = New System.Drawing.Size(147, 32)
@@ -919,7 +919,7 @@ Partial Class FrmGestionProducto
 		Me.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnAnterior.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnAnterior.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnAnterior.Location = New System.Drawing.Point(4, 669)
+		Me.btnAnterior.Location = New System.Drawing.Point(1055, 135)
 		Me.btnAnterior.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnAnterior.Name = "btnAnterior"
 		Me.btnAnterior.Size = New System.Drawing.Size(147, 32)
@@ -931,7 +931,7 @@ Partial Class FrmGestionProducto
 		'
 		Me.lblPagina.AutoSize = True
 		Me.lblPagina.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblPagina.Location = New System.Drawing.Point(270, 677)
+		Me.lblPagina.Location = New System.Drawing.Point(1321, 143)
 		Me.lblPagina.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblPagina.Name = "lblPagina"
 		Me.lblPagina.Size = New System.Drawing.Size(69, 17)
@@ -942,7 +942,7 @@ Partial Class FrmGestionProducto
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(1755, 1055)
+		Me.ClientSize = New System.Drawing.Size(1755, 558)
 		Me.Controls.Add(Me.lblPagina)
 		Me.Controls.Add(Me.btnAnterior)
 		Me.Controls.Add(Me.btnSiguiente)

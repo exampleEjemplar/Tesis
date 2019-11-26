@@ -20,7 +20,7 @@ Public Class FrmGestionProducto
 	Dim busqprod As String
 	Dim paginaInicial As Integer = 0
 	Dim filas As Integer = helpersLN.ContarFilas("Productos").Tables(0).Rows(0)(0)
-	Dim totalEstaPagina As Integer = If(filas < paginaInicial + 20, paginaInicial + 20, filas)
+	Dim totalEstaPagina As Integer = If(filas < paginaInicial + 20, filas, paginaInicial + 20)
 
 
 	'Metodo que selecciona una imagen y la carga en un PictureBox'
@@ -294,18 +294,25 @@ Public Class FrmGestionProducto
 			Else
 				btnSiguiente.Enabled = True
 			End If
-			lblPagina.Text = "De " + paginaInicial.ToString() + " a " + totalEstaPagina.ToString() + " productos. " + filas.ToString() + " en total."
+			ConfigurarPaginado()
 		Catch ex As Exception
 			MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
 			Exit Sub
 		End Try
 	End Sub
 
-	Public Function DgvproductosBusq(ByVal parametros As Dictionary(Of String, String)) As DataSet
+	Sub ConfigurarPaginado()
+		filas = helpersLN.ContarFilas("Productos").Tables(0).Rows(0)(0)
+		totalEstaPagina = If(filas < paginaInicial + 20, filas, paginaInicial + 20)
+		lblPagina.Text = "De " + (paginaInicial + 1).ToString() + " a " + totalEstaPagina.ToString() + " productos. " + filas.ToString() + " en total."
+	End Sub
+
+	Public Function DgvproductosBusq() As DataTable
 		Try
-			Dim dsa1 As DataSet
-			dsa1 = productometodo.CargaGrillaProductos(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
-			DataGridView1.DataSource = dsa1.Tables(0)
+			Dim dsa1 As DataTable
+			'dsa1 = productometodo.CargaGrillaProductos(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
+			dsa1 = productometodo.CargaGrillaproductossinbusqueda(txtBusCodigo.Text, txtBusNombreProd.Text, "", paginaInicial)
+			DataGridView1.DataSource = dsa1
 
 			DataGridView1.AllowUserToAddRows = False
 			DataGridView1.AllowUserToDeleteRows = False
@@ -592,23 +599,10 @@ Public Class FrmGestionProducto
 	End Sub
 
 	Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-
-		Dim parametros As New Dictionary(Of String, String)
-
-		If String.IsNullOrWhiteSpace(txtBusCodigo.Text) = False Then
-			parametros.Add("id", txtBusCodigo.Text)
-		End If
-		If String.IsNullOrWhiteSpace(txtBusNombreProd.Text) = False Then
-			parametros.Add("Nombre", txtBusNombreProd.Text)
-		End If
-
-		If DgvproductosBusq(parametros).Tables(0).Rows.Count = 0 Then
+		If DgvproductosBusq().Rows.Count = 0 Then
 			MsgBox("La búsqueda no arrojo resultados", MsgBoxStyle.Critical, "Error")
 		End If
-
-
-
-
+		ConfigurarPaginado()
 	End Sub
 
 	Private Sub btnguardarmodificacion_Click(sender As Object, e As EventArgs) Handles btnguardarmodificacion.Click
@@ -640,11 +634,11 @@ Public Class FrmGestionProducto
 		'	pro.categoriaId = CmbCategoria.SelectedValue
 		'	pro.StockODeTercero = 0
 		productometodo.modificarproductos(pro)
-			cereacampos()
-			bloquearcampos()
-			btnBuscar.Enabled = True
-			btnmodificar.Enabled = True
-			btnNuevo.Enabled = True
+		cereacampos()
+		bloquearcampos()
+		btnBuscar.Enabled = True
+		btnmodificar.Enabled = True
+		btnNuevo.Enabled = True
 		'Else
 
 		'	pro.Id = tbCodigo.Text
@@ -672,10 +666,10 @@ Public Class FrmGestionProducto
 		btnmodificar.Enabled = False
 		Dgvproductosset()
 		modificado = True
-        MsgBox("Producto Modificado", MsgBoxStyle.OkOnly, "Producto")
-    End Sub
+		MsgBox("Producto Modificado", MsgBoxStyle.OkOnly, "Producto")
+	End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnNuevaCategoria.Click
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnNuevaCategoria.Click
 		FrmGestionCategorías.ShowDialog()
 	End Sub
 
@@ -770,13 +764,13 @@ Public Class FrmGestionProducto
 
 	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnAnterior.Click
 		paginaInicial -= 20
-		lblPagina.Text = "De " + paginaInicial.ToString() + " a " + totalEstaPagina.ToString() + " productos. " + filas.ToString() + " en total."
+		ConfigurarPaginado()
 		Dgvproductosset()
 	End Sub
 
 	Private Sub Button_Click(sender As Object, e As EventArgs) Handles btnSiguiente.Click
 		paginaInicial += 20
-		lblPagina.Text = "De " + paginaInicial.ToString() + " a " + totalEstaPagina.ToString() + " productos. " + filas.ToString() + " en total."
+		ConfigurarPaginado()
 		Dgvproductosset()
 	End Sub
 End Class
