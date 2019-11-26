@@ -313,8 +313,7 @@ Public Class FrmArmadoPago
 
 			'Asignamos el texto del item
 			listaViewItem.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
-			Dim font = New Font("Arial", 7)
-			listaViewItem.Font = font
+			listaViewItem.Font = Font
 			'Asignamos toda la info para cuando se pase a la otra columna
 			listaViewItem.Tag = ds2.Tables(0).Rows(i)
 
