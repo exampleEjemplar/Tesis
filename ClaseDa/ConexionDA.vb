@@ -10,11 +10,6 @@ Public Class ConexionDA
 
 	Public Function Abrir() As SqlConnection
 		cn = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
-		Dim sqlStr As String
-		Dim ds = New DataSet
-		sqlStr = "insert into bdattempts Values(25,1)"
-		Dim da As New SqlDataAdapter(sqlStr, cn)
-		da.Fill(ds)
 		If Not cn.State = ConnectionState.Open Then
 			cn.Open()
 		End If
@@ -22,12 +17,6 @@ Public Class ConexionDA
 	End Function
 
 	Public Function Cerrar() As SqlConnection
-		cn = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
-		Dim sqlStr As String
-		Dim ds = New DataSet
-		sqlStr = "insert into bdattempts Values(25,0)"
-		Dim da As New SqlDataAdapter(sqlStr, cn)
-		da.Fill(ds)
 		If Not cn.State = ConnectionState.Closed Then
 			cn.Close()
 		End If
