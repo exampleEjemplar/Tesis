@@ -13,13 +13,14 @@ Public Class CajaDA
     Public Sub New()
 		Dim objcon As New ConexionDA
 		db = objcon.Abrir
+		db = objcon.Cerrar
 		com.Connection = db
 	End Sub
 
 
     Public Function CargarGrillaMovimientosEstado(parametros As Dictionary(Of String, String)) As DataSet
-        helpersDA.ChequearConexion(db)
-        Dim ds = New DataSet
+		helpersDA.ChequearConexion(db)
+		Dim ds = New DataSet
 
         Dim text = ""
         If parametros.Count <> 0 Then
@@ -60,14 +61,13 @@ Public Class CajaDA
 		Dim sqlStr = "set dateformat dmy Select v.id,v.fecha,v.Total,u.Username from ventas as v inner join usuarios as u on u.id = v.usuarioId " + text + "and v.estado=1 set dateformat dmy Select v.id,v.fecha,v.Total,u.Username from compras as v inner join usuarios as u on u.id = v.usuarioId " + text + "and v.estado=1"
 
 		Try
-            Dim da As New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            db.Close()
-        End Try
-        Return ds
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDA.ChequearConexion(db,"close")
+		End Try
+		Return ds
     End Function
     Public Function CargarGrillaMovimientos(parametros As Dictionary(Of String, String)) As DataSet
 		helpersDA.ChequearConexion(db)
@@ -106,11 +106,11 @@ Public Class CajaDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDA.ChequearConexion(db,"close")
 		End Try
+		helpersDA.ChequearConexion(db,"close")
 		Return ds
 	End Function
 
@@ -126,67 +126,61 @@ Public Class CajaDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDA.ChequearConexion(db,"close")
 		End Try
+		helpersDA.ChequearConexion(db,"close")
 		Return ds
 	End Function
 
 
     Public Sub grabarCierredeCaja(ByVal idusuario As Integer, ByVal txtmontofinal As Double)
-        'Dim sel As SqlCommand
-        Try
-            Dim insert As New SqlCommand("insert INTO CierreCajas (usr_id, fecha, importe, estado) values (" & idusuario & ", getdate()," & txtmontofinal & ",1)", db)
-            insert.CommandType = CommandType.Text
-            db.Open()
-            insert.ExecuteNonQuery()
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
+		helpersDA.ChequearConexion(db)
+		Try
+			Dim insert As New SqlCommand("insert INTO CierreCajas (usr_id, fecha, importe, estado) values (" & idusuario & ", getdate()," & txtmontofinal & ",1)", db)
+			insert.CommandType = CommandType.Text
+			insert.ExecuteNonQuery()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDA.ChequearConexion(db,"close")
+		End Try
+		helpersDA.ChequearConexion(db,"close")
+	End Sub
 
     Public Function updateCierre(ByVal idusuario As Integer) As DataSet
-
-        Dim sqlStr As String
+		helpersDA.ChequearConexion(db)
+		Dim sqlStr As String
         ds1 = New DataSet
         sqlStr = "update compras set estado = 0 where usuarioID = " & idusuario & "update ventas set estado = 0 where usuarioID = " & idusuario
 
         Try
 
             da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds1)
-            db.Close()
-        Catch ex As Exception
+			da.Fill(ds1)
+		Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-        Return ds1
-        db.Close()
-    End Function
+			helpersDA.ChequearConexion(db,"close")
+		End Try
+		helpersDA.ChequearConexion(db,"close")
+		Return ds1
+	End Function
 
 
 
-    Public Function ControlCierreCaja() As DataSet
-
-
-        helpersDA.ChequearConexion(db)
-        enunciado = New SqlCommand("select * from COMPRAs c WHERE c.estado=1 union all select fecha, '','',total,'','','' from ventas v WHERE v.estado=1 ", db)
-        Dim ds As New DataSet
-        Try
-            Dim da = New SqlDataAdapter(enunciado)
-            da.Fill(ds)
-            db.Close()
-
-
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-
-            db.Close()
-        End Try
-        Return ds
-
-    End Function
+	Public Function ControlCierreCaja() As DataSet
+		helpersDA.ChequearConexion(db)
+		enunciado = New SqlCommand("select * from COMPRAs c WHERE c.estado=1 union all select fecha, '','',total,'','','' from ventas v WHERE v.estado=1 ", db)
+		Dim ds As New DataSet
+		Try
+			Dim da = New SqlDataAdapter(enunciado)
+			da.Fill(ds)
+		Catch ex As Exception
+			MsgBox(ex.ToString)
+			helpersDA.ChequearConexion(db,"close")
+		End Try
+		helpersDA.ChequearConexion(db,"close")
+		Return ds
+	End Function
 
 End Class

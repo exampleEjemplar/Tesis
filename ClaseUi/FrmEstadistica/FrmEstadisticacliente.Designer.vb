@@ -98,7 +98,7 @@ Partial Class FrmEstadisticacliente
         Me.gbFiltro.Size = New System.Drawing.Size(656, 51)
         Me.gbFiltro.TabIndex = 7
         Me.gbFiltro.TabStop = False
-        Me.gbFiltro.Text = "Filtro"
+        Me.gbFiltro.Text = "Búsqueda"
         '
         'RadioButton2
         '
@@ -290,7 +290,7 @@ Partial Class FrmEstadisticacliente
         Me.Button2.Size = New System.Drawing.Size(80, 116)
         Me.Button2.TabIndex = 20
         Me.Button2.Tag = ""
-        Me.Button2.Text = "Borrar Filtro"
+        Me.Button2.Text = "Borrar Búsqueda"
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button2.UseVisualStyleBackColor = False
         '

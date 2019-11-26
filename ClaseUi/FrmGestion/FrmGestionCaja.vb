@@ -167,7 +167,7 @@ Public Class FrmGestionCaja
 	End Sub
 
 	Private Sub btnLimpiarFiltros_Click(sender As Object, e As EventArgs) Handles btnLimpiarFiltros.Click
-		If MsgBox("Desea quitar todos los filtros", MsgBoxStyle.YesNo, "Filtros") = MsgBoxResult.Yes Then
+		If MsgBox("Desea limpiar la búsqueda", MsgBoxStyle.YesNo, "Búsqueda") = MsgBoxResult.Yes Then
 			Cargar()
 			Search()
 		End If

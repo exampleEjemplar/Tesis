@@ -204,10 +204,10 @@ Public Class FrmArmadoReparacion
     End Sub
 
     Private Sub BtnLimpiarFiltros_Click(sender As Object, e As EventArgs) Handles btnLimpiarFiltros.Click
-        If MsgBox("Desea limpiar los filtros?", MsgBoxStyle.YesNo, "Filtros") = MsgBoxResult.No Then
-            Return
-        End If
-        txtBusNombreProducto.Text = ""
+		If MsgBox("Desea limpiar la búsqueda?", MsgBoxStyle.YesNo, "Búsqueda") = MsgBoxResult.No Then
+			Return
+		End If
+		txtBusNombreProducto.Text = ""
         chkSoloCliente.Checked = False
         Search()
     End Sub

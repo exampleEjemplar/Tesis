@@ -5,14 +5,15 @@ Public Class PagosDA
 	Private helpersDa As New HelpersDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
-    Private LoginDa As New MetodoLoginDA
-    Private ds1 As DataSet
-    Private movimientoStockDA As New MovimientoStockDA
+	Private LoginDa As New MetodoLoginDA
+	Private ds1 As DataSet
+	Private movimientoStockDA As New MovimientoStockDA
 
 
 	Public Sub New()
 		Dim objcon As New ConexionDA
 		db = objcon.Abrir
+		db = objcon.Cerrar
 		com.Connection = db
 	End Sub
 
@@ -54,12 +55,12 @@ Public Class PagosDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return ds1
-		db.Close()
 	End Function
 
 	Public Sub Registrar(listaDeProductosId As List(Of TipoDeComprasNE))
@@ -71,12 +72,12 @@ Public Class PagosDA
 
 		helpersDa.ChequearConexion(db)
 
-        Try
+		Try
 			Dim totalizado = total.ToString().Replace(",", ".")
-            'TODO esto esta mal!
-            Dim insert As New SqlCommand("insert into pagos Values (GETDATE()," & listaDeProductosId.FirstOrDefault().ProveedorId.ToString() & ", " & totalizado & "," + LoginDa.ChequearEnSesion() + ")", db)
-            'END TODO
-            insert.CommandType = CommandType.Text
+			'TODO esto esta mal!
+			Dim insert As New SqlCommand("insert into pagos Values (GETDATE()," & listaDeProductosId.FirstOrDefault().ProveedorId.ToString() & ", " & totalizado & "," + LoginDa.ChequearEnSesion() + ")", db)
+			'END TODO
+			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
 			For Each compraDetalle As TipoDeComprasNE In listaDeProductosId
 				Dim parcial = (compraDetalle.Precio * compraDetalle.Cantidad).ToString().Replace(",", ".")
@@ -86,11 +87,11 @@ Public Class PagosDA
 
 				movimientoStockDA.Registrar(compraDetalle.ProductoId, compraDetalle.Cantidad)
 			Next
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 	End Sub
 
 	Public Function ObtenerUltimoPago()
@@ -99,11 +100,11 @@ Public Class PagosDA
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
 		End Try
-
+		helpersDa.ChequearConexion(db, "close")
 		Return ds
 
 	End Function
@@ -119,11 +120,12 @@ Public Class PagosDA
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
 		End Try
 
+		helpersDa.ChequearConexion(db, "close")
 		Return ds
 	End Function
 
@@ -139,11 +141,12 @@ Public Class PagosDA
 
 		Try
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
 		End Try
 
+		helpersDa.ChequearConexion(db, "close")
 		Return ds
 	End Function
 

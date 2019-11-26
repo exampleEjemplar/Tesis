@@ -299,11 +299,11 @@ Partial Class FrmArmadoReparacion
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(307, 20)
         Me.Label1.TabIndex = 61
-        Me.Label1.Text = "Armado de comprobante de compra"
-        '
-        'lblClienteDireccion
-        '
-        Me.lblClienteDireccion.AutoSize = True
+		Me.Label1.Text = "Generar comprobante de compra"
+		'
+		'lblClienteDireccion
+		'
+		Me.lblClienteDireccion.AutoSize = True
         Me.lblClienteDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
         Me.lblClienteDireccion.Location = New System.Drawing.Point(112, 46)
         Me.lblClienteDireccion.Name = "lblClienteDireccion"
@@ -409,7 +409,7 @@ Partial Class FrmArmadoReparacion
         Me.gboFiltros.Size = New System.Drawing.Size(468, 125)
         Me.gboFiltros.TabIndex = 63
         Me.gboFiltros.TabStop = False
-        Me.gboFiltros.Text = "Filtros"
+        Me.gboFiltros.Text = "Búsqueda"
         '
         'btnLimpiarFiltros
         '
@@ -608,8 +608,8 @@ Partial Class FrmArmadoReparacion
         Me.MinimizeBox = False
         Me.Name = "FrmArmadoReparacion"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Armado de reparación"
-        Me.GroupBox3.ResumeLayout(False)
+		Me.Text = "Generar pedido de reparación"
+		Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.Panel1.ResumeLayout(False)

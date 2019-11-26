@@ -9,6 +9,7 @@ Public Class TipoDeProductosDA
 	Public Sub New()
 		Dim objcon As New ConexionDA
 		db = objcon.Abrir
+		db = objcon.Cerrar
 		com.Connection = db
 	End Sub
 
@@ -20,11 +21,11 @@ Public Class TipoDeProductosDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDA.ChequearConexion(db, "close")
 		End Try
+		helpersDA.ChequearConexion(db, "close")
 		Return ds1
 	End Function
 
@@ -34,11 +35,11 @@ Public Class TipoDeProductosDA
 			Dim insert As New SqlCommand("UPDATE TipoProductos set Nombre = '" & nombre & "',Descripcion = " & If(descripcion <> "", "'" + descripcion + "'", "NULL") & " where id = " & id, db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDA.ChequearConexion(db, "close")
 		End Try
+		helpersDA.ChequearConexion(db, "close")
 	End Sub
 
 	Public Function ConsultaModificacion(ByVal id As Integer) As DataSet
@@ -49,11 +50,11 @@ Public Class TipoDeProductosDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDA.ChequearConexion(db, "close")
 		End Try
+		helpersDA.ChequearConexion(db, "close")
 		Return ds1
 	End Function
 
@@ -63,10 +64,10 @@ Public Class TipoDeProductosDA
 			Dim insert As New SqlCommand("insert into TipoProductos VALUES ('" & nombre & "'," & If(descripcion <> "", "'" + descripcion + "'", "NULL") & ")", db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDA.ChequearConexion(db, "close")
 		End Try
+		helpersDA.ChequearConexion(db, "close")
 	End Sub
 End Class

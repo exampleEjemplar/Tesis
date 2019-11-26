@@ -12,12 +12,12 @@ Public Class ProveedoresDA
 	Private da As SqlDataAdapter
 	Private ds1 As DataSet
 	Public contador As Integer
-    Dim Rs As SqlDataReader
+	Dim Rs As SqlDataReader
 
-
-    Public Sub New()
+	Public Sub New()
 		Dim objcon As New ConexionDA
 		db = objcon.Abrir
+		db = objcon.Cerrar
 		com.Connection = db
 	End Sub
 
@@ -29,11 +29,11 @@ Public Class ProveedoresDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return ds1
 	End Function
 
@@ -41,16 +41,16 @@ Public Class ProveedoresDA
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
-        sqlStr = "select p.FisicaOJuridica as 'Tipo de Persona', t.Descripcion as 'Tipo de Dni', p.NumeroDocumento as 'Numero de identificacion', " &
-             "p.Nombre as 'Nombre - Nombre de Fantasia', p.Apellido as 'Apellido - Razon Social', " &
-             "p.FechaNacimiento as 'Nacimiento', p.FechaAlta as 'Fecha de Alta', p.Calle, p.NumeroCalle as 'Numero de calle', ciu.Nombre As Ciudad," &
-             "CONCAT(p.Car_Celular, '-', cast(p.NumeroCelular as int)) as Celular, CONCAT(p.Car_telefono, '-', cast(p.NumeroTelefono as int)) as Telefono," &
-             "p.Email , p.id " &
-             "from Proveedores as p " &
-             "inner join TipoDocumentos t on t.Id = p.TipoDocumentoId " &
-             "inner join Ciudades ciu on p.CiudadId = Ciu.Id  "
+		sqlStr = "select p.FisicaOJuridica as 'Tipo de Persona', t.Descripcion as 'Tipo de Dni', p.NumeroDocumento as 'Numero de identificacion', " &
+			  "p.Nombre as 'Nombre - Nombre de Fantasia', p.Apellido as 'Apellido - Razon Social', " &
+			  "p.FechaNacimiento as 'Nacimiento', p.FechaAlta as 'Fecha de Alta', p.Calle, p.NumeroCalle as 'Numero de calle', ciu.Nombre As Ciudad," &
+			  "CONCAT(p.Car_Celular, '-', cast(p.NumeroCelular as int)) as Celular, CONCAT(p.Car_telefono, '-', cast(p.NumeroTelefono as int)) as Telefono," &
+			  "p.Email , p.id " &
+			  "from Proveedores as p " &
+			  "inner join TipoDocumentos t on t.Id = p.TipoDocumentoId " &
+			  "inner join Ciudades ciu on p.CiudadId = Ciu.Id  "
 
-        If parametros.Count > 0 Then
+		If parametros.Count > 0 Then
 			Dim extraText As String = String.Empty
 			Dim count As Integer = 0
 			For Each parametro As KeyValuePair(Of String, String) In parametros
@@ -59,11 +59,11 @@ Public Class ProveedoresDA
 				Else
 					extraText = " where "
 				End If
-                Dim value As Decimal
-                If Decimal.TryParse(parametro.Value, value) Then
-                    extraText = extraText & " p." & parametro.Key & " = " & parametro.Value 'TODO mejorar busqueda para integers
-                Else
-                    extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
+				Dim value As Decimal
+				If Decimal.TryParse(parametro.Value, value) Then
+					extraText = extraText & " p." & parametro.Key & " = " & parametro.Value 'TODO mejorar busqueda para integers
+				Else
+					extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
 				End If
 				count = count + 1
 			Next
@@ -73,11 +73,11 @@ Public Class ProveedoresDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return ds1
 	End Function
 
@@ -99,11 +99,11 @@ Public Class ProveedoresDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return ds1
 	End Function
 
@@ -117,11 +117,11 @@ Public Class ProveedoresDA
 			",'" & cli.FisicaOJuridica & "','" & cli.ProveeServicios & "')", db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 	End Sub
 
 	Public Sub ActualizarProveedores(ByVal cli As ProveedoresNE)
@@ -130,123 +130,122 @@ Public Class ProveedoresDA
 			Dim insert As New SqlCommand("set dateformat dmy Update Proveedores set  TipoDocumentoId = " & cli.TipoDocumentoId & ",NumeroDocumento = " & cli.NumeroDocumento & ",Nombre = " & If(cli.Nombre <> "", "'" + cli.Nombre + "'", "NULL") & ",Apellido = " & If(cli.Apellido <> "", "'" + cli.Apellido + "'", "NULL") & ",FechaNacimiento = " & If(cli.FechaNacimiento.ToString() <> "", "'" + cli.FechaNacimiento.ToString("dd/MM/yyyy") + "'", "NULL") & ",calle =  " & If(cli.Calle <> "", "'" + cli.Calle + "'", "NULL") & ",NumeroCalle = " & If(cli.NumeroCalle.ToString() <> "", "'" + cli.NumeroCalle + "'", "NULL") & ",Departamento =  " & If(cli.Departamento <> "", "'" + cli.Departamento + "'", "NULL") & ",Barrio = " & If(cli.Barrio <> "", "'" + cli.Barrio + "'", "NULL") & ",Piso = " & If(cli.Piso.ToString() <> "", "'" + cli.Piso + "'", "NULL") & ",Manzana = " & If(cli.Manzana <> "", "'" + cli.Manzana + "'", "NULL") & ",Lote = " & If(cli.Lote <> "", "'" + cli.Lote + "'", "NULL") & ",CiudadId = " & If(cli.CiudadId.ToString() <> "", "'" + cli.CiudadId.ToString() + "'", "NULL") & " ,Car_Telefono = " & If(cli.Car_Telefono <> "", "'" + cli.Car_Telefono + "'", "NULL") & ",NumeroTelefono = " & If(cli.NumeroTelefono <> "", "'" + cli.NumeroTelefono + "'", "NULL") & ",Car_Celular = " & If(cli.Car_Celular <> "", "'" + cli.Car_Celular + "'", "NULL") & ",NumeroCelular = " & If(cli.NumeroCelular <> "", "'" + cli.NumeroCelular + "'", "NULL") & ",Email = " & If(cli.Email <> "", "'" + cli.Email + "'", "NULL ") & " where Id = " & cli.Id, db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 	End Sub
 
-    '	Public Function GeneraGrafico(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+	'	Public Function GeneraGrafico(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
 
-    '		Dim sqlStr As String
-    '		ds1 = New DataSet
-    '		sqlStr = "select p.nombre as nombre, count(c.NumeroDocumento) as Cantidad from Clientes c " &
-    '						"inner join Ciudades ciu on c.CiudadId = Ciu.Id " &
-    '						"inner Join Provincias p on ciu.ProvinciaID = p.Id " &
-    '						"where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "'" &
-    '						"group by p.nombre"
+	'		Dim sqlStr As String
+	'		ds1 = New DataSet
+	'		sqlStr = "select p.nombre as nombre, count(c.NumeroDocumento) as Cantidad from Clientes c " &
+	'						"inner join Ciudades ciu on c.CiudadId = Ciu.Id " &
+	'						"inner Join Provincias p on ciu.ProvinciaID = p.Id " &
+	'						"where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "'" &
+	'						"group by p.nombre"
 
-    '		Try
-    '			da = New SqlDataAdapter(sqlStr, db)
-    '			da.Fill(ds1)
-    '			db.Close()
-    '		Catch ex As Exception
-    '			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-    '			db.Close()
-    '		End Try
-    '		Return ds1
-    '	End Function
+	'		Try
+	'			da = New SqlDataAdapter(sqlStr, db)
+	'			da.Fill(ds1)
+	'		Catch ex As Exception
+	'			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+	'		End Try
+	'		Return ds1
+	'	End Function
 
+	Public Function GeneraGraficopersoneria(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
 
+		helpersDa.ChequearConexion(db)
+		Dim sqlStr As String
+		ds1 = New DataSet
+		sqlStr = "select count(id) as Cantidad, CASE FisicaOJuridica WHEN 'F' THEN 'Fisica' WHEN 'J'THEN 'Juridica'ELSE 'Unknown'end as FisicaOJuridica from Proveedores " &
+						"where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+						"group by FisicaOJuridica"
 
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
+		End Try
+		helpersDa.ChequearConexion(db, "close")
+		Return ds1
 
-    Public Function GeneraGraficopersoneria(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
-
-        Dim sqlStr As String
-        ds1 = New DataSet
-        sqlStr = "select count(id) as Cantidad, CASE FisicaOJuridica WHEN 'F' THEN 'Fisica' WHEN 'J'THEN 'Juridica'ELSE 'Unknown'end as FisicaOJuridica from Proveedores " &
-"where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-"group by FisicaOJuridica"
-
-        Try
-            da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds1)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-        Return ds1
-        db.Close()
-
-    End Function
+	End Function
 
 
 
-    Public Function GeneraGraficoProveedorPorCantidadProducto(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+	Public Function GeneraGraficoProveedorPorCantidadProducto(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+		helpersDa.ChequearConexion(db)
 
-        Dim sqlStr As String
-        ds1 = New DataSet
-        sqlStr = "Select  COUNT(*) As contador,p.Nombre+' '+p.Apellido as nombre FROM Productos a " &
-                 " inner Join Proveedores p On a.ProveedorId=p.id " &
-                  "where a.FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-                 "Group By p.Nombre+' '+p.Apellido"
-
-
-        Try
-            da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds1)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-        Return ds1
-        db.Close()
-    End Function
-
-    Public Function GeneraGraficoPorPago(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
-
-        Dim sqlStr As String
-        ds1 = New DataSet
-        sqlStr = "Select sum(total) As Total, p.Nombre+' '+p.Apellido as nombre FROM Pagos a " &
-                 "  inner Join Proveedores p on a.ProveedorId=p.id " &
-                  "where a.Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-                 "Group By p.Nombre+' '+p.Apellido"
+		Dim sqlStr As String
+		ds1 = New DataSet
+		sqlStr = "Select  COUNT(*) As contador,p.Nombre+' '+p.Apellido as nombre FROM Productos a " &
+					" inner Join Proveedores p On a.ProveedorId=p.id " &
+					 "where a.FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+					"Group By p.Nombre+' '+p.Apellido"
 
 
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
+		End Try
+		helpersDa.ChequearConexion(db, "close")
+		Return ds1
+	End Function
 
-        Try
-            da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds1)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-        Return ds1
-        db.Close()
-    End Function
+	Public Function GeneraGraficoPorPago(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+
+		helpersDa.ChequearConexion(db)
+		Dim sqlStr As String
+		ds1 = New DataSet
+		sqlStr = "Select sum(total) As Total, p.Nombre+' '+p.Apellido as nombre FROM Pagos a " &
+					"  inner Join Proveedores p on a.ProveedorId=p.id " &
+					 "where a.Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+					"Group By p.Nombre+' '+p.Apellido"
+
+
+
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
+		End Try
+		helpersDa.ChequearConexion(db, "close")
+		Return ds1
+	End Function
 
 
 
 
-    Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
+	Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
 
 
-        Try
-            helpersDa.ChequearConexion(db)
-            Dim control As New SqlCommand("set dateformat ymd select count(*) from  Proveedores where FechaAlta BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' ", db)
-            control.CommandType = CommandType.Text
-            Rs = control.ExecuteReader()
-            Rs.Read()
-            contador = Rs(0)
+		Try
+			helpersDa.ChequearConexion(db)
+			Dim control As New SqlCommand("set dateformat ymd select count(*) from  Proveedores where FechaAlta BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' ", db)
+			control.CommandType = CommandType.Text
+			Rs = control.ExecuteReader()
+			Rs.Read()
+			contador = Rs(0)
 
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
+		End Try
 
-        db.Close()
+		helpersDa.ChequearConexion(db, "close")
 
-    End Sub
+	End Sub
 
 
 

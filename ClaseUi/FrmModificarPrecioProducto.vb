@@ -135,7 +135,7 @@ Public Class FrmModificarPrecioProducto
 	End Sub
 
 	Private Sub btnLimpiarFiltros_Click(sender As Object, e As EventArgs) Handles btnLimpiarFiltros.Click
-		If MsgBox("Desea deschequear todos los productos y limpiar los filtros?", MsgBoxStyle.YesNo, "Producto") = MsgBoxResult.Yes Then
+		If MsgBox("Desea deschequear todos los productos y limpiar la búsqueda?", MsgBoxStyle.YesNo, "Producto") = MsgBoxResult.Yes Then
 			LimpiarFiltros()
 			Dim count = ChequearDeschequearGeneral(False)
 			MsgBox(count.ToString() + " producto/os fueron deschequeados", MsgBoxStyle.OkOnly, "Producto")

@@ -181,7 +181,7 @@ Public Class FrmArmadoPago
 	End Sub
 
 	Private Sub BtnLimpiarFiltros_Click(sender As Object, e As EventArgs) Handles btnLimpiarFiltros.Click
-		If MsgBox("Desea limpiar los filtros?", MsgBoxStyle.YesNo, "Filtros") = MsgBoxResult.No Then
+		If MsgBox("Desea limpiar la búsqueda?", MsgBoxStyle.YesNo, "Búsqueda") = MsgBoxResult.No Then
 			Return
 		End If
 		rbtEntreFechas.Checked = False
@@ -313,8 +313,7 @@ Public Class FrmArmadoPago
 
 			'Asignamos el texto del item
 			listaViewItem.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
-			Dim font = New Font("Arial", 7)
-			listaViewItem.Font = font
+			listaViewItem.Font = Font
 			'Asignamos toda la info para cuando se pase a la otra columna
 			listaViewItem.Tag = ds2.Tables(0).Rows(i)
 
