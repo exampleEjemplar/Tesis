@@ -24,6 +24,7 @@ Public Class MetodoProductoDA
 	Public Sub New()
 		Dim objcon As New ConexionDA
 		db = objcon.Abrir
+		db = objcon.Cerrar
 		com.Connection = db
 	End Sub
 
@@ -37,15 +38,14 @@ Public Class MetodoProductoDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 	End Sub
 
 	Public Function BuscaServicios(ByVal parametros As Dictionary(Of String, String))
-
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		Dim ds1 = New DataSet
@@ -84,43 +84,20 @@ Public Class MetodoProductoDA
 			text = " where "
 		End If
 		sqlStr = "select p.Nombre, pro.Nombre as 'Proveedor', p.precio as 'Costo' from productos as p inner join proveedores as pro on pro.id = p.proveedorId " + text + " p.EsServicio = 'S'"
-
-		'sqlStr = "select p.Fecha, p.Total, pro.Nombre as 'Proveedor', u.username as 'Usuario'from pagos as p inner join proveedores as pro on pro.id = p.proveedorId inner join usuarios as u on u.id = p.usuarioid"
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return ds1
-
-
-
-		'helpersDa.ChequearConexion(db)
-		'Dim sqlStr As String
-		'ds = New DataSet
-		'Dim text As String
-		'If String.IsNullOrWhiteSpace(servicioNombre) Then
-		'	text = "where"
-		'Else
-		'	text = "where p.nombre like '%" + servicioNombre + "%' and"
-		'End If
-		'sqlStr = "select p.Nombre, pro.Nombre, p.precio from productos as p inner join proveedores as pro on pro.id = p.proveedorId " + text + " p.EsServicio = 'S'"
-		'Try
-		'	Dim da As New SqlDataAdapter(sqlStr, db)
-		'	da.Fill(ds)
-		'	db.Close()
-		'Catch ex As Exception
-		'	MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-		'	db.Close()
-		'End Try
-		'Return ds
 	End Function
 
 
 
-	Public Function CargarTodosMovimientos(productoId As integer) As DataSet
+	Public Function CargarTodosMovimientos(productoId As Integer) As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds = New DataSet
@@ -128,11 +105,11 @@ Public Class MetodoProductoDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return ds
 	End Function
 
@@ -178,11 +155,11 @@ Public Class MetodoProductoDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return ds
 	End Function
 
@@ -194,11 +171,11 @@ Public Class MetodoProductoDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return ds
 
 	End Function
@@ -212,11 +189,11 @@ Public Class MetodoProductoDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return ds
 
 	End Function
@@ -230,10 +207,10 @@ Public Class MetodoProductoDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
 		Return ds
 
@@ -248,11 +225,11 @@ Public Class MetodoProductoDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return ds
 
 	End Function
@@ -266,11 +243,11 @@ Public Class MetodoProductoDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return ds
 
 	End Function
@@ -302,15 +279,11 @@ Public Class MetodoProductoDA
 			Dim control As New SqlCommand("update Productos set precio = " + type + " where id in(" + ids + ")", db)
 			control.CommandType = CommandType.Text
 			control.ExecuteNonQuery()
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
-	End Sub
-
-	Friend Sub MovimientoStock(productoId As Integer, v As Double)
-		Throw New NotImplementedException()
+		helpersDa.ChequearConexion(db, "close")
 	End Sub
 
 	Public Function CargarCMBcategoria2(ByVal idcat1 As Integer)
@@ -322,11 +295,11 @@ Public Class MetodoProductoDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return ds
 
 	End Function
@@ -364,57 +337,58 @@ Public Class MetodoProductoDA
 
 		Catch ex As Exception
 			MsgBox(ex.Message)
-		Finally
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 	End Sub
 
-    Public Function CargaGrillaproductosconbusqueda(ByVal parametros As Dictionary(Of String, String)) As DataSet
+	Public Function CargaGrillaproductosconbusqueda(ByVal parametros As Dictionary(Of String, String)) As DataSet
 
-        helpersDa.ChequearConexion(db)
-        Dim sqlStr As String
-        ds = New DataSet
-        sqlStr = "SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre,  m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.MaterialId, p.foto, " &
-                 "p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.UnidadDePeso,  " &
-                 "p.CategoriaID, p.StockODeTercero FROM productos as p " &
-                 "inner join Materiales m On p.MaterialId=m.id " &
-                 "inner join categorias ca on p.CategoriaID= ca.Id"
+		helpersDa.ChequearConexion(db)
+		Dim sqlStr As String
+		ds = New DataSet
+		sqlStr = "SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre,  m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.MaterialId, p.foto, " &
+					"p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.UnidadDePeso,  " &
+					"p.CategoriaID, p.StockODeTercero FROM productos as p " &
+					"inner join Materiales m On p.MaterialId=m.id " &
+					"inner join categorias ca on p.CategoriaID= ca.Id"
 
-        If parametros.Count > 0 Then
-            Dim extraText As String = String.Empty
-            Dim count As Integer = 0
-            For Each parametro As KeyValuePair(Of String, String) In parametros
-                If count <> 0 Then
-                    extraText = extraText & " and "
-                Else
-                    extraText = " where "
-                End If
-                Dim value As Integer
-                If Integer.TryParse(parametro.Value, value) Then
-                    extraText = extraText & " p." & parametro.Key & " = " & parametro.Value 'TODO mejorar busqueda para integers
-                Else
-                    extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
-                End If
-                count = count + 1
-            Next
-            sqlStr = sqlStr & extraText
-        End If
+		If parametros.Count > 0 Then
+			Dim extraText As String = String.Empty
+			Dim count As Integer = 0
+			For Each parametro As KeyValuePair(Of String, String) In parametros
+				If count <> 0 Then
+					extraText = extraText & " and "
+				Else
+					extraText = " where "
+				End If
+				Dim value As Integer
+				If Integer.TryParse(parametro.Value, value) Then
+					extraText = extraText & " p." & parametro.Key & " = " & parametro.Value 'TODO mejorar busqueda para integers
+				Else
+					extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
+				End If
+				count = count + 1
+			Next
+			sqlStr = sqlStr & extraText
+		End If
 
-        Try
-            da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            db.Close()
-        End Try
-        Return ds
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
 
-    End Function
+		End Try
+		helpersDa.ChequearConexion(db, "close")
+		Return ds
 
-    Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, Optional esReparacion As String = "") As DataTable
+	End Function
+
+	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, Optional esReparacion As String = "") As DataTable
 		'Try
-		'	helpersDa.ChequearConexion(db)
+		'	helpersDa.ChequearConexion(db,"close")
 		'	Dim ds = New DataSet
 		'	'com = New SqlCommand("SP_MostrarProductosinbusqueda", db)
 		'	'com.CommandType = CommandType.StoredProcedure
@@ -440,20 +414,19 @@ Public Class MetodoProductoDA
 		'Catch ex As Exception
 		'	MsgBox(ex.Message)
 		'	Return Nothing
-		'Finally
-		'	db.Close()
 		'End Try
+		helpersDa.ChequearConexion(db)
 		Dim sqlstr = "SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,cast(precio as decimal(10,2)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto, p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.TipoProductoID, p.UnidadDePeso, p.CategoriaID, p.StockODeTercero, p.problema FROM productos as p inner join TipoProductos t on p.TipoProductoID=t.id inner join Materiales m On p.MaterialId=m.id inner join categorias ca on p.CategoriaID= ca.Id where p.esservicio = 'N' "
 		sqlstr = If(String.IsNullOrWhiteSpace(esReparacion), sqlstr + " and esParaReparacion = 'N'", sqlstr + " and esParaReparacion = 'S'")
 		Dim dt As New DataTable
 		Try
 			Dim da As New SqlDataAdapter(sqlstr, db)
 			da.Fill(dt)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return dt
 
 	End Function
@@ -461,7 +434,7 @@ Public Class MetodoProductoDA
 	Public Function CargaGrillaproductosCONbusquedaCAT(ByVal codigo As String, ByVal nombre As String, ByVal categoria As Integer) As DataTable
 
 		'     Try
-		'         helpersDa.ChequearConexion(db)
+		'         helpersDa.ChequearConexion(db,"close")
 		'         com = New SqlCommand("SP_MostrarProductoconbusquedaCAT", db)
 		'         com.CommandType = CommandType.StoredProcedure
 		'         With com.Parameters
@@ -484,99 +457,98 @@ Public Class MetodoProductoDA
 		'     Catch ex As Exception
 		'         MsgBox(ex.Message)
 		'         Return Nothing
-		'     Finally
-		'         db.Close()
 		'     End Try
+		helpersDa.ChequearConexion(db)
 		Dim dt As New DataTable
 		Dim sqlstr = "SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto,  p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.TipoProductoID, p.UnidadDePeso,  p.CategoriaID, p.StockODeTercero FROM productos as p inner join TipoProductos t on p.TipoProductoID=t.id inner join Materiales m On p.MaterialId=m.id inner join categorias ca on p.CategoriaID= ca.Id where" + If(String.IsNullOrWhiteSpace(codigo.ToString()), "", " p.id = " + codigo.ToString()) + If(String.IsNullOrWhiteSpace(nombre.ToString()), "", " p.nombre Like  '%" + nombre.ToString() + "%'") + If(Not String.IsNullOrWhiteSpace(categoria.ToString()) And Not categoria = 0, " p.CategoriaID = " + categoria.ToString(), "")
 		Try
 			Dim da As New SqlDataAdapter(sqlstr, db)
 			da.Fill(dt)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return dt
 
 	End Function
 
-    Public Function CargaGrillaproductosCONbusquedaproducto(ByVal codigo As String, ByVal nombre As String, ByVal categoria As Integer) As DataTable
+	Public Function CargaGrillaproductosCONbusquedaproducto(ByVal codigo As String, ByVal nombre As String, ByVal categoria As Integer) As DataTable
 
-        Try
-            helpersDa.ChequearConexion(db)
-            com = New SqlCommand("SP_MostrarProductoconbusquedaPRODUCTO", db)
-            com.CommandType = CommandType.StoredProcedure
-            With com.Parameters
+		Try
+			helpersDa.ChequearConexion(db)
+			com = New SqlCommand("SP_MostrarProductoconbusquedaPRODUCTO", db)
+			com.CommandType = CommandType.StoredProcedure
+			With com.Parameters
 
-                .AddWithValue("@Nombre", nombre)
+				.AddWithValue("@Nombre", nombre)
 
-            End With
+			End With
 
-            com.ExecuteNonQuery()
-            If com.ExecuteNonQuery() Then
-                Dim da As New SqlDataAdapter(com)
-                CargaGrillaproductosCONbusquedaproducto = New DataTable
-                da.Fill(CargaGrillaproductosCONbusquedaproducto)
+			com.ExecuteNonQuery()
+			If com.ExecuteNonQuery() Then
+				Dim da As New SqlDataAdapter(com)
+				CargaGrillaproductosCONbusquedaproducto = New DataTable
+				da.Fill(CargaGrillaproductosCONbusquedaproducto)
+				helpersDa.ChequearConexion(db, "close")
+				Return CargaGrillaproductosCONbusquedaproducto
+			Else
+				helpersDa.ChequearConexion(db, "close")
+				Return Nothing
+			End If
 
-                Return CargaGrillaproductosCONbusquedaproducto
-            Else
-                Return Nothing
-            End If
+		Catch ex As Exception
+			MsgBox(ex.Message)
+			helpersDa.ChequearConexion(db, "close")
+			Return Nothing
+		End Try
 
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return Nothing
-        Finally
-            db.Close()
-        End Try
+	End Function
 
-    End Function
+	Public Function CargaGrillaProductos(ByVal parametros As Dictionary(Of String, String)) As DataSet
+		helpersDa.ChequearConexion(db)
+		Dim sqlStr As String
+		ds = New DataSet
+		sqlStr = "SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre,  m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.MaterialId, p.foto, " &
+					"p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.UnidadDePeso,  " &
+					"p.CategoriaID, p.StockODeTercero FROM productos as p " &
+					"inner join Materiales m On p.MaterialId=m.id " &
+					"inner join categorias ca on p.CategoriaID= ca.Id"
 
-    Public Function CargaGrillaProductos(ByVal parametros As Dictionary(Of String, String)) As DataSet
-        helpersDa.ChequearConexion(db)
-        Dim sqlStr As String
-        ds = New DataSet
-        sqlStr = "SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre,  m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.MaterialId, p.foto, " &
-                 "p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.UnidadDePeso,  " &
-                 "p.CategoriaID, p.StockODeTercero FROM productos as p " &
-                 "inner join Materiales m On p.MaterialId=m.id " &
-                 "inner join categorias ca on p.CategoriaID= ca.Id"
+		If parametros.Count > 0 Then
+			Dim extraText As String = String.Empty
+			Dim count As Integer = 0
+			For Each parametro As KeyValuePair(Of String, String) In parametros
+				If count <> 0 Then
+					extraText = extraText & " and "
+				Else
+					extraText = " where "
+				End If
+				Dim value As Integer
+				If Integer.TryParse(parametro.Value, value) Then
+					extraText = extraText & " p." & parametro.Key & " = " & parametro.Value 'TODO mejorar busqueda para integers
+				Else
+					extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
+				End If
+				count = count + 1
+			Next
+			sqlStr = sqlStr & extraText
+		End If
 
-        If parametros.Count > 0 Then
-            Dim extraText As String = String.Empty
-            Dim count As Integer = 0
-            For Each parametro As KeyValuePair(Of String, String) In parametros
-                If count <> 0 Then
-                    extraText = extraText & " and "
-                Else
-                    extraText = " where "
-                End If
-                Dim value As Integer
-                If Integer.TryParse(parametro.Value, value) Then
-                    extraText = extraText & " p." & parametro.Key & " = " & parametro.Value 'TODO mejorar busqueda para integers
-                Else
-                    extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
-                End If
-                count = count + 1
-            Next
-            sqlStr = sqlStr & extraText
-        End If
-
-        Try
-            da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            db.Close()
-        End Try
-        Return ds
-    End Function
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
+		End Try
+		helpersDa.ChequearConexion(db, "close")
+		Return ds
+	End Function
 
 
 
-    Public Sub Modificarproductos(ByVal pro As ProductosNE)
+	Public Sub Modificarproductos(ByVal pro As ProductosNE)
 		Try
 			helpersDa.ChequearConexion(db)
 
@@ -596,20 +568,20 @@ Public Class MetodoProductoDA
 				.AddWithValue("@Color", pro.color)
 				.AddWithValue("@ProveedorId", pro.proveedorId)
 				.AddWithValue("@StockMin", pro.stockmin)
-                .AddWithValue("@StockMax", pro.stockmax)
-                .AddWithValue("@TipoProductoId", pro.TipodeProductoId)
-                .AddWithValue("@UnidadDePeso", 1)
-                .AddWithValue("@CategoriaId", pro.categoriaId)
+				.AddWithValue("@StockMax", pro.stockmax)
+				.AddWithValue("@TipoProductoId", pro.TipodeProductoId)
+				.AddWithValue("@UnidadDePeso", 1)
+				.AddWithValue("@CategoriaId", pro.categoriaId)
 				.AddWithValue("@StockODeTercero", pro.StockODeTercero)
 			End With
 
 			com.ExecuteNonQuery()
 
 		Catch ex As Exception
+			helpersDa.ChequearConexion(db, "close")
 			MsgBox(ex.Message)
-		Finally
-			db.Close()
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 	End Sub
 
 	Public Sub ControlID()
@@ -621,11 +593,11 @@ Public Class MetodoProductoDA
 			Rs = control.ExecuteReader()
 			Rs.Read()
 			qidproductos = Rs(0)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 
 	End Sub
 
@@ -641,11 +613,11 @@ Public Class MetodoProductoDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return ds1
 	End Function
 

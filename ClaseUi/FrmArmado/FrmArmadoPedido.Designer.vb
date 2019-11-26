@@ -135,7 +135,7 @@ Partial Class FrmArmadoPedido
         Me.gboFiltros.Size = New System.Drawing.Size(633, 111)
         Me.gboFiltros.TabIndex = 44
         Me.gboFiltros.TabStop = False
-        Me.gboFiltros.Text = "Filtros"
+        Me.gboFiltros.Text = "Búsqueda"
         '
         'lbldesde
         '
@@ -558,11 +558,11 @@ Partial Class FrmArmadoPedido
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(300, 20)
         Me.Label1.TabIndex = 42
-        Me.Label1.Text = "Armado de comprobante de pedido"
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.Label12)
+		Me.Label1.Text = "Generar comprobante de pedido"
+		'
+		'GroupBox2
+		'
+		Me.GroupBox2.Controls.Add(Me.Label12)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.Label13)
         Me.GroupBox2.Controls.Add(Me.Label3)
@@ -720,8 +720,8 @@ Partial Class FrmArmadoPedido
         Me.MinimizeBox = False
         Me.Name = "FrmArmadoPedido"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Armado de pedido"
-        Me.gboFiltros.ResumeLayout(False)
+		Me.Text = "Generar pedido"
+		Me.gboFiltros.ResumeLayout(False)
         Me.gboFiltros.PerformLayout()
         Me.gboTotales.ResumeLayout(False)
         Me.gboTotales.PerformLayout()

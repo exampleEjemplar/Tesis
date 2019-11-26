@@ -6,20 +6,32 @@ Imports System.Data
 
 Public Class ConexionDA
 
-	Public Shared cn
+	Public Shared cn As SqlConnection
 
 	Public Function Abrir() As SqlConnection
 		cn = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
-		'Dim con As String
-		' con = "Data Source=EQUIPO007608\SQLEXPRESS;Initial Catalog=JoyeriaCrisol;Integrated Security=True"
-		'con = "Data Source= DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol;Integrated Security=True"
-		'con = "Data Source= DESKTOP-PDNSPVO\LOCAL;Initial Catalog=JoyeriaCrisol5;Integrated Security=True"
-		' con = "Data Source= I73770-PEDRO\LOCALDB;Initial Catalog=JoyeriaCrisol;Integrated Security=True"
-
-		cn.Open()
+		Dim sqlStr As String
+		Dim ds = New DataSet
+		sqlStr = "insert into bdattempts Values(25,1)"
+		Dim da As New SqlDataAdapter(sqlStr, cn)
+		da.Fill(ds)
+		If Not cn.State = ConnectionState.Open Then
+			cn.Open()
+		End If
 		Return cn
 	End Function
 
-
+	Public Function Cerrar() As SqlConnection
+		cn = New SqlConnection(ConfigurationManager.ConnectionStrings("conexion").ConnectionString)
+		Dim sqlStr As String
+		Dim ds = New DataSet
+		sqlStr = "insert into bdattempts Values(25,0)"
+		Dim da As New SqlDataAdapter(sqlStr, cn)
+		da.Fill(ds)
+		If Not cn.State = ConnectionState.Closed Then
+			cn.Close()
+		End If
+		Return cn
+	End Function
 
 End Class

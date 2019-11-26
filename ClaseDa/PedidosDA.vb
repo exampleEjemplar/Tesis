@@ -13,6 +13,7 @@ Public Class PedidosDA
 	Public Sub New()
 		Dim objcon As New ConexionDA
 		db = objcon.Abrir
+		db = objcon.Cerrar
 		com.Connection = db
 	End Sub
 
@@ -58,12 +59,12 @@ Public Class PedidosDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 		Return ds1
-		db.Close()
 	End Function
 
 	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer, Optional seña As Double = 0.0)
@@ -78,12 +79,12 @@ Public Class PedidosDA
 			Dim totalizado = total.ToString("0.00").Replace(",", ".")
 			If Not seña = 0.0 Then
 				Dim señalizado = seña.ToString("0.00").Replace(",", ".")
-                Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'N', 1, " + If(totalizado = señalizado, "60", "30") + ")", db)
-                insert.CommandType = CommandType.Text
+				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'N', 1, " + If(totalizado = señalizado, "60", "30") + ")", db)
+				insert.CommandType = CommandType.Text
 				insert.ExecuteNonQuery()
 			Else
-                Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", 0 ,round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'S', 1, " + listaDeProductosId.FirstOrDefault().Dias.ToString() + ")", db)
-                insert.CommandType = CommandType.Text
+				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", 0 ,round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'S', 1, " + listaDeProductosId.FirstOrDefault().Dias.ToString() + ")", db)
+				insert.CommandType = CommandType.Text
 				insert.ExecuteNonQuery()
 			End If
 			For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId
@@ -94,11 +95,11 @@ Public Class PedidosDA
 
 				movimientoStockDA.Registrar(ventaDetalle.ProductoId, ventaDetalle.Cantidad * -1)
 			Next
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 	End Sub
 
 	Public Function ObtenerUltimoPedido()
@@ -107,11 +108,12 @@ Public Class PedidosDA
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
 		End Try
 
+		helpersDa.ChequearConexion(db, "close")
 		Return ds
 
 	End Function
@@ -122,11 +124,12 @@ Public Class PedidosDA
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
 		End Try
 
+		helpersDa.ChequearConexion(db, "close")
 		Return ds
 
 	End Function
@@ -142,10 +145,11 @@ Public Class PedidosDA
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 
 		Return ds
 	End Function
@@ -162,10 +166,11 @@ Public Class PedidosDA
 
 		Try
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 
 		Return ds
 	End Function
@@ -176,10 +181,11 @@ Public Class PedidosDA
 		update.CommandType = CommandType.Text
 		Try
 			update.ExecuteNonQuery()
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
 		End Try
+		helpersDa.ChequearConexion(db, "close")
 	End Sub
 
 End Class

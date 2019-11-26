@@ -69,7 +69,7 @@ Partial Class Frmlistadodeventas
         Me.GroupBox1.Size = New System.Drawing.Size(892, 114)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = " Filtro Listado de ventas"
+        Me.GroupBox1.Text = " Búsqueda Listado de ventas"
         '
         'btnSalir
         '

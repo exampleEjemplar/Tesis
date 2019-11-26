@@ -86,14 +86,14 @@ Public Class FrmGestionUsuario
 
 	Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btnValidarUserName.Click
 		If Not helpersUI.ValidarTamaño(txtUserName.Text, 3, 20) Then
-			MsgBox("El UserName es demasiado corto/largo", MsgBoxStyle.OkOnly, "Ok")
+			MsgBox("El nombre de usuario es demasiado corto/largo", MsgBoxStyle.OkOnly, "Ok")
 			Return
 		End If
 		If helpersLN.ValidarSiExisteUserName(txtUserName.Text) = False Then
-			MsgBox("El userName puede ser utilizado!", MsgBoxStyle.OkOnly, "Ok")
+			MsgBox("El nombre de usuario puede ser utilizado!", MsgBoxStyle.OkOnly, "Ok")
 			Unblock()
 		Else
-			MsgBox("El userName ingresado ya existe en la base de datos", MsgBoxStyle.Critical, "Ya existente")
+			MsgBox("El nombre de usuario ingresado ya existe en la base de datos", MsgBoxStyle.Critical, "Ya existente")
 			Return
 		End If
 	End Sub

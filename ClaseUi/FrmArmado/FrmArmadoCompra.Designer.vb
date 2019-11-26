@@ -133,7 +133,7 @@ Partial Class FrmArmadoCompra
         Me.gboFiltros.Size = New System.Drawing.Size(468, 125)
         Me.gboFiltros.TabIndex = 44
         Me.gboFiltros.TabStop = False
-        Me.gboFiltros.Text = "Filtros"
+        Me.gboFiltros.Text = "Búsqueda"
         '
         'btnLimpiarFiltros
         '
@@ -624,11 +624,11 @@ Partial Class FrmArmadoCompra
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(307, 20)
         Me.Label1.TabIndex = 42
-        Me.Label1.Text = "Armado de comprobante de compra"
-        '
-        'txtNroComprobante
-        '
-        Me.txtNroComprobante.Location = New System.Drawing.Point(11, 35)
+		Me.Label1.Text = "Generar comprobante de compra"
+		'
+		'txtNroComprobante
+		'
+		Me.txtNroComprobante.Location = New System.Drawing.Point(11, 35)
         Me.txtNroComprobante.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtNroComprobante.Name = "txtNroComprobante"
         Me.txtNroComprobante.Size = New System.Drawing.Size(152, 20)
@@ -682,8 +682,8 @@ Partial Class FrmArmadoCompra
         Me.MinimizeBox = False
         Me.Name = "FrmArmadoCompra"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Armado comprobante de compra"
-        Me.gboFiltros.ResumeLayout(False)
+		Me.Text = "Generar comprobante de compra"
+		Me.gboFiltros.ResumeLayout(False)
         Me.gboFiltros.PerformLayout()
         Me.gboTotales.ResumeLayout(False)
         Me.gboTotales.PerformLayout()

@@ -10,6 +10,7 @@ Public Class MetodoLoginDA
 	Public Sub New()
 		Dim objcon As New ConexionDA
 		db = objcon.Abrir
+		db = objcon.Cerrar
 		com.Connection = db
 	End Sub
 
@@ -26,13 +27,13 @@ Public Class MetodoLoginDA
 		Try
 			Dim da = New SqlDataAdapter(enunciado)
 			da.Fill(ds)
-			db.Close()
+			helpersDA.ChequearConexion(db, "close")
 			Return ds
 
 		Catch ex As Exception
 			MsgBox(ex.ToString)
+			helpersDA.ChequearConexion(db, "close")
 			Return ds
-			db.Close()
 		End Try
 
 	End Function
@@ -51,10 +52,10 @@ Public Class MetodoLoginDA
 			respuesta.Close()
 		Catch ex As Exception
 			MsgBox(ex.ToString)
-			db.Close()
+			helpersDA.ChequearConexion(db, "close")
 		End Try
+		helpersDA.ChequearConexion(db, "close")
 		Return resultado
-		db.Close()
 	End Function
 
 	Function ConsultarRolUsuario(ByVal nombreUsuario As String, Optional ByVal usuarioId As Integer = 0) As Integer
@@ -79,11 +80,10 @@ Public Class MetodoLoginDA
 			respuesta.Close()
 		Catch ex As Exception
 			MsgBox(ex.ToString)
-			db.Close()
+			helpersDA.ChequearConexion(db, "close")
 		End Try
-
+		helpersDA.ChequearConexion(db, "close")
 		Return resultado
-		db.Close()
 	End Function
 
 	Function ConsultarIDUsuario(ByVal nombreUsuario As String) As Integer
@@ -104,9 +104,9 @@ Public Class MetodoLoginDA
 			respuesta.Close()
 		Catch ex As Exception
 			MsgBox(ex.ToString)
-			db.Close()
+			helpersDA.ChequearConexion(db, "close")
 		End Try
-
+		helpersDA.ChequearConexion(db, "close")
 		Return resultado2
 	End Function
 
@@ -117,11 +117,11 @@ Public Class MetodoLoginDA
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
 			Dim respuesta = insert.ExecuteReader
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDA.ChequearConexion(db, "close")
 		End Try
+		helpersDA.ChequearConexion(db, "close")
 	End Sub
 
 	Public Function ChequearEnSesion()
@@ -131,14 +131,14 @@ Public Class MetodoLoginDA
 		Try
 			Dim da = New SqlDataAdapter(enunciado)
 			da.Fill(ds)
-			db.Close()
 			Return ds.Tables(0).Rows(0)(0).ToString()
 
 		Catch ex As Exception
 			MsgBox(ex.ToString)
+			helpersDA.ChequearConexion(db, "close")
 			Return 0
-			db.Close()
 		End Try
+		helpersDA.ChequearConexion(db, "close")
 	End Function
 
 End Class

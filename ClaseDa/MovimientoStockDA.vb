@@ -10,8 +10,9 @@ Public Class MovimientoStockDA
 	Public Sub New()
         Dim objcon As New ConexionDA
         db = objcon.Abrir
-        com.Connection = db
-    End Sub
+		db = objcon.Cerrar
+		com.Connection = db
+	End Sub
 
 	Public Sub Registrar(productoId As Integer, movimiento As Integer)
 		helpersDa.ChequearConexion(db)
@@ -20,10 +21,9 @@ Public Class MovimientoStockDA
 			Dim insert As New SqlCommand("insert into MovimientosStock (Cantidad,ProductoId,Fecha) VALUES (" & movimiento & ", " & productoId & ",GETDATE())", db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db, "close")
 		End Try
 	End Sub
 

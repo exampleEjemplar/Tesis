@@ -140,11 +140,11 @@ Partial Class FrmModificarPrecioProducto
         Me.gboFiltros.Size = New System.Drawing.Size(579, 154)
         Me.gboFiltros.TabIndex = 47
         Me.gboFiltros.TabStop = False
-        Me.gboFiltros.Text = "Filtros para chequear"
-        '
-        'cboCategorias
-        '
-        Me.cboCategorias.AccessibleDescription = ""
+		Me.gboFiltros.Text = "Búsqueda para chequear"
+		'
+		'cboCategorias
+		'
+		Me.cboCategorias.AccessibleDescription = ""
         Me.cboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboCategorias.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCategorias.FormattingEnabled = True

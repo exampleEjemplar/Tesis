@@ -69,7 +69,7 @@ Partial Class ListadodeProveedores
         Me.GroupBox1.Size = New System.Drawing.Size(889, 114)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = " Filtro Listado de Proveedores"
+        Me.GroupBox1.Text = " Búsqueda Listado de Proveedores"
         '
         'btnSalir
         '

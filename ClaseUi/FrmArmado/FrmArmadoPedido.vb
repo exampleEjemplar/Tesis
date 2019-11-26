@@ -262,7 +262,7 @@ Public Class FrmArmadoPedido
 	End Sub
 
 	Private Sub BtnLimpiarFiltros_Click(sender As Object, e As EventArgs) Handles btnLimpiarFiltros.Click
-		If MsgBox("Desea limpiar los filtros?", MsgBoxStyle.YesNo, "Filtros") = MsgBoxResult.No Then
+		If MsgBox("Desea limpiar la búsqueda?", MsgBoxStyle.YesNo, "Búsqueda") = MsgBoxResult.No Then
 			Return
 		End If
 		cboBusProveedor.SelectedValue = 0

@@ -6,15 +6,16 @@ Public Class UsuariosDA
 	Private db As New SqlConnection
 	Private helpersDA As New HelpersDA
 	Private com As New SqlCommand
-    Private da As SqlDataAdapter
-    Private ds1 As DataSet
-    Private ds As DataSet
+	Private da As SqlDataAdapter
+	Private ds1 As DataSet
+	Private ds As DataSet
 
-    Public Sub New()
-        Dim objcon As New ConexionDA
-        db = objcon.Abrir
-        com.Connection = db
-    End Sub
+	Public Sub New()
+		Dim objcon As New ConexionDA
+		db = objcon.Abrir
+		db = objcon.Cerrar
+		com.Connection = db
+	End Sub
 
 
 	Public Function CargarUnUsuario(ByVal id As Integer) As DataSet
@@ -25,29 +26,29 @@ Public Class UsuariosDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDA.ChequearConexion(db, "close")
 		End Try
+		helpersDA.ChequearConexion(db, "close")
 		Return ds1
-		db.Close()
 	End Function
 
 	Public Function ConsultaModificacion(ByVal username As String) As DataSet
 		helpersDA.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
-        sqlStr = "select UserName,Contrasena,RolId,ActivoSN,Id from usuarios where username = '" & username & "'"
-        Try
-            da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds1)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-        Return ds1
-        db.Close()
-    End Function
+		sqlStr = "select UserName,Contrasena,RolId,ActivoSN,Id from usuarios where username = '" & username & "'"
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDA.ChequearConexion(db, "close")
+		End Try
+		helpersDA.ChequearConexion(db, "close")
+		Return ds1
+	End Function
 
 	Public Function CargarGrillaUsuario(ByVal parametros As Dictionary(Of String, String)) As DataSet
 		helpersDA.ChequearConexion(db)
@@ -73,12 +74,12 @@ Public Class UsuariosDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDA.ChequearConexion(db, "close")
 		End Try
+		helpersDA.ChequearConexion(db, "close")
 		Return ds1
-		db.Close()
 	End Function
 
 	Public Sub GrabarUsuarios(ByVal usu As UsuariosNE)
@@ -87,39 +88,41 @@ Public Class UsuariosDA
 			Dim insert As New SqlCommand("insert into usuarios values ('" & usu.UserName & "','" & usu.Contrasena & "'," & usu.RolId & ",'" & usu.ActivoSN & "',GETDATE())", db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
+			helpersDA.ChequearConexion(db, "close")
+		End Try
+		helpersDA.ChequearConexion(db, "close")
+	End Sub
 
-    Public Sub ActualizarUsuarios(ByVal usu As UsuariosNE)
+	Public Sub ActualizarUsuarios(ByVal usu As UsuariosNE)
 		helpersDA.ChequearConexion(db)
 		Try
 			Dim insert As New SqlCommand("update usuarios set contrasena = '" & usu.Contrasena & "',rolid = " & usu.RolId & ", activosn = '" & usu.ActivoSN & "' where id = " & usu.Id, db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
+			helpersDA.ChequearConexion(db, "close")
+		End Try
+		helpersDA.ChequearConexion(db, "close")
+	End Sub
 
-    Public Function CargarRoles() As DataSet
+	Public Function CargarRoles() As DataSet
 		helpersDA.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
-        sqlStr = "select Id,Descripcion from roles"
+		sqlStr = "select Id,Descripcion from roles"
 
-        Try
-            da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds1)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-        Return ds1
-        db.Close()
-    End Function
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDA.ChequearConexion(db, "close")
+		End Try
+		helpersDA.ChequearConexion(db, "close")
+		Return ds1
+	End Function
 
 End Class

@@ -7,13 +7,14 @@ Public Class ComprasDA
 	Private da As SqlDataAdapter
 	Private ds1 As DataSet
 	Private movimientoStockDA As New MovimientoStockDA
-    Private LoginDa As New MetodoLoginDA
-    Dim Rs As SqlDataReader
-    Public contador As Integer
+	Private LoginDa As New MetodoLoginDA
+	Dim Rs As SqlDataReader
+	Public contador As Integer
 
-    Public Sub New()
+	Public Sub New()
 		Dim objcon As New ConexionDA
 		db = objcon.Abrir
+		db = objcon.Cerrar
 		com.Connection = db
 	End Sub
 
@@ -25,10 +26,11 @@ Public Class ComprasDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db,"close")
 		End Try
+		helpersDa.ChequearConexion(db,"close")
 		Return ds1
 	End Function
 
@@ -40,10 +42,11 @@ Public Class ComprasDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db,"close")
 		End Try
+		helpersDa.ChequearConexion(db,"close")
 		If ds1.Tables(0).Rows.Count > 0 Then
 			Return True
 		Else
@@ -64,8 +67,8 @@ Public Class ComprasDA
 			For Each item As KeyValuePair(Of String, String) In parametros
 				If item.Key = "ProveedorId" Then
 					count = count - 1
-                    text = text & "c.Proveedorid" & " = " & item.Value & " " & If(count <> 0, " and ", "")
-                    Continue For
+					text = text & "c.Proveedorid" & " = " & item.Value & " " & If(count <> 0, " and ", "")
+					Continue For
 				End If
 				If item.Key = "FechaDesde" And Not parametros.Keys.Contains("FechaHasta") Then
 					count = count - 1
@@ -89,10 +92,11 @@ Public Class ComprasDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db,"close")
 		End Try
+		helpersDa.ChequearConexion(db,"close")
 		Return ds1
 	End Function
 
@@ -102,14 +106,12 @@ Public Class ComprasDA
 			total += (compraDetalle.Precio * compraDetalle.Cantidad)
 		Next
 		total = Math.Round(total, 2)
-
 		helpersDa.ChequearConexion(db)
-
 
 		Try
 			Dim totalizado = total.ToString().Replace(",", ".")
-            Dim insert As New SqlCommand("insert into compras Values (GETDATE()," & proveedorId & ", " & totalizado & "," + LoginDa.ChequearEnSesion() + ",'" + nroComprobante + "', 1)", db)
-            insert.CommandType = CommandType.Text
+			Dim insert As New SqlCommand("insert into compras Values (GETDATE()," & proveedorId & ", " & totalizado & "," + LoginDa.ChequearEnSesion() + ",'" + nroComprobante + "', 1)", db)
+			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
 			For Each compraDetalle As TipoDeComprasNE In listaDeProductosId
 				Dim parcial = (compraDetalle.Precio * compraDetalle.Cantidad).ToString().Replace(",", ".")
@@ -119,11 +121,11 @@ Public Class ComprasDA
 
 				movimientoStockDA.Registrar(compraDetalle.ProductoId, compraDetalle.Cantidad)
 			Next
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDa.ChequearConexion(db,"close")
 		End Try
+		helpersDa.ChequearConexion(db,"close")
 	End Sub
 
 	Public Function ObtenerUltimaCompra()
@@ -132,13 +134,12 @@ Public Class ComprasDA
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db,"close")
 		End Try
-
+		helpersDa.ChequearConexion(db,"close")
 		Return ds
-
 	End Function
 
 	Public Function ObtenerDatosCliente(ByVal idcompra As String)
@@ -152,118 +153,107 @@ Public Class ComprasDA
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db,"close")
 		End Try
-
+		helpersDa.ChequearConexion(db,"close")
 		Return ds
 	End Function
 
-    Public Function ObtenerDatosProducto(ByVal idcompra As String)
-        helpersDa.ChequearConexion(db)
-        Dim da As New SqlDataAdapter("Select  dv.id, Max(p.Nombre) as [Producto], Max(p.Precio) [PrecioU],
+	Public Function ObtenerDatosProducto(ByVal idcompra As String)
+		helpersDa.ChequearConexion(db)
+		Dim da As New SqlDataAdapter("Select  dv.id, Max(p.Nombre) as [Producto], Max(p.Precio) [PrecioU],
 		                                Max(u.Nombre) as [UnidadMedida],
 		                                Max(dv.cantidad) as [Cantidad], Max(dv.Subtotal) as [Subtotal] from compras as v 
                                         INNER JOIN DetalleCompras as dv on dv.CompraId = v.Id 
                                         INNER JOIN Productos as p on p.id = dv.ProductoId
                                         INNER JOIN UnidadesDePeso as u on u.id = p.UnidadDePeso Where v.Id = " & idcompra & " Group by dv.id", db)
-        Dim ds As New DataSet
+		Dim ds As New DataSet
 
-        Try
-            da.Fill(ds)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
+		Try
+			da.Fill(ds)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db,"close")
+		End Try
+		helpersDa.ChequearConexion(db,"close")
+		Return ds
+	End Function
 
-        Return ds
-    End Function
+	Public Function GeneraGraficoMontoComprasPorMes(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+		helpersDa.ChequearConexion(db)
+		Dim sqlStr As String
+		ds1 = New DataSet
+		sqlStr = "select sum(total) AS 'Total', MONTH(fecha) as Mes from compras " &
+							"where Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+							"group by MONTH(Fecha)"
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+			helpersDa.ChequearConexion(db,"close")
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db,"close")
+		End Try
+		helpersDa.ChequearConexion(db,"close")
+		Return ds1
+	End Function
 
-    Public Function GeneraGraficoMontoComprasPorMes(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
-        helpersDa.ChequearConexion(db)
+	Public Function GeneraGraficoCompracantportipo(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+		helpersDa.ChequearConexion(db)
 
-        Dim sqlStr As String
-        ds1 = New DataSet
-        sqlStr = "select sum(total) AS 'Total', MONTH(fecha) as Mes from compras " &
-"where Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-"group by MONTH(Fecha)"
+		Dim sqlStr As String
+		ds1 = New DataSet
+		sqlStr = "Select sum(c.Total) As Total, t.Nombre As Nombre from Detallecompras dc inner Join compras c on dc.CompraId=c.id inner Join Productos p on dc.ProductoId=p.id inner Join TipoProductos t on p.TipoProductoID=t.id " &
+					"where Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+					"group by  t.Nombre"
 
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db,"close")
+		End Try
+		helpersDa.ChequearConexion(db,"close")
+		Return ds1
+	End Function
 
-        Try
-            da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds1)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-        Return ds1
-        db.Close()
+	Public Function GeneraGraficoCompraporproveedor(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+		helpersDa.ChequearConexion(db)
 
-    End Function
+		Dim sqlStr As String
+		ds1 = New DataSet
+		sqlStr = " Select sum(c.Total) As Total, p.Nombre +' '+ p.apellido As Proveedor from compras c inner Join Proveedores p on c.ProveedorId=p.id  " &
+					"where Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+					"group by p.Nombre +' '+ p.apellido"
 
-    Public Function GeneraGraficoCompracantportipo(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
-        helpersDa.ChequearConexion(db)
-
-        Dim sqlStr As String
-        ds1 = New DataSet
-        sqlStr = "Select sum(c.Total) As Total, t.Nombre As Nombre from Detallecompras dc inner Join compras c on dc.CompraId=c.id inner Join Productos p on dc.ProductoId=p.id inner Join TipoProductos t on p.TipoProductoID=t.id " &
-"where Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-"group by  t.Nombre"
-
-        Try
-            da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds1)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-        Return ds1
-        db.Close()
-
-    End Function
-
-
-
-
-    Public Function GeneraGraficoCompraporproveedor(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
-        helpersDa.ChequearConexion(db)
-
-        Dim sqlStr As String
-        ds1 = New DataSet
-        sqlStr = " Select sum(c.Total) As Total, p.Nombre +' '+ p.apellido As Proveedor from compras c inner Join Proveedores p on c.ProveedorId=p.id  " &
-"where Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-"group by p.Nombre +' '+ p.apellido"
-
-        Try
-            da = New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds1)
-            db.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-        Return ds1
-        db.Close()
-
-    End Function
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db,"close")
+		End Try
+		helpersDa.ChequearConexion(db,"close")
+		Return ds1
+	End Function
 
 
-    Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
-        Try
-
-            helpersDa.ChequearConexion(db)
-            Dim control As New SqlCommand("set dateformat ymd select count(*) from compras where Fecha BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' ", db)
-            control.CommandType = CommandType.Text
-            Rs = control.ExecuteReader()
-            Rs.Read()
-            contador = Rs(0)
-
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-
-        db.Close()
-
-    End Sub
+	Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
+		Try
+			helpersDa.ChequearConexion(db)
+			Dim control As New SqlCommand("set dateformat ymd select count(*) from compras where Fecha BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' ", db)
+			control.CommandType = CommandType.Text
+			Rs = control.ExecuteReader()
+			Rs.Read()
+			contador = Rs(0)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db,"close")
+		End Try
+		helpersDa.ChequearConexion(db,"close")
+	End Sub
 End Class
 

@@ -111,11 +111,11 @@ Partial Class FrmArmadoVenta
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(290, 20)
         Me.Label1.TabIndex = 26
-        Me.Label1.Text = "Armado de comprobante de venta"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.Label10)
+		Me.Label1.Text = "Generar comprobante de venta"
+		'
+		'GroupBox1
+		'
+		Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.lblClienteDireccion)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.lblClienteDNI)
@@ -434,7 +434,7 @@ Partial Class FrmArmadoVenta
         Me.gboFiltros.Size = New System.Drawing.Size(472, 145)
         Me.gboFiltros.TabIndex = 31
         Me.gboFiltros.TabStop = False
-        Me.gboFiltros.Text = "Filtros"
+        Me.gboFiltros.Text = "Búsqueda"
         '
         'btnLimpiarFiltros
         '
@@ -693,8 +693,8 @@ Partial Class FrmArmadoVenta
         Me.MinimizeBox = False
         Me.Name = "FrmArmadoVenta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Armado de comprobante de venta"
-        Me.GroupBox1.ResumeLayout(False)
+		Me.Text = "Generar comprobante de venta"
+		Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()

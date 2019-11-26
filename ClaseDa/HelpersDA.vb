@@ -3,6 +3,7 @@
 Public Class HelpersDA
 
 	Private db As New SqlConnection
+	Private dbList As New List(Of SqlConnection)
 	Private com As New SqlCommand
 	Private ds As DataSet
 	Public respuesta As SqlDataReader
@@ -10,12 +11,29 @@ Public Class HelpersDA
 	Public Sub New()
 		Dim objcon As New ConexionDA
 		db = objcon.Abrir
+		db = objcon.Cerrar
 		com.Connection = db
 	End Sub
 
-	Public Function ChequearConexion(ByVal db As SqlConnection)
-		If (db.State = ConnectionState.Closed) Then
-			db.Open()
+	Public Function ChequearConexion(ByVal db As SqlConnection, Optional force As String = "")
+		If force = "close" Then
+			If Not db.State = ConnectionState.Closed Then
+				Dim sqlStr As String
+				Dim ds = New DataSet
+				sqlStr = "insert into bdattempts Values(0,0)"
+				Dim da As New SqlDataAdapter(sqlStr, db)
+				da.Fill(ds)
+				db.Close()
+			End If
+		Else
+			If Not db.State = ConnectionState.Open Then
+				db.Open()
+				Dim sqlStr As String
+				Dim ds = New DataSet
+				sqlStr = "insert into bdattempts Values(1,1)"
+				Dim da As New SqlDataAdapter(sqlStr, db)
+				da.Fill(ds)
+			End If
 		End If
 		Return db
 	End Function
@@ -28,11 +46,11 @@ Public Class HelpersDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			ChequearConexion(db, "close")
 		End Try
+		ChequearConexion(db, "close")
 		Return ds
 
 	End Function
@@ -47,10 +65,10 @@ Public Class HelpersDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
+			ChequearConexion(db, "close")
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			ChequearConexion(db, "close")
 		End Try
 		Return ds
 
@@ -65,65 +83,61 @@ Public Class HelpersDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			ChequearConexion(db, "close")
 		End Try
+		ChequearConexion(db, "close")
 		Return ds
 
 	End Function
 
 	Public Function CargarCMBLocalidades(ByVal idprov As Integer)
 		ChequearConexion(db)
-
 		Dim sqlStr As String
 		ds = New DataSet
 		sqlStr = "select Id, Nombre, ProvinciaId from Ciudades where ProvinciaId= " & idprov & " order by nombre"
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			ChequearConexion(db, "close")
 		End Try
+		ChequearConexion(db, "close")
 		Return ds
-
 	End Function
 
 	Public Function CargarCMBDoc(ByVal FoJ As String) As DataSet
 		ChequearConexion(db)
-
 		Dim sqlStr As String
 		ds = New DataSet
 		sqlStr = "SELECT * FROM TipoDocumentos where FisicaOJuridica = '" & FoJ & "'Order by Descripcion"
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			ChequearConexion(db)
 		End Try
+		ChequearConexion(db)
 		Return ds
 	End Function
 
 	Public Function ValidarSiExisteDni(ByVal numero As Double, ByVal entidad As String) As Boolean
 		ChequearConexion(db)
-
 		Dim sqlStr As String
 		Dim dt = New DataTable
 		sqlStr = "SELECT * FROM " & entidad & " where NumeroDocumento =" & numero
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(dt)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			ChequearConexion(db, "close")
 			Return True
 		End Try
+		ChequearConexion(db, "close")
 		If dt.Rows.Count = 0 Then
 			Return False
 		Else
@@ -141,12 +155,12 @@ Public Class HelpersDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(dt)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			ChequearConexion(db, "close")
 			Return True
 		End Try
+		ChequearConexion(db, "close")
 		If dt.Rows.Count = 0 Then
 			Return False
 		Else
@@ -171,9 +185,9 @@ Public Class HelpersDA
 
 		Catch ex As Exception
 			MsgBox(ex.ToString)
-			db.Close()
+			ChequearConexion(db, "close")
 		End Try
-		db.Close()
+		ChequearConexion(db, "close")
 		Return resultado
 	End Function
 
@@ -186,10 +200,10 @@ Public Class HelpersDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
+			ChequearConexion(db, "close")
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			ChequearConexion(db, "close")
 		End Try
 		Return ds
 
@@ -212,11 +226,11 @@ Public Class HelpersDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			ChequearConexion(db, "close")
 		End Try
+		ChequearConexion(db, "close")
 		Return ds
 
 	End Function
@@ -230,11 +244,11 @@ Public Class HelpersDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			ChequearConexion(db, "close")
 		End Try
+		ChequearConexion(db, "close")
 		Return ds
 
 	End Function
@@ -308,12 +322,11 @@ Public Class HelpersDA
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			ChequearConexion(db, "close")
 		End Try
+		ChequearConexion(db, "close")
 		Return ds
-
 	End Function
 End Class

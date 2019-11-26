@@ -153,7 +153,7 @@ Partial Class FrmArmadoPago
         Me.gboFiltros.Size = New System.Drawing.Size(472, 145)
         Me.gboFiltros.TabIndex = 74
         Me.gboFiltros.TabStop = False
-        Me.gboFiltros.Text = "Filtros"
+        Me.gboFiltros.Text = "Búsqueda"
         '
         'btnLimpiarFiltros
         '
@@ -640,11 +640,11 @@ Partial Class FrmArmadoPago
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(253, 20)
         Me.Label23.TabIndex = 72
-        Me.Label23.Text = "Armado de pago de servicios"
-        '
-        'PrintDialog2
-        '
-        Me.PrintDialog2.UseEXDialog = True
+		Me.Label23.Text = "Generar pago de servicios"
+		'
+		'PrintDialog2
+		'
+		Me.PrintDialog2.UseEXDialog = True
         '
         'FrmArmadoPago
         '
@@ -671,8 +671,8 @@ Partial Class FrmArmadoPago
         Me.MinimizeBox = False
         Me.Name = "FrmArmadoPago"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Armado de pago"
-        Me.gboFiltros.ResumeLayout(False)
+		Me.Text = "Generador de pago"
+		Me.gboFiltros.ResumeLayout(False)
         Me.gboFiltros.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()

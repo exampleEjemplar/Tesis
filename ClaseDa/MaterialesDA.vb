@@ -9,6 +9,7 @@ Public Class MaterialesDA
 	Public Sub New()
 		Dim objcon As New ConexionDA
 		db = objcon.Abrir
+		db = objcon.Cerrar
 		com.Connection = db
 	End Sub
 
@@ -21,11 +22,11 @@ Public Class MaterialesDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDA.ChequearConexion(db, "close")
 		End Try
+		helpersDA.ChequearConexion(db, "close")
 		Return ds1
 	End Function
 
@@ -37,11 +38,11 @@ Public Class MaterialesDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDA.ChequearConexion(db, "close")
 		End Try
+		helpersDA.ChequearConexion(db, "close")
 		Return ds1
 	End Function
 
@@ -56,11 +57,11 @@ Public Class MaterialesDA
 			Dim insert2 As New SqlCommand("declare @MaterialId int SELECT @MaterialId = MAX(Id) FROM Materiales insert into cotizaciones VALUES (" & coti.Replace(",", ".") & ",@MaterialId,GETDATE())", db)
 			insert2.CommandType = CommandType.Text
 			insert2.ExecuteNonQuery()
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDA.ChequearConexion(db, "close")
 		End Try
+		helpersDA.ChequearConexion(db, "close")
 	End Sub
 
 	Public Sub NuevaCotizacion(ByVal id As Integer, ByVal coti As String)
@@ -69,11 +70,11 @@ Public Class MaterialesDA
 			Dim insert2 As New SqlCommand("insert into cotizaciones VALUES (" & coti.Replace(",", ".") & "," & id & ",GETDATE())", db)
 			insert2.CommandType = CommandType.Text
 			insert2.ExecuteNonQuery()
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDA.ChequearConexion(db, "close")
 		End Try
+		helpersDA.ChequearConexion(db, "close")
 	End Sub
 
 	Public Function ConsultaHistoricaCotizaciones(ByVal id As Integer) As DataSet
@@ -84,12 +85,11 @@ Public Class MaterialesDA
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
-			db.Close()
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			db.Close()
+			helpersDA.ChequearConexion(db, "close")
 		End Try
+		helpersDA.ChequearConexion(db, "close")
 		Return ds1
 	End Function
-
 End Class
