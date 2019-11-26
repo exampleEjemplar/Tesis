@@ -294,11 +294,12 @@ Partial Class FrmEstadisticaProveedor
         Me.Chart2.Legends.Add(Legend3)
         Me.Chart2.Location = New System.Drawing.Point(12, 213)
         Me.Chart2.Name = "Chart2"
-        Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
+        Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
         Series3.ChartArea = "ChartArea1"
+        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
         Series3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series3.IsValueShownAsLabel = True
         Series3.Legend = "Legend1"
-        Series3.LegendText = "Proveedores"
         Series3.Name = "Series2"
         Series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
         Series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
