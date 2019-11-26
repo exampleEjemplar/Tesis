@@ -259,12 +259,12 @@ Partial Class FrmEstadisticaProveedor
         Me.Chart1.Legends.Add(Legend2)
         Me.Chart1.Location = New System.Drawing.Point(12, 213)
         Me.Chart1.Name = "Chart1"
-        Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
+        Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
         Series2.ChartArea = "ChartArea1"
         Series2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series2.Legend = "Legend1"
-        Series2.LegendText = "Proveedores"
         Series2.Name = "Series2"
+        Series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
         Series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
         Series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
         Me.Chart1.Series.Add(Series2)
@@ -279,7 +279,6 @@ Partial Class FrmEstadisticaProveedor
         'Chart2
         '
         Me.Chart2.BorderlineColor = System.Drawing.Color.Black
-        Me.Chart2.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart2.BorderlineWidth = 2
         ChartArea3.AxisX.Title = "Personería"
         ChartArea3.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far
@@ -289,16 +288,18 @@ Partial Class FrmEstadisticaProveedor
         ChartArea3.Name = "ChartArea1"
         Me.Chart2.ChartAreas.Add(ChartArea3)
         Legend3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Legend3.HeaderSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.ThickLine
         Legend3.IsTextAutoFit = False
         Legend3.Name = "Legend1"
         Me.Chart2.Legends.Add(Legend3)
         Me.Chart2.Location = New System.Drawing.Point(12, 213)
         Me.Chart2.Name = "Chart2"
-        Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
+        Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
         Series3.ChartArea = "ChartArea1"
         Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
         Series3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series3.IsValueShownAsLabel = True
+        Series3.LabelForeColor = System.Drawing.Color.White
         Series3.Legend = "Legend1"
         Series3.Name = "Series2"
         Series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
@@ -309,7 +310,7 @@ Partial Class FrmEstadisticaProveedor
         Me.Chart2.Text = "Chart2"
         Title3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Title3.Name = "Title1"
-        Title3.Text = "Proveedores Registrados Por Pesonería "
+        Title3.Text = " Cantidad de Proveedores Registrados Por Pesonería "
         Me.Chart2.Titles.Add(Title3)
         '
         'FrmEstadisticaProveedor

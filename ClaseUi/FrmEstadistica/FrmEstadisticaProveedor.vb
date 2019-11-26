@@ -148,7 +148,7 @@ Public Class FrmEstadisticaProveedor
             Dim Series2 As Series = Chart2.Series("Series2")
             Series2.Name = "Proveedores"
             Chart2.Series(Series2.Name).XValueMember = "FisicaOJuridica"
-            Chart2.Series(Series2.Name).YValueMembers = "Cantidad"
+            Chart2.Series(Series2.Name).YValueMembers = "cantidad"
 
             Chart2.Size = New System.Drawing.Size(668, 372)
 
