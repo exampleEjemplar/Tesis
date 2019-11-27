@@ -386,10 +386,15 @@ Public Class MetodoProductoDA
 
 	End Function
 
-	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, Optional esReparacion As String = "") As DataTable
+	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, Optional esReparacion As String = "", Optional pagina As Integer = 1000000) As DataTable
 		helpersDa.ChequearConexion(db)
-		Dim sqlstr = "SELECT TOP(1) p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,cast((( P.precio * P.utilidad)/100+(P.precio)) as decimal(10,2)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto, p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.TipoProductoID, p.UnidadDePeso, p.CategoriaID, p.StockODeTercero, p.problema FROM productos as p inner join TipoProductos t on p.TipoProductoID=t.id inner join Materiales m On p.MaterialId=m.id inner join categorias ca on p.CategoriaID= ca.Id where p.esservicio = 'N' "
+		Dim sqlstr = "SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,cast((( P.precio * P.utilidad)/100+(P.precio)) as decimal(10,2)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto, p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.TipoProductoID, p.UnidadDePeso, p.CategoriaID, p.StockODeTercero, p.problema FROM productos as p inner join TipoProductos t on p.TipoProductoID=t.id inner join Materiales m On p.MaterialId=m.id inner join categorias ca on p.CategoriaID= ca.Id where p.esservicio = 'N' "
 		sqlstr = If(String.IsNullOrWhiteSpace(esReparacion), sqlstr + " and esParaReparacion = 'N'", sqlstr + " and esParaReparacion = 'S'")
+		sqlstr = If(String.IsNullOrWhiteSpace(codigo), sqlstr, sqlstr + " and p.id = " + codigo + "")
+		sqlstr = If(String.IsNullOrWhiteSpace(nombre), sqlstr, sqlstr + " and p.nombre like '%" + nombre + "%'")
+		If Not pagina = 1000000 Then
+			sqlstr = sqlstr + " ORDER BY id OFFSET " + pagina.ToString() + " ROWS FETCH NEXT 20 ROWS ONLY "
+		End If
 		Dim dt As New DataTable
 		Try
 			Dim da As New SqlDataAdapter(sqlstr, db)

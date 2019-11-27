@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms
+﻿Imports System.Drawing
+Imports System.Windows.Forms
 Imports ClaseLn
 
 Public Class FrmGestionCompras
@@ -6,6 +7,7 @@ Public Class FrmGestionCompras
 	Private helpersLN As New HelpersLN
 	Private comprasLN As New ComprasLN
 	Public idCompra As Integer
+	Public filaSeleccionada As Integer
 
 #Region "Eventos"
 	Private Sub FrmGestionCompras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -46,6 +48,7 @@ Public Class FrmGestionCompras
 			End If
 			parametros.Add("FechaHasta", dtpFechaHasta.Value.Date.ToString("dd/MM/yyyy"))
 		End If
+		parametros.Add("Estado", "2")
 		LlenarDgv(parametros, type)
 	End Sub
 
@@ -60,7 +63,9 @@ Public Class FrmGestionCompras
 		End If
 		Try
 			idCompra = selectedRow.Cells("id").Value
-			FrmComprobanteCompra.ShowDialog()
+			If Not comprasLN.ObtenerUnaCompra(idCompra).Tables(0).Rows(0)(6) = 2 Then
+				FrmComprobanteCompra.ShowDialog()
+			End If
 		Catch ex As Exception
 			MessageBox.Show(ex.Message)
 		End Try
@@ -90,6 +95,7 @@ Public Class FrmGestionCompras
 		dsa1 = comprasLN.CargarGrillaCompras(parametros) 'Si parametros esta vacio, busca todos las compras en la bd
 		dgvProveedores.DataSource = dsa1.Tables(0)
 		dgvProveedores.Columns("Id").Visible = False
+		dgvProveedores.Columns("estado").Visible = False
 		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
 		dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 		If dsa1.Tables(0).Rows.Count() = 0 And type = "" Then
@@ -128,15 +134,15 @@ Public Class FrmGestionCompras
 
 	End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        FrmListadoCompra.Show()
-    End Sub
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+		FrmListadoCompra.Show()
+	End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        FrmEstadisticaCompras.Show()
+	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+		FrmEstadisticaCompras.Show()
 
 
-    End Sub
+	End Sub
 
 #End Region
 	Private Const CP_NOCLOSE_BUTTON As Integer = &H200
@@ -147,4 +153,38 @@ Public Class FrmGestionCompras
 			Return myCp
 		End Get
 	End Property
+
+	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+		Dim confirmado = False
+		If filaSeleccionada >= 0 Then
+			If MsgBox("Está seguro que desea anular la compra y todos sus registros", MsgBoxStyle.YesNo, "Compras") = MsgBoxResult.Yes Then
+				Dim compra = comprasLN.ObtenerUnaCompra(dgvProveedores.Item("Id", filaSeleccionada).Value).Tables(0).Rows(0)
+				If compra(6) = 0 Then
+					If MsgBox("La compra ya fue registrada en el cierre de caja, desea anularla de todas maneras? El cierre no se verá afectado.", MsgBoxStyle.YesNo, "Compras") = MsgBoxResult.Yes Then
+						confirmado = True
+					Else
+						confirmado = False
+						Return
+					End If
+				ElseIf compra(6) = 2 Then
+					MsgBox("La compra ya se encuentra anulada", MsgBoxStyle.OkOnly, "Compras")
+					confirmado = False
+				Else
+					confirmado = True
+				End If
+			Else
+				confirmado = False
+			End If
+			If confirmado Then
+				comprasLN.Anular(dgvProveedores.Item("Id", filaSeleccionada).Value)
+				MsgBox("La compra fue anulada", MsgBoxStyle.OkOnly, "Compras")
+				Busqueda()
+			End If
+		Else
+			MsgBox("Debe seleccionar una compra", MsgBoxStyle.OkOnly, "Compras")
+		End If
+	End Sub
+	Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvProveedores.CellClick
+		filaSeleccionada = dgvProveedores.CurrentRow.Index
+	End Sub
 End Class

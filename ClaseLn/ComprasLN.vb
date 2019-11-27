@@ -13,6 +13,10 @@ Public Class ComprasLN
 		Return ComprasDA.ChequearSiExisteNumeroComprobante(proveedorId, nroComprobante)
 	End Function
 
+	Public Function Anular(id As Integer)
+		Return ComprasDA.Anular(id)
+	End Function
+
 	Public Function ObtenerUnaCompra(id As Integer)
 		Return ComprasDA.ObtenerUnaCompra(id)
 	End Function

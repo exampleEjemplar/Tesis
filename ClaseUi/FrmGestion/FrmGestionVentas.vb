@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms
+﻿Imports System.Drawing
+Imports System.Windows.Forms
 Imports ClaseLn
 
 Public Class FrmGestionVentas
@@ -6,6 +7,7 @@ Public Class FrmGestionVentas
 	Private helpersLN As New HelpersLN
 	Private ventasLN As New VentasLN
 	Public idVenta As Integer
+	Public filaSeleccionada As Integer
 
 #Region "Eventos"
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -42,6 +44,7 @@ Public Class FrmGestionVentas
 			End If
 			parametros.Add("FechaHasta", dtpFechaHasta.Value.Date.ToString("dd/MM/yyyy"))
 		End If
+		parametros.Add("Estado", "2")
 		LlenarDgv(parametros, type)
 	End Sub
 
@@ -54,13 +57,15 @@ Public Class FrmGestionVentas
 	End Sub
 
 	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles dgvProveedores.CellMouseDoubleClick
-		Dim selectedRow As DataGridViewRow
+		Dim selectedRow As DataGridViewRow = Nothing
 		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
 			selectedRow = dgvProveedores.Rows(e.RowIndex)
 		End If
 		Try
 			idVenta = selectedRow.Cells("id").Value
-			FrmComprobanteVenta.ShowDialog()
+			If Not ventasLN.ObtenerUnaVenta(idVenta).Tables(0).Rows(0)(5) = 2 Then
+				FrmComprobanteVenta.ShowDialog()
+			End If
 		Catch ex As Exception
 			MessageBox.Show(ex.Message)
 		End Try
@@ -90,6 +95,7 @@ Public Class FrmGestionVentas
 		dsa1 = ventasLN.CargarGrillaVentas(parametros) 'Si parametros esta vacio, busca todos las ventas en la bd
 		dgvProveedores.DataSource = dsa1.Tables(0)
 		dgvProveedores.Columns("Id").Visible = False
+		dgvProveedores.Columns("estado").Visible = False
 		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
 		dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 		If dsa1.Tables(0).Rows.Count() = 0 And type = "" Then
@@ -132,14 +138,14 @@ Public Class FrmGestionVentas
 		FrmArmadoPedido.ShowDialog()
 	End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Frmlistadodeventas.Show()
+	Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+		Frmlistadodeventas.Show()
 
-    End Sub
+	End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        FrmEstadisticaVentas.Show()
-    End Sub
+	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+		FrmEstadisticaVentas.Show()
+	End Sub
 
 #End Region
 	Private Const CP_NOCLOSE_BUTTON As Integer = &H200
@@ -150,4 +156,38 @@ Public Class FrmGestionVentas
 			Return myCp
 		End Get
 	End Property
+
+	Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+		Dim confirmado = False
+		If filaSeleccionada >= 0 Then
+			If MsgBox("Está seguro que desea anular la venta y todos sus registros", MsgBoxStyle.YesNo, "Ventas") = MsgBoxResult.Yes Then
+				Dim compra = ventasLN.ObtenerUnaVenta(dgvProveedores.Item("Id", filaSeleccionada).Value).Tables(0).Rows(0)
+				If compra(5) = 0 Then
+					If MsgBox("La venta ya fue registrada en el cierre de caja, desea anularla de todas maneras? El cierre no se verá afectado.", MsgBoxStyle.YesNo, "Ventas") = MsgBoxResult.Yes Then
+						confirmado = True
+					Else
+						confirmado = False
+						Return
+					End If
+				ElseIf compra(5) = 2 Then
+					MsgBox("La venta ya se encuentra anulada", MsgBoxStyle.OkOnly, "Ventas")
+					confirmado = False
+				Else
+					confirmado = True
+				End If
+			Else
+				confirmado = False
+			End If
+			If confirmado Then
+				ventasLN.Anular(dgvProveedores.Item("Id", filaSeleccionada).Value)
+				MsgBox("La venta fue anulada", MsgBoxStyle.OkOnly, "Ventas")
+				Busqueda()
+			End If
+		Else
+			MsgBox("Debe seleccionar una venta", MsgBoxStyle.OkOnly, "Ventas")
+		End If
+	End Sub
+	Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvProveedores.CellClick
+		filaSeleccionada = dgvProveedores.CurrentRow.Index
+	End Sub
 End Class

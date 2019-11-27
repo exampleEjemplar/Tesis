@@ -8,6 +8,10 @@ Public Class VentasLN
 		ventasDA = New VentasDA
 	End Sub
 
+	Public Function Anular(id As Integer)
+		Return ventasDA.Anular(id)
+	End Function
+
 	Public Function CargarGrillaVentas(ByVal parametros As Dictionary(Of String, String))
 		Return ventasDA.CargarGrillaVentas(parametros)
 	End Function
@@ -15,6 +19,10 @@ Public Class VentasLN
 	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer)
 		ventasDA.Registrar(listaDeProductosId, clienteId)
 	End Sub
+
+	Public Function ObtenerUnaVenta(id As Integer)
+		Return ventasDA.ObtenerUnaVenta(id)
+	End Function
 
 	Public Function ObtenerUltimaVenta()
         Return ventasDA.ObtenerUltimaVenta
