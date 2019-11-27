@@ -29,6 +29,7 @@ Public Class FrmEstadisticaVentas
         Chart2.Visible = False
         Chart3.Visible = False
         Chart4.Visible = False
+        Chart5.Visible = False
         dtpdesde.Enabled = True
         dtphasta.Enabled = True
         Button1.Enabled = True
@@ -39,13 +40,13 @@ Public Class FrmEstadisticaVentas
         Chart1.Visible = True
         Chart2.Visible = False
         Chart3.Visible = False
+        Chart4.Visible = False
+        Chart5.Visible = False
         GeneraGraficofechaMes()
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
-        RadioButton4.Enabled = False
-        RadioButton3.Enabled = False
-        RadioButton2.Enabled = False
-        RadioButton1.Enabled = False
+        bloquea()
+
         Button1.Enabled = False
     End Sub
 
@@ -53,24 +54,34 @@ Public Class FrmEstadisticaVentas
         Chart2.Visible = True
         Chart1.Visible = False
         Chart3.Visible = False
-        RadioButton4.Enabled = False
-        RadioButton3.Enabled = False
-        RadioButton2.Enabled = False
-        RadioButton1.Enabled = False
+        Chart4.Visible = False
+        Chart5.Visible = False
+        bloquea()
         GeneraGraficoCantidadportipo()
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
         Button1.Enabled = False
     End Sub
 
+    Public Sub bloquea()
+
+        RadioButton5.Enabled = False
+        RadioButton4.Enabled = False
+        RadioButton3.Enabled = False
+        RadioButton2.Enabled = False
+        RadioButton1.Enabled = False
+    End Sub
 
     Private Sub RadioButton3_Click(sender As Object, e As EventArgs) Handles RadioButton3.Click
         Chart1.Visible = False
         Chart2.Visible = False
         Chart3.Visible = True
+        Chart4.Visible = False
+        Chart5.Visible = False
         GeneraGraficoCantidadporVendedor()
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
+        RadioButton5.Enabled = False
         RadioButton4.Enabled = False
         RadioButton3.Enabled = False
         RadioButton2.Enabled = False
@@ -84,18 +95,33 @@ Public Class FrmEstadisticaVentas
         Chart2.Visible = False
         Chart3.Visible = False
         Chart4.Visible = True
+        Chart5.Visible = False
         GeneraGraficoFacturacion()
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
-        RadioButton4.Enabled = False
-        RadioButton3.Enabled = False
-        RadioButton2.Enabled = False
-        RadioButton1.Enabled = False
+        bloquea()
+
         Button1.Enabled = False
 
 
     End Sub
 
+    Private Sub RadioButton5_click(sender As Object, e As EventArgs) Handles RadioButton5.Click
+        Chart1.Visible = False
+        Chart2.Visible = False
+        Chart3.Visible = False
+        Chart4.Visible = False
+        Chart5.Visible = True
+        GeneraGraficoTotalportipo()
+        dtpdesde.Enabled = False
+        dtphasta.Enabled = False
+        RadioButton5.Enabled = False
+        RadioButton4.Enabled = False
+        RadioButton3.Enabled = False
+        RadioButton2.Enabled = False
+        RadioButton1.Enabled = False
+        Button1.Enabled = False
+    End Sub
 
 
     Public Sub GeneraGraficofechaMes()
@@ -142,6 +168,23 @@ Public Class FrmEstadisticaVentas
 
 
 
+    Public Sub GeneraGraficoTotalportipo()
+        Try
+            Dim ds1 As DataSet
+            ds1 = Ventametodo.GeneraGraficoTotalportipo(fechadesde, fechahasta)
+            Chart5.DataSource = ds1.Tables(0)
+            Dim Series1 As Series = Chart5.Series("Series2")
+            Series1.Name = "Ventas"
+            Chart5.Series(Series1.Name).XValueMember = "Nombre"
+            Chart5.Series(Series1.Name).YValueMembers = "total"
+            Chart5.Series(Series1.Name).LabelFormat = " $ {0.00}"
+            Chart5.Size = New System.Drawing.Size(668, 372)
+
+        Catch ex As Exception
+            '  MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
     Public Sub GeneraGraficoCantidadporVendedor()
         Try
             Dim ds1 As DataSet
@@ -152,7 +195,7 @@ Public Class FrmEstadisticaVentas
             Series1.Name = "Ventas"
             Chart3.Series(Series1.Name).XValueMember = "UserName"
             Chart3.Series(Series1.Name).YValueMembers = "Cantidad"
-
+            Chart3.Series(Series1.Name).LabelFormat = " {0.00} %"
             Chart2.Size = New System.Drawing.Size(668, 372)
 
         Catch ex As Exception
@@ -171,7 +214,7 @@ Public Class FrmEstadisticaVentas
             Series1.Name = "Ventas"
             Chart4.Series(Series1.Name).XValueMember = "Mes"
             Chart4.Series(Series1.Name).YValueMembers = "Facturacion"
-
+            Chart4.Series(Series1.Name).LabelFormat = " $ {0.00}"
             Chart4.Size = New System.Drawing.Size(668, 372)
 
         Catch ex As Exception
@@ -182,6 +225,7 @@ Public Class FrmEstadisticaVentas
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        RadioButton5.Enabled = True
         RadioButton4.Enabled = True
         RadioButton3.Enabled = True
         RadioButton2.Enabled = True

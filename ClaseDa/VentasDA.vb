@@ -233,8 +233,32 @@ Public Class VentasDA
 
 	End Function
 
+    Public Function GeneraGraficoTotalportipo(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+		helpersDa.ChequearConexion(db)
 
-	Public Function GeneraGraficoFacturacionPorMes(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+		Dim sqlStr As String
+		ds1 = New DataSet
+		sqlStr = "Select sum(v.Total) As total, t.Nombre As Nombre from Detalleventas dv inner Join ventas v on dv.ventaid=v.id inner Join Productos p on dv.ProductoId=p.id inner Join TipoProductos t on p.TipoProductoID=t.id " &
+			"where v.Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+			"group by t.Nombre"
+
+
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
+		End Try
+		helpersDa.ChequearConexion(db, "close")
+		Return ds1
+
+	End Function
+
+
+
+
+    Public Function GeneraGraficoFacturacionPorMes(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
 		helpersDa.ChequearConexion(db)
 
 		Dim sqlStr As String
@@ -262,12 +286,12 @@ Public Class VentasDA
 
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = " select count(v.id) AS Cantidad, u.UserName from Detalleventas dv inner join ventas v on dv.VentaId=v.id inner join Productos p on dv.ProductoId=p.id inner join Usuarios u on v.UsuarioId=u.id " &
+        sqlStr = "select cast (round ( count(v.total) * 100.00/ sum(count(v.total)) over(),2) as numeric(10,2)) as cantidad , u.UserName from Detalleventas dv inner join ventas v on dv.VentaId=v.id inner join Productos p on dv.ProductoId=p.id inner join Usuarios u on v.UsuarioId=u.id " &
 "where v.Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
 "group by u.UserName"
 
 
-		Try
+        Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
 		Catch ex As Exception

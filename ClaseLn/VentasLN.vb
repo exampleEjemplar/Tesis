@@ -51,6 +51,10 @@ Public Class VentasLN
         Return ventasDA.GeneraGraficoFacturacionPorMes(fechadesde, fechahasta)
     End Function
 
+    Public Function GeneraGraficoTotalportipo(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return ventasDA.GeneraGraficoTotalportipo(fechadesde, fechahasta)
+    End Function
+
     Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
         ventasDA.Controlfecha(fechadesde, fechahasta)
         contador = ventasDA.contador
