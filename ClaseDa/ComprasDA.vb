@@ -226,11 +226,11 @@ Public Class ComprasDA
 
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = "Select sum(c.Total) As Total, t.Nombre As Nombre from Detallecompras dc inner Join compras c on dc.CompraId=c.id inner Join Productos p on dc.ProductoId=p.id inner Join TipoProductos t on p.TipoProductoID=t.id " &
-					"where Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-					"group by  t.Nombre"
+        sqlStr = "select cast (round ( count(c.total) * 100.00/ sum(count(c.total)) over(),2) as numeric(10,2)) total, t.Nombre as nombre from compras c inner Join Detallecompras dc on c.id=dc.CompraId inner Join Productos p on dc.ProductoId=p.id  inner Join TipoProductos t on p.TipoProductoID=t.id " &
+                 "where c.Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+                 "group by  t.Nombre"
 
-		Try
+        Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
 		Catch ex As Exception

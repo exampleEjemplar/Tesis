@@ -38,8 +38,8 @@ Public Class FrmEstadisticaCompras
     End Sub
 
     Private Sub RadioButton1_Click(sender As Object, e As EventArgs) Handles RadioButton1.Click
-        Chart1.Visible = True
-        Chart2.Visible = False
+        Chart1.Visible = False
+        Chart2.Visible = True
         Chart3.Visible = False
         RadioButton3.Enabled = False
         RadioButton2.Enabled = False
@@ -53,8 +53,8 @@ Public Class FrmEstadisticaCompras
 
 
     Private Sub RadioButton2_Click(sender As Object, e As EventArgs) Handles RadioButton2.Click
-        Chart2.Visible = True
-        Chart1.Visible = False
+        Chart2.Visible = False
+        Chart1.Visible = True
         Chart3.Visible = False
         RadioButton3.Enabled = False
         RadioButton2.Enabled = False
@@ -91,7 +91,7 @@ Public Class FrmEstadisticaCompras
             Chart3.Series(Series1.Name).YValueMembers = "Total"
 
             Chart3.Size = New System.Drawing.Size(668, 372)
-
+            Chart3.Series(Series1.Name).LabelFormat = " {0.00}%"
         Catch ex As Exception
             '  MessageBox.Show(ex.Message)
         End Try
@@ -102,14 +102,14 @@ Public Class FrmEstadisticaCompras
         Try
             Dim ds1 As DataSet
             ds1 = comprametodo.GeneraGraficoMontoComprasPorMes(fechadesde, fechahasta)
-            Chart2.DataSource = ds1.Tables(0)
+            Chart1.DataSource = ds1.Tables(0)
 
-            Dim Series1 As Series = Chart2.Series("Series2")
+            Dim Series1 As Series = Chart1.Series("Series2")
             Series1.Name = "Ventas"
-            Chart2.Series(Series1.Name).XValueMember = "Mes"
-            Chart2.Series(Series1.Name).YValueMembers = "Total"
+            Chart1.Series(Series1.Name).XValueMember = "Mes"
+            Chart1.Series(Series1.Name).YValueMembers = "Total"
 
-            Chart2.Size = New System.Drawing.Size(668, 372)
+            Chart1.Size = New System.Drawing.Size(668, 372)
 
         Catch ex As Exception
             '  MessageBox.Show(ex.Message)
@@ -121,14 +121,14 @@ Public Class FrmEstadisticaCompras
         Try
             Dim ds1 As DataSet
             ds1 = comprametodo.GeneraGraficoCompraporproveedor(fechadesde, fechahasta)
-            Chart1.DataSource = ds1.Tables(0)
+            Chart2.DataSource = ds1.Tables(0)
 
-            Dim Series1 As Series = Chart1.Series("Series2")
+            Dim Series1 As Series = Chart2.Series("Series2")
             Series1.Name = "Ventas"
-            Chart1.Series(Series1.Name).XValueMember = "Proveedor"
-            Chart1.Series(Series1.Name).YValueMembers = "Total"
+            Chart2.Series(Series1.Name).XValueMember = "Proveedor"
+            Chart2.Series(Series1.Name).YValueMembers = "Total"
 
-            Chart1.Size = New System.Drawing.Size(668, 372)
+            Chart2.Size = New System.Drawing.Size(668, 372)
 
         Catch ex As Exception
             '  MessageBox.Show(ex.Message)
