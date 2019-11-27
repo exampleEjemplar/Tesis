@@ -148,7 +148,6 @@ Seña FLOAT,
 Total FLOAT,
 UsuarioId Int,
 EsReparacion Char(1),
-Estado Int,
 Dias Int,
 CONSTRAINT Pedido_Cliente FOREIGN KEY (ClienteId) REFERENCES Clientes(ID)
 )

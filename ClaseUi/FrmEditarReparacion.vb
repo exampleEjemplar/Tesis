@@ -28,7 +28,7 @@ Public Class FrmEditarReparacion
 				Dim description = helpersUI.GetEnumDescription(enumItem)
 				listaDeEstados.Add(New Tuple(Of Integer, String)(count, description))
 				dataSource.Add(description)
-				If pedido(7) = count Then
+				If pedido(32) = count Then
 					estado = New Tuple(Of Integer, String)(count, description)
 				End If
 				count = count + 1
@@ -90,14 +90,14 @@ Public Class FrmEditarReparacion
 		idReparacion = FrmGestionReparaciones.idReparacion
 		Dim pedido = pedidosLN.ObtenerUnPedido(idReparacion).Tables(0).Rows(0)
 		LlenarCboEstado(pedido)
-		lblCliente.Text = pedido(9).ToString()
+		lblCliente.Text = pedido(8).ToString()
 		Dim fecha = CType(pedido(1), Date)
 		lblFechaPedido.Text = fecha.ToString()
-		lblFechaPactada.Text = fecha.AddDays(pedido(8))
+		lblFechaPactada.Text = fecha.AddDays(pedido(7))
 		lblCosto.Text = Convert.ToDecimal(pedido(4)).ToString("#.##")
-		lblProducto.Text = pedido(12).ToString()
-		idProducto = pedido(10)
-		idCliente = pedido(31)
+		lblProducto.Text = pedido(11).ToString()
+		idProducto = pedido(9)
+		idCliente = pedido(30)
 		If estado.Item1 = 4 Or estado.Item1 = 0 Then
 			cboEstado.Enabled = False
 			btnguardarmodificacion.Enabled = False
