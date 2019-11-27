@@ -22,14 +22,44 @@ Public Class VentasDA
 		com.Connection = db
 	End Sub
 
+	Public Function Anular(id As Integer)
+		helpersDa.ChequearConexion(db)
+		Dim sqlStr As String
+		sqlStr = "update ventas set estado = 2 where id = " + id.ToString()
+		ds1 = New DataSet
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
+		End Try
+		helpersDa.ChequearConexion(db, "close")
+		Return ds1
+	End Function
 
+	Public Function ObtenerUnaVenta(id As Integer)
+		helpersDa.ChequearConexion(db)
+		Dim sqlStr As String
+		sqlStr = "SELECT * FROM ventas WHERE Id = " + id.ToString()
+		ds1 = New DataSet
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
+		End Try
+		helpersDa.ChequearConexion(db, "close")
+		Return ds1
+	End Function
 
 
 	Public Function CargarGrillaVentas(ByVal parametros As Dictionary(Of String, String)) As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = "set dateformat dmy select v.Id, v.Fecha,c.Nombre +' '+ c.Apellido as Nombre ,v.Total from ventas as v inner join Clientes as c on c.Id = v.ClienteId"
+		sqlStr = "set dateformat dmy select v.Id, v.Fecha,c.Nombre +' '+ c.Apellido as Nombre ,v.Total, v.estado from ventas as v inner join Clientes as c on c.Id = v.ClienteId"
 
 		If parametros.Count <> 0 Then
 			Dim count = parametros.Count
@@ -53,6 +83,11 @@ Public Class VentasDA
 				If item.Key = "FechaHasta" Then
 					count = count - 1
 					text = text & "'" & item.Value & " 23:59:59' " & If(count <> 0, " and ", "")
+					Continue For
+				End If
+				If item.Key = "Estado" Then
+					count = count - 1
+					text = text & "v.estado" & " != " & item.Value & " " & If(count <> 0, " and ", "")
 					Continue For
 				End If
 			Next

@@ -18,6 +18,22 @@ Public Class ComprasDA
 		com.Connection = db
 	End Sub
 
+	Public Function Anular(id As Integer)
+		helpersDa.ChequearConexion(db)
+		Dim sqlStr As String
+		sqlStr = "update compras set estado = 2 where id = " + id.ToString()
+		ds1 = New DataSet
+		Try
+			da = New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
+		End Try
+		helpersDa.ChequearConexion(db, "close")
+		Return ds1
+	End Function
+
 	Public Function ObtenerUnaCompra(id As Integer)
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
@@ -59,7 +75,7 @@ Public Class ComprasDA
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = "set dateformat dmy select c.Id, c.Fecha,p.Nombre +' '+ p.Apellido as Nombre ,c.Total from compras as c inner join Proveedores as p on p.Id = c.ProveedorId"
+		sqlStr = "set dateformat dmy select c.Id, c.Fecha,p.Nombre +' '+ p.Apellido as Nombre ,c.Total, c.estado from compras as c inner join Proveedores as p on p.Id = c.ProveedorId"
 
 		If parametros.Count <> 0 Then
 			Dim count = parametros.Count
@@ -83,6 +99,11 @@ Public Class ComprasDA
 				If item.Key = "FechaHasta" Then
 					count = count - 1
 					text = text & "'" & item.Value & " 23:59:59' " & If(count <> 0, " and ", "")
+					Continue For
+				End If
+				If item.Key = "Estado" Then
+					count = count - 1
+					text = text & "c.estado" & " != " & item.Value & " " & If(count <> 0, " and ", "")
 					Continue For
 				End If
 			Next
