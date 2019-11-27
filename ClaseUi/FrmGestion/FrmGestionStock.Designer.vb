@@ -22,11 +22,10 @@ Partial Class FrmGestionStock
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
-        Me.dgvGrilla = New System.Windows.Forms.DataGridView()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionStock))
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.btnSalirr = New System.Windows.Forms.Button()
         Me.cboProveedor = New System.Windows.Forms.ComboBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.txtBusNombreProducto = New System.Windows.Forms.TextBox()
@@ -40,32 +39,13 @@ Partial Class FrmGestionStock
         Me.dtpFechaHasta = New System.Windows.Forms.DateTimePicker()
         Me.dtpFechaDesde = New System.Windows.Forms.DateTimePicker()
         Me.lblFechaExacta = New System.Windows.Forms.Label()
-        CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.btnSalirr = New System.Windows.Forms.Button()
+        Me.dgvGrilla = New System.Windows.Forms.DataGridView()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'dgvGrilla
-        '
-        Me.dgvGrilla.AllowDrop = True
-        Me.dgvGrilla.AllowUserToAddRows = False
-        Me.dgvGrilla.AllowUserToDeleteRows = False
-        Me.dgvGrilla.AllowUserToResizeColumns = False
-        Me.dgvGrilla.AllowUserToResizeRows = False
-        Me.dgvGrilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvGrilla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.dgvGrilla.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
-        Me.dgvGrilla.Location = New System.Drawing.Point(9, 193)
-        Me.dgvGrilla.MultiSelect = False
-        Me.dgvGrilla.Name = "dgvGrilla"
-        Me.dgvGrilla.ReadOnly = True
-        Me.dgvGrilla.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.dgvGrilla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.dgvGrilla.RowHeadersVisible = False
-        Me.dgvGrilla.RowHeadersWidth = 56
-        Me.dgvGrilla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvGrilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvGrilla.Size = New System.Drawing.Size(530, 153)
-        Me.dgvGrilla.TabIndex = 56
         '
         'GroupBox2
         '
@@ -73,9 +53,9 @@ Partial Class FrmGestionStock
         Me.GroupBox2.Controls.Add(Me.TextBox3)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
         Me.GroupBox2.Location = New System.Drawing.Point(9, 9)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(530, 23)
         Me.GroupBox2.TabIndex = 55
         Me.GroupBox2.TabStop = False
@@ -105,21 +85,6 @@ Partial Class FrmGestionStock
         Me.TextBox3.Size = New System.Drawing.Size(242, 20)
         Me.TextBox3.TabIndex = 40
         '
-        'btnSalirr
-        '
-        Me.btnSalirr.BackColor = System.Drawing.SystemColors.Control
-        Me.btnSalirr.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
-        Me.btnSalirr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnSalirr.FlatAppearance.BorderSize = 0
-        Me.btnSalirr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalirr.Location = New System.Drawing.Point(546, 256)
-        Me.btnSalirr.Name = "btnSalirr"
-        Me.btnSalirr.Size = New System.Drawing.Size(86, 89)
-        Me.btnSalirr.TabIndex = 54
-        Me.btnSalirr.Text = "Salir"
-        Me.btnSalirr.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnSalirr.UseVisualStyleBackColor = False
-        '
         'cboProveedor
         '
         Me.cboProveedor.AccessibleDescription = ""
@@ -145,7 +110,7 @@ Partial Class FrmGestionStock
         'txtBusNombreProducto
         '
         Me.txtBusNombreProducto.Location = New System.Drawing.Point(118, 87)
-        Me.txtBusNombreProducto.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtBusNombreProducto.Margin = New System.Windows.Forms.Padding(2)
         Me.txtBusNombreProducto.Name = "txtBusNombreProducto"
         Me.txtBusNombreProducto.Size = New System.Drawing.Size(152, 20)
         Me.txtBusNombreProducto.TabIndex = 61
@@ -202,7 +167,7 @@ Partial Class FrmGestionStock
         '
         Me.rbtEntreFechas.AutoSize = True
         Me.rbtEntreFechas.Location = New System.Drawing.Point(255, 119)
-        Me.rbtEntreFechas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbtEntreFechas.Margin = New System.Windows.Forms.Padding(2)
         Me.rbtEntreFechas.Name = "rbtEntreFechas"
         Me.rbtEntreFechas.Size = New System.Drawing.Size(136, 17)
         Me.rbtEntreFechas.TabIndex = 67
@@ -223,7 +188,7 @@ Partial Class FrmGestionStock
         '
         Me.rbtFechaExacta.AutoSize = True
         Me.rbtFechaExacta.Location = New System.Drawing.Point(12, 119)
-        Me.rbtFechaExacta.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbtFechaExacta.Margin = New System.Windows.Forms.Padding(2)
         Me.rbtFechaExacta.Name = "rbtFechaExacta"
         Me.rbtFechaExacta.Size = New System.Drawing.Size(244, 17)
         Me.rbtFechaExacta.TabIndex = 68
@@ -258,11 +223,87 @@ Partial Class FrmGestionStock
         Me.lblFechaExacta.TabIndex = 64
         Me.lblFechaExacta.Text = "Fecha carga"
         '
+        'btnSalirr
+        '
+        Me.btnSalirr.BackColor = System.Drawing.SystemColors.Control
+        Me.btnSalirr.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+        Me.btnSalirr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnSalirr.FlatAppearance.BorderSize = 0
+        Me.btnSalirr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalirr.Location = New System.Drawing.Point(558, 342)
+        Me.btnSalirr.Name = "btnSalirr"
+        Me.btnSalirr.Size = New System.Drawing.Size(80, 89)
+        Me.btnSalirr.TabIndex = 54
+        Me.btnSalirr.Text = "Salir"
+        Me.btnSalirr.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSalirr.UseVisualStyleBackColor = False
+        '
+        'dgvGrilla
+        '
+        Me.dgvGrilla.AllowDrop = True
+        Me.dgvGrilla.AllowUserToAddRows = False
+        Me.dgvGrilla.AllowUserToDeleteRows = False
+        Me.dgvGrilla.AllowUserToResizeColumns = False
+        Me.dgvGrilla.AllowUserToResizeRows = False
+        Me.dgvGrilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvGrilla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dgvGrilla.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
+        Me.dgvGrilla.Location = New System.Drawing.Point(28, 174)
+        Me.dgvGrilla.MultiSelect = False
+        Me.dgvGrilla.Name = "dgvGrilla"
+        Me.dgvGrilla.ReadOnly = True
+        Me.dgvGrilla.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.dgvGrilla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.dgvGrilla.RowHeadersVisible = False
+        Me.dgvGrilla.RowHeadersWidth = 56
+        Me.dgvGrilla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvGrilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvGrilla.Size = New System.Drawing.Size(524, 253)
+        Me.dgvGrilla.TabIndex = 56
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.SystemColors.Control
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button3.Location = New System.Drawing.Point(552, 256)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(86, 80)
+        Me.Button3.TabIndex = 71
+        Me.Button3.Text = "Estadísticas"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.SystemColors.Control
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button2.Location = New System.Drawing.Point(561, 170)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(77, 80)
+        Me.Button2.TabIndex = 72
+        Me.Button2.Text = "Listar"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'FrmGestionStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(640, 365)
+        Me.ClientSize = New System.Drawing.Size(640, 439)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.lbldesde)
         Me.Controls.Add(Me.rbtEntreFechas)
         Me.Controls.Add(Me.lblHasta)
@@ -280,36 +321,37 @@ Partial Class FrmGestionStock
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.btnSalirr)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmGestionStock"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Gestion Stock"
-        CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
+    Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
+    Friend WithEvents Button1 As Windows.Forms.Button
+    Friend WithEvents TextBox3 As Windows.Forms.TextBox
+    Friend WithEvents cboProveedor As Windows.Forms.ComboBox
+    Friend WithEvents Label17 As Windows.Forms.Label
+    Friend WithEvents txtBusNombreProducto As Windows.Forms.TextBox
+    Friend WithEvents Label8 As Windows.Forms.Label
+    Friend WithEvents btnLimpiarFiltros As Windows.Forms.Button
+    Friend WithEvents btnBuscar As Windows.Forms.Button
+    Friend WithEvents lbldesde As Windows.Forms.Label
+    Friend WithEvents rbtEntreFechas As Windows.Forms.CheckBox
+    Friend WithEvents lblHasta As Windows.Forms.Label
+    Friend WithEvents rbtFechaExacta As Windows.Forms.CheckBox
+    Friend WithEvents dtpFechaHasta As Windows.Forms.DateTimePicker
+    Friend WithEvents dtpFechaDesde As Windows.Forms.DateTimePicker
+    Friend WithEvents lblFechaExacta As Windows.Forms.Label
+    Friend WithEvents btnSalirr As Windows.Forms.Button
     Friend WithEvents dgvGrilla As Windows.Forms.DataGridView
-	Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
-	Friend WithEvents Button1 As Windows.Forms.Button
-	Friend WithEvents TextBox3 As Windows.Forms.TextBox
-	Friend WithEvents btnSalirr As Windows.Forms.Button
-	Friend WithEvents cboProveedor As Windows.Forms.ComboBox
-	Friend WithEvents Label17 As Windows.Forms.Label
-	Friend WithEvents txtBusNombreProducto As Windows.Forms.TextBox
-	Friend WithEvents Label8 As Windows.Forms.Label
-	Friend WithEvents btnLimpiarFiltros As Windows.Forms.Button
-	Friend WithEvents btnBuscar As Windows.Forms.Button
-	Friend WithEvents lbldesde As Windows.Forms.Label
-	Friend WithEvents rbtEntreFechas As Windows.Forms.CheckBox
-	Friend WithEvents lblHasta As Windows.Forms.Label
-	Friend WithEvents rbtFechaExacta As Windows.Forms.CheckBox
-	Friend WithEvents dtpFechaHasta As Windows.Forms.DateTimePicker
-	Friend WithEvents dtpFechaDesde As Windows.Forms.DateTimePicker
-	Friend WithEvents lblFechaExacta As Windows.Forms.Label
+    Friend WithEvents Button3 As Windows.Forms.Button
+    Friend WithEvents Button2 As Windows.Forms.Button
 End Class

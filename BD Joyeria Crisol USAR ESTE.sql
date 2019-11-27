@@ -153,6 +153,15 @@ Dias Int,
 CONSTRAINT Pedido_Cliente FOREIGN KEY (ClienteId) REFERENCES Clientes(ID)
 )
 GO
+CREATE TABLE MovimientoEstadosPedidos(
+Id INT IDENTITY PRIMARY KEY,
+PedidoId INT,
+EstadoId INT,
+Fecha DateTime,
+Activo Int,
+CONSTRAINT MovimientoEstadosPedidos_Pedidos FOREIGN KEY (PedidoId) REFERENCES Pedidos(ID)
+)
+GO
 CREATE TABLE UnidadesDePeso(
 Id INT IDENTITY PRIMARY KEY,
 Nombre VARCHAR(MAX)

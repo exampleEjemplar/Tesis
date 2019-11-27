@@ -185,6 +185,12 @@
     <Compile Include="FrmEstadistica\FrmEstadisticaProveedor.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmEstadistica\FrmEstadisticaProveedorServicio.Designer.vb">
+      <DependentUpon>FrmEstadisticaProveedorServicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEstadistica\FrmEstadisticaProveedorServicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmEstadistica\FrmEstadisticaVentas.Designer.vb">
       <DependentUpon>FrmEstadisticaVentas.vb</DependentUpon>
     </Compile>
@@ -337,6 +343,12 @@
     <Compile Include="Reportes\DataSetReportes.vb">
       <DependentUpon>DataSetReportes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\FrmReporteStok.Designer.vb">
+      <DependentUpon>FrmReporteStok.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmReporteStok.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\InformeCierredeCaja.Designer.vb">
       <DependentUpon>InformeCierredeCaja.vb</DependentUpon>
     </Compile>
@@ -470,6 +482,9 @@
     <EmbeddedResource Include="FrmEstadistica\FrmEstadisticaProveedor.resx">
       <DependentUpon>FrmEstadisticaProveedor.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEstadistica\FrmEstadisticaProveedorServicio.resx">
+      <DependentUpon>FrmEstadisticaProveedorServicio.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEstadistica\FrmEstadisticaVentas.resx">
       <DependentUpon>FrmEstadisticaVentas.vb</DependentUpon>
     </EmbeddedResource>
@@ -535,6 +550,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\CierreCaja.rdlc" />
     <EmbeddedResource Include="Reportes\ComprobanteVenta.rdlc" />
+    <EmbeddedResource Include="Reportes\FrmReporteStok.resx">
+      <DependentUpon>FrmReporteStok.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\InformeCierredeCaja.resx">
       <DependentUpon>InformeCierredeCaja.vb</DependentUpon>
     </EmbeddedResource>
@@ -575,6 +593,7 @@
     <EmbeddedResource Include="Reportes\ListadoProveedoresPorFecha.rdlc" />
     <EmbeddedResource Include="Reportes\ListadodeVentasporFecha.rdlc" />
     <EmbeddedResource Include="Reportes\ListadodeComprasPorFecha.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteStock.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

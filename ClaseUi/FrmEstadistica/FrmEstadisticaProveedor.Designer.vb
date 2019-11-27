@@ -352,7 +352,7 @@ Partial Class FrmEstadisticaProveedor
         Legend4.IsTextAutoFit = False
         Legend4.Name = "Legend1"
         Me.Chart4.Legends.Add(Legend4)
-        Me.Chart4.Location = New System.Drawing.Point(19, 222)
+        Me.Chart4.Location = New System.Drawing.Point(-9, 319)
         Me.Chart4.Name = "Chart4"
         Me.Chart4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
         Series4.ChartArea = "ChartArea1"

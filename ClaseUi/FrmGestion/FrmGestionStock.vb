@@ -127,4 +127,9 @@ Public Class FrmGestionStock
 			Search()
 		End If
 	End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        FrmReporteStok.ShowDialog()
+
+    End Sub
 End Class
