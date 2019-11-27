@@ -139,13 +139,13 @@ Public Class MetodoClientesDA
 
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = "select p.nombre as nombre, count(c.NumeroDocumento) as Cantidad from Clientes c " &
-						"inner join Ciudades ciu on c.CiudadId = Ciu.Id " &
-						"inner Join Provincias p on ciu.ProvinciaID = p.Id " &
-						"where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "'" &
-						"group by p.nombre"
+        sqlStr = "select p.nombre as nombre, count(c.NumeroDocumento) as Cantidad from Clientes c " &
+                        "inner join Ciudades ciu on c.CiudadId = Ciu.Id " &
+                        "inner Join Provincias p on ciu.ProvinciaID = p.Id " &
+                        "where C.FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "'" &
+                        "group by p.nombre"
 
-		Try
+        Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
 		Catch ex As Exception
@@ -161,11 +161,11 @@ Public Class MetodoClientesDA
 
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = "select count(id) as Cantidad, CASE FisicaOJuridica WHEN 'F' THEN 'Fisica' WHEN 'J'THEN 'Juridica'ELSE 'Unknown'end as FisicaOJuridica from Clientes " &
+        sqlStr = "select cast (round ( count(*) * 100.00/ sum(count(*)) over(),2) as numeric(10,2)) as cantidad , CASE FisicaOJuridica WHEN 'F' THEN 'Fisica' WHEN 'J'THEN 'Juridica'ELSE 'Unknown'end as FisicaOJuridica from Clientes " &
 "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
 "group by FisicaOJuridica"
 
-		Try
+        Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
 		Catch ex As Exception
@@ -176,28 +176,75 @@ Public Class MetodoClientesDA
 		Return ds1
 	End Function
 
-	Public Function GeneraGraficousuario(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
-		helpersDa.ChequearConexion(db)
+    Public Function GeneraGraficousuario(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        helpersDa.ChequearConexion(db)
 
-		Dim sqlStr As String
-		ds1 = New DataSet
-		sqlStr = " Select  COUNT(*) As contador, u.UserName as nombre FROM clientes c " &
-					 "inner join Usuarios u on c.UsuarioId=u.id " &
-					 "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-					 "GROUP BY u.UserName"
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "Select  COUNT(*) As contador, u.UserName as nombre FROM clientes c " &
+                 "inner join Usuarios u on c.UsuarioId=u.id " &
+                 "where c.FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+                 "GROUP BY u.UserName"
 
-		Try
-			da = New SqlDataAdapter(sqlStr, db)
-			da.Fill(ds1)
-		Catch ex As Exception
-			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			helpersDa.ChequearConexion(db, "close")
-		End Try
-		helpersDa.ChequearConexion(db, "close")
-		Return ds1
-	End Function
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDa.ChequearConexion(db, "close")
+        End Try
+        helpersDa.ChequearConexion(db, "close")
+        Return ds1
+    End Function
 
-	Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
+    Public Function GeneraGraficoCantidadClientesPorFecha(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        helpersDa.ChequearConexion(db)
+
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "select count(*) AS contador, MONTH(c.fechaalta) as Mes from Clientes c " &
+                 "where c.FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+                 "GROUP BY MONTH(c.fechaalta)"
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDa.ChequearConexion(db, "close")
+        End Try
+        helpersDa.ChequearConexion(db, "close")
+        Return ds1
+    End Function
+
+
+    Public Function GeneraGraficoRangodeEdad(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        helpersDa.ChequearConexion(db)
+
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "sELECT COUNT(*) AS clientes, ( " &
+                 "Case WHEN DATEDIFF (year, clientes.FechaNacimiento, { fn NOW() }) < 25 THEN '16-24' " &
+                 "WHEN DATEDIFF (year, clientes.FechaNacimiento, { fn NOW() } )< 45 THEN '25-44' " &
+                 "Else '45-100' End ) As Edad From clientes " &
+                 "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+                 "GROUP BY CASE WHEN DATEDIFF(year, clientes.FechaNacimiento, { fn NOW() }) < 25 THEN '16-24' WHEN DATEDIFF(year, Clientes.FechaNacimiento, { fn NOW() }) < 45 THEN '25-44' ELSE '45-100' END"
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDa.ChequearConexion(db, "close")
+        End Try
+        helpersDa.ChequearConexion(db, "close")
+        Return ds1
+    End Function
+
+
+
+
+    Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
 		Try
 			helpersDa.ChequearConexion(db)
 			Dim control As New SqlCommand("set dateformat ymd select count(*) from clientes where FechaAlta BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' ", db)

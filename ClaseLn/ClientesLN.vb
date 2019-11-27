@@ -40,14 +40,22 @@ Public Class ClientesLN
         Return objclientesAD.GeneraGraficousuario(fechadesde, fechahasta)
     End Function
 
+    Public Function GeneraGraficoCantidadClientesPorFecha(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return objclientesAD.GeneraGraficoCantidadClientesPorFecha(fechadesde, fechahasta)
+    End Function
+
     Public Function CargaGrillaclienteslistado(ByVal fechadesde As String, ByVal fechahasta As String) As DataTable
         Return objclientesAD.CargaGrillaclienteslistado(fechadesde, fechahasta)
     End Function
 
     Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
-		objclientesAD.Controlfecha(fechadesde, fechahasta)
-		contador = objclientesAD.contador
-	End Sub
+        objclientesAD.Controlfecha(fechadesde, fechahasta)
+        contador = objclientesAD.contador
+    End Sub
+
+    Public Function GeneraGraficoRangodeEdad(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return objclientesAD.GeneraGraficoRangodeEdad(fechadesde, fechahasta)
+    End Function
 
 
 

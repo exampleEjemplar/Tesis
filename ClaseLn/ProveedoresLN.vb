@@ -49,6 +49,9 @@ Public Class ProveedoresLN
         contador = objProveedoresAD.contador
     End Sub
 
+    Public Function GeneraGrafico(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return objProveedoresAD.GeneraGrafico(fechadesde, fechahasta)
+    End Function
 
 End Class
 

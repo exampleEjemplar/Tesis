@@ -28,6 +28,8 @@ Public Class FrmEstadisticacliente
         Chart1.Visible = False
         Chart2.Visible = False
         Chart3.Visible = False
+        Chart4.Visible = False
+        Chart5.Visible = False
         dtpdesde.Enabled = True
         dtphasta.Enabled = True
         Button1.Enabled = True
@@ -38,7 +40,9 @@ Public Class FrmEstadisticacliente
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         RadioButton3.Enabled = True
         RadioButton2.Enabled = True
-
+        RadioButton1.Enabled = True
+        RadioButton4.Enabled = True
+        RadioButton5.Enabled = True
         fechadesde = Format(dtpdesde.Value, "yyyy/MM/dd")
         fechahasta = Format(dtphasta.Value.AddDays(1), "yyyy/MM/dd")
 
@@ -72,18 +76,7 @@ Public Class FrmEstadisticacliente
     End Sub
 
 
-    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs)
-        Chart3.Visible = True
-        Chart2.Visible = False
-        Chart1.Visible = False
-        GeneraGraficousuario()
-        dtpdesde.Enabled = False
-        dtphasta.Enabled = False
-        RadioButton3.Enabled = False
-        RadioButton2.Enabled = False
 
-        Button1.Enabled = False
-    End Sub
 
 
 
@@ -91,16 +84,13 @@ Public Class FrmEstadisticacliente
         Try
             Dim ds1 As DataSet
             ds1 = clientemetodo.GeneraGrafico(fechadesde, fechahasta)
-            Chart1.DataSource = ds1.Tables(0)
-
-
-
-            Dim Series1 As Series = Chart1.Series("Series2")
+            Chart3.DataSource = ds1.Tables(0)
+            Dim Series1 As Series = Chart3.Series("Series2")
             Series1.Name = "Clientes"
-            Chart1.Series(Series1.Name).XValueMember = "nombre"
-            Chart1.Series(Series1.Name).YValueMembers = "Cantidad"
+            Chart3.Series(Series1.Name).XValueMember = "nombre"
+            Chart3.Series(Series1.Name).YValueMembers = "Cantidad"
 
-            Chart1.Size = New System.Drawing.Size(668, 372)
+            Chart3.Size = New System.Drawing.Size(668, 372)
 
         Catch ex As Exception
             ' MessageBox.Show(ex.Message)
@@ -121,7 +111,7 @@ Public Class FrmEstadisticacliente
             Series2.Name = "Clientes"
             Chart2.Series(Series2.Name).XValueMember = "FisicaOJuridica"
             Chart2.Series(Series2.Name).YValueMembers = "Cantidad"
-
+            Chart2.Series(Series2.Name).LabelFormat = " {0.00}%"
             Chart2.Size = New System.Drawing.Size(668, 372)
 
         Catch ex As Exception
@@ -134,16 +124,54 @@ Public Class FrmEstadisticacliente
         Try
             Dim ds1 As DataSet
             ds1 = clientemetodo.GeneraGraficousuario(fechadesde, fechahasta)
-            Chart3.DataSource = ds1.Tables(0)
+            Chart1.DataSource = ds1.Tables(0)
 
-
-
-            Dim Series1 As Series = Chart3.Series("Series2")
+            Dim Series1 As Series = Chart1.Series("Series2")
             Series1.Name = "Clientes"
-            Chart3.Series(Series1.Name).XValueMember = "nombre"
-            Chart3.Series(Series1.Name).YValueMembers = "contador"
+            Chart1.Series(Series1.Name).XValueMember = "nombre"
+            Chart1.Series(Series1.Name).YValueMembers = "contador"
 
-            Chart3.Size = New System.Drawing.Size(668, 372)
+            Chart1.Size = New System.Drawing.Size(668, 372)
+
+        Catch ex As Exception
+            'MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+
+    Public Sub GeneraGraficoRangoEdad()
+        Try
+            Dim ds1 As DataSet
+            ds1 = clientemetodo.GeneraGraficoRangodeEdad(fechadesde, fechahasta)
+            Chart5.DataSource = ds1.Tables(0)
+
+            Dim Series1 As Series = Chart5.Series("Series2")
+            Series1.Name = "Clientes"
+            Chart5.Series(Series1.Name).XValueMember = "Edad"
+            Chart5.Series(Series1.Name).YValueMembers = "clientes"
+
+            Chart5.Size = New System.Drawing.Size(668, 372)
+
+        Catch ex As Exception
+            'MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+
+    Public Sub GeneraGraficoCantidadClientesPorFecha()
+        Try
+            Dim ds1 As DataSet
+            ds1 = clientemetodo.GeneraGraficoCantidadClientesPorFecha(fechadesde, fechahasta)
+            Chart4.DataSource = ds1.Tables(0)
+
+            Dim Series1 As Series = Chart4.Series("Series2")
+            Series1.Name = "Clientes"
+            Chart4.Series(Series1.Name).XValueMember = "Mes"
+            Chart4.Series(Series1.Name).YValueMembers = "contador"
+
+            Chart4.Size = New System.Drawing.Size(668, 372)
 
         Catch ex As Exception
             'MessageBox.Show(ex.Message)
@@ -157,17 +185,55 @@ Public Class FrmEstadisticacliente
         Me.Close()
     End Sub
 
+    Private Sub RadioButton5_Click(sender As Object, e As EventArgs) Handles RadioButton5.Click
 
-
-    Private Sub RadioButton3_Click(sender As Object, e As EventArgs) Handles RadioButton3.Click
-        Chart1.Visible = True
+        Chart5.Visible = True
+        Chart4.Visible = False
         Chart2.Visible = False
         Chart3.Visible = False
+        Chart1.Visible = False
+        GeneraGraficoRangoEdad()
+        dtpdesde.Enabled = False
+        dtphasta.Enabled = False
+        RadioButton5.Enabled = False
+        RadioButton4.Enabled = False
+        RadioButton3.Enabled = False
+        RadioButton2.Enabled = False
+        RadioButton1.Enabled = False
+
+        Button1.Enabled = False
+    End Sub
+
+    Private Sub RadioButton4_Click(sender As Object, e As EventArgs) Handles RadioButton4.Click
+        Chart4.Visible = True
+        Chart2.Visible = False
+        Chart3.Visible = False
+        Chart1.Visible = False
+        GeneraGraficoCantidadClientesPorFecha()
+        dtpdesde.Enabled = False
+        dtphasta.Enabled = False
+        RadioButton5.Enabled = False
+        RadioButton4.Enabled = False
+        RadioButton3.Enabled = False
+        RadioButton2.Enabled = False
+        RadioButton1.Enabled = False
+
+        Button1.Enabled = False
+    End Sub
+
+    Private Sub RadioButton3_Click(sender As Object, e As EventArgs) Handles RadioButton3.Click
+        Chart3.Visible = True
+        Chart2.Visible = False
+        Chart1.Visible = False
+        Chart4.Visible = False
         GeneraGraficoprovincia()
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
+        RadioButton5.Enabled = False
+        RadioButton4.Enabled = False
         RadioButton3.Enabled = False
         RadioButton2.Enabled = False
+        RadioButton1.Enabled = False
 
         Button1.Enabled = False
     End Sub
@@ -176,12 +242,34 @@ Public Class FrmEstadisticacliente
         Chart2.Visible = True
         Chart1.Visible = False
         Chart3.Visible = False
+        Chart4.Visible = False
+        RadioButton5.Enabled = False
+        RadioButton4.Enabled = False
         RadioButton3.Enabled = False
         RadioButton2.Enabled = False
+        RadioButton1.Enabled = False
+
         Button1.Enabled = False
         GeneraGraficopersoneria()
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
+    End Sub
+
+
+    Private Sub RadioButton1_click(sender As Object, e As EventArgs) Handles RadioButton1.Click
+        Chart4.Visible = False
+        Chart3.Visible = False
+        Chart2.Visible = False
+        Chart1.Visible = True
+        GeneraGraficousuario()
+        dtpdesde.Enabled = False
+        dtphasta.Enabled = False
+        RadioButton5.Enabled = False
+        RadioButton4.Enabled = False
+        RadioButton3.Enabled = False
+        RadioButton2.Enabled = False
+        RadioButton1.Enabled = False
+        Button1.Enabled = False
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

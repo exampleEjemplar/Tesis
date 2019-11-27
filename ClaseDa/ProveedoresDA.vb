@@ -184,13 +184,13 @@ Public Class ProveedoresDA
 
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = "Select  COUNT(*) As contador,p.Nombre+' '+p.Apellido as nombre FROM Productos a " &
-					" inner Join Proveedores p On a.ProveedorId=p.id " &
-					 "where a.FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-					"Group By p.Nombre+' '+p.Apellido"
+        sqlStr = "Select  COUNT(*) As contador,p.Nombre+' '+p.Apellido as nombre FROM Productos a " &
+                    " inner Join Proveedores p On a.ProveedorId=p.id " &
+                     "where a.FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' and proveeservicios='N' " &
+                    "Group By p.Nombre+' '+p.Apellido"
 
 
-		Try
+        Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
 		Catch ex As Exception
@@ -247,7 +247,27 @@ Public Class ProveedoresDA
 
 	End Sub
 
+    Public Function GeneraGrafico(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        helpersDa.ChequearConexion(db)
 
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "select p.nombre as nombre, count(c.NumeroDocumento) as Cantidad from Proveedores c " &
+                        "inner join Ciudades ciu on c.CiudadId = Ciu.Id " &
+                        "inner Join Provincias p on ciu.ProvinciaID = p.Id " &
+                        "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "'" &
+                        "group by p.nombre"
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDa.ChequearConexion(db, "close")
+        End Try
+        helpersDa.ChequearConexion(db, "close")
+        Return ds1
+    End Function
 
 End Class
 
