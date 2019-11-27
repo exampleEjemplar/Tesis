@@ -17,11 +17,13 @@ Public Class FrmGestionCliente
 	Private Modificando As Boolean
 	Dim cadena As String
 	Public modificado As Boolean = False
+	Public OrderBy As New List(Of Tuple(Of Integer, String, String, Integer)) 'Index, nombrevista, nombre base, prioridad
 
 
 #Region "Eventos"
 
 	Private Sub FrmGestionCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		InicializarOrderBy()
 		cmbProvincias.SelectedValue = 0
 		cbtipodni.SelectedValue = 0
 		IdProvincia = LlenarCMBProvincias("general")
@@ -37,8 +39,20 @@ Public Class FrmGestionCliente
 
 
 	End Sub
+	Public Sub InicializarOrderBy()
+		OrderBy.Add(New Tuple(Of Integer, String, String, Integer)(1, "Fecha de Alta", "FechaAlta", 1))
+		OrderBy.Add(New Tuple(Of Integer, String, String, Integer)(2, "", "", 2))
+		OrderBy.Add(New Tuple(Of Integer, String, String, Integer)(3, "", "", 3))
+		lblPrioridad1.Text = OrderBy.FirstOrDefault(Function(x) x.Item1 = 1).Item2
+		lblPrioridad2.Visible = False
+		lblPrioridad3.Visible = False
+		cboPrioridad1.DataSource = {1, 2, 3}
+		cboPrioridad1.SelectedItem = 1
+		cboPrioridad2.Visible = False
+		cboPrioridad3.Visible = False
+	End Sub
 
-    Private Sub CmbProvincias_SelectionChangeCommitted(sender As System.Object, e As System.EventArgs) Handles cmbProvincias.SelectionChangeCommitted
+	Private Sub CmbProvincias_SelectionChangeCommitted(sender As System.Object, e As System.EventArgs) Handles cmbProvincias.SelectionChangeCommitted
         IdProvincia = cmbProvincias.SelectedValue
         LlenarCMBLocalidades("general")
     End Sub
@@ -63,9 +77,9 @@ Public Class FrmGestionCliente
         Block()
         modificado = True
         Modificando = False
-        DgvclientesSet(New Dictionary(Of String, String))
+		DgvclientesSet(New Dictionary(Of String, String))
 
-    End Sub
+	End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Close()
@@ -73,7 +87,7 @@ Public Class FrmGestionCliente
 
     Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles Dgvclientes.CellMouseDoubleClick
         Unblock()
-        Dim selectedRow As DataGridViewRow
+        Dim selectedRow As DataGridViewRow = Nothing
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
             selectedRow = Dgvclientes.Rows(e.RowIndex)
         End If
@@ -521,21 +535,32 @@ Public Class FrmGestionCliente
         End If
     End Sub
 
-    'Carga DataGridView con datos
-    Public Function DgvclientesSet(ByVal parametros As Dictionary(Of String, String)) As DataSet
-        Dim dsa1 As DataSet
-        dsa1 = clientemetodo.CargaGrillaclientes(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
-        If dsa1.Tables(0).Rows.Count() <> 0 Then
-            ClienteID = dsa1.Tables(0).Rows(0)(13)
-        End If
-        Dgvclientes.DataSource = dsa1.Tables(0)
-        Dgvclientes.Columns("Id").Visible = False
-        Dgvclientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-        Dgvclientes.AutoResizeColumns()
-        Return dsa1
-    End Function
 
-    Private Sub btnValidarDNI1_Click(sender As Object, e As EventArgs) Handles btnValidarDNI1.Click
+	'Carga DataGridView con datos
+	Public Function DgvclientesSet(ByVal parametros As Dictionary(Of String, String)) As DataSet
+		Dim dsa1 As DataSet
+		dsa1 = clientemetodo.CargaGrillaclientes(parametros, OrderBy) 'Si parametros esta vacio, busca todos los clientes en la bd
+		If dsa1.Tables(0).Rows.Count() <> 0 Then
+			ClienteID = dsa1.Tables(0).Rows(0)(13)
+		End If
+		For i = 0 To dsa1.Tables(0).Columns.Count - 1
+			If dsa1.Tables(0).Columns(i).ColumnName = "id" Then
+				Continue For
+			End If
+			If dsa1.Tables(0).Columns(i).ColumnName = "Fecha de Alta" Then
+				chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName, CheckState.Checked)
+				Continue For
+			End If
+			chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName)
+		Next
+		Dgvclientes.DataSource = dsa1.Tables(0)
+		Dgvclientes.Columns("Id").Visible = False
+		Dgvclientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+		Dgvclientes.AutoResizeColumns()
+		Return dsa1
+	End Function
+
+	Private Sub btnValidarDNI1_Click(sender As Object, e As EventArgs) Handles btnValidarDNI1.Click
 
         If helpersUI.TextValidator("Tipo de persona", cboTipoPersona.SelectedItem) = False Or
 helpersUI.TextValidator("Tipo de identificacion", cbtipodni.Text) = False Or
@@ -593,26 +618,20 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
         sender.ForeColor = Color.Black
     End Sub
 
-    Private Sub LostfocusTexto(ByVal sender As Object, ByVal e As System.EventArgs)
-        If Modificando Then
-            Return
-        End If
-        If sender.Text = "" Then 'si salio del textbox sin poner nada
-            sender.Text = cadena  'volverle a poner el texto que tenia
-            sender.ForeColor = Color.Black 'y poner la letra en gris
-        End If
+	Private Sub LostfocusTexto(ByVal sender As Object, ByVal e As System.EventArgs)
+		If Modificando Then
+			Return
+		End If
+		If sender.Text = "" Then 'si salio del textbox sin poner nada
+			sender.Text = cadena  'volverle a poner el texto que tenia
+			sender.ForeColor = Color.Black 'y poner la letra en gris
+		End If
 
-    End Sub
+	End Sub
 
-    Private Sub GroupBox6_Enter(sender As Object, e As EventArgs) Handles GroupBox6.Enter
-
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        ListadodeClientes.ShowDialog()
-
-
-    End Sub
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+		ListadodeClientes.ShowDialog()
+	End Sub
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
         Dim resp = MsgBox("Está seguro que desea limpiar los campos?", MsgBoxStyle.YesNo, "Limpiar")
@@ -627,6 +646,20 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
         FrmEstadisticacliente.ShowDialog()
 
     End Sub
+
+	Private Sub chbListaParaOrdenar_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chbListaParaOrdenar.ItemCheck
+		Dim asdas = e.CurrentValue
+		Dim asddddas = e.NewValue
+		If chbListaParaOrdenar.CheckedItems.Count = 3 Then
+			MsgBox("Se puede ordenar hasta por 3 campos máximo", MsgBoxStyle.OkOnly, "Ordenar")
+			Return
+		End If
+		For i = 0 To chbListaParaOrdenar.CheckedItems.Count - 1
+			Dim number = i + 1
+			OrderBy.RemoveAll(Function(x) x.Item1 = number)
+			OrderBy.Add(New Tuple(Of Integer, String, String, Integer)(number, chbListaParaOrdenar.CheckedItems(i).ToString, chbListaParaOrdenar.CheckedItems(i).ToString, number))
+		Next
+	End Sub
 
 #End Region
 
