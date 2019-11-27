@@ -279,7 +279,7 @@ Public Class FrmArmadoCompra
 			For index = 1 To CantidadDragAndDrop.cantidad
 				Dim cloneOfItem = ItemSelected.Clone()
 				ListView1.Items.Add(cloneOfItem)
-				total += ItemSelected.Tag(3)
+				total += ItemSelected.Tag(8)
 				lblTotal.Text = total.ToString("0.00")
 			Next
 		End If

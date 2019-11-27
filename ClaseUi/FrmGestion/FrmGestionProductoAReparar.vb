@@ -85,7 +85,29 @@ Public Class FrmGestionProductoAReparar
 					MsgBox("Ingrese el precio en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
 					Return
 				End If
-				pro.precio = newText.ToString()
+				If value = 0 Then
+					MsgBox("Ingrese el precio en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				pro.precio = newText
+			Else
+				MsgBox("Debe agregar un precio", MsgBoxStyle.Critical, "Producto")
+				Return
+			End If
+#End Region
+#Region "Precio"
+			If Not String.IsNullOrEmpty(txtUtilidad.Text) Then
+				Dim value As Decimal
+				Dim newText = txtUtilidad.Text.Replace(",", ".")
+				If Not Decimal.TryParse(newText, value) Then
+					MsgBox("Ingrese el precio en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				If value = 0 Then
+					MsgBox("Ingrese el precio en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
+					Return
+				End If
+				pro.utilidad = newText
 			Else
 				MsgBox("Debe agregar un precio", MsgBoxStyle.Critical, "Producto")
 				Return

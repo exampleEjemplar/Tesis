@@ -56,6 +56,8 @@ Partial Class FrmGestionProductoAReparar
 		Me.chkReUtilizar = New System.Windows.Forms.CheckBox()
 		Me.lblDobleclick = New System.Windows.Forms.Label()
 		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+		Me.txtUtilidad = New System.Windows.Forms.TextBox()
+		Me.Label3 = New System.Windows.Forms.Label()
 		CType(Me.dgvProducto, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox2.SuspendLayout()
 		CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,6 +90,8 @@ Partial Class FrmGestionProductoAReparar
 		'
 		'GroupBox2
 		'
+		Me.GroupBox2.Controls.Add(Me.txtUtilidad)
+		Me.GroupBox2.Controls.Add(Me.Label3)
 		Me.GroupBox2.Controls.Add(Me.tbPrecio)
 		Me.GroupBox2.Controls.Add(Me.Label2)
 		Me.GroupBox2.Controls.Add(Me.Label1)
@@ -126,7 +130,7 @@ Partial Class FrmGestionProductoAReparar
 		'
 		'tbPrecio
 		'
-		Me.tbPrecio.Location = New System.Drawing.Point(285, 368)
+		Me.tbPrecio.Location = New System.Drawing.Point(224, 365)
 		Me.tbPrecio.Margin = New System.Windows.Forms.Padding(4)
 		Me.tbPrecio.Name = "tbPrecio"
 		Me.tbPrecio.Size = New System.Drawing.Size(140, 23)
@@ -139,9 +143,9 @@ Partial Class FrmGestionProductoAReparar
 		Me.Label2.Location = New System.Drawing.Point(16, 368)
 		Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label2.Name = "Label2"
-		Me.Label2.Size = New System.Drawing.Size(261, 17)
+		Me.Label2.Size = New System.Drawing.Size(173, 17)
 		Me.Label2.TabIndex = 57
-		Me.Label2.Text = "Costo aproximado de la reparación"
+		Me.Label2.Text = "Costo de la reparación"
 		'
 		'Label1
 		'
@@ -267,7 +271,7 @@ Partial Class FrmGestionProductoAReparar
 		'
 		Me.Label23.AutoSize = True
 		Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label23.Location = New System.Drawing.Point(548, 147)
+		Me.Label23.Location = New System.Drawing.Point(542, 147)
 		Me.Label23.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label23.Name = "Label23"
 		Me.Label23.Size = New System.Drawing.Size(135, 17)
@@ -460,6 +464,25 @@ Partial Class FrmGestionProductoAReparar
 		'
 		Me.OpenFileDialog1.FileName = "OpenFileDialog1"
 		'
+		'txtUtilidad
+		'
+		Me.txtUtilidad.Location = New System.Drawing.Point(551, 368)
+		Me.txtUtilidad.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtUtilidad.Name = "txtUtilidad"
+		Me.txtUtilidad.Size = New System.Drawing.Size(84, 23)
+		Me.txtUtilidad.TabIndex = 60
+		'
+		'Label3
+		'
+		Me.Label3.AutoSize = True
+		Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label3.Location = New System.Drawing.Point(480, 371)
+		Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label3.Name = "Label3"
+		Me.Label3.Size = New System.Drawing.Size(63, 17)
+		Me.Label3.TabIndex = 59
+		Me.Label3.Text = "Utilidad"
+		'
 		'FrmGestionProductoAReparar
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -520,4 +543,6 @@ Partial Class FrmGestionProductoAReparar
 	Friend WithEvents chkReUtilizar As Windows.Forms.CheckBox
 	Friend WithEvents lblDobleclick As Windows.Forms.Label
 	Friend WithEvents OpenFileDialog1 As Windows.Forms.OpenFileDialog
+	Friend WithEvents txtUtilidad As Windows.Forms.TextBox
+	Friend WithEvents Label3 As Windows.Forms.Label
 End Class

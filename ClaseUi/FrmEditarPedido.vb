@@ -94,7 +94,7 @@ Public Class FrmEditarPedido
 		Dim fecha = CType(pedido(1), Date)
 		lblFechaPedido.Text = fecha.ToString()
 		lblFechaPactada.Text = fecha.AddDays(pedido(8))
-		lblCosto.Text = Convert.ToDecimal(pedido(4)).ToString("#.##")
+		lblCosto.Text = Convert.ToDecimal(pedido(4)).ToString("0.00")
 		lblProducto.Text = pedido(12).ToString()
 		idProducto = pedido(10)
 		idCliente = pedido(31)
