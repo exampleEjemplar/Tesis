@@ -156,26 +156,46 @@ Public Class MetodoClientesDA
 		Return ds1
 	End Function
 
-	Public Function GeneraGraficopersoneria(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
-		helpersDa.ChequearConexion(db)
+    Public Function GeneraGraficopersoneria(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        helpersDa.ChequearConexion(db)
 
-		Dim sqlStr As String
-		ds1 = New DataSet
+        Dim sqlStr As String
+        ds1 = New DataSet
         sqlStr = "select cast (round ( count(*) * 100.00/ sum(count(*)) over(),2) as numeric(10,2)) as cantidad , CASE FisicaOJuridica WHEN 'F' THEN 'Fisica' WHEN 'J'THEN 'Juridica'ELSE 'Unknown'end as FisicaOJuridica from Clientes " &
 "where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
 "group by FisicaOJuridica"
 
         Try
-			da = New SqlDataAdapter(sqlStr, db)
-			da.Fill(ds1)
-		Catch ex As Exception
-			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			helpersDa.ChequearConexion(db, "close")
-		End Try
-		helpersDa.ChequearConexion(db, "close")
-		Return ds1
-	End Function
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDa.ChequearConexion(db, "close")
+        End Try
+        helpersDa.ChequearConexion(db, "close")
+        Return ds1
+    End Function
 
+
+    Public Function GeneraGraficoMontocomprapormaterial(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        helpersDa.ChequearConexion(db)
+
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "select sum(c.total) as Total, mat.nombre from detallecompras dc inner join compras c on dc.CompraId = c.Id inner join Productos p on dc.ProductoId=p.id inner join Materiales mat on p.MaterialId=mat.id " &
+"where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+"group by mat.nombre"
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDa.ChequearConexion(db, "close")
+        End Try
+        helpersDa.ChequearConexion(db, "close")
+        Return ds1
+    End Function
     Public Function GeneraGraficousuario(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
         helpersDa.ChequearConexion(db)
 

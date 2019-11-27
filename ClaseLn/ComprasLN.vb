@@ -56,4 +56,12 @@ Public Class ComprasLN
     Public Function GeneraGraficoCompracantportipo(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
         Return ComprasDA.GeneraGraficoCompracantportipo(fechadesde, fechahasta)
     End Function
+
+    Public Function GeneraGraficoMontocomprapormaterial(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return ComprasDA.GeneraGraficoMontocomprapormaterial(fechadesde, fechahasta)
+    End Function
+
+    Public Function GeneraGraficoMontocompraporusuario(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return ComprasDA.GeneraGraficoMontocompraporusuario(fechadesde, fechahasta)
+    End Function
 End Class
