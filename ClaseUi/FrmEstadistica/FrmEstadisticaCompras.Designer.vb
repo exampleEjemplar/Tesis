@@ -47,6 +47,7 @@ Partial Class FrmEstadisticaCompras
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.gbFiltro = New System.Windows.Forms.GroupBox()
+        Me.RadioButton5 = New System.Windows.Forms.RadioButton()
         Me.RadioButton4 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
@@ -59,7 +60,6 @@ Partial Class FrmEstadisticaCompras
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart4 = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.RadioButton5 = New System.Windows.Forms.RadioButton()
         Me.Chart5 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -171,6 +171,18 @@ Partial Class FrmEstadisticaCompras
         Me.gbFiltro.TabIndex = 7
         Me.gbFiltro.TabStop = False
         Me.gbFiltro.Text = "Búsqueda"
+        '
+        'RadioButton5
+        '
+        Me.RadioButton5.AutoSize = True
+        Me.RadioButton5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton5.Location = New System.Drawing.Point(268, 49)
+        Me.RadioButton5.Name = "RadioButton5"
+        Me.RadioButton5.Size = New System.Drawing.Size(187, 17)
+        Me.RadioButton5.TabIndex = 6
+        Me.RadioButton5.TabStop = True
+        Me.RadioButton5.Text = "Compras por tipo de Material"
+        Me.RadioButton5.UseVisualStyleBackColor = True
         '
         'RadioButton4
         '
@@ -385,18 +397,6 @@ Partial Class FrmEstadisticaCompras
         Title4.Text = "Compras Realizadas por Usuarios"
         Me.Chart4.Titles.Add(Title4)
         '
-        'RadioButton5
-        '
-        Me.RadioButton5.AutoSize = True
-        Me.RadioButton5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton5.Location = New System.Drawing.Point(268, 49)
-        Me.RadioButton5.Name = "RadioButton5"
-        Me.RadioButton5.Size = New System.Drawing.Size(187, 17)
-        Me.RadioButton5.TabIndex = 6
-        Me.RadioButton5.TabStop = True
-        Me.RadioButton5.Text = "Compras por tipo de Material"
-        Me.RadioButton5.UseVisualStyleBackColor = True
-        '
         'Chart5
         '
         Me.Chart5.BorderlineColor = System.Drawing.Color.Black
@@ -424,6 +424,7 @@ Partial Class FrmEstadisticaCompras
         Series5.Name = "Series2"
         Series5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
         Series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Double]
+        Series5.YValuesPerPoint = 2
         Series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
         Me.Chart5.Series.Add(Series5)
         Me.Chart5.Size = New System.Drawing.Size(668, 372)
