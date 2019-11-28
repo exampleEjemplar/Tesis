@@ -21,11 +21,11 @@ Public Class PedidosDA
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = "set dateformat dmy select v.Id, v.Fecha,c.Nombre +' '+ c.Apellido as Nombre ,v.Total, v.Seña, v.estado, v.dias from pedidos as v inner join Clientes as c on c.Id = v.ClienteId"
+		sqlStr = "set dateformat dmy select v.Id, v.Fecha,c.Nombre +' '+ c.Apellido as Nombre ,v.Total, v.Seña, mep.estadoId, v.dias from pedidos as v inner join Clientes as c on c.Id = v.ClienteId inner join MovimientoEstadosPedidos mep on mep.pedidoId = v.id"
 
 		If parametros.Count <> 0 Then
 			Dim count = parametros.Count
-			Dim text = " where "
+			Dim text = " where mep.activo = 1 and "
 			For Each item As KeyValuePair(Of String, String) In parametros
 				If item.Key = "ClienteId" Then
 					count = count - 1
@@ -79,14 +79,17 @@ Public Class PedidosDA
 			Dim totalizado = total.ToString("0.00").Replace(",", ".")
 			If Not seña = 0.0 Then
 				Dim señalizado = seña.ToString("0.00").Replace(",", ".")
-				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'N', 1, " + If(totalizado = señalizado, "60", "30") + ")", db)
+				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'N', " + If(totalizado = señalizado, "60", "30") + ")", db)
 				insert.CommandType = CommandType.Text
 				insert.ExecuteNonQuery()
 			Else
-				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", 0 ,round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'S', 1, " + listaDeProductosId.FirstOrDefault().Dias.ToString() + ")", db)
+				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", 0 ,round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'S', " + listaDeProductosId.FirstOrDefault().Dias.ToString() + ")", db)
 				insert.CommandType = CommandType.Text
 				insert.ExecuteNonQuery()
 			End If
+			Dim insertEstado As New SqlCommand("Declare @ventaID int SELECT @ventaID = MAX(Id) FROM pedidos insert into movimientoEstadosPedidos VALUES(@ventaID , 1 ,getdate(),1)", db)
+			insertEstado.CommandType = CommandType.Text
+			insertEstado.ExecuteNonQuery()
 			For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId
 				Dim parcial = (ventaDetalle.Precio * ventaDetalle.Cantidad).ToString().Replace(",", ".")
 
@@ -120,7 +123,7 @@ Public Class PedidosDA
 
 	Public Function ObtenerUnPedido(id As Integer)
 		helpersDa.ChequearConexion(db)
-		Dim da As New SqlDataAdapter("Select p.*, c.Nombre + ' ' + c.apellido as 'Nombre', prod.*, c.id, cast(p.total as decimal(10,2)) from pedidos p inner join clientes c on c.id = p.clienteId inner join DetallePedidos dp on dp.PedidoId = p.Id inner join productos prod on prod.Id = dp.ProductoId where p.id =" + id.ToString(), db)
+		Dim da As New SqlDataAdapter("Select p.*, c.Nombre + ' ' + c.apellido as 'Nombre', prod.*, c.id, cast(p.total as decimal(10,2)), mep.estadoID from pedidos p inner join clientes c on c.id = p.clienteId inner join DetallePedidos dp on dp.PedidoId = p.Id inner join productos prod on prod.Id = dp.ProductoId inner join movimientoestadospedidos mep on mep.pedidoId = p.id where mep.activo = 1 and p.id =" + id.ToString(), db)
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)
@@ -177,7 +180,17 @@ Public Class PedidosDA
 
 	Public Sub ActualizarPedido(ped As VentasNE)
 		helpersDa.ChequearConexion(db)
-		Dim update As New SqlCommand("update pedidos set estado = " + ped.Estado + " where id = " + ped.Id.ToString(), db)
+
+		Dim da As New SqlDataAdapter("update movimientoEstadosPedidos set activo = 0 where pedidoId = " + ped.Id.ToString(), db)
+		Dim ds As New DataSet
+		Try
+			da.Fill(ds)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
+		End Try
+		'Dim update As New SqlCommand("update pedidos set estado = " + ped.Estado + " where id = " + ped.Id.ToString(), db)
+		Dim update As New SqlCommand("insert into movimientoEstadosPedidos VALUES(" + ped.Id.ToString() + " , " + ped.Estado + ",getdate(),1)", db)
 		update.CommandType = CommandType.Text
 		Try
 			update.ExecuteNonQuery()
