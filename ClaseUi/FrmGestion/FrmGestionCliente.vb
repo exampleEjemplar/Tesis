@@ -668,6 +668,7 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 			End If
 			If count > 3 Then
 				MsgBox("Se puede ordenar hasta por 3 campos máximo", MsgBoxStyle.OkOnly, "Ordenar")
+				e.NewValue = CheckState.Unchecked
 				Return
 			End If
 

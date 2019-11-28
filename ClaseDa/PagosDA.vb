@@ -18,7 +18,7 @@ Public Class PagosDA
 	End Sub
 
 
-	Public Function CargarGrillaPagos(ByVal parametros As Dictionary(Of String, String)) As DataSet
+	Public Function CargarGrillaPagos(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer))) As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
@@ -50,6 +50,19 @@ Public Class PagosDA
 				End If
 			Next
 			sqlStr = sqlStr + text
+		End If
+
+		Dim orderers = orderby.Where(Function(x) String.IsNullOrEmpty(x.Item2) = False)
+		If orderers.Count() > 0 Then
+			Dim orderText = " order by "
+			Dim orderedList = orderers.OrderBy(Function(x) x.Item3)
+			For i = 0 To orderedList.Count() - 1
+				orderText += orderedList(i).Item2
+				If Not i = orderedList.Count() - 1 Then
+					orderText += ","
+				End If
+			Next
+			sqlStr += orderText
 		End If
 
 		Try

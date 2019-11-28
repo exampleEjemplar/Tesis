@@ -71,7 +71,7 @@ Public Class ComprasDA
 	End Function
 
 
-	Public Function CargarGrillaCompras(ByVal parametros As Dictionary(Of String, String)) As DataSet
+	Public Function CargarGrillaCompras(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer))) As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
@@ -110,14 +110,27 @@ Public Class ComprasDA
 			sqlStr = sqlStr + text
 		End If
 
+		Dim orderers = orderby.Where(Function(x) String.IsNullOrEmpty(x.Item2) = False)
+		If orderers.Count() > 0 Then
+			Dim orderText = " order by "
+			Dim orderedList = orderers.OrderBy(Function(x) x.Item3)
+			For i = 0 To orderedList.Count() - 1
+				orderText += orderedList(i).Item2
+				If Not i = orderedList.Count() - 1 Then
+					orderText += ","
+				End If
+			Next
+			sqlStr += orderText
+		End If
+
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			helpersDa.ChequearConexion(db,"close")
+			helpersDa.ChequearConexion(db, "close")
 		End Try
-		helpersDa.ChequearConexion(db,"close")
+		helpersDa.ChequearConexion(db, "close")
 		Return ds1
 	End Function
 

@@ -21,7 +21,8 @@ Public Class FrmGestionProducto
 	Dim paginaInicial As Integer = 0
 	Dim filas As Integer = helpersLN.ContarFilas("Productos").Tables(0).Rows(0)(0)
 	Dim totalEstaPagina As Integer = If(filas < paginaInicial + 20, filas, paginaInicial + 20)
-
+	Public primerOrder As Boolean = True
+	Public OrderBy As New List(Of Tuple(Of Integer, String, Integer)) 'Index, nombrevista, nombre base, prioridad
 
 	'Metodo que selecciona una imagen y la carga en un PictureBox'
 	Sub cargarImagen()
@@ -244,11 +245,13 @@ Public Class FrmGestionProducto
 	End Sub
 
 	Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles Button2.Click
+		primerOrder = True
 		modificado = True
 		Me.Close()
 	End Sub
 
 	Private Sub FrmGestionProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		InicializarOrderBy()
 		DataGridView1.RowTemplate.Height = 30
 		busqcod = ""
 		busqprod = ""
@@ -267,10 +270,100 @@ Public Class FrmGestionProducto
 
 	End Sub
 
-	Public Sub Dgvproductosset()
+	Private Sub chbListaParaOrdenar_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chbListaParaOrdenar.ItemCheck
+		If Not String.IsNullOrEmpty(chbListaParaOrdenar.SelectedItem) Then
+
+			Dim count = OrderBy.Where(Function(x) Not x.Item2 = "").Count()
+			Dim suma = False
+			Dim resta = False
+			If e.NewValue = CheckState.Checked Then
+				count += 1
+				suma = True
+			ElseIf e.NewValue = CheckState.Unchecked Then
+				resta = True
+			End If
+			If OrderBy.FirstOrDefault(Function(x) x.Item2.Replace("'", "") = chbListaParaOrdenar.SelectedItem) IsNot Nothing Then
+				suma = False
+				count -= 1
+			End If
+			If count > 3 Then
+				MsgBox("Se puede ordenar hasta por 3 campos máximo", MsgBoxStyle.OkOnly, "Ordenar")
+				e.NewValue = CheckState.Unchecked
+				Return
+			End If
+
+			Dim number = 0
+			Dim prueba = OrderBy.LastOrDefault(Function(x) Not x.Item2 = "")
+			If prueba IsNot Nothing Then
+				number = prueba.Item1
+			End If
+			If suma Then
+				OrderBy.RemoveAll(Function(x) x.Item1 = number + 1)
+				OrderBy.Add(New Tuple(Of Integer, String, Integer)(number + 1, "'" + chbListaParaOrdenar.SelectedItem.ToString + "'", number + 1))
+			End If
+			If resta Then
+				OrderBy.RemoveAll(Function(x) x.Item2 = "'" + chbListaParaOrdenar.SelectedItem.ToString + "'")
+				OrderBy.Add(New Tuple(Of Integer, String, Integer)(number, "", number))
+			End If
+			OrderBy = OrderBy.OrderBy(Function(x) x.Item1).ToList()
+			ImpactarOrderBy()
+		End If
+	End Sub
+
+	Public Sub ImpactarOrderBy()
+		Dim count = OrderBy.Where(Function(x) Not x.Item2 = "").Count()
+
+		If count >= 1 Then
+			lblPrioridad1.Visible = True
+			lblPrioridad1.Text = OrderBy(0).Item2.Replace("'", "")
+		Else
+			lblPrioridad1.Visible = False
+		End If
+		If count >= 2 Then
+			lblPrioridad2.Visible = True
+			lblPrioridad2.Text = OrderBy(1).Item2.Replace("'", "")
+		Else
+			lblPrioridad2.Visible = False
+		End If
+		If count >= 3 Then
+			lblPrioridad3.Visible = True
+			lblPrioridad3.Text = OrderBy(2).Item2.Replace("'", "")
+		Else
+			lblPrioridad3.Visible = False
+		End If
+	End Sub
+
+	Public Sub InicializarOrderBy()
+		chbListaParaOrdenar.Items.Clear()
+		OrderBy = New List(Of Tuple(Of Integer, String, Integer))
+		OrderBy.Add(New Tuple(Of Integer, String, Integer)(1, "'Fecha de Alta'", 1))
+		OrderBy.Add(New Tuple(Of Integer, String, Integer)(2, "", 2))
+		OrderBy.Add(New Tuple(Of Integer, String, Integer)(3, "", 3))
+		lblPrioridad1.Text = OrderBy.FirstOrDefault(Function(x) x.Item1 = 1).Item2.Replace("'", "")
+		lblPrioridad2.Visible = False
+		lblPrioridad3.Visible = False
+	End Sub
+
+	Public Function Dgvproductosset()
 		Try
 			Dim dsa1 As DataTable
-			dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod, "", paginaInicial)
+			dsa1 = productometodo.CargaGrillaproductossinbusqueda(txtBusCodigo.Text, txtBusNombreProd.Text, OrderBy, "", paginaInicial)
+
+			If primerOrder Then
+				primerOrder = False
+				For i = 0 To dsa1.Columns.Count - 1
+					If dsa1.Columns(i).ColumnName = "id" Or dsa1.Columns(i).ColumnName = "nombre1" Or dsa1.Columns(i).ColumnName = "Nombre2" Or dsa1.Columns(i).ColumnName = "Nombre3" Or dsa1.Columns(i).ColumnName = "foto" Or dsa1.Columns(i).ColumnName = "TipoProductoID" Or dsa1.Columns(i).ColumnName = "problema" Or dsa1.Columns(i).ColumnName = "UnidadDePeso" Then
+						Continue For
+					End If
+					If dsa1.Columns(i).ColumnName = "Fecha de Alta" Then
+						chbListaParaOrdenar.Items.Add(dsa1.Columns(i).ColumnName, CheckState.Checked)
+						Continue For
+					End If
+					chbListaParaOrdenar.Items.Add(dsa1.Columns(i).ColumnName)
+				Next
+				chbListaParaOrdenar.SetItemChecked(15, True)
+			End If
+
 			DataGridView1.DataSource = dsa1
 			DataGridView1.Columns(0).HeaderText = "Código"
 			DataGridView1.Columns(1).HeaderText = "Código Barras"
@@ -309,11 +402,12 @@ Public Class FrmGestionProducto
 				btnSiguiente.Enabled = True
 			End If
 			ConfigurarPaginado()
+			Return dsa1
 		Catch ex As Exception
 			MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
-			Exit Sub
+			Exit Function
 		End Try
-	End Sub
+	End Function
 
 	Sub ConfigurarPaginado()
 		filas = helpersLN.ContarFilas("Productos").Tables(0).Rows(0)(0)
@@ -321,29 +415,29 @@ Public Class FrmGestionProducto
 		lblPagina.Text = "De " + (paginaInicial + 1).ToString() + " a " + totalEstaPagina.ToString() + " productos. " + filas.ToString() + " en total."
 	End Sub
 
-	Public Function DgvproductosBusq() As DataTable
-		Try
-			Dim dsa1 As DataTable
-			'dsa1 = productometodo.CargaGrillaProductos(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
-			dsa1 = productometodo.CargaGrillaproductossinbusqueda(txtBusCodigo.Text, txtBusNombreProd.Text, "", paginaInicial)
-			DataGridView1.DataSource = dsa1
+	'Public Function DgvproductosBusq() As DataTable
+	'	Try
+	'		Dim dsa1 As DataTable
+	'		'dsa1 = productometodo.CargaGrillaProductos(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
+	'		dsa1 = productometodo.CargaGrillaproductossinbusqueda(txtBusCodigo.Text, txtBusNombreProd.Text, OrderBy, "", paginaInicial)
+	'		DataGridView1.DataSource = dsa1
 
-			DataGridView1.AllowUserToAddRows = False
-			DataGridView1.AllowUserToDeleteRows = False
-			For X = 0 To DataGridView1.Rows.Count - 1
-				If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
-					DataGridView1.Rows.Remove(DataGridView1.Rows(X))
-				End If
-				Return dsa1
-			Next
+	'		DataGridView1.AllowUserToAddRows = False
+	'		DataGridView1.AllowUserToDeleteRows = False
+	'		For X = 0 To DataGridView1.Rows.Count - 1
+	'			If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
+	'				DataGridView1.Rows.Remove(DataGridView1.Rows(X))
+	'			End If
+	'			Return dsa1
+	'		Next
 
-		Catch ex As Exception
-			MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+	'	Catch ex As Exception
+	'		MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
 
-		End Try
+	'	End Try
 
 
-	End Function
+	'End Function
 
 	Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
 		'productometodo.Cargargrilladobleclick()
@@ -613,7 +707,7 @@ Public Class FrmGestionProducto
 	End Sub
 
 	Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-		If DgvproductosBusq().Rows.Count = 0 Then
+		If Dgvproductosset().Rows.Count = 0 Then
 			MsgBox("La búsqueda no arrojo resultados", MsgBoxStyle.Critical, "Error")
 		End If
 		ConfigurarPaginado()

@@ -15,8 +15,8 @@ Public Class PedidosLN
 		Return pedidosDA.ObtenerUnPedido(id)
 	End Function
 
-	Public Function CargarGrillaPedidos(ByVal parametros As Dictionary(Of String, String))
-		Return pedidosDA.CargarGrillaPedidos(parametros)
+	Public Function CargarGrillaPedidos(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)))
+		Return pedidosDA.CargarGrillaPedidos(parametros, orderby)
 	End Function
 
 	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer, Optional seña As Double = 0.0)

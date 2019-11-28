@@ -17,11 +17,13 @@ Public Class FrmGestionProveedores
 	Private Modificando As Boolean
 	Public modificado As Boolean
 	Dim cadena As String
+	Public primerOrder As Boolean = True
+	Public OrderBy As New List(Of Tuple(Of Integer, String, Integer)) 'Index, nombrevista, nombre base, prioridad
 
 #Region "Eventos"
 
 	Private Sub FrmGestionProveedor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+		InicializarOrderBy()
 		cmbProvincias.SelectedValue = 0
 		cbtipodni.SelectedValue = 0
 		'cboTipoPersona.DataSource = New List(Of String) From {"Física", "Jurídica"}
@@ -72,9 +74,10 @@ Public Class FrmGestionProveedores
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        Me.Close()
+		primerOrder = True
+		Me.Close()
 
-    End Sub
+	End Sub
 
     Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles Dgvproveedores.CellMouseDoubleClick
         Unblock()
@@ -542,21 +545,109 @@ Public Class FrmGestionProveedores
         End If
     End Sub
 
-    'Carga DataGridView con datos
-    Public Function DgvProveedoresSet(ByVal parametros As Dictionary(Of String, String)) As DataSet
-        Dim dsa1 As DataSet
-        dsa1 = proveedorMetodo.CargaGrillaProveedores(parametros) 'Si parametros esta vacio, busca todos los proveedores en la bd
-        If dsa1.Tables(0).Rows.Count() <> 0 Then
-            ProveedorId = dsa1.Tables(0).Rows(0)(13)
-        End If
-        Dgvproveedores.DataSource = dsa1.Tables(0)
-        Dgvproveedores.Columns("Id").Visible = False
-        Dgvproveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-        Dgvproveedores.AutoResizeColumns()
-        Return dsa1
-    End Function
+	'Carga DataGridView con datos
+	Public Function DgvProveedoresSet(ByVal parametros As Dictionary(Of String, String)) As DataSet
+		Dim dsa1 As DataSet
+		dsa1 = proveedorMetodo.CargaGrillaProveedores(parametros, OrderBy) 'Si parametros esta vacio, busca todos los proveedores en la bd
+		If dsa1.Tables(0).Rows.Count() <> 0 Then
+			ProveedorId = dsa1.Tables(0).Rows(0)(13)
+		End If
+		If primerOrder Then
+			primerOrder = False
+			For i = 0 To dsa1.Tables(0).Columns.Count - 1
+				If dsa1.Tables(0).Columns(i).ColumnName = "id" Then
+					Continue For
+				End If
+				If dsa1.Tables(0).Columns(i).ColumnName = "Fecha de Alta" Then
+					chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName, CheckState.Checked)
+					Continue For
+				End If
+				chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName)
+			Next
+			chbListaParaOrdenar.SetItemChecked(6, True)
+		End If
+		Dgvproveedores.DataSource = dsa1.Tables(0)
+		Dgvproveedores.Columns("Id").Visible = False
+		Dgvproveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+		Dgvproveedores.AutoResizeColumns()
+		Return dsa1
+	End Function
 
-    Private Sub btnValidarDNI1_Click(sender As Object, e As EventArgs) Handles btnValidarDNI1.Click
+	Private Sub chbListaParaOrdenar_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chbListaParaOrdenar.ItemCheck
+		If Not String.IsNullOrEmpty(chbListaParaOrdenar.SelectedItem) Then
+
+			Dim count = OrderBy.Where(Function(x) Not x.Item2 = "").Count()
+			Dim suma = False
+			Dim resta = False
+			If e.NewValue = CheckState.Checked Then
+				count += 1
+				suma = True
+			ElseIf e.NewValue = CheckState.Unchecked Then
+				resta = True
+			End If
+			If OrderBy.FirstOrDefault(Function(x) x.Item2.Replace("'", "") = chbListaParaOrdenar.SelectedItem) IsNot Nothing Then
+				suma = False
+				count -= 1
+			End If
+			If count > 3 Then
+				MsgBox("Se puede ordenar hasta por 3 campos máximo", MsgBoxStyle.OkOnly, "Ordenar")
+				e.NewValue = CheckState.Unchecked
+				Return
+			End If
+
+			Dim number = 0
+			Dim prueba = OrderBy.LastOrDefault(Function(x) Not x.Item2 = "")
+			If prueba IsNot Nothing Then
+				number = prueba.Item1
+			End If
+			If suma Then
+				OrderBy.RemoveAll(Function(x) x.Item1 = number + 1)
+				OrderBy.Add(New Tuple(Of Integer, String, Integer)(number + 1, "'" + chbListaParaOrdenar.SelectedItem.ToString + "'", number + 1))
+			End If
+			If resta Then
+				OrderBy.RemoveAll(Function(x) x.Item2 = "'" + chbListaParaOrdenar.SelectedItem.ToString + "'")
+				OrderBy.Add(New Tuple(Of Integer, String, Integer)(number, "", number))
+			End If
+			OrderBy = OrderBy.OrderBy(Function(x) x.Item1).ToList()
+			ImpactarOrderBy()
+		End If
+	End Sub
+
+	Public Sub ImpactarOrderBy()
+		Dim count = OrderBy.Where(Function(x) Not x.Item2 = "").Count()
+
+		If count >= 1 Then
+			lblPrioridad1.Visible = True
+			lblPrioridad1.Text = OrderBy(0).Item2.Replace("'", "")
+		Else
+			lblPrioridad1.Visible = False
+		End If
+		If count >= 2 Then
+			lblPrioridad2.Visible = True
+			lblPrioridad2.Text = OrderBy(1).Item2.Replace("'", "")
+		Else
+			lblPrioridad2.Visible = False
+		End If
+		If count >= 3 Then
+			lblPrioridad3.Visible = True
+			lblPrioridad3.Text = OrderBy(2).Item2.Replace("'", "")
+		Else
+			lblPrioridad3.Visible = False
+		End If
+	End Sub
+
+	Public Sub InicializarOrderBy()
+		chbListaParaOrdenar.Items.Clear()
+		OrderBy = New List(Of Tuple(Of Integer, String, Integer))
+		OrderBy.Add(New Tuple(Of Integer, String, Integer)(1, "'Fecha de Alta'", 1))
+		OrderBy.Add(New Tuple(Of Integer, String, Integer)(2, "", 2))
+		OrderBy.Add(New Tuple(Of Integer, String, Integer)(3, "", 3))
+		lblPrioridad1.Text = OrderBy.FirstOrDefault(Function(x) x.Item1 = 1).Item2.Replace("'", "")
+		lblPrioridad2.Visible = False
+		lblPrioridad3.Visible = False
+	End Sub
+
+	Private Sub btnValidarDNI1_Click(sender As Object, e As EventArgs) Handles btnValidarDNI1.Click
 
         If helpersUI.TextValidator("Tipo de persona", cboTipoPersona.SelectedItem) = False Or
 helpersUI.TextValidator("Tipo de identificacion", cbtipodni.Text) = False Or
@@ -662,7 +753,14 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 
 #End Region
 
-
+	Private Const CP_NOCLOSE_BUTTON As Integer = &H200
+	Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
+		Get
+			Dim myCp As CreateParams = MyBase.CreateParams
+			myCp.ClassStyle = myCp.ClassStyle Or CP_NOCLOSE_BUTTON
+			Return myCp
+		End Get
+	End Property
 
 
 End Class

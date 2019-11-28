@@ -21,8 +21,8 @@ Public Class ComprasLN
 		Return ComprasDA.ObtenerUnaCompra(id)
 	End Function
 
-	Public Function CargarGrillaCompras(ByVal parametros As Dictionary(Of String, String))
-		Return ComprasDA.CargarGrillaCompras(parametros)
+	Public Function CargarGrillaCompras(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)))
+		Return ComprasDA.CargarGrillaCompras(parametros, orderby)
 	End Function
 
 	Public Sub Registrar(listaDeProductosId As List(Of TipoDeComprasNE), clienteId As Integer, nroComprobante As String)

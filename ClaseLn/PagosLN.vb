@@ -8,8 +8,8 @@ Public Class PagosLN
 		pagosDA = New PagosDA
 	End Sub
 
-	Public Function CargarGrillaPagos(ByVal parametros As Dictionary(Of String, String))
-		Return pagosDA.CargarGrillaPagos(parametros)
+	Public Function CargarGrillaPagos(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)))
+		Return pagosDA.CargarGrillaPagos(parametros, orderby)
 	End Function
 
 	Public Sub Registrar(listaDeProductosId As List(Of TipoDeComprasNE))

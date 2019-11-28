@@ -17,11 +17,11 @@ Public Class ProveedoresLN
         Return objProveedoresAD.ConsultaModificacion(Id)
     End Function
 
-    Public Function CargaGrillaProveedores(ByVal parametros As Dictionary(Of String, String)) As DataSet
-        Return objProveedoresAD.CargaGrillaProveedores(parametros)
-    End Function
+	Public Function CargaGrillaProveedores(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer))) As DataSet
+		Return objProveedoresAD.CargaGrillaProveedores(parametros, orderby)
+	End Function
 
-    Public Sub GrabarProveedores(ByVal pro As ProveedoresNE)
+	Public Sub GrabarProveedores(ByVal pro As ProveedoresNE)
         objProveedoresAD.GrabarProveedores(pro)
     End Sub
 

@@ -12,8 +12,8 @@ Public Class VentasLN
 		Return ventasDA.Anular(id)
 	End Function
 
-	Public Function CargarGrillaVentas(ByVal parametros As Dictionary(Of String, String))
-		Return ventasDA.CargarGrillaVentas(parametros)
+	Public Function CargarGrillaVentas(ByVal parametros As Dictionary(Of String, String), orderBy As List(Of Tuple(Of Integer, String, Integer)))
+		Return ventasDA.CargarGrillaVentas(parametros, orderBy)
 	End Function
 
 	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer)

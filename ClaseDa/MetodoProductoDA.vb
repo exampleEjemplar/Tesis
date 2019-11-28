@@ -386,16 +386,31 @@ Public Class MetodoProductoDA
 
 	End Function
 
-	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, Optional esReparacion As String = "", Optional pagina As Integer = 1000000) As DataTable
+	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, orderby As List(Of Tuple(Of Integer, String, Integer)), Optional esReparacion As String = "", Optional pagina As Integer = 1000000) As DataTable
 		helpersDa.ChequearConexion(db)
-		Dim sqlstr = "SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre, t.Nombre, m.Nombre,cast((( P.precio * P.utilidad)/100+(P.precio)) as decimal(10,2)) as 'Precio de Venta', p.TipoProductoID , p.MaterialId, p.foto, p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.TipoProductoID, p.UnidadDePeso, p.CategoriaID, p.StockODeTercero, p.problema FROM productos as p inner join TipoProductos t on p.TipoProductoID=t.id inner join Materiales m On p.MaterialId=m.id inner join categorias ca on p.CategoriaID= ca.Id where p.esservicio = 'N' "
+		Dim sqlstr = "SELECT p.id, p.Cod_Barra as 'Código de barras', p.nombre Nombre, ca.nombre, t.Nombre, m.Nombre,cast((( P.precio * P.utilidad)/100+(P.precio)) as decimal(10,2)) as 'Precio de Venta', p.TipoProductoID as 'Tipo de Producto', p.MaterialId Material, p.foto, p.precio Precio, p.utilidad Utilidad, p.peso Peso, p.tamaño Tamaño, p.color Color, p.ProveedorId Proveedor, p.StockMin as 'Stock Minimo', p.StockMax as 'Stock Maximo', p.TipoProductoID, p.UnidadDePeso, p.CategoriaID Categoria, p.StockODeTercero 'Stock o de Tercero', p.problema, p.fechaAlta as 'Fecha De Alta' FROM productos as p inner join TipoProductos t on p.TipoProductoID=t.id inner join Materiales m On p.MaterialId=m.id inner join categorias ca on p.CategoriaID= ca.Id where p.esservicio = 'N' "
 		sqlstr = If(String.IsNullOrWhiteSpace(esReparacion), sqlstr + " and esParaReparacion = 'N'", sqlstr + " and esParaReparacion = 'S'")
 		sqlstr = If(String.IsNullOrWhiteSpace(codigo), sqlstr, sqlstr + " and p.id = " + codigo + "")
 		sqlstr = If(String.IsNullOrWhiteSpace(nombre), sqlstr, sqlstr + " and p.nombre like '%" + nombre + "%'")
-		If Not pagina = 1000000 Then
-			sqlstr = sqlstr + " ORDER BY id OFFSET " + pagina.ToString() + " ROWS FETCH NEXT 20 ROWS ONLY "
-		End If
 		Dim dt As New DataTable
+
+		Dim orderText = "  "
+		Dim orderers = orderby.Where(Function(x) String.IsNullOrEmpty(x.Item2) = False)
+		If orderers.Count() > 0 Then
+			orderText += ", "
+			Dim orderedList = orderers.OrderBy(Function(x) x.Item3)
+			For i = 0 To orderedList.Count() - 1
+				orderText += orderedList(i).Item2
+				If Not i = orderedList.Count() - 1 Then
+					orderText += ","
+				End If
+			Next
+		End If
+
+		If Not pagina = 1000000 Then
+			sqlstr = sqlstr + " ORDER BY id " + orderText + " OFFSET " + pagina.ToString() + " ROWS FETCH NEXT 20 ROWS ONLY "
+		End If
+
 		Try
 			Dim da As New SqlDataAdapter(sqlstr, db)
 			da.Fill(dt)
@@ -456,13 +471,13 @@ Public Class MetodoProductoDA
 
 	End Function
 
-	Public Function CargaGrillaProductos(ByVal parametros As Dictionary(Of String, String)) As DataSet
+	Public Function CargaGrillaProductos(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer))) As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds = New DataSet
-		sqlStr = "SELECT p.id, p.Cod_Barra, p.nombre, ca.nombre,  m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.MaterialId, p.foto, " &
-					"p.precio, p.utilidad, p.peso, p.tamaño, p.color, p.ProveedorId, p.StockMin, p.StockMax, p.UnidadDePeso,  " &
-					"p.CategoriaID, p.StockODeTercero FROM productos as p " &
+		sqlStr = "SELECT p.id, p.Cod_Barra as 'Codigo de barras', p.nombre as 'Nombre Producto', ca.nombre ,  m.Nombre,(( P.precio * P.utilidad)/100+(P.precio)) as 'Precio de Venta', p.MaterialId Material, p.foto, " &
+					"p.precio Precio, p.utilidad Utilidad, p.peso Peso, p.tamaño Tamaño, p.color Color, p.ProveedorId Proveedor, p.StockMin as 'Stock mínimo', p.StockMax as 'Stock máximo', p.UnidadDePeso,  " &
+					"p.CategoriaID Categoria, p.StockODeTercero as 'Stock o de tercero', p.fechaalta as 'Fecha De Alta' FROM productos as p " &
 					"inner join Materiales m On p.MaterialId=m.id " &
 					"inner join categorias ca on p.CategoriaID= ca.Id"
 
@@ -484,6 +499,19 @@ Public Class MetodoProductoDA
 				count = count + 1
 			Next
 			sqlStr = sqlStr & extraText
+		End If
+
+		Dim orderers = orderby.Where(Function(x) String.IsNullOrEmpty(x.Item2) = False)
+		If orderers.Count() > 0 Then
+			Dim orderText = " order by "
+			Dim orderedList = orderers.OrderBy(Function(x) x.Item3)
+			For i = 0 To orderedList.Count() - 1
+				orderText += orderedList(i).Item2
+				If Not i = orderedList.Count() - 1 Then
+					orderText += ","
+				End If
+			Next
+			sqlStr += orderText
 		End If
 
 		Try

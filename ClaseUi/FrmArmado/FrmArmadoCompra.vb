@@ -17,7 +17,8 @@ Public Class FrmArmadoCompra
 	Dim product As New ProductoLN
 	Dim total As Double
 	Public modificado = False
-
+	Public primerOrder As Boolean = True
+	Public OrderBy As New List(Of Tuple(Of Integer, String, Integer)) 'Index, nombrevista, nombre base, prioridad
 
 
 #Region "Eventos"
@@ -38,6 +39,7 @@ Public Class FrmArmadoCompra
 	End Sub
 
 	Private Sub Cargar()
+		InicializarOrderBy()
 		txtNroComprobante.Text = ""
 		lstProdDispo.Clear()
 		total = 0.00
@@ -58,6 +60,7 @@ Public Class FrmArmadoCompra
 	End Sub
 
 	Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+		primerOrder = True
 		Me.Close()
 	End Sub
 
@@ -334,9 +337,25 @@ Public Class FrmArmadoCompra
 
 	'Llena el ListViewItem de la derecha con los productos disponibles segun filtro
 	Public Sub LlenarLvi(ByVal parametros As Dictionary(Of String, String))
+		lblPrioridad1.Text = OrderBy.FirstOrDefault(Function(x) x.Item1 = 1).Item2.Replace("'", "")
 		'Cargamos el dataset con los productos seleccionados por filtro
 		parametros.Add("EsReparacion", "N")
-		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros)
+		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy)
+
+		If primerOrder Then
+			primerOrder = False
+			For i = 0 To ds2.Tables(0).Columns.Count - 1
+				If ds2.Tables(0).Columns(i).ColumnName = "Foto" Or ds2.Tables(0).Columns(i).ColumnName = "Id" Or ds2.Tables(0).Columns(i).ColumnName = "id1" Or ds2.Tables(0).Columns(i).ColumnName = "Column1" Or ds2.Tables(0).Columns(i).ColumnName = "precio1" Then
+					Continue For
+				End If
+				If ds2.Tables(0).Columns(i).ColumnName = "Fecha de Alta" Then
+					chbListaParaOrdenar.Items.Add(ds2.Tables(0).Columns(i).ColumnName, CheckState.Checked)
+					Continue For
+				End If
+				chbListaParaOrdenar.Items.Add(ds2.Tables(0).Columns(i).ColumnName)
+			Next
+			chbListaParaOrdenar.SetItemChecked(3, True)
+		End If
 		'Vaciamos el LVI por si llegara a haber items 
 		lstProdDispo.Clear()
 		lstProdDispo.Scrollable = True
@@ -388,6 +407,81 @@ Public Class FrmArmadoCompra
 		lstProdDispo.LargeImageList = ImageList
 		gboFiltros.Enabled = True
 	End Sub
+
+	Private Sub chbListaParaOrdenar_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chbListaParaOrdenar.ItemCheck
+		If Not String.IsNullOrEmpty(chbListaParaOrdenar.SelectedItem) Then
+
+			Dim count = OrderBy.Where(Function(x) Not x.Item2 = "").Count()
+			Dim suma = False
+			Dim resta = False
+			If e.NewValue = CheckState.Checked Then
+				count += 1
+				suma = True
+			ElseIf e.NewValue = CheckState.Unchecked Then
+				resta = True
+			End If
+			If OrderBy.FirstOrDefault(Function(x) x.Item2.Replace("'", "") = chbListaParaOrdenar.SelectedItem) IsNot Nothing Then
+				suma = False
+				count -= 1
+			End If
+			If count > 3 Then
+				MsgBox("Se puede ordenar hasta por 3 campos máximo", MsgBoxStyle.OkOnly, "Ordenar")
+				e.NewValue = CheckState.Unchecked
+				Return
+			End If
+
+			Dim number = 0
+			Dim prueba = OrderBy.LastOrDefault(Function(x) Not x.Item2 = "")
+			If prueba IsNot Nothing Then
+				number = prueba.Item1
+			End If
+			If suma Then
+				OrderBy.RemoveAll(Function(x) x.Item1 = number + 1)
+				OrderBy.Add(New Tuple(Of Integer, String, Integer)(number + 1, "'" + chbListaParaOrdenar.SelectedItem.ToString + "'", number + 1))
+			End If
+			If resta Then
+				OrderBy.RemoveAll(Function(x) x.Item2 = "'" + chbListaParaOrdenar.SelectedItem.ToString + "'")
+				OrderBy.Add(New Tuple(Of Integer, String, Integer)(number, "", number))
+			End If
+			OrderBy = OrderBy.OrderBy(Function(x) x.Item1).ToList()
+			ImpactarOrderBy()
+		End If
+	End Sub
+
+	Public Sub InicializarOrderBy()
+		chbListaParaOrdenar.Items.Clear()
+		OrderBy = New List(Of Tuple(Of Integer, String, Integer))
+		OrderBy.Add(New Tuple(Of Integer, String, Integer)(1, "'Fecha de Alta'", 1))
+		OrderBy.Add(New Tuple(Of Integer, String, Integer)(2, "", 2))
+		OrderBy.Add(New Tuple(Of Integer, String, Integer)(3, "", 3))
+		lblPrioridad1.Visible = False
+		lblPrioridad2.Visible = False
+		lblPrioridad3.Visible = False
+	End Sub
+
+	Public Sub ImpactarOrderBy()
+		Dim count = OrderBy.Where(Function(x) Not x.Item2 = "").Count()
+
+		If count >= 1 Then
+			lblPrioridad1.Visible = True
+			lblPrioridad1.Text = OrderBy(0).Item2.Replace("'", "")
+		Else
+			lblPrioridad1.Visible = False
+		End If
+		If count >= 2 Then
+			lblPrioridad2.Visible = True
+			lblPrioridad2.Text = OrderBy(1).Item2.Replace("'", "")
+		Else
+			lblPrioridad2.Visible = False
+		End If
+		If count >= 3 Then
+			lblPrioridad3.Visible = True
+			lblPrioridad3.Text = OrderBy(2).Item2.Replace("'", "")
+		Else
+			lblPrioridad3.Visible = False
+		End If
+	End Sub
+
 
 	'Traemos toda la informacion de un producto en especifico para los comprobantes.
 	Private Function ObtainProductInformation(ByVal id As Integer) As ProductosNE

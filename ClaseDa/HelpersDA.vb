@@ -260,7 +260,7 @@ Public Class HelpersDA
 
 	End Function
 
-	Public Function CargarTodosProductos(ByVal parametros As Dictionary(Of String, String), Optional esServicio As String = "")
+	Public Function CargarTodosProductos(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), Optional esServicio As String = "")
 
 		ChequearConexion(db)
 		Dim sqlStr As String
@@ -269,7 +269,7 @@ Public Class HelpersDA
 			innerJoin = "inner join DetallePedidos dp on dp.ProductoId = p.id inner join pedidos ped on dp.PedidoId = ped.Id "
 		End If
 		ds = New DataSet
-		sqlStr = "set dateformat dmy select p.Id,p.Nombre,p.Foto,cast((( P.precio * P.utilidad)/100+(P.precio)) as decimal(10,2)),prov.Nombre as Proveedor, prov.id, p.FechaAlta, p.CategoriaId, P.precio from Productos as p inner join proveedores as prov on prov.id = p.ProveedorId " + innerJoin
+		sqlStr = "set dateformat dmy select p.Id,p.Nombre,p.Foto,cast((( P.precio * P.utilidad)/100+(P.precio)) as decimal(10,2)) as Precio,prov.Nombre as Proveedor, prov.id, p.FechaAlta as 'Fecha de Alta', p.CategoriaId, P.precio from Productos as p inner join proveedores as prov on prov.id = p.ProveedorId " + innerJoin
 
 		If parametros.Count <> 0 Then
 			Dim count = parametros.Count
@@ -316,13 +316,26 @@ Public Class HelpersDA
 					Continue For
 				End If
 			Next
-			sqlStr = sqlStr + text + " order By p.ProveedorId "
+			sqlStr = sqlStr + text
 		Else
 			If Not String.IsNullOrWhiteSpace(esServicio) Then
 				sqlStr += " where p.esServicio='S' "
 			Else
 				sqlStr += "where p.esServicio='N' "
 			End If
+		End If
+
+		Dim orderers = orderby.Where(Function(x) String.IsNullOrEmpty(x.Item2) = False)
+		If orderers.Count() > 0 Then
+			Dim orderText = " order by "
+			Dim orderedList = orderers.OrderBy(Function(x) x.Item3)
+			For i = 0 To orderedList.Count() - 1
+				orderText += orderedList(i).Item2
+				If Not i = orderedList.Count() - 1 Then
+					orderText += ","
+				End If
+			Next
+			sqlStr += orderText
 		End If
 
 
