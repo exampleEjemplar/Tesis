@@ -35,7 +35,7 @@ Public Class MetodoClientesDA
 		Return ds1
 	End Function
 
-	Public Function CargaGrillaclientes(ByVal parametros As Dictionary(Of String, String), orderBy As List(Of Tuple(Of Integer, String, String, Integer))) As DataSet
+	Public Function CargaGrillaclientes(ByVal parametros As Dictionary(Of String, String), orderBy As List(Of Tuple(Of Integer, String, Integer))) As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
@@ -68,15 +68,18 @@ Public Class MetodoClientesDA
 			sqlStr = sqlStr & extraText
 		End If
 
-		Dim orderText = " order by "
-		Dim orderedList = orderBy.Where(Function(x) String.IsNullOrEmpty(x.Item3) = False).OrderBy(Function(x) x.Item4)
-		For i = 0 To orderedList.Count() - 1
-			orderText += orderedList(i).Item3
-			If Not i = orderedList.Count() - 1 Then
-				orderText += ","
-			End If
-		Next
-		sqlStr += orderText
+		Dim orderers = orderBy.Where(Function(x) String.IsNullOrEmpty(x.Item2) = False)
+		If orderers.Count() > 0 Then
+			Dim orderText = " order by "
+			Dim orderedList = orderers.OrderBy(Function(x) x.Item3)
+			For i = 0 To orderedList.Count() - 1
+				orderText += orderedList(i).Item2
+				If Not i = orderedList.Count() - 1 Then
+					orderText += ","
+				End If
+			Next
+			sqlStr += orderText
+		End If
 		Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)

@@ -137,4 +137,6 @@ Public Class HelpersUI
 		Dim newText As String = text.ToLower()
 		Return Char.ToUpper(newText(0)) + newText.Substring(1)
 	End Function
+
+
 End Class
