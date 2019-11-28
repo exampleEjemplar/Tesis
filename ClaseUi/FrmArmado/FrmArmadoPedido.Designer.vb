@@ -85,6 +85,8 @@ Partial Class FrmArmadoPedido
 		Me.lstProdDispo = New System.Windows.Forms.ListView()
 		Me.btnLimpiar = New System.Windows.Forms.Button()
 		Me.btnSalir = New System.Windows.Forms.Button()
+		Me.Label22 = New System.Windows.Forms.Label()
+		Me.cboOrden = New System.Windows.Forms.ComboBox()
 		Me.gboFiltros.SuspendLayout()
 		Me.GroupBox3.SuspendLayout()
 		Me.GroupBox4.SuspendLayout()
@@ -152,6 +154,8 @@ Partial Class FrmArmadoPedido
 		'
 		'GroupBox3
 		'
+		Me.GroupBox3.Controls.Add(Me.Label22)
+		Me.GroupBox3.Controls.Add(Me.cboOrden)
 		Me.GroupBox3.Controls.Add(Me.GroupBox4)
 		Me.GroupBox3.Controls.Add(Me.chbListaParaOrdenar)
 		Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
@@ -249,7 +253,7 @@ Partial Class FrmArmadoPedido
 		Me.chbListaParaOrdenar.FormattingEnabled = True
 		Me.chbListaParaOrdenar.Location = New System.Drawing.Point(6, 21)
 		Me.chbListaParaOrdenar.Name = "chbListaParaOrdenar"
-		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(188, 137)
+		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(188, 118)
 		Me.chbListaParaOrdenar.TabIndex = 0
 		'
 		'lbldesde
@@ -848,6 +852,30 @@ Partial Class FrmArmadoPedido
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnSalir.UseVisualStyleBackColor = False
 		'
+		'Label22
+		'
+		Me.Label22.AutoSize = True
+		Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label22.Location = New System.Drawing.Point(5, 144)
+		Me.Label22.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label22.Name = "Label22"
+		Me.Label22.Size = New System.Drawing.Size(53, 17)
+		Me.Label22.TabIndex = 75
+		Me.Label22.Text = "Orden"
+		'
+		'cboOrden
+		'
+		Me.cboOrden.AccessibleDescription = ""
+		Me.cboOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cboOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.cboOrden.FormattingEnabled = True
+		Me.cboOrden.Items.AddRange(New Object() {"Física", "Jurídica"})
+		Me.cboOrden.Location = New System.Drawing.Point(66, 141)
+		Me.cboOrden.Margin = New System.Windows.Forms.Padding(4)
+		Me.cboOrden.Name = "cboOrden"
+		Me.cboOrden.Size = New System.Drawing.Size(65, 25)
+		Me.cboOrden.TabIndex = 76
+		'
 		'FrmArmadoPedido
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -878,6 +906,7 @@ Partial Class FrmArmadoPedido
 		Me.gboFiltros.ResumeLayout(False)
 		Me.gboFiltros.PerformLayout()
 		Me.GroupBox3.ResumeLayout(False)
+		Me.GroupBox3.PerformLayout()
 		Me.GroupBox4.ResumeLayout(False)
 		Me.GroupBox4.PerformLayout()
 		Me.gboTotales.ResumeLayout(False)
@@ -953,4 +982,6 @@ Partial Class FrmArmadoPedido
 	Friend WithEvents lblPrioridad1 As Windows.Forms.Label
 	Friend WithEvents lblPrioridad2 As Windows.Forms.Label
 	Friend WithEvents chbListaParaOrdenar As Windows.Forms.CheckedListBox
+	Friend WithEvents Label22 As Windows.Forms.Label
+	Friend WithEvents cboOrden As Windows.Forms.ComboBox
 End Class

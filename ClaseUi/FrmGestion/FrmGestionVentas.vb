@@ -12,6 +12,7 @@ Public Class FrmGestionVentas
 	Public OrderBy As New List(Of Tuple(Of Integer, String, Integer)) 'Index, nombrevista, nombre base, prioridad
 #Region "Eventos"
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		LlenarCboOrden()
 		InicializarOrderBy()
 		LlenarCboClientes()
 		Busqueda("load")
@@ -22,6 +23,12 @@ Public Class FrmGestionVentas
 		lblFechaExacta.Visible = False
 		lblHasta.Visible = False
 		lbldesde.Visible = False
+	End Sub
+
+
+	Public Sub LlenarCboOrden()
+		cboOrden.DataSource = {"asc", "desc"}
+		cboOrden.SelectedItem = "desc"
 	End Sub
 
 	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
@@ -95,7 +102,7 @@ Public Class FrmGestionVentas
 
 	Public Function LlenarDgv(ByVal parametros As Dictionary(Of String, String), Optional type As String = "") As DataSet
 		Dim dsa1 As DataSet
-		dsa1 = ventasLN.CargarGrillaVentas(parametros, OrderBy) 'Si parametros esta vacio, busca todos las ventas en la bd
+		dsa1 = ventasLN.CargarGrillaVentas(parametros, OrderBy, cboOrden.SelectedItem) 'Si parametros esta vacio, busca todos las ventas en la bd
 		dgvProveedores.DataSource = dsa1.Tables(0)
 		dgvProveedores.Columns("Id").Visible = False
 		dgvProveedores.Columns("estado").Visible = False

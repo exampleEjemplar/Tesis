@@ -81,6 +81,8 @@ Partial Class FrmArmadoVenta
 		Me.lblPrioridad1 = New System.Windows.Forms.Label()
 		Me.lblPrioridad2 = New System.Windows.Forms.Label()
 		Me.chbListaParaOrdenar = New System.Windows.Forms.CheckedListBox()
+		Me.Label15 = New System.Windows.Forms.Label()
+		Me.cboOrden = New System.Windows.Forms.ComboBox()
 		Me.GroupBox1.SuspendLayout()
 		Me.GroupBox2.SuspendLayout()
 		Me.GroupBox3.SuspendLayout()
@@ -715,7 +717,9 @@ Partial Class FrmArmadoVenta
 		'
 		'GroupBox7
 		'
+		Me.GroupBox7.Controls.Add(Me.Label15)
 		Me.GroupBox7.Controls.Add(Me.GroupBox8)
+		Me.GroupBox7.Controls.Add(Me.cboOrden)
 		Me.GroupBox7.Controls.Add(Me.chbListaParaOrdenar)
 		Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
 		Me.GroupBox7.Location = New System.Drawing.Point(413, 249)
@@ -812,8 +816,32 @@ Partial Class FrmArmadoVenta
 		Me.chbListaParaOrdenar.FormattingEnabled = True
 		Me.chbListaParaOrdenar.Location = New System.Drawing.Point(6, 21)
 		Me.chbListaParaOrdenar.Name = "chbListaParaOrdenar"
-		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(171, 156)
+		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(171, 118)
 		Me.chbListaParaOrdenar.TabIndex = 0
+		'
+		'Label15
+		'
+		Me.Label15.AutoSize = True
+		Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label15.Location = New System.Drawing.Point(7, 152)
+		Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label15.Name = "Label15"
+		Me.Label15.Size = New System.Drawing.Size(53, 17)
+		Me.Label15.TabIndex = 73
+		Me.Label15.Text = "Orden"
+		'
+		'cboOrden
+		'
+		Me.cboOrden.AccessibleDescription = ""
+		Me.cboOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cboOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.cboOrden.FormattingEnabled = True
+		Me.cboOrden.Items.AddRange(New Object() {"Física", "Jurídica"})
+		Me.cboOrden.Location = New System.Drawing.Point(68, 149)
+		Me.cboOrden.Margin = New System.Windows.Forms.Padding(4)
+		Me.cboOrden.Name = "cboOrden"
+		Me.cboOrden.Size = New System.Drawing.Size(65, 25)
+		Me.cboOrden.TabIndex = 74
 		'
 		'FrmArmadoVenta
 		'
@@ -854,6 +882,7 @@ Partial Class FrmArmadoVenta
 		Me.gboTotales.ResumeLayout(False)
 		Me.gboTotales.PerformLayout()
 		Me.GroupBox7.ResumeLayout(False)
+		Me.GroupBox7.PerformLayout()
 		Me.GroupBox8.ResumeLayout(False)
 		Me.GroupBox8.PerformLayout()
 		Me.ResumeLayout(False)
@@ -919,4 +948,6 @@ Partial Class FrmArmadoVenta
 	Friend WithEvents lblPrioridad1 As Windows.Forms.Label
 	Friend WithEvents lblPrioridad2 As Windows.Forms.Label
 	Friend WithEvents chbListaParaOrdenar As Windows.Forms.CheckedListBox
+	Friend WithEvents Label15 As Windows.Forms.Label
+	Friend WithEvents cboOrden As Windows.Forms.ComboBox
 End Class

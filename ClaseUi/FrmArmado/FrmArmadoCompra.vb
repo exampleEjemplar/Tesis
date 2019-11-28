@@ -28,6 +28,11 @@ Public Class FrmArmadoCompra
 		modificado = False
 	End Sub
 
+	Public Sub LlenarCboOrden()
+		cboOrden.DataSource = {"asc", "desc"}
+		cboOrden.SelectedItem = "desc"
+	End Sub
+
 	'Te lleva al frm de gestion de producto.
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
 		FrmGestionProducto.ShowDialog()
@@ -39,6 +44,7 @@ Public Class FrmArmadoCompra
 	End Sub
 
 	Private Sub Cargar()
+		LlenarCboOrden()
 		InicializarOrderBy()
 		txtNroComprobante.Text = ""
 		lstProdDispo.Clear()
@@ -340,7 +346,7 @@ Public Class FrmArmadoCompra
 		lblPrioridad1.Text = OrderBy.FirstOrDefault(Function(x) x.Item1 = 1).Item2.Replace("'", "")
 		'Cargamos el dataset con los productos seleccionados por filtro
 		parametros.Add("EsReparacion", "N")
-		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy)
+		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, cboOrden.SelectedItem)
 
 		If primerOrder Then
 			primerOrder = False

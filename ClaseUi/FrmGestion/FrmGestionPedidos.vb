@@ -95,6 +95,7 @@ Public Class FrmGestionPedidos
 
 #Region "Eventos"
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		LlenarCboOrden()
 		InicializarOrderBy()
 		LlenarCboClientes()
 		Busqueda("load")
@@ -173,9 +174,14 @@ Public Class FrmGestionPedidos
 		MessageBox.Show(cboCliente.SelectedValue)
 	End Function
 
+	Public Sub LlenarCboOrden()
+		cboOrden.DataSource = {"asc", "desc"}
+		cboOrden.SelectedItem = "desc"
+	End Sub
+
 	Public Function LlenarDgv(ByVal parametros As Dictionary(Of String, String), Optional type As String = "") As DataSet
 		Dim dsa1 As DataSet
-		dsa1 = pedidosLN.CargarGrillaPedidos(parametros, OrderBy) 'Si parametros esta vacio, busca todos los pedidos en la bd
+		dsa1 = pedidosLN.CargarGrillaPedidos(parametros, OrderBy, cboOrden.SelectedItem) 'Si parametros esta vacio, busca todos los pedidos en la bd
 		Dim listaDePedidos = New List(Of VentasNE)
 
 		If primerOrder Then

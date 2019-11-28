@@ -28,7 +28,13 @@ Public Class FrmArmadoVenta
 		modificado = False
 	End Sub
 
+	Public Sub LlenarCboOrden()
+		cboOrden.DataSource = {"asc", "desc"}
+		cboOrden.SelectedItem = "desc"
+	End Sub
+
 	Private Sub Cargar()
+		LlenarCboOrden()
 		InicializarOrderBy()
 		dtpFechaDesde.Value = Date.Now
 		dtpFechaHasta.Value = Date.Now
@@ -309,7 +315,7 @@ Public Class FrmArmadoVenta
 
 	Public Sub LlenarLvi(ByVal parametros As Dictionary(Of String, String))
 		parametros.Add("EsReparacion", "N")
-		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy)
+		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, cboOrden.SelectedItem)
 		If primerOrder Then
 			primerOrder = False
 			For i = 0 To ds2.Tables(0).Columns.Count - 1

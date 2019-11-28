@@ -24,6 +24,7 @@ Public Class FrmGestionCliente
 #Region "Eventos"
 
 	Private Sub FrmGestionCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		LlenarCboOrden()
 		InicializarOrderBy()
 		cmbProvincias.SelectedValue = 0
 		cbtipodni.SelectedValue = 0
@@ -40,6 +41,12 @@ Public Class FrmGestionCliente
 
 
 	End Sub
+
+	Public Sub LlenarCboOrden()
+		cboOrden.DataSource = {"asc", "desc"}
+		cboOrden.SelectedItem = "desc"
+	End Sub
+
 	Public Sub InicializarOrderBy()
 		chbListaParaOrdenar.Items.Clear()
 		OrderBy = New List(Of Tuple(Of Integer, String, Integer))
@@ -539,7 +546,7 @@ Public Class FrmGestionCliente
 	'Carga DataGridView con datos
 	Public Function DgvclientesSet(ByVal parametros As Dictionary(Of String, String)) As DataSet
 		Dim dsa1 As DataSet
-		dsa1 = clientemetodo.CargaGrillaclientes(parametros, OrderBy) 'Si parametros esta vacio, busca todos los clientes en la bd
+		dsa1 = clientemetodo.CargaGrillaclientes(parametros, OrderBy, cboOrden.SelectedItem) 'Si parametros esta vacio, busca todos los clientes en la bd
 		If dsa1.Tables(0).Rows.Count() <> 0 Then
 			ClienteID = dsa1.Tables(0).Rows(0)(13)
 		End If

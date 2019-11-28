@@ -71,7 +71,7 @@ Public Class ComprasDA
 	End Function
 
 
-	Public Function CargarGrillaCompras(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer))) As DataSet
+	Public Function CargarGrillaCompras(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc as string) As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
@@ -120,7 +120,7 @@ Public Class ComprasDA
 					orderText += ","
 				End If
 			Next
-			sqlStr += orderText
+			sqlStr += orderText + " " + ascOrDesc
 		End If
 
 		Try

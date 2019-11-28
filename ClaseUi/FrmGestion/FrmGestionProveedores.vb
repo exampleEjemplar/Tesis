@@ -23,6 +23,7 @@ Public Class FrmGestionProveedores
 #Region "Eventos"
 
 	Private Sub FrmGestionProveedor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		LlenarCboOrden()
 		InicializarOrderBy()
 		cmbProvincias.SelectedValue = 0
 		cbtipodni.SelectedValue = 0
@@ -44,7 +45,7 @@ Public Class FrmGestionProveedores
 
 	End Sub
 
-    Private Sub CmbProvincias_SelectionChangeCommitted(sender As System.Object, e As System.EventArgs) Handles cmbProvincias.SelectionChangeCommitted
+	Private Sub CmbProvincias_SelectionChangeCommitted(sender As System.Object, e As System.EventArgs) Handles cmbProvincias.SelectionChangeCommitted
         IdProvincia = cmbProvincias.SelectedValue
         LlenarCMBLocalidades("general")
     End Sub
@@ -519,36 +520,41 @@ Public Class FrmGestionProveedores
         End Try
     End Sub
 
-    'Carga el combo tipo de documento
-    Public Sub LlenarCMBDoc(ByVal FoJ As String, ByVal type As String)
-        If type = "busqueda" Then
-            Try
-                Dim ds1 As DataSet
-                ds1 = helpersLN.CargarCMBDoc(FoJ)
-                cboBusTipoDNI.DataSource = ds1.Tables(0)
-                cboBusTipoDNI.DisplayMember = "descripcion"
-                cboBusTipoDNI.ValueMember = "id"
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            End Try
-        Else
-            Try
-                Dim ds1 As DataSet
-                ds1 = helpersLN.CargarCMBDoc(FoJ)
-                cbtipodni.DataSource = ds1.Tables(0)
-                cbtipodni.DisplayMember = "descripcion"
-                cbtipodni.ValueMember = "id"
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            End Try
+	'Carga el combo tipo de documento
+	Public Sub LlenarCMBDoc(ByVal FoJ As String, ByVal type As String)
+		If type = "busqueda" Then
+			Try
+				Dim ds1 As DataSet
+				ds1 = helpersLN.CargarCMBDoc(FoJ)
+				cboBusTipoDNI.DataSource = ds1.Tables(0)
+				cboBusTipoDNI.DisplayMember = "descripcion"
+				cboBusTipoDNI.ValueMember = "id"
+			Catch ex As Exception
+				MessageBox.Show(ex.Message)
+			End Try
+		Else
+			Try
+				Dim ds1 As DataSet
+				ds1 = helpersLN.CargarCMBDoc(FoJ)
+				cbtipodni.DataSource = ds1.Tables(0)
+				cbtipodni.DisplayMember = "descripcion"
+				cbtipodni.ValueMember = "id"
+			Catch ex As Exception
+				MessageBox.Show(ex.Message)
+			End Try
 
-        End If
-    End Sub
+		End If
+	End Sub
+
+	Public Sub LlenarCboOrden()
+		cboOrden.DataSource = {"asc", "desc"}
+		cboOrden.SelectedItem = "desc"
+	End Sub
 
 	'Carga DataGridView con datos
 	Public Function DgvProveedoresSet(ByVal parametros As Dictionary(Of String, String)) As DataSet
 		Dim dsa1 As DataSet
-		dsa1 = proveedorMetodo.CargaGrillaProveedores(parametros, OrderBy) 'Si parametros esta vacio, busca todos los proveedores en la bd
+		dsa1 = proveedorMetodo.CargaGrillaProveedores(parametros, OrderBy, cboOrden.SelectedItem) 'Si parametros esta vacio, busca todos los proveedores en la bd
 		If dsa1.Tables(0).Rows.Count() <> 0 Then
 			ProveedorId = dsa1.Tables(0).Rows(0)(13)
 		End If

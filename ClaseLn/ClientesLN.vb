@@ -17,8 +17,8 @@ Public Class ClientesLN
         Return objclientesAD.ConsultaModificacion(Id)
     End Function
 
-	Public Function CargaGrillaclientes(ByVal parametros As Dictionary(Of String, String), orderBy As List(Of Tuple(Of Integer, String, Integer))) As DataSet
-		Return objclientesAD.CargaGrillaclientes(parametros, orderBy)
+	Public Function CargaGrillaclientes(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc As String) As DataSet
+		Return objclientesAD.CargaGrillaclientes(parametros, orderby, ascOrDesc)
 	End Function
 
 	Public Sub GrabarClientes(ByVal cli As ClientesNE)

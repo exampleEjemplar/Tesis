@@ -102,6 +102,8 @@ Partial Class FrmGestionCliente
 		Me.Panel1 = New System.Windows.Forms.Panel()
 		Me.Dgvclientes = New System.Windows.Forms.DataGridView()
 		Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+		Me.Label21 = New System.Windows.Forms.Label()
+		Me.cboOrden = New System.Windows.Forms.ComboBox()
 		Me.GroupBox5.SuspendLayout()
 		Me.GroupBox7.SuspendLayout()
 		Me.GroupBox8.SuspendLayout()
@@ -143,6 +145,8 @@ Partial Class FrmGestionCliente
 		'
 		'GroupBox7
 		'
+		Me.GroupBox7.Controls.Add(Me.Label21)
+		Me.GroupBox7.Controls.Add(Me.cboOrden)
 		Me.GroupBox7.Controls.Add(Me.GroupBox8)
 		Me.GroupBox7.Controls.Add(Me.chbListaParaOrdenar)
 		Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
@@ -240,7 +244,7 @@ Partial Class FrmGestionCliente
 		Me.chbListaParaOrdenar.FormattingEnabled = True
 		Me.chbListaParaOrdenar.Location = New System.Drawing.Point(6, 21)
 		Me.chbListaParaOrdenar.Name = "chbListaParaOrdenar"
-		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(285, 137)
+		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(285, 118)
 		Me.chbListaParaOrdenar.TabIndex = 0
 		'
 		'btnBuscar
@@ -1083,6 +1087,30 @@ Partial Class FrmGestionCliente
 		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(781, 648)
 		Me.FlowLayoutPanel1.TabIndex = 46
 		'
+		'Label21
+		'
+		Me.Label21.AutoSize = True
+		Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label21.Location = New System.Drawing.Point(164, 143)
+		Me.Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label21.Name = "Label21"
+		Me.Label21.Size = New System.Drawing.Size(53, 17)
+		Me.Label21.TabIndex = 83
+		Me.Label21.Text = "Orden"
+		'
+		'cboOrden
+		'
+		Me.cboOrden.AccessibleDescription = ""
+		Me.cboOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cboOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.cboOrden.FormattingEnabled = True
+		Me.cboOrden.Items.AddRange(New Object() {"Física", "Jurídica"})
+		Me.cboOrden.Location = New System.Drawing.Point(225, 140)
+		Me.cboOrden.Margin = New System.Windows.Forms.Padding(4)
+		Me.cboOrden.Name = "cboOrden"
+		Me.cboOrden.Size = New System.Drawing.Size(65, 25)
+		Me.cboOrden.TabIndex = 84
+		'
 		'FrmGestionCliente
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1104,6 +1132,7 @@ Partial Class FrmGestionCliente
 		Me.GroupBox5.ResumeLayout(False)
 		Me.GroupBox5.PerformLayout()
 		Me.GroupBox7.ResumeLayout(False)
+		Me.GroupBox7.PerformLayout()
 		Me.GroupBox8.ResumeLayout(False)
 		Me.GroupBox8.PerformLayout()
 		Me.GroupBox1.ResumeLayout(False)
@@ -1200,4 +1229,6 @@ Partial Class FrmGestionCliente
 	Friend WithEvents Label18 As Windows.Forms.Label
 	Friend WithEvents Label19 As Windows.Forms.Label
 	Friend WithEvents Label20 As Windows.Forms.Label
+	Friend WithEvents Label21 As Windows.Forms.Label
+	Friend WithEvents cboOrden As Windows.Forms.ComboBox
 End Class
