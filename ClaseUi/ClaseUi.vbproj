@@ -191,6 +191,12 @@
     <Compile Include="FrmEstadistica\FrmEstadisticaProveedorServicio.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmEstadistica\FrmEstadisticaStock.Designer.vb">
+      <DependentUpon>FrmEstadisticaStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEstadistica\FrmEstadisticaStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmEstadistica\FrmEstadisticaVentas.Designer.vb">
       <DependentUpon>FrmEstadisticaVentas.vb</DependentUpon>
     </Compile>
@@ -484,6 +490,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEstadistica\FrmEstadisticaProveedorServicio.resx">
       <DependentUpon>FrmEstadisticaProveedorServicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEstadistica\FrmEstadisticaStock.resx">
+      <DependentUpon>FrmEstadisticaStock.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEstadistica\FrmEstadisticaVentas.resx">
       <DependentUpon>FrmEstadisticaVentas.vb</DependentUpon>

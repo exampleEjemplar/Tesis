@@ -6,8 +6,10 @@ Public Class MovimientoStockDA
 	Private helpersDa As New HelpersDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
+    Private ds1 As DataSet
 
-	Public Sub New()
+
+    Public Sub New()
         Dim objcon As New ConexionDA
         db = objcon.Abrir
 		db = objcon.Cerrar
@@ -26,5 +28,42 @@ Public Class MovimientoStockDA
 			helpersDa.ChequearConexion(db, "close")
 		End Try
 	End Sub
+
+    Public Function GeneraGraficomas() As DataSet
+        helpersDa.ChequearConexion(db)
+
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = " SELECT top(5) p.Nombre,COUNT(m.fecha) as contador FROM MovimientosStock m inner join Productos p on m.ProductoId=p.id group by p.Nombre order by contador desc"
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDa.ChequearConexion(db, "close")
+        End Try
+        helpersDa.ChequearConexion(db, "close")
+        Return ds1
+    End Function
+
+    Public Function GeneraGraficomenos() As DataSet
+        helpersDa.ChequearConexion(db)
+
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = " SELECT top(5) p.Nombre,COUNT(m.fecha) as contador FROM MovimientosStock m inner join Productos p on m.ProductoId=p.id group by p.Nombre order by contador asc"
+
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDa.ChequearConexion(db, "close")
+        End Try
+        helpersDa.ChequearConexion(db, "close")
+        Return ds1
+    End Function
 
 End Class
