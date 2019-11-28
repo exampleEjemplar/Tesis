@@ -14,9 +14,10 @@ Public Class MetodoProductoDA
 	Private helpersDa As New HelpersDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
+    Private ds1 As DataSet
 
 
-	Dim Rs As SqlDataReader
+    Dim Rs As SqlDataReader
 	Private ds As DataSet
 	Public qidproductos As Integer
 
@@ -600,6 +601,24 @@ Public Class MetodoProductoDA
         Return ds1
     End Function
 
+    Public Function GeneraGrafico(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        helpersDa.ChequearConexion(db)
 
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = " select sum(total) as total, u.UserName as nombre from compras c inner join usuarios u on c.usuarioid=u.id " &
+                    "where c.Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+                    "group by u.username"
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDa.ChequearConexion(db, "close")
+        End Try
+        helpersDa.ChequearConexion(db, "close")
+        Return ds1
+    End Function
 
 End Class

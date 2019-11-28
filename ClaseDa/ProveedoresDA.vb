@@ -37,57 +37,57 @@ Public Class ProveedoresDA
 		Return ds1
 	End Function
 
-	Public Function CargaGrillaProveedores(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer))) As DataSet
-		helpersDa.ChequearConexion(db)
-		Dim sqlStr As String
-		ds1 = New DataSet
-		sqlStr = "select p.FisicaOJuridica as 'Tipo de Persona', t.Descripcion as 'Tipo de Dni', p.NumeroDocumento as 'Numero de identificacion', " &
-			  "p.Nombre as 'Nombre - Nombre de Fantasia', p.Apellido as 'Apellido - Razon Social', " &
-			  "p.FechaNacimiento as 'Nacimiento', p.FechaAlta as 'Fecha de Alta', p.Calle, p.NumeroCalle as 'Numero de calle', ciu.Nombre As Ciudad," &
-			  "CONCAT(p.Car_Celular, '-', cast(p.NumeroCelular as int)) as Celular, CONCAT(p.Car_telefono, '-', cast(p.NumeroTelefono as int)) as Telefono," &
-			  "p.Email , p.id " &
-			  "from Proveedores as p " &
-			  "inner join TipoDocumentos t on t.Id = p.TipoDocumentoId " &
-			  "inner join Ciudades ciu on p.CiudadId = Ciu.Id  "
+    Public Function CargaGrillaProveedores(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer))) As DataSet
+        helpersDa.ChequearConexion(db)
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "select p.FisicaOJuridica as 'Tipo de Persona', t.Descripcion as 'Tipo de Dni', p.NumeroDocumento as 'Numero de identificacion', " &
+              "p.Nombre as 'Nombre - Nombre de Fantasia', p.Apellido as 'Apellido - Razon Social', " &
+              "p.FechaNacimiento as 'Nacimiento', p.FechaAlta as 'Fecha de Alta', p.Calle, p.NumeroCalle as 'Numero de calle', ciu.Nombre As Ciudad," &
+              "CONCAT(p.Car_Celular, '-', cast(p.NumeroCelular as int)) as Celular, CONCAT(p.Car_telefono, '-', cast(p.NumeroTelefono as int)) as Telefono," &
+              "p.Email , p.id " &
+              "from Proveedores as p " &
+              "inner join TipoDocumentos t on t.Id = p.TipoDocumentoId " &
+              "inner join Ciudades ciu on p.CiudadId = Ciu.Id  "
 
-		If parametros.Count > 0 Then
-			Dim extraText As String = String.Empty
-			Dim count As Integer = 0
-			For Each parametro As KeyValuePair(Of String, String) In parametros
-				If count <> 0 Then
-					extraText = extraText & " and "
-				Else
-					extraText = " where "
-				End If
-				Dim value As Decimal
-				If Decimal.TryParse(parametro.Value, value) Then
-					extraText = extraText & " p." & parametro.Key & " = " & parametro.Value 'TODO mejorar busqueda para integers
-				Else
-					extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
-				End If
-				count = count + 1
-			Next
-			sqlStr = sqlStr & extraText
-		End If
+        If parametros.Count > 0 Then
+            Dim extraText As String = String.Empty
+            Dim count As Integer = 0
+            For Each parametro As KeyValuePair(Of String, String) In parametros
+                If count <> 0 Then
+                    extraText = extraText & " and "
+                Else
+                    extraText = " where "
+                End If
+                Dim value As Decimal
+                If Decimal.TryParse(parametro.Value, value) Then
+                    extraText = extraText & " p." & parametro.Key & " = " & parametro.Value 'TODO mejorar busqueda para integers
+                Else
+                    extraText = extraText & " p." & parametro.Key & " like '%" & parametro.Value & "%'" 'TODO mejorar busqueda para integers
+                End If
+                count = count + 1
+            Next
+            sqlStr = sqlStr & extraText
+        End If
 
-		Dim orderers = orderby.Where(Function(x) String.IsNullOrEmpty(x.Item2) = False)
-		If orderers.Count() > 0 Then
-			Dim orderText = " order by "
-			Dim orderedList = orderers.OrderBy(Function(x) x.Item3)
-			For i = 0 To orderedList.Count() - 1
-				orderText += orderedList(i).Item2
-				If Not i = orderedList.Count() - 1 Then
-					orderText += ","
-				End If
-			Next
-			sqlStr += orderText
-		End If
+        Dim orderers = orderby.Where(Function(x) String.IsNullOrEmpty(x.Item2) = False)
+        If orderers.Count() > 0 Then
+            Dim orderText = " order by "
+            Dim orderedList = orderers.OrderBy(Function(x) x.Item3)
+            For i = 0 To orderedList.Count() - 1
+                orderText += orderedList(i).Item2
+                If Not i = orderedList.Count() - 1 Then
+                    orderText += ","
+                End If
+            Next
+            sqlStr += orderText
+        End If
 
-		Try
-			da = New SqlDataAdapter(sqlStr, db)
-			da.Fill(ds1)
-		Catch ex As Exception
-			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
 			helpersDa.ChequearConexion(db, "close")
 		End Try
 		helpersDa.ChequearConexion(db, "close")

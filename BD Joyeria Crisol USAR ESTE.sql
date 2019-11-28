@@ -152,15 +152,7 @@ Dias Int,
 CONSTRAINT Pedido_Cliente FOREIGN KEY (ClienteId) REFERENCES Clientes(ID)
 )
 GO
-CREATE TABLE MovimientoEstadosPedidos(
-Id INT IDENTITY PRIMARY KEY,
-PedidoId INT,
-EstadoId INT,
-Fecha DateTime,
-Activo Int,
-CONSTRAINT MovimientoEstadosPedidos_Pedidos FOREIGN KEY (PedidoId) REFERENCES Pedidos(ID)
-)
-GO
+
 CREATE TABLE UnidadesDePeso(
 Id INT IDENTITY PRIMARY KEY,
 Nombre VARCHAR(MAX)
@@ -23358,3 +23350,35 @@ inner join Proveedores pro on p.ProveedorId=pro.Id
 where p.EsServicio= 'N'
 group by P.id, p.nombre, pro.nombre+''+pro.Apellido, p.StockMin, P.StockMax
 order by p.nombre
+
+USE [JoyeriaCrisolFinal]
+GO
+
+/****** Object:  Table [dbo].[MovimientoEstadoPedidos]    Script Date: 28/11/2019 19:59:27 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MovimientoEstadoPedidos](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[PedidoId] [int] NULL,
+	[EstadoId] [int] NULL,
+	[Fecha Incio] [datetime] NULL,
+	[Fecha Fin] [datetime] NULL,
+	[Activo] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[MovimientoEstadoPedidos]  WITH CHECK ADD  CONSTRAINT [MovimientoEstadoPedidos_Pedidos] FOREIGN KEY([PedidoId])
+REFERENCES [dbo].[Pedidos] ([Id])
+GO
+
+ALTER TABLE [dbo].[MovimientoEstadoPedidos] CHECK CONSTRAINT [MovimientoEstadoPedidos_Pedidos]
+GO
+
