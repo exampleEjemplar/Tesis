@@ -21,7 +21,7 @@ Public Class PedidosDA
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = "set dateformat dmy select v.Id, v.Fecha,c.Nombre +' '+ c.Apellido as Nombre ,v.Total, v.Seña, mep.estadoId, v.dias from pedidos as v inner join Clientes as c on c.Id = v.ClienteId inner join MovimientoEstadosPedidos mep on mep.pedidoId = v.id"
+		sqlStr = "set dateformat dmy select v.Id, v.Fecha,c.Nombre +' '+ c.Apellido as 'Nombre Cliente' ,v.Total, v.Seña, mep.estadoId, v.dias from pedidos as v inner join Clientes as c on c.Id = v.ClienteId inner join MovimientoEstadosPedidos mep on mep.pedidoId = v.id"
 
 		If parametros.Count <> 0 Then
 			Dim count = parametros.Count

@@ -103,7 +103,7 @@ Public Class FrmCatalogo
 	Public Sub InicializarOrderBy()
 		chbListaParaOrdenar.Items.Clear()
 		OrderBy = New List(Of Tuple(Of Integer, String, Integer))
-		OrderBy.Add(New Tuple(Of Integer, String, Integer)(1, "'Fecha de Alta'", 1))
+		OrderBy.Add(New Tuple(Of Integer, String, Integer)(1, "'Fecha De Alta'", 1))
 		OrderBy.Add(New Tuple(Of Integer, String, Integer)(2, "", 2))
 		OrderBy.Add(New Tuple(Of Integer, String, Integer)(3, "", 3))
 		lblPrioridad1.Text = OrderBy.FirstOrDefault(Function(x) x.Item1 = 1).Item2.Replace("'", "")
@@ -119,16 +119,16 @@ Public Class FrmCatalogo
 		If primerOrder Then
 			primerOrder = False
 			For i = 0 To dsa1.Tables(0).Columns.Count - 1
-				If dsa1.Tables(0).Columns(i).ColumnName = "id" Or dsa1.Tables(0).Columns(i).ColumnName = "nombre1" Or dsa1.Tables(0).Columns(i).ColumnName = "Nombre2" Or dsa1.Tables(0).Columns(i).ColumnName = "Nombre3" Or dsa1.Tables(0).Columns(i).ColumnName = "foto" Or dsa1.Tables(0).Columns(i).ColumnName = "TipoProductoID" Or dsa1.Tables(0).Columns(i).ColumnName = "problema" Or dsa1.Tables(0).Columns(i).ColumnName = "UnidadDePeso" Then
+				If dsa1.Tables(0).Columns(i).ColumnName = "id" Or dsa1.Tables(0).Columns(i).ColumnName = "nombre" Or dsa1.Tables(0).Columns(i).ColumnName = "Nombre1" Or dsa1.Tables(0).Columns(i).ColumnName = "Nombre2" Or dsa1.Tables(0).Columns(i).ColumnName = "Nombre3" Or dsa1.Tables(0).Columns(i).ColumnName = "foto" Or dsa1.Tables(0).Columns(i).ColumnName = "TipoProductoID" Or dsa1.Tables(0).Columns(i).ColumnName = "problema" Or dsa1.Tables(0).Columns(i).ColumnName = "UnidadDePeso" Then
 					Continue For
 				End If
-				If dsa1.Tables(0).Columns(i).ColumnName = "Fecha de Alta" Then
+				If dsa1.Tables(0).Columns(i).ColumnName = "Fecha De Alta" Then
 					chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName, CheckState.Checked)
 					Continue For
 				End If
 				chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName)
 			Next
-			chbListaParaOrdenar.SetItemChecked(6, True)
+			chbListaParaOrdenar.SetItemChecked(14, True)
 		End If
 
 		DataGridView1.DataSource = dsa1.Tables(0)

@@ -185,7 +185,7 @@ Public Class FrmGestionReparaciones
 		If primerOrder Then
 			primerOrder = False
 			For i = 0 To dsa1.Tables(0).Columns.Count - 1
-				If dsa1.Tables(0).Columns(i).ColumnName = "id" Or dsa1.Tables(0).Columns(i).ColumnName = "estadoId" Or dsa1.Tables(0).Columns(i).ColumnName = "dias" Then
+				If dsa1.Tables(0).Columns(i).ColumnName = "Id" Or dsa1.Tables(0).Columns(i).ColumnName = "estadoId" Or dsa1.Tables(0).Columns(i).ColumnName = "dias" Then
 					Continue For
 				End If
 				If dsa1.Tables(0).Columns(i).ColumnName = "Fecha" Then
