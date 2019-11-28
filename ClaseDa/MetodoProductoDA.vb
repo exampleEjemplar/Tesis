@@ -552,24 +552,26 @@ Public Class MetodoProductoDA
 
 	End Sub
 
-	Public Function CargarUnProducto(id As Integer, nombre As String)
-		helpersDa.ChequearConexion(db)
-		Dim sqlStr As String = ""
-		Dim ds1 = New DataSet
-		If Not String.IsNullOrWhiteSpace(id) And Not id = 0 Then
-			sqlStr = "select * from productos where id =" & id.ToString()
-		ElseIf Not String.IsNullOrWhiteSpace(nombre) Then
-			sqlStr = "select * from productos where nombre ='" & nombre & "'"
-		End If
-		Try
-			da = New SqlDataAdapter(sqlStr, db)
-			da.Fill(ds1)
-		Catch ex As Exception
-			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			helpersDa.ChequearConexion(db, "close")
-		End Try
-		helpersDa.ChequearConexion(db, "close")
-		Return ds1
-	End Function
+    Public Function CargarUnProducto(id As Integer, nombre As String)
+        helpersDa.ChequearConexion(db)
+        Dim sqlStr As String = ""
+        Dim ds1 = New DataSet
+        If Not String.IsNullOrWhiteSpace(id) And Not id = 0 Then
+            sqlStr = "select * from productos where id =" & id.ToString()
+        ElseIf Not String.IsNullOrWhiteSpace(nombre) Then
+            sqlStr = "select * from productos where nombre ='" & nombre & "'"
+        End If
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDa.ChequearConexion(db, "close")
+        End Try
+        helpersDa.ChequearConexion(db, "close")
+        Return ds1
+    End Function
+
+
 
 End Class
