@@ -31,7 +31,6 @@ Public Class FrmEstadisticaPedidos
 				End If
 			Next
 		Next
-		Dim a = "asdasdda"
 	End Sub
 End Class
 

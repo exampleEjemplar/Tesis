@@ -113,13 +113,13 @@ Public Class MetodoProductoDA
 		Return ds
 	End Function
 
-	Public Function CargarGrillaStock(parametros As Dictionary(Of String, String)) As DataSet
+	Public Function CargarGrillaStock(parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc As String) As DataSet
 		helpersDa.ChequearConexion(db)
 		ds = New DataSet
 
 		Dim text = ""
 		If parametros.Count <> 0 Then
-			text += " where "
+			text += " where p.esparareparacion = 'N' and p.esServicio = 'N' and "
 			Dim count = parametros.Count
 			For Each item As KeyValuePair(Of String, String) In parametros
 				If item.Key = "ProveedorId" Then
@@ -150,7 +150,20 @@ Public Class MetodoProductoDA
 			Next
 		End If
 
-		Dim sqlStr = "set dateformat dmy SELECT p.id, p.Nombre, SUM(m.cantidad) as 'Stock Actual', p.StockMax as 'Stock Maximo',p.StockMin as 'Stock Minimo' FROM Productos as p inner join MovimientosStock as m on m.ProductoId = p.Id  " + text + "  GROUP BY p.Nombre, p.Id, p.StockMax, p.StockMin"
+		Dim sqlStr = "set dateformat dmy SELECT p.id, p.Nombre, SUM(m.cantidad) as 'Stock Actual', p.StockMax as 'Stock Maximo',p.StockMin as 'Stock Minimo', pro.Nombre + ' ' + pro.apellido as 'Nombre Proveedor' FROM Productos as p inner join MovimientosStock as m on m.ProductoId = p.Id inner join proveedores pro on pro.id = p.proveedorid " + text + "  GROUP BY p.Nombre, p.Id, p.StockMax, p.StockMin, pro.Nombre,pro.Apellido "
+
+		Dim orderers = orderby.Where(Function(x) String.IsNullOrEmpty(x.Item2) = False)
+		If orderers.Count() > 0 Then
+			Dim orderText = " order by "
+			Dim orderedList = orderers.OrderBy(Function(x) x.Item3)
+			For i = 0 To orderedList.Count() - 1
+				orderText += orderedList(i).Item2
+				If Not i = orderedList.Count() - 1 Then
+					orderText += ","
+				End If
+			Next
+			sqlStr += orderText + " " + ascOrDesc
+		End If
 
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)

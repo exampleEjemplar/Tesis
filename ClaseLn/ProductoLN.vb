@@ -22,8 +22,8 @@ Public Class ProductoLN
 		objproductosAD.RegistrarServicio(pro)
 	End Sub
 
-	Public Function CargarGrillaStock(parametros As Dictionary(Of String, String)) As DataSet
-		Return objproductosAD.CargarGrillaStock(parametros)
+	Public Function CargarGrillaStock(parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc As String) As DataSet
+		Return objproductosAD.CargarGrillaStock(parametros, orderby, ascOrDesc)
 	End Function
 
 	Public Function CargarTodosMovimientos(productoId As Integer) As DataSet
