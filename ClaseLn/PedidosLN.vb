@@ -30,7 +30,11 @@ Public Class PedidosLN
 		Return pedidosDA.ObtenerDatosCliente(idventa)
 	End Function
 
-	Public Function ObtenerDatosProducto(ByVal idventa As String) As DataSet
-		Return pedidosDA.ObtenerDatosProducto(idventa)
-	End Function
+    Public Function ObtenerDatosProducto(ByVal idventa As String) As DataSet
+        Return pedidosDA.ObtenerDatosProducto(idventa)
+    End Function
+
+    Public Function cargarcombo() As DataSet
+        Return pedidosDA.Cargarcombopedido()
+    End Function
 End Class

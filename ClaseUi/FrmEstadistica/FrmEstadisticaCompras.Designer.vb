@@ -75,6 +75,7 @@ Partial Class FrmEstadisticaCompras
         Me.Chart3.BorderlineColor = System.Drawing.Color.Black
         Me.Chart3.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart3.BorderlineWidth = 2
+        ChartArea1.Area3DStyle.Enable3D = True
         ChartArea1.AxisX.Title = "Tipo Produto"
         ChartArea1.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         ChartArea1.AxisY.Title = "Monto de Compra $"
@@ -288,6 +289,7 @@ Partial Class FrmEstadisticaCompras
         Me.Chart1.BorderlineColor = System.Drawing.Color.Black
         Me.Chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart1.BorderlineWidth = 2
+        ChartArea2.Area3DStyle.Enable3D = True
         ChartArea2.AxisX.Title = "Mes"
         ChartArea2.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         ChartArea2.AxisY.Title = "Monto Mensual $"
@@ -326,6 +328,7 @@ Partial Class FrmEstadisticaCompras
         Me.Chart2.BorderlineColor = System.Drawing.Color.Black
         Me.Chart2.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart2.BorderlineWidth = 2
+        ChartArea3.Area3DStyle.Enable3D = True
         ChartArea3.AxisX.Title = "Proveedor"
         ChartArea3.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         ChartArea3.AxisY.Title = "Monto Mensual $"
@@ -364,6 +367,7 @@ Partial Class FrmEstadisticaCompras
         Me.Chart4.BorderlineColor = System.Drawing.Color.Black
         Me.Chart4.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart4.BorderlineWidth = 2
+        ChartArea4.Area3DStyle.Enable3D = True
         ChartArea4.AxisX.Title = "Usuarios"
         ChartArea4.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         ChartArea4.AxisY.Title = "Monto Mensual $"
@@ -402,6 +406,7 @@ Partial Class FrmEstadisticaCompras
         Me.Chart5.BorderlineColor = System.Drawing.Color.Black
         Me.Chart5.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart5.BorderlineWidth = 2
+        ChartArea5.Area3DStyle.Enable3D = True
         ChartArea5.AxisX.Title = "Material"
         ChartArea5.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         ChartArea5.AxisY.Title = "Monto Mensual $"

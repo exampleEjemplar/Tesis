@@ -8,9 +8,9 @@ Public Class MovimientoEstadoPedidoLN
 		MovimientoEstadoPedidoDA = New MovimientoEstadoPedidoDA
 	End Sub
 
-	Public Function CargarMovimientosEstado() As DataSet
-		Return MovimientoEstadoPedidoDA.CargarMovimientosEstado()
-	End Function
+    Public Function CargarMovimientosEstado(ByVal idpedido As Integer) As DataSet
+        Return MovimientoEstadoPedidoDA.CargarMovimientosEstado(idpedido)
+    End Function
 
 End Class
 
