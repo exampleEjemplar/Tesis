@@ -34,15 +34,16 @@ Partial Class MDIPrincipal
 		Me.btnCompras = New System.Windows.Forms.Button()
 		Me.btnVentas = New System.Windows.Forms.Button()
 		Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-		Me.Button6 = New System.Windows.Forms.Button()
 		Me.Button5 = New System.Windows.Forms.Button()
 		Me.btnReparaciones = New System.Windows.Forms.Button()
 		Me.btnServicios = New System.Windows.Forms.Button()
+		Me.Button6 = New System.Windows.Forms.Button()
 		Me.Button3 = New System.Windows.Forms.Button()
 		Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
 		Me.lblCrizol = New System.Windows.Forms.Label()
 		Me.lblUsuario = New System.Windows.Forms.Label()
 		Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+		Me.Button7 = New System.Windows.Forms.Button()
 		Me.FlowLayoutPanel1.SuspendLayout()
 		Me.TableLayoutPanel1.SuspendLayout()
 		Me.SuspendLayout()
@@ -56,7 +57,7 @@ Partial Class MDIPrincipal
 		Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
 		Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.Button4.Location = New System.Drawing.Point(4, 361)
+		Me.Button4.Location = New System.Drawing.Point(4, 412)
 		Me.Button4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 2)
 		Me.Button4.Name = "Button4"
 		Me.Button4.Size = New System.Drawing.Size(165, 49)
@@ -184,6 +185,7 @@ Partial Class MDIPrincipal
 		Me.FlowLayoutPanel1.Controls.Add(Me.btnArticulos)
 		Me.FlowLayoutPanel1.Controls.Add(Me.btnPedidos)
 		Me.FlowLayoutPanel1.Controls.Add(Me.Button5)
+		Me.FlowLayoutPanel1.Controls.Add(Me.Button7)
 		Me.FlowLayoutPanel1.Controls.Add(Me.Button4)
 		Me.FlowLayoutPanel1.Controls.Add(Me.btnReparaciones)
 		Me.FlowLayoutPanel1.Controls.Add(Me.btnServicios)
@@ -191,29 +193,11 @@ Partial Class MDIPrincipal
 		Me.FlowLayoutPanel1.Controls.Add(Me.Button3)
 		Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left
 		Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 101)
-		Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 82)
+		Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
 		Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(169, 649)
+		Me.FlowLayoutPanel1.Size = New System.Drawing.Size(169, 668)
 		Me.FlowLayoutPanel1.TabIndex = 32
-		'
-		'Button6
-		'
-		Me.Button6.BackColor = System.Drawing.Color.LightSteelBlue
-		Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button6.FlatAppearance.BorderSize = 0
-		Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
-		Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.Button6.Location = New System.Drawing.Point(4, 514)
-		Me.Button6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 2)
-		Me.Button6.Name = "Button6"
-		Me.Button6.Size = New System.Drawing.Size(165, 49)
-		Me.Button6.TabIndex = 35
-		Me.Button6.Text = "Usuarios"
-		Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		Me.Button6.UseVisualStyleBackColor = False
 		'
 		'Button5
 		'
@@ -242,7 +226,7 @@ Partial Class MDIPrincipal
 		Me.btnReparaciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnReparaciones.Image = CType(resources.GetObject("btnReparaciones.Image"), System.Drawing.Image)
 		Me.btnReparaciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.btnReparaciones.Location = New System.Drawing.Point(4, 412)
+		Me.btnReparaciones.Location = New System.Drawing.Point(4, 463)
 		Me.btnReparaciones.Margin = New System.Windows.Forms.Padding(4, 0, 4, 2)
 		Me.btnReparaciones.Name = "btnReparaciones"
 		Me.btnReparaciones.Size = New System.Drawing.Size(165, 49)
@@ -260,7 +244,7 @@ Partial Class MDIPrincipal
 		Me.btnServicios.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnServicios.Image = CType(resources.GetObject("btnServicios.Image"), System.Drawing.Image)
 		Me.btnServicios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.btnServicios.Location = New System.Drawing.Point(4, 463)
+		Me.btnServicios.Location = New System.Drawing.Point(4, 514)
 		Me.btnServicios.Margin = New System.Windows.Forms.Padding(4, 0, 4, 2)
 		Me.btnServicios.Name = "btnServicios"
 		Me.btnServicios.Size = New System.Drawing.Size(165, 49)
@@ -268,6 +252,24 @@ Partial Class MDIPrincipal
 		Me.btnServicios.Text = "Pagos"
 		Me.btnServicios.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		Me.btnServicios.UseVisualStyleBackColor = False
+		'
+		'Button6
+		'
+		Me.Button6.BackColor = System.Drawing.Color.LightSteelBlue
+		Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button6.FlatAppearance.BorderSize = 0
+		Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
+		Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.Button6.Location = New System.Drawing.Point(4, 565)
+		Me.Button6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 2)
+		Me.Button6.Name = "Button6"
+		Me.Button6.Size = New System.Drawing.Size(165, 49)
+		Me.Button6.TabIndex = 35
+		Me.Button6.Text = "Usuarios"
+		Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.Button6.UseVisualStyleBackColor = False
 		'
 		'Button3
 		'
@@ -278,7 +280,7 @@ Partial Class MDIPrincipal
 		Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
 		Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.Button3.Location = New System.Drawing.Point(4, 565)
+		Me.Button3.Location = New System.Drawing.Point(4, 616)
 		Me.Button3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 2)
 		Me.Button3.Name = "Button3"
 		Me.Button3.Size = New System.Drawing.Size(165, 49)
@@ -298,11 +300,11 @@ Partial Class MDIPrincipal
 		Me.TableLayoutPanel1.Controls.Add(Me.lblUsuario, 2, 0)
 		Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
 		Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-		Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
 		Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
 		Me.TableLayoutPanel1.RowCount = 1
 		Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-		Me.TableLayoutPanel1.Size = New System.Drawing.Size(1371, 101)
+		Me.TableLayoutPanel1.Size = New System.Drawing.Size(1371, 82)
 		Me.TableLayoutPanel1.TabIndex = 34
 		'
 		'lblCrizol
@@ -313,7 +315,7 @@ Partial Class MDIPrincipal
 		Me.lblCrizol.Location = New System.Drawing.Point(4, 0)
 		Me.lblCrizol.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblCrizol.Name = "lblCrizol"
-		Me.lblCrizol.Size = New System.Drawing.Size(165, 101)
+		Me.lblCrizol.Size = New System.Drawing.Size(165, 82)
 		Me.lblCrizol.TabIndex = 0
 		Me.lblCrizol.Text = "Crizol"
 		Me.lblCrizol.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -326,7 +328,7 @@ Partial Class MDIPrincipal
 		Me.lblUsuario.Location = New System.Drawing.Point(1179, 0)
 		Me.lblUsuario.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblUsuario.Name = "lblUsuario"
-		Me.lblUsuario.Size = New System.Drawing.Size(188, 101)
+		Me.lblUsuario.Size = New System.Drawing.Size(188, 82)
 		Me.lblUsuario.TabIndex = 1
 		Me.lblUsuario.Text = "Usuario"
 		Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -336,6 +338,24 @@ Partial Class MDIPrincipal
 		Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
 		Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
 		Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
+		'
+		'Button7
+		'
+		Me.Button7.BackColor = System.Drawing.Color.LightSteelBlue
+		Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button7.FlatAppearance.BorderSize = 0
+		Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
+		Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.Button7.Location = New System.Drawing.Point(4, 361)
+		Me.Button7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 2)
+		Me.Button7.Name = "Button7"
+		Me.Button7.Size = New System.Drawing.Size(165, 49)
+		Me.Button7.TabIndex = 36
+		Me.Button7.Text = "Stock"
+		Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.Button7.UseVisualStyleBackColor = False
 		'
 		'MDIPrincipal
 		'
@@ -349,7 +369,7 @@ Partial Class MDIPrincipal
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
 		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.IsMdiContainer = True
-		Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Margin = New System.Windows.Forms.Padding(4)
 		Me.MaximizeBox = False
 		Me.Name = "MDIPrincipal"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -379,4 +399,5 @@ Partial Class MDIPrincipal
     Friend WithEvents Button5 As Windows.Forms.Button
 	Friend WithEvents btnServicios As Windows.Forms.Button
     Friend WithEvents Button6 As Windows.Forms.Button
+	Friend WithEvents Button7 As Windows.Forms.Button
 End Class
