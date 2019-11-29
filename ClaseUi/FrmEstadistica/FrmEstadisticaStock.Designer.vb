@@ -80,6 +80,7 @@ Partial Class FrmEstadisticaStock
         '
         Me.Chart1.BorderlineColor = System.Drawing.Color.Black
         Me.Chart1.BorderlineWidth = 2
+        ChartArea1.Area3DStyle.Enable3D = True
         ChartArea1.AxisX.Title = "Producto"
         ChartArea1.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far
         ChartArea1.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -164,6 +165,7 @@ Partial Class FrmEstadisticaStock
         '
         Me.Chart2.BorderlineColor = System.Drawing.Color.Black
         Me.Chart2.BorderlineWidth = 2
+        ChartArea2.Area3DStyle.Enable3D = True
         ChartArea2.AxisX.Title = "Producto"
         ChartArea2.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far
         ChartArea2.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

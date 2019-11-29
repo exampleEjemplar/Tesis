@@ -55,6 +55,7 @@ Partial Class FrmEstadisticaProveedorServicio
         Me.Chart4.BorderlineColor = System.Drawing.Color.Black
         Me.Chart4.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart4.BorderlineWidth = 2
+        ChartArea1.Area3DStyle.Enable3D = True
         ChartArea1.AxisX.Title = "Nombre Proveedor"
         ChartArea1.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         ChartArea1.AxisY.Title = "Cantidad de Productos"
@@ -241,6 +242,9 @@ Partial Class FrmEstadisticaProveedorServicio
         '
         Me.Chart2.BorderlineColor = System.Drawing.Color.Black
         Me.Chart2.BorderlineWidth = 2
+        ChartArea2.Area3DStyle.Enable3D = True
+        ChartArea2.Area3DStyle.Inclination = 40
+        ChartArea2.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic
         ChartArea2.AxisX.Title = "Personería"
         ChartArea2.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far
         ChartArea2.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
