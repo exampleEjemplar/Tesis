@@ -54,6 +54,7 @@ Partial Class FrmGestionStock
 		Me.lblPrioridad1 = New System.Windows.Forms.Label()
 		Me.lblPrioridad2 = New System.Windows.Forms.Label()
 		Me.chbListaParaOrdenar = New System.Windows.Forms.CheckedListBox()
+		Me.Button4 = New System.Windows.Forms.Button()
 		Me.GroupBox2.SuspendLayout()
 		CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox7.SuspendLayout()
@@ -150,7 +151,7 @@ Partial Class FrmGestionStock
 		Me.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
 		Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(776, 46)
+		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(736, 53)
 		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
 		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(75, 76)
@@ -165,7 +166,7 @@ Partial Class FrmGestionStock
 		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnBuscar.FlatAppearance.BorderSize = 0
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Location = New System.Drawing.Point(776, 130)
+		Me.btnBuscar.Location = New System.Drawing.Point(736, 130)
 		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(75, 73)
@@ -255,10 +256,10 @@ Partial Class FrmGestionStock
 		Me.btnSalirr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnSalirr.FlatAppearance.BorderSize = 0
 		Me.btnSalirr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalirr.Location = New System.Drawing.Point(744, 421)
+		Me.btnSalirr.Location = New System.Drawing.Point(720, 522)
 		Me.btnSalirr.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalirr.Name = "btnSalirr"
-		Me.btnSalirr.Size = New System.Drawing.Size(107, 110)
+		Me.btnSalirr.Size = New System.Drawing.Size(107, 99)
 		Me.btnSalirr.TabIndex = 54
 		Me.btnSalirr.Text = "Salir"
 		Me.btnSalirr.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -285,7 +286,7 @@ Partial Class FrmGestionStock
 		Me.dgvGrilla.RowHeadersWidth = 56
 		Me.dgvGrilla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
 		Me.dgvGrilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.dgvGrilla.Size = New System.Drawing.Size(699, 311)
+		Me.dgvGrilla.Size = New System.Drawing.Size(699, 410)
 		Me.dgvGrilla.TabIndex = 56
 		'
 		'Button3
@@ -297,7 +298,7 @@ Partial Class FrmGestionStock
 		Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
 		Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.Button3.Location = New System.Drawing.Point(736, 315)
+		Me.Button3.Location = New System.Drawing.Point(720, 416)
 		Me.Button3.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button3.Name = "Button3"
 		Me.Button3.Size = New System.Drawing.Size(115, 98)
@@ -316,7 +317,7 @@ Partial Class FrmGestionStock
 		Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
 		Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.Button2.Location = New System.Drawing.Point(748, 209)
+		Me.Button2.Location = New System.Drawing.Point(724, 310)
 		Me.Button2.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button2.Name = "Button2"
 		Me.Button2.Size = New System.Drawing.Size(103, 98)
@@ -454,11 +455,31 @@ Partial Class FrmGestionStock
 		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(173, 99)
 		Me.chbListaParaOrdenar.TabIndex = 0
 		'
+		'Button4
+		'
+		Me.Button4.BackColor = System.Drawing.SystemColors.Control
+		Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button4.FlatAppearance.BorderSize = 0
+		Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Button4.Image = Global.ClaseUi.My.Resources.Resources.icons8_create_document_621
+		Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+		Me.Button4.Location = New System.Drawing.Point(724, 211)
+		Me.Button4.Margin = New System.Windows.Forms.Padding(4)
+		Me.Button4.Name = "Button4"
+		Me.Button4.Size = New System.Drawing.Size(103, 105)
+		Me.Button4.TabIndex = 74
+		Me.Button4.Text = "Pedido de reposición"
+		Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.Button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+		Me.Button4.UseVisualStyleBackColor = False
+		'
 		'FrmGestionStock
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(853, 540)
+		Me.ClientSize = New System.Drawing.Size(857, 634)
+		Me.Controls.Add(Me.Button4)
 		Me.Controls.Add(Me.GroupBox7)
 		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.Button3)
@@ -527,4 +548,5 @@ Partial Class FrmGestionStock
 	Friend WithEvents lblPrioridad1 As Windows.Forms.Label
 	Friend WithEvents lblPrioridad2 As Windows.Forms.Label
 	Friend WithEvents chbListaParaOrdenar As Windows.Forms.CheckedListBox
+	Friend WithEvents Button4 As Windows.Forms.Button
 End Class

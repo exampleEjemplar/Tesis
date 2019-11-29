@@ -117,14 +117,19 @@ Public Class MetodoProductoDA
 		helpersDa.ChequearConexion(db)
 		ds = New DataSet
 
-		Dim text = ""
+		Dim text = " where p.esparareparacion = 'N' and p.esServicio = 'N' "
 		If parametros.Count <> 0 Then
-			text += " where p.esparareparacion = 'N' and p.esServicio = 'N' and "
+			text += "and "
 			Dim count = parametros.Count
 			For Each item As KeyValuePair(Of String, String) In parametros
 				If item.Key = "ProveedorId" Then
 					count = count - 1
 					text = text & "p.proveedorid" & " = " & item.Value & " " & If(count <> 0, " and ", "")
+					Continue For
+				End If
+				If item.Key = "ProductoId" Then
+					count = count - 1
+					text = text & "p.id" & " = " & item.Value & " " & If(count <> 0, " and ", "")
 					Continue For
 				End If
 				If item.Key = "Nombre" Then
