@@ -238,6 +238,6 @@ Public Class FrmGestionStock
     End Sub
 
 	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-
+		FrmPedidoDeReposicion.ShowDialog()
 	End Sub
 End Class

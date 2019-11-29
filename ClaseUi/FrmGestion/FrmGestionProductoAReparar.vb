@@ -122,7 +122,7 @@ Public Class FrmGestionProductoAReparar
 			End If
 #End Region
 #Region "proveedor"
-			pro.proveedorId = 1
+			pro.proveedorId = 4
 #End Region
 #Region "Tipo producto"
 			If Not String.IsNullOrEmpty(CmbTipoprodcuto.SelectedValue) Then

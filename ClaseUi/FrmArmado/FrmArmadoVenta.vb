@@ -173,7 +173,21 @@ Public Class FrmArmadoVenta
 			Dim parametros As New Dictionary(Of String, String)
 			parametros.Add("ProductoId", item.Key)
 
-			If productoLN.CargarGrillaStock(parametros, New List(Of Tuple(Of Integer, String, Integer)), "asc").Tables(0).Rows(0).Item(2) < item.Value Then
+			Dim consultaStock = productoLN.CargarGrillaStock(parametros, New List(Of Tuple(Of Integer, String, Integer)), "asc").Tables(0)
+
+			If consultaStock.Rows.Count > 0 Then
+				If consultaStock.Rows(0).Item(2) < item.Value Or consultaStock.Rows(0).Item(2) - item.Value < 0 Then
+					MsgBox("El producto no cuenta con el stock suficiente para ser vendido", MsgBoxStyle.Critical, "Producto")
+					FrmComprobanteVenta.ListaVentas = New List(Of TipoDeVentasNE)
+					Return
+				End If
+				If consultaStock.Rows(0).Item(2) - item.Value < consultaStock.Rows(0).Item(4) Then
+					If MsgBox("Si vende esta cantidad de producto, contará con menos cantidad que el stock mínimo permitido, desea continuar?", MsgBoxStyle.YesNo, "Producto") = MsgBoxResult.No Then
+						FrmComprobanteVenta.ListaVentas = New List(Of TipoDeVentasNE)
+						Return
+					End If
+				End If
+			Else
 				MsgBox("El producto no cuenta con el stock suficiente para ser vendido", MsgBoxStyle.Critical, "Producto")
 				FrmComprobanteVenta.ListaVentas = New List(Of TipoDeVentasNE)
 				Return

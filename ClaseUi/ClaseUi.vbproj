@@ -143,6 +143,12 @@
     <Compile Include="FrmArmado\FrmArmadoVenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmArmado\FrmPedidoDeReposicion.Designer.vb">
+      <DependentUpon>FrmPedidoDeReposicion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmArmado\FrmPedidoDeReposicion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmConsultaCotizaciones.Designer.vb">
       <DependentUpon>FrmConsultaCotizaciones.vb</DependentUpon>
     </Compile>
@@ -159,6 +165,12 @@
       <DependentUpon>FrmConsultaMovimientoStock.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmConsultaMovimientoStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetallePedidoDeReposicion.Designer.vb">
+      <DependentUpon>FrmDetallePedidoDeReposicion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetallePedidoDeReposicion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEditarPedido.Designer.vb">
@@ -470,6 +482,9 @@
     <EmbeddedResource Include="FrmArmado\FrmArmadoVenta.resx">
       <DependentUpon>FrmArmadoVenta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmArmado\FrmPedidoDeReposicion.resx">
+      <DependentUpon>FrmPedidoDeReposicion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCatalogo.resx">
       <DependentUpon>FrmCatalogo.vb</DependentUpon>
     </EmbeddedResource>
@@ -481,6 +496,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaMovimientoStock.resx">
       <DependentUpon>FrmConsultaMovimientoStock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetallePedidoDeReposicion.resx">
+      <DependentUpon>FrmDetallePedidoDeReposicion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleProductoCatalogo.resx">
       <DependentUpon>FrmDetalleProductoCatalogo.Vb</DependentUpon>

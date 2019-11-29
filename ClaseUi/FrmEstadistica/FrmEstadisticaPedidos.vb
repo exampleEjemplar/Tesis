@@ -26,7 +26,7 @@ Public Class FrmEstadisticaPedidos
 					esteMovimiento.HorasActivo = (Date.Now - MovEstPedido.Fecha).TotalHours
 					Continue For
 				Else
-					Dim fechaDelSiguiente = agrupadosPorPedidoId(index).Where(Function(x) Not x.Id = MovEstPedido.Id).OrderBy(Function(x) x.Fecha).FirstOrDefault().Fecha
+					Dim fechaDelSiguiente = agrupadosPorPedidoId(index).Where(Function(x) Not x.Id = MovEstPedido.Id And x.Fecha > esteMovimiento.Fecha).OrderBy(Function(x) x.Fecha).FirstOrDefault().Fecha
 					esteMovimiento.HorasActivo = (fechaDelSiguiente - MovEstPedido.Fecha).TotalHours
 				End If
 			Next
