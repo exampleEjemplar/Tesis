@@ -137,6 +137,7 @@ Fecha DATETIME,
 ClienteId INT,
 Total FLOAT,
 UsuarioId Int,
+Estado Int,
 CONSTRAINT Venta_Cliente FOREIGN KEY (ClienteId) REFERENCES Clientes(ID)
 )
 GO
@@ -234,6 +235,7 @@ ProveedorId INT,
 Total FLOAT,
 UsuarioId Int,
 NroComprobante Varchar(MAX),
+Estado Int,
 CONSTRAINT Compra_Cliente FOREIGN KEY (ProveedorId) REFERENCES Proveedores(ID)
 )
 GO
@@ -23016,6 +23018,12 @@ VALUES
 GO
 set dateformat dmy insert into Clientes values (1,123456789,'Cliente','Test','13/07/2001', getdate(), 'Calle', '123','B','San Martin','1','1','2','16157' ,NULL,NULL,'351','153934180', 'S','1','cliente@cliente.com','F')
 GO
+set dateformat dmy insert into Proveedores values (1,27652422,'Proveedor','Plata','1985-04-03', '20191014 20:32:34.050', '9 de julio', '184',NULL,'Centro',NULL,NULL,NULL,'26120' ,'351','4235216','351','6285633', 'S','1','proveedorplata@gmail.com','F','N')
+GO
+set dateformat dmy insert into Proveedores values (4,30246426801,'Proveedor','Oro','1993-02-01', '20191014 20:52:37.630', 'Rivera indarte', '320',NULL,'Centro',NULL,NULL,NULL,'26120' ,'351','2614482',NULL,NULL, 'S','1','proveedororo@gmail.com','F','N')
+GO
+set dateformat dmy insert into Proveedores values (1,30448689,'Proveedor','Acero','1984-06-12', '20191014 21:01:49.753', 'Buenos aires', '300',NULL,'Centro',NULL,NULL,NULL,'26120' ,'351','4240466',NULL,NULL, 'S','1','proveedoracero@hotmail.com','F','N')
+GO
 set dateformat dmy insert into Proveedores values (1,987654321,'Proveedor','Reparaciones','13/07/2001', getdate(), 'Calle', '123','B','San Martin','1','1','2','16157' ,NULL,NULL,'351','153934180', 'S','1','prov@prov.com','F','S')
 GO
 
@@ -23096,14 +23104,14 @@ where Id = @id
 end
 GO
 
-USE [JoyeriaCrisolFinal]
+USE [JoyeriaCrisol]
 GO
 /** Object:  StoredProcedure [dbo].[SP_MostrarProductoconbusqueda]    Script Date: 23/11/2019 00:19:23 **/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-ALTER PROCEDURE [dbo].[SP_MostrarProductoconbusqueda]
+CREATE PROCEDURE [dbo].[SP_MostrarProductoconbusqueda]
 @codigo int,
 @Nombre varchar(max)
 
@@ -23213,6 +23221,8 @@ insert into productos  values(@Cod_Barra,
 @EsReparacion,
 @Problema)
 end
+Go
+
 USE [JoyeriaCrisol]
 GO
 /****** Object:  StoredProcedure [dbo].[SP_MostrarProductoconbusquedaCAT]    Script Date: 23/8/2019 17:09:26 ******/
@@ -23257,6 +23267,7 @@ inner join Materiales m On p.MaterialId=m.id
 inner join categorias ca on p.CategoriaID= ca.Id
 where p.nombre like '%'+@nombre+'%';
 
+Go
 
 USE [JoyeriaCrisol]
 GO
@@ -23289,7 +23300,7 @@ end
 
 GO
 
-USE [JoyeriaCrisolFinal]
+USE [JoyeriaCrisol]
 GO
 
 /****** Object:  Table [dbo].[CierreCajas]    Script Date: 23/11/2019 00:23:04 ******/
@@ -23319,7 +23330,7 @@ GO
 ALTER TABLE [dbo].[CierreCajas] CHECK CONSTRAINT [FK_CierreCajas_Usuarios]
 GO
 
-USE [JoyeriaCrisolFinal]
+USE [JoyeriaCrisol]
 GO
 /****** Object:  StoredProcedure [dbo].[[SP_CierredeCaja]]    Script Date: 24/11/2019 17:01:48 ******/
 SET ANSI_NULLS ON
@@ -23328,7 +23339,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[SP_CierredeCaja]
 (@idusuario as int
-
 )
 as
 begin
@@ -23340,15 +23350,16 @@ where c.UsuarioId=1 and estado=1
  select v.fecha, '', '',v. total from ventas v
 where UsuarioId=@idusuario and estado=1
 end
+Go
 
-USE [JoyeriaCrisolFinal]
+USE [JoyeriaCrisol]
 GO
 /****** Object:  StoredProcedure [dbo].[SP_MostrarStockProductos]    Script Date: 27/11/2019 17:31:55 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-ALTER PROCEDURE [dbo].[SP_MostrarStockProductos]
+CREATE PROCEDURE [dbo].[SP_MostrarStockProductos]
 
 
 AS
