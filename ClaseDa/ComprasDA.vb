@@ -164,7 +164,7 @@ Public Class ComprasDA
 
 	Public Function ObtenerUltimaCompra()
 		helpersDa.ChequearConexion(db)
-		Dim da As New SqlDataAdapter("Select Max(id) as [Id] from compras", db)
+		Dim da As New SqlDataAdapter("Select Top(1)id from compras", db)
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)

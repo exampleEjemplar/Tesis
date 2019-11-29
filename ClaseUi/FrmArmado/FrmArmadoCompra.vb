@@ -503,10 +503,15 @@ Public Class FrmArmadoCompra
 	'Trae el numero de comprobante segun el ID en BD
 	Private Function CargarDatosComprobante()
 		Dim nroComprobante = ""
-		If String.IsNullOrWhiteSpace(txtNroComprobante.Text) Then
-			nroComprobante = helpersUI.AgregarNumerosComprobante(comprasLn.ObtenerUltimaCompra.Tables(0).Rows(0).Item(0))
-		Else
-			nroComprobante = txtNroComprobante.Text
+        If String.IsNullOrWhiteSpace(txtNroComprobante.Text) Then
+            If comprasLn.ObtenerUltimaCompra.Tables(0).Rows.Count = 0 Then
+                nroComprobante = helpersUI.AgregarNumerosComprobante(1)
+            Else
+                nroComprobante = helpersUI.AgregarNumerosComprobante(comprasLn.ObtenerUltimaCompra.Tables(0).Rows(0).Item(0))
+            End If
+
+        Else
+            nroComprobante = txtNroComprobante.Text
 		End If
 		Return nroComprobante
 	End Function
