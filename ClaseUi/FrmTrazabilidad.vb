@@ -163,12 +163,16 @@ Public Class FrmTrazabilidad
 
         idpedido = ComboBox1.SelectedValue
         Chart5.Visible = True
+        ComboBox1.Enabled = False
+        btnBuscar.Enabled = False
+
         datosregistros()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Chart5.Series(0).Points.Clear()
         Chart5.Visible = False
-
+        ComboBox1.Enabled = True
+        btnBuscar.Enabled = True
     End Sub
 End Class
