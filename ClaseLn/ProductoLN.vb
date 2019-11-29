@@ -110,13 +110,9 @@ Public Class ProductoLN
 		Return objproductosAD.CargarUnProducto(id, nombre)
 	End Function
 
-    Public Sub ModificarPrecios(listOfProductos As IEnumerable(Of Tuple(Of Integer, Boolean, ProductosNE)), precio As String, tipo As String)
-        objproductosAD.ModificarPrecios(listOfProductos, precio, tipo)
-    End Sub
-
-    Public Function GeneraGrafico(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
-        Return objproductosAD.GeneraGrafico(fechadesde, fechahasta)
-    End Function
+	Public Sub ModificarPrecios(listOfProductos As IEnumerable(Of Tuple(Of Integer, Boolean, ProductosNE)), precio As String, tipo As String)
+		objproductosAD.ModificarPrecios(listOfProductos, precio, tipo)
+	End Sub
 
 
 End Class

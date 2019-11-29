@@ -22,26 +22,26 @@ Partial Class FrmEstadisticaVentas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title3 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title4 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title5 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea16 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend16 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series16 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title16 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea17 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend17 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series17 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title17 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea18 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend18 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series18 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title18 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea19 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend19 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series19 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title19 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea20 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend20 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series20 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title20 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -75,37 +75,37 @@ Partial Class FrmEstadisticaVentas
         Me.Chart3.BorderlineColor = System.Drawing.Color.Black
         Me.Chart3.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart3.BorderlineWidth = 2
-        ChartArea1.AxisX.Title = "Vendedor"
-        ChartArea1.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea1.AxisY.Title = "Cantidad"
-        ChartArea1.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart3.ChartAreas.Add(ChartArea1)
-        Legend1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Legend1.IsTextAutoFit = False
-        Legend1.Name = "Legend1"
-        Me.Chart3.Legends.Add(Legend1)
+        ChartArea16.AxisX.Title = "Vendedor"
+        ChartArea16.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea16.AxisY.Title = "Cantidad"
+        ChartArea16.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea16.Name = "ChartArea1"
+        Me.Chart3.ChartAreas.Add(ChartArea16)
+        Legend16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Legend16.IsTextAutoFit = False
+        Legend16.Name = "Legend1"
+        Me.Chart3.Legends.Add(Legend16)
         Me.Chart3.Location = New System.Drawing.Point(12, 237)
         Me.Chart3.Name = "Chart3"
         Me.Chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
-        Series1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
-        Series1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Series1.IsValueShownAsLabel = True
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series2"
-        Series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
-        Series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Me.Chart3.Series.Add(Series1)
+        Series16.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Series16.ChartArea = "ChartArea1"
+        Series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
+        Series16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series16.IsValueShownAsLabel = True
+        Series16.Legend = "Legend1"
+        Series16.Name = "Series2"
+        Series16.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
+        Series16.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Series16.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Me.Chart3.Series.Add(Series16)
         Me.Chart3.Size = New System.Drawing.Size(668, 372)
         Me.Chart3.TabIndex = 22
         Me.Chart3.Text = "Chart3"
-        Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title1.Name = "Title1"
-        Title1.Text = "Cantidad de Ventas por Vendedor"
-        Me.Chart3.Titles.Add(Title1)
+        Title16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title16.Name = "Title1"
+        Title16.Text = "Cantidad de Ventas por Vendedor"
+        Me.Chart3.Titles.Add(Title16)
         '
         'GroupBox1
         '
@@ -271,76 +271,76 @@ Partial Class FrmEstadisticaVentas
         Me.Chart1.BorderlineColor = System.Drawing.Color.Black
         Me.Chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart1.BorderlineWidth = 2
-        ChartArea2.AxisX.Title = "Mes"
-        ChartArea2.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea2.AxisY.Title = "Cantidad de ventas"
-        ChartArea2.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea2)
-        Legend2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Legend2.IsTextAutoFit = False
-        Legend2.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend2)
+        ChartArea17.AxisX.Title = "Mes"
+        ChartArea17.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea17.AxisY.Title = "Cantidad de ventas"
+        ChartArea17.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea17.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea17)
+        Legend17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Legend17.IsTextAutoFit = False
+        Legend17.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend17)
         Me.Chart1.Location = New System.Drawing.Point(12, 237)
         Me.Chart1.Name = "Chart1"
         Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
-        Series2.BorderColor = System.Drawing.Color.Black
-        Series2.ChartArea = "ChartArea1"
-        Series2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Series2.IsValueShownAsLabel = True
-        Series2.IsVisibleInLegend = False
-        Series2.Legend = "Legend1"
-        Series2.LegendText = "Ventas"
-        Series2.Name = "Series2"
-        Series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
-        Series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Me.Chart1.Series.Add(Series2)
+        Series17.BorderColor = System.Drawing.Color.Black
+        Series17.ChartArea = "ChartArea1"
+        Series17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series17.IsValueShownAsLabel = True
+        Series17.IsVisibleInLegend = False
+        Series17.Legend = "Legend1"
+        Series17.LegendText = "Ventas"
+        Series17.Name = "Series2"
+        Series17.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
+        Series17.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Series17.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Me.Chart1.Series.Add(Series17)
         Me.Chart1.Size = New System.Drawing.Size(668, 372)
         Me.Chart1.TabIndex = 23
         Me.Chart1.Text = "Chart1"
-        Title2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title2.Name = "Title1"
-        Title2.Text = "Cantidad de Ventas Realizadas por Mes"
-        Me.Chart1.Titles.Add(Title2)
+        Title17.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title17.Name = "Title1"
+        Title17.Text = "Cantidad de Ventas Realizadas por Mes"
+        Me.Chart1.Titles.Add(Title17)
         '
         'Chart2
         '
         Me.Chart2.BorderlineColor = System.Drawing.Color.Black
         Me.Chart2.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart2.BorderlineWidth = 2
-        ChartArea3.AxisX.Title = "Tipo de Productos"
-        ChartArea3.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea3.AxisY.Title = "Cantidad de Productos"
-        ChartArea3.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea3.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea3)
-        Legend3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Legend3.IsTextAutoFit = False
-        Legend3.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend3)
+        ChartArea18.AxisX.Title = "Tipo de Productos"
+        ChartArea18.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea18.AxisY.Title = "Cantidad de Productos"
+        ChartArea18.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea18.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea18)
+        Legend18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Legend18.IsTextAutoFit = False
+        Legend18.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend18)
         Me.Chart2.Location = New System.Drawing.Point(6, 294)
         Me.Chart2.Name = "Chart2"
         Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
-        Series3.BorderColor = System.Drawing.Color.Black
-        Series3.ChartArea = "ChartArea1"
-        Series3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Series3.IsValueShownAsLabel = True
-        Series3.IsVisibleInLegend = False
-        Series3.Legend = "Legend1"
-        Series3.LegendText = "Ventas"
-        Series3.Name = "Series2"
-        Series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
-        Series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Me.Chart2.Series.Add(Series3)
+        Series18.BorderColor = System.Drawing.Color.Black
+        Series18.ChartArea = "ChartArea1"
+        Series18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series18.IsValueShownAsLabel = True
+        Series18.IsVisibleInLegend = False
+        Series18.Legend = "Legend1"
+        Series18.LegendText = "Ventas"
+        Series18.Name = "Series2"
+        Series18.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
+        Series18.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Series18.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Me.Chart2.Series.Add(Series18)
         Me.Chart2.Size = New System.Drawing.Size(668, 372)
         Me.Chart2.TabIndex = 24
         Me.Chart2.Text = "Chart2"
-        Title3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title3.Name = "Title1"
-        Title3.Text = "Cantidad de ventas por tipo producto"
-        Me.Chart2.Titles.Add(Title3)
+        Title18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title18.Name = "Title1"
+        Title18.Text = "Cantidad de ventas por tipo producto"
+        Me.Chart2.Titles.Add(Title18)
         '
         'Button2
         '
@@ -364,80 +364,79 @@ Partial Class FrmEstadisticaVentas
         Me.Chart4.BorderlineColor = System.Drawing.Color.Black
         Me.Chart4.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart4.BorderlineWidth = 2
-        ChartArea4.AxisX.Title = "Mes"
-        ChartArea4.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea4.AxisY.Title = "Facturación Mensual"
-        ChartArea4.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea4.Name = "ChartArea1"
-        Me.Chart4.ChartAreas.Add(ChartArea4)
-        Legend4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Legend4.IsTextAutoFit = False
-        Legend4.Name = "Legend1"
-        Me.Chart4.Legends.Add(Legend4)
+        ChartArea19.AxisX.Title = "Mes"
+        ChartArea19.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea19.AxisY.Title = "Facturación Mensual"
+        ChartArea19.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea19.Name = "ChartArea1"
+        Me.Chart4.ChartAreas.Add(ChartArea19)
+        Legend19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Legend19.IsTextAutoFit = False
+        Legend19.Name = "Legend1"
+        Me.Chart4.Legends.Add(Legend19)
         Me.Chart4.Location = New System.Drawing.Point(12, 237)
         Me.Chart4.Name = "Chart4"
         Me.Chart4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
-        Series4.BorderWidth = 2
-        Series4.ChartArea = "ChartArea1"
-        Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series4.Color = System.Drawing.Color.Red
-        Series4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Series4.IsValueShownAsLabel = True
-        Series4.IsVisibleInLegend = False
-        Series4.Legend = "Legend1"
-        Series4.LegendText = "$"
-        Series4.Name = "Series2"
-        Series4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire
-        Series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Series4.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Me.Chart4.Series.Add(Series4)
+        Series19.BorderWidth = 2
+        Series19.ChartArea = "ChartArea1"
+        Series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series19.Color = System.Drawing.Color.Red
+        Series19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series19.IsValueShownAsLabel = True
+        Series19.IsVisibleInLegend = False
+        Series19.Legend = "Legend1"
+        Series19.LegendText = "$"
+        Series19.Name = "Series2"
+        Series19.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire
+        Series19.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Series19.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Me.Chart4.Series.Add(Series19)
         Me.Chart4.Size = New System.Drawing.Size(668, 372)
         Me.Chart4.TabIndex = 25
         Me.Chart4.Text = "Chart4"
-        Title4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title4.Name = "Title1"
-        Title4.Text = "Facturación Mensual"
-        Me.Chart4.Titles.Add(Title4)
+        Title19.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title19.Name = "Title1"
+        Title19.Text = "Facturación Mensual"
+        Me.Chart4.Titles.Add(Title19)
         '
         'Chart5
         '
         Me.Chart5.BorderlineColor = System.Drawing.Color.Black
         Me.Chart5.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart5.BorderlineWidth = 2
-        ChartArea5.AxisX.Title = "Tipo de producto"
-        ChartArea5.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far
-        ChartArea5.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea5.AxisY.Title = "Facturación Mensual"
-        ChartArea5.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea5.Name = "ChartArea1"
-        Me.Chart5.ChartAreas.Add(ChartArea5)
-        Legend5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Legend5.IsTextAutoFit = False
-        Legend5.Name = "Legend1"
-        Me.Chart5.Legends.Add(Legend5)
+        ChartArea20.AxisX.Title = "Tipo de producto"
+        ChartArea20.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far
+        ChartArea20.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea20.AxisY.Title = "Facturación Mensual"
+        ChartArea20.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea20.Name = "ChartArea1"
+        Me.Chart5.ChartAreas.Add(ChartArea20)
+        Legend20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Legend20.IsTextAutoFit = False
+        Legend20.Name = "Legend1"
+        Me.Chart5.Legends.Add(Legend20)
         Me.Chart5.Location = New System.Drawing.Point(12, 237)
         Me.Chart5.Name = "Chart5"
         Me.Chart5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
-        Series5.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Series5.ChartArea = "ChartArea1"
-        Series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar
-        Series5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Series5.IsValueShownAsLabel = True
-        Series5.IsVisibleInLegend = False
-        Series5.Legend = "Legend1"
-        Series5.LegendText = "$"
-        Series5.Name = "Series2"
-        Series5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
-        Series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Me.Chart5.Series.Add(Series5)
+        Series20.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Series20.ChartArea = "ChartArea1"
+        Series20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series20.IsValueShownAsLabel = True
+        Series20.IsVisibleInLegend = False
+        Series20.Legend = "Legend1"
+        Series20.LegendText = "$"
+        Series20.Name = "Series2"
+        Series20.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
+        Series20.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Series20.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Me.Chart5.Series.Add(Series20)
         Me.Chart5.Size = New System.Drawing.Size(668, 372)
         Me.Chart5.TabIndex = 26
         Me.Chart5.Text = "Chart5"
-        Title5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title5.Name = "Title1"
-        Title5.Text = "Facturación por tipo de producto"
-        Me.Chart5.Titles.Add(Title5)
+        Title20.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title20.Name = "Title1"
+        Title20.Text = "Facturación por tipo de producto"
+        Me.Chart5.Titles.Add(Title20)
         '
         'FrmEstadisticaVentas
         '
