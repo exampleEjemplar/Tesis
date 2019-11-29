@@ -25,11 +25,17 @@ Public Class FrmArmadoReparacion
 #Region "Eventos"
 
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Cargar()
-        modificado = False
-    End Sub
+		Cargar()
+		modificado = False
+	End Sub
+
+	Public Sub LlenarCboOrden()
+		cboOrden.DataSource = {"asc", "desc"}
+		cboOrden.SelectedItem = "desc"
+	End Sub
 
 	Private Sub Cargar()
+		LlenarCboOrden()
 		InicializarOrderBy()
 		txtDevolucion.Text = 7
 		lstProdDispo.Clear()
@@ -329,7 +335,7 @@ Public Class FrmArmadoReparacion
 
 	Public Sub LlenarLvi(ByVal parametros As Dictionary(Of String, String))
         parametros.Add("EsReparacion", "S")
-		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy)
+		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, cboOrden.SelectedItem)
 
 		If primerOrder Then
 			primerOrder = False

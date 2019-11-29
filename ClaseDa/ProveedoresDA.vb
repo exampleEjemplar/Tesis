@@ -37,7 +37,7 @@ Public Class ProveedoresDA
 		Return ds1
 	End Function
 
-	Public Function CargaGrillaProveedores(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer))) As DataSet
+	Public Function CargaGrillaProveedores(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc as string) As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
@@ -80,7 +80,7 @@ Public Class ProveedoresDA
 					orderText += ","
 				End If
 			Next
-			sqlStr += orderText
+			sqlStr += orderText + " " + ascOrDesc
 		End If
 
 		Try

@@ -22,8 +22,8 @@ Public Class ProductoLN
 		objproductosAD.RegistrarServicio(pro)
 	End Sub
 
-	Public Function CargarGrillaStock(parametros As Dictionary(Of String, String)) As DataSet
-		Return objproductosAD.CargarGrillaStock(parametros)
+	Public Function CargarGrillaStock(parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc As String) As DataSet
+		Return objproductosAD.CargarGrillaStock(parametros, orderby, ascOrDesc)
 	End Function
 
 	Public Function CargarTodosMovimientos(productoId As Integer) As DataSet
@@ -80,7 +80,7 @@ Public Class ProductoLN
 		objproductosAD.modificarproductos(pro)
 	End Sub
 
-	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, orderby As List(Of Tuple(Of Integer, String, Integer)), Optional esReparacion As String = "", Optional pagina As Integer = 0) As DataTable
+	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc as string, Optional esReparacion As String = "", Optional pagina As Integer = 0) As DataTable
 
 		Return objproductosAD.CargaGrillaproductossinbusqueda(codigo, nombre, orderby, esReparacion, pagina)
 	End Function
@@ -101,8 +101,8 @@ Public Class ProductoLN
 	End Function
 
 
-	Public Function CargaGrillaProductos(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer))) As DataSet
-		Return objproductosAD.CargaGrillaProductos(parametros, orderby)
+	Public Function CargaGrillaProductos(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc as string) As DataSet
+		Return objproductosAD.CargaGrillaProductos(parametros, orderby, ascOrDesc)
 	End Function
 
 

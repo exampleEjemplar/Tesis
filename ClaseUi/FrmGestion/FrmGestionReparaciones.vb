@@ -22,6 +22,7 @@ Public Class FrmGestionReparaciones
 
 #Region "Eventos"
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		LlenarCboOrden()
 		InicializarOrderBy()
 		LlenarCboClientes()
 		Busqueda("load")
@@ -30,6 +31,11 @@ Public Class FrmGestionReparaciones
 		lblFechaExacta.Visible = False
 		lblHasta.Visible = False
 		lbldesde.Visible = False
+	End Sub
+
+	Public Sub LlenarCboOrden()
+		cboOrden.DataSource = {"asc", "desc"}
+		cboOrden.SelectedItem = "desc"
 	End Sub
 
 	Private Sub Busqueda(Optional ByVal type As String = "")
@@ -180,7 +186,7 @@ Public Class FrmGestionReparaciones
 
 	Public Function LlenarDgv(ByVal parametros As Dictionary(Of String, String), Optional type As String = "") As DataSet
 		Dim dsa1 As DataSet
-		dsa1 = pedidosLN.CargarGrillaPedidos(parametros, OrderBy) 'Si parametros esta vacio, busca todos los pedidos en la bd
+		dsa1 = pedidosLN.CargarGrillaPedidos(parametros, OrderBy, cboOrden.SelectedItem) 'Si parametros esta vacio, busca todos los pedidos en la bd
 
 		If primerOrder Then
 			primerOrder = False

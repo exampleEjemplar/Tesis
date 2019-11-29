@@ -260,7 +260,7 @@ Public Class HelpersDA
 
 	End Function
 
-	Public Function CargarTodosProductos(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), Optional esServicio As String = "")
+	Public Function CargarTodosProductos(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc as string, Optional esServicio As String = "")
 
 		ChequearConexion(db)
 		Dim sqlStr As String
@@ -269,7 +269,7 @@ Public Class HelpersDA
 			innerJoin = "inner join DetallePedidos dp on dp.ProductoId = p.id inner join pedidos ped on dp.PedidoId = ped.Id "
 		End If
 		ds = New DataSet
-		sqlStr = "set dateformat dmy select p.Id,p.Nombre,p.Foto,cast((( P.precio * P.utilidad)/100+(P.precio)) as decimal(10,2)) as Precio,prov.Nombre as Proveedor, prov.id, p.FechaAlta as 'Fecha de Alta', p.CategoriaId, P.precio from Productos as p inner join proveedores as prov on prov.id = p.ProveedorId " + innerJoin
+		sqlStr = "set dateformat dmy select p.Id,p.Nombre,p.Foto,cast((( P.precio * P.utilidad)/100+(P.precio)) as decimal(10,2)) as 'Precio de Venta',prov.Nombre as Proveedor, prov.id, p.FechaAlta as 'Fecha de Alta', p.CategoriaId, P.precio as 'Precio de Costo' from Productos as p inner join proveedores as prov on prov.id = p.ProveedorId " + innerJoin
 
 		If parametros.Count <> 0 Then
 			Dim count = parametros.Count
@@ -335,7 +335,7 @@ Public Class HelpersDA
 					orderText += ","
 				End If
 			Next
-			sqlStr += orderText
+			sqlStr += orderText + " " + ascOrDesc
 		End If
 
 

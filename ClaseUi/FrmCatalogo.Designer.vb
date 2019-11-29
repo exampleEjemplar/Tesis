@@ -49,6 +49,8 @@ Partial Class FrmCatalogo
 		Me.lblPrioridad3 = New System.Windows.Forms.Label()
 		Me.lblPrioridad1 = New System.Windows.Forms.Label()
 		Me.lblPrioridad2 = New System.Windows.Forms.Label()
+		Me.Label15 = New System.Windows.Forms.Label()
+		Me.cboOrden = New System.Windows.Forms.ComboBox()
 		Me.GroupBox5.SuspendLayout()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox7.SuspendLayout()
@@ -266,6 +268,8 @@ Partial Class FrmCatalogo
 		'
 		'GroupBox7
 		'
+		Me.GroupBox7.Controls.Add(Me.Label15)
+		Me.GroupBox7.Controls.Add(Me.cboOrden)
 		Me.GroupBox7.Controls.Add(Me.chbListaParaOrdenar)
 		Me.GroupBox7.Controls.Add(Me.GroupBox8)
 		Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
@@ -281,7 +285,7 @@ Partial Class FrmCatalogo
 		Me.chbListaParaOrdenar.FormattingEnabled = True
 		Me.chbListaParaOrdenar.Location = New System.Drawing.Point(6, 21)
 		Me.chbListaParaOrdenar.Name = "chbListaParaOrdenar"
-		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(214, 137)
+		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(214, 118)
 		Me.chbListaParaOrdenar.TabIndex = 0
 		'
 		'GroupBox8
@@ -366,6 +370,30 @@ Partial Class FrmCatalogo
 		Me.lblPrioridad2.TabIndex = 21
 		Me.lblPrioridad2.Text = "Prioridad 2"
 		'
+		'Label15
+		'
+		Me.Label15.AutoSize = True
+		Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label15.Location = New System.Drawing.Point(9, 146)
+		Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label15.Name = "Label15"
+		Me.Label15.Size = New System.Drawing.Size(53, 17)
+		Me.Label15.TabIndex = 81
+		Me.Label15.Text = "Orden"
+		'
+		'cboOrden
+		'
+		Me.cboOrden.AccessibleDescription = ""
+		Me.cboOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cboOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.cboOrden.FormattingEnabled = True
+		Me.cboOrden.Items.AddRange(New Object() {"Física", "Jurídica"})
+		Me.cboOrden.Location = New System.Drawing.Point(70, 143)
+		Me.cboOrden.Margin = New System.Windows.Forms.Padding(4)
+		Me.cboOrden.Name = "cboOrden"
+		Me.cboOrden.Size = New System.Drawing.Size(65, 25)
+		Me.cboOrden.TabIndex = 82
+		'
 		'FrmCatalogo
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -389,6 +417,7 @@ Partial Class FrmCatalogo
 		Me.GroupBox5.PerformLayout()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox7.ResumeLayout(False)
+		Me.GroupBox7.PerformLayout()
 		Me.GroupBox8.ResumeLayout(False)
 		Me.GroupBox8.PerformLayout()
 		Me.ResumeLayout(False)
@@ -420,4 +449,6 @@ Partial Class FrmCatalogo
 	Friend WithEvents lblPrioridad3 As Windows.Forms.Label
 	Friend WithEvents lblPrioridad1 As Windows.Forms.Label
 	Friend WithEvents lblPrioridad2 As Windows.Forms.Label
+	Friend WithEvents Label15 As Windows.Forms.Label
+	Friend WithEvents cboOrden As Windows.Forms.ComboBox
 End Class

@@ -23,8 +23,8 @@ Partial Class FrmGestionReparaciones
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionReparaciones))
-		Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-		Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.Button1 = New System.Windows.Forms.Button()
 		Me.Button2 = New System.Windows.Forms.Button()
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
@@ -52,6 +52,8 @@ Partial Class FrmGestionReparaciones
 		Me.lblPrioridad2 = New System.Windows.Forms.Label()
 		Me.GroupBox7 = New System.Windows.Forms.GroupBox()
 		Me.chbListaParaOrdenar = New System.Windows.Forms.CheckedListBox()
+		Me.Label15 = New System.Windows.Forms.Label()
+		Me.cboOrden = New System.Windows.Forms.ComboBox()
 		Me.GroupBox5.SuspendLayout()
 		CType(Me.dgvProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.Panel1.SuspendLayout()
@@ -245,22 +247,22 @@ Partial Class FrmGestionReparaciones
 		Me.dgvProveedores.AllowUserToResizeRows = False
 		Me.dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
 		Me.dgvProveedores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-		DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-		DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-		DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-		DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-		DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-		DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-		Me.dgvProveedores.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
-		DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-		DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-		DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
-		DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-		DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-		DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-		Me.dgvProveedores.DefaultCellStyle = DataGridViewCellStyle4
+		DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+		DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+		DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+		DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.dgvProveedores.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+		DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+		DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+		DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+		DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+		Me.dgvProveedores.DefaultCellStyle = DataGridViewCellStyle2
 		Me.dgvProveedores.Dock = System.Windows.Forms.DockStyle.Left
 		Me.dgvProveedores.EnableHeadersVisualStyles = False
 		Me.dgvProveedores.Location = New System.Drawing.Point(0, 0)
@@ -419,6 +421,8 @@ Partial Class FrmGestionReparaciones
 		'
 		'GroupBox7
 		'
+		Me.GroupBox7.Controls.Add(Me.Label15)
+		Me.GroupBox7.Controls.Add(Me.cboOrden)
 		Me.GroupBox7.Controls.Add(Me.chbListaParaOrdenar)
 		Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
 		Me.GroupBox7.Location = New System.Drawing.Point(511, 39)
@@ -433,8 +437,32 @@ Partial Class FrmGestionReparaciones
 		Me.chbListaParaOrdenar.FormattingEnabled = True
 		Me.chbListaParaOrdenar.Location = New System.Drawing.Point(6, 21)
 		Me.chbListaParaOrdenar.Name = "chbListaParaOrdenar"
-		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(151, 118)
+		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(151, 99)
 		Me.chbListaParaOrdenar.TabIndex = 0
+		'
+		'Label15
+		'
+		Me.Label15.AutoSize = True
+		Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label15.Location = New System.Drawing.Point(7, 124)
+		Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label15.Name = "Label15"
+		Me.Label15.Size = New System.Drawing.Size(53, 17)
+		Me.Label15.TabIndex = 79
+		Me.Label15.Text = "Orden"
+		'
+		'cboOrden
+		'
+		Me.cboOrden.AccessibleDescription = ""
+		Me.cboOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cboOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.cboOrden.FormattingEnabled = True
+		Me.cboOrden.Items.AddRange(New Object() {"Física", "Jurídica"})
+		Me.cboOrden.Location = New System.Drawing.Point(68, 121)
+		Me.cboOrden.Margin = New System.Windows.Forms.Padding(4)
+		Me.cboOrden.Name = "cboOrden"
+		Me.cboOrden.Size = New System.Drawing.Size(65, 25)
+		Me.cboOrden.TabIndex = 80
 		'
 		'FrmGestionReparaciones
 		'
@@ -461,6 +489,7 @@ Partial Class FrmGestionReparaciones
 		Me.GroupBox8.ResumeLayout(False)
 		Me.GroupBox8.PerformLayout()
 		Me.GroupBox7.ResumeLayout(False)
+		Me.GroupBox7.PerformLayout()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -493,4 +522,6 @@ Partial Class FrmGestionReparaciones
 	Friend WithEvents lblPrioridad2 As Windows.Forms.Label
 	Friend WithEvents GroupBox7 As Windows.Forms.GroupBox
 	Friend WithEvents chbListaParaOrdenar As Windows.Forms.CheckedListBox
+	Friend WithEvents Label15 As Windows.Forms.Label
+	Friend WithEvents cboOrden As Windows.Forms.ComboBox
 End Class

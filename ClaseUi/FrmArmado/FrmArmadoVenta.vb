@@ -14,7 +14,7 @@ Public Class FrmArmadoVenta
 	Dim moveItem As Boolean
 	Private listita As List(Of ListViewItem)
 	Private selectedProducto As ListViewItem
-	Dim product As New ProductoLN
+	Public productoLN As New ProductoLN
 	Dim total As Double
 	Public modificado = False
 	Public primerOrder As Boolean = True
@@ -28,7 +28,13 @@ Public Class FrmArmadoVenta
 		modificado = False
 	End Sub
 
+	Public Sub LlenarCboOrden()
+		cboOrden.DataSource = {"asc", "desc"}
+		cboOrden.SelectedItem = "desc"
+	End Sub
+
 	Private Sub Cargar()
+		LlenarCboOrden()
 		InicializarOrderBy()
 		dtpFechaDesde.Value = Date.Now
 		dtpFechaHasta.Value = Date.Now
@@ -163,6 +169,16 @@ Public Class FrmArmadoVenta
 
 		Dim listaDeVentas = New List(Of TipoDeVentasNE)
 		For Each item As KeyValuePair(Of Integer, Integer) In DiccionarioDeStringYCantidad
+
+			Dim parametros As New Dictionary(Of String, String)
+			parametros.Add("ProductoId", item.Key)
+
+			If productoLN.CargarGrillaStock(parametros, New List(Of Tuple(Of Integer, String, Integer)), "asc").Tables(0).Rows(0).Item(2) < item.Value Then
+				MsgBox("El producto no cuenta con el stock suficiente para ser vendido", MsgBoxStyle.Critical, "Producto")
+				FrmComprobanteVenta.ListaVentas = New List(Of TipoDeVentasNE)
+				Return
+			End If
+
 			Dim product = ObtainProductInformation(item.Key)
 			Dim venta = New TipoDeVentasNE With {
 				 .Cantidad = item.Value,
@@ -172,6 +188,8 @@ Public Class FrmArmadoVenta
 			listaDeVentas.Add(venta)
 			FrmComprobanteVenta.ListaVentas.Add(venta)
 		Next
+
+
 
 		ventasLN.Registrar(listaDeVentas, cboCliente.SelectedValue)
 		MsgBox("Venta realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
@@ -309,7 +327,7 @@ Public Class FrmArmadoVenta
 
 	Public Sub LlenarLvi(ByVal parametros As Dictionary(Of String, String))
 		parametros.Add("EsReparacion", "N")
-		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy)
+		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, cboOrden.SelectedItem)
 		If primerOrder Then
 			primerOrder = False
 			For i = 0 To ds2.Tables(0).Columns.Count - 1
@@ -443,7 +461,7 @@ Public Class FrmArmadoVenta
 
 	Private Function ObtainProductInformation(ByVal id As Integer) As ProductosNE
 		Dim producto = New ProductosNE
-		Dim ds = product.CargarUnProducto(id, "")
+		Dim ds = productoLN.CargarUnProducto(id, "")
 		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
 			Dim precioCosto As Decimal = ds.Tables(0).Rows(i).Item(4)
 			Dim utilidad As Decimal = ds.Tables(0).Rows(i).Item(5)

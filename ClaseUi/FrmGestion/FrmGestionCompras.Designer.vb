@@ -53,6 +53,8 @@ Partial Class FrmGestionCompras
 		Me.Button1 = New System.Windows.Forms.Button()
 		Me.btnEliminar = New System.Windows.Forms.Button()
 		Me.Panel1 = New System.Windows.Forms.Panel()
+		Me.Label21 = New System.Windows.Forms.Label()
+		Me.cboOrden = New System.Windows.Forms.ComboBox()
 		Me.GroupBox5.SuspendLayout()
 		Me.GroupBox7.SuspendLayout()
 		Me.GroupBox8.SuspendLayout()
@@ -85,6 +87,8 @@ Partial Class FrmGestionCompras
 		'
 		'GroupBox7
 		'
+		Me.GroupBox7.Controls.Add(Me.Label21)
+		Me.GroupBox7.Controls.Add(Me.cboOrden)
 		Me.GroupBox7.Controls.Add(Me.GroupBox8)
 		Me.GroupBox7.Controls.Add(Me.chbListaParaOrdenar)
 		Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
@@ -182,7 +186,7 @@ Partial Class FrmGestionCompras
 		Me.chbListaParaOrdenar.FormattingEnabled = True
 		Me.chbListaParaOrdenar.Location = New System.Drawing.Point(6, 21)
 		Me.chbListaParaOrdenar.Name = "chbListaParaOrdenar"
-		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(151, 118)
+		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(151, 99)
 		Me.chbListaParaOrdenar.TabIndex = 0
 		'
 		'lbldesde
@@ -455,6 +459,30 @@ Partial Class FrmGestionCompras
 		Me.Panel1.Size = New System.Drawing.Size(723, 544)
 		Me.Panel1.TabIndex = 54
 		'
+		'Label21
+		'
+		Me.Label21.AutoSize = True
+		Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label21.Location = New System.Drawing.Point(7, 125)
+		Me.Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label21.Name = "Label21"
+		Me.Label21.Size = New System.Drawing.Size(53, 17)
+		Me.Label21.TabIndex = 85
+		Me.Label21.Text = "Orden"
+		'
+		'cboOrden
+		'
+		Me.cboOrden.AccessibleDescription = ""
+		Me.cboOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cboOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.cboOrden.FormattingEnabled = True
+		Me.cboOrden.Items.AddRange(New Object() {"Física", "Jurídica"})
+		Me.cboOrden.Location = New System.Drawing.Point(68, 122)
+		Me.cboOrden.Margin = New System.Windows.Forms.Padding(4)
+		Me.cboOrden.Name = "cboOrden"
+		Me.cboOrden.Size = New System.Drawing.Size(65, 25)
+		Me.cboOrden.TabIndex = 86
+		'
 		'FrmGestionCompras
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -474,6 +502,7 @@ Partial Class FrmGestionCompras
 		Me.GroupBox5.ResumeLayout(False)
 		Me.GroupBox5.PerformLayout()
 		Me.GroupBox7.ResumeLayout(False)
+		Me.GroupBox7.PerformLayout()
 		Me.GroupBox8.ResumeLayout(False)
 		Me.GroupBox8.PerformLayout()
 		CType(Me.dgvProveedores, System.ComponentModel.ISupportInitialize).EndInit()
@@ -511,4 +540,6 @@ Partial Class FrmGestionCompras
 	Friend WithEvents lblPrioridad1 As Windows.Forms.Label
 	Friend WithEvents lblPrioridad2 As Windows.Forms.Label
 	Friend WithEvents chbListaParaOrdenar As Windows.Forms.CheckedListBox
+	Friend WithEvents Label21 As Windows.Forms.Label
+	Friend WithEvents cboOrden As Windows.Forms.ComboBox
 End Class

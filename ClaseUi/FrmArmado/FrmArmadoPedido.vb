@@ -28,7 +28,13 @@ Public Class FrmArmadoPedido
 		modificado = False
 	End Sub
 
+	Public Sub LlenarCboOrden()
+		cboOrden.DataSource = {"asc", "desc"}
+		cboOrden.SelectedItem = "desc"
+	End Sub
+
 	Private Sub Cargar()
+		LlenarCboOrden()
 		InicializarOrderBy()
 		cboPorcentaje.SelectedItem = "50"
 		porcentajeSeña = Integer.Parse("50")
@@ -392,7 +398,7 @@ Public Class FrmArmadoPedido
 
 	Public Sub LlenarLvi(ByVal parametros As Dictionary(Of String, String))
 		parametros.Add("EsReparacion", "N")
-		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy)
+		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, cboOrden.SelectedItem)
 
 		If primerOrder Then
 			primerOrder = False

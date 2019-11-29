@@ -54,6 +54,8 @@ Partial Class FrmArmadoReparacion
 		Me.btnQuitarItem = New System.Windows.Forms.Button()
 		Me.btnAgregarProducto = New System.Windows.Forms.Button()
 		Me.gboFiltros = New System.Windows.Forms.GroupBox()
+		Me.Label15 = New System.Windows.Forms.Label()
+		Me.cboOrden = New System.Windows.Forms.ComboBox()
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
 		Me.GroupBox6 = New System.Windows.Forms.GroupBox()
 		Me.Label19 = New System.Windows.Forms.Label()
@@ -449,6 +451,8 @@ Partial Class FrmArmadoReparacion
 		'
 		'gboFiltros
 		'
+		Me.gboFiltros.Controls.Add(Me.Label15)
+		Me.gboFiltros.Controls.Add(Me.cboOrden)
 		Me.gboFiltros.Controls.Add(Me.GroupBox5)
 		Me.gboFiltros.Controls.Add(Me.chkSoloCliente)
 		Me.gboFiltros.Controls.Add(Me.btnLimpiarFiltros)
@@ -464,6 +468,30 @@ Partial Class FrmArmadoReparacion
 		Me.gboFiltros.TabIndex = 63
 		Me.gboFiltros.TabStop = False
 		Me.gboFiltros.Text = "Búsqueda"
+		'
+		'Label15
+		'
+		Me.Label15.AutoSize = True
+		Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label15.Location = New System.Drawing.Point(697, 126)
+		Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label15.Name = "Label15"
+		Me.Label15.Size = New System.Drawing.Size(53, 17)
+		Me.Label15.TabIndex = 26
+		Me.Label15.Text = "Orden"
+		'
+		'cboOrden
+		'
+		Me.cboOrden.AccessibleDescription = ""
+		Me.cboOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cboOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.cboOrden.FormattingEnabled = True
+		Me.cboOrden.Items.AddRange(New Object() {"Física", "Jurídica"})
+		Me.cboOrden.Location = New System.Drawing.Point(758, 123)
+		Me.cboOrden.Margin = New System.Windows.Forms.Padding(4)
+		Me.cboOrden.Name = "cboOrden"
+		Me.cboOrden.Size = New System.Drawing.Size(65, 25)
+		Me.cboOrden.TabIndex = 72
 		'
 		'GroupBox5
 		'
@@ -586,7 +614,7 @@ Partial Class FrmArmadoReparacion
 		Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnLimpiarFiltros.Image = CType(resources.GetObject("btnLimpiarFiltros.Image"), System.Drawing.Image)
 		Me.btnLimpiarFiltros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(700, 82)
+		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(700, 64)
 		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
 		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(123, 42)
@@ -603,7 +631,7 @@ Partial Class FrmArmadoReparacion
 		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
 		Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.btnBuscar.Location = New System.Drawing.Point(700, 28)
+		Me.btnBuscar.Location = New System.Drawing.Point(700, 10)
 		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(123, 42)
@@ -826,4 +854,6 @@ Partial Class FrmArmadoReparacion
 	Friend WithEvents lblPrioridad1 As Windows.Forms.Label
 	Friend WithEvents lblPrioridad2 As Windows.Forms.Label
 	Friend WithEvents chbListaParaOrdenar As Windows.Forms.CheckedListBox
+	Friend WithEvents Label15 As Windows.Forms.Label
+	Friend WithEvents cboOrden As Windows.Forms.ComboBox
 End Class

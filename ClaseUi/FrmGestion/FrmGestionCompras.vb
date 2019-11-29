@@ -12,6 +12,7 @@ Public Class FrmGestionCompras
 	Public OrderBy As New List(Of Tuple(Of Integer, String, Integer)) 'Index, nombrevista, nombre base, prioridad
 #Region "Eventos"
 	Private Sub FrmGestionCompras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		LlenarCboOrden()
 		InicializarOrderBy()
 		LlenarCboProveedores()
 		Busqueda("load")
@@ -167,9 +168,14 @@ Public Class FrmGestionCompras
 		MessageBox.Show(cboProveedor.SelectedValue)
 	End Function
 
+	Public Sub LlenarCboOrden()
+		cboOrden.DataSource = {"asc", "desc"}
+		cboOrden.SelectedItem = "desc"
+	End Sub
+
 	Public Function LlenarDgv(ByVal parametros As Dictionary(Of String, String), Optional type As String = "") As DataSet
 		Dim dsa1 As DataSet
-		dsa1 = comprasLN.CargarGrillaCompras(parametros, OrderBy) 'Si parametros esta vacio, busca todos las compras en la bd
+		dsa1 = comprasLN.CargarGrillaCompras(parametros, OrderBy, cboOrden.SelectedItem) 'Si parametros esta vacio, busca todos las compras en la bd
 		dgvProveedores.DataSource = dsa1.Tables(0)
 		If primerOrder Then
 			primerOrder = False

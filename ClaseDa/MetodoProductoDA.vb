@@ -113,18 +113,23 @@ Public Class MetodoProductoDA
 		Return ds
 	End Function
 
-	Public Function CargarGrillaStock(parametros As Dictionary(Of String, String)) As DataSet
+	Public Function CargarGrillaStock(parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc As String) As DataSet
 		helpersDa.ChequearConexion(db)
 		ds = New DataSet
 
-		Dim text = ""
+		Dim text = " where p.esparareparacion = 'N' and p.esServicio = 'N' "
 		If parametros.Count <> 0 Then
-			text += " where "
+			text += "and "
 			Dim count = parametros.Count
 			For Each item As KeyValuePair(Of String, String) In parametros
 				If item.Key = "ProveedorId" Then
 					count = count - 1
 					text = text & "p.proveedorid" & " = " & item.Value & " " & If(count <> 0, " and ", "")
+					Continue For
+				End If
+				If item.Key = "ProductoId" Then
+					count = count - 1
+					text = text & "p.id" & " = " & item.Value & " " & If(count <> 0, " and ", "")
 					Continue For
 				End If
 				If item.Key = "Nombre" Then
@@ -150,7 +155,20 @@ Public Class MetodoProductoDA
 			Next
 		End If
 
-		Dim sqlStr = "set dateformat dmy SELECT p.id, p.Nombre, SUM(m.cantidad) as 'Stock Actual', p.StockMax as 'Stock Maximo',p.StockMin as 'Stock Minimo' FROM Productos as p inner join MovimientosStock as m on m.ProductoId = p.Id  " + text + "  GROUP BY p.Nombre, p.Id, p.StockMax, p.StockMin"
+		Dim sqlStr = "set dateformat dmy SELECT p.id, p.Nombre, SUM(m.cantidad) as 'Stock Actual', p.StockMax as 'Stock Maximo',p.StockMin as 'Stock Minimo', pro.Nombre + ' ' + pro.apellido as 'Nombre Proveedor' FROM Productos as p inner join MovimientosStock as m on m.ProductoId = p.Id inner join proveedores pro on pro.id = p.proveedorid " + text + "  GROUP BY p.Nombre, p.Id, p.StockMax, p.StockMin, pro.Nombre,pro.Apellido "
+
+		Dim orderers = orderby.Where(Function(x) String.IsNullOrEmpty(x.Item2) = False)
+		If orderers.Count() > 0 Then
+			Dim orderText = " order by "
+			Dim orderedList = orderers.OrderBy(Function(x) x.Item3)
+			For i = 0 To orderedList.Count() - 1
+				orderText += orderedList(i).Item2
+				If Not i = orderedList.Count() - 1 Then
+					orderText += ","
+				End If
+			Next
+			sqlStr += orderText + " " + ascOrDesc
+		End If
 
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
@@ -386,7 +404,7 @@ Public Class MetodoProductoDA
 
 	End Function
 
-	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, orderby As List(Of Tuple(Of Integer, String, Integer)), Optional esReparacion As String = "", Optional pagina As Integer = 1000000) As DataTable
+	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc as string, Optional esReparacion As String = "", Optional pagina As Integer = 1000000) As DataTable
 		helpersDa.ChequearConexion(db)
 		Dim sqlstr = "SELECT p.id, p.Cod_Barra as 'Código de barras', p.nombre Nombre, ca.nombre, t.Nombre, m.Nombre,cast((( P.precio * P.utilidad)/100+(P.precio)) as decimal(10,2)) as 'Precio de Venta', p.TipoProductoID as 'Tipo de Producto', p.MaterialId Material, p.foto, p.precio Precio, p.utilidad Utilidad, p.peso Peso, p.tamaño Tamaño, p.color Color, p.ProveedorId Proveedor, p.StockMin as 'Stock Minimo', p.StockMax as 'Stock Maximo', p.TipoProductoID, p.UnidadDePeso, p.CategoriaID Categoria, p.StockODeTercero 'Stock o de Tercero', p.problema, p.fechaAlta as 'Fecha De Alta' FROM productos as p inner join TipoProductos t on p.TipoProductoID=t.id inner join Materiales m On p.MaterialId=m.id inner join categorias ca on p.CategoriaID= ca.Id where p.esservicio = 'N' "
 		sqlstr = If(String.IsNullOrWhiteSpace(esReparacion), sqlstr + " and esParaReparacion = 'N'", sqlstr + " and esParaReparacion = 'S'")
@@ -408,7 +426,7 @@ Public Class MetodoProductoDA
 		End If
 
 		If Not pagina = 1000000 Then
-			sqlstr = sqlstr + " ORDER BY id " + orderText + " OFFSET " + pagina.ToString() + " ROWS FETCH NEXT 20 ROWS ONLY "
+			sqlstr = sqlstr + " ORDER BY id " + orderText + " " + ascOrDesc + " OFFSET " + pagina.ToString() + " ROWS FETCH NEXT 20 ROWS ONLY "
 		End If
 
 		Try
@@ -471,7 +489,7 @@ Public Class MetodoProductoDA
 
 	End Function
 
-	Public Function CargaGrillaProductos(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer))) As DataSet
+	Public Function CargaGrillaProductos(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc as string) As DataSet
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds = New DataSet
@@ -511,7 +529,7 @@ Public Class MetodoProductoDA
 					orderText += ","
 				End If
 			Next
-			sqlStr += orderText
+			sqlStr += orderText + " " + ascOrDesc
 		End If
 
 		Try
