@@ -43,12 +43,7 @@ Public Class FrmConsultaMovimientoStock
 	End Sub
 
 	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-
-		With FrmGestionStock
-		End With
-		FrmGestionStock.ShowDialog()
 		Close()
-
 	End Sub
 End Class
 

@@ -43,7 +43,6 @@ Public Class FrmArmadoReparacion
 		lblTotal.Text = total.ToString("0.00")
 		LlenarCboClientes()
 		GroupBox1.Visible = False
-		gboFiltros.Enabled = False
 		lblInstrucciones.Visible = True
 		btnLimpiar.Enabled = False
 		lblClienteTelefono.Visible = True
@@ -390,9 +389,8 @@ Public Class FrmArmadoReparacion
             listita.Add(listaViewItem)
         Next
 
-        lstProdDispo.LargeImageList = ImageList
-        gboFiltros.Enabled = True
-    End Sub
+		lstProdDispo.LargeImageList = ImageList
+	End Sub
 
     Private Function ObtainProductInformation(ByVal id As Integer) As ProductosNE
         Dim producto = New ProductosNE

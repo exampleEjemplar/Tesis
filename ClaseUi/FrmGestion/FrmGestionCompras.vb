@@ -192,9 +192,12 @@ Public Class FrmGestionCompras
 			chbListaParaOrdenar.SetItemChecked(0, True)
 		End If
 		dgvProveedores.Columns("Id").Visible = False
-		dgvProveedores.Columns("estado").Visible = False
-		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-		dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvProveedores.Columns("estado").Visible = False
+        dgvProveedores.Columns("Fecha").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+        dgvProveedores.Columns("Nombre").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+        dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        dgvProveedores.Columns("Total").DefaultCellStyle.Format = "c2"
+        dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 		If dsa1.Tables(0).Rows.Count() = 0 And type = "" Then
 			MsgBox("La busqueda no arrojo resultados", MsgBoxStyle.OkOnly, "Compras")
 		End If

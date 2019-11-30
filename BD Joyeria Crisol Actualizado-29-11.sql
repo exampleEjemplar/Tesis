@@ -23054,15 +23054,13 @@ end
 GO
 
 USE [JoyeriaCrisol]
-GO
 
-/****** Object:  StoredProcedure [dbo].[SP_ListadodeventasPorfecha]    Script Date: 29/11/2019 18:09:16 ******/
+GO
+/** Object:  StoredProcedure [dbo].[SP_ListadodeventasPorfecha]    Script Date: 29/11/2019 22:48:57 **/
 SET ANSI_NULLS ON
 GO
-
 SET QUOTED_IDENTIFIER ON
 GO
-
 CREATE PROCEDURE [dbo].[SP_ListadodeventasPorfecha]
 (@fechadesde as datetime,
 @fechahasta as datetime
@@ -23071,13 +23069,13 @@ as
 begin
 
 SELECT
-c.fecha, p.Nombre +' '+ p.Apellido as Proveedor, c.total
+c.fecha, p.Nombre +' '+ p.Apellido as cliente, c.total
 from ventas c
 inner join clientes p on c.ClienteId=p.Id
 where FechaAlta BETWEEN @fechadesde and @fechahasta
 end
 
-GO
+go
 
 USE [JoyeriaCrisol]
 GO
