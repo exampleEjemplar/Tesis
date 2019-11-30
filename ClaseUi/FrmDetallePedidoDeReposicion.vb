@@ -79,7 +79,7 @@ Public Class FrmDetallePedidoDeReposicion
 
 	Private Sub btnsalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 		Dim grupoActualEnOtroFrm = FrmPedidoDeReposicion.agrupado.FirstOrDefault(Function(x) x.Key = dgvProductos.Rows(0).Cells(3).Value)
-		grupo
+		'grupo
 		Me.Close()
 	End Sub
 
