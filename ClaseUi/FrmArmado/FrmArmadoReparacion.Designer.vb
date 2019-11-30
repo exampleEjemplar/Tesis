@@ -326,9 +326,9 @@ Partial Class FrmArmadoReparacion
 		Me.Label1.Location = New System.Drawing.Point(16, 11)
 		Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label1.Name = "Label1"
-		Me.Label1.Size = New System.Drawing.Size(357, 25)
+		Me.Label1.Size = New System.Drawing.Size(327, 25)
 		Me.Label1.TabIndex = 61
-		Me.Label1.Text = "Generar comprobante de compra"
+		Me.Label1.Text = "Generar pedido de reparación"
 		'
 		'lblClienteDireccion
 		'

@@ -12,8 +12,8 @@ Public Class FrmDetallePedidoDeReposicion
 			producto.AComprar = CalcularSegunBase(producto.StockMinimo, producto.StockMaximo, producto.StockActual)
 		Next
 		dgvProductos.DataSource = listaDeProductos
-		'dgvProductos.Columns("id").Visible = False
-		'dgvProductos.Columns("ProveedorId").Visible = False
+		dgvProductos.Columns("id").Visible = False
+		dgvProductos.Columns("ProveedorId").Visible = False
 
 		dgvProductos.Columns("Nombre").HeaderText = "Producto"
 		dgvProductos.Columns("StockMinimo").HeaderText = "Stock Mínimo"
@@ -50,15 +50,19 @@ Public Class FrmDetallePedidoDeReposicion
 		lblMaximo.Text = selectedRow.Cells("StockMaximo").Value
 		lblStockMinimo.Text = selectedRow.Cells("StockMinimo").Value
 		txtForzado.Text = selectedRow.Cells("AComprar").Value
-		Index = selectedRow.Cells("id").RowIndex
+		index = selectedRow.Cells("id").RowIndex
 		GroupBox1.Visible = True
+		btnGuardarProveedor.Enabled = False
+		btnCancelarProveedor.Enabled = False
 	End Sub
 
 	Private Sub btncancelar_Click(sender As Object, e As EventArgs) Handles btncancelar.Click
 		GroupBox1.Visible = False
+		btnGuardarProveedor.Enabled = True
+		btnCancelarProveedor.Enabled = True
 	End Sub
 
-	Private Sub btnguardarmodificacion_Click(sender As Object, e As EventArgs) Handles btnguardarmodificacion.Click
+	Private Sub btnguardarmodificacion_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
 		If Not String.IsNullOrEmpty(txtForzado.Text) Then
 			Dim value As Integer
 			If Not Integer.TryParse(txtForzado.Text, value) Then
@@ -75,13 +79,24 @@ Public Class FrmDetallePedidoDeReposicion
 		End If
 		dgvProductos.Rows(index).Cells("AComprar").Value = txtForzado.Text
 		GroupBox1.Visible = False
+		btnGuardarProveedor.Enabled = True
+		btnCancelarProveedor.Enabled = True
+	End Sub
+	Private Sub btnCancelarProveedor_Click(sender As Object, e As EventArgs) Handles btnCancelarProveedor.Click
+		Close()
 	End Sub
 
-	Private Sub btnsalir_Click(sender As Object, e As EventArgs)
-		Dim grupoActualEnOtroFrm = FrmPedidoDeReposicion.agrupado.FirstOrDefault(Function(x) x.Key = dgvProductos.Rows(0).Cells(3).Value)
-		'grupo
-		Me.Close()
+	Private Sub btnGuardarProveedor_Click(sender As Object, e As EventArgs) Handles btnGuardarProveedor.Click
+		Dim agrupadoProveedorFrmPedido = FrmPedidoDeReposicion.agrupado.FirstOrDefault(Function(x) x.Key = agrupado.Key)
+		For i = 0 To agrupadoProveedorFrmPedido.Count - 1
+			Dim proveedorFrmPedido = agrupadoProveedorFrmPedido(i)
+			proveedorFrmPedido.AComprar = dgvProductos.Rows(i).Cells("AComprar").Value
+		Next
+		Close()
 	End Sub
+
+
+
 
 
 	Private Const CP_NOCLOSE_BUTTON As Integer = &H200

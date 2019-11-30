@@ -6,7 +6,9 @@ Imports ClaseNe
 Public Class FrmPedidoDeReposicion
 
 	Private helpersLN As New HelpersLN
+	Private Helpersui As New HelpersUI
 	Private productoLn As New ProductoLN
+	Private comprasLN As New ComprasLN
 	Public idVenta As Integer
 	Public filaSeleccionada As Integer
 	Public primerOrder As Boolean = True
@@ -98,6 +100,29 @@ Public Class FrmPedidoDeReposicion
 		Dim asdasd = ""
 	End Sub
 
+	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+		For i = 0 To agrupado.Count - 1
+			Dim PedidoId = agrupado(i).Key
+
+			Dim listaDeCompras = New List(Of TipoDeComprasNE)
+			For Each productosProveedor As ProductosConStock In agrupado(i)
+				Dim producto = productoLn.CargarUnProducto(productosProveedor.Id, "").Tables(0).Rows(0)
+				listaDeCompras.Add(New TipoDeComprasNE With {
+					.Cantidad = productosProveedor.AComprar,
+					.ProductoId = productosProveedor.Id,
+					.Precio = producto(4)
+				})
+			Next
+			Dim nroComprobante = ""
+			If comprasLN.ObtenerUltimaCompra.Tables(0).Rows.Count = 0 Then
+				nroComprobante = HelpersUI.AgregarNumerosComprobante(1)
+			Else
+				nroComprobante = HelpersUI.AgregarNumerosComprobante(comprasLN.ObtenerUltimaCompra.Tables(0).Rows(0).Item(0))
+			End If
+			comprasLN.Registrar(listaDeCompras, PedidoId, nroComprobante)
+		Next
+
+	End Sub
 End Class
 
 Public Class ProductosConStock

@@ -25,8 +25,8 @@ Public Class ComprasLN
 		Return ComprasDA.CargarGrillaCompras(parametros, orderby, ascOrDesc)
 	End Function
 
-	Public Sub Registrar(listaDeProductosId As List(Of TipoDeComprasNE), clienteId As Integer, nroComprobante As String)
-		ComprasDA.Registrar(listaDeProductosId, clienteId, nroComprobante)
+	Public Sub Registrar(listaDeProductosId As List(Of TipoDeComprasNE), proveedorId As Integer, nroComprobante As String)
+		ComprasDA.Registrar(listaDeProductosId, proveedorId, nroComprobante)
 	End Sub
 
 	Public Function ObtenerUltimaCompra()

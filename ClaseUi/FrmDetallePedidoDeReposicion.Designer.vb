@@ -37,11 +37,11 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.txtForzado = New System.Windows.Forms.TextBox()
 		Me.lblProducto = New System.Windows.Forms.Label()
 		Me.Label7 = New System.Windows.Forms.Label()
-		Me.btnguardarmodificacion = New System.Windows.Forms.Button()
+		Me.btnguardar = New System.Windows.Forms.Button()
 		Me.btncancelar = New System.Windows.Forms.Button()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.btnGuardarProveedor = New System.Windows.Forms.Button()
-		Me.Button1 = New System.Windows.Forms.Button()
+		Me.btnCancelarProveedor = New System.Windows.Forms.Button()
 		CType(Me.dgvProductos, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox1.SuspendLayout()
 		Me.SuspendLayout()
@@ -220,23 +220,23 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.Label7.TabIndex = 73
 		Me.Label7.Text = "Producto"
 		'
-		'btnguardarmodificacion
+		'btnguardar
 		'
-		Me.btnguardarmodificacion.BackColor = System.Drawing.SystemColors.Control
-		Me.btnguardarmodificacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnguardarmodificacion.FlatAppearance.BorderSize = 0
-		Me.btnguardarmodificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnguardarmodificacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnguardarmodificacion.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
-		Me.btnguardarmodificacion.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnguardarmodificacion.Location = New System.Drawing.Point(577, 95)
-		Me.btnguardarmodificacion.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnguardarmodificacion.Name = "btnguardarmodificacion"
-		Me.btnguardarmodificacion.Size = New System.Drawing.Size(92, 92)
-		Me.btnguardarmodificacion.TabIndex = 76
-		Me.btnguardarmodificacion.Text = "Guardar"
-		Me.btnguardarmodificacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnguardarmodificacion.UseVisualStyleBackColor = False
+		Me.btnguardar.BackColor = System.Drawing.SystemColors.Control
+		Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnguardar.FlatAppearance.BorderSize = 0
+		Me.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnguardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnguardar.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
+		Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+		Me.btnguardar.Location = New System.Drawing.Point(577, 95)
+		Me.btnguardar.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnguardar.Name = "btnguardar"
+		Me.btnguardar.Size = New System.Drawing.Size(92, 92)
+		Me.btnguardar.TabIndex = 76
+		Me.btnguardar.Text = "Guardar"
+		Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnguardar.UseVisualStyleBackColor = False
 		'
 		'btncancelar
 		'
@@ -258,7 +258,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		'
 		'GroupBox1
 		'
-		Me.GroupBox1.Controls.Add(Me.btnguardarmodificacion)
+		Me.GroupBox1.Controls.Add(Me.btnguardar)
 		Me.GroupBox1.Controls.Add(Me.lblProducto)
 		Me.GroupBox1.Controls.Add(Me.btncancelar)
 		Me.GroupBox1.Controls.Add(Me.Label7)
@@ -288,39 +288,39 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.btnGuardarProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnGuardarProveedor.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
 		Me.btnGuardarProveedor.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnGuardarProveedor.Location = New System.Drawing.Point(695, 29)
+		Me.btnGuardarProveedor.Location = New System.Drawing.Point(695, 15)
 		Me.btnGuardarProveedor.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnGuardarProveedor.Name = "btnGuardarProveedor"
-		Me.btnGuardarProveedor.Size = New System.Drawing.Size(92, 92)
+		Me.btnGuardarProveedor.Size = New System.Drawing.Size(92, 106)
 		Me.btnGuardarProveedor.TabIndex = 77
-		Me.btnGuardarProveedor.Text = "Guardar"
+		Me.btnGuardarProveedor.Text = "Guardar cambios"
 		Me.btnGuardarProveedor.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnGuardarProveedor.UseVisualStyleBackColor = False
 		'
-		'Button1
+		'btnCancelarProveedor
 		'
-		Me.Button1.BackColor = System.Drawing.SystemColors.Control
-		Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.Button1.FlatAppearance.BorderSize = 0
-		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Button1.Image = Global.ClaseUi.My.Resources.Resources.icons8_delete_62
-		Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.Button1.Location = New System.Drawing.Point(695, 141)
-		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-		Me.Button1.Name = "Button1"
-		Me.Button1.Size = New System.Drawing.Size(92, 99)
-		Me.Button1.TabIndex = 77
-		Me.Button1.Text = "Cancelar Cambios"
-		Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button1.UseVisualStyleBackColor = False
+		Me.btnCancelarProveedor.BackColor = System.Drawing.SystemColors.Control
+		Me.btnCancelarProveedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnCancelarProveedor.FlatAppearance.BorderSize = 0
+		Me.btnCancelarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnCancelarProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnCancelarProveedor.Image = Global.ClaseUi.My.Resources.Resources.icons8_delete_62
+		Me.btnCancelarProveedor.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+		Me.btnCancelarProveedor.Location = New System.Drawing.Point(695, 130)
+		Me.btnCancelarProveedor.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnCancelarProveedor.Name = "btnCancelarProveedor"
+		Me.btnCancelarProveedor.Size = New System.Drawing.Size(92, 110)
+		Me.btnCancelarProveedor.TabIndex = 77
+		Me.btnCancelarProveedor.Text = "Cancelar Cambios"
+		Me.btnCancelarProveedor.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnCancelarProveedor.UseVisualStyleBackColor = False
 		'
 		'FrmDetallePedidoDeReposicion
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(800, 505)
-		Me.Controls.Add(Me.Button1)
+		Me.Controls.Add(Me.btnCancelarProveedor)
 		Me.Controls.Add(Me.btnGuardarProveedor)
 		Me.Controls.Add(Me.lblBase)
 		Me.Controls.Add(Me.Label32)
@@ -351,9 +351,9 @@ Partial Class FrmDetallePedidoDeReposicion
 	Friend WithEvents txtForzado As Windows.Forms.TextBox
 	Friend WithEvents lblProducto As Windows.Forms.Label
 	Friend WithEvents Label7 As Windows.Forms.Label
-	Friend WithEvents btnguardarmodificacion As Windows.Forms.Button
+	Friend WithEvents btnguardar As Windows.Forms.Button
 	Friend WithEvents btncancelar As Windows.Forms.Button
 	Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
 	Friend WithEvents btnGuardarProveedor As Windows.Forms.Button
-	Friend WithEvents Button1 As Windows.Forms.Button
+	Friend WithEvents btnCancelarProveedor As Windows.Forms.Button
 End Class
