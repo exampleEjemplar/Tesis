@@ -106,22 +106,25 @@ Public Class FrmGestionVentas
 		dgvProveedores.DataSource = dsa1.Tables(0)
 		dgvProveedores.Columns("Id").Visible = False
 		dgvProveedores.Columns("estado").Visible = False
-		If primerOrder Then
-			primerOrder = False
-			For i = 0 To dsa1.Tables(0).Columns.Count - 1
-				If dsa1.Tables(0).Columns(i).ColumnName = "Id" Or dsa1.Tables(0).Columns(i).ColumnName = "estado" Then
-					Continue For
-				End If
-				If dsa1.Tables(0).Columns(i).ColumnName = "Fecha" Then
-					chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName, CheckState.Checked)
-					Continue For
-				End If
-				chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName)
-			Next
-			chbListaParaOrdenar.SetItemChecked(0, True)
-		End If
-		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-		dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        If primerOrder Then
+            primerOrder = False
+            For i = 0 To dsa1.Tables(0).Columns.Count - 1
+                If dsa1.Tables(0).Columns(i).ColumnName = "Id" Or dsa1.Tables(0).Columns(i).ColumnName = "estado" Then
+                    Continue For
+                End If
+                If dsa1.Tables(0).Columns(i).ColumnName = "Fecha" Then
+                    chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName, CheckState.Checked)
+                    Continue For
+                End If
+                chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName)
+            Next
+            chbListaParaOrdenar.SetItemChecked(0, True)
+        End If
+        dgvProveedores.Columns("Fecha").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+        dgvProveedores.Columns("Nombre").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+        dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        dgvProveedores.Columns("Total").DefaultCellStyle.Format = "c2"
+        dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 		If dsa1.Tables(0).Rows.Count() = 0 And type = "" Then
 			MsgBox("La busqueda no arrojo resultados", MsgBoxStyle.OkOnly, "Ventas")
 		End If
