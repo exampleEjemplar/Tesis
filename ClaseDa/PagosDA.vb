@@ -98,7 +98,7 @@ Public Class PagosDA
 				Dim insert2 As New SqlCommand("Declare @compraID int SELECT @compraID = MAX(Id) FROM pagos insert into DetallePagos VALUES(@compraID," & compraDetalle.ProductoId & "," & compraDetalle.Cantidad & "," & parcial & "," & parcial & ",NULL)", db)
 				insert2.ExecuteNonQuery()
 
-				movimientoStockDA.Registrar(compraDetalle.ProductoId, compraDetalle.Cantidad)
+				'movimientoStockDA.Registrar(compraDetalle.ProductoId, compraDetalle.Cantidad)
 			Next
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")

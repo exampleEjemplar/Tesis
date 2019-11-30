@@ -52,7 +52,7 @@ Partial Class FrmTrazabilidad
 		Legend1.Name = "Legend1"
 		Me.Chart5.Legends.Add(Legend1)
 		Me.Chart5.Location = New System.Drawing.Point(3, 4)
-		Me.Chart5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Chart5.Margin = New System.Windows.Forms.Padding(4)
 		Me.Chart5.Name = "Chart5"
 		Me.Chart5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
 		Series1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -64,7 +64,7 @@ Partial Class FrmTrazabilidad
 		Series1.Legend = "Legend1"
 		Series1.Name = "Series2"
 		Series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
-		Series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+		Series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Double]
 		Series1.YValuesPerPoint = 2
 		Series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
 		Me.Chart5.Series.Add(Series1)
@@ -85,7 +85,7 @@ Partial Class FrmTrazabilidad
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnSalir.Location = New System.Drawing.Point(947, 488)
-		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
 		Me.btnSalir.Size = New System.Drawing.Size(107, 110)
 		Me.btnSalir.TabIndex = 32
@@ -101,7 +101,7 @@ Partial Class FrmTrazabilidad
 		Me.ControlBox = False
 		Me.Controls.Add(Me.Chart5)
 		Me.Controls.Add(Me.btnSalir)
-		Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Margin = New System.Windows.Forms.Padding(4)
 		Me.MaximizeBox = False
 		Me.MinimizeBox = False
 		Me.Name = "FrmTrazabilidad"

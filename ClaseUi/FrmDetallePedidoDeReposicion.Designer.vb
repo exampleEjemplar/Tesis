@@ -22,7 +22,6 @@ Partial Class FrmDetallePedidoDeReposicion
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmDetallePedidoDeReposicion))
 		Me.dgvProductos = New System.Windows.Forms.DataGridView()
 		Me.Label32 = New System.Windows.Forms.Label()
 		Me.lblBase = New System.Windows.Forms.Label()
@@ -41,7 +40,8 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.btnguardarmodificacion = New System.Windows.Forms.Button()
 		Me.btncancelar = New System.Windows.Forms.Button()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-		Me.btnSalir = New System.Windows.Forms.Button()
+		Me.btnGuardarProveedor = New System.Windows.Forms.Button()
+		Me.Button1 = New System.Windows.Forms.Button()
 		CType(Me.dgvProductos, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox1.SuspendLayout()
 		Me.SuspendLayout()
@@ -163,7 +163,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		'
 		Me.lblAComprar.AutoSize = True
 		Me.lblAComprar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblAComprar.Location = New System.Drawing.Point(623, 18)
+		Me.lblAComprar.Location = New System.Drawing.Point(578, 19)
 		Me.lblAComprar.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblAComprar.Name = "lblAComprar"
 		Me.lblAComprar.Size = New System.Drawing.Size(91, 17)
@@ -174,7 +174,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		'
 		Me.Label5.AutoSize = True
 		Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label5.Location = New System.Drawing.Point(269, 18)
+		Me.Label5.Location = New System.Drawing.Point(236, 18)
 		Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label5.Name = "Label5"
 		Me.Label5.Size = New System.Drawing.Size(325, 17)
@@ -193,9 +193,9 @@ Partial Class FrmDetallePedidoDeReposicion
 		'
 		'txtForzado
 		'
-		Me.txtForzado.Location = New System.Drawing.Point(626, 56)
+		Me.txtForzado.Location = New System.Drawing.Point(577, 63)
 		Me.txtForzado.Name = "txtForzado"
-		Me.txtForzado.Size = New System.Drawing.Size(100, 22)
+		Me.txtForzado.Size = New System.Drawing.Size(69, 22)
 		Me.txtForzado.TabIndex = 72
 		'
 		'lblProducto
@@ -229,7 +229,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.btnguardarmodificacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnguardarmodificacion.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
 		Me.btnguardarmodificacion.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnguardarmodificacion.Location = New System.Drawing.Point(673, 95)
+		Me.btnguardarmodificacion.Location = New System.Drawing.Point(577, 95)
 		Me.btnguardarmodificacion.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnguardarmodificacion.Name = "btnguardarmodificacion"
 		Me.btnguardarmodificacion.Size = New System.Drawing.Size(92, 92)
@@ -247,7 +247,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.btncancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btncancelar.Image = Global.ClaseUi.My.Resources.Resources.icons8_delete_62
 		Me.btncancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btncancelar.Location = New System.Drawing.Point(573, 95)
+		Me.btncancelar.Location = New System.Drawing.Point(477, 95)
 		Me.btncancelar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btncancelar.Name = "btncancelar"
 		Me.btncancelar.Size = New System.Drawing.Size(92, 92)
@@ -272,37 +272,56 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.GroupBox1.Controls.Add(Me.lblProveedor)
 		Me.GroupBox1.Controls.Add(Me.lblMaximo)
 		Me.GroupBox1.Controls.Add(Me.Label4)
-		Me.GroupBox1.Controls.Add(Me.btnSalir)
 		Me.GroupBox1.Location = New System.Drawing.Point(12, 46)
 		Me.GroupBox1.Name = "GroupBox1"
-		Me.GroupBox1.Size = New System.Drawing.Size(775, 194)
+		Me.GroupBox1.Size = New System.Drawing.Size(676, 194)
 		Me.GroupBox1.TabIndex = 77
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "Producto"
 		'
-		'btnSalir
+		'btnGuardarProveedor
 		'
-		Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
-		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnSalir.FlatAppearance.BorderSize = 0
-		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
-		Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnSalir.Location = New System.Drawing.Point(673, 88)
-		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnSalir.Name = "btnSalir"
-		Me.btnSalir.Size = New System.Drawing.Size(92, 105)
-		Me.btnSalir.TabIndex = 78
-		Me.btnSalir.Text = "Salir"
-		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnSalir.UseVisualStyleBackColor = False
+		Me.btnGuardarProveedor.BackColor = System.Drawing.SystemColors.Control
+		Me.btnGuardarProveedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnGuardarProveedor.FlatAppearance.BorderSize = 0
+		Me.btnGuardarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnGuardarProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnGuardarProveedor.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
+		Me.btnGuardarProveedor.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+		Me.btnGuardarProveedor.Location = New System.Drawing.Point(695, 29)
+		Me.btnGuardarProveedor.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnGuardarProveedor.Name = "btnGuardarProveedor"
+		Me.btnGuardarProveedor.Size = New System.Drawing.Size(92, 92)
+		Me.btnGuardarProveedor.TabIndex = 77
+		Me.btnGuardarProveedor.Text = "Guardar"
+		Me.btnGuardarProveedor.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnGuardarProveedor.UseVisualStyleBackColor = False
+		'
+		'Button1
+		'
+		Me.Button1.BackColor = System.Drawing.SystemColors.Control
+		Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button1.FlatAppearance.BorderSize = 0
+		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Button1.Image = Global.ClaseUi.My.Resources.Resources.icons8_delete_62
+		Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+		Me.Button1.Location = New System.Drawing.Point(695, 141)
+		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+		Me.Button1.Name = "Button1"
+		Me.Button1.Size = New System.Drawing.Size(92, 99)
+		Me.Button1.TabIndex = 77
+		Me.Button1.Text = "Cancelar Cambios"
+		Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.Button1.UseVisualStyleBackColor = False
 		'
 		'FrmDetallePedidoDeReposicion
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(800, 505)
+		Me.Controls.Add(Me.Button1)
+		Me.Controls.Add(Me.btnGuardarProveedor)
 		Me.Controls.Add(Me.lblBase)
 		Me.Controls.Add(Me.Label32)
 		Me.Controls.Add(Me.dgvProductos)
@@ -335,5 +354,6 @@ Partial Class FrmDetallePedidoDeReposicion
 	Friend WithEvents btnguardarmodificacion As Windows.Forms.Button
 	Friend WithEvents btncancelar As Windows.Forms.Button
 	Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
-	Friend WithEvents btnSalir As Windows.Forms.Button
+	Friend WithEvents btnGuardarProveedor As Windows.Forms.Button
+	Friend WithEvents Button1 As Windows.Forms.Button
 End Class

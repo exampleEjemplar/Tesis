@@ -77,7 +77,7 @@ Public Class FrmDetallePedidoDeReposicion
 		GroupBox1.Visible = False
 	End Sub
 
-	Private Sub btnsalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+	Private Sub btnsalir_Click(sender As Object, e As EventArgs)
 		Dim grupoActualEnOtroFrm = FrmPedidoDeReposicion.agrupado.FirstOrDefault(Function(x) x.Key = dgvProductos.Rows(0).Cells(3).Value)
 		'grupo
 		Me.Close()

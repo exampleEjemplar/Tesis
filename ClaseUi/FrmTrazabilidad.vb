@@ -47,13 +47,23 @@ Public Class FrmTrazabilidad
 
 		Try
 			Chart5.Visible = True
+			Dim textTiempo = ""
+			If registros.Where(Function(X) Not X.Estado = "Entregado al cliente").Any(Function(x) x.HorasActivo < 1) Then
+				For Each registro As MovimientoEstadoPedidoEstadistica In registros
+					registro.HorasActivo = (Convert.ToDecimal(registro.HorasActivo) * 60).ToString()
+				Next
+				textTiempo = "Minutos"
+			Else
+				textTiempo = "Horas"
+			End If
+
 			Chart5.DataSource = registros.Where(Function(X) Not X.Estado = "Entregado al cliente")
 			Series1 = Chart5.Series("Series2")
 
 			Series1.Name = "Ventas"
 			Chart5.Series(Series1.Name).XValueMember = "estado"
 			Chart5.Series(Series1.Name).YValueMembers = "horasactivo"
-			Chart5.Series(Series1.Name).LabelFormat = " {0} Horas"
+			Chart5.Series(Series1.Name).LabelFormat = " {0} " + textTiempo
 			Chart5.Size = New System.Drawing.Size(668, 372)
 
 		Catch ex As Exception
@@ -118,13 +128,13 @@ Public Class FrmTrazabilidad
 			End Set
 		End Property
 
-		Private _HorasActivo As String
+		Private _HorasActivo As Double
 
-		Public Property HorasActivo As String
+		Public Property HorasActivo As Double
 			Get
 				Return _HorasActivo
 			End Get
-			Set(ByVal value As String)
+			Set(ByVal value As Double)
 				_HorasActivo = CStr(value)
 			End Set
 		End Property
