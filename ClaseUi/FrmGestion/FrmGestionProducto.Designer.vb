@@ -63,8 +63,6 @@ Partial Class FrmGestionProducto
 		Me.gboCaracteristicas = New System.Windows.Forms.GroupBox()
 		Me.Label23 = New System.Windows.Forms.Label()
 		Me.cmbUnidad = New System.Windows.Forms.ComboBox()
-		Me.Label31 = New System.Windows.Forms.Label()
-		Me.TbTamaño = New System.Windows.Forms.TextBox()
 		Me.Label24 = New System.Windows.Forms.Label()
 		Me.TbPeso = New System.Windows.Forms.TextBox()
 		Me.Label25 = New System.Windows.Forms.Label()
@@ -98,6 +96,8 @@ Partial Class FrmGestionProducto
 		Me.btnSiguiente = New System.Windows.Forms.Button()
 		Me.btnAnterior = New System.Windows.Forms.Button()
 		Me.lblPagina = New System.Windows.Forms.Label()
+		Me.Label3 = New System.Windows.Forms.Label()
+		Me.cboOrden = New System.Windows.Forms.ComboBox()
 		Me.gbbusqueda.SuspendLayout()
 		Me.GroupBox7.SuspendLayout()
 		Me.GroupBox8.SuspendLayout()
@@ -133,6 +133,8 @@ Partial Class FrmGestionProducto
 		'
 		'GroupBox7
 		'
+		Me.GroupBox7.Controls.Add(Me.Label3)
+		Me.GroupBox7.Controls.Add(Me.cboOrden)
 		Me.GroupBox7.Controls.Add(Me.chbListaParaOrdenar)
 		Me.GroupBox7.Controls.Add(Me.GroupBox8)
 		Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
@@ -148,7 +150,7 @@ Partial Class FrmGestionProducto
 		Me.chbListaParaOrdenar.FormattingEnabled = True
 		Me.chbListaParaOrdenar.Location = New System.Drawing.Point(6, 21)
 		Me.chbListaParaOrdenar.Name = "chbListaParaOrdenar"
-		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(232, 137)
+		Me.chbListaParaOrdenar.Size = New System.Drawing.Size(232, 99)
 		Me.chbListaParaOrdenar.TabIndex = 0
 		'
 		'GroupBox8
@@ -568,8 +570,6 @@ Partial Class FrmGestionProducto
 		'
 		Me.gboCaracteristicas.Controls.Add(Me.Label23)
 		Me.gboCaracteristicas.Controls.Add(Me.cmbUnidad)
-		Me.gboCaracteristicas.Controls.Add(Me.Label31)
-		Me.gboCaracteristicas.Controls.Add(Me.TbTamaño)
 		Me.gboCaracteristicas.Controls.Add(Me.Label24)
 		Me.gboCaracteristicas.Controls.Add(Me.TbPeso)
 		Me.gboCaracteristicas.Controls.Add(Me.Label25)
@@ -604,30 +604,11 @@ Partial Class FrmGestionProducto
 		Me.cmbUnidad.Size = New System.Drawing.Size(143, 25)
 		Me.cmbUnidad.TabIndex = 30
 		'
-		'Label31
-		'
-		Me.Label31.AutoSize = True
-		Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label31.Location = New System.Drawing.Point(8, 58)
-		Me.Label31.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label31.Name = "Label31"
-		Me.Label31.Size = New System.Drawing.Size(66, 17)
-		Me.Label31.TabIndex = 11
-		Me.Label31.Text = "Tamaño"
-		'
-		'TbTamaño
-		'
-		Me.TbTamaño.Location = New System.Drawing.Point(85, 54)
-		Me.TbTamaño.Margin = New System.Windows.Forms.Padding(4)
-		Me.TbTamaño.Name = "TbTamaño"
-		Me.TbTamaño.Size = New System.Drawing.Size(71, 23)
-		Me.TbTamaño.TabIndex = 6
-		'
 		'Label24
 		'
 		Me.Label24.AutoSize = True
 		Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label24.Location = New System.Drawing.Point(165, 58)
+		Me.Label24.Location = New System.Drawing.Point(8, 56)
 		Me.Label24.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label24.Name = "Label24"
 		Me.Label24.Size = New System.Drawing.Size(72, 17)
@@ -636,10 +617,10 @@ Partial Class FrmGestionProducto
 		'
 		'TbPeso
 		'
-		Me.TbPeso.Location = New System.Drawing.Point(249, 54)
+		Me.TbPeso.Location = New System.Drawing.Point(161, 54)
 		Me.TbPeso.Margin = New System.Windows.Forms.Padding(4)
 		Me.TbPeso.Name = "TbPeso"
-		Me.TbPeso.Size = New System.Drawing.Size(55, 23)
+		Me.TbPeso.Size = New System.Drawing.Size(143, 23)
 		Me.TbPeso.TabIndex = 31
 		'
 		'Label25
@@ -1071,6 +1052,30 @@ Partial Class FrmGestionProducto
 		Me.lblPagina.TabIndex = 36
 		Me.lblPagina.Text = "*pagina*"
 		'
+		'Label3
+		'
+		Me.Label3.AutoSize = True
+		Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label3.Location = New System.Drawing.Point(111, 135)
+		Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label3.Name = "Label3"
+		Me.Label3.Size = New System.Drawing.Size(53, 17)
+		Me.Label3.TabIndex = 85
+		Me.Label3.Text = "Orden"
+		'
+		'cboOrden
+		'
+		Me.cboOrden.AccessibleDescription = ""
+		Me.cboOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cboOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.cboOrden.FormattingEnabled = True
+		Me.cboOrden.Items.AddRange(New Object() {"Física", "Jurídica"})
+		Me.cboOrden.Location = New System.Drawing.Point(172, 133)
+		Me.cboOrden.Margin = New System.Windows.Forms.Padding(4)
+		Me.cboOrden.Name = "cboOrden"
+		Me.cboOrden.Size = New System.Drawing.Size(65, 25)
+		Me.cboOrden.TabIndex = 86
+		'
 		'FrmGestionProducto
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1098,6 +1103,7 @@ Partial Class FrmGestionProducto
 		Me.gbbusqueda.ResumeLayout(False)
 		Me.gbbusqueda.PerformLayout()
 		Me.GroupBox7.ResumeLayout(False)
+		Me.GroupBox7.PerformLayout()
 		Me.GroupBox8.ResumeLayout(False)
 		Me.GroupBox8.PerformLayout()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1159,11 +1165,9 @@ Partial Class FrmGestionProducto
 	Friend WithEvents CmbMaterial As Windows.Forms.ComboBox
 	Friend WithEvents Label30 As Windows.Forms.Label
 	Friend WithEvents CmbTipoprodcuto As Windows.Forms.ComboBox
-	Friend WithEvents Label31 As Windows.Forms.Label
 	Friend WithEvents Label32 As Windows.Forms.Label
 	Friend WithEvents Label33 As Windows.Forms.Label
 	Friend WithEvents Label27 As Windows.Forms.Label
-	Friend WithEvents TbTamaño As Windows.Forms.TextBox
 	Friend WithEvents tbCodBarra As Windows.Forms.TextBox
 	Friend WithEvents TbNombreProducto As Windows.Forms.TextBox
 	Friend WithEvents PBfoto As Windows.Forms.PictureBox
@@ -1193,4 +1197,6 @@ Partial Class FrmGestionProducto
 	Friend WithEvents lblPrioridad3 As Windows.Forms.Label
 	Friend WithEvents lblPrioridad1 As Windows.Forms.Label
 	Friend WithEvents lblPrioridad2 As Windows.Forms.Label
+	Friend WithEvents Label3 As Windows.Forms.Label
+	Friend WithEvents cboOrden As Windows.Forms.ComboBox
 End Class

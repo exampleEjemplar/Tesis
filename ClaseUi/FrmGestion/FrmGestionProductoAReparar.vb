@@ -158,20 +158,6 @@ Public Class FrmGestionProductoAReparar
 				Return
 			End If
 #End Region
-#Region "tamaño"
-			If Not String.IsNullOrEmpty(TbTamaño.Text) Then
-				Dim value As Decimal
-				Dim newText = TbTamaño.Text.Replace(",", ".")
-				If Not Decimal.TryParse(newText, value) Then
-					MsgBox("Ingrese el tamaño en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
-					Return
-				End If
-				pro.tamaño = TbTamaño.Text
-			Else
-				MsgBox("Debe seleccionar un tamaño", MsgBoxStyle.Critical, "Producto")
-				Return
-			End If
-#End Region
 #Region "color"
 			If Not String.IsNullOrEmpty(TbColor.Text) Then
 				pro.color = helpersUi.NormalizarTexto(TbColor.Text)
@@ -191,6 +177,7 @@ Public Class FrmGestionProductoAReparar
             pro.EsReparacion = "S"
 			pro.EsServicio = "N"
 			pro.CodBarra = "-"
+			pro.tamaño = 0
 			productometodo.Grabarproductos(pro)
 			idProductoNuevo = productometodo.CargarUnProducto(0, pro.nombreprducto).Tables(0).Rows(0)(0)
 			If MsgBox("Producto cargado. Desea seguir cargando?", MsgBoxStyle.YesNo, "Producto") = MsgBoxResult.No Then
@@ -301,7 +288,6 @@ Public Class FrmGestionProductoAReparar
 		tbPrecio.Text = (dgvProducto.Item(10, dgvProducto.CurrentRow.Index).Value)
 		CmbMaterial.SelectedValue = (dgvProducto.Item(8, dgvProducto.CurrentRow.Index).Value)
 		TbPeso.Text = (dgvProducto.Item(12, dgvProducto.CurrentRow.Index).Value)
-		TbTamaño.Text = (dgvProducto.Item(13, dgvProducto.CurrentRow.Index).Value)
 		TbColor.Text = (dgvProducto.Item(14, dgvProducto.CurrentRow.Index).Value)
 		tbProblema.Text = (dgvProducto.Item(22, dgvProducto.CurrentRow.Index).Value)
 		CmbTipoprodcuto.SelectedValue = (dgvProducto.Item(8, dgvProducto.CurrentRow.Index).Value)
@@ -383,7 +369,6 @@ Public Class FrmGestionProductoAReparar
 		TbNombreProducto.Enabled = False
 		TbPeso.Enabled = False
 		tbPrecio.Enabled = False
-		TbTamaño.Enabled = False
 		cmbUnidad.Enabled = False
 		CmbTipoprodcuto.Enabled = False
 		CmbCategoria.Enabled = False
@@ -401,7 +386,6 @@ Public Class FrmGestionProductoAReparar
 		TbNombreProducto.Enabled = True
 		TbPeso.Enabled = True
 		tbPrecio.Enabled = True
-		TbTamaño.Enabled = True
 		cmbUnidad.Enabled = True
 		CmbTipoprodcuto.Enabled = True
 		CmbCategoria.Enabled = True
@@ -422,7 +406,6 @@ Public Class FrmGestionProductoAReparar
 		TbNombreProducto.Text = ""
 		TbPeso.Text = ""
 		tbPrecio.Text = ""
-		TbTamaño.Text = ""
 		cmbUnidad.Text = ""
 		CmbTipoprodcuto.SelectedValue = 0
 		CmbCategoria.SelectedValue = 0

@@ -110,4 +110,9 @@ Public Class FrmEditarPedido
 	Private Sub btnSalir_Click_1(sender As Object, e As EventArgs) Handles btnSalir.Click
 		Close()
 	End Sub
+
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnEstadistica.Click
+		FrmTrazabilidad.idpedido = idPedido
+		FrmTrazabilidad.ShowDialog()
+	End Sub
 End Class

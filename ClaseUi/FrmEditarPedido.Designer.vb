@@ -22,6 +22,7 @@ Partial Class FrmEditarPedido
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmEditarPedido))
 		Me.lblProducto = New System.Windows.Forms.Label()
 		Me.Label4 = New System.Windows.Forms.Label()
 		Me.lblCosto = New System.Windows.Forms.Label()
@@ -37,6 +38,7 @@ Partial Class FrmEditarPedido
 		Me.lblFechaExacta = New System.Windows.Forms.Label()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.btnSalir = New System.Windows.Forms.Button()
+		Me.btnEstadistica = New System.Windows.Forms.Button()
 		Me.SuspendLayout()
 		'
 		'lblProducto
@@ -146,7 +148,7 @@ Partial Class FrmEditarPedido
 		Me.cboEstado.FormattingEnabled = True
 		Me.cboEstado.Items.AddRange(New Object() {"Física", "Jurídica"})
 		Me.cboEstado.Location = New System.Drawing.Point(179, 98)
-		Me.cboEstado.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cboEstado.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboEstado.Name = "cboEstado"
 		Me.cboEstado.Size = New System.Drawing.Size(367, 25)
 		Me.cboEstado.TabIndex = 70
@@ -171,8 +173,8 @@ Partial Class FrmEditarPedido
 		Me.btnguardarmodificacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnguardarmodificacion.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
 		Me.btnguardarmodificacion.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnguardarmodificacion.Location = New System.Drawing.Point(19, 366)
-		Me.btnguardarmodificacion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnguardarmodificacion.Location = New System.Drawing.Point(322, 383)
+		Me.btnguardarmodificacion.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnguardarmodificacion.Name = "btnguardarmodificacion"
 		Me.btnguardarmodificacion.Size = New System.Drawing.Size(104, 94)
 		Me.btnguardarmodificacion.TabIndex = 75
@@ -205,25 +207,45 @@ Partial Class FrmEditarPedido
 		'btnSalir
 		'
 		Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
-		Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
 		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnSalir.FlatAppearance.BorderSize = 0
 		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnSalir.Location = New System.Drawing.Point(152, 348)
-		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+		Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+		Me.btnSalir.Location = New System.Drawing.Point(455, 383)
+		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
-		Me.btnSalir.Size = New System.Drawing.Size(105, 111)
+		Me.btnSalir.Size = New System.Drawing.Size(105, 93)
 		Me.btnSalir.TabIndex = 73
 		Me.btnSalir.Text = "Salir"
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnSalir.UseVisualStyleBackColor = False
+		'
+		'btnEstadistica
+		'
+		Me.btnEstadistica.BackColor = System.Drawing.SystemColors.Control
+		Me.btnEstadistica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnEstadistica.FlatAppearance.BorderSize = 0
+		Me.btnEstadistica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnEstadistica.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnEstadistica.Image = CType(resources.GetObject("btnEstadistica.Image"), System.Drawing.Image)
+		Me.btnEstadistica.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+		Me.btnEstadistica.Location = New System.Drawing.Point(206, 383)
+		Me.btnEstadistica.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnEstadistica.Name = "btnEstadistica"
+		Me.btnEstadistica.Size = New System.Drawing.Size(104, 94)
+		Me.btnEstadistica.TabIndex = 85
+		Me.btnEstadistica.Text = "Estadística"
+		Me.btnEstadistica.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnEstadistica.UseVisualStyleBackColor = False
 		'
 		'FrmEditarPedido
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(573, 489)
+		Me.Controls.Add(Me.btnEstadistica)
 		Me.Controls.Add(Me.lblProducto)
 		Me.Controls.Add(Me.Label4)
 		Me.Controls.Add(Me.lblCosto)
@@ -266,4 +288,5 @@ Partial Class FrmEditarPedido
 	Friend WithEvents lblFechaExacta As Windows.Forms.Label
 	Friend WithEvents Label1 As Windows.Forms.Label
 	Friend WithEvents btnSalir As Windows.Forms.Button
+	Friend WithEvents btnEstadistica As Windows.Forms.Button
 End Class

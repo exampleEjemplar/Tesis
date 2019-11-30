@@ -26,7 +26,6 @@ Partial Class FrmEditarReparacion
 		Me.cboEstado = New System.Windows.Forms.ComboBox()
 		Me.Label17 = New System.Windows.Forms.Label()
 		Me.lblFechaExacta = New System.Windows.Forms.Label()
-		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.btnguardarmodificacion = New System.Windows.Forms.Button()
 		Me.lblCliente = New System.Windows.Forms.Label()
@@ -38,6 +37,8 @@ Partial Class FrmEditarReparacion
 		Me.Costo = New System.Windows.Forms.Label()
 		Me.lblProducto = New System.Windows.Forms.Label()
 		Me.Label4 = New System.Windows.Forms.Label()
+		Me.btnEstadistica = New System.Windows.Forms.Button()
+		Me.btnSalir = New System.Windows.Forms.Button()
 		Me.SuspendLayout()
 		'
 		'cboEstado
@@ -75,23 +76,6 @@ Partial Class FrmEditarReparacion
 		Me.lblFechaExacta.TabIndex = 21
 		Me.lblFechaExacta.Text = "Cliente"
 		'
-		'btnSalir
-		'
-		Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
-		Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
-		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnSalir.FlatAppearance.BorderSize = 0
-		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnSalir.Location = New System.Drawing.Point(147, 348)
-		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnSalir.Name = "btnSalir"
-		Me.btnSalir.Size = New System.Drawing.Size(105, 111)
-		Me.btnSalir.TabIndex = 58
-		Me.btnSalir.Text = "Salir"
-		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnSalir.UseVisualStyleBackColor = False
-		'
 		'Label1
 		'
 		Me.Label1.AutoSize = True
@@ -112,7 +96,7 @@ Partial Class FrmEditarReparacion
 		Me.btnguardarmodificacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnguardarmodificacion.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
 		Me.btnguardarmodificacion.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnguardarmodificacion.Location = New System.Drawing.Point(13, 366)
+		Me.btnguardarmodificacion.Location = New System.Drawing.Point(330, 381)
 		Me.btnguardarmodificacion.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnguardarmodificacion.Name = "btnguardarmodificacion"
 		Me.btnguardarmodificacion.Size = New System.Drawing.Size(104, 93)
@@ -220,11 +204,49 @@ Partial Class FrmEditarReparacion
 		Me.Label4.TabIndex = 68
 		Me.Label4.Text = "Producto"
 		'
+		'btnEstadistica
+		'
+		Me.btnEstadistica.BackColor = System.Drawing.SystemColors.Control
+		Me.btnEstadistica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnEstadistica.FlatAppearance.BorderSize = 0
+		Me.btnEstadistica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnEstadistica.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnEstadistica.Image = CType(resources.GetObject("btnEstadistica.Image"), System.Drawing.Image)
+		Me.btnEstadistica.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+		Me.btnEstadistica.Location = New System.Drawing.Point(173, 380)
+		Me.btnEstadistica.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnEstadistica.Name = "btnEstadistica"
+		Me.btnEstadistica.Size = New System.Drawing.Size(132, 94)
+		Me.btnEstadistica.TabIndex = 86
+		Me.btnEstadistica.Text = "Estadística"
+		Me.btnEstadistica.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnEstadistica.UseVisualStyleBackColor = False
+		'
+		'btnSalir
+		'
+		Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
+		Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnSalir.FlatAppearance.BorderSize = 0
+		Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+		Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+		Me.btnSalir.Location = New System.Drawing.Point(459, 381)
+		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnSalir.Name = "btnSalir"
+		Me.btnSalir.Size = New System.Drawing.Size(105, 93)
+		Me.btnSalir.TabIndex = 87
+		Me.btnSalir.Text = "Salir"
+		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnSalir.UseVisualStyleBackColor = False
+		'
 		'FrmEditarReparacion
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(577, 487)
+		Me.Controls.Add(Me.btnSalir)
+		Me.Controls.Add(Me.btnEstadistica)
 		Me.Controls.Add(Me.lblProducto)
 		Me.Controls.Add(Me.Label4)
 		Me.Controls.Add(Me.lblCosto)
@@ -239,7 +261,6 @@ Partial Class FrmEditarReparacion
 		Me.Controls.Add(Me.btnguardarmodificacion)
 		Me.Controls.Add(Me.lblFechaExacta)
 		Me.Controls.Add(Me.Label1)
-		Me.Controls.Add(Me.btnSalir)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
 		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.MaximizeBox = False
@@ -254,7 +275,6 @@ Partial Class FrmEditarReparacion
 	Friend WithEvents cboEstado As Windows.Forms.ComboBox
 	Friend WithEvents Label17 As Windows.Forms.Label
 	Friend WithEvents lblFechaExacta As Windows.Forms.Label
-	Friend WithEvents btnSalir As Windows.Forms.Button
 	Friend WithEvents Label1 As Windows.Forms.Label
 	Friend WithEvents btnguardarmodificacion As Windows.Forms.Button
 	Friend WithEvents lblCliente As Windows.Forms.Label
@@ -266,4 +286,6 @@ Partial Class FrmEditarReparacion
 	Friend WithEvents Costo As Windows.Forms.Label
 	Friend WithEvents lblProducto As Windows.Forms.Label
 	Friend WithEvents Label4 As Windows.Forms.Label
+	Friend WithEvents btnEstadistica As Windows.Forms.Button
+	Friend WithEvents btnSalir As Windows.Forms.Button
 End Class

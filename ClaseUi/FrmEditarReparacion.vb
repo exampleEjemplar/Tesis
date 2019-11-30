@@ -42,7 +42,7 @@ Public Class FrmEditarReparacion
 		Return cboEstado.SelectedValue
 	End Function
 
-	Private Sub btnSalir_Click(sender As Object, e As EventArgs)
+	Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 		Close()
 	End Sub
 
@@ -107,7 +107,7 @@ Public Class FrmEditarReparacion
 		End If
 	End Sub
 
-	Private Sub btnSalir_Click_1(sender As Object, e As EventArgs) Handles btnSalir.Click
+	Private Sub btnSalir_Click_1(sender As Object, e As EventArgs)
 		Close()
 	End Sub
 
@@ -120,4 +120,9 @@ Public Class FrmEditarReparacion
 			Return myCp
 		End Get
 	End Property
+
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnEstadistica.Click
+		FrmTrazabilidad.idpedido = idReparacion
+		FrmTrazabilidad.ShowDialog()
+	End Sub
 End Class

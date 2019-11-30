@@ -175,14 +175,6 @@ Public Class FrmGestionProducto
 				Return False
 			End If
 #End Region
-#Region "tamaño"
-			If Not String.IsNullOrEmpty(TbTamaño.Text) Then
-				pro.tamaño = TbTamaño.Text
-			Else
-				MsgBox("Debe seleccionar un tamaño", MsgBoxStyle.Critical, "Producto")
-				Return False
-			End If
-#End Region
 #Region "color"
 			If Not String.IsNullOrEmpty(TbColor.Text) Then
 				pro.color = helpersUi.NormalizarTexto(TbColor.Text)
@@ -218,6 +210,7 @@ Public Class FrmGestionProducto
 			pro.stockmin = 0
 			pro.stockmax = 0
 		End If
+		pro.tamaño = 0
 		pro.Problema = ""
 		pro.EsReparacion = "N"
 		pro.EsServicio = "N"
@@ -251,6 +244,7 @@ Public Class FrmGestionProducto
 	End Sub
 
 	Private Sub FrmGestionProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		LlenarCboOrden()
 		InicializarOrderBy()
 		DataGridView1.RowTemplate.Height = 30
 		busqcod = ""
@@ -344,10 +338,15 @@ Public Class FrmGestionProducto
 		lblPrioridad3.Visible = False
 	End Sub
 
+	Public Sub LlenarCboOrden()
+		cboOrden.DataSource = {"asc", "desc"}
+		cboOrden.SelectedItem = "desc"
+	End Sub
+
 	Public Function Dgvproductosset()
 		Try
 			Dim dsa1 As DataTable
-			dsa1 = productometodo.CargaGrillaproductossinbusqueda(txtBusCodigo.Text, txtBusNombreProd.Text, OrderBy, "", paginaInicial)
+			dsa1 = productometodo.CargaGrillaproductossinbusqueda(txtBusCodigo.Text, txtBusNombreProd.Text, OrderBy, cboOrden.SelectedItem, "N", paginaInicial)
 
 			If primerOrder Then
 				primerOrder = False
@@ -469,7 +468,6 @@ Public Class FrmGestionProducto
 		TbUtilidad.Text = (DataGridView1.Item(11, DataGridView1.CurrentRow.Index).Value)
 		CmbMaterial.SelectedValue = (DataGridView1.Item(8, DataGridView1.CurrentRow.Index).Value)
 		TbPeso.Text = (DataGridView1.Item(12, DataGridView1.CurrentRow.Index).Value)
-		TbTamaño.Text = (DataGridView1.Item(13, DataGridView1.CurrentRow.Index).Value)
 		TbColor.Text = (DataGridView1.Item(14, DataGridView1.CurrentRow.Index).Value)
 		cmbProveedor.SelectedValue = (DataGridView1.Item(15, DataGridView1.CurrentRow.Index).Value)
 		TbStockmin.Text = (DataGridView1.Item(16, DataGridView1.CurrentRow.Index).Value)
@@ -599,7 +597,6 @@ Public Class FrmGestionProducto
 		TbPrecio.Enabled = False
 		TbStockMax.Enabled = False
 		TbStockmin.Enabled = False
-		TbTamaño.Enabled = False
 		cmbUnidad.Enabled = False
 		TbUtilidad.Enabled = False
 		cmbProveedor.Enabled = False
@@ -625,7 +622,6 @@ Public Class FrmGestionProducto
 		Label28.Enabled = False
 		Label29.Enabled = False
 		Label30.Enabled = False
-		Label31.Enabled = False
 		Label33.Enabled = False
 		Label32.Enabled = False
 
@@ -640,7 +636,6 @@ Public Class FrmGestionProducto
 		TbPrecio.Enabled = True
 		TbStockMax.Enabled = True
 		TbStockmin.Enabled = True
-		TbTamaño.Enabled = True
 		cmbUnidad.Enabled = True
 		TbUtilidad.Enabled = True
 		cmbProveedor.Enabled = True
@@ -666,7 +661,6 @@ Public Class FrmGestionProducto
 		Label28.Enabled = True
 		Label29.Enabled = True
 		Label30.Enabled = True
-		Label31.Enabled = True
 		Label33.Enabled = True
 		Label32.Enabled = True
 
@@ -682,7 +676,6 @@ Public Class FrmGestionProducto
 		TbPrecio.Text = ""
 		TbStockMax.Text = ""
 		TbStockmin.Text = ""
-		TbTamaño.Text = ""
 		cmbUnidad.Text = ""
 		TbUtilidad.Text = ""
 		cmbProveedor.SelectedValue = 0
@@ -844,7 +837,6 @@ Public Class FrmGestionProducto
 		Label28.Enabled = True
 		Label29.Enabled = True
 		Label30.Enabled = True
-		Label31.Enabled = True
 		Label33.Enabled = True
 		Label32.Enabled = True
 	End Sub

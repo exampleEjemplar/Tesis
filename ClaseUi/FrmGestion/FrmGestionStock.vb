@@ -97,7 +97,7 @@ Public Class FrmGestionStock
 		If primerOrder Then
 			primerOrder = False
 			For i = 0 To ds.Tables(0).Columns.Count - 1
-				If ds.Tables(0).Columns(i).ColumnName = "id" Then
+				If ds.Tables(0).Columns(i).ColumnName = "id" Or ds.Tables(0).Columns(i).ColumnName = "id1" Then
 					Continue For
 				End If
 				If ds.Tables(0).Columns(i).ColumnName = "Nombre" Then
@@ -111,6 +111,7 @@ Public Class FrmGestionStock
 
 		dgvGrilla.DataSource = ds.Tables(0)
 		dgvGrilla.Columns("Id").Visible = False
+		dgvGrilla.Columns("id1").Visible = False
 
 		If ds.Tables(0).Rows.Count = 0 Then
 			MsgBox("No se obtuvieron movimientos de stock para la busqueda", MsgBoxStyle.OkOnly, "Movimiento Stock")

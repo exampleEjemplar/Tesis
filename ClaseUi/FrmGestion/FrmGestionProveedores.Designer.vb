@@ -26,6 +26,8 @@ Partial Class FrmGestionProveedores
 		Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
 		Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+		Me.Label21 = New System.Windows.Forms.Label()
+		Me.cboOrden = New System.Windows.Forms.ComboBox()
 		Me.GroupBox8 = New System.Windows.Forms.GroupBox()
 		Me.Label18 = New System.Windows.Forms.Label()
 		Me.Label19 = New System.Windows.Forms.Label()
@@ -102,8 +104,6 @@ Partial Class FrmGestionProveedores
 		Me.btnLimpiar = New System.Windows.Forms.Button()
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.btnSalir = New System.Windows.Forms.Button()
-		Me.Label21 = New System.Windows.Forms.Label()
-		Me.cboOrden = New System.Windows.Forms.ComboBox()
 		Me.FlowLayoutPanel1.SuspendLayout()
 		Me.GroupBox5.SuspendLayout()
 		Me.GroupBox7.SuspendLayout()
@@ -167,6 +167,30 @@ Partial Class FrmGestionProveedores
 		Me.GroupBox7.TabIndex = 51
 		Me.GroupBox7.TabStop = False
 		Me.GroupBox7.Text = "Ordenar por"
+		'
+		'Label21
+		'
+		Me.Label21.AutoSize = True
+		Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label21.Location = New System.Drawing.Point(163, 144)
+		Me.Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label21.Name = "Label21"
+		Me.Label21.Size = New System.Drawing.Size(53, 17)
+		Me.Label21.TabIndex = 91
+		Me.Label21.Text = "Orden"
+		'
+		'cboOrden
+		'
+		Me.cboOrden.AccessibleDescription = ""
+		Me.cboOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cboOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.cboOrden.FormattingEnabled = True
+		Me.cboOrden.Items.AddRange(New Object() {"Física", "Jurídica"})
+		Me.cboOrden.Location = New System.Drawing.Point(224, 141)
+		Me.cboOrden.Margin = New System.Windows.Forms.Padding(4)
+		Me.cboOrden.Name = "cboOrden"
+		Me.cboOrden.Size = New System.Drawing.Size(65, 25)
+		Me.cboOrden.TabIndex = 92
 		'
 		'GroupBox8
 		'
@@ -1026,7 +1050,7 @@ Partial Class FrmGestionProveedores
 		Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnGuardar.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
 		Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnGuardar.Location = New System.Drawing.Point(772, 463)
+		Me.btnGuardar.Location = New System.Drawing.Point(187, 463)
 		Me.btnGuardar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnGuardar.Name = "btnGuardar"
 		Me.btnGuardar.Size = New System.Drawing.Size(92, 105)
@@ -1044,7 +1068,7 @@ Partial Class FrmGestionProveedores
 		Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnLimpiar.Image = Global.ClaseUi.My.Resources.Resources.icons8_cancel_62
 		Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnLimpiar.Location = New System.Drawing.Point(672, 463)
+		Me.btnLimpiar.Location = New System.Drawing.Point(87, 463)
 		Me.btnLimpiar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnLimpiar.Name = "btnLimpiar"
 		Me.btnLimpiar.Size = New System.Drawing.Size(92, 105)
@@ -1062,7 +1086,7 @@ Partial Class FrmGestionProveedores
 		Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnNuevo.Image = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
 		Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnNuevo.Location = New System.Drawing.Point(572, 463)
+		Me.btnNuevo.Location = New System.Drawing.Point(-13, 463)
 		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(92, 105)
@@ -1080,7 +1104,7 @@ Partial Class FrmGestionProveedores
 		Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
 		Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnSalir.Location = New System.Drawing.Point(868, 463)
+		Me.btnSalir.Location = New System.Drawing.Point(283, 463)
 		Me.btnSalir.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalir.Name = "btnSalir"
 		Me.btnSalir.Size = New System.Drawing.Size(92, 105)
@@ -1088,30 +1112,6 @@ Partial Class FrmGestionProveedores
 		Me.btnSalir.Text = "Salir"
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnSalir.UseVisualStyleBackColor = False
-		'
-		'Label21
-		'
-		Me.Label21.AutoSize = True
-		Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label21.Location = New System.Drawing.Point(163, 144)
-		Me.Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label21.Name = "Label21"
-		Me.Label21.Size = New System.Drawing.Size(53, 17)
-		Me.Label21.TabIndex = 91
-		Me.Label21.Text = "Orden"
-		'
-		'cboOrden
-		'
-		Me.cboOrden.AccessibleDescription = ""
-		Me.cboOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.cboOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.cboOrden.FormattingEnabled = True
-		Me.cboOrden.Items.AddRange(New Object() {"Física", "Jurídica"})
-		Me.cboOrden.Location = New System.Drawing.Point(224, 141)
-		Me.cboOrden.Margin = New System.Windows.Forms.Padding(4)
-		Me.cboOrden.Name = "cboOrden"
-		Me.cboOrden.Size = New System.Drawing.Size(65, 25)
-		Me.cboOrden.TabIndex = 92
 		'
 		'FrmGestionProveedores
 		'
