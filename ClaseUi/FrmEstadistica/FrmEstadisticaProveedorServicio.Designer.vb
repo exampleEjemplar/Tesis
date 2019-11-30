@@ -289,8 +289,11 @@ Partial Class FrmEstadisticaProveedorServicio
         Me.Controls.Add(Me.Chart4)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnSalir)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmEstadisticaProveedorServicio"
-        Me.Text = "FrmEstadisticaProveedorServicio"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Estadistica Proveedor Servicio"
         CType(Me.Chart4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
