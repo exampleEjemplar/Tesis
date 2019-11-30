@@ -14,10 +14,8 @@ Public Class FrmPedidoDeReposicion
 	Public primerOrder As Boolean = True
 	Public agrupado As List(Of IGrouping(Of String, ProductosConStock))
 	Dim listaDeNombres = New List(Of ProductosConStock)
-	Dim intentos = 0
 
 	Private Sub FrmPedidoDeReposicion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		intentos += 1
 		LlenarCboBase()
 		DgvProveedoresSet()
 	End Sub
@@ -50,7 +48,8 @@ Public Class FrmPedidoDeReposicion
 			  .StockActual = If(IsDBNull(ds.Rows(i)(2)), 0, ds.Rows(i)(2)),
 			  .StockMaximo = ds.Rows(i)(3),
 			  .StockMinimo = ds.Rows(i)(4),
-			  .HacerPedido = If(intentos = 1, True, False)
+			  .HacerPedido = True,
+			  .AComprar = CalcularSegunBase(ds.Rows(i)(4), ds.Rows(i)(3), If(IsDBNull(ds.Rows(i)(2)), 0, ds.Rows(i)(2)))
 		  })
 		Next
 
@@ -102,6 +101,21 @@ Public Class FrmPedidoDeReposicion
 
 	End Sub
 
+	Public Function CalcularSegunBase(stockMin As Integer, stockMax As Integer, stockActual As Integer) As Integer
+		Dim operacion As Integer = 0
+		Select Case cboBaseCalculo.SelectedItem
+			Case "Stock Máximo"
+				operacion = stockMax - stockActual
+			Case "Stock Mínimo"
+				operacion = stockMin - stockActual
+			Case "Promedio"
+				operacion = ((stockMax + stockMin) / 2) - stockActual
+			Case Else
+				operacion = 0
+		End Select
+		Return If(operacion >= 0, operacion, 0)
+	End Function
+
 	Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProveedores.CellContentClick
 		Dim cell As DataGridViewCheckBoxCell = Nothing
 		If dgvProveedores.Columns(0).HeaderText = "Generar" Then
@@ -142,6 +156,9 @@ Public Class FrmPedidoDeReposicion
 		Try
 			For i = 0 To agrupado.Count - 1
 				Dim listaDeCompras = New List(Of TipoDeComprasNE)
+				If agrupado(i).All(Function(x) x.AComprar = 0) Then
+					Continue For
+				End If
 				If agrupado(i).All(Function(x) x.HacerPedido = False) Then
 					Continue For
 				End If
@@ -193,6 +210,12 @@ Public Class FrmPedidoDeReposicion
 			Return myCp
 		End Get
 	End Property
+
+	Private Sub btnRegenerar_Click(sender As Object, e As EventArgs) Handles btnRegenerar.Click
+		If MsgBox("Está a punto de recalcular todo el pedido perdiendo su configuración en caso de haberla cambiado. Desea continuar?", MsgBoxStyle.YesNo, "Stock") = MsgBoxResult.Yes Then
+			DgvProveedoresSet()
+		End If
+	End Sub
 End Class
 
 

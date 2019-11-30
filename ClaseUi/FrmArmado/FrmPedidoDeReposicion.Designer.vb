@@ -187,7 +187,7 @@ Partial Class FrmPedidoDeReposicion
 		Me.cboBaseCalculo.Location = New System.Drawing.Point(176, 21)
 		Me.cboBaseCalculo.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboBaseCalculo.Name = "cboBaseCalculo"
-		Me.cboBaseCalculo.Size = New System.Drawing.Size(131, 25)
+		Me.cboBaseCalculo.Size = New System.Drawing.Size(285, 25)
 		Me.cboBaseCalculo.TabIndex = 62
 		'
 		'btnRegenerar
