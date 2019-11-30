@@ -48,6 +48,7 @@ Public Class FrmEstadisticaProveedorServicio
         'Chart2.Visible = False
         'Chart3.Visible = False
         Chart4.Visible = False
+        Chart2.Visible = False
         dtpdesde.Enabled = True
         dtphasta.Enabled = True
         Button1.Enabled = True
