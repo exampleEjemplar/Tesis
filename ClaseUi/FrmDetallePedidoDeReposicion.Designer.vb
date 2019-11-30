@@ -22,6 +22,7 @@ Partial Class FrmDetallePedidoDeReposicion
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmDetallePedidoDeReposicion))
 		Me.dgvProductos = New System.Windows.Forms.DataGridView()
 		Me.Label32 = New System.Windows.Forms.Label()
 		Me.lblBase = New System.Windows.Forms.Label()
@@ -163,7 +164,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		'
 		Me.lblAComprar.AutoSize = True
 		Me.lblAComprar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblAComprar.Location = New System.Drawing.Point(578, 19)
+		Me.lblAComprar.Location = New System.Drawing.Point(678, 18)
 		Me.lblAComprar.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblAComprar.Name = "lblAComprar"
 		Me.lblAComprar.Size = New System.Drawing.Size(91, 17)
@@ -174,7 +175,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		'
 		Me.Label5.AutoSize = True
 		Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label5.Location = New System.Drawing.Point(236, 18)
+		Me.Label5.Location = New System.Drawing.Point(254, 18)
 		Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label5.Name = "Label5"
 		Me.Label5.Size = New System.Drawing.Size(325, 17)
@@ -184,7 +185,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		'Label1
 		'
 		Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label1.Location = New System.Drawing.Point(269, 53)
+		Me.Label1.Location = New System.Drawing.Point(254, 58)
 		Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label1.Name = "Label1"
 		Me.Label1.Size = New System.Drawing.Size(325, 43)
@@ -193,16 +194,16 @@ Partial Class FrmDetallePedidoDeReposicion
 		'
 		'txtForzado
 		'
-		Me.txtForzado.Location = New System.Drawing.Point(577, 63)
+		Me.txtForzado.Location = New System.Drawing.Point(681, 62)
 		Me.txtForzado.Name = "txtForzado"
-		Me.txtForzado.Size = New System.Drawing.Size(69, 22)
+		Me.txtForzado.Size = New System.Drawing.Size(88, 22)
 		Me.txtForzado.TabIndex = 72
 		'
 		'lblProducto
 		'
 		Me.lblProducto.AutoSize = True
 		Me.lblProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblProducto.Location = New System.Drawing.Point(367, 137)
+		Me.lblProducto.Location = New System.Drawing.Point(352, 137)
 		Me.lblProducto.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.lblProducto.Name = "lblProducto"
 		Me.lblProducto.Size = New System.Drawing.Size(85, 17)
@@ -213,7 +214,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		'
 		Me.Label7.AutoSize = True
 		Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label7.Location = New System.Drawing.Point(269, 137)
+		Me.Label7.Location = New System.Drawing.Point(254, 137)
 		Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label7.Name = "Label7"
 		Me.Label7.Size = New System.Drawing.Size(73, 17)
@@ -229,7 +230,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.btnguardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnguardar.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
 		Me.btnguardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnguardar.Location = New System.Drawing.Point(577, 95)
+		Me.btnguardar.Location = New System.Drawing.Point(677, 95)
 		Me.btnguardar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnguardar.Name = "btnguardar"
 		Me.btnguardar.Size = New System.Drawing.Size(92, 92)
@@ -247,7 +248,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.btncancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btncancelar.Image = Global.ClaseUi.My.Resources.Resources.icons8_delete_62
 		Me.btncancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btncancelar.Location = New System.Drawing.Point(477, 95)
+		Me.btncancelar.Location = New System.Drawing.Point(577, 95)
 		Me.btncancelar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btncancelar.Name = "btncancelar"
 		Me.btncancelar.Size = New System.Drawing.Size(92, 92)
@@ -274,7 +275,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.GroupBox1.Controls.Add(Me.Label4)
 		Me.GroupBox1.Location = New System.Drawing.Point(12, 46)
 		Me.GroupBox1.Name = "GroupBox1"
-		Me.GroupBox1.Size = New System.Drawing.Size(676, 194)
+		Me.GroupBox1.Size = New System.Drawing.Size(775, 194)
 		Me.GroupBox1.TabIndex = 77
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "Producto"
@@ -288,7 +289,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.btnGuardarProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnGuardarProveedor.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
 		Me.btnGuardarProveedor.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnGuardarProveedor.Location = New System.Drawing.Point(695, 15)
+		Me.btnGuardarProveedor.Location = New System.Drawing.Point(795, 247)
 		Me.btnGuardarProveedor.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnGuardarProveedor.Name = "btnGuardarProveedor"
 		Me.btnGuardarProveedor.Size = New System.Drawing.Size(92, 106)
@@ -306,7 +307,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.btnCancelarProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnCancelarProveedor.Image = Global.ClaseUi.My.Resources.Resources.icons8_delete_62
 		Me.btnCancelarProveedor.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnCancelarProveedor.Location = New System.Drawing.Point(695, 130)
+		Me.btnCancelarProveedor.Location = New System.Drawing.Point(795, 372)
 		Me.btnCancelarProveedor.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnCancelarProveedor.Name = "btnCancelarProveedor"
 		Me.btnCancelarProveedor.Size = New System.Drawing.Size(92, 110)
@@ -319,15 +320,20 @@ Partial Class FrmDetallePedidoDeReposicion
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(800, 505)
+		Me.ClientSize = New System.Drawing.Size(910, 505)
 		Me.Controls.Add(Me.btnCancelarProveedor)
 		Me.Controls.Add(Me.btnGuardarProveedor)
 		Me.Controls.Add(Me.lblBase)
 		Me.Controls.Add(Me.Label32)
 		Me.Controls.Add(Me.dgvProductos)
 		Me.Controls.Add(Me.GroupBox1)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+		Me.MaximizeBox = False
+		Me.MinimizeBox = False
 		Me.Name = "FrmDetallePedidoDeReposicion"
-		Me.Text = "FrmDetallePedidoDeReposicion"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+		Me.Text = "Detalle Pedido de Reposición"
 		CType(Me.dgvProductos, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox1.ResumeLayout(False)
 		Me.GroupBox1.PerformLayout()

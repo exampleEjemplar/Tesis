@@ -21,6 +21,7 @@ Public Class FrmDetallePedidoDeReposicion
 		dgvProductos.Columns("StockActual").HeaderText = "Stock Actual"
 		dgvProductos.Columns("ProveedorNombre").HeaderText = "Proveedor"
 		dgvProductos.Columns("AComprar").HeaderText = "A Comprar"
+		dgvProductos.Columns("HacerPedido").HeaderText = "Pedir este producto"
 		lblBase.Text = base
 	End Sub
 
@@ -62,6 +63,29 @@ Public Class FrmDetallePedidoDeReposicion
 		btnCancelarProveedor.Enabled = True
 	End Sub
 
+	Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProductos.CellContentClick
+		Dim cell As DataGridViewCheckBoxCell = Nothing
+		If dgvProductos.Columns(0).HeaderText = "Pedir este producto" Then
+			cell = dgvProductos.Rows(e.RowIndex).Cells(0)
+		Else
+			cell = dgvProductos.Rows(e.RowIndex).Cells(8)
+		End If
+		If cell.Value = True Then
+			cell.Value = False
+		Else
+			cell.Value = True
+		End If
+		'For i = 0 To agrupado.Count - 1
+		'	If agrupado(i).Key = dgvProveedores.Rows(i).Cells(3).Value Then
+		'		For Each productosProveedor As ProductosConStock In agrupado(i)
+		'			productosProveedor.HacerPedido = cell.Value
+		'		Next
+		'		Exit For
+		'	End If
+		'Next
+
+	End Sub
+
 	Private Sub btnguardarmodificacion_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
 		If Not String.IsNullOrEmpty(txtForzado.Text) Then
 			Dim value As Integer
@@ -83,6 +107,7 @@ Public Class FrmDetallePedidoDeReposicion
 		btnCancelarProveedor.Enabled = True
 	End Sub
 	Private Sub btnCancelarProveedor_Click(sender As Object, e As EventArgs) Handles btnCancelarProveedor.Click
+		Dispose()
 		Close()
 	End Sub
 
@@ -91,6 +116,8 @@ Public Class FrmDetallePedidoDeReposicion
 		For i = 0 To agrupadoProveedorFrmPedido.Count - 1
 			Dim proveedorFrmPedido = agrupadoProveedorFrmPedido(i)
 			proveedorFrmPedido.AComprar = dgvProductos.Rows(i).Cells("AComprar").Value
+			proveedorFrmPedido.HacerPedido = dgvProductos.Rows(i).Cells("HacerPedido").Value
+			Dim asdasd =""
 		Next
 		Close()
 	End Sub

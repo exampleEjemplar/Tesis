@@ -256,7 +256,7 @@ Partial Class FrmGestionStock
 		Me.btnSalirr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
 		Me.btnSalirr.FlatAppearance.BorderSize = 0
 		Me.btnSalirr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnSalirr.Location = New System.Drawing.Point(720, 522)
+		Me.btnSalirr.Location = New System.Drawing.Point(720, 559)
 		Me.btnSalirr.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalirr.Name = "btnSalirr"
 		Me.btnSalirr.Size = New System.Drawing.Size(107, 99)
@@ -286,7 +286,7 @@ Partial Class FrmGestionStock
 		Me.dgvGrilla.RowHeadersWidth = 56
 		Me.dgvGrilla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
 		Me.dgvGrilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.dgvGrilla.Size = New System.Drawing.Size(699, 410)
+		Me.dgvGrilla.Size = New System.Drawing.Size(699, 445)
 		Me.dgvGrilla.TabIndex = 56
 		'
 		'Button3
@@ -298,7 +298,7 @@ Partial Class FrmGestionStock
 		Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
 		Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.Button3.Location = New System.Drawing.Point(720, 416)
+		Me.Button3.Location = New System.Drawing.Point(720, 453)
 		Me.Button3.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button3.Name = "Button3"
 		Me.Button3.Size = New System.Drawing.Size(115, 98)
@@ -317,7 +317,7 @@ Partial Class FrmGestionStock
 		Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
 		Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.Button2.Location = New System.Drawing.Point(724, 310)
+		Me.Button2.Location = New System.Drawing.Point(724, 347)
 		Me.Button2.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button2.Name = "Button2"
 		Me.Button2.Size = New System.Drawing.Size(103, 98)
@@ -464,21 +464,20 @@ Partial Class FrmGestionStock
 		Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Button4.Image = Global.ClaseUi.My.Resources.Resources.icons8_create_document_621
 		Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.Button4.Location = New System.Drawing.Point(724, 211)
+		Me.Button4.Location = New System.Drawing.Point(724, 222)
 		Me.Button4.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button4.Name = "Button4"
-		Me.Button4.Size = New System.Drawing.Size(103, 105)
+		Me.Button4.Size = New System.Drawing.Size(103, 117)
 		Me.Button4.TabIndex = 74
 		Me.Button4.Text = "Pedido de reposición"
 		Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.Button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
 		Me.Button4.UseVisualStyleBackColor = False
 		'
 		'FrmGestionStock
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(857, 634)
+		Me.ClientSize = New System.Drawing.Size(858, 669)
 		Me.Controls.Add(Me.Button4)
 		Me.Controls.Add(Me.GroupBox7)
 		Me.Controls.Add(Me.Button2)
@@ -500,6 +499,7 @@ Partial Class FrmGestionStock
 		Me.Controls.Add(Me.GroupBox2)
 		Me.Controls.Add(Me.btnSalirr)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
 		Me.MaximizeBox = False
 		Me.MinimizeBox = False

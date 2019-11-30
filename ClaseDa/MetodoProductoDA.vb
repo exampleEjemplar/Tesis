@@ -155,7 +155,7 @@ Public Class MetodoProductoDA
 			Next
 		End If
 
-		Dim sqlStr = "set dateformat dmy SELECT p.id, p.Nombre, SUM(m.cantidad) as 'Stock Actual', p.StockMax as 'Stock Maximo',p.StockMin as 'Stock Minimo', pro.Nombre + ' ' + pro.apellido as 'Nombre Proveedor', pro.id FROM Productos as p inner join MovimientosStock as m on m.ProductoId = p.Id inner join proveedores pro on pro.id = p.proveedorid " + text + "  GROUP BY p.Nombre, p.Id, p.StockMax, p.StockMin, pro.Nombre,pro.Apellido, pro.id "
+		Dim sqlStr = "set dateformat dmy SELECT p.id, p.Nombre, SUM(m.cantidad) as 'Stock Actual', p.StockMax as 'Stock Maximo',p.StockMin as 'Stock Minimo', pro.Nombre + ' ' + pro.apellido as 'Nombre Proveedor', pro.id FROM Productos as p left join MovimientosStock as m on m.ProductoId = p.Id inner join proveedores pro on pro.id = p.proveedorid " + text + "  GROUP BY p.Nombre, p.Id, p.StockMax, p.StockMin, pro.Nombre,pro.Apellido, pro.id "
 
 		Dim orderers = orderby.Where(Function(x) String.IsNullOrEmpty(x.Item2) = False)
 		If orderers.Count() > 0 Then

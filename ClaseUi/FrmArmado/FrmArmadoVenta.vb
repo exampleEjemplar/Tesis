@@ -174,7 +174,7 @@ Public Class FrmArmadoVenta
 			parametros.Add("ProductoId", item.Key)
 
 			Dim consultaStock = productoLN.CargarGrillaStock(parametros, New List(Of Tuple(Of Integer, String, Integer)), "asc").Tables(0)
-
+			consultaStock.Rows(0)(2) = If(IsDBNull(consultaStock.Rows(0)(2)), 0, consultaStock.Rows(0)(2))
 			If consultaStock.Rows.Count > 0 Then
 				If consultaStock.Rows(0).Item(2) < item.Value Or consultaStock.Rows(0).Item(2) - item.Value < 0 Then
 					MsgBox("El producto no cuenta con el stock suficiente para ser vendido", MsgBoxStyle.Critical, "Producto")

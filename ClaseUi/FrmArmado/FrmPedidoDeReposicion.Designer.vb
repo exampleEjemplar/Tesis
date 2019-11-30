@@ -22,13 +22,13 @@ Partial Class FrmPedidoDeReposicion
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmPedidoDeReposicion))
 		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmPedidoDeReposicion))
 		Me.Panel1 = New System.Windows.Forms.Panel()
+		Me.btnSalirrr = New System.Windows.Forms.Button()
 		Me.dgvProveedores = New System.Windows.Forms.DataGridView()
 		Me.btnSalir = New System.Windows.Forms.Button()
-		Me.btnEliminar = New System.Windows.Forms.Button()
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.Label32 = New System.Windows.Forms.Label()
@@ -42,15 +42,32 @@ Partial Class FrmPedidoDeReposicion
 		'
 		'Panel1
 		'
+		Me.Panel1.Controls.Add(Me.btnSalirrr)
 		Me.Panel1.Controls.Add(Me.dgvProveedores)
 		Me.Panel1.Controls.Add(Me.btnSalir)
-		Me.Panel1.Controls.Add(Me.btnEliminar)
 		Me.Panel1.Controls.Add(Me.btnNuevo)
 		Me.Panel1.Location = New System.Drawing.Point(8, 185)
 		Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
 		Me.Panel1.Name = "Panel1"
 		Me.Panel1.Size = New System.Drawing.Size(789, 556)
 		Me.Panel1.TabIndex = 58
+		'
+		'btnSalirrr
+		'
+		Me.btnSalirrr.BackColor = System.Drawing.SystemColors.Control
+		Me.btnSalirrr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnSalirrr.FlatAppearance.BorderSize = 0
+		Me.btnSalirrr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnSalirrr.Image = CType(resources.GetObject("btnSalirrr.Image"), System.Drawing.Image)
+		Me.btnSalirrr.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+		Me.btnSalirrr.Location = New System.Drawing.Point(693, 447)
+		Me.btnSalirrr.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnSalirrr.Name = "btnSalirrr"
+		Me.btnSalirrr.Size = New System.Drawing.Size(92, 105)
+		Me.btnSalirrr.TabIndex = 67
+		Me.btnSalirrr.Text = "Salir"
+		Me.btnSalirrr.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnSalirrr.UseVisualStyleBackColor = False
 		'
 		'dgvProveedores
 		'
@@ -109,23 +126,6 @@ Partial Class FrmPedidoDeReposicion
 		Me.btnSalir.Text = "Salir"
 		Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnSalir.UseVisualStyleBackColor = False
-		'
-		'btnEliminar
-		'
-		Me.btnEliminar.BackColor = System.Drawing.SystemColors.Control
-		Me.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnEliminar.FlatAppearance.BorderSize = 0
-		Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnEliminar.Image = Global.ClaseUi.My.Resources.Resources.icons8_cancel_621
-		Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnEliminar.Location = New System.Drawing.Point(693, 110)
-		Me.btnEliminar.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnEliminar.Name = "btnEliminar"
-		Me.btnEliminar.Size = New System.Drawing.Size(92, 101)
-		Me.btnEliminar.TabIndex = 54
-		Me.btnEliminar.Text = "Anular"
-		Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnEliminar.UseVisualStyleBackColor = False
 		'
 		'btnNuevo
 		'
@@ -217,9 +217,11 @@ Partial Class FrmPedidoDeReposicion
 		Me.Controls.Add(Me.Label1)
 		Me.Controls.Add(Me.GroupBox1)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.MaximizeBox = False
 		Me.MinimizeBox = False
 		Me.Name = "FrmPedidoDeReposicion"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
 		Me.Text = "Pedido de Reposición"
 		Me.Panel1.ResumeLayout(False)
 		CType(Me.dgvProveedores, System.ComponentModel.ISupportInitialize).EndInit()
@@ -232,11 +234,11 @@ Partial Class FrmPedidoDeReposicion
 	Friend WithEvents Panel1 As Windows.Forms.Panel
 	Friend WithEvents dgvProveedores As Windows.Forms.DataGridView
 	Friend WithEvents btnSalir As Windows.Forms.Button
-	Friend WithEvents btnEliminar As Windows.Forms.Button
 	Friend WithEvents Label1 As Windows.Forms.Label
 	Friend WithEvents btnNuevo As Windows.Forms.Button
 	Friend WithEvents Label32 As Windows.Forms.Label
 	Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
 	Friend WithEvents btnRegenerar As Windows.Forms.Button
 	Friend WithEvents cboBaseCalculo As Windows.Forms.ComboBox
+	Friend WithEvents btnSalirrr As Windows.Forms.Button
 End Class
