@@ -12,6 +12,15 @@ Public Class FrmDetallePedidoDeReposicion
 			producto.AComprar = CalcularSegunBase(producto.StockMinimo, producto.StockMaximo, producto.StockActual)
 		Next
 		dgvProductos.DataSource = listaDeProductos
+		'dgvProductos.Columns("id").Visible = False
+		'dgvProductos.Columns("ProveedorId").Visible = False
+
+		dgvProductos.Columns("Nombre").HeaderText = "Producto"
+		dgvProductos.Columns("StockMinimo").HeaderText = "Stock Mínimo"
+		dgvProductos.Columns("StockMaximo").HeaderText = "Stock Máximo"
+		dgvProductos.Columns("StockActual").HeaderText = "Stock Actual"
+		dgvProductos.Columns("ProveedorNombre").HeaderText = "Proveedor"
+		dgvProductos.Columns("AComprar").HeaderText = "A Comprar"
 		lblBase.Text = base
 	End Sub
 
@@ -69,7 +78,19 @@ Public Class FrmDetallePedidoDeReposicion
 	End Sub
 
 	Private Sub btnsalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+		Dim grupoActualEnOtroFrm = FrmPedidoDeReposicion.agrupado.FirstOrDefault(Function(x) x.Key = dgvProductos.Rows(0).Cells(3).Value)
+		grupo
 		Me.Close()
 	End Sub
+
+
+	Private Const CP_NOCLOSE_BUTTON As Integer = &H200
+	Protected Overloads Overrides ReadOnly Property CreateParams() As CreateParams
+		Get
+			Dim myCp As CreateParams = MyBase.CreateParams
+			myCp.ClassStyle = myCp.ClassStyle Or CP_NOCLOSE_BUTTON
+			Return myCp
+		End Get
+	End Property
 
 End Class
