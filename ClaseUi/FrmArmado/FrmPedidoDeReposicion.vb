@@ -148,7 +148,6 @@ Public Class FrmPedidoDeReposicion
 		FrmDetallePedidoDeReposicion.agrupado = agrupado.FirstOrDefault(Function(x) x.Key = providerNombre)
 		FrmDetallePedidoDeReposicion.base = cboBaseCalculo.SelectedItem
 		FrmDetallePedidoDeReposicion.ShowDialog()
-		Dim asdasd = ""
 	End Sub
 
 	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click

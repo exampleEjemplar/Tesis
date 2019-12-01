@@ -154,6 +154,22 @@ Public Class FrmGestionProducto
 			Return False
 		End If
 #End Region
+#Region "stockmin"
+		If Not String.IsNullOrEmpty(TbStockmin.Text) Then
+			pro.stockmin = TbStockmin.Text
+		Else
+			MsgBox("Debe cargar un stock minimo", MsgBoxStyle.Critical, "Producto")
+			Return False
+		End If
+#End Region
+#Region "stockmax"
+		If Not String.IsNullOrEmpty(TbStockMax.Text) Then
+			pro.stockmax = TbStockMax.Text
+		Else
+			MsgBox("Debe cargar un stock maximo", MsgBoxStyle.Critical, "Producto")
+			Return False
+		End If
+#End Region
 		'Segun el tipo de producto, puede ser propio
 		If rdpropios.Checked Then
 			pro.StockODeTercero = 0
@@ -183,22 +199,7 @@ Public Class FrmGestionProducto
 				Return False
 			End If
 #End Region
-#Region "stockmin"
-			If Not String.IsNullOrEmpty(TbStockmin.Text) Then
-				pro.stockmin = TbStockmin.Text
-			Else
-				MsgBox("Debe cargar un stock minimo", MsgBoxStyle.Critical, "Producto")
-				Return False
-			End If
-#End Region
-#Region "stockmax"
-			If Not String.IsNullOrEmpty(TbStockMax.Text) Then
-				pro.stockmax = TbStockMax.Text
-			Else
-				MsgBox("Debe cargar un stock maximo", MsgBoxStyle.Critical, "Producto")
-				Return False
-			End If
-#End Region
+
 
 			' O de terceros
 		Else
@@ -207,9 +208,8 @@ Public Class FrmGestionProducto
 			pro.peso = 1
 			pro.tamaño = 0
 			pro.color = ""
-			pro.stockmin = 0
-			pro.stockmax = 0
 		End If
+		pro.color = TbColor.Text
 		pro.tamaño = 0
 		pro.Problema = ""
 		pro.EsReparacion = "N"
@@ -240,6 +240,7 @@ Public Class FrmGestionProducto
 	Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles Button2.Click
 		primerOrder = True
 		modificado = True
+		Dispose()
 		Me.Close()
 	End Sub
 
@@ -253,10 +254,10 @@ Public Class FrmGestionProducto
 		btnguardarmodificacion.Visible = False
 		'bbusqueda.Visible = False
 		bloquearcampos()
-		LlenarCMBTipo()
+		LlenarCMBTipo("")
 		LlenarCMBMaterial()
 		LlenarCMBproveedor()
-		LlenarCMBUnidadDePeso()
+		LlenarCMBUnidadDePeso("")
 		LlenarCMBCategoria()
 		Dgvproductosset()
 		btnmodificar.Enabled = False
@@ -330,7 +331,7 @@ Public Class FrmGestionProducto
 	Public Sub InicializarOrderBy()
 		chbListaParaOrdenar.Items.Clear()
 		OrderBy = New List(Of Tuple(Of Integer, String, Integer))
-		OrderBy.Add(New Tuple(Of Integer, String, Integer)(1, "'Fecha de Alta'", 1))
+		OrderBy.Add(New Tuple(Of Integer, String, Integer)(1, "'Fecha De Alta'", 1))
 		OrderBy.Add(New Tuple(Of Integer, String, Integer)(2, "", 2))
 		OrderBy.Add(New Tuple(Of Integer, String, Integer)(3, "", 3))
 		lblPrioridad1.Text = OrderBy.FirstOrDefault(Function(x) x.Item1 = 1).Item2.Replace("'", "")
@@ -354,7 +355,7 @@ Public Class FrmGestionProducto
 					If dsa1.Columns(i).ColumnName = "id" Or dsa1.Columns(i).ColumnName = "nombre1" Or dsa1.Columns(i).ColumnName = "Nombre2" Or dsa1.Columns(i).ColumnName = "Nombre3" Or dsa1.Columns(i).ColumnName = "foto" Or dsa1.Columns(i).ColumnName = "TipoProductoID" Or dsa1.Columns(i).ColumnName = "problema" Or dsa1.Columns(i).ColumnName = "UnidadDePeso" Then
 						Continue For
 					End If
-					If dsa1.Columns(i).ColumnName = "Fecha de Alta" Then
+					If dsa1.Columns(i).ColumnName = "Fecha De Alta" Then
 						chbListaParaOrdenar.Items.Add(dsa1.Columns(i).ColumnName, CheckState.Checked)
 						Continue For
 					End If
@@ -414,35 +415,11 @@ Public Class FrmGestionProducto
 		lblPagina.Text = "De " + (paginaInicial + 1).ToString() + " a " + totalEstaPagina.ToString() + " productos. " + filas.ToString() + " en total."
 	End Sub
 
-	'Public Function DgvproductosBusq() As DataTable
-	'	Try
-	'		Dim dsa1 As DataTable
-	'		'dsa1 = productometodo.CargaGrillaProductos(parametros) 'Si parametros esta vacio, busca todos los clientes en la bd
-	'		dsa1 = productometodo.CargaGrillaproductossinbusqueda(txtBusCodigo.Text, txtBusNombreProd.Text, OrderBy, "", paginaInicial)
-	'		DataGridView1.DataSource = dsa1
-
-	'		DataGridView1.AllowUserToAddRows = False
-	'		DataGridView1.AllowUserToDeleteRows = False
-	'		For X = 0 To DataGridView1.Rows.Count - 1
-	'			If DataGridView1.Rows(X).Cells(1).Value = Nothing Then
-	'				DataGridView1.Rows.Remove(DataGridView1.Rows(X))
-	'			End If
-	'			Return dsa1
-	'		Next
-
-	'	Catch ex As Exception
-	'		MessageBox.Show(ex.Message, "Error: Exception", MessageBoxButtons.OK, MessageBoxIcon.Stop)
-
-	'	End Try
-
-
-	'End Function
-
 	Private Sub DataGridView1_DoubleClick(sender As Object, e As System.EventArgs) Handles DataGridView1.DoubleClick
 		'productometodo.Cargargrilladobleclick()
 		If (DataGridView1.Item(21, DataGridView1.CurrentRow.Index).Value) = 0 Then
 			rdpropios.Checked = True
-			gboStock.Enabled = False
+			'gboStock.Enabled = False
 			gboCaracteristicas.Enabled = False
 		Else
 			rdterceros.Checked = True
@@ -472,8 +449,8 @@ Public Class FrmGestionProducto
 		cmbProveedor.SelectedValue = (DataGridView1.Item(15, DataGridView1.CurrentRow.Index).Value)
 		TbStockmin.Text = (DataGridView1.Item(16, DataGridView1.CurrentRow.Index).Value)
 		TbStockMax.Text = (DataGridView1.Item(17, DataGridView1.CurrentRow.Index).Value)
-		CmbTipoprodcuto.SelectedValue = (DataGridView1.Item(8, DataGridView1.CurrentRow.Index).Value)
-		cmbUnidad.SelectedValue = (DataGridView1.Item(19, DataGridView1.CurrentRow.Index).Value)
+		LlenarCMBTipo((DataGridView1.Item(7, DataGridView1.CurrentRow.Index).Value))
+		LlenarCMBUnidadDePeso(DataGridView1.Item(19, DataGridView1.CurrentRow.Index).Value)
 		CmbCategoria.SelectedValue = (DataGridView1.Item(20, DataGridView1.CurrentRow.Index).Value)
 		btnBuscar.Enabled = False
 		btnNuevo.Enabled = False
@@ -488,14 +465,19 @@ Public Class FrmGestionProducto
 
 	End Sub
 
-	Public Sub LlenarCMBTipo()
+	Public Sub LlenarCMBTipo(selectedValue As String)
 		Try
 			Dim ds1 As DataSet
 			ds1 = productometodo.CargarCMBTipo()
 			CmbTipoprodcuto.DataSource = ds1.Tables(0)
 			CmbTipoprodcuto.DisplayMember = "nombre"
 			CmbTipoprodcuto.ValueMember = "id"
-			CmbTipoprodcuto.SelectedValue = 0
+
+			If Not String.IsNullOrEmpty(selectedValue) Then
+				CmbTipoprodcuto.SelectedValue = Convert.ToInt32(selectedValue)
+			Else
+				CmbTipoprodcuto.SelectedValue = 0
+			End If
 
 
 		Catch ex As Exception
@@ -549,14 +531,18 @@ Public Class FrmGestionProducto
 		Return CmbCategoria.SelectedValue
 	End Function
 
-	Public Function LlenarCMBUnidadDePeso()
+	Public Function LlenarCMBUnidadDePeso(selectedValue As String)
 		Try
 			Dim ds1 As DataSet
 			ds1 = helpersLN.LlenarUnidadDePeso()
 			cmbUnidad.DataSource = ds1.Tables(0)
 			cmbUnidad.DisplayMember = "nombre"
 			cmbUnidad.ValueMember = "id"
-			cmbUnidad.SelectedValue = 0
+			If Not String.IsNullOrEmpty(selectedValue) Then
+				cmbUnidad.SelectedValue = Convert.ToInt32(selectedValue)
+			Else
+				cmbUnidad.SelectedValue = 0
+			End If
 
 
 		Catch ex As Exception
@@ -645,7 +631,7 @@ Public Class FrmGestionProducto
 		CmbMaterial.Enabled = True
 		btncargarimagen.Enabled = True
 		btnProveedor.Enabled = True
-
+		gboStock.Enabled = True
 		btnNuevaCategoria.Enabled = True
 		btnNuevoMaterial.Enabled = True
 		btnNuevoTipo.Enabled = True
@@ -712,12 +698,12 @@ Public Class FrmGestionProducto
 		If ValidarDatos() = False Then
 			Return
 		End If
+		pro.Id = tbCodigo.Text
 
 		'pro.EsServicio = proveedoresLN.ConsultaModificacion(cmbProveedor.SelectedValue).Tables(0).Rows(0)(22).ToString()
 
 		'If rdpropios.Checked Then
 
-		'	pro.Id = tbCodigo.Text
 		'	Dim ms As New IO.MemoryStream()
 		'	PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
 		'	pro.nombreprducto = TbNombreProducto.Text
@@ -790,7 +776,7 @@ Public Class FrmGestionProducto
 			FrmGestionMaterial.modificado = False
 		End If
 		If FrmGestionTipoDeProducto.modificado Then
-			LlenarCMBTipo()
+			LlenarCMBTipo("")
 			FrmGestionTipoDeProducto.modificado = False
 		End If
 		If FrmGestionCategorías.modificado Then
@@ -812,6 +798,9 @@ Public Class FrmGestionProducto
 
 	Private Sub rdterceros_CheckedChanged(sender As Object, e As EventArgs) Handles rdterceros.Click
 		'TERCEROS
+		btnProveedor.Enabled = True
+		TbStockMax.Enabled = True
+		TbStockmin.Enabled = True
 		CmbCategoria.Enabled = True
 		CmbTipoprodcuto.Enabled = True
 		CmbMaterial.Enabled = True

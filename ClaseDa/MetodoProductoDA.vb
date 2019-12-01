@@ -415,10 +415,14 @@ Public Class MetodoProductoDA
 		Dim orderText = "  "
 		Dim orderers = orderby.Where(Function(x) String.IsNullOrEmpty(x.Item2) = False)
 		If orderers.Count() > 0 Then
-			orderText += ", "
+			orderText += " "
 			Dim orderedList = orderers.OrderBy(Function(x) x.Item3)
 			For i = 0 To orderedList.Count() - 1
-				orderText += orderedList(i).Item2
+				If orderedList(i).Item2 = "Código de barras" Then
+					orderText += " ORDER BY CAST(p.Cod_Barra AS Numeric(10,0)) "
+				Else
+					orderText += orderedList(i).Item2
+				End If
 				If Not i = orderedList.Count() - 1 Then
 					orderText += ","
 				End If
@@ -426,7 +430,7 @@ Public Class MetodoProductoDA
 		End If
 
 		If esReparacion = "N" Then
-			sqlstr = sqlstr + " ORDER BY id " + orderText + " " + ascOrDesc + " OFFSET " + pagina.ToString() + " ROWS FETCH NEXT 20 ROWS ONLY "
+			sqlstr = sqlstr + " ORDER BY " + orderText + " " + ascOrDesc + " OFFSET " + pagina.ToString() + " ROWS FETCH NEXT 20 ROWS ONLY "
 		End If
 
 		Try

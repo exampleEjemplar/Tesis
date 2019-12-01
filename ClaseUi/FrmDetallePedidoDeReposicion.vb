@@ -8,9 +8,9 @@ Public Class FrmDetallePedidoDeReposicion
 	Private Sub FrmDetallePedidoDeReposicion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		GroupBox1.Visible = False
 		Dim listaDeProductos = agrupado.ToList()
-		For Each producto As ProductosConStock In listaDeProductos
-			producto.AComprar = CalcularSegunBase(producto.StockMinimo, producto.StockMaximo, producto.StockActual)
-		Next
+		'For Each producto As ProductosConStock In listaDeProductos
+		'	producto.AComprar = CalcularSegunBase(producto.StockMinimo, producto.StockMaximo, producto.StockActual)
+		'Next
 		dgvProductos.DataSource = listaDeProductos
 		dgvProductos.Columns("id").Visible = False
 		dgvProductos.Columns("ProveedorId").Visible = False
@@ -117,7 +117,6 @@ Public Class FrmDetallePedidoDeReposicion
 			Dim proveedorFrmPedido = agrupadoProveedorFrmPedido(i)
 			proveedorFrmPedido.AComprar = dgvProductos.Rows(i).Cells("AComprar").Value
 			proveedorFrmPedido.HacerPedido = dgvProductos.Rows(i).Cells("HacerPedido").Value
-			Dim asdasd =""
 		Next
 		Close()
 	End Sub
