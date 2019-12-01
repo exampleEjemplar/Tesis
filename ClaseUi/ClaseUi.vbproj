@@ -347,6 +347,12 @@
     <Compile Include="FrmModificarPrecioProducto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmModificarUtilidad.Designer.vb">
+      <DependentUpon>FrmModificarUtilidad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModificarUtilidad.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmTrazabilidad.Designer.vb">
       <DependentUpon>FrmTrazabilidad.vb</DependentUpon>
     </Compile>
@@ -577,6 +583,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmModificarPrecioProducto.resx">
       <DependentUpon>FrmModificarPrecioProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificarUtilidad.resx">
+      <DependentUpon>FrmModificarUtilidad.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTrazabilidad.resx">
       <DependentUpon>FrmTrazabilidad.vb</DependentUpon>

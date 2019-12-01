@@ -213,10 +213,10 @@ Partial Class FrmEditarReparacion
 		Me.btnEstadistica.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnEstadistica.Image = CType(resources.GetObject("btnEstadistica.Image"), System.Drawing.Image)
 		Me.btnEstadistica.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnEstadistica.Location = New System.Drawing.Point(173, 380)
+		Me.btnEstadistica.Location = New System.Drawing.Point(161, 380)
 		Me.btnEstadistica.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnEstadistica.Name = "btnEstadistica"
-		Me.btnEstadistica.Size = New System.Drawing.Size(132, 94)
+		Me.btnEstadistica.Size = New System.Drawing.Size(144, 94)
 		Me.btnEstadistica.TabIndex = 86
 		Me.btnEstadistica.Text = "Estadística"
 		Me.btnEstadistica.TextAlign = System.Drawing.ContentAlignment.BottomCenter

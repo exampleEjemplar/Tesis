@@ -260,7 +260,7 @@ Public Class HelpersDA
 
 	End Function
 
-	Public Function CargarTodosProductos(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc as string, Optional esServicio As String = "")
+	Public Function CargarTodosProductos(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc As String, esServicio As String)
 
 		ChequearConexion(db)
 		Dim sqlStr As String
