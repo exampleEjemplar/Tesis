@@ -25,6 +25,8 @@ Partial Class FrmGestionProductoAReparar
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionProductoAReparar))
 		Me.dgvProducto = New System.Windows.Forms.DataGridView()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+		Me.txtUtilidad = New System.Windows.Forms.TextBox()
+		Me.Label3 = New System.Windows.Forms.Label()
 		Me.tbPrecio = New System.Windows.Forms.TextBox()
 		Me.Label2 = New System.Windows.Forms.Label()
 		Me.Label1 = New System.Windows.Forms.Label()
@@ -46,18 +48,14 @@ Partial Class FrmGestionProductoAReparar
 		Me.CmbMaterial = New System.Windows.Forms.ComboBox()
 		Me.Label30 = New System.Windows.Forms.Label()
 		Me.CmbTipoprodcuto = New System.Windows.Forms.ComboBox()
-		Me.Label31 = New System.Windows.Forms.Label()
 		Me.Label32 = New System.Windows.Forms.Label()
 		Me.Label33 = New System.Windows.Forms.Label()
-		Me.TbTamaño = New System.Windows.Forms.TextBox()
 		Me.TbNombreProducto = New System.Windows.Forms.TextBox()
 		Me.Button2 = New System.Windows.Forms.Button()
 		Me.btnGuardar = New System.Windows.Forms.Button()
 		Me.chkReUtilizar = New System.Windows.Forms.CheckBox()
 		Me.lblDobleclick = New System.Windows.Forms.Label()
 		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-		Me.txtUtilidad = New System.Windows.Forms.TextBox()
-		Me.Label3 = New System.Windows.Forms.Label()
 		CType(Me.dgvProducto, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox2.SuspendLayout()
 		CType(Me.PBfoto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -113,10 +111,8 @@ Partial Class FrmGestionProductoAReparar
 		Me.GroupBox2.Controls.Add(Me.CmbMaterial)
 		Me.GroupBox2.Controls.Add(Me.Label30)
 		Me.GroupBox2.Controls.Add(Me.CmbTipoprodcuto)
-		Me.GroupBox2.Controls.Add(Me.Label31)
 		Me.GroupBox2.Controls.Add(Me.Label32)
 		Me.GroupBox2.Controls.Add(Me.Label33)
-		Me.GroupBox2.Controls.Add(Me.TbTamaño)
 		Me.GroupBox2.Controls.Add(Me.TbNombreProducto)
 		Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.GroupBox2.Location = New System.Drawing.Point(13, 13)
@@ -127,6 +123,25 @@ Partial Class FrmGestionProductoAReparar
 		Me.GroupBox2.TabIndex = 47
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "Gestion de producto a reparar"
+		'
+		'txtUtilidad
+		'
+		Me.txtUtilidad.Location = New System.Drawing.Point(551, 368)
+		Me.txtUtilidad.Margin = New System.Windows.Forms.Padding(4)
+		Me.txtUtilidad.Name = "txtUtilidad"
+		Me.txtUtilidad.Size = New System.Drawing.Size(84, 23)
+		Me.txtUtilidad.TabIndex = 60
+		'
+		'Label3
+		'
+		Me.Label3.AutoSize = True
+		Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label3.Location = New System.Drawing.Point(480, 371)
+		Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label3.Name = "Label3"
+		Me.Label3.Size = New System.Drawing.Size(63, 17)
+		Me.Label3.TabIndex = 59
+		Me.Label3.Text = "Utilidad"
 		'
 		'tbPrecio
 		'
@@ -252,7 +267,7 @@ Partial Class FrmGestionProductoAReparar
 		'
 		'TbPeso
 		'
-		Me.TbPeso.Location = New System.Drawing.Point(734, 193)
+		Me.TbPeso.Location = New System.Drawing.Point(696, 187)
 		Me.TbPeso.Margin = New System.Windows.Forms.Padding(4)
 		Me.TbPeso.Name = "TbPeso"
 		Me.TbPeso.Size = New System.Drawing.Size(64, 23)
@@ -282,18 +297,18 @@ Partial Class FrmGestionProductoAReparar
 		'
 		Me.Label24.AutoSize = True
 		Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label24.Location = New System.Drawing.Point(678, 195)
+		Me.Label24.Location = New System.Drawing.Point(544, 187)
 		Me.Label24.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label24.Name = "Label24"
-		Me.Label24.Size = New System.Drawing.Size(44, 17)
+		Me.Label24.Size = New System.Drawing.Size(72, 17)
 		Me.Label24.TabIndex = 28
-		Me.Label24.Text = "Peso"
+		Me.Label24.Text = "Cantidad"
 		'
 		'Label25
 		'
 		Me.Label25.AutoSize = True
 		Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label25.Location = New System.Drawing.Point(318, 193)
+		Me.Label25.Location = New System.Drawing.Point(11, 186)
 		Me.Label25.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label25.Name = "Label25"
 		Me.Label25.Size = New System.Drawing.Size(46, 17)
@@ -302,7 +317,7 @@ Partial Class FrmGestionProductoAReparar
 		'
 		'TbColor
 		'
-		Me.TbColor.Location = New System.Drawing.Point(368, 188)
+		Me.TbColor.Location = New System.Drawing.Point(111, 184)
 		Me.TbColor.Margin = New System.Windows.Forms.Padding(4)
 		Me.TbColor.Name = "TbColor"
 		Me.TbColor.Size = New System.Drawing.Size(125, 23)
@@ -341,7 +356,7 @@ Partial Class FrmGestionProductoAReparar
 		'
 		Me.Label30.AutoSize = True
 		Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label30.Location = New System.Drawing.Point(17, 139)
+		Me.Label30.Location = New System.Drawing.Point(11, 143)
 		Me.Label30.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
 		Me.Label30.Name = "Label30"
 		Me.Label30.Size = New System.Drawing.Size(71, 17)
@@ -356,17 +371,6 @@ Partial Class FrmGestionProductoAReparar
 		Me.CmbTipoprodcuto.Name = "CmbTipoprodcuto"
 		Me.CmbTipoprodcuto.Size = New System.Drawing.Size(280, 25)
 		Me.CmbTipoprodcuto.TabIndex = 12
-		'
-		'Label31
-		'
-		Me.Label31.AutoSize = True
-		Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label31.Location = New System.Drawing.Point(16, 188)
-		Me.Label31.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label31.Name = "Label31"
-		Me.Label31.Size = New System.Drawing.Size(66, 17)
-		Me.Label31.TabIndex = 11
-		Me.Label31.Text = "Tamaño"
 		'
 		'Label32
 		'
@@ -389,14 +393,6 @@ Partial Class FrmGestionProductoAReparar
 		Me.Label33.Size = New System.Drawing.Size(133, 17)
 		Me.Label33.TabIndex = 9
 		Me.Label33.Text = "Tipo de Producto"
-		'
-		'TbTamaño
-		'
-		Me.TbTamaño.Location = New System.Drawing.Point(85, 185)
-		Me.TbTamaño.Margin = New System.Windows.Forms.Padding(4)
-		Me.TbTamaño.Name = "TbTamaño"
-		Me.TbTamaño.Size = New System.Drawing.Size(64, 23)
-		Me.TbTamaño.TabIndex = 6
 		'
 		'TbNombreProducto
 		'
@@ -464,25 +460,6 @@ Partial Class FrmGestionProductoAReparar
 		'
 		Me.OpenFileDialog1.FileName = "OpenFileDialog1"
 		'
-		'txtUtilidad
-		'
-		Me.txtUtilidad.Location = New System.Drawing.Point(551, 368)
-		Me.txtUtilidad.Margin = New System.Windows.Forms.Padding(4)
-		Me.txtUtilidad.Name = "txtUtilidad"
-		Me.txtUtilidad.Size = New System.Drawing.Size(84, 23)
-		Me.txtUtilidad.TabIndex = 60
-		'
-		'Label3
-		'
-		Me.Label3.AutoSize = True
-		Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label3.Location = New System.Drawing.Point(480, 371)
-		Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-		Me.Label3.Name = "Label3"
-		Me.Label3.Size = New System.Drawing.Size(63, 17)
-		Me.Label3.TabIndex = 59
-		Me.Label3.Text = "Utilidad"
-		'
 		'FrmGestionProductoAReparar
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -526,10 +503,8 @@ Partial Class FrmGestionProductoAReparar
 	Friend WithEvents CmbMaterial As Windows.Forms.ComboBox
 	Friend WithEvents Label30 As Windows.Forms.Label
 	Friend WithEvents CmbTipoprodcuto As Windows.Forms.ComboBox
-	Friend WithEvents Label31 As Windows.Forms.Label
 	Friend WithEvents Label32 As Windows.Forms.Label
 	Friend WithEvents Label33 As Windows.Forms.Label
-	Friend WithEvents TbTamaño As Windows.Forms.TextBox
 	Friend WithEvents TbNombreProducto As Windows.Forms.TextBox
 	Friend WithEvents Button2 As Windows.Forms.Button
 	Friend WithEvents btnGuardar As Windows.Forms.Button

@@ -23016,7 +23016,255 @@ insert into UnidadesDePeso
 VALUES
 ('Unidad')
 GO
-set dateformat dmy insert into Clientes values (1,123456789,'Cliente','Test','13/07/2001', getdate(), 'Calle', '123','B','San Martin','1','1','2','16157' ,NULL,NULL,'351','153934180', 'S','1','cliente@cliente.com','F')
+set dateformat dmy insert into Clientes 
+values (1,23098876,'Jose Gilberto','Mengual','13/07/1975', '13/10/2019 13:52:25',
+'Achupallas', '55',NULL,NULL,NULL,NULL,NULL,'1112' 
+,NULL,NULL,'351','154646468', 'S','1','JoseMengual@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,30250325,'Angelino','Romero','13/07/2001', '13/10/2019 13:56:25',
+'San Martin', '455',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','Anromero@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,26522522,'Julia','Arévalo','13/07/1969', '13/10/2019 13:59:35',
+'25 de mayo', '1655',NULL,NULL,NULL,NULL,NULL,'7755' 
+,NULL,NULL,'2622','158262659', 'S','1','JuliaA@hotmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,30250325,'Ignacio Vicente','Agreda','13/07/1995', '13/10/2019 15:56:25',
+'Bv Peron', '233',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','Anromero@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,26522662,'Victor Raul','Urquiza','13/07/1959', '13/10/2019 14:59:35',
+'General Paz', '222',NULL,NULL,NULL,NULL,NULL,'5495' 
+,NULL,NULL,'2655','158267659', 'S','1','victorrurquiza@hotmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,30259995,'Jose Emiliano','Gabas','13/07/1996', '06/11/2019 15:56:25',
+'Uspallata', '233',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','jgabas@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,26528882,'Manuel Fernando','Montavez','13/07/1989', '25/10/2019 14:59:35',
+'General Paz', '178',NULL,NULL,NULL,NULL,NULL,'5718' 
+,NULL,NULL,'2655','1532222', 'S','1','mfmontavez@yahoo.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,23350325,'Claudia','Rosario','13/07/1988', '01/12/2019 15:56:25',
+'Zipoli', '233',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','crosar@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,27722522,'Diego Ivan','Ricca','13/07/1995', '25/10/2019 18:59:35',
+'Paso', '178',NULL,NULL,NULL,NULL,NULL,'5001' 
+,NULL,NULL,'011','153222278', 'S','1','dricca@yahoo.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,30990325,'Claudio','Vives','13/07/1978', '01/12/2019 13:56:25',
+'Gral Paz', '233',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','vivesclaudio@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,29982522,'Santino Ivan','Maldonado','13/07/1965', '25/11/2019 18:59:35',
+'Gorrion', '678',NULL,NULL,NULL,NULL,NULL,'5001' 
+,NULL,NULL,'011','1520002356', 'S','1','saivma@yahoo.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,30994487,'Rodrigo Martin','Arias','13/07/1988', '21/11/2019 15:56:25',
+'Brasil', '255',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','elrodrima@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,29984465,'Maria Angeles','Perez','13/07/1985', '25/11/2019 17:59:35',
+'Marcelo T de Alvear', '155',NULL,NULL,NULL,NULL,NULL,'5001' 
+,NULL,NULL,'011','156666988', 'S','1','maperez@hotmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,35258582,'Rodrigo Martin','Arias','13/07/1988', '21/11/2019 15:56:25',
+'Brasil', '255',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','elrodrima@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,29984465,'Silvina Rosario','Perez','13/07/1986', '25/11/2019 19:59:35',
+'Rivadavia', '55',NULL,NULL,NULL,NULL,NULL,'5001' 
+,NULL,NULL,'011','42525256', 'S','1','silvinar2008@hotmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,35257672,'Martin','Arias','13/07/1978', '01/11/2019 12:56:25',
+'Independencia', '255',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','martincitoArias@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,37585855,'Martina','Gomez','13/07/1996', '01/12/2019 19:59:35',
+'Rincon', '655',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,'351','153663355', 'S','1','martina2001@hotmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,35257672,'Pedro','Gonzalez','13/07/1988', '01/11/2019 09:56:25',
+'Chacabuco', '667',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','pgonza18@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,27555689,'Lucila Andrea','Gomez','13/07/1976', '01/12/2019 19:59:35',
+'Rincon', '655',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,'351','153663355', 'S','1','lugomez1976@hotmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,27666321,'Pedro','Rodriguez Funes','13/07/1977', '11/11/2019 12:56:25',
+'Chacabuco', '556',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','fuunesrodriguezpedro@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (5,20320225557,'Camila','Perez','13/07/1985', '01/12/2019 12:59:35',
+'Caseros', '111',NULL,NULL,NULL,NULL,NULL,'20949' 
+,NULL,NULL,'343','15222335', 'S','1','camip1985@hotmail.com','J')
+GO
+set dateformat dmy insert into Clientes 
+values (5,20220225553,'Martin Cristian','Rodriguez Funes','13/07/1980', '17/11/2019 12:56:25',
+'Patria', '1133',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','fuunesrodriguezmartin@gmail.com','J')
+GO
+set dateformat dmy insert into Clientes 
+values (4,20978552633,'El camino','SRL','13/07/2001', '01/12/2019 12:27:35',
+'Caseros', '250',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,'351','4714585', 'S','1','elcaminoinfo@gmail.com','J')
+GO
+set dateformat dmy insert into Clientes 
+values (4,20978442623,'Natu vianda','natural SRL','13/12/2015', '17/10/2019 16:56:25',
+'Duarte Quiros', '1089',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','naturalsiempre@gmail.com','J')
+GO
+set dateformat dmy insert into Clientes 
+values (4,20789654553,'Personas para personas','SRL','13/07/2018', '01/12/2019 12:27:35',
+'Montevideo', '250',NULL,NULL,NULL,NULL,NULL,'11566' 
+,NULL,NULL,'2665','471455', 'S','1','pxp@gmail.com','J')
+GO
+set dateformat dmy insert into Clientes 
+values (4,20789321553,'El placer Restaurante','SRL','22/12/2015', '17/10/2019 16:56:25',
+'Transito Caceres', '56',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','info@elplacerrestaurante.com','J')
+GO
+set dateformat dmy insert into Clientes 
+values (1,23098675,'Martin','Mengual','13/07/1975', '13/10/2019 13:52:25',
+'Achupallas', '555',NULL,NULL,NULL,NULL,NULL,'1112' 
+,NULL,NULL,'351','154647468', 'S','1','JoseMenguol@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,30255578,'Angel','Romero','13/08/2001', '13/10/2019 13:56:25',
+'San Martin', '655',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','Aoromero@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,24522555,'Julio','Arévalo','13/07/1979', '13/11/2019 13:59:35',
+'25 de mayo', '155',NULL,NULL,NULL,NULL,NULL,'7755' 
+,NULL,NULL,'2622','158262649', 'S','1','JulioA@hotmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,30750325,'Vicente','Agreda','13/07/1996', '13/11/2019 15:56:25',
+'Bv Peron', '253',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','viagreda@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,26552662,'Victor','Coto','13/07/1955', '18/10/2019 14:59:35',
+'General Paz', '2222',NULL,NULL,NULL,NULL,NULL,'5495' 
+,NULL,NULL,'2655','158255659', 'S','1','victorrcc@hotmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,30259985,'Jose','Gabs','13/07/1995', '06/11/2019 18:56:25',
+'Uspallata', '2233',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','jgabs@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,26528817,'Manuel','Mansur','13/07/1988', '25/10/2019 14:59:35',
+'General Paz', '78',NULL,NULL,NULL,NULL,NULL,'5718' 
+,NULL,NULL,'2655','1532112', 'S','1','mmmmansur@yahoo.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,23350366,'Claudia','Funes Llobet','13/07/1978', '01/12/2019 15:56:25',
+'Zipoli', '2335',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','clfunar@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,29722522,'Diego','Riso','13/07/1995', '25/10/2019 18:59:35',
+'Paso alto', '1178',NULL,NULL,NULL,NULL,NULL,'5001' 
+,NULL,NULL,'011','153222278', 'S','1','dieguitoriso@yahoo.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,31790325,'Mariano','Vives','13/07/1988', '01/12/2019 13:56:25',
+'Gral Paz', '2533',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','vivesmarian@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,23682522,'Ivan','Maldonado','13/07/1985', '01/12/2019 18:59:35',
+'Palomo', '678',NULL,NULL,NULL,NULL,NULL,'5001' 
+,NULL,NULL,'011','1528882356', 'S','1','imaldonado@yahoo.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,30554487,'Rodrigo','Battaglia','13/07/1978', '21/11/2019 15:56:25',
+'Brasil', '1255',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','22xbrodri@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,29986595,'Angeles','Paez','13/07/1995', '25/11/2019 17:00:35',
+'Marcelo T de Alvear', '2155',NULL,NULL,NULL,NULL,NULL,'5001' 
+,NULL,NULL,'011','1566625252', 'S','1','maperez@hotmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,35255552,'Martin','Ponce','13/07/1998', '21/11/2019 15:56:25',
+'Brasil', '165',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','tinchoponce@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,28884465,'Sandra','Gazquez','13/07/1996', '25/11/2019 19:59:35',
+'Rivadeo', '55',NULL,NULL,NULL,NULL,NULL,'5001' 
+,NULL,NULL,'011','55525214', 'S','1','sagazquez2019@hotmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,35447672,'Guido','Arias','13/07/1978', '01/11/2019 12:56:25',
+'Palermo', '255',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','guidoA1978@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,37566855,'Lucrecia','Gomez','23/07/1996', '01/12/2019 19:59:35',
+'Rincon', '15',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,'351','4758596', 'S','1','lucre1996@hotmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,35257272,'Nahir','Gonzalez','13/07/1958', '01/11/2019 09:56:25',
+'Chacabuco', '7',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','nahircuchil@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,27565689,'Jose Maria','Gomez','13/07/1996', '01/12/2019 19:59:35',
+'Pilsen', '6755',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,'351','4789898', 'S','1','birrpilsen@hotmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (1,27858321,'Miguel Angel','Roque','13/07/1971', '11/11/2019 12:56:25',
+'Castro Barros', '556',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','roquema@gmail.com','F')
+GO
+set dateformat dmy insert into Clientes 
+values (4,20917225557,'El arbol','SA','13/07/2017', '01/12/2019 12:59:35',
+'Caseros', '1111',NULL,NULL,NULL,NULL,NULL,'20949' 
+,NULL,NULL,'343','4747474', 'S','1','elarbollegendario@hotmail.com','J')
+GO
+set dateformat dmy insert into Clientes 
+values (4,20665225553,'Parihuela','SA','13/07/2018', '17/11/2019 12:56:25',
+'Patria', '3',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,NULL,NULL, 'S','1','info@parihuela.com','J')
+GO
+set dateformat dmy insert into Clientes 
+values (4,20978447633,'Sandalias Infinito','SRL','13/07/2001', '01/12/2019 12:27:35',
+'Caseros', '1250',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,'351','4716685', 'S','1','sandaliasinfinito@gmail.com','J')
+GO
+set dateformat dmy insert into Clientes 
+values (4,20974968633,'Old escuela','SRL','13/07/2011', '01/12/2019 12:27:35',
+'Rondeau', '250',NULL,NULL,NULL,NULL,NULL,'26120' 
+,NULL,NULL,'351','4859696', 'S','1','info@oldescuela.com','J')
 GO
 set dateformat dmy insert into Proveedores values (1,27652422,'Proveedor','Plata','1985-04-03', '20191014 20:32:34.050', '9 de julio', '184',NULL,'Centro',NULL,NULL,NULL,'26120' ,'351','4235216','351','6285633', 'S','1','proveedorplata@gmail.com','F','N')
 GO

@@ -88,7 +88,7 @@ Public Class ProductoLN
 		objproductosAD.modificarproductos(pro)
 	End Sub
 
-	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc As String, pagina As Integer, Optional esReparacion As String = "") As DataTable
+	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc As String, pagina As Integer, esReparacion As String) As DataTable
 
 		Return objproductosAD.CargaGrillaproductossinbusqueda(codigo, nombre, orderby, ascOrDesc, pagina, esReparacion)
 	End Function
