@@ -51,7 +51,7 @@ Partial Class FrmGestionMaterial
         Me.btnSalirr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalirr.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
         Me.btnSalirr.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalirr.Location = New System.Drawing.Point(435, 357)
+        Me.btnSalirr.Location = New System.Drawing.Point(500, 357)
         Me.btnSalirr.Name = "btnSalirr"
         Me.btnSalirr.Size = New System.Drawing.Size(69, 82)
         Me.btnSalirr.TabIndex = 48
@@ -67,7 +67,7 @@ Partial Class FrmGestionMaterial
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(435, 91)
+        Me.btnGuardar.Location = New System.Drawing.Point(500, 91)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(69, 82)
         Me.btnGuardar.TabIndex = 47
@@ -83,7 +83,7 @@ Partial Class FrmGestionMaterial
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Image = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnNuevo.Location = New System.Drawing.Point(435, 3)
+        Me.btnNuevo.Location = New System.Drawing.Point(500, 3)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(69, 82)
         Me.btnNuevo.TabIndex = 46
@@ -107,7 +107,7 @@ Partial Class FrmGestionMaterial
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(509, 123)
+        Me.GroupBox1.Size = New System.Drawing.Size(579, 123)
         Me.GroupBox1.TabIndex = 45
         Me.GroupBox1.TabStop = False
         '
@@ -118,9 +118,9 @@ Partial Class FrmGestionMaterial
         Me.btnCotizacionesHist.FlatAppearance.BorderSize = 0
         Me.btnCotizacionesHist.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCotizacionesHist.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.btnCotizacionesHist.Location = New System.Drawing.Point(416, 22)
+        Me.btnCotizacionesHist.Location = New System.Drawing.Point(454, 22)
         Me.btnCotizacionesHist.Name = "btnCotizacionesHist"
-        Me.btnCotizacionesHist.Size = New System.Drawing.Size(88, 99)
+        Me.btnCotizacionesHist.Size = New System.Drawing.Size(120, 86)
         Me.btnCotizacionesHist.TabIndex = 50
         Me.btnCotizacionesHist.Text = "Historial de Cotizaciones"
         Me.btnCotizacionesHist.UseVisualStyleBackColor = False
@@ -149,10 +149,10 @@ Partial Class FrmGestionMaterial
         'txtCoti
         '
         Me.txtCoti.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCoti.Location = New System.Drawing.Point(192, 44)
+        Me.txtCoti.Location = New System.Drawing.Point(226, 44)
         Me.txtCoti.MaxLength = 30
         Me.txtCoti.Name = "txtCoti"
-        Me.txtCoti.Size = New System.Drawing.Size(134, 20)
+        Me.txtCoti.Size = New System.Drawing.Size(144, 20)
         Me.txtCoti.TabIndex = 44
         Me.txtCoti.Text = "0.00"
         '
@@ -160,7 +160,7 @@ Partial Class FrmGestionMaterial
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(189, 28)
+        Me.Label3.Location = New System.Drawing.Point(223, 28)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(178, 13)
         Me.Label3.TabIndex = 43
@@ -196,7 +196,7 @@ Partial Class FrmGestionMaterial
         Me.txtNombre.Location = New System.Drawing.Point(5, 44)
         Me.txtNombre.MaxLength = 30
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(178, 20)
+        Me.txtNombre.Size = New System.Drawing.Size(215, 20)
         Me.txtNombre.TabIndex = 37
         '
         'Label2
@@ -230,7 +230,7 @@ Partial Class FrmGestionMaterial
         Me.dgvmaterial.RowHeadersWidth = 56
         Me.dgvmaterial.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvmaterial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvmaterial.Size = New System.Drawing.Size(429, 442)
+        Me.dgvmaterial.Size = New System.Drawing.Size(494, 442)
         Me.dgvmaterial.TabIndex = 50
         '
         'Panel1
@@ -241,7 +241,7 @@ Partial Class FrmGestionMaterial
         Me.Panel1.Controls.Add(Me.btnGuardar)
         Me.Panel1.Location = New System.Drawing.Point(12, 159)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(509, 442)
+        Me.Panel1.Size = New System.Drawing.Size(579, 442)
         Me.Panel1.TabIndex = 51
         '
         'Label1
@@ -258,7 +258,7 @@ Partial Class FrmGestionMaterial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(530, 613)
+        Me.ClientSize = New System.Drawing.Size(614, 613)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox1)
