@@ -36,8 +36,10 @@ Partial Class FrmCierreDeCaja
         Me.btnSalirr = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'dgvGrilla
@@ -50,7 +52,8 @@ Partial Class FrmCierreDeCaja
         Me.dgvGrilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvGrilla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvGrilla.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
-        Me.dgvGrilla.Location = New System.Drawing.Point(10, 187)
+        Me.dgvGrilla.Dock = System.Windows.Forms.DockStyle.Left
+        Me.dgvGrilla.Location = New System.Drawing.Point(0, 0)
         Me.dgvGrilla.MultiSelect = False
         Me.dgvGrilla.Name = "dgvGrilla"
         Me.dgvGrilla.ReadOnly = True
@@ -60,14 +63,14 @@ Partial Class FrmCierreDeCaja
         Me.dgvGrilla.RowHeadersWidth = 56
         Me.dgvGrilla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvGrilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvGrilla.Size = New System.Drawing.Size(584, 292)
+        Me.dgvGrilla.Size = New System.Drawing.Size(491, 455)
         Me.dgvGrilla.TabIndex = 68
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(245, 32)
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(164, 25)
         Me.Label1.TabIndex = 69
@@ -76,6 +79,7 @@ Partial Class FrmCierreDeCaja
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.chkFechaDesde)
+        Me.GroupBox1.Controls.Add(Me.btnBuscar)
         Me.GroupBox1.Controls.Add(Me.dtpFechaDesde)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.lblFechacierre)
@@ -83,9 +87,9 @@ Partial Class FrmCierreDeCaja
         Me.GroupBox1.Controls.Add(Me.lblUsuario)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(10, 80)
+        Me.GroupBox1.Location = New System.Drawing.Point(17, 40)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(584, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(579, 100)
         Me.GroupBox1.TabIndex = 70
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Información de Cierre de Caja"
@@ -94,7 +98,7 @@ Partial Class FrmCierreDeCaja
         '
         Me.chkFechaDesde.AutoSize = True
         Me.chkFechaDesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.chkFechaDesde.Location = New System.Drawing.Point(371, 61)
+        Me.chkFechaDesde.Location = New System.Drawing.Point(218, 60)
         Me.chkFechaDesde.Margin = New System.Windows.Forms.Padding(2)
         Me.chkFechaDesde.Name = "chkFechaDesde"
         Me.chkFechaDesde.Size = New System.Drawing.Size(147, 17)
@@ -105,7 +109,7 @@ Partial Class FrmCierreDeCaja
         'dtpFechaDesde
         '
         Me.dtpFechaDesde.Enabled = False
-        Me.dtpFechaDesde.Location = New System.Drawing.Point(330, 28)
+        Me.dtpFechaDesde.Location = New System.Drawing.Point(147, 25)
         Me.dtpFechaDesde.Margin = New System.Windows.Forms.Padding(2)
         Me.dtpFechaDesde.Name = "dtpFechaDesde"
         Me.dtpFechaDesde.Size = New System.Drawing.Size(237, 20)
@@ -116,7 +120,7 @@ Partial Class FrmCierreDeCaja
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.Label5.Location = New System.Drawing.Point(230, 31)
+        Me.Label5.Location = New System.Drawing.Point(35, 28)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(84, 13)
         Me.Label5.TabIndex = 4
@@ -126,7 +130,7 @@ Partial Class FrmCierreDeCaja
         '
         Me.lblFechacierre.AutoSize = True
         Me.lblFechacierre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.lblFechacierre.Location = New System.Drawing.Point(312, 62)
+        Me.lblFechacierre.Location = New System.Drawing.Point(126, 61)
         Me.lblFechacierre.Name = "lblFechacierre"
         Me.lblFechacierre.Size = New System.Drawing.Size(87, 13)
         Me.lblFechacierre.TabIndex = 3
@@ -136,7 +140,7 @@ Partial Class FrmCierreDeCaja
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.Label3.Location = New System.Drawing.Point(205, 62)
+        Me.Label3.Location = New System.Drawing.Point(19, 61)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(101, 13)
         Me.Label3.TabIndex = 2
@@ -146,7 +150,7 @@ Partial Class FrmCierreDeCaja
         '
         Me.lblUsuario.AutoSize = True
         Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.lblUsuario.Location = New System.Drawing.Point(265, 25)
+        Me.lblUsuario.Location = New System.Drawing.Point(79, 28)
         Me.lblUsuario.Name = "lblUsuario"
         Me.lblUsuario.Size = New System.Drawing.Size(63, 13)
         Me.lblUsuario.TabIndex = 1
@@ -156,7 +160,7 @@ Partial Class FrmCierreDeCaja
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.Label2.Location = New System.Drawing.Point(205, 25)
+        Me.Label2.Location = New System.Drawing.Point(19, 28)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(54, 13)
         Me.Label2.TabIndex = 0
@@ -165,13 +169,14 @@ Partial Class FrmCierreDeCaja
         'btnSalirr
         '
         Me.btnSalirr.BackColor = System.Drawing.SystemColors.Control
-        Me.btnSalirr.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
         Me.btnSalirr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnSalirr.FlatAppearance.BorderSize = 0
         Me.btnSalirr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalirr.Location = New System.Drawing.Point(598, 386)
+        Me.btnSalirr.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+        Me.btnSalirr.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSalirr.Location = New System.Drawing.Point(497, 371)
         Me.btnSalirr.Name = "btnSalirr"
-        Me.btnSalirr.Size = New System.Drawing.Size(86, 89)
+        Me.btnSalirr.Size = New System.Drawing.Size(69, 81)
         Me.btnSalirr.TabIndex = 67
         Me.btnSalirr.Text = "Salir"
         Me.btnSalirr.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -180,14 +185,15 @@ Partial Class FrmCierreDeCaja
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.Control
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(599, 263)
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(497, 3)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(86, 117)
+        Me.Button1.Size = New System.Drawing.Size(69, 90)
         Me.Button1.TabIndex = 71
         Me.Button1.Text = "Realizar Cierre"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -202,26 +208,32 @@ Partial Class FrmCierreDeCaja
         Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
         Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnBuscar.Location = New System.Drawing.Point(598, 89)
+        Me.btnBuscar.Location = New System.Drawing.Point(497, 13)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(86, 90)
+        Me.btnBuscar.Size = New System.Drawing.Size(69, 81)
         Me.btnBuscar.TabIndex = 72
         Me.btnBuscar.Text = "Buscar"
         Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnBuscar.UseVisualStyleBackColor = False
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.dgvGrilla)
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.btnSalirr)
+        Me.Panel1.Location = New System.Drawing.Point(17, 146)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(579, 455)
+        Me.Panel1.TabIndex = 73
         '
         'FrmCierreDeCaja
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(699, 513)
-        Me.Controls.Add(Me.btnBuscar)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(614, 613)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.dgvGrilla)
-        Me.Controls.Add(Me.btnSalirr)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -232,6 +244,7 @@ Partial Class FrmCierreDeCaja
         CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -250,4 +263,5 @@ Partial Class FrmCierreDeCaja
 	Friend WithEvents Label5 As Windows.Forms.Label
 	Friend WithEvents chkFechaDesde As Windows.Forms.CheckBox
 	Friend WithEvents btnBuscar As Windows.Forms.Button
+    Friend WithEvents Panel1 As Windows.Forms.Panel
 End Class
