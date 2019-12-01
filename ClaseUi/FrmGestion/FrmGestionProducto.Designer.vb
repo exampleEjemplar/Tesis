@@ -127,7 +127,7 @@ Partial Class FrmGestionProducto
         Me.gbbusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbbusqueda.Location = New System.Drawing.Point(3, 5)
         Me.gbbusqueda.Name = "gbbusqueda"
-        Me.gbbusqueda.Size = New System.Drawing.Size(533, 141)
+        Me.gbbusqueda.Size = New System.Drawing.Size(538, 141)
         Me.gbbusqueda.TabIndex = 8
         Me.gbbusqueda.TabStop = False
         Me.gbbusqueda.Text = "Búsqueda"
@@ -138,7 +138,7 @@ Partial Class FrmGestionProducto
         Me.GroupBox7.Controls.Add(Me.cboOrden)
         Me.GroupBox7.Controls.Add(Me.chbListaParaOrdenar)
         Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox7.Location = New System.Drawing.Point(235, 10)
+        Me.GroupBox7.Location = New System.Drawing.Point(245, 10)
         Me.GroupBox7.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Padding = New System.Windows.Forms.Padding(2)
@@ -187,7 +187,7 @@ Partial Class FrmGestionProducto
         Me.GroupBox8.Controls.Add(Me.lblPrioridad1)
         Me.GroupBox8.Controls.Add(Me.lblPrioridad2)
         Me.GroupBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox8.Location = New System.Drawing.Point(425, 10)
+        Me.GroupBox8.Location = New System.Drawing.Point(435, 10)
         Me.GroupBox8.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Padding = New System.Windows.Forms.Padding(2)
@@ -259,16 +259,16 @@ Partial Class FrmGestionProducto
         'txtBusNombreProd
         '
         Me.txtBusNombreProd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBusNombreProd.Location = New System.Drawing.Point(67, 48)
+        Me.txtBusNombreProd.Location = New System.Drawing.Point(67, 44)
         Me.txtBusNombreProd.Name = "txtBusNombreProd"
-        Me.txtBusNombreProd.Size = New System.Drawing.Size(132, 20)
+        Me.txtBusNombreProd.Size = New System.Drawing.Size(173, 20)
         Me.txtBusNombreProd.TabIndex = 2
         '
         'lblBusApellido
         '
         Me.lblBusApellido.AutoSize = True
         Me.lblBusApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBusApellido.Location = New System.Drawing.Point(3, 51)
+        Me.lblBusApellido.Location = New System.Drawing.Point(6, 47)
         Me.lblBusApellido.Name = "lblBusApellido"
         Me.lblBusApellido.Size = New System.Drawing.Size(58, 13)
         Me.lblBusApellido.TabIndex = 27
@@ -277,16 +277,16 @@ Partial Class FrmGestionProducto
         'txtBusCodigo
         '
         Me.txtBusCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBusCodigo.Location = New System.Drawing.Point(67, 22)
+        Me.txtBusCodigo.Location = New System.Drawing.Point(67, 18)
         Me.txtBusCodigo.Name = "txtBusCodigo"
-        Me.txtBusCodigo.Size = New System.Drawing.Size(132, 20)
+        Me.txtBusCodigo.Size = New System.Drawing.Size(173, 20)
         Me.txtBusCodigo.TabIndex = 1
         '
         'lblBusNombre
         '
         Me.lblBusNombre.AutoSize = True
         Me.lblBusNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBusNombre.Location = New System.Drawing.Point(3, 25)
+        Me.lblBusNombre.Location = New System.Drawing.Point(6, 21)
         Me.lblBusNombre.Name = "lblBusNombre"
         Me.lblBusNombre.Size = New System.Drawing.Size(46, 13)
         Me.lblBusNombre.TabIndex = 25
@@ -300,7 +300,7 @@ Partial Class FrmGestionProducto
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
-        Me.btnBuscar.Location = New System.Drawing.Point(41, 76)
+        Me.btnBuscar.Location = New System.Drawing.Point(105, 76)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(54, 54)
         Me.btnBuscar.TabIndex = 6
@@ -314,7 +314,7 @@ Partial Class FrmGestionProducto
         Me.Button4.FlatAppearance.BorderSize = 0
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Image = Global.ClaseUi.My.Resources.Resources.icons8_delete_62
-        Me.Button4.Location = New System.Drawing.Point(116, 76)
+        Me.Button4.Location = New System.Drawing.Point(165, 76)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(54, 54)
         Me.Button4.TabIndex = 40
@@ -332,7 +332,7 @@ Partial Class FrmGestionProducto
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AllowUserToResizeColumns = False
         Me.DataGridView1.AllowUserToResizeRows = False
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeight = 45
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -347,7 +347,7 @@ Partial Class FrmGestionProducto
         Me.DataGridView1.RowHeadersWidth = 56
         Me.DataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(531, 278)
+        Me.DataGridView1.Size = New System.Drawing.Size(544, 278)
         Me.DataGridView1.TabIndex = 37
         '
         'GroupBox2
@@ -361,7 +361,7 @@ Partial Class FrmGestionProducto
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(3, 4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(788, 343)
+        Me.GroupBox2.Size = New System.Drawing.Size(772, 343)
         Me.GroupBox2.TabIndex = 35
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Gestion de producto"
@@ -371,7 +371,7 @@ Partial Class FrmGestionProducto
         Me.gboImagen.Controls.Add(Me.btncargarimagen)
         Me.gboImagen.Controls.Add(Me.PBfoto)
         Me.gboImagen.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gboImagen.Location = New System.Drawing.Point(616, 21)
+        Me.gboImagen.Location = New System.Drawing.Point(602, 21)
         Me.gboImagen.Name = "gboImagen"
         Me.gboImagen.Size = New System.Drawing.Size(166, 242)
         Me.gboImagen.TabIndex = 59
@@ -420,7 +420,7 @@ Partial Class FrmGestionProducto
         Me.gboProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gboProducto.Location = New System.Drawing.Point(9, 21)
         Me.gboProducto.Name = "gboProducto"
-        Me.gboProducto.Size = New System.Drawing.Size(601, 89)
+        Me.gboProducto.Size = New System.Drawing.Size(587, 89)
         Me.gboProducto.TabIndex = 58
         Me.gboProducto.TabStop = False
         Me.gboProducto.Text = "Producto"
@@ -519,7 +519,7 @@ Partial Class FrmGestionProducto
         Me.gboStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gboStock.Location = New System.Drawing.Point(453, 221)
         Me.gboStock.Name = "gboStock"
-        Me.gboStock.Size = New System.Drawing.Size(157, 70)
+        Me.gboStock.Size = New System.Drawing.Size(143, 73)
         Me.gboStock.TabIndex = 57
         Me.gboStock.TabStop = False
         Me.gboStock.Text = "Stock"
@@ -528,34 +528,34 @@ Partial Class FrmGestionProducto
         '
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(5, 47)
+        Me.Label22.Location = New System.Drawing.Point(6, 49)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(83, 13)
+        Me.Label22.Size = New System.Drawing.Size(46, 13)
         Me.Label22.TabIndex = 32
-        Me.Label22.Text = "Stock Minimo"
+        Me.Label22.Text = "Minimo"
         '
         'TbStockmin
         '
-        Me.TbStockmin.Location = New System.Drawing.Point(97, 44)
+        Me.TbStockmin.Location = New System.Drawing.Point(61, 46)
         Me.TbStockmin.Name = "TbStockmin"
-        Me.TbStockmin.Size = New System.Drawing.Size(51, 20)
+        Me.TbStockmin.Size = New System.Drawing.Size(71, 20)
         Me.TbStockmin.TabIndex = 33
         '
         'Label21
         '
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(5, 22)
+        Me.Label21.Location = New System.Drawing.Point(6, 23)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(86, 13)
+        Me.Label21.Size = New System.Drawing.Size(49, 13)
         Me.Label21.TabIndex = 34
-        Me.Label21.Text = "Stock Maximo"
+        Me.Label21.Text = "Maximo"
         '
         'TbStockMax
         '
-        Me.TbStockMax.Location = New System.Drawing.Point(97, 18)
+        Me.TbStockMax.Location = New System.Drawing.Point(61, 20)
         Me.TbStockMax.Name = "TbStockMax"
-        Me.TbStockMax.Size = New System.Drawing.Size(51, 20)
+        Me.TbStockMax.Size = New System.Drawing.Size(71, 20)
         Me.TbStockMax.TabIndex = 35
         '
         'gboCaracteristicas
@@ -643,7 +643,7 @@ Partial Class FrmGestionProducto
         Me.gboCategorias.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gboCategorias.Location = New System.Drawing.Point(9, 116)
         Me.gboCategorias.Name = "gboCategorias"
-        Me.gboCategorias.Size = New System.Drawing.Size(601, 99)
+        Me.gboCategorias.Size = New System.Drawing.Size(587, 99)
         Me.gboCategorias.TabIndex = 55
         Me.gboCategorias.TabStop = False
         Me.gboCategorias.Text = "Categorización"
@@ -652,7 +652,7 @@ Partial Class FrmGestionProducto
         '
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.Location = New System.Drawing.Point(6, 31)
+        Me.Label28.Location = New System.Drawing.Point(8, 29)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(61, 13)
         Me.Label28.TabIndex = 17
@@ -662,7 +662,7 @@ Partial Class FrmGestionProducto
         '
         Me.Label33.AutoSize = True
         Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.Location = New System.Drawing.Point(276, 64)
+        Me.Label33.Location = New System.Drawing.Point(271, 62)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(105, 13)
         Me.Label33.TabIndex = 9
@@ -675,7 +675,7 @@ Partial Class FrmGestionProducto
         Me.btnProveedor.FlatAppearance.BorderSize = 0
         Me.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnProveedor.Image = CType(resources.GetObject("btnProveedor.Image"), System.Drawing.Image)
-        Me.btnProveedor.Location = New System.Drawing.Point(551, 17)
+        Me.btnProveedor.Location = New System.Drawing.Point(546, 19)
         Me.btnProveedor.Name = "btnProveedor"
         Me.btnProveedor.Size = New System.Drawing.Size(30, 30)
         Me.btnProveedor.TabIndex = 53
@@ -685,7 +685,7 @@ Partial Class FrmGestionProducto
         'CmbTipoprodcuto
         '
         Me.CmbTipoprodcuto.FormattingEnabled = True
-        Me.CmbTipoprodcuto.Location = New System.Drawing.Point(387, 59)
+        Me.CmbTipoprodcuto.Location = New System.Drawing.Point(382, 59)
         Me.CmbTipoprodcuto.Name = "CmbTipoprodcuto"
         Me.CmbTipoprodcuto.Size = New System.Drawing.Size(158, 21)
         Me.CmbTipoprodcuto.TabIndex = 12
@@ -709,7 +709,7 @@ Partial Class FrmGestionProducto
         '
         Me.Label30.AutoSize = True
         Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(6, 64)
+        Me.Label30.Location = New System.Drawing.Point(6, 62)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(52, 13)
         Me.Label30.TabIndex = 13
@@ -722,7 +722,7 @@ Partial Class FrmGestionProducto
         Me.btnNuevoTipo.FlatAppearance.BorderSize = 0
         Me.btnNuevoTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevoTipo.Image = CType(resources.GetObject("btnNuevoTipo.Image"), System.Drawing.Image)
-        Me.btnNuevoTipo.Location = New System.Drawing.Point(551, 53)
+        Me.btnNuevoTipo.Location = New System.Drawing.Point(546, 53)
         Me.btnNuevoTipo.Name = "btnNuevoTipo"
         Me.btnNuevoTipo.Size = New System.Drawing.Size(30, 30)
         Me.btnNuevoTipo.TabIndex = 50
@@ -763,7 +763,7 @@ Partial Class FrmGestionProducto
         '
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(276, 31)
+        Me.Label26.Location = New System.Drawing.Point(271, 31)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(65, 13)
         Me.Label26.TabIndex = 15
@@ -772,7 +772,7 @@ Partial Class FrmGestionProducto
         'cmbProveedor
         '
         Me.cmbProveedor.FormattingEnabled = True
-        Me.cmbProveedor.Location = New System.Drawing.Point(387, 26)
+        Me.cmbProveedor.Location = New System.Drawing.Point(382, 26)
         Me.cmbProveedor.Name = "cmbProveedor"
         Me.cmbProveedor.Size = New System.Drawing.Size(158, 21)
         Me.cmbProveedor.TabIndex = 16
@@ -872,7 +872,7 @@ Partial Class FrmGestionProducto
         Me.btnguardarmodificacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnguardarmodificacion.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
         Me.btnguardarmodificacion.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnguardarmodificacion.Location = New System.Drawing.Point(641, 356)
+        Me.btnguardarmodificacion.Location = New System.Drawing.Point(631, 356)
         Me.btnguardarmodificacion.Name = "btnguardarmodificacion"
         Me.btnguardarmodificacion.Size = New System.Drawing.Size(69, 85)
         Me.btnguardarmodificacion.TabIndex = 5
@@ -889,7 +889,7 @@ Partial Class FrmGestionProducto
         Me.btncancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncancelar.Image = Global.ClaseUi.My.Resources.Resources.icons8_delete_62
         Me.btncancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btncancelar.Location = New System.Drawing.Point(566, 356)
+        Me.btncancelar.Location = New System.Drawing.Point(556, 356)
         Me.btncancelar.Name = "btncancelar"
         Me.btncancelar.Size = New System.Drawing.Size(69, 85)
         Me.btncancelar.TabIndex = 4
@@ -906,7 +906,7 @@ Partial Class FrmGestionProducto
         Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.Image = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnNuevo.Location = New System.Drawing.Point(491, 356)
+        Me.btnNuevo.Location = New System.Drawing.Point(481, 356)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(69, 85)
         Me.btnNuevo.TabIndex = 2
@@ -923,7 +923,7 @@ Partial Class FrmGestionProducto
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(716, 356)
+        Me.Button2.Location = New System.Drawing.Point(706, 356)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(69, 85)
         Me.Button2.TabIndex = 31
@@ -940,7 +940,7 @@ Partial Class FrmGestionProducto
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(641, 356)
+        Me.btnGuardar.Location = New System.Drawing.Point(631, 356)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(69, 85)
         Me.btnGuardar.TabIndex = 32
@@ -957,7 +957,7 @@ Partial Class FrmGestionProducto
         Me.btnmodificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnmodificar.Image = Global.ClaseUi.My.Resources.Resources.icons8_downloading_updates_64
         Me.btnmodificar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnmodificar.Location = New System.Drawing.Point(416, 356)
+        Me.btnmodificar.Location = New System.Drawing.Point(406, 356)
         Me.btnmodificar.Name = "btnmodificar"
         Me.btnmodificar.Size = New System.Drawing.Size(69, 85)
         Me.btnmodificar.TabIndex = 3
@@ -973,7 +973,7 @@ Partial Class FrmGestionProducto
         Me.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSiguiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSiguiente.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSiguiente.Location = New System.Drawing.Point(413, 149)
+        Me.btnSiguiente.Location = New System.Drawing.Point(423, 149)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(110, 23)
         Me.btnSiguiente.TabIndex = 38
@@ -1013,9 +1013,9 @@ Partial Class FrmGestionProducto
         Me.Panel1.Controls.Add(Me.DataGridView1)
         Me.Panel1.Controls.Add(Me.gbbusqueda)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(794, 0)
+        Me.Panel1.Location = New System.Drawing.Point(781, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(531, 453)
+        Me.Panel1.Size = New System.Drawing.Size(544, 453)
         Me.Panel1.TabIndex = 40
         '
         'FrmGestionProducto
