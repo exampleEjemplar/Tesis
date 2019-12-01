@@ -220,7 +220,7 @@ Public Class FrmGestionProductoAReparar
 
 
 			Dim dsa1 As DataTable
-			dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod, New List(Of Tuple(Of Integer, String, Integer)), "S") 'Si parametros esta vacio, busca todos los clientes en la bd
+			dsa1 = productometodo.CargaGrillaproductossinbusqueda(busqcod, busqprod, New List(Of Tuple(Of Integer, String, Integer)), 0, "S") 'Si parametros esta vacio, busca todos los clientes en la bd
 			dgvProducto.DataSource = dsa1
 			dgvProducto.Columns(0).HeaderText = "Código"
 			dgvProducto.Columns(1).Visible = False

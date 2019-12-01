@@ -346,7 +346,7 @@ Public Class FrmGestionProducto
 	Public Function Dgvproductosset()
 		Try
 			Dim dsa1 As DataTable
-			dsa1 = productometodo.CargaGrillaproductossinbusqueda(txtBusCodigo.Text, txtBusNombreProd.Text, OrderBy, cboOrden.SelectedItem, "N", paginaInicial)
+			dsa1 = productometodo.CargaGrillaproductossinbusqueda(txtBusCodigo.Text, txtBusNombreProd.Text, OrderBy, cboOrden.SelectedItem, paginaInicial, "N")
 
 			If primerOrder Then
 				primerOrder = False
@@ -609,6 +609,7 @@ Public Class FrmGestionProducto
 		btnNuevaCategoria.Enabled = False
 		btnNuevoMaterial.Enabled = False
 		btnNuevoTipo.Enabled = False
+		btnProveedor.Enabled = False
 		btnGuardar.Enabled = False
 		Label19.Enabled = False
 		Label20.Enabled = False
@@ -643,6 +644,7 @@ Public Class FrmGestionProducto
 		CmbCategoria.Enabled = True
 		CmbMaterial.Enabled = True
 		btncargarimagen.Enabled = True
+		btnProveedor.Enabled = True
 
 		btnNuevaCategoria.Enabled = True
 		btnNuevoMaterial.Enabled = True
@@ -841,10 +843,6 @@ Public Class FrmGestionProducto
 		Label32.Enabled = True
 	End Sub
 
-	Private Sub BtnProveedor_Click(sender As Object, e As EventArgs) Handles btnProveedor.Click
-		FrmGestionProveedores.ShowDialog()
-
-	End Sub
 
 	Private Sub BtnModificarPrecios_Click(sender As Object, e As EventArgs) Handles btnModificarPrecios.Click
 		FrmModificarPrecioProducto.ShowDialog()

@@ -404,10 +404,10 @@ Public Class MetodoProductoDA
 
 	End Function
 
-	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc as string, Optional esReparacion As String = "", Optional pagina As Integer = 1000000) As DataTable
+	Public Function CargaGrillaproductossinbusqueda(ByVal codigo As String, ByVal nombre As String, orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc As String, pagina As Integer, Optional esReparacion As String = "") As DataTable
 		helpersDa.ChequearConexion(db)
 		Dim sqlstr = "SELECT p.id, p.Cod_Barra as 'Código de barras', p.nombre Nombre, ca.nombre, t.Nombre, m.Nombre,cast((( P.precio * P.utilidad)/100+(P.precio)) as decimal(10,2)) as 'Precio de Venta', p.TipoProductoID as 'Tipo de Producto', p.MaterialId Material, p.foto, p.precio Precio, p.utilidad Utilidad, p.peso Peso, p.tamaño Tamaño, p.color Color, p.ProveedorId Proveedor, p.StockMin as 'Stock Minimo', p.StockMax as 'Stock Maximo', p.TipoProductoID, p.UnidadDePeso, p.CategoriaID Categoria, p.StockODeTercero 'Stock o de Tercero', p.problema, p.fechaAlta as 'Fecha De Alta' FROM productos as p inner join TipoProductos t on p.TipoProductoID=t.id inner join Materiales m On p.MaterialId=m.id inner join categorias ca on p.CategoriaID= ca.Id where p.esservicio = 'N' "
-		sqlstr = If(Not esReparacion = "N", sqlstr + " and esParaReparacion = 'N'", sqlstr + " and esParaReparacion = 'S'")
+		sqlstr = If(esReparacion = "N", sqlstr + " and esParaReparacion = 'N'", sqlstr + " and esParaReparacion = 'S'")
 		sqlstr = If(String.IsNullOrWhiteSpace(codigo), sqlstr, sqlstr + " and p.id = " + codigo + "")
 		sqlstr = If(String.IsNullOrWhiteSpace(nombre), sqlstr, sqlstr + " and p.nombre like '%" + nombre + "%'")
 		Dim dt As New DataTable
@@ -425,7 +425,7 @@ Public Class MetodoProductoDA
 			Next
 		End If
 
-		If Not pagina = 1000000 Then
+		If esReparacion = "N" Then
 			sqlstr = sqlstr + " ORDER BY id " + orderText + " " + ascOrDesc + " OFFSET " + pagina.ToString() + " ROWS FETCH NEXT 20 ROWS ONLY "
 		End If
 
