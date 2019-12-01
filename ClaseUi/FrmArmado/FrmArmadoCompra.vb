@@ -346,7 +346,7 @@ Public Class FrmArmadoCompra
 		lblPrioridad1.Text = OrderBy.FirstOrDefault(Function(x) x.Item1 = 1).Item2.Replace("'", "")
 		'Cargamos el dataset con los productos seleccionados por filtro
 		parametros.Add("EsReparacion", "N")
-		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, cboOrden.SelectedItem)
+		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, cboOrden.SelectedItem, "")
 
 		If primerOrder Then
 			primerOrder = False

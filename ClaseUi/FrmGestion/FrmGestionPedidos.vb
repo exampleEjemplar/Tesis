@@ -216,10 +216,12 @@ Public Class FrmGestionPedidos
 			})
 		Next
 		dgvProveedores.DataSource = listaDePedidos
+		dgvProveedores.ColumnHeadersHeight = 50
 		dgvProveedores.Columns("Id").Visible = False
 		dgvProveedores.Columns("ClienteId").Visible = False
 		dgvProveedores.Columns("EstaVencido").HeaderText = "Vencido?"
 		dgvProveedores.Columns("FechaVencimientoSeña").HeaderText = "Vencimiento Seña"
+		dgvProveedores.Columns("Fecha").HeaderText = "Fecha del pedido"
 		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
 		dgvProveedores.Columns("Seña").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
 		dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill

@@ -104,7 +104,7 @@ Public Class FrmModificarPrecioProducto
 		listaDeProductos = New List(Of Tuple(Of Integer, Boolean, ProductosNE))
 		Dim parametros = New Dictionary(Of String, String)
 		parametros.Add("EsReparacion", "N")
-		Dim productos = helpersLN.CargarTodosProductos(parametros, New List(Of Tuple(Of Integer, String, Integer)), "desc").Tables(0)
+		Dim productos = helpersLN.CargarTodosProductos(parametros, New List(Of Tuple(Of Integer, String, Integer)), "desc", "").Tables(0)
 		For i As Integer = 0 To productos.Rows.Count - 1
 			Dim stringProducto = productos.Rows(i)(1)
 			For y As Integer = productos.Rows(i)(1).length To 40

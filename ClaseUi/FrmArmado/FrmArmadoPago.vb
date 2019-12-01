@@ -40,6 +40,7 @@ Public Class FrmArmadoPago
 	End Sub
 
 	Private Sub Cargar()
+		LlenarCboOrden()
 		InicializarOrderBy()
 		cboProveedor.Enabled = True
 		ListView1.Clear()
@@ -141,7 +142,7 @@ Public Class FrmArmadoPago
 	Private Sub BtnQuitarItem_Click(sender As Object, e As EventArgs) Handles btnQuitarItem.Click
 		If selectedProducto IsNot Nothing Then
 			ListView1.Items.Remove(selectedProducto)
-			total -= selectedProducto.Tag(3)
+			total -= selectedProducto.Tag(8)
 			lblTotal.Text = total.ToString("0.00")
 			selectedProducto = Nothing
 			If lstProdDispo.Items.Count = 0 Then
@@ -231,7 +232,7 @@ Public Class FrmArmadoPago
 		If ItemSelected IsNot Nothing Then
 			Dim cloneOfItem = ItemSelected.Clone()
 			ListView1.Items.Add(cloneOfItem)
-			total += ItemSelected.Tag(3)
+			total += ItemSelected.Tag(8)
 			lblTotal.Text = total.ToString("0.00")
 
 
@@ -260,6 +261,12 @@ Public Class FrmArmadoPago
 #End Region
 
 #Region "Metodos"
+
+	Public Sub LlenarCboOrden()
+		cboOrden.DataSource = {"asc", "desc"}
+		cboOrden.SelectedItem = "desc"
+	End Sub
+
 
 	Public Function LlenarCboProveedores()
 		Try
@@ -298,7 +305,7 @@ Public Class FrmArmadoPago
 	Public Sub LlenarLvi(ByVal parametros As Dictionary(Of String, String))
 		'Cargamos el dataset con los productos seleccionados por filtro
 		parametros.Add("EsReparacion", "N")
-		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, "true")
+		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, cboOrden.SelectedItem, "true")
 
 		If primerOrder Then
 			primerOrder = False
@@ -453,6 +460,7 @@ Public Class FrmArmadoPago
 	End Sub
 
 	Private Sub cboProveedor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboProveedor.SelectionChangeCommitted
+		gboFiltros.Enabled = True
 		lblPrioridad1.Visible = True
 		lblPrioridad1.Text = OrderBy.FirstOrDefault(Function(x) x.Item1 = 1).Item2.Replace("'", "")
 		lblInstrucciones.Visible = False
@@ -486,6 +494,7 @@ Public Class FrmArmadoPago
 
 
 		Next
+		Search()
 		CargarProductosConProveedor()
 	End Sub
 

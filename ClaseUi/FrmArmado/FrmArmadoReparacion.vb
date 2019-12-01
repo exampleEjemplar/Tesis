@@ -334,7 +334,7 @@ Public Class FrmArmadoReparacion
 
 	Public Sub LlenarLvi(ByVal parametros As Dictionary(Of String, String))
         parametros.Add("EsReparacion", "S")
-		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, cboOrden.SelectedItem)
+		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, cboOrden.SelectedItem, "")
 
 		If primerOrder Then
 			primerOrder = False
