@@ -208,9 +208,9 @@ Public Class FrmArmadoVenta
 		ventasLN.Registrar(listaDeVentas, cboCliente.SelectedValue)
 		MsgBox("Venta realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
-		modificado = True
-
-		FrmComprobanteVenta.ShowDialog()
+        modificado = True
+        FrmGestionVentas.idVenta = 0
+        FrmComprobanteVenta.ShowDialog()
 
 
 		ListView1.Clear()

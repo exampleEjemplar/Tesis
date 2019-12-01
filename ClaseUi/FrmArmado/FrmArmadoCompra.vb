@@ -180,8 +180,9 @@ Public Class FrmArmadoCompra
 		comprasLn.Registrar(listaDeCompras, cboProveedor.SelectedValue, CargarDatosComprobante())
 		MsgBox("Compra realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
-		'Imprimimos el comprobante
-		FrmComprobanteCompra.ShowDialog()
+        'Imprimimos el comprobante
+        FrmGestionCompras.idCompra = 0
+        FrmComprobanteCompra.ShowDialog()
 		modificado = True
 
 
