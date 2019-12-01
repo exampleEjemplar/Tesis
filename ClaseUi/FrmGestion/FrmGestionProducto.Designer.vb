@@ -126,9 +126,9 @@ Partial Class FrmGestionProducto
 		Me.gbbusqueda.Controls.Add(Me.Button4)
 		Me.gbbusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.gbbusqueda.Location = New System.Drawing.Point(4, 6)
-		Me.gbbusqueda.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.gbbusqueda.Margin = New System.Windows.Forms.Padding(4)
 		Me.gbbusqueda.Name = "gbbusqueda"
-		Me.gbbusqueda.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.gbbusqueda.Padding = New System.Windows.Forms.Padding(4)
 		Me.gbbusqueda.Size = New System.Drawing.Size(717, 174)
 		Me.gbbusqueda.TabIndex = 8
 		Me.gbbusqueda.TabStop = False
@@ -168,7 +168,7 @@ Partial Class FrmGestionProducto
 		Me.cboOrden.FormattingEnabled = True
 		Me.cboOrden.Items.AddRange(New Object() {"Física", "Jurídica"})
 		Me.cboOrden.Location = New System.Drawing.Point(172, 118)
-		Me.cboOrden.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cboOrden.Margin = New System.Windows.Forms.Padding(4)
 		Me.cboOrden.Name = "cboOrden"
 		Me.cboOrden.Size = New System.Drawing.Size(65, 25)
 		Me.cboOrden.TabIndex = 86
@@ -186,7 +186,7 @@ Partial Class FrmGestionProducto
 		'
 		Me.txtBusNombreProd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtBusNombreProd.Location = New System.Drawing.Point(89, 54)
-		Me.txtBusNombreProd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtBusNombreProd.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtBusNombreProd.Name = "txtBusNombreProd"
 		Me.txtBusNombreProd.Size = New System.Drawing.Size(229, 23)
 		Me.txtBusNombreProd.TabIndex = 2
@@ -290,7 +290,7 @@ Partial Class FrmGestionProducto
 		'
 		Me.txtBusCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtBusCodigo.Location = New System.Drawing.Point(89, 22)
-		Me.txtBusCodigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtBusCodigo.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtBusCodigo.Name = "txtBusCodigo"
 		Me.txtBusCodigo.Size = New System.Drawing.Size(229, 23)
 		Me.txtBusCodigo.TabIndex = 1
@@ -315,7 +315,7 @@ Partial Class FrmGestionProducto
 		Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
 		Me.btnBuscar.Location = New System.Drawing.Point(140, 94)
-		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnBuscar.Name = "btnBuscar"
 		Me.btnBuscar.Size = New System.Drawing.Size(72, 66)
 		Me.btnBuscar.TabIndex = 6
@@ -330,7 +330,7 @@ Partial Class FrmGestionProducto
 		Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.Button4.Image = Global.ClaseUi.My.Resources.Resources.icons8_delete_62
 		Me.Button4.Location = New System.Drawing.Point(220, 94)
-		Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Button4.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button4.Name = "Button4"
 		Me.Button4.Size = New System.Drawing.Size(72, 66)
 		Me.Button4.TabIndex = 40
@@ -354,7 +354,7 @@ Partial Class FrmGestionProducto
 		Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom
 		Me.DataGridView1.EnableHeadersVisualStyles = False
 		Me.DataGridView1.Location = New System.Drawing.Point(0, 216)
-		Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
 		Me.DataGridView1.MultiSelect = False
 		Me.DataGridView1.Name = "DataGridView1"
 		Me.DataGridView1.ReadOnly = True
@@ -377,9 +377,9 @@ Partial Class FrmGestionProducto
 		Me.GroupBox2.Controls.Add(Me.gboPrecio)
 		Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.GroupBox2.Location = New System.Drawing.Point(4, 5)
-		Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
 		Me.GroupBox2.Size = New System.Drawing.Size(1029, 422)
 		Me.GroupBox2.TabIndex = 35
 		Me.GroupBox2.TabStop = False
@@ -391,9 +391,9 @@ Partial Class FrmGestionProducto
 		Me.gboImagen.Controls.Add(Me.PBfoto)
 		Me.gboImagen.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.gboImagen.Location = New System.Drawing.Point(803, 26)
-		Me.gboImagen.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.gboImagen.Margin = New System.Windows.Forms.Padding(4)
 		Me.gboImagen.Name = "gboImagen"
-		Me.gboImagen.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.gboImagen.Padding = New System.Windows.Forms.Padding(4)
 		Me.gboImagen.Size = New System.Drawing.Size(221, 298)
 		Me.gboImagen.TabIndex = 59
 		Me.gboImagen.TabStop = False
@@ -409,7 +409,7 @@ Partial Class FrmGestionProducto
 		Me.btncargarimagen.Image = CType(resources.GetObject("btncargarimagen.Image"), System.Drawing.Image)
 		Me.btncargarimagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
 		Me.btncargarimagen.Location = New System.Drawing.Point(8, 222)
-		Me.btncargarimagen.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btncargarimagen.Margin = New System.Windows.Forms.Padding(4)
 		Me.btncargarimagen.Name = "btncargarimagen"
 		Me.btncargarimagen.Size = New System.Drawing.Size(204, 64)
 		Me.btncargarimagen.TabIndex = 40
@@ -422,7 +422,7 @@ Partial Class FrmGestionProducto
 		Me.PBfoto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
 		Me.PBfoto.ImageLocation = ""
 		Me.PBfoto.Location = New System.Drawing.Point(8, 22)
-		Me.PBfoto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.PBfoto.Margin = New System.Windows.Forms.Padding(4)
 		Me.PBfoto.Name = "PBfoto"
 		Me.PBfoto.Size = New System.Drawing.Size(203, 191)
 		Me.PBfoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -442,9 +442,9 @@ Partial Class FrmGestionProducto
 		Me.gboProducto.Controls.Add(Me.Label32)
 		Me.gboProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.gboProducto.Location = New System.Drawing.Point(12, 26)
-		Me.gboProducto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.gboProducto.Margin = New System.Windows.Forms.Padding(4)
 		Me.gboProducto.Name = "gboProducto"
-		Me.gboProducto.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.gboProducto.Padding = New System.Windows.Forms.Padding(4)
 		Me.gboProducto.Size = New System.Drawing.Size(783, 110)
 		Me.gboProducto.TabIndex = 58
 		Me.gboProducto.TabStop = False
@@ -466,7 +466,7 @@ Partial Class FrmGestionProducto
 		Me.rdpropios.AutoSize = True
 		Me.rdpropios.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.rdpropios.Location = New System.Drawing.Point(12, 43)
-		Me.rdpropios.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.rdpropios.Margin = New System.Windows.Forms.Padding(4)
 		Me.rdpropios.Name = "rdpropios"
 		Me.rdpropios.Size = New System.Drawing.Size(84, 21)
 		Me.rdpropios.TabIndex = 46
@@ -479,7 +479,7 @@ Partial Class FrmGestionProducto
 		Me.rdterceros.AutoSize = True
 		Me.rdterceros.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.rdterceros.Location = New System.Drawing.Point(12, 76)
-		Me.rdterceros.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.rdterceros.Margin = New System.Windows.Forms.Padding(4)
 		Me.rdterceros.Name = "rdterceros"
 		Me.rdterceros.Size = New System.Drawing.Size(94, 21)
 		Me.rdterceros.TabIndex = 47
@@ -501,7 +501,7 @@ Partial Class FrmGestionProducto
 		'tbCodBarra
 		'
 		Me.tbCodBarra.Location = New System.Drawing.Point(567, 42)
-		Me.tbCodBarra.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.tbCodBarra.Margin = New System.Windows.Forms.Padding(4)
 		Me.tbCodBarra.Name = "tbCodBarra"
 		Me.tbCodBarra.Size = New System.Drawing.Size(193, 23)
 		Me.tbCodBarra.TabIndex = 1
@@ -509,7 +509,7 @@ Partial Class FrmGestionProducto
 		'tbCodigo
 		'
 		Me.tbCodigo.Location = New System.Drawing.Point(212, 42)
-		Me.tbCodigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.tbCodigo.Margin = New System.Windows.Forms.Padding(4)
 		Me.tbCodigo.Name = "tbCodigo"
 		Me.tbCodigo.Size = New System.Drawing.Size(185, 23)
 		Me.tbCodigo.TabIndex = 43
@@ -528,7 +528,7 @@ Partial Class FrmGestionProducto
 		'TbNombreProducto
 		'
 		Me.TbNombreProducto.Location = New System.Drawing.Point(305, 75)
-		Me.TbNombreProducto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.TbNombreProducto.Margin = New System.Windows.Forms.Padding(4)
 		Me.TbNombreProducto.Name = "TbNombreProducto"
 		Me.TbNombreProducto.Size = New System.Drawing.Size(455, 23)
 		Me.TbNombreProducto.TabIndex = 5
@@ -552,9 +552,9 @@ Partial Class FrmGestionProducto
 		Me.gboStock.Controls.Add(Me.TbStockMax)
 		Me.gboStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.gboStock.Location = New System.Drawing.Point(604, 272)
-		Me.gboStock.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.gboStock.Margin = New System.Windows.Forms.Padding(4)
 		Me.gboStock.Name = "gboStock"
-		Me.gboStock.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.gboStock.Padding = New System.Windows.Forms.Padding(4)
 		Me.gboStock.Size = New System.Drawing.Size(191, 90)
 		Me.gboStock.TabIndex = 57
 		Me.gboStock.TabStop = False
@@ -574,7 +574,7 @@ Partial Class FrmGestionProducto
 		'TbStockmin
 		'
 		Me.TbStockmin.Location = New System.Drawing.Point(81, 57)
-		Me.TbStockmin.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.TbStockmin.Margin = New System.Windows.Forms.Padding(4)
 		Me.TbStockmin.Name = "TbStockmin"
 		Me.TbStockmin.Size = New System.Drawing.Size(93, 23)
 		Me.TbStockmin.TabIndex = 33
@@ -593,7 +593,7 @@ Partial Class FrmGestionProducto
 		'TbStockMax
 		'
 		Me.TbStockMax.Location = New System.Drawing.Point(81, 25)
-		Me.TbStockMax.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.TbStockMax.Margin = New System.Windows.Forms.Padding(4)
 		Me.TbStockMax.Name = "TbStockMax"
 		Me.TbStockMax.Size = New System.Drawing.Size(93, 23)
 		Me.TbStockMax.TabIndex = 35
@@ -608,9 +608,9 @@ Partial Class FrmGestionProducto
 		Me.gboCaracteristicas.Controls.Add(Me.TbColor)
 		Me.gboCaracteristicas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.gboCaracteristicas.Location = New System.Drawing.Point(276, 272)
-		Me.gboCaracteristicas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.gboCaracteristicas.Margin = New System.Windows.Forms.Padding(4)
 		Me.gboCaracteristicas.Name = "gboCaracteristicas"
-		Me.gboCaracteristicas.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.gboCaracteristicas.Padding = New System.Windows.Forms.Padding(4)
 		Me.gboCaracteristicas.Size = New System.Drawing.Size(320, 128)
 		Me.gboCaracteristicas.TabIndex = 56
 		Me.gboCaracteristicas.TabStop = False
@@ -631,7 +631,7 @@ Partial Class FrmGestionProducto
 		'
 		Me.cmbUnidad.FormattingEnabled = True
 		Me.cmbUnidad.Location = New System.Drawing.Point(161, 21)
-		Me.cmbUnidad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cmbUnidad.Margin = New System.Windows.Forms.Padding(4)
 		Me.cmbUnidad.Name = "cmbUnidad"
 		Me.cmbUnidad.Size = New System.Drawing.Size(143, 25)
 		Me.cmbUnidad.TabIndex = 30
@@ -650,7 +650,7 @@ Partial Class FrmGestionProducto
 		'TbPeso
 		'
 		Me.TbPeso.Location = New System.Drawing.Point(161, 54)
-		Me.TbPeso.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.TbPeso.Margin = New System.Windows.Forms.Padding(4)
 		Me.TbPeso.Name = "TbPeso"
 		Me.TbPeso.Size = New System.Drawing.Size(143, 23)
 		Me.TbPeso.TabIndex = 31
@@ -669,7 +669,7 @@ Partial Class FrmGestionProducto
 		'TbColor
 		'
 		Me.TbColor.Location = New System.Drawing.Point(161, 86)
-		Me.TbColor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.TbColor.Margin = New System.Windows.Forms.Padding(4)
 		Me.TbColor.Name = "TbColor"
 		Me.TbColor.Size = New System.Drawing.Size(143, 23)
 		Me.TbColor.TabIndex = 23
@@ -690,9 +690,9 @@ Partial Class FrmGestionProducto
 		Me.gboCategorias.Controls.Add(Me.cmbProveedor)
 		Me.gboCategorias.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.gboCategorias.Location = New System.Drawing.Point(12, 143)
-		Me.gboCategorias.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.gboCategorias.Margin = New System.Windows.Forms.Padding(4)
 		Me.gboCategorias.Name = "gboCategorias"
-		Me.gboCategorias.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.gboCategorias.Padding = New System.Windows.Forms.Padding(4)
 		Me.gboCategorias.Size = New System.Drawing.Size(783, 122)
 		Me.gboCategorias.TabIndex = 55
 		Me.gboCategorias.TabStop = False
@@ -728,7 +728,7 @@ Partial Class FrmGestionProducto
 		Me.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnProveedor.Image = CType(resources.GetObject("btnProveedor.Image"), System.Drawing.Image)
 		Me.btnProveedor.Location = New System.Drawing.Point(728, 23)
-		Me.btnProveedor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnProveedor.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnProveedor.Name = "btnProveedor"
 		Me.btnProveedor.Size = New System.Drawing.Size(40, 37)
 		Me.btnProveedor.TabIndex = 53
@@ -739,7 +739,7 @@ Partial Class FrmGestionProducto
 		'
 		Me.CmbTipoprodcuto.FormattingEnabled = True
 		Me.CmbTipoprodcuto.Location = New System.Drawing.Point(509, 73)
-		Me.CmbTipoprodcuto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.CmbTipoprodcuto.Margin = New System.Windows.Forms.Padding(4)
 		Me.CmbTipoprodcuto.Name = "CmbTipoprodcuto"
 		Me.CmbTipoprodcuto.Size = New System.Drawing.Size(209, 25)
 		Me.CmbTipoprodcuto.TabIndex = 12
@@ -753,7 +753,7 @@ Partial Class FrmGestionProducto
 		Me.btnNuevaCategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnNuevaCategoria.Image = CType(resources.GetObject("btnNuevaCategoria.Image"), System.Drawing.Image)
 		Me.btnNuevaCategoria.Location = New System.Drawing.Point(313, 23)
-		Me.btnNuevaCategoria.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnNuevaCategoria.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevaCategoria.Name = "btnNuevaCategoria"
 		Me.btnNuevaCategoria.Size = New System.Drawing.Size(40, 37)
 		Me.btnNuevaCategoria.TabIndex = 51
@@ -779,7 +779,7 @@ Partial Class FrmGestionProducto
 		Me.btnNuevoTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnNuevoTipo.Image = CType(resources.GetObject("btnNuevoTipo.Image"), System.Drawing.Image)
 		Me.btnNuevoTipo.Location = New System.Drawing.Point(728, 65)
-		Me.btnNuevoTipo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnNuevoTipo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevoTipo.Name = "btnNuevoTipo"
 		Me.btnNuevoTipo.Size = New System.Drawing.Size(40, 37)
 		Me.btnNuevoTipo.TabIndex = 50
@@ -790,7 +790,7 @@ Partial Class FrmGestionProducto
 		'
 		Me.CmbMaterial.FormattingEnabled = True
 		Me.CmbMaterial.Location = New System.Drawing.Point(95, 73)
-		Me.CmbMaterial.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.CmbMaterial.Margin = New System.Windows.Forms.Padding(4)
 		Me.CmbMaterial.Name = "CmbMaterial"
 		Me.CmbMaterial.Size = New System.Drawing.Size(209, 25)
 		Me.CmbMaterial.TabIndex = 14
@@ -803,7 +803,7 @@ Partial Class FrmGestionProducto
 		Me.btnNuevoMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnNuevoMaterial.Image = CType(resources.GetObject("btnNuevoMaterial.Image"), System.Drawing.Image)
 		Me.btnNuevoMaterial.Location = New System.Drawing.Point(313, 65)
-		Me.btnNuevoMaterial.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnNuevoMaterial.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevoMaterial.Name = "btnNuevoMaterial"
 		Me.btnNuevoMaterial.Size = New System.Drawing.Size(40, 37)
 		Me.btnNuevoMaterial.TabIndex = 49
@@ -814,7 +814,7 @@ Partial Class FrmGestionProducto
 		'
 		Me.CmbCategoria.FormattingEnabled = True
 		Me.CmbCategoria.Location = New System.Drawing.Point(95, 32)
-		Me.CmbCategoria.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.CmbCategoria.Margin = New System.Windows.Forms.Padding(4)
 		Me.CmbCategoria.Name = "CmbCategoria"
 		Me.CmbCategoria.Size = New System.Drawing.Size(209, 25)
 		Me.CmbCategoria.TabIndex = 18
@@ -834,7 +834,7 @@ Partial Class FrmGestionProducto
 		'
 		Me.cmbProveedor.FormattingEnabled = True
 		Me.cmbProveedor.Location = New System.Drawing.Point(509, 32)
-		Me.cmbProveedor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.cmbProveedor.Margin = New System.Windows.Forms.Padding(4)
 		Me.cmbProveedor.Name = "cmbProveedor"
 		Me.cmbProveedor.Size = New System.Drawing.Size(209, 25)
 		Me.cmbProveedor.TabIndex = 16
@@ -849,9 +849,9 @@ Partial Class FrmGestionProducto
 		Me.gboPrecio.Controls.Add(Me.TbUtilidad)
 		Me.gboPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.gboPrecio.Location = New System.Drawing.Point(12, 272)
-		Me.gboPrecio.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.gboPrecio.Margin = New System.Windows.Forms.Padding(4)
 		Me.gboPrecio.Name = "gboPrecio"
-		Me.gboPrecio.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.gboPrecio.Padding = New System.Windows.Forms.Padding(4)
 		Me.gboPrecio.Size = New System.Drawing.Size(256, 143)
 		Me.gboPrecio.TabIndex = 54
 		Me.gboPrecio.TabStop = False
@@ -867,7 +867,7 @@ Partial Class FrmGestionProducto
 		Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
 		Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
 		Me.Button1.Location = New System.Drawing.Point(8, 84)
-		Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button1.Name = "Button1"
 		Me.Button1.RightToLeft = System.Windows.Forms.RightToLeft.No
 		Me.Button1.Size = New System.Drawing.Size(112, 49)
@@ -886,7 +886,7 @@ Partial Class FrmGestionProducto
 		Me.btnModificarPrecios.Image = CType(resources.GetObject("btnModificarPrecios.Image"), System.Drawing.Image)
 		Me.btnModificarPrecios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
 		Me.btnModificarPrecios.Location = New System.Drawing.Point(128, 86)
-		Me.btnModificarPrecios.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnModificarPrecios.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnModificarPrecios.Name = "btnModificarPrecios"
 		Me.btnModificarPrecios.RightToLeft = System.Windows.Forms.RightToLeft.No
 		Me.btnModificarPrecios.Size = New System.Drawing.Size(123, 46)
@@ -909,7 +909,7 @@ Partial Class FrmGestionProducto
 		'TbPrecio
 		'
 		Me.TbPrecio.Location = New System.Drawing.Point(101, 21)
-		Me.TbPrecio.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.TbPrecio.Margin = New System.Windows.Forms.Padding(4)
 		Me.TbPrecio.Name = "TbPrecio"
 		Me.TbPrecio.Size = New System.Drawing.Size(145, 23)
 		Me.TbPrecio.TabIndex = 37
@@ -928,7 +928,7 @@ Partial Class FrmGestionProducto
 		'TbUtilidad
 		'
 		Me.TbUtilidad.Location = New System.Drawing.Point(101, 54)
-		Me.TbUtilidad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.TbUtilidad.Margin = New System.Windows.Forms.Padding(4)
 		Me.TbUtilidad.Name = "TbUtilidad"
 		Me.TbUtilidad.Size = New System.Drawing.Size(145, 23)
 		Me.TbUtilidad.TabIndex = 39
@@ -943,7 +943,7 @@ Partial Class FrmGestionProducto
 		Me.btnguardarmodificacion.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
 		Me.btnguardarmodificacion.ImageAlign = System.Drawing.ContentAlignment.TopCenter
 		Me.btnguardarmodificacion.Location = New System.Drawing.Point(841, 438)
-		Me.btnguardarmodificacion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnguardarmodificacion.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnguardarmodificacion.Name = "btnguardarmodificacion"
 		Me.btnguardarmodificacion.Size = New System.Drawing.Size(92, 105)
 		Me.btnguardarmodificacion.TabIndex = 5
@@ -961,7 +961,7 @@ Partial Class FrmGestionProducto
 		Me.btncancelar.Image = Global.ClaseUi.My.Resources.Resources.icons8_delete_62
 		Me.btncancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
 		Me.btncancelar.Location = New System.Drawing.Point(741, 438)
-		Me.btncancelar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btncancelar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btncancelar.Name = "btncancelar"
 		Me.btncancelar.Size = New System.Drawing.Size(92, 105)
 		Me.btncancelar.TabIndex = 4
@@ -979,7 +979,7 @@ Partial Class FrmGestionProducto
 		Me.btnNuevo.Image = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
 		Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
 		Me.btnNuevo.Location = New System.Drawing.Point(641, 438)
-		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnNuevo.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnNuevo.Name = "btnNuevo"
 		Me.btnNuevo.Size = New System.Drawing.Size(92, 105)
 		Me.btnNuevo.TabIndex = 2
@@ -997,7 +997,7 @@ Partial Class FrmGestionProducto
 		Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
 		Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
 		Me.Button2.Location = New System.Drawing.Point(941, 438)
-		Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Button2.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button2.Name = "Button2"
 		Me.Button2.Size = New System.Drawing.Size(92, 105)
 		Me.Button2.TabIndex = 31
@@ -1015,7 +1015,7 @@ Partial Class FrmGestionProducto
 		Me.btnGuardar.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
 		Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
 		Me.btnGuardar.Location = New System.Drawing.Point(841, 438)
-		Me.btnGuardar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnGuardar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnGuardar.Name = "btnGuardar"
 		Me.btnGuardar.Size = New System.Drawing.Size(92, 105)
 		Me.btnGuardar.TabIndex = 32
@@ -1033,7 +1033,7 @@ Partial Class FrmGestionProducto
 		Me.btnmodificar.Image = Global.ClaseUi.My.Resources.Resources.icons8_downloading_updates_64
 		Me.btnmodificar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
 		Me.btnmodificar.Location = New System.Drawing.Point(541, 438)
-		Me.btnmodificar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnmodificar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnmodificar.Name = "btnmodificar"
 		Me.btnmodificar.Size = New System.Drawing.Size(92, 105)
 		Me.btnmodificar.TabIndex = 3
@@ -1050,7 +1050,7 @@ Partial Class FrmGestionProducto
 		Me.btnSiguiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnSiguiente.ImageAlign = System.Drawing.ContentAlignment.TopCenter
 		Me.btnSiguiente.Location = New System.Drawing.Point(564, 183)
-		Me.btnSiguiente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnSiguiente.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSiguiente.Name = "btnSiguiente"
 		Me.btnSiguiente.Size = New System.Drawing.Size(147, 28)
 		Me.btnSiguiente.TabIndex = 38
@@ -1066,7 +1066,7 @@ Partial Class FrmGestionProducto
 		Me.btnAnterior.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnAnterior.ImageAlign = System.Drawing.ContentAlignment.TopCenter
 		Me.btnAnterior.Location = New System.Drawing.Point(4, 183)
-		Me.btnAnterior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnAnterior.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnAnterior.Name = "btnAnterior"
 		Me.btnAnterior.Size = New System.Drawing.Size(147, 28)
 		Me.btnAnterior.TabIndex = 39
@@ -1093,7 +1093,7 @@ Partial Class FrmGestionProducto
 		Me.Panel1.Controls.Add(Me.gbbusqueda)
 		Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
 		Me.Panel1.Location = New System.Drawing.Point(1042, 0)
-		Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
 		Me.Panel1.Name = "Panel1"
 		Me.Panel1.Size = New System.Drawing.Size(725, 558)
 		Me.Panel1.TabIndex = 40
@@ -1112,7 +1112,7 @@ Partial Class FrmGestionProducto
 		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.btnGuardar)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-		Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Margin = New System.Windows.Forms.Padding(4)
 		Me.MaximizeBox = False
 		Me.MinimizeBox = False
 		Me.Name = "FrmGestionProducto"
