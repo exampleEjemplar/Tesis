@@ -273,7 +273,7 @@ Partial Class FrmGestionServicio
         '
         Me.rbtFechaExacta.AutoSize = True
         Me.rbtFechaExacta.Location = New System.Drawing.Point(10, 45)
-        Me.rbtFechaExacta.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbtFechaExacta.Margin = New System.Windows.Forms.Padding(2)
         Me.rbtFechaExacta.Name = "rbtFechaExacta"
         Me.rbtFechaExacta.Size = New System.Drawing.Size(103, 17)
         Me.rbtFechaExacta.TabIndex = 39
@@ -284,7 +284,7 @@ Partial Class FrmGestionServicio
         '
         Me.rbtEntreFechas.AutoSize = True
         Me.rbtEntreFechas.Location = New System.Drawing.Point(174, 45)
-        Me.rbtEntreFechas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbtEntreFechas.Margin = New System.Windows.Forms.Padding(2)
         Me.rbtEntreFechas.Name = "rbtEntreFechas"
         Me.rbtEntreFechas.Size = New System.Drawing.Size(98, 17)
         Me.rbtEntreFechas.TabIndex = 38
@@ -377,9 +377,9 @@ Partial Class FrmGestionServicio
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.25!, System.Drawing.FontStyle.Bold)
         Me.Label4.Location = New System.Drawing.Point(12, 9)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(262, 20)
+        Me.Label4.Size = New System.Drawing.Size(184, 20)
         Me.Label4.TabIndex = 70
-        Me.Label4.Text = "Gestion de producto a reparar"
+        Me.Label4.Text = "Gestion de Servicios"
         '
         'FrmGestionServicio
         '
@@ -392,7 +392,7 @@ Partial Class FrmGestionServicio
         Me.Controls.Add(Me.gboServicio)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmGestionServicio"

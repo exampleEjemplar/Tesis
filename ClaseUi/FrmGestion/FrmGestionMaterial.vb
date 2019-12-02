@@ -53,8 +53,10 @@ Public Class FrmGestionMaterial
 		dgvmaterial.DataSource = examples
 		dgvmaterial.Columns("Id").Visible = False
 		dgvmaterial.Columns("Material").DisplayIndex = 0
-		dgvmaterial.Columns("Cotizacion").DisplayIndex = 1
-		dgvmaterial.Columns("Fecha").DisplayIndex = 2
+        dgvmaterial.Columns("Cotizacion").DisplayIndex = 1
+        dgvmaterial.Columns("Cotizacion").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        dgvmaterial.Columns("Cotizacion").DefaultCellStyle.Format = "c2"
+        dgvmaterial.Columns("Fecha").DisplayIndex = 2
 
 
 	End Sub
