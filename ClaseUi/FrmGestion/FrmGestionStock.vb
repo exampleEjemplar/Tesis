@@ -9,11 +9,22 @@ Public Class FrmGestionStock
 	Public productoId As Integer
 	Public primerOrder As Boolean = True
 	Public OrderBy As New List(Of Tuple(Of Integer, String, Integer)) 'Index, nombrevista, nombre base, prioridad
+	Public recargar As Boolean
 
 	Public Sub LlenarCboOrden()
 		cboOrden.DataSource = {"asc", "desc"}
 		cboOrden.SelectedItem = "desc"
 	End Sub
+
+
+	Private Sub FrmGestionStock_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+		If recargar Then
+			Cargar()
+			CargarGrilla(New Dictionary(Of String, String))
+			recargar = False
+		End If
+	End Sub
+
 
 	Private Sub chbListaParaOrdenar_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chbListaParaOrdenar.ItemCheck
 		If Not String.IsNullOrEmpty(chbListaParaOrdenar.SelectedItem) Then

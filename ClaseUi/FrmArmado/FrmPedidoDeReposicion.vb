@@ -182,12 +182,14 @@ Public Class FrmPedidoDeReposicion
 		Catch ex As Exception
 			MessageBox.Show(ex.Message)
 			MsgBox("Ha ocurrido un error. Por favor intentelo mas tarde", MsgBoxStyle.Critical, "Stock")
+			FrmGestionStock.recargar = True
 			Dispose()
 			Close()
 			Return
 		End Try
 		If compras > 0 Then
 			MsgBox("Se han realizado " + compras.ToString() + " compra/s. En caso de dudas revisar la gestión de compras!", MsgBoxStyle.OkOnly, "Stock")
+			FrmGestionStock.recargar = True
 			Dispose()
 			Close()
 		Else
@@ -196,6 +198,7 @@ Public Class FrmPedidoDeReposicion
 	End Sub
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSalirrr.Click
+		FrmGestionStock.recargar = True
 		dgvProveedores.DataSource = Nothing
 		FrmGestionStock.CargarGrilla(New Dictionary(Of String, String))
 		Dispose()

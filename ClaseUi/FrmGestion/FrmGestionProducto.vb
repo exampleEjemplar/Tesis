@@ -559,6 +559,11 @@ Public Class FrmGestionProducto
 
 
 	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+		txtBusCodigo.Text = ""
+		txtBusNombreProd.Text = ""
+		busqcod = ""
+		busqprod = ""
+		InicializarOrderBy()
 		Dgvproductosset()
 		'gbbusqueda.Visible = False
 	End Sub
