@@ -373,6 +373,12 @@
     <Compile Include="Reportes\DataSetReportes.vb">
       <DependentUpon>DataSetReportes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\FrmhistorialCierreCaja.Designer.vb">
+      <DependentUpon>FrmhistorialCierreCaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmhistorialCierreCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\FrmReporteStok.Designer.vb">
       <DependentUpon>FrmReporteStok.vb</DependentUpon>
     </Compile>
@@ -595,9 +601,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\CierreCaja.rdlc" />
     <EmbeddedResource Include="Reportes\ComprobanteVenta.rdlc" />
+    <EmbeddedResource Include="Reportes\FrmhistorialCierreCaja.resx">
+      <DependentUpon>FrmhistorialCierreCaja.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmReporteStok.resx">
       <DependentUpon>FrmReporteStok.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\HistoricoCierredeCaja.rdlc" />
     <EmbeddedResource Include="Reportes\InformeCierredeCaja.resx">
       <DependentUpon>InformeCierredeCaja.vb</DependentUpon>
     </EmbeddedResource>
@@ -808,6 +818,7 @@
     <None Include="Resources\Appliance-Plug-PNG-Photo %281%29.png" />
     <None Include="Resources\PNGIX.com_ask-icon-png_3810269 %281%29.png" />
     <None Include="Resources\PNGIX.com_ask-icon-png_3810269 %282%29.png" />
+    <None Include="Resources\LogoCrizolPSPequeño.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

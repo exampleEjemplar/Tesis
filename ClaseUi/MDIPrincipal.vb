@@ -105,7 +105,7 @@ Public Class MDIPrincipal
             Dim usuario = usuarioLn.CargarUnUsuario(loginLN.ChequearEnSesion())
             lblUsuario.Text = "Hola " + usuario.Tables(0).Rows(0)(0).ToString() + "!"
             Panel1.Visible = False
-
+            Panel2.Visible = False
 
         Catch
 
@@ -206,7 +206,7 @@ Public Class MDIPrincipal
     End Property
 
     Private Sub Button5_Click_2(sender As Object, e As EventArgs) Handles Button5.Click
-        FrmCierreDeCaja.ShowDialog()
+
 
     End Sub
 
@@ -266,5 +266,45 @@ Public Class MDIPrincipal
     Private Sub EstadísitcasDeStockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadísitcasDeStockToolStripMenuItem.Click
         FrmEstadisticaStock.ShowDialog()
 
+    End Sub
+
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+        FrmCierreDeCaja.ShowDialog()
+    End Sub
+
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
+        FrmhistorialCierreCaja.ShowDialog()
+
+    End Sub
+
+    Private Sub MenuStrip2_MouseHover(sender As Object, e As EventArgs) Handles MenuStrip2.MouseHover
+        Panel2.Visible = True
+    End Sub
+
+    Private Sub Button5_MouseHover(sender As Object, e As EventArgs) Handles Button5.MouseHover
+        Panel2.Visible = True
+    End Sub
+
+    Private Sub Button5_MouseLeave(sender As Object, e As EventArgs) Handles Panel2.MouseLeave
+        Panel2.Visible = False
+    End Sub
+    Private Sub MenuStrip2_MouseLeave(sender As Object, e As EventArgs) Handles MenuStrip2.MouseLeave
+        Panel2.Visible = False
+    End Sub
+
+    Private Sub FlowLayoutPanel1_MouseLeave(sender As Object, e As EventArgs) Handles FlowLayoutPanel1.MouseLeave
+        Panel1.Visible = False
+        Panel2.Visible = False
+
+    End Sub
+
+    Private Sub Panel3_MouseHover(sender As Object, e As EventArgs) Handles Panel3.MouseHover
+        Panel1.Visible = False
+        Panel2.Visible = False
+    End Sub
+
+    Private Sub Panel4_MouseHover(sender As Object, e As EventArgs) Handles Panel4.MouseHover
+        Panel1.Visible = False
+        Panel2.Visible = False
     End Sub
 End Class
