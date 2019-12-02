@@ -173,7 +173,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>1.11594cm</Height>
+              <Height>0.85136cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -206,6 +206,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -317,18 +318,28 @@
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember>
-              <KeepWithGroup>After</KeepWithGroup>
-            </TablixMember>
-            <TablixMember>
-              <Group Name="Detalles" />
+              <Group Name="Group_PageBreak">
+                <GroupExpressions>
+                  <GroupExpression>=Ceiling(RowNumber(Nothing)/20)</GroupExpression>
+                </GroupExpressions>
+                <PageBreak>
+                  <BreakLocation>Between</BreakLocation>
+                </PageBreak>
+              </Group>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="Detalles" />
+                </TablixMember>
+              </TablixMembers>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>ReporteClienteConFecha</DataSetName>
         <Top>0.0762cm</Top>
         <Left>0.50588cm</Left>
-        <Height>1.80855cm</Height>
+        <Height>1.54397cm</Height>
         <Width>15.25446cm</Width>
         <Style>
           <Border>
@@ -341,7 +352,7 @@
     <Height>1.08333in</Height>
     <Style />
   </Body>
-  <Width>6.35042in</Width>
+  <Width>6.59in</Width>
   <Page>
     <PageHeader>
       <Height>2.97459cm</Height>

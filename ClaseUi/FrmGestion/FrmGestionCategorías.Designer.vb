@@ -47,7 +47,7 @@ Partial Class FrmGestionCategorías
         Me.txtDescripcion.MaxLength = 300
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(291, 84)
+        Me.txtDescripcion.Size = New System.Drawing.Size(369, 83)
         Me.txtDescripcion.TabIndex = 34
         '
         'Label1
@@ -92,7 +92,7 @@ Partial Class FrmGestionCategorías
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(509, 123)
+        Me.GroupBox1.Size = New System.Drawing.Size(588, 123)
         Me.GroupBox1.TabIndex = 38
         Me.GroupBox1.TabStop = False
         '
@@ -128,7 +128,7 @@ Partial Class FrmGestionCategorías
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Image = Global.ClaseUi.My.Resources.Resources.icons8_create_document_621
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnNuevo.Location = New System.Drawing.Point(439, 3)
+        Me.btnNuevo.Location = New System.Drawing.Point(515, 3)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(69, 82)
         Me.btnNuevo.TabIndex = 39
@@ -144,7 +144,7 @@ Partial Class FrmGestionCategorías
         Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(439, 91)
+        Me.btnGuardar.Location = New System.Drawing.Point(515, 91)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(69, 82)
         Me.btnGuardar.TabIndex = 41
@@ -160,7 +160,7 @@ Partial Class FrmGestionCategorías
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(439, 357)
+        Me.Button2.Location = New System.Drawing.Point(515, 357)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(69, 82)
         Me.Button2.TabIndex = 42
@@ -189,7 +189,7 @@ Partial Class FrmGestionCategorías
         Me.dgvCategorias.RowHeadersWidth = 56
         Me.dgvCategorias.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvCategorias.Size = New System.Drawing.Size(433, 442)
+        Me.dgvCategorias.Size = New System.Drawing.Size(509, 442)
         Me.dgvCategorias.TabIndex = 44
         '
         'Panel1
@@ -200,7 +200,7 @@ Partial Class FrmGestionCategorías
         Me.Panel1.Controls.Add(Me.btnGuardar)
         Me.Panel1.Location = New System.Drawing.Point(12, 159)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(511, 442)
+        Me.Panel1.Size = New System.Drawing.Size(590, 442)
         Me.Panel1.TabIndex = 45
         '
         'Label3
@@ -217,7 +217,7 @@ Partial Class FrmGestionCategorías
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(530, 613)
+        Me.ClientSize = New System.Drawing.Size(614, 613)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox1)

@@ -4,14 +4,14 @@ Imports System.Windows.Forms.CheckedListBox
 Imports ClaseLn
 Imports ClaseNe
 
-Public Class FrmModificarPrecioProducto
+Public Class FrmModificarUtilidad
 	Private productometodo As New ProductoLN
 	Private categoriasLn As New CategoriasLN
 
 	Private helpersLN As New HelpersLN
 	Private listaDeProductos As List(Of Tuple(Of Integer, Boolean, ProductosNE))
 
-	Private Sub FrmModificarPrecioProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+	Private Sub FrmModificarUtilidad_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Cargar()
 	End Sub
 
@@ -42,10 +42,10 @@ Public Class FrmModificarPrecioProducto
 		cantidad = If(adicion, cantidad + 1, cantidad)
 
 		If cantidad > 1 Then
-			MsgBox("Debe seleccionar solo un tipo de cambio de precio", MsgBoxStyle.Critical, "Producto")
+			MsgBox("Debe seleccionar solo un tipo de cambio de utilidad", MsgBoxStyle.Critical, "Producto")
 			Return
 		ElseIf cantidad = 0 Then
-			MsgBox("Debe escribir algun tipo de cambio de precio", MsgBoxStyle.Critical, "Producto")
+			MsgBox("Debe escribir algun tipo de cambio de utilidad", MsgBoxStyle.Critical, "Producto")
 			Return
 		End If
 
@@ -53,15 +53,15 @@ Public Class FrmModificarPrecioProducto
 			Dim value As Decimal
 			Dim newText = txtMonto.Text.Replace(",", ".")
 			If Not Decimal.TryParse(newText, value) Then
-				MsgBox("Ingrese el precio en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
+				MsgBox("Ingrese la utilidad en un formato correcto", MsgBoxStyle.Critical, "Producto")
 				Return
 			End If
 			If value < 0 Then
-				MsgBox("El valor de un producto no puede ser negativo", MsgBoxStyle.Critical, "Producto")
+				MsgBox("La utilidad de un producto no puede ser negativa", MsgBoxStyle.Critical, "Producto")
 				Return
 			End If
 			value = Decimal.Parse(newText, CultureInfo.InvariantCulture)
-			productometodo.ModificarPrecios(listaDeProductos.Where(Function(s) s.Item2 = True), value.ToString(), "monto")
+			productometodo.ModificarUtilidad(listaDeProductos.Where(Function(s) s.Item2 = True), value.ToString(), "monto")
 		End If
 
 		If porcentaje Then
@@ -72,21 +72,21 @@ Public Class FrmModificarPrecioProducto
 				Return
 			End If
 			newText = ((value / 100) + 1).ToString().Replace(",", ".")
-			productometodo.ModificarPrecios(listaDeProductos.Where(Function(s) s.Item2 = True), newText, "porcentaje")
+			productometodo.ModificarUtilidad(listaDeProductos.Where(Function(s) s.Item2 = True), newText, "porcentaje")
 		End If
 
 		If adicion Then
 			Dim value As Decimal
 			Dim newText = txtAdicionar.Text.Replace(",", ".")
 			If Not Decimal.TryParse(newText, value) Then
-				MsgBox("Ingrese el precio en un formato correcto (123.00)", MsgBoxStyle.Critical, "Producto")
+				MsgBox("Ingrese la utilidad en un formato correcto", MsgBoxStyle.Critical, "Producto")
 				Return
 			End If
 			value = Decimal.Parse(newText, CultureInfo.InvariantCulture)
-			productometodo.ModificarPrecios(listaDeProductos.Where(Function(s) s.Item2 = True), value.ToString(), "adicion")
+			productometodo.ModificarUtilidad(listaDeProductos.Where(Function(s) s.Item2 = True), value.ToString(), "adicion")
 		End If
 
-		MsgBox("Precios modificados", MsgBoxStyle.OkOnly, "Producto")
+		MsgBox("Utilidades modificadas", MsgBoxStyle.OkOnly, "Producto")
 		Cargar()
 	End Sub
 
@@ -104,13 +104,13 @@ Public Class FrmModificarPrecioProducto
 		listaDeProductos = New List(Of Tuple(Of Integer, Boolean, ProductosNE))
 		Dim parametros = New Dictionary(Of String, String)
 		parametros.Add("EsReparacion", "N")
-		Dim productos = helpersLN.CargarTodosProductos(parametros, New List(Of Tuple(Of Integer, String, Integer)), "desc", "").Tables(0)
+		Dim productos = productometodo.CargarTodosProductos(parametros, New List(Of Tuple(Of Integer, String, Integer)), "desc").Tables(0)
 		For i As Integer = 0 To productos.Rows.Count - 1
 			Dim stringProducto = productos.Rows(i)(1)
 			For y As Integer = productos.Rows(i)(1).length To 40
 				stringProducto += " "
 			Next
-			CheckedListBox1.Items.Add(stringProducto + productos.Rows(i)(3).ToString(), CheckState.Unchecked)
+			CheckedListBox1.Items.Add(stringProducto + productos.Rows(i)(9).ToString() + "%", CheckState.Unchecked)
 			Dim producto = New ProductosNE With {
 			.Id = productos.Rows(i)(0),
 			.nombreprducto = productos.Rows(i)(1),
@@ -118,7 +118,6 @@ Public Class FrmModificarPrecioProducto
 			.FechaAlta = productos.Rows(i)(6),
 			.categoriaId = productos.Rows(i)(7)
 			}
-			' p.Id,p.Nombre,p.Foto,p.Precio,prov.Nombre as Proveedor, prov.id , fechaalta
 			listaDeProductos.Add(New Tuple(Of Integer, Boolean, ProductosNE)(CheckedListBox1.Items.Count - 1, False, producto))
 		Next
 	End Sub

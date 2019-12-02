@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>5.86388cm</Width>
+              <Width>4.21408cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.08238cm</Width>
+              <Width>7.73218cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.6018cm</Width>
@@ -17,7 +17,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1.30818cm</Height>
+              <Height>0.93776cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -208,11 +208,13 @@
                             <TextRun>
                               <Value>=Fields!total.Value</Value>
                               <Style>
-                                <Format>'$'0.00;('$'0.00)</Format>
+                                <Format>'$'0.00</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>total1</rd:DefaultName>
@@ -229,7 +231,6 @@
                         <rd:FormatSymbolCulture>es-AR</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -245,18 +246,28 @@
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember>
-              <KeepWithGroup>After</KeepWithGroup>
-            </TablixMember>
-            <TablixMember>
-              <Group Name="Detalles2" />
+              <Group Name="Group_PageBreak">
+                <GroupExpressions>
+                  <GroupExpression>=Ceiling(RowNumber(Nothing)/20)</GroupExpression>
+                </GroupExpressions>
+                <PageBreak>
+                  <BreakLocation>Between</BreakLocation>
+                </PageBreak>
+              </Group>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="Detalles2" />
+                </TablixMember>
+              </TablixMembers>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.13792cm</Top>
-        <Left>4.22869cm</Left>
-        <Height>2.30506cm</Height>
+        <Top>0.11289cm</Top>
+        <Left>0.46899cm</Left>
+        <Height>1.93464cm</Height>
         <Width>15.54806cm</Width>
         <Style>
           <Border>
@@ -265,10 +276,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.98958in</Height>
+    <Height>0.88541in</Height>
     <Style />
   </Body>
-  <Width>9.55039in</Width>
+  <Width>6.59in</Width>
   <Page>
     <PageHeader>
       <Height>2.91177cm</Height>
@@ -299,7 +310,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Top>0.23652cm</Top>
-              <Left>5.25519cm</Left>
+              <Left>5.27298cm</Left>
               <Height>0.78521cm</Height>
               <Width>5.02348cm</Width>
               <Style>
@@ -329,7 +340,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
               <Top>0.2414cm</Top>
-              <Left>13.26368cm</Left>
+              <Left>13.28147cm</Left>
               <Height>0.6cm</Height>
               <Width>1.85177cm</Width>
               <ZIndex>1</ZIndex>
@@ -361,7 +372,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>0.23652cm</Top>
-              <Left>11.85959cm</Left>
+              <Left>11.87738cm</Left>
               <Height>0.60413cm</Height>
               <Width>1.36881cm</Width>
               <ZIndex>2</ZIndex>
@@ -393,7 +404,7 @@
           </ReportItems>
           <KeepTogether>true</KeepTogether>
           <Top>0.41053cm</Top>
-          <Left>4.22869cm</Left>
+          <Left>0.46899cm</Left>
           <Height>2.39541cm</Height>
           <Width>15.54806cm</Width>
           <Style>
@@ -483,8 +494,8 @@
             </Textbox>
           </ReportItems>
           <KeepTogether>true</KeepTogether>
-          <Top>0.10583cm</Top>
-          <Left>4.22869cm</Left>
+          <Top>0.10936cm</Top>
+          <Left>0.46899cm</Left>
           <Height>0.96904cm</Height>
           <Width>15.54806cm</Width>
           <Style>

@@ -216,13 +216,17 @@ Public Class FrmGestionPedidos
 			})
 		Next
 		dgvProveedores.DataSource = listaDePedidos
+		dgvProveedores.ColumnHeadersHeight = 50
 		dgvProveedores.Columns("Id").Visible = False
 		dgvProveedores.Columns("ClienteId").Visible = False
 		dgvProveedores.Columns("EstaVencido").HeaderText = "Vencido?"
 		dgvProveedores.Columns("FechaVencimientoSeña").HeaderText = "Vencimiento Seña"
-		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-		dgvProveedores.Columns("Seña").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-		dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+		dgvProveedores.Columns("Fecha").HeaderText = "Fecha del pedido"
+        dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        dgvProveedores.Columns("Total").DefaultCellStyle.Format = "c2"
+        dgvProveedores.Columns("Seña").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        dgvProveedores.Columns("Seña").DefaultCellStyle.Format = "c2"
+        dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
 		dgvProveedores.ReadOnly = True
 		If dsa1.Tables(0).Rows.Count() = 0 And type = "" Then
 			MsgBox("La busqueda no arrojo resultados", MsgBoxStyle.OkOnly, "Pedidos")

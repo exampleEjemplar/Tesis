@@ -531,11 +531,21 @@
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember>
-              <KeepWithGroup>After</KeepWithGroup>
-            </TablixMember>
-            <TablixMember>
-              <Group Name="Detalles" />
+              <Group Name="Group_PageBreak">
+                <GroupExpressions>
+                  <GroupExpression>=Ceiling(RowNumber(Nothing)/10)</GroupExpression>
+                </GroupExpressions>
+                <PageBreak>
+                  <BreakLocation>Between</BreakLocation>
+                </PageBreak>
+              </Group>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="Detalles" />
+                </TablixMember>
+              </TablixMembers>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
@@ -554,7 +564,7 @@
     <Height>1.15626in</Height>
     <Style />
   </Body>
-  <Width>10.09375in</Width>
+  <Width>10.09in</Width>
   <Page>
     <PageHeader>
       <Height>1.24342in</Height>
@@ -585,7 +595,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Top>0.29157cm</Top>
-              <Left>8.61465cm</Left>
+              <Left>8.8369cm</Left>
               <Height>0.9175cm</Height>
               <Width>6.61098cm</Width>
               <Style>

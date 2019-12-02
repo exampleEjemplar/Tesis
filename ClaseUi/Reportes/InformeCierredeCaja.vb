@@ -12,10 +12,7 @@ Public Class InformeCierredeCaja
         Me.ReportViewer1.RefreshReport()
     End Sub
 
-    Private Sub btnSalirr_Click(sender As Object, e As EventArgs) Handles btnSalirr.Click
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Close()
-
     End Sub
-
-
 End Class

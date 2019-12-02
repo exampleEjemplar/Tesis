@@ -180,8 +180,9 @@ Public Class FrmArmadoCompra
 		comprasLn.Registrar(listaDeCompras, cboProveedor.SelectedValue, CargarDatosComprobante())
 		MsgBox("Compra realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
-		'Imprimimos el comprobante
-		FrmComprobanteCompra.ShowDialog()
+        'Imprimimos el comprobante
+        FrmGestionCompras.idCompra = 0
+        FrmComprobanteCompra.ShowDialog()
 		modificado = True
 
 
@@ -346,7 +347,7 @@ Public Class FrmArmadoCompra
 		lblPrioridad1.Text = OrderBy.FirstOrDefault(Function(x) x.Item1 = 1).Item2.Replace("'", "")
 		'Cargamos el dataset con los productos seleccionados por filtro
 		parametros.Add("EsReparacion", "N")
-		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, cboOrden.SelectedItem)
+		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, cboOrden.SelectedItem, "")
 
 		If primerOrder Then
 			primerOrder = False
@@ -503,15 +504,16 @@ Public Class FrmArmadoCompra
 	'Trae el numero de comprobante segun el ID en BD
 	Private Function CargarDatosComprobante()
 		Dim nroComprobante = ""
-        If String.IsNullOrWhiteSpace(txtNroComprobante.Text) Then
-            If comprasLn.ObtenerUltimaCompra.Tables(0).Rows.Count = 0 Then
-                nroComprobante = helpersUI.AgregarNumerosComprobante(1)
-            Else
-                nroComprobante = helpersUI.AgregarNumerosComprobante(comprasLn.ObtenerUltimaCompra.Tables(0).Rows(0).Item(0))
-            End If
+		If String.IsNullOrWhiteSpace(txtNroComprobante.Text) Then
+			Dim ultimaCompra = comprasLn.ObtenerUltimaCompra.Tables(0)
+			If ultimaCompra.Rows.Count = 0 Then
+				nroComprobante = helpersUI.AgregarNumerosComprobante(1)
+			Else
+				nroComprobante = helpersUI.AgregarNumerosComprobante(ultimaCompra.Rows(0).Item(0) + 1)
+			End If
 
-        Else
-            nroComprobante = txtNroComprobante.Text
+		Else
+			nroComprobante = txtNroComprobante.Text
 		End If
 		Return nroComprobante
 	End Function

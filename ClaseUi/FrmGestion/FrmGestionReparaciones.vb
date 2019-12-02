@@ -219,6 +219,7 @@ Public Class FrmGestionReparaciones
 				.Estado = estado
 			})
 		Next
+		dgvProveedores.ColumnHeadersHeight = 50
 		dgvProveedores.DataSource = listaDePedidos
 		dgvProveedores.Columns("Id").Visible = False
 		dgvProveedores.Columns("ClienteId").Visible = False
@@ -227,8 +228,9 @@ Public Class FrmGestionReparaciones
         dgvProveedores.Columns("Estado").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
         dgvProveedores.Columns("FechaVencimientoSeña").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
         dgvProveedores.Columns("Cliente").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-        dgvProveedores.Columns("Fecha").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-        dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+		dgvProveedores.Columns("Fecha").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+		dgvProveedores.Columns("Fecha").HeaderText = "Fecha del pedido"
+		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         dgvProveedores.Columns("Total").DefaultCellStyle.Format = "c2"
         dgvProveedores.Columns("estado").HeaderText = "Estado"
 		dgvProveedores.Columns("FechaVencimientoSeña").HeaderText = "Fecha de entrega"

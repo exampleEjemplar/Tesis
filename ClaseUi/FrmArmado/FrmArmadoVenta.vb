@@ -174,7 +174,7 @@ Public Class FrmArmadoVenta
 			parametros.Add("ProductoId", item.Key)
 
 			Dim consultaStock = productoLN.CargarGrillaStock(parametros, New List(Of Tuple(Of Integer, String, Integer)), "asc").Tables(0)
-
+			consultaStock.Rows(0)(2) = If(IsDBNull(consultaStock.Rows(0)(2)), 0, consultaStock.Rows(0)(2))
 			If consultaStock.Rows.Count > 0 Then
 				If consultaStock.Rows(0).Item(2) < item.Value Or consultaStock.Rows(0).Item(2) - item.Value < 0 Then
 					MsgBox("El producto no cuenta con el stock suficiente para ser vendido", MsgBoxStyle.Critical, "Producto")
@@ -208,9 +208,9 @@ Public Class FrmArmadoVenta
 		ventasLN.Registrar(listaDeVentas, cboCliente.SelectedValue)
 		MsgBox("Venta realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
-		modificado = True
-
-		FrmComprobanteVenta.ShowDialog()
+        modificado = True
+        FrmGestionVentas.idVenta = 0
+        FrmComprobanteVenta.ShowDialog()
 
 
 		ListView1.Clear()
@@ -341,7 +341,7 @@ Public Class FrmArmadoVenta
 
 	Public Sub LlenarLvi(ByVal parametros As Dictionary(Of String, String))
 		parametros.Add("EsReparacion", "N")
-		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, cboOrden.SelectedItem)
+		Dim ds2 As DataSet = helpersLN.CargarTodosProductos(parametros, OrderBy, cboOrden.SelectedItem, "")
 		If primerOrder Then
 			primerOrder = False
 			For i = 0 To ds2.Tables(0).Columns.Count - 1

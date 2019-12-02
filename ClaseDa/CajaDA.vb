@@ -138,7 +138,8 @@ Public Class CajaDA
     Public Sub grabarCierredeCaja(ByVal idusuario As Integer, ByVal txtmontofinal As Double)
 		helpersDA.ChequearConexion(db)
 		Try
-			Dim insert As New SqlCommand("insert INTO CierreCajas (usr_id, fecha, importe, estado) values (" & idusuario & ", getdate()," & txtmontofinal & ",1)", db)
+			Dim totalizado = txtmontofinal.ToString().Replace(",", ".")
+			Dim insert As New SqlCommand("insert INTO CierreCajas (usr_id, fecha, importe, estado) values (" & idusuario & ", getdate()," & totalizado & ",1)", db)
 			insert.CommandType = CommandType.Text
 			insert.ExecuteNonQuery()
 		Catch ex As Exception

@@ -13,9 +13,10 @@ Public Class FrmGestionServicio
 	Public Sub Dgvproductosset()
 		Dim parametros As New Dictionary(Of String, String)
 		DataGridView1.DataSource = productometodo.BuscaServicios(parametros).Tables(0)
-		'DataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-		DataGridView1.Columns("Costo").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-		DataGridView1.Columns("Proveedor").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        'DataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridView1.Columns("Costo").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        DataGridView1.Columns("Costo").DefaultCellStyle.Format = "c2"
+        DataGridView1.Columns("Proveedor").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 		DataGridView1.Columns("Nombre").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 	End Sub
 

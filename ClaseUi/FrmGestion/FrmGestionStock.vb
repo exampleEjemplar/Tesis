@@ -109,6 +109,12 @@ Public Class FrmGestionStock
 			'chbListaParaOrdenar.SetItemChecked(6, True)
 		End If
 
+		For i = 0 To ds.Tables(0).Rows.Count - 1
+			If IsDBNull(ds.Tables(0).Rows(i)(2)) Then
+				ds.Tables(0).Rows(i)(2) = 0
+			End If
+		Next
+
 		dgvGrilla.DataSource = ds.Tables(0)
 		dgvGrilla.Columns("Id").Visible = False
 		dgvGrilla.Columns("id1").Visible = False
@@ -181,6 +187,10 @@ Public Class FrmGestionStock
 		Dim selectedRow As DataGridViewRow = Nothing
 		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
 			selectedRow = dgvGrilla.Rows(e.RowIndex)
+		End If
+		If selectedRow.Cells("Stock Actual").Value = 0 Then
+			MsgBox("El producto no cuenta con movimientos", MsgBoxStyle.OkOnly, "Error")
+			Return
 		End If
 		productoId = selectedRow.Cells("id").Value
 		FrmConsultaMovimientoStock.ShowDialog()
