@@ -196,6 +196,7 @@ Public Class FrmPedidoDeReposicion
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSalirrr.Click
 		dgvProveedores.DataSource = Nothing
+		FrmGestionStock.CargarGrilla(New Dictionary(Of String, String))
 		Dispose()
 		Close()
 	End Sub
