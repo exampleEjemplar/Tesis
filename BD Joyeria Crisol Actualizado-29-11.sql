@@ -23645,3 +23645,32 @@ where FechaAlta BETWEEN @fechadesde and @fechahasta
 end
 
 GO
+
+USE [JoyeriaCrisol]
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_HistorioCierredeCaja]    Script Date: 2/12/2019 15:44:34 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SP_HistorioCierredeCaja]
+(@fechadesde as datetime,
+@fechahasta as datetime,
+@usuario as integer
+)
+as
+begin
+
+
+select mc.fecha, mc.importe, u.UserName
+from cierrecajas mc
+inner join Usuarios u on mc.usr_id=u.id
+where FechaAlta BETWEEN @fechadesde and @fechahasta and u.id=@usuario
+end
+
+
+GO
+

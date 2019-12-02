@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.46378cm</Width>
+              <Width>5.12524cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.48056cm</Width>
+              <Width>5.8191cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>4.44497cm</Width>
@@ -155,7 +155,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>fecha</rd:DefaultName>
@@ -170,6 +172,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
