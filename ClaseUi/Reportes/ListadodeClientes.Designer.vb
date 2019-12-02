@@ -31,7 +31,6 @@ Partial Class ListadodeClientes
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.dtpHasta = New System.Windows.Forms.DateTimePicker()
         Me.dtpDesde = New System.Windows.Forms.DateTimePicker()
         Me.btnBuscar = New System.Windows.Forms.Button()
@@ -39,9 +38,11 @@ Partial Class ListadodeClientes
         Me.lblHasta = New System.Windows.Forms.Label()
         Me.SP_ListadodeClientesPorfechaTableAdapter = New ClaseUi.DataSetReportesTableAdapters.SP_ListadodeClientesPorfechaTableAdapter()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         CType(Me.SP_ListadodeClientesPorfechaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'SP_ListadodeClientesPorfechaBindingSource
@@ -56,21 +57,21 @@ Partial Class ListadodeClientes
         '
         'ReportViewer1
         '
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         ReportDataSource1.Name = "ReporteClienteConFecha"
         ReportDataSource1.Value = Me.SP_ListadodeClientesPorfechaBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "ClaseUi.ListadoClientesPorfecha.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(12, 157)
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(598, 444)
+        Me.ReportViewer1.Size = New System.Drawing.Size(614, 456)
         Me.ReportViewer1.TabIndex = 0
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.btnSalir)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
-        Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.dtpHasta)
         Me.GroupBox1.Controls.Add(Me.dtpDesde)
         Me.GroupBox1.Controls.Add(Me.btnBuscar)
@@ -79,7 +80,7 @@ Partial Class ListadodeClientes
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 37)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(598, 114)
+        Me.GroupBox1.Size = New System.Drawing.Size(597, 114)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Búsqueda"
@@ -92,7 +93,7 @@ Partial Class ListadodeClientes
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(523, 23)
+        Me.btnSalir.Location = New System.Drawing.Point(522, 19)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(69, 85)
         Me.btnSalir.TabIndex = 56
@@ -110,26 +111,18 @@ Partial Class ListadodeClientes
         Me.CheckBox1.Text = "Todos los registros"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(261, 87)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(114, 13)
-        Me.Label3.TabIndex = 38
-        Me.Label3.Text = "Todos los registros"
-        '
         'dtpHasta
         '
         Me.dtpHasta.CustomFormat = "dd/MM/yyyy"
         Me.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpHasta.Location = New System.Drawing.Point(246, 36)
+        Me.dtpHasta.Location = New System.Drawing.Point(246, 35)
         Me.dtpHasta.Name = "dtpHasta"
         Me.dtpHasta.Size = New System.Drawing.Size(110, 20)
         Me.dtpHasta.TabIndex = 37
         '
         'dtpDesde
         '
+        Me.dtpDesde.CustomFormat = "dd/MM/yyyy"
         Me.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpDesde.Location = New System.Drawing.Point(88, 35)
         Me.dtpDesde.Name = "dtpDesde"
@@ -144,9 +137,9 @@ Partial Class ListadodeClientes
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
         Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnBuscar.Location = New System.Drawing.Point(448, 23)
+        Me.btnBuscar.Location = New System.Drawing.Point(447, 28)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(69, 85)
+        Me.btnBuscar.Size = New System.Drawing.Size(69, 76)
         Me.btnBuscar.TabIndex = 35
         Me.btnBuscar.Text = "Buscar"
         Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -178,20 +171,29 @@ Partial Class ListadodeClientes
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(172, 9)
+        Me.Label4.Location = New System.Drawing.Point(201, 9)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(215, 25)
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Listado de Clientes"
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.ReportViewer1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel1.Location = New System.Drawing.Point(0, 157)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(614, 456)
+        Me.Panel1.TabIndex = 10
+        '
         'ListadodeClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(622, 613)
+        Me.ClientSize = New System.Drawing.Size(614, 613)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.ReportViewer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -202,6 +204,7 @@ Partial Class ListadodeClientes
         CType(Me.DataSetReportes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -218,7 +221,7 @@ Partial Class ListadodeClientes
     Friend WithEvents dtpHasta As Windows.Forms.DateTimePicker
     Friend WithEvents dtpDesde As Windows.Forms.DateTimePicker
     Friend WithEvents CheckBox1 As Windows.Forms.CheckBox
-    Friend WithEvents Label3 As Windows.Forms.Label
     Friend WithEvents btnSalir As Windows.Forms.Button
     Friend WithEvents Label4 As Windows.Forms.Label
+    Friend WithEvents Panel1 As Windows.Forms.Panel
 End Class
