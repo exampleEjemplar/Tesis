@@ -104,6 +104,7 @@ Partial Class FrmGestionProveedores
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
@@ -114,28 +115,28 @@ Partial Class FrmGestionProveedores
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.GroupBox7)
-        Me.GroupBox5.Controls.Add(Me.btnBuscar)
+        Me.GroupBox5.Controls.Add(Me.GroupBox8)
         Me.GroupBox5.Controls.Add(Me.cboBusTipoPersona)
         Me.GroupBox5.Controls.Add(Me.txtBusApellido)
-        Me.GroupBox5.Controls.Add(Me.Button1)
         Me.GroupBox5.Controls.Add(Me.Label17)
         Me.GroupBox5.Controls.Add(Me.lblBusApellido)
         Me.GroupBox5.Controls.Add(Me.txtBusNombre)
         Me.GroupBox5.Controls.Add(Me.lblBusNombre)
-        Me.GroupBox5.Controls.Add(Me.Button2)
         Me.GroupBox5.Controls.Add(Me.txtBusDocNro)
         Me.GroupBox5.Controls.Add(Me.cboBusTipoDNI)
         Me.GroupBox5.Controls.Add(Me.Label15)
         Me.GroupBox5.Controls.Add(Me.Label16)
+        Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox5.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(575, 233)
+        Me.GroupBox5.Size = New System.Drawing.Size(640, 159)
         Me.GroupBox5.TabIndex = 31
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Búsqueda"
@@ -144,14 +145,13 @@ Partial Class FrmGestionProveedores
         '
         Me.GroupBox7.Controls.Add(Me.Label21)
         Me.GroupBox7.Controls.Add(Me.cboOrden)
-        Me.GroupBox7.Controls.Add(Me.GroupBox8)
         Me.GroupBox7.Controls.Add(Me.chbListaParaOrdenar)
         Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox7.Location = New System.Drawing.Point(352, 0)
-        Me.GroupBox7.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox7.Location = New System.Drawing.Point(355, 11)
+        Me.GroupBox7.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox7.Size = New System.Drawing.Size(223, 238)
+        Me.GroupBox7.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox7.Size = New System.Drawing.Size(180, 136)
         Me.GroupBox7.TabIndex = 51
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Ordenar por"
@@ -160,7 +160,7 @@ Partial Class FrmGestionProveedores
         '
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(122, 117)
+        Me.Label21.Location = New System.Drawing.Point(5, 109)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(41, 13)
         Me.Label21.TabIndex = 91
@@ -173,9 +173,9 @@ Partial Class FrmGestionProveedores
         Me.cboOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboOrden.FormattingEnabled = True
         Me.cboOrden.Items.AddRange(New Object() {"Física", "Jurídica"})
-        Me.cboOrden.Location = New System.Drawing.Point(168, 115)
+        Me.cboOrden.Location = New System.Drawing.Point(52, 106)
         Me.cboOrden.Name = "cboOrden"
-        Me.cboOrden.Size = New System.Drawing.Size(50, 21)
+        Me.cboOrden.Size = New System.Drawing.Size(58, 21)
         Me.cboOrden.TabIndex = 92
         '
         'GroupBox8
@@ -187,11 +187,11 @@ Partial Class FrmGestionProveedores
         Me.GroupBox8.Controls.Add(Me.lblPrioridad1)
         Me.GroupBox8.Controls.Add(Me.lblPrioridad2)
         Me.GroupBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox8.Location = New System.Drawing.Point(4, 133)
-        Me.GroupBox8.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox8.Location = New System.Drawing.Point(540, 11)
+        Me.GroupBox8.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox8.Size = New System.Drawing.Size(218, 105)
+        Me.GroupBox8.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox8.Size = New System.Drawing.Size(95, 136)
         Me.GroupBox8.TabIndex = 46
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Prioridad"
@@ -200,7 +200,7 @@ Partial Class FrmGestionProveedores
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(5, 76)
+        Me.Label18.Location = New System.Drawing.Point(5, 96)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(68, 13)
         Me.Label18.TabIndex = 25
@@ -220,7 +220,7 @@ Partial Class FrmGestionProveedores
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(5, 46)
+        Me.Label20.Location = New System.Drawing.Point(5, 57)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(68, 13)
         Me.Label20.TabIndex = 24
@@ -229,30 +229,30 @@ Partial Class FrmGestionProveedores
         'lblPrioridad3
         '
         Me.lblPrioridad3.AutoSize = True
-        Me.lblPrioridad3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrioridad3.Location = New System.Drawing.Point(91, 76)
+        Me.lblPrioridad3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrioridad3.Location = New System.Drawing.Point(15, 113)
         Me.lblPrioridad3.Name = "lblPrioridad3"
-        Me.lblPrioridad3.Size = New System.Drawing.Size(68, 13)
+        Me.lblPrioridad3.Size = New System.Drawing.Size(57, 13)
         Me.lblPrioridad3.TabIndex = 22
         Me.lblPrioridad3.Text = "Prioridad 3"
         '
         'lblPrioridad1
         '
         Me.lblPrioridad1.AutoSize = True
-        Me.lblPrioridad1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrioridad1.Location = New System.Drawing.Point(91, 17)
+        Me.lblPrioridad1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrioridad1.Location = New System.Drawing.Point(15, 35)
         Me.lblPrioridad1.Name = "lblPrioridad1"
-        Me.lblPrioridad1.Size = New System.Drawing.Size(68, 13)
+        Me.lblPrioridad1.Size = New System.Drawing.Size(57, 13)
         Me.lblPrioridad1.TabIndex = 20
         Me.lblPrioridad1.Text = "Prioridad 1"
         '
         'lblPrioridad2
         '
         Me.lblPrioridad2.AutoSize = True
-        Me.lblPrioridad2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrioridad2.Location = New System.Drawing.Point(91, 46)
+        Me.lblPrioridad2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrioridad2.Location = New System.Drawing.Point(15, 75)
         Me.lblPrioridad2.Name = "lblPrioridad2"
-        Me.lblPrioridad2.Size = New System.Drawing.Size(68, 13)
+        Me.lblPrioridad2.Size = New System.Drawing.Size(57, 13)
         Me.lblPrioridad2.TabIndex = 21
         Me.lblPrioridad2.Text = "Prioridad 2"
         '
@@ -260,9 +260,9 @@ Partial Class FrmGestionProveedores
         '
         Me.chbListaParaOrdenar.FormattingEnabled = True
         Me.chbListaParaOrdenar.Location = New System.Drawing.Point(4, 17)
-        Me.chbListaParaOrdenar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chbListaParaOrdenar.Margin = New System.Windows.Forms.Padding(2)
         Me.chbListaParaOrdenar.Name = "chbListaParaOrdenar"
-        Me.chbListaParaOrdenar.Size = New System.Drawing.Size(215, 84)
+        Me.chbListaParaOrdenar.Size = New System.Drawing.Size(171, 84)
         Me.chbListaParaOrdenar.TabIndex = 0
         '
         'btnBuscar
@@ -274,7 +274,7 @@ Partial Class FrmGestionProveedores
         Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
         Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnBuscar.Location = New System.Drawing.Point(7, 150)
+        Me.btnBuscar.Location = New System.Drawing.Point(558, 3)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(69, 80)
         Me.btnBuscar.TabIndex = 33
@@ -292,7 +292,7 @@ Partial Class FrmGestionProveedores
         Me.cboBusTipoPersona.Items.AddRange(New Object() {"Física", "Jurídica"})
         Me.cboBusTipoPersona.Location = New System.Drawing.Point(187, 16)
         Me.cboBusTipoPersona.Name = "cboBusTipoPersona"
-        Me.cboBusTipoPersona.Size = New System.Drawing.Size(150, 21)
+        Me.cboBusTipoPersona.Size = New System.Drawing.Size(163, 21)
         Me.cboBusTipoPersona.TabIndex = 28
         '
         'txtBusApellido
@@ -301,7 +301,7 @@ Partial Class FrmGestionProveedores
         Me.txtBusApellido.Location = New System.Drawing.Point(187, 122)
         Me.txtBusApellido.MaxLength = 30
         Me.txtBusApellido.Name = "txtBusApellido"
-        Me.txtBusApellido.Size = New System.Drawing.Size(150, 20)
+        Me.txtBusApellido.Size = New System.Drawing.Size(163, 20)
         Me.txtBusApellido.TabIndex = 32
         '
         'Button1
@@ -313,7 +313,7 @@ Partial Class FrmGestionProveedores
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(164, 150)
+        Me.Button1.Location = New System.Drawing.Point(557, 89)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(69, 85)
         Me.Button1.TabIndex = 50
@@ -348,7 +348,7 @@ Partial Class FrmGestionProveedores
         Me.txtBusNombre.Location = New System.Drawing.Point(187, 96)
         Me.txtBusNombre.MaxLength = 30
         Me.txtBusNombre.Name = "txtBusNombre"
-        Me.txtBusNombre.Size = New System.Drawing.Size(150, 20)
+        Me.txtBusNombre.Size = New System.Drawing.Size(163, 20)
         Me.txtBusNombre.TabIndex = 31
         '
         'lblBusNombre
@@ -370,11 +370,11 @@ Partial Class FrmGestionProveedores
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(257, 148)
+        Me.Button2.Location = New System.Drawing.Point(548, 175)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(80, 85)
+        Me.Button2.Size = New System.Drawing.Size(88, 80)
         Me.Button2.TabIndex = 38
-        Me.Button2.Text = "Estadíticas"
+        Me.Button2.Text = "Estadísticas"
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.Button2.UseVisualStyleBackColor = False
@@ -385,7 +385,7 @@ Partial Class FrmGestionProveedores
         Me.txtBusDocNro.Location = New System.Drawing.Point(187, 70)
         Me.txtBusDocNro.MaxLength = 12
         Me.txtBusDocNro.Name = "txtBusDocNro"
-        Me.txtBusDocNro.Size = New System.Drawing.Size(150, 20)
+        Me.txtBusDocNro.Size = New System.Drawing.Size(163, 20)
         Me.txtBusDocNro.TabIndex = 30
         '
         'cboBusTipoDNI
@@ -396,7 +396,7 @@ Partial Class FrmGestionProveedores
         Me.cboBusTipoDNI.FormattingEnabled = True
         Me.cboBusTipoDNI.Location = New System.Drawing.Point(187, 43)
         Me.cboBusTipoDNI.Name = "cboBusTipoDNI"
-        Me.cboBusTipoDNI.Size = New System.Drawing.Size(150, 21)
+        Me.cboBusTipoDNI.Size = New System.Drawing.Size(163, 21)
         Me.cboBusTipoDNI.TabIndex = 29
         '
         'Label15
@@ -426,14 +426,15 @@ Partial Class FrmGestionProveedores
         Me.Dgvproveedores.AllowUserToResizeColumns = False
         Me.Dgvproveedores.AllowUserToResizeRows = False
         Me.Dgvproveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dgvproveedores.Location = New System.Drawing.Point(3, 239)
+        Me.Dgvproveedores.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Dgvproveedores.Location = New System.Drawing.Point(0, 0)
         Me.Dgvproveedores.MultiSelect = False
         Me.Dgvproveedores.Name = "Dgvproveedores"
         Me.Dgvproveedores.ReadOnly = True
         Me.Dgvproveedores.RowHeadersVisible = False
         Me.Dgvproveedores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.Dgvproveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Dgvproveedores.Size = New System.Drawing.Size(575, 357)
+        Me.Dgvproveedores.Size = New System.Drawing.Size(542, 321)
         Me.Dgvproveedores.TabIndex = 32
         '
         'GroupBox1
@@ -473,7 +474,7 @@ Partial Class FrmGestionProveedores
         '
         Me.chkProveeServicios.AutoSize = True
         Me.chkProveeServicios.Location = New System.Drawing.Point(250, 13)
-        Me.chkProveeServicios.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chkProveeServicios.Margin = New System.Windows.Forms.Padding(2)
         Me.chkProveeServicios.Name = "chkProveeServicios"
         Me.chkProveeServicios.Size = New System.Drawing.Size(127, 17)
         Me.chkProveeServicios.TabIndex = 38
@@ -965,7 +966,7 @@ Partial Class FrmGestionProveedores
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardar.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
         Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardar.Location = New System.Drawing.Point(140, 376)
+        Me.btnGuardar.Location = New System.Drawing.Point(506, 376)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(69, 85)
         Me.btnGuardar.TabIndex = 47
@@ -982,7 +983,7 @@ Partial Class FrmGestionProveedores
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = Global.ClaseUi.My.Resources.Resources.icons8_cancel_62
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(65, 376)
+        Me.btnLimpiar.Location = New System.Drawing.Point(431, 376)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(69, 85)
         Me.btnLimpiar.TabIndex = 51
@@ -999,7 +1000,7 @@ Partial Class FrmGestionProveedores
         Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.Image = Global.ClaseUi.My.Resources.Resources.icons8_create_document_62
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnNuevo.Location = New System.Drawing.Point(-10, 376)
+        Me.btnNuevo.Location = New System.Drawing.Point(356, 376)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(69, 85)
         Me.btnNuevo.TabIndex = 48
@@ -1016,7 +1017,7 @@ Partial Class FrmGestionProveedores
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(495, 392)
+        Me.btnSalir.Location = New System.Drawing.Point(581, 376)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(69, 85)
         Me.btnSalir.TabIndex = 49
@@ -1026,18 +1027,31 @@ Partial Class FrmGestionProveedores
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Controls.Add(Me.GroupBox5)
-        Me.Panel1.Controls.Add(Me.Dgvproveedores)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel1.Location = New System.Drawing.Point(656, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(661, 518)
+        Me.Panel1.Size = New System.Drawing.Size(640, 486)
         Me.Panel1.TabIndex = 52
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.Dgvproveedores)
+        Me.Panel2.Controls.Add(Me.btnBuscar)
+        Me.Panel2.Controls.Add(Me.Button2)
+        Me.Panel2.Controls.Add(Me.Button1)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(0, 165)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(640, 321)
+        Me.Panel2.TabIndex = 33
         '
         'FrmGestionProveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1315, 518)
+        Me.ClientSize = New System.Drawing.Size(1296, 486)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnLimpiar)
@@ -1045,7 +1059,7 @@ Partial Class FrmGestionProveedores
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmGestionProveedores"
@@ -1068,6 +1082,7 @@ Partial Class FrmGestionProveedores
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1152,4 +1167,5 @@ Partial Class FrmGestionProveedores
     Friend WithEvents Label21 As Windows.Forms.Label
     Friend WithEvents cboOrden As Windows.Forms.ComboBox
     Friend WithEvents Panel1 As Windows.Forms.Panel
+    Friend WithEvents Panel2 As Windows.Forms.Panel
 End Class
