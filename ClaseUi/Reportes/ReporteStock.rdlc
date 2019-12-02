@@ -366,6 +366,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -547,11 +548,21 @@
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember>
-                  <KeepWithGroup>After</KeepWithGroup>
-                </TablixMember>
-                <TablixMember>
-                  <Group Name="Detalles" />
+                  <Group Name="Group_PageBreak">
+                    <GroupExpressions>
+                      <GroupExpression>=Ceiling(RowNumber(Nothing)/20)</GroupExpression>
+                    </GroupExpressions>
+                    <PageBreak>
+                      <BreakLocation>Between</BreakLocation>
+                    </PageBreak>
+                  </Group>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="Detalles" />
+                    </TablixMember>
+                  </TablixMembers>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
@@ -570,7 +581,7 @@
         <Height>0.84225in</Height>
         <Style />
       </Body>
-      <Width>6.4833in</Width>
+      <Width>6.59in</Width>
       <Page>
         <PageHeader>
           <Height>3.10588cm</Height>

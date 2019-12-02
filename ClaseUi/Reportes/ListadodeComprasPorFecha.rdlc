@@ -6,16 +6,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.17489cm</Width>
+              <Width>3.85527cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.23322cm</Width>
+              <Width>4.79638cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.34584cm</Width>
+              <Width>3.34585cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.7941cm</Width>
+              <Width>3.55056cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -284,7 +284,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!nrocomprobante.Value</Value>
+                              <Value>="0001-" &amp; Fields!nrocomprobante.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -322,11 +322,21 @@
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember>
-              <KeepWithGroup>After</KeepWithGroup>
-            </TablixMember>
-            <TablixMember>
-              <Group Name="Detalles" />
+              <Group Name="Group_PageBreak">
+                <GroupExpressions>
+                  <GroupExpression>=Ceiling(RowNumber(Nothing)/20)</GroupExpression>
+                </GroupExpressions>
+                <PageBreak>
+                  <BreakLocation>Between</BreakLocation>
+                </PageBreak>
+              </Group>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="Detalles" />
+                </TablixMember>
+              </TablixMembers>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
@@ -334,7 +344,7 @@
         <Top>0.10936cm</Top>
         <Left>0.46899cm</Left>
         <Height>1.30583cm</Height>
-        <Width>15.54805cm</Width>
+        <Width>15.54806cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
