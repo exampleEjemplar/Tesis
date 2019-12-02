@@ -197,7 +197,7 @@ Partial Class FrmEstadisticaStock
         Me.Chart2.Text = "Chart5"
         Title2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Title2.Name = "Title1"
-        Title2.Text = "Productos con menor cantidad de moviminetos en stock"
+        Title2.Text = "Productos con menor cantidad de movimientos en stock"
         Me.Chart2.Titles.Add(Title2)
         '
         'FrmEstadisticaStock

@@ -388,8 +388,12 @@ Public Class FrmArmadoReparacion
             lstProdDispo.Items.Add(ds2.Tables(0).Rows(i).Item(1).ToString(), ik)
             listita.Add(listaViewItem)
         Next
-
-		lstProdDispo.LargeImageList = ImageList
+        If cboOrden.SelectedItem = "asc" Then
+            lstProdDispo.Sorting = SortOrder.Ascending
+        Else
+            lstProdDispo.Sorting = SortOrder.Descending
+        End If
+        lstProdDispo.LargeImageList = ImageList
 	End Sub
 
     Private Function ObtainProductInformation(ByVal id As Integer) As ProductosNE

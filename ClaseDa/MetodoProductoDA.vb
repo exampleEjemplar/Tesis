@@ -119,7 +119,24 @@ Public Class MetodoProductoDA
 	End Function
 
 
-	Public Sub RegistrarServicio(pro As ProductosNE)
+    Public Sub ActualizarServicio(pro As ProductosNE)
+        helpersDa.ChequearConexion(db)
+        Dim sqlStr As String
+        ds = New DataSet
+        Dim valor As String = pro.precio.Replace(",", ".")
+        sqlStr = "update productos set precio= " + pro.precio.Replace(",", ".") + " where id = " + pro.Id.ToString()
+        'sqlStr = "insert into productos (Nombre,ProveedorId,Precio,EsServicio,EsParaReparacion,FechaAlta) VALUES('" + pro.nombreprducto + "'," + pro.proveedorId.ToString() + ", " + valor + ",'S','N', getdate())"
+        Try
+            Dim da As New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDa.ChequearConexion(db, "close")
+        End Try
+        helpersDa.ChequearConexion(db, "close")
+    End Sub
+
+    Public Sub RegistrarServicio(pro As ProductosNE)
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds = New DataSet
@@ -140,41 +157,49 @@ Public Class MetodoProductoDA
 		Dim sqlStr As String
 		Dim ds1 = New DataSet
 		Dim text = ""
-		If parametros.Count <> 0 Then
-			Dim count = parametros.Count
-			text = " where "
-			For Each item As KeyValuePair(Of String, String) In parametros
-				If item.Key = "ProveedorId" Then
-					count = count - 1
-					text = text & "pro.id" & " = " & item.Value & " " & If(count <> 0, " and ", "")
-					Continue For
-				End If
-				If item.Key = "Nombre" Then
-					count = count - 1
-					text = text & "p.Nombre" & " = " & item.Value & " " & If(count <> 0, " and ", "")
-					Continue For
-				End If
-				If item.Key = "FechaDesde" And Not parametros.Keys.Contains("FechaHasta") Then
-					count = count - 1
-					text = text & "c.fecha" & " between '" & item.Value & " 00:00:00' and '" & item.Value & " 23:59:59'" & If(count <> 0, " and ", "")
-					Continue For
-				End If
-				If item.Key = "FechaDesde" And parametros.Keys.Contains("FechaHasta") Then
-					count = count - 1
-					text = text & "c.fecha" & " between '" & item.Value & " 00:00:00' and "
-					Continue For
-				End If
-				If item.Key = "FechaHasta" Then
-					count = count - 1
-					text = text & "'" & item.Value & " 23:59:59' " & If(count <> 0, " and ", "")
-					Continue For
-				End If
-			Next
-		Else
-			text = " where "
-		End If
-		sqlStr = "select p.Nombre, pro.Nombre as 'Proveedor', p.precio as 'Costo' from productos as p inner join proveedores as pro on pro.id = p.proveedorId " + text + " p.EsServicio = 'S'"
-		Try
+        If parametros.Count <> 0 Then
+            Dim count = parametros.Count
+            text = " where "
+            For Each item As KeyValuePair(Of String, String) In parametros
+                If item.Key = "ProveedorId" Then
+                    count = count - 1
+                    text = text & "pro.id" & " = " & item.Value & " " & If(count <> 0, " and ", "")
+                    Continue For
+                End If
+                If item.Key = "Id" Then
+                    count = count - 1
+                    text = text & "p.id" & " = " & item.Value & " " & If(count <> 0, " and ", "")
+                    Continue For
+                End If
+                If item.Key = "Nombre" Then
+                    count = count - 1
+                    text = text & "p.Nombre" & " = " & item.Value & " " & If(count <> 0, " and ", "")
+                    Continue For
+                End If
+                If item.Key = "FechaDesde" And Not parametros.Keys.Contains("FechaHasta") Then
+                    count = count - 1
+                    text = text & "c.fecha" & " between '" & item.Value & " 00:00:00' and '" & item.Value & " 23:59:59'" & If(count <> 0, " and ", "")
+                    Continue For
+                End If
+                If item.Key = "FechaDesde" And parametros.Keys.Contains("FechaHasta") Then
+                    count = count - 1
+                    text = text & "c.fecha" & " between '" & item.Value & " 00:00:00' and "
+                    Continue For
+                End If
+                If item.Key = "FechaHasta" Then
+                    count = count - 1
+                    text = text & "'" & item.Value & " 23:59:59' " & If(count <> 0, " and ", "")
+                    Continue For
+                End If
+            Next
+        Else
+            text = " where "
+        End If
+        If parametros.Count > 0 Then
+            text += " and "
+        End If
+        sqlStr = "select p.Nombre, pro.Nombre as 'Proveedor', p.precio as 'Costo', p.id,pro.id as 'ProveedorId' from productos as p inner join proveedores as pro on pro.id = p.proveedorId " + text + " p.EsServicio = 'S'"
+        Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
 		Catch ex As Exception

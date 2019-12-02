@@ -8,38 +8,70 @@ Public Class FrmGestionServicio
 	Dim productometodo As New ProductoLN
 	Dim pro As New ProductosNE
 	Dim helpersLN As New HelpersLN
-	Public modificado As Boolean
+    Public modificado As Boolean
+    Public modificando As Boolean
+    Public idServicio As Integer
 
-	Public Sub Dgvproductosset()
-		Dim parametros As New Dictionary(Of String, String)
-		DataGridView1.DataSource = productometodo.BuscaServicios(parametros).Tables(0)
+    Public Sub Dgvproductosset()
+        Dim parametros As New Dictionary(Of String, String)
+        DataGridView1.DataSource = productometodo.BuscaServicios(parametros).Tables(0)
         'DataGridView1.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridView1.Columns("Costo").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         DataGridView1.Columns("Costo").DefaultCellStyle.Format = "c2"
         DataGridView1.Columns("Proveedor").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-		DataGridView1.Columns("Nombre").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
-	End Sub
+        DataGridView1.Columns("Nombre").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridView1.Columns("id").Visible = False
+        DataGridView1.Columns("ProveedorId").Visible = False
+    End Sub
 
-	Private Sub FrmGestionServicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
+        modificando = True
+        Dim selectedRow As DataGridViewRow = Nothing
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            selectedRow = DataGridView1.Rows(e.RowIndex)
+        End If
+        idServicio = selectedRow.Cells("id").Value
+        Dim parameters = New Dictionary(Of String, String)
+        parameters.Add("Id", selectedRow.Cells("id").Value)
+        Dim ds = productometodo.BuscaServicios(parameters).Tables(0).Rows(0)
+        TbNombreServicio.Text = ds(0)
+        TbPrecio.Text = ds(2)
+        LlenarCboProveedores(ds(4))
+        gboServicio.Enabled = True
+        cmbProveedor.Enabled = False
+        btnProveedor.Enabled = False
+        TbNombreServicio.Enabled = False
+        TbPrecio.Enabled = True
+        btnguardarmodificacion.Enabled = True
+        btnNuevo.Enabled = False
+        ' p.Nombre, pro.Nombre as 'Proveedor', p.precio as 'Costo'
+    End Sub
+
+    Private Sub FrmGestionServicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Cargar()
 	End Sub
 
-	Public Function LlenarCboProveedores()
-		Try
-			Dim ds1 As DataSet
-			ds1 = helpersLN.CargarCboTodosProveedores("True")
-			cmbProveedor.DataSource = ds1.Tables(0)
-			cmbProveedor.DisplayMember = "Nombre"
-			cmbProveedor.ValueMember = "id"
-			cmbProveedor.SelectedValue = 0
+    Public Function LlenarCboProveedores(selectedValue As String)
+        Try
+            Dim ds1 As DataSet
+            ds1 = helpersLN.CargarCboTodosProveedores("True")
+            cmbProveedor.DataSource = ds1.Tables(0)
+            cmbProveedor.DisplayMember = "Nombre"
+            cmbProveedor.ValueMember = "id"
 
-		Catch ex As Exception
-			MessageBox.Show(ex.Message)
-		End Try
-		Return cmbProveedor.SelectedValue
-	End Function
+            If Not String.IsNullOrEmpty(selectedValue) Then
+                cmbProveedor.SelectedValue = selectedValue
+            Else
+                cmbProveedor.SelectedValue = 0
+            End If
 
-	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return cmbProveedor.SelectedValue
+    End Function
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 		modificado = True
 		Close()
 	End Sub
@@ -67,8 +99,10 @@ Public Class FrmGestionServicio
 	End Sub
 
 	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
-		gboServicio.Enabled = True
-		btnNuevo.Enabled = False
+        gboServicio.Enabled = True
+        cboProveedor.Enabled = True
+        TbNombreServicio.Enabled = True
+        btnNuevo.Enabled = False
 		btnguardarmodificacion.Enabled = True
 	End Sub
 
@@ -78,8 +112,8 @@ Public Class FrmGestionServicio
 
 	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
 		If FrmGestionProveedores.modificado Then
-			LlenarCboProveedores()
-			FrmArmadoCompra.modificado = False
+            LlenarCboProveedores("")
+            FrmArmadoCompra.modificado = False
 		End If
 	End Sub
 
@@ -87,12 +121,17 @@ Public Class FrmGestionServicio
 		If Not ValidarDatos() Then
 			Return
 		End If
+        If modificando Then
+            productometodo.ActualizarServicio(pro)
+            MsgBox("Servicio modificado con éxito!")
+        Else
+            productometodo.RegistrarServicio(pro)
+            MsgBox("Servicio agregado con éxito!")
+        End If
+        modificando = False
+        Cargar()
 
-		productometodo.RegistrarServicio(pro)
-		MsgBox("Servicio agregado con éxito!")
-		Cargar()
-
-	End Sub
+    End Sub
 
 	Private Sub Cargar()
 		rbtEntreFechas.Checked = False
@@ -106,8 +145,8 @@ Public Class FrmGestionServicio
 		TbPrecio.Text = ""
 		TbNombreServicio.Text = ""
 		Dgvproductosset()
-		LlenarCboProveedores()
-		gboServicio.Enabled = False
+        LlenarCboProveedores("")
+        gboServicio.Enabled = False
 		btnguardarmodificacion.Enabled = False
 		btnNuevo.Enabled = True
 
@@ -156,20 +195,21 @@ Public Class FrmGestionServicio
 			pro.proveedorId = cmbProveedor.SelectedValue
 		End If
 
-		If String.IsNullOrWhiteSpace(TbPrecio.Text) Then
-			MsgBox("Debe colocar un precio al servicio")
-			Return False
-		Else
-			Dim value As Decimal
+        If String.IsNullOrWhiteSpace(TbPrecio.Text) Then
+            MsgBox("Debe colocar un precio al servicio")
+            Return False
+        Else
+            Dim value As Decimal
             Dim newText = TbPrecio.Text.Replace(",", ".")
             If Decimal.TryParse(newText, value) Then
-				pro.precio = value.ToString("0.00")
-			Else
-				MsgBox("Debe colocar un precio valido (123.23)")
-				Return False
-			End If
-		End If
-		Return True
+                pro.precio = value.ToString("0.00")
+            Else
+                MsgBox("Debe colocar un precio valido (123.23)")
+                Return False
+            End If
+        End If
+        pro.Id = idServicio
+        Return True
 	End Function
 
 	Private Const CP_NOCLOSE_BUTTON As Integer = &H200

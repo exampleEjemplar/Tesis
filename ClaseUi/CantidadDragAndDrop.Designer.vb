@@ -87,7 +87,6 @@ Partial Class CantidadDragAndDrop
         'cboCantidad
         '
         Me.cboCantidad.FormattingEnabled = True
-        Me.cboCantidad.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9"})
         Me.cboCantidad.Location = New System.Drawing.Point(12, 63)
         Me.cboCantidad.Name = "cboCantidad"
         Me.cboCantidad.Size = New System.Drawing.Size(148, 21)

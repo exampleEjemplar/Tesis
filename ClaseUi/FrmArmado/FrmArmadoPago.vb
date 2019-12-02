@@ -34,12 +34,12 @@ Public Class FrmArmadoPago
 		FrmGestionServicio.ShowDialog()
 	End Sub
 
-	'Te lleva al frm de gestion de proveedores.
-	Private Sub BtnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnNuevoProveedor.Click
-		FrmGestionProveedores.ShowDialog()
-	End Sub
+    'Te lleva al frm de gestion de proveedores.
+    Private Sub BtnAgregarCliente_Click(sender As Object, e As EventArgs) Handles btnNuevoProveedor.Click
+        FrmGestionProveedores.ShowDialog()
+    End Sub
 
-	Private Sub Cargar()
+    Private Sub Cargar()
 		LlenarCboOrden()
 		InicializarOrderBy()
 		cboProveedor.Enabled = True
@@ -348,7 +348,13 @@ Public Class FrmArmadoPago
 			listita.Add(listaViewItem)
 		Next
 
-		gboFiltros.Enabled = True
+        If cboOrden.SelectedItem = "asc" Then
+            lstProdDispo.Sorting = SortOrder.Ascending
+        Else
+            lstProdDispo.Sorting = SortOrder.Descending
+        End If
+
+        gboFiltros.Enabled = True
 	End Sub
 
 	Private Sub chbListaParaOrdenar_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chbListaParaOrdenar.ItemCheck
@@ -454,8 +460,8 @@ Public Class FrmArmadoPago
 		End If
 		If FrmGestionProveedores.modificado Then
 			Cargar()
-			'LlenarCboProveedores()
-			FrmGestionProveedores.modificado = False
+            LlenarCboProveedores()
+            FrmGestionProveedores.modificado = False
 		End If
 	End Sub
 

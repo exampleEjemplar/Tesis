@@ -66,8 +66,9 @@ Public Class FrmArmadoCompra
 	End Sub
 
 	Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-		primerOrder = True
-		Me.Close()
+        primerOrder = True
+        Dispose()
+        Me.Close()
 	End Sub
 
 	'Carga todos los datos del proveedor seleccionado y carga el LVI segun ese proveedor
@@ -411,7 +412,14 @@ Public Class FrmArmadoCompra
 			listita.Add(listaViewItem)
 		Next
 
-		lstProdDispo.LargeImageList = ImageList
+
+        If cboOrden.SelectedItem = "asc" Then
+            lstProdDispo.Sorting = SortOrder.Ascending
+        Else
+            lstProdDispo.Sorting = SortOrder.Descending
+        End If
+
+        lstProdDispo.LargeImageList = ImageList
 		gboFiltros.Enabled = True
 	End Sub
 

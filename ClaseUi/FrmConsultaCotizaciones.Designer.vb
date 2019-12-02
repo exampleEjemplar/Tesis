@@ -34,7 +34,7 @@ Partial Class FrmConsultaCotizaciones
         'dgvCotizaciones
         '
         Me.dgvCotizaciones.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvCotizaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.dgvCotizaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvCotizaciones.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.dgvCotizaciones.EnableHeadersVisualStyles = False
         Me.dgvCotizaciones.Location = New System.Drawing.Point(10, 125)
@@ -96,19 +96,18 @@ Partial Class FrmConsultaCotizaciones
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(364, 340)
-        Me.ControlBox = False
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.txtMaterial)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.dgvCotizaciones)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmConsultaCotizaciones"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "FrmConsultaCotizaciones"
+        Me.Text = "Consulta cotizaciones"
         CType(Me.dgvCotizaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

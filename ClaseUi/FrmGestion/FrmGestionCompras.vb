@@ -235,14 +235,14 @@ Public Class FrmGestionCompras
 	End Sub
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-		FrmListadoCompra.Show()
-	End Sub
+        FrmListadoCompra.ShowDialog()
+    End Sub
 
 	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-		FrmEstadisticaCompras.Show()
+        FrmEstadisticaCompras.ShowDialog()
 
 
-	End Sub
+    End Sub
 
 #End Region
 	Private Const CP_NOCLOSE_BUTTON As Integer = &H200

@@ -369,8 +369,8 @@ Public Class FrmGestionProducto
 			DataGridView1.Columns(1).HeaderText = "Código Barras"
 			DataGridView1.Columns(2).HeaderText = "Nombre de Producto"
 			DataGridView1.Columns(3).HeaderText = "Categoría de Producto"
-			DataGridView1.Columns(4).HeaderText = "Tipo de Produco"
-			DataGridView1.Columns(5).HeaderText = "Material de Producto"
+            DataGridView1.Columns(4).HeaderText = "Tipo de Producto"
+            DataGridView1.Columns(5).HeaderText = "Material de Producto"
 			DataGridView1.Columns(6).HeaderText = "Precio Público"
 			For i = 7 To 21
 				DataGridView1.Columns(i).Visible = False

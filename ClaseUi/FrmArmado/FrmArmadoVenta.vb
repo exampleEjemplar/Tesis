@@ -56,12 +56,13 @@ Public Class FrmArmadoVenta
 		btnQuitarItem.Enabled = False
 	End Sub
 
-	Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-		primerOrder = true
-		Me.Close()
-	End Sub
+    Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Dispose()
+        primerOrder = True
+        Me.Close()
+    End Sub
 
-	Private Sub CboCliente_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCliente.SelectionChangeCommitted
+    Private Sub CboCliente_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboCliente.SelectionChangeCommitted
 		lblPrioridad1.Text = OrderBy.FirstOrDefault(Function(x) x.Item1 = 1).Item2.Replace("'", "")
 		lblInstrucciones.Visible = False
 		Dim ds As DataSet = clientesLN.ConsultaModificacion(cboCliente.SelectedValue)
@@ -124,17 +125,19 @@ Public Class FrmArmadoVenta
 	Private Sub ListView1_DragDrop(sender As Object, e As DragEventArgs) Handles ListView1.DragDrop
 
 		Dim ItemSelected = listita.Where(Function(s) s.Text = e.Data.GetData(DataFormats.Text)).FirstOrDefault()
-		If ItemSelected IsNot Nothing Then
-			CantidadDragAndDrop.ShowDialog()
-			For index = 1 To CantidadDragAndDrop.cantidad
-				Dim cloneOfItem = ItemSelected.Clone()
-				ListView1.Items.Add(cloneOfItem)
-				total += ItemSelected.Tag(3)
-				lblTotal.Text = total.ToString("0.00")
-			Next
-		End If
+        If ItemSelected IsNot Nothing Then
+            CantidadDragAndDrop.isVenta = True
+            CantidadDragAndDrop.idProducto = ItemSelected.Tag(0)
+            CantidadDragAndDrop.ShowDialog()
+            For index = 1 To CantidadDragAndDrop.cantidad
+                Dim cloneOfItem = ItemSelected.Clone()
+                ListView1.Items.Add(cloneOfItem)
+                total += ItemSelected.Tag(3)
+                lblTotal.Text = total.ToString("0.00")
+            Next
+        End If
 
-	End Sub
+    End Sub
 
 	Private Sub ListView1_DragEnter(sender As Object, e As DragEventArgs) Handles ListView1.DragEnter
 		If e.Data.GetDataPresent(DataFormats.Text) Then
@@ -396,10 +399,15 @@ Public Class FrmArmadoVenta
 		Next
 
 		lstProdDispo.LargeImageList = ImageList
-		gboFiltros.Enabled = True
-	End Sub
+        gboFiltros.Enabled = True
+        If cboOrden.SelectedItem = "asc" Then
+            lstProdDispo.Sorting = SortOrder.Ascending
+        Else
+            lstProdDispo.Sorting = SortOrder.Descending
+        End If
+    End Sub
 
-	Private Sub chbListaParaOrdenar_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chbListaParaOrdenar.ItemCheck
+    Private Sub chbListaParaOrdenar_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chbListaParaOrdenar.ItemCheck
 		If Not String.IsNullOrEmpty(chbListaParaOrdenar.SelectedItem) Then
 
 			Dim count = OrderBy.Where(Function(x) Not x.Item2 = "").Count()

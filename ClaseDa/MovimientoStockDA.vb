@@ -34,7 +34,7 @@ Public Class MovimientoStockDA
 
         Dim sqlStr As String
         ds1 = New DataSet
-        sqlStr = " SELECT top(5) p.Nombre,COUNT(m.fecha) as contador FROM MovimientosStock m inner join Productos p on m.ProductoId=p.id group by p.Nombre order by contador desc"
+        sqlStr = " SELECT top(5) p.Nombre,sum(cantidad) as contador FROM MovimientosStock m inner join Productos p on m.ProductoId=p.id group by p.Nombre order by contador desc"
 
         Try
             da = New SqlDataAdapter(sqlStr, db)
@@ -52,7 +52,8 @@ Public Class MovimientoStockDA
 
         Dim sqlStr As String
         ds1 = New DataSet
-        sqlStr = " SELECT top(5) p.Nombre,COUNT(m.fecha) as contador FROM MovimientosStock m inner join Productos p on m.ProductoId=p.id group by p.Nombre order by contador asc"
+        'sqlStr = " SELECT top(5) p.Nombre,COUNT(m.fecha) as contador FROM MovimientosStock m inner join Productos p on m.ProductoId=p.id group by p.Nombre order by contador asc"
+        sqlStr = " SELECT top(5) p.Nombre,sum(cantidad) as contador FROM MovimientosStock m inner join Productos p on m.ProductoId=p.id group by p.Nombre order by contador asc"
 
 
         Try

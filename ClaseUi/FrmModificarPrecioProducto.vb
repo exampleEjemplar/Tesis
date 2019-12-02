@@ -164,9 +164,9 @@ Public Class FrmModificarPrecioProducto
 					listaDeTuplas.RemoveAll(Function(x) x.Item3.proveedorId <> item.Value)
 				Case "Categoria"
 					listaDeTuplas.RemoveAll(Function(x) x.Item3.categoriaId <> item.Value)
-				Case "Nombre"
-					listaDeTuplas.RemoveAll(Function(x) x.Item3.nombreprducto <> item.Value)
-				Case "FechaDesde"
+                Case "Nombre"
+                    listaDeTuplas.RemoveAll(Function(x) Not x.Item3.nombreprducto.ToLower().Contains(item.Value.ToLower()))
+                Case "FechaDesde"
 					Dim fechadesde = Date.ParseExact(item.Value, "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
 					listaDeTuplas.RemoveAll(Function(x) x.Item3.FechaAlta < fechadesde)
 					If parametros.Keys.Contains("FechaHasta") Then

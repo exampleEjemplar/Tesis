@@ -75,10 +75,11 @@ Public Class FrmGestionProveedores
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-		primerOrder = True
-		Me.Close()
+        modificado = True
+        primerOrder = True
+        Me.Close()
 
-	End Sub
+    End Sub
 
     Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles Dgvproveedores.CellMouseDoubleClick
         Unblock()

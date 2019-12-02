@@ -150,11 +150,15 @@ Public Class FrmGestionPedidos
 	End Sub
 
 	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-		If FrmArmadoPedido.modificado Then
-			Busqueda()
-			FrmArmadoPedido.modificado = False
-		End If
-	End Sub
+        If FrmArmadoPedido.modificado Then
+            Busqueda()
+            FrmArmadoPedido.modificado = False
+        End If
+        If FrmEditarPedido.modificado Then
+            Busqueda()
+            FrmArmadoPedido.modificado = False
+        End If
+    End Sub
 #End Region
 
 #Region "Metodos"
