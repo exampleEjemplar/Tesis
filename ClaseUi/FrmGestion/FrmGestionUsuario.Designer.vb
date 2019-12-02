@@ -23,16 +23,16 @@ Partial Class FrmGestionUsuario
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionUsuario))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cboBusActivoSN = New System.Windows.Forms.ComboBox()
-        Me.dgvUsuarios = New System.Windows.Forms.DataGridView()
         Me.txtBusUserName = New System.Windows.Forms.TextBox()
         Me.cboBusRol = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.dgvUsuarios = New System.Windows.Forms.DataGridView()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
@@ -68,7 +68,7 @@ Partial Class FrmGestionUsuario
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
         Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnBuscar.Location = New System.Drawing.Point(511, 12)
+        Me.btnBuscar.Location = New System.Drawing.Point(508, 16)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(69, 81)
         Me.btnBuscar.TabIndex = 37
@@ -109,32 +109,15 @@ Partial Class FrmGestionUsuario
         Me.cboBusActivoSN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBusActivoSN.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboBusActivoSN.FormattingEnabled = True
-        Me.cboBusActivoSN.Location = New System.Drawing.Point(138, 71)
+        Me.cboBusActivoSN.Location = New System.Drawing.Point(144, 71)
         Me.cboBusActivoSN.Name = "cboBusActivoSN"
         Me.cboBusActivoSN.Size = New System.Drawing.Size(222, 21)
         Me.cboBusActivoSN.TabIndex = 28
         '
-        'dgvUsuarios
-        '
-        Me.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
-        Me.dgvUsuarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        Me.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Left
-        Me.dgvUsuarios.EnableHeadersVisualStyles = False
-        Me.dgvUsuarios.Location = New System.Drawing.Point(0, 0)
-        Me.dgvUsuarios.MultiSelect = False
-        Me.dgvUsuarios.Name = "dgvUsuarios"
-        Me.dgvUsuarios.ReadOnly = True
-        Me.dgvUsuarios.RowHeadersVisible = False
-        Me.dgvUsuarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.dgvUsuarios.RowsDefaultCellStyle = DataGridViewCellStyle3
-        Me.dgvUsuarios.Size = New System.Drawing.Size(502, 317)
-        Me.dgvUsuarios.TabIndex = 32
-        '
         'txtBusUserName
         '
         Me.txtBusUserName.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBusUserName.Location = New System.Drawing.Point(138, 18)
+        Me.txtBusUserName.Location = New System.Drawing.Point(144, 18)
         Me.txtBusUserName.MaxLength = 15
         Me.txtBusUserName.Name = "txtBusUserName"
         Me.txtBusUserName.Size = New System.Drawing.Size(222, 20)
@@ -146,7 +129,7 @@ Partial Class FrmGestionUsuario
         Me.cboBusRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBusRol.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboBusRol.FormattingEnabled = True
-        Me.cboBusRol.Location = New System.Drawing.Point(138, 44)
+        Me.cboBusRol.Location = New System.Drawing.Point(144, 44)
         Me.cboBusRol.Name = "cboBusRol"
         Me.cboBusRol.Size = New System.Drawing.Size(222, 21)
         Me.cboBusRol.TabIndex = 27
@@ -170,6 +153,23 @@ Partial Class FrmGestionUsuario
         Me.Label2.Size = New System.Drawing.Size(50, 13)
         Me.Label2.TabIndex = 25
         Me.Label2.Text = "Activo?"
+        '
+        'dgvUsuarios
+        '
+        Me.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.dgvUsuarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Left
+        Me.dgvUsuarios.EnableHeadersVisualStyles = False
+        Me.dgvUsuarios.Location = New System.Drawing.Point(0, 0)
+        Me.dgvUsuarios.MultiSelect = False
+        Me.dgvUsuarios.Name = "dgvUsuarios"
+        Me.dgvUsuarios.ReadOnly = True
+        Me.dgvUsuarios.RowHeadersVisible = False
+        Me.dgvUsuarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.dgvUsuarios.RowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvUsuarios.Size = New System.Drawing.Size(502, 317)
+        Me.dgvUsuarios.TabIndex = 32
         '
         'btnNuevo
         '
@@ -411,7 +411,7 @@ Partial Class FrmGestionUsuario
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmGestionUsuario"
