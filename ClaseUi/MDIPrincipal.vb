@@ -224,16 +224,14 @@ Public Class MDIPrincipal
 
 
     Private Sub Button8_MouseHover(sender As Object, e As EventArgs) Handles Button8.MouseHover
-        Panel1.Visible = True
+		Panel1.Visible = True
+	End Sub
 
-    End Sub
+	Private Sub Button8_MouseLeave(sender As Object, e As EventArgs) Handles Panel1.MouseLeave
+		Panel1.Visible = False
+	End Sub
 
-    Private Sub Button8_MouseLeave(sender As Object, e As EventArgs)
-
-
-    End Sub
-
-    Private Sub MenuStrip1_MouseHover(sender As Object, e As EventArgs) Handles MenuStrip1.MouseHover
+	Private Sub MenuStrip1_MouseHover(sender As Object, e As EventArgs) Handles MenuStrip1.MouseHover
         Panel1.Visible = True
     End Sub
 
