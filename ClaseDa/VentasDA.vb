@@ -149,7 +149,7 @@ Public Class VentasDA
 
 	Public Function ObtenerUltimaVenta()
 		helpersDa.ChequearConexion(db)
-		Dim da As New SqlDataAdapter("Select Max(id) as [Id] from ventas", db)
+		Dim da As New SqlDataAdapter("SELECT Top(1) id from ventas order by fecha desc", db)
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)

@@ -170,10 +170,11 @@ Public Class FrmPedidoDeReposicion
 				})
 				Next
 				Dim nroComprobante = ""
-				If comprasLN.ObtenerUltimaCompra.Tables(0).Rows.Count = 0 Then
+				Dim ultimaCompra = comprasLN.ObtenerUltimaCompra.Tables(0)
+				If ultimaCompra.Rows.Count = 0 Then
 					nroComprobante = Helpersui.AgregarNumerosComprobante(1)
 				Else
-					nroComprobante = Helpersui.AgregarNumerosComprobante(comprasLN.ObtenerUltimaCompra.Tables(0).Rows(0).Item(0))
+					nroComprobante = Helpersui.AgregarNumerosComprobante(ultimaCompra.Rows(0).Item(0) + 1)
 				End If
 				comprasLN.Registrar(listaDeCompras, agrupado(i).FirstOrDefault().ProveedorId, nroComprobante)
 				compras += 1
