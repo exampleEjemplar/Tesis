@@ -819,6 +819,8 @@
     <None Include="Resources\PNGIX.com_ask-icon-png_3810269 %281%29.png" />
     <None Include="Resources\PNGIX.com_ask-icon-png_3810269 %282%29.png" />
     <None Include="Resources\LogoCrizolPSPequeño.png" />
+    <None Include="Resources\hombre-de-negocios.png" />
+    <None Include="Resources\cuaderno.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
