@@ -308,7 +308,8 @@ Public Class MDIPrincipal
         Panel2.Visible = False
     End Sub
 
-	Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
-
-	End Sub
+    Private Sub Panel5_MouseHover(sender As Object, e As EventArgs) Handles Panel5.MouseHover
+        Panel1.Visible = False
+        Panel2.Visible = False
+    End Sub
 End Class
