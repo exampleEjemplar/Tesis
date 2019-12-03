@@ -70,13 +70,14 @@ Public Class FrmCierreDeCaja
 
 
 	Public Sub CargarGrilla(parametros As Dictionary(Of String, String), Optional type As String = "")
-		dgvGrilla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 
-		Dim ds As DataSet = cajaLN.CargarGrillaMovimientosEstado(parametros)
 
-		Dim totalEgresos = 0F
-		Dim totalIngresos = 0F
-		Dim cantidadMovimientos = 0
+        Dim ds As DataSet = cajaLN.CargarGrillaMovimientosEstado(parametros)
+
+        Dim totalEgresos As Double
+        Dim totalIngresos As Double
+
+        Dim cantidadMovimientos = 0
 		Dim usuarios As List(Of String) = New List(Of String)
 
 
@@ -98,7 +99,7 @@ Public Class FrmCierreDeCaja
                                 .Id = fila(0).ToString(),
                                 .Tipo = tipo,
                                 .Fecha = fila(1),
-                                .Movimiento = If(tipo = "Venta", fila(2).ToString, (fila(2) * -1).ToString()),
+                                .Movimiento = If(tipo = "Venta", fila(2), (fila(2) * -1)),
                                 .Usuario = usuario
                 })
                 If Not usuarios.Contains(usuario) Then
@@ -116,9 +117,11 @@ Public Class FrmCierreDeCaja
             dgvGrilla.DataSource = cajas
             dgvGrilla.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 		dgvGrilla.Columns("Id").Visible = False
-		dgvGrilla.Columns("UsuarioId").Visible = False
-		dgvGrilla.Columns("Movimiento").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-		txtMontoFinal = (totalIngresos - totalEgresos)
+            dgvGrilla.Columns("UsuarioId").Visible = False
+            dgvGrilla.Columns(2).DefaultCellStyle.Format = "C2"
+            dgvGrilla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            dgvGrilla.Columns("Movimiento").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            txtMontoFinal = (totalIngresos - totalEgresos)
 
 
         End If

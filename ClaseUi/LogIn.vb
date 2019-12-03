@@ -30,8 +30,8 @@ Public Class LogIn
 
 					With MDIPrincipal
 					End With
-					MDIPrincipal.ShowDialog()
-					Me.Close()
+                    MDIPrincipal.ShowDialog()
+                    Me.Close()
 
 				Else
 

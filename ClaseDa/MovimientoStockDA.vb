@@ -7,6 +7,8 @@ Public Class MovimientoStockDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
     Private ds1 As DataSet
+    Public contador As Integer
+    Dim Rs As SqlDataReader
 
 
     Public Sub New()
@@ -29,12 +31,12 @@ Public Class MovimientoStockDA
 		End Try
 	End Sub
 
-    Public Function GeneraGraficomas() As DataSet
+    Public Function GeneraGraficomas(ByVal fechadesde As String, fechahasta As String) As DataSet
         helpersDa.ChequearConexion(db)
 
         Dim sqlStr As String
         ds1 = New DataSet
-        sqlStr = " SELECT top(5) p.Nombre,sum(cantidad) as contador FROM MovimientosStock m inner join Productos p on m.ProductoId=p.id group by p.Nombre order by contador desc"
+        sqlStr = " SELECT top(5) p.Nombre,sum(cantidad) as contador FROM MovimientosStock m inner join Productos p on m.ProductoId=p.id where fecha BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' group by p.Nombre order by contador desc"
 
         Try
             da = New SqlDataAdapter(sqlStr, db)
@@ -47,13 +49,13 @@ Public Class MovimientoStockDA
         Return ds1
     End Function
 
-    Public Function GeneraGraficomenos() As DataSet
+    Public Function GeneraGraficomenos(ByVal fechadesde As String, fechahasta As String) As DataSet
         helpersDa.ChequearConexion(db)
 
         Dim sqlStr As String
         ds1 = New DataSet
         'sqlStr = " SELECT top(5) p.Nombre,COUNT(m.fecha) as contador FROM MovimientosStock m inner join Productos p on m.ProductoId=p.id group by p.Nombre order by contador asc"
-        sqlStr = " SELECT top(5) p.Nombre,sum(cantidad) as contador FROM MovimientosStock m inner join Productos p on m.ProductoId=p.id group by p.Nombre order by contador asc"
+        sqlStr = " SELECT top(5) p.Nombre,sum(cantidad) as contador FROM MovimientosStock m inner join Productos p on m.ProductoId=p.id where fecha BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' group by p.Nombre order by contador asc"
 
 
         Try
@@ -66,5 +68,26 @@ Public Class MovimientoStockDA
         helpersDa.ChequearConexion(db, "close")
         Return ds1
     End Function
+
+    Public Sub Controlfecha(ByVal fechadesde As String, ByVal fechahasta As String)
+
+
+        Try
+            helpersDa.ChequearConexion(db)
+            Dim control As New SqlCommand("set dateformat ymd select count(*) from  MOVIMIENTOSSTOCK where Fecha BETWEEN '" & fechadesde & " 00:00:00' and '" & fechahasta & " 23:59:59' ", db)
+            control.CommandType = CommandType.Text
+            Rs = control.ExecuteReader()
+            Rs.Read()
+            contador = Rs(0)
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDa.ChequearConexion(db, "close")
+        End Try
+
+        helpersDa.ChequearConexion(db, "close")
+
+    End Sub
+
 
 End Class

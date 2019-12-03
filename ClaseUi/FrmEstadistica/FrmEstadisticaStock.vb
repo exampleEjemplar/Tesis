@@ -6,17 +6,23 @@ Imports ClaseLn
 
 Public Class FrmEstadisticaStock
 
+    Dim fechadesde As String
+    Dim fechahasta As String
+    Dim contador As Integer
     Private stockmetodo As New MovimientoStockLN
 
 
     Private Sub limpiar()
-        RadioButton1.Checked = False
-        RadioButton2.Checked = False
-
-        RadioButton2.Enabled = True
-        RadioButton1.Enabled = True
+        dtpdesde.Format = DateTimePickerFormat.Custom
+        dtpdesde.CustomFormat = " dd/MM/yyyy"
+        dtphasta.Format = DateTimePickerFormat.Custom
+        dtphasta.CustomFormat = " dd/MM/yyyy"
+        gbFiltro.Visible = False
         Chart1.Visible = False
         Chart2.Visible = False
+        dtpdesde.Enabled = True
+        dtphasta.Enabled = True
+        Button1.Enabled = True
 
     End Sub
 
@@ -24,7 +30,7 @@ Public Class FrmEstadisticaStock
     Public Sub GeneraGraficoMAS()
         Try
             Dim ds1 As DataSet
-            ds1 = stockmetodo.GeneraGraficoMas()
+            ds1 = stockmetodo.GeneraGraficoMas(fechadesde, fechahasta)
             Chart1.DataSource = ds1.Tables(0)
             Dim Series1 As Series = Chart1.Series("Series2")
             Series1.Name = "Clientes"
@@ -41,7 +47,7 @@ Public Class FrmEstadisticaStock
     Public Sub GeneragraficoMENOS()
         Try
             Dim ds1 As DataSet
-            ds1 = stockmetodo.GeneragraficoMENOS()
+            ds1 = stockmetodo.GeneragraficoMENOS(fechadesde, fechahasta)
             Chart2.DataSource = ds1.Tables(0)
             Dim Series1 As Series = Chart2.Series("Series2")
             Series1.Name = "Clientes"
@@ -91,5 +97,38 @@ Public Class FrmEstadisticaStock
     Private Sub FrmEstadisticaStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         limpiar()
 
+
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        RadioButton2.Enabled = True
+        RadioButton1.Enabled = True
+
+        fechadesde = Format(dtpdesde.Value, "yyyy/MM/dd")
+        fechahasta = Format(dtphasta.Value.AddDays(1), "yyyy/MM/dd")
+
+        If fechadesde <= fechahasta Then
+
+            controlfecha()
+
+            If contador > 0 Then
+                gbFiltro.Visible = True
+            Else
+
+                MsgBox("No existe registro en ese intervalo de fechas", MsgBoxStyle.Critical, "Error")
+
+            End If
+        Else
+            MsgBox("La fecha hasta NO puede ser menor que la fecha desde", MsgBoxStyle.Critical, "Error")
+            Return
+        End If
+    End Sub
+
+    Public Sub controlfecha()
+        stockmetodo.Controlfecha(fechadesde, fechahasta)
+        contador = stockmetodo.contador
+
+    End Sub
+
 End Class

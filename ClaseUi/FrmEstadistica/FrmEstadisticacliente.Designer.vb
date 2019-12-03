@@ -148,10 +148,10 @@ Partial Class FrmEstadisticacliente
         Me.RadioButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RadioButton1.Location = New System.Drawing.Point(27, 57)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(281, 17)
+        Me.RadioButton1.Size = New System.Drawing.Size(219, 17)
         Me.RadioButton1.TabIndex = 3
         Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Cantidad de Clientes registrados por usuarios"
+        Me.RadioButton1.Text = "Registro de Clientes por Vendedor"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'RadioButton2
@@ -248,7 +248,7 @@ Partial Class FrmEstadisticacliente
         Me.Chart1.Text = "Chart1"
         Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Title1.Name = "Title1"
-        Title1.Text = "Cantidad de Clientes registrados por usuarios"
+        Title1.Text = "Registro de Clientes por  Vendedor"
         Me.Chart1.Titles.Add(Title1)
         '
         'btnSalir
@@ -358,7 +358,7 @@ Partial Class FrmEstadisticacliente
         Me.Chart4.Text = "Chart4"
         Title3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Title3.Name = "Title1"
-        Title3.Text = "Registros por Mes"
+        Title3.Text = "Registro Mensual de Clientes"
         Me.Chart4.Titles.Add(Title3)
         '
         'Chart3

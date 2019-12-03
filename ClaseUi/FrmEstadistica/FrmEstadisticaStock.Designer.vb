@@ -38,9 +38,16 @@ Partial Class FrmEstadisticaStock
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.dtphasta = New System.Windows.Forms.DateTimePicker()
+        Me.dtpdesde = New System.Windows.Forms.DateTimePicker()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbFiltro.SuspendLayout()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnSalir
@@ -51,7 +58,7 @@ Partial Class FrmEstadisticaStock
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Location = New System.Drawing.Point(724, 434)
+        Me.btnSalir.Location = New System.Drawing.Point(724, 489)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(80, 89)
         Me.btnSalir.TabIndex = 32
@@ -67,7 +74,7 @@ Partial Class FrmEstadisticaStock
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(724, 312)
+        Me.Button2.Location = New System.Drawing.Point(724, 293)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(80, 116)
         Me.Button2.TabIndex = 34
@@ -93,7 +100,7 @@ Partial Class FrmEstadisticaStock
         Legend1.IsTextAutoFit = False
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(50, 151)
+        Me.Chart1.Location = New System.Drawing.Point(50, 235)
         Me.Chart1.Name = "Chart1"
         Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
         Series1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -107,7 +114,7 @@ Partial Class FrmEstadisticaStock
         Series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
         Series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(668, 372)
+        Me.Chart1.Size = New System.Drawing.Size(668, 378)
         Me.Chart1.TabIndex = 35
         Me.Chart1.Text = "Chart5"
         Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -132,9 +139,9 @@ Partial Class FrmEstadisticaStock
         Me.gbFiltro.Controls.Add(Me.RadioButton2)
         Me.gbFiltro.Controls.Add(Me.RadioButton1)
         Me.gbFiltro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbFiltro.Location = New System.Drawing.Point(50, 39)
+        Me.gbFiltro.Location = New System.Drawing.Point(12, 93)
         Me.gbFiltro.Name = "gbFiltro"
-        Me.gbFiltro.Size = New System.Drawing.Size(668, 106)
+        Me.gbFiltro.Size = New System.Drawing.Size(656, 93)
         Me.gbFiltro.TabIndex = 7
         Me.gbFiltro.TabStop = False
         Me.gbFiltro.Text = "Movimientos de stock"
@@ -178,7 +185,7 @@ Partial Class FrmEstadisticaStock
         Legend2.IsTextAutoFit = False
         Legend2.Name = "Legend1"
         Me.Chart2.Legends.Add(Legend2)
-        Me.Chart2.Location = New System.Drawing.Point(50, 151)
+        Me.Chart2.Location = New System.Drawing.Point(38, 246)
         Me.Chart2.Name = "Chart2"
         Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
         Series2.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -192,7 +199,7 @@ Partial Class FrmEstadisticaStock
         Series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
         Series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
         Me.Chart2.Series.Add(Series2)
-        Me.Chart2.Size = New System.Drawing.Size(668, 372)
+        Me.Chart2.Size = New System.Drawing.Size(680, 367)
         Me.Chart2.TabIndex = 37
         Me.Chart2.Text = "Chart5"
         Title2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -200,15 +207,83 @@ Partial Class FrmEstadisticaStock
         Title2.Text = "Productos con menor cantidad de movimientos en stock"
         Me.Chart2.Titles.Add(Title2)
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.dtphasta)
+        Me.GroupBox1.Controls.Add(Me.gbFiltro)
+        Me.GroupBox1.Controls.Add(Me.dtpdesde)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(38, 37)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(686, 192)
+        Me.GroupBox1.TabIndex = 38
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Busqueda"
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.SystemColors.Control
+        Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_search_48
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(526, 10)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(114, 74)
+        Me.Button1.TabIndex = 17
+        Me.Button1.Tag = ""
+        Me.Button1.Text = "Buscar"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(289, 43)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(40, 13)
+        Me.Label2.TabIndex = 6
+        Me.Label2.Text = "Hasta"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(73, 43)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(43, 13)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Desde"
+        '
+        'dtphasta
+        '
+        Me.dtphasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtphasta.Location = New System.Drawing.Point(335, 37)
+        Me.dtphasta.Name = "dtphasta"
+        Me.dtphasta.Size = New System.Drawing.Size(142, 20)
+        Me.dtphasta.TabIndex = 4
+        '
+        'dtpdesde
+        '
+        Me.dtpdesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpdesde.Location = New System.Drawing.Point(122, 37)
+        Me.dtpdesde.Name = "dtpdesde"
+        Me.dtpdesde.Size = New System.Drawing.Size(142, 20)
+        Me.dtpdesde.TabIndex = 3
+        '
         'FrmEstadisticaStock
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(810, 539)
+        Me.ClientSize = New System.Drawing.Size(810, 625)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Chart2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Chart1)
-        Me.Controls.Add(Me.gbFiltro)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnSalir)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -221,6 +296,8 @@ Partial Class FrmEstadisticaStock
         Me.gbFiltro.ResumeLayout(False)
         Me.gbFiltro.PerformLayout()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -233,4 +310,10 @@ Partial Class FrmEstadisticaStock
     Friend WithEvents Label1 As Windows.Forms.Label
     Friend WithEvents Chart2 As Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents RadioButton2 As Windows.Forms.RadioButton
+    Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
+    Friend WithEvents Button1 As Windows.Forms.Button
+    Friend WithEvents Label2 As Windows.Forms.Label
+    Friend WithEvents Label3 As Windows.Forms.Label
+    Friend WithEvents dtphasta As Windows.Forms.DateTimePicker
+    Friend WithEvents dtpdesde As Windows.Forms.DateTimePicker
 End Class

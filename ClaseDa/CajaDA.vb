@@ -57,10 +57,10 @@ Public Class CajaDA
                 End If
             Next
         End If
-		'SE LLAMA TEXT EL PARAMETRO
-		Dim sqlStr = "set dateformat dmy Select v.id,v.fecha,v.Total,u.Username from ventas as v inner join usuarios as u on u.id = v.usuarioId " + text + "and v.estado=1 set dateformat dmy Select v.id,v.fecha,v.Total,u.Username from compras as v inner join usuarios as u on u.id = v.usuarioId " + text + "and v.estado=1"
+        'SE LLAMA TEXT EL PARAMETRO
+        Dim sqlStr = "set dateformat dmy Select v.id,v.fecha,v.Total,u.Username from ventas as v inner join usuarios as u on u.id = v.usuarioId " + text + "and v.estado=1 set dateformat dmy Select v.id,v.fecha,v.Total,u.Username from compras as v inner join usuarios as u on u.id = v.usuarioId " + text + "and v.estado=1"
 
-		Try
+        Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
 		Catch ex As Exception
