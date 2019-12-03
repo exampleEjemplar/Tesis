@@ -307,4 +307,8 @@ Public Class MDIPrincipal
         Panel1.Visible = False
         Panel2.Visible = False
     End Sub
+
+	Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+
+	End Sub
 End Class

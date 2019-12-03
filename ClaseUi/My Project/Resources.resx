@@ -124,8 +124,8 @@
   <data name="icons8-paper-money-62" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-paper-money-62.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-downloading-updates-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-downloading-updates-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-user-account-62" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-user-account-62.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-supplier-62" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-supplier-62.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -141,6 +141,9 @@
   </data>
   <data name="icons8-available-updates-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-available-updates-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LogoCrizolPSPequeño" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogoCrizolPSPequeño.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="plus2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,9 +196,6 @@
   <data name="icons8-add-35" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-add-35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-user-account-62" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-user-account-62.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icons8-checklist-62" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-checklist-62.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -207,6 +207,9 @@
   </data>
   <data name="iconfinder_money-2_322464" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconfinder_money-2_322464.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-downloading-updates-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-downloading-updates-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-clear-filters-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-clear-filters-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -240,6 +243,9 @@
   </data>
   <data name="minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hombre-de-negocios" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hombre-de-negocios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-clear-filters-60" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-clear-filters-60.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,7 +307,7 @@
   <data name="login2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogoCrizolPSPequeño" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogoCrizolPSPequeño.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cuaderno" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cuaderno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
