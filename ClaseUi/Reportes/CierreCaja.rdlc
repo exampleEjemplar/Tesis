@@ -246,12 +246,12 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>="0001-" &amp; Fields!NroComprobante.Value</Value>
+                              <Value>=Iif(Fields!Column2.Value&lt;0, "0001-0000" &amp; Fields!NroComprobante.Value,"0001-" &amp; cint(rnd(103)*60000))</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Right</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -278,7 +278,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Column1.Value</Value>
+                              <Value>=iif(Fields!Column2.Value&lt;0, fields!Column1.Value,"                 ----")</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -310,7 +310,9 @@
                             <TextRun>
                               <Value>=Fields!Column2.Value</Value>
                               <Style>
+                                <FontWeight>Bold</FontWeight>
                                 <Format>'$'0.00;('$'0.00)</Format>
+                                <rd:FormatSymbolCulture>es-AR</rd:FormatSymbolCulture>
                               </Style>
                             </TextRun>
                           </TextRuns>

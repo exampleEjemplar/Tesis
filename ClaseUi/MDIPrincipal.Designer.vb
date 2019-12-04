@@ -502,7 +502,7 @@ Partial Class MDIPrincipal
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.MenuStrip2)
-        Me.Panel2.Location = New System.Drawing.Point(156, 391)
+        Me.Panel2.Location = New System.Drawing.Point(153, 349)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(204, 40)
         Me.Panel2.TabIndex = 38
@@ -541,7 +541,7 @@ Partial Class MDIPrincipal
         Me.Panel3.BackColor = System.Drawing.Color.Transparent
         Me.Panel3.Location = New System.Drawing.Point(159, 97)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(866, 292)
+        Me.Panel3.Size = New System.Drawing.Size(866, 250)
         Me.Panel3.TabIndex = 40
         '
         'Panel4
@@ -555,9 +555,9 @@ Partial Class MDIPrincipal
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.Transparent
-        Me.Panel5.Location = New System.Drawing.Point(153, 433)
+        Me.Panel5.Location = New System.Drawing.Point(153, 391)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(869, 135)
+        Me.Panel5.Size = New System.Drawing.Size(869, 177)
         Me.Panel5.TabIndex = 42
         '
         'MDIPrincipal
