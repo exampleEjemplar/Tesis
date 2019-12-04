@@ -18,6 +18,19 @@ Public Class FrmTrazabilidad
     Public Sub datosregistros()
 
 		Dim ds = MovimientoEstadoPedidoLN.CargarMovimientosEstado(idpedido)
+		Dim pedidoInfo = pedidosln.ObtenerUnPedido(idpedido).Tables(0).Rows
+		Dim listaProductos = New List(Of String)
+		Dim totalCosto As Decimal = 0
+		For i = 0 To pedidoInfo.Count - 1
+			listaProductos.Add(pedidoInfo(i)(11))
+			totalCosto += pedidoInfo(i)(13)
+		Next
+		lblCliente.Text = pedidoInfo(0)(8)
+		lblPrecio.Text = totalCosto.ToString("C2")
+		lblPrecioVenta.Text = Convert.ToDecimal(pedidoInfo(0)(4)).ToString("C2")
+		lblProveedor.Text = pedidoInfo(0)(33)
+		cboProductos.DataSource = listaProductos
+
 		Dim registros = New List(Of MovimientoEstadoPedidoEstadistica)
 		For i = 0 To ds.Tables(0).Rows.Count - 1
 			registros.Add(New MovimientoEstadoPedidoEstadistica With {
@@ -55,6 +68,16 @@ Public Class FrmTrazabilidad
 				textTiempo = "Minutos"
 			Else
 				textTiempo = "Horas"
+			End If
+			Dim orderedRegistros = registros.OrderByDescending(Function(x) x.Fecha)
+			Dim tiempoTotal As Decimal = 0
+			tiempoTotal = (orderedRegistros.FirstOrDefault().Fecha - orderedRegistros.LastOrDefault().Fecha).TotalHours
+			If tiempoTotal < 1 Then
+				lblTiempoTotal.Text = (tiempoTotal * 60).ToString("0.00") + " minutos."
+			ElseIf tiempoTotal > 24 Then
+				lblTiempoTotal.Text = (tiempoTotal / 24).ToString("0.00") + " días."
+			Else
+				lblTiempoTotal.Text = tiempoTotal.ToString("0.00") + " horas."
 			End If
 
 			Chart5.DataSource = registros.Where(Function(X) Not X.Estado = "Entregado al cliente")

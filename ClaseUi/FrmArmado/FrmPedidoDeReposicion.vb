@@ -12,12 +12,20 @@ Public Class FrmPedidoDeReposicion
 	Public idVenta As Integer
 	Public filaSeleccionada As Integer
 	Public primerOrder As Boolean = True
+	Public recargar As Boolean = False
 	Public agrupado As List(Of IGrouping(Of String, ProductosConStock))
 	Dim listaDeNombres = New List(Of ProductosConStock)
 
 	Private Sub FrmPedidoDeReposicion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		LlenarCboBase()
-		DgvProveedoresSet()
+		DgvProveedoresSet(True)
+	End Sub
+
+	Private Sub asdsaasdasdasdasdActivated(sender As Object, e As EventArgs) Handles MyBase.Activated
+		If recargar Then
+			CalcularTotales()
+			recargar = False
+		End If
 	End Sub
 
 	Public Sub LlenarCboBase()
@@ -25,7 +33,7 @@ Public Class FrmPedidoDeReposicion
 		cboBaseCalculo.SelectedItem = "Stock Máximo"
 	End Sub
 
-	Public Sub DgvProveedoresSet()
+	Public Sub DgvProveedoresSet(agregoColumnas As Boolean)
 		Dim ds = productoLn.CargarGrillaStock(New Dictionary(Of String, String), New List(Of Tuple(Of Integer, String, Integer)), "asc").Tables(0)
 		If ds.Rows.Count = 0 Then
 			btnNuevo.Enabled = False
@@ -49,7 +57,8 @@ Public Class FrmPedidoDeReposicion
 			  .StockMaximo = ds.Rows(i)(3),
 			  .StockMinimo = ds.Rows(i)(4),
 			  .HacerPedido = True,
-			  .AComprar = CalcularSegunBase(ds.Rows(i)(4), ds.Rows(i)(3), If(IsDBNull(ds.Rows(i)(2)), 0, ds.Rows(i)(2)))
+			  .AComprar = CalcularSegunBase(ds.Rows(i)(4), ds.Rows(i)(3), If(IsDBNull(ds.Rows(i)(2)), 0, ds.Rows(i)(2))),
+			  .PrecioProducto = ds.Rows(i)(7)
 		  })
 		Next
 
@@ -69,36 +78,63 @@ Public Class FrmPedidoDeReposicion
 		dgvProveedores.Columns("StockMinimo").Visible = False
 		dgvProveedores.Columns("StockMaximo").Visible = False
 		dgvProveedores.Columns("StockActual").Visible = False
+		dgvProveedores.Columns("PrecioProducto").Visible = False
 		dgvProveedores.Columns("ProveedorNombre").HeaderText = "Proveedor"
 		dgvProveedores.Columns("AComprar").Visible = False
 		dgvProveedores.Columns("HacerPedido").Visible = False
 		dgvProveedores.Columns("ProveedorNombre").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 
-		If dgvProveedores.Columns.Count() = 9 Then
-			Dim CheckBoxColumn As New DataGridViewCheckBoxColumn()
-			dgvProveedores.Columns.Add(CheckBoxColumn)
-			CheckBoxColumn.HeaderText = "Generar"
-			CheckBoxColumn.Width = 50
-			dgvProveedores.AllowUserToAddRows = False
-			For index = 0 To listaDeNombres.Count - 1
-				Dim cell8 = dgvProveedores.Rows(index).Cells(9)
-				cell8.Value = True
-				For i = 0 To agrupado.Count - 1
-					If agrupado(i).Key = dgvProveedores.Rows(index).Cells(3).Value Then
-						For Each productosProveedor As ProductosConStock In agrupado(i)
-							productosProveedor.HacerPedido = True
-						Next
-					End If
-				Next
-			Next
-		Else
-			dgvProveedores.Columns(0).HeaderText = "Generar"
-			For index = 0 To listaDeNombres.Count - 1
-				Dim cell8 = dgvProveedores.Rows(index).Cells(0)
-				cell8.Value = True
-			Next
+		If agregoColumnas Then
+			AñadirColumnas()
 		End If
 
+		dgvProveedores.AllowUserToAddRows = False
+		CalcularTotales()
+		For index = 0 To listaDeNombres.Count - 1
+			Dim cell8 = dgvProveedores.Rows(index).Cells(10)
+			cell8.Value = True
+			For i = 0 To agrupado.Count - 1
+
+				If agrupado(i).Key = dgvProveedores.Rows(index).Cells(3).Value Then
+					Dim cell11 = dgvProveedores.Rows(index).Cells(11)
+					cell11.Value = agrupado(i).Where(Function(x) x.HacerPedido = True).Sum(Function(x) x.PrecioProducto * x.AComprar).ToString("C2")
+					For Each productosProveedor As ProductosConStock In agrupado(i)
+						productosProveedor.HacerPedido = True
+					Next
+				End If
+			Next
+		Next
+
+		For Each column As DataGridViewColumn In dgvProveedores.Columns
+			column.SortMode = DataGridViewColumnSortMode.NotSortable
+		Next
+	End Sub
+
+	Public Sub AñadirColumnas()
+		Dim CheckBoxColumn As New DataGridViewCheckBoxColumn()
+		dgvProveedores.Columns.Add(CheckBoxColumn)
+		Dim totalColumn As New DataGridViewTextBoxColumn()
+		dgvProveedores.Columns.Add(totalColumn)
+
+		CheckBoxColumn.HeaderText = "Generar"
+		CheckBoxColumn.Width = 50
+		totalColumn.HeaderText = "Total Proveedor"
+		totalColumn.Width = 150
+	End Sub
+
+	Public Sub CalcularTotales()
+		Dim Total As Decimal = 0
+		For index = 0 To listaDeNombres.Count - 1
+			For i = 0 To agrupado.Count - 1
+				If agrupado(i).Key = dgvProveedores.Rows(index).Cells(3).Value Then
+					Dim cell11 = dgvProveedores.Rows(index).Cells(11)
+					Dim totalProveedor = agrupado(i).Where(Function(x) x.HacerPedido = True).Sum(Function(x) x.PrecioProducto * x.AComprar)
+					cell11.Value = totalProveedor.ToString("C2")
+					Total += totalProveedor
+				End If
+			Next
+		Next
+		lblTotal.Text = Total.ToString("C2")
 	End Sub
 
 	Public Function CalcularSegunBase(stockMin As Integer, stockMax As Integer, stockActual As Integer) As Integer
@@ -117,25 +153,26 @@ Public Class FrmPedidoDeReposicion
 	End Function
 
 	Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProveedores.CellContentClick
-		Dim cell As DataGridViewCheckBoxCell = Nothing
-		If dgvProveedores.Columns(0).HeaderText = "Generar" Then
-			cell = dgvProveedores.Rows(e.RowIndex).Cells(0)
-		Else
-			cell = dgvProveedores.Rows(e.RowIndex).Cells(9)
-		End If
-		If cell.Value = True Then
-			cell.Value = False
-		Else
-			cell.Value = True
-		End If
-		For i = 0 To agrupado.Count - 1
-			If agrupado(i).Key = dgvProveedores.Rows(e.RowIndex).Cells(3).Value Then
-				For Each productosProveedor As ProductosConStock In agrupado(i)
-					productosProveedor.HacerPedido = cell.Value
-				Next
-				Exit For
+		Dim selectedRow As DataGridViewRow = Nothing
+		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+			selectedRow = dgvProveedores.Rows(e.RowIndex)
+			Dim cell As DataGridViewCheckBoxCell = Nothing
+			cell = dgvProveedores.Rows(e.RowIndex).Cells(10)
+			If cell.Value = True Then
+				cell.Value = False
+			Else
+				cell.Value = True
 			End If
-		Next
+			For i = 0 To agrupado.Count - 1
+				If agrupado(i).Key = dgvProveedores.Rows(e.RowIndex).Cells(3).Value Then
+					For Each productosProveedor As ProductosConStock In agrupado(i)
+						productosProveedor.HacerPedido = cell.Value
+					Next
+					Exit For
+				End If
+			Next
+			CalcularTotales()
+		End If
 
 	End Sub
 
@@ -143,14 +180,17 @@ Public Class FrmPedidoDeReposicion
 		Dim selectedRow As DataGridViewRow = Nothing
 		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
 			selectedRow = dgvProveedores.Rows(e.RowIndex)
+			Dim providerNombre = selectedRow.Cells("ProveedorNombre").Value
+			FrmDetallePedidoDeReposicion.agrupado = agrupado.FirstOrDefault(Function(x) x.Key = providerNombre)
+			FrmDetallePedidoDeReposicion.base = cboBaseCalculo.SelectedItem
+			FrmDetallePedidoDeReposicion.ShowDialog()
 		End If
-		Dim providerNombre = selectedRow.Cells("ProveedorNombre").Value
-		FrmDetallePedidoDeReposicion.agrupado = agrupado.FirstOrDefault(Function(x) x.Key = providerNombre)
-		FrmDetallePedidoDeReposicion.base = cboBaseCalculo.SelectedItem
-		FrmDetallePedidoDeReposicion.ShowDialog()
 	End Sub
 
 	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+		If MsgBox("Está seguro que desea hacer el pedido?, Se comprará mercadería por un total de " + lblTotal.Text, MsgBoxStyle.YesNo, "Confirmar") = MsgBoxResult.No Then
+			Return
+		End If
 		Dim compras = 0
 		Try
 			For i = 0 To agrupado.Count - 1
@@ -217,7 +257,8 @@ Public Class FrmPedidoDeReposicion
 
 	Private Sub btnRegenerar_Click(sender As Object, e As EventArgs) Handles btnRegenerar.Click
 		If MsgBox("Está a punto de recalcular todo el pedido perdiendo su configuración en caso de haberla cambiado. Desea continuar?", MsgBoxStyle.YesNo, "Stock") = MsgBoxResult.Yes Then
-			DgvProveedoresSet()
+			DgvProveedoresSet(False)
+			CalcularTotales()
 		End If
 	End Sub
 End Class
@@ -315,6 +356,17 @@ Public Class ProductosConStock
 		End Get
 		Set(ByVal value As Boolean)
 			_Generar = CStr(value)
+		End Set
+	End Property
+
+	Private _PrecioProducto As Decimal
+
+	Public Property PrecioProducto As Decimal
+		Get
+			Return _PrecioProducto
+		End Get
+		Set(ByVal value As Decimal)
+			_PrecioProducto = CStr(value)
 		End Set
 	End Property
 End Class

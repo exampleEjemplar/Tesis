@@ -118,6 +118,7 @@ Public Class FrmDetallePedidoDeReposicion
 			proveedorFrmPedido.AComprar = dgvProductos.Rows(i).Cells("AComprar").Value
 			proveedorFrmPedido.HacerPedido = dgvProductos.Rows(i).Cells("HacerPedido").Value
 		Next
+		FrmPedidoDeReposicion.recargar = True
 		Close()
 	End Sub
 

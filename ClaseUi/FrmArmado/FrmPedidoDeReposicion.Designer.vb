@@ -23,8 +23,8 @@ Partial Class FrmPedidoDeReposicion
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmPedidoDeReposicion))
-		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.Panel1 = New System.Windows.Forms.Panel()
 		Me.btnSalirrr = New System.Windows.Forms.Button()
 		Me.dgvProveedores = New System.Windows.Forms.DataGridView()
@@ -35,9 +35,13 @@ Partial Class FrmPedidoDeReposicion
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.cboBaseCalculo = New System.Windows.Forms.ComboBox()
 		Me.btnRegenerar = New System.Windows.Forms.Button()
+		Me.gboTotales = New System.Windows.Forms.GroupBox()
+		Me.Label11 = New System.Windows.Forms.Label()
+		Me.lblTotal = New System.Windows.Forms.Label()
 		Me.Panel1.SuspendLayout()
 		CType(Me.dgvProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox1.SuspendLayout()
+		Me.gboTotales.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'Panel1
@@ -49,7 +53,7 @@ Partial Class FrmPedidoDeReposicion
 		Me.Panel1.Location = New System.Drawing.Point(8, 185)
 		Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
 		Me.Panel1.Name = "Panel1"
-		Me.Panel1.Size = New System.Drawing.Size(789, 556)
+		Me.Panel1.Size = New System.Drawing.Size(789, 459)
 		Me.Panel1.TabIndex = 58
 		'
 		'btnSalirrr
@@ -60,7 +64,7 @@ Partial Class FrmPedidoDeReposicion
 		Me.btnSalirrr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.btnSalirrr.Image = CType(resources.GetObject("btnSalirrr.Image"), System.Drawing.Image)
 		Me.btnSalirrr.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnSalirrr.Location = New System.Drawing.Point(693, 447)
+		Me.btnSalirrr.Location = New System.Drawing.Point(693, 350)
 		Me.btnSalirrr.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnSalirrr.Name = "btnSalirrr"
 		Me.btnSalirrr.Size = New System.Drawing.Size(92, 105)
@@ -78,22 +82,22 @@ Partial Class FrmPedidoDeReposicion
 		Me.dgvProveedores.AllowUserToResizeRows = False
 		Me.dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
 		Me.dgvProveedores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-		DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-		DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-		DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-		DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-		DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-		DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-		Me.dgvProveedores.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-		DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-		DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-		DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-		DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-		DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-		DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-		Me.dgvProveedores.DefaultCellStyle = DataGridViewCellStyle2
+		DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+		DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+		DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+		DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.dgvProveedores.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+		DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+		DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+		DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+		DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+		Me.dgvProveedores.DefaultCellStyle = DataGridViewCellStyle4
 		Me.dgvProveedores.Dock = System.Windows.Forms.DockStyle.Left
 		Me.dgvProveedores.EnableHeadersVisualStyles = False
 		Me.dgvProveedores.Location = New System.Drawing.Point(0, 0)
@@ -107,7 +111,7 @@ Partial Class FrmPedidoDeReposicion
 		Me.dgvProveedores.RowHeadersWidth = 56
 		Me.dgvProveedores.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
 		Me.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.dgvProveedores.Size = New System.Drawing.Size(685, 556)
+		Me.dgvProveedores.Size = New System.Drawing.Size(685, 459)
 		Me.dgvProveedores.TabIndex = 45
 		'
 		'btnSalir
@@ -207,11 +211,46 @@ Partial Class FrmPedidoDeReposicion
 		Me.btnRegenerar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnRegenerar.UseVisualStyleBackColor = False
 		'
+		'gboTotales
+		'
+		Me.gboTotales.Controls.Add(Me.Label11)
+		Me.gboTotales.Controls.Add(Me.lblTotal)
+		Me.gboTotales.Location = New System.Drawing.Point(8, 665)
+		Me.gboTotales.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+		Me.gboTotales.Name = "gboTotales"
+		Me.gboTotales.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+		Me.gboTotales.Size = New System.Drawing.Size(685, 60)
+		Me.gboTotales.TabIndex = 62
+		Me.gboTotales.TabStop = False
+		Me.gboTotales.Text = "Totales"
+		'
+		'Label11
+		'
+		Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!, System.Drawing.FontStyle.Bold)
+		Me.Label11.Location = New System.Drawing.Point(287, 17)
+		Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label11.Name = "Label11"
+		Me.Label11.Size = New System.Drawing.Size(154, 24)
+		Me.Label11.TabIndex = 30
+		Me.Label11.Text = "Total del pedido"
+		'
+		'lblTotal
+		'
+		Me.lblTotal.AutoSize = True
+		Me.lblTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
+		Me.lblTotal.Location = New System.Drawing.Point(470, 17)
+		Me.lblTotal.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.lblTotal.Name = "lblTotal"
+		Me.lblTotal.Size = New System.Drawing.Size(49, 24)
+		Me.lblTotal.TabIndex = 26
+		Me.lblTotal.Text = "0.00"
+		'
 		'FrmPedidoDeReposicion
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(799, 754)
+		Me.Controls.Add(Me.gboTotales)
 		Me.Controls.Add(Me.Label32)
 		Me.Controls.Add(Me.Panel1)
 		Me.Controls.Add(Me.Label1)
@@ -226,6 +265,8 @@ Partial Class FrmPedidoDeReposicion
 		Me.Panel1.ResumeLayout(False)
 		CType(Me.dgvProveedores, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox1.ResumeLayout(False)
+		Me.gboTotales.ResumeLayout(False)
+		Me.gboTotales.PerformLayout()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -241,4 +282,7 @@ Partial Class FrmPedidoDeReposicion
 	Friend WithEvents btnRegenerar As Windows.Forms.Button
 	Friend WithEvents cboBaseCalculo As Windows.Forms.ComboBox
 	Friend WithEvents btnSalirrr As Windows.Forms.Button
+	Friend WithEvents gboTotales As Windows.Forms.GroupBox
+	Friend WithEvents Label11 As Windows.Forms.Label
+	Friend WithEvents lblTotal As Windows.Forms.Label
 End Class
