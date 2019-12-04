@@ -233,6 +233,12 @@
     <Compile Include="FrmDetalleProductoCatalogo.Vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmEstadistica\Frmtrazapromedio.Designer.vb">
+      <DependentUpon>Frmtrazapromedio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEstadistica\Frmtrazapromedio.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmEstadistica\MDIEstadisticas.Designer.vb">
       <DependentUpon>MDIEstadisticas.vb</DependentUpon>
     </Compile>
@@ -532,6 +538,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEstadistica\FrmEstadisticaVentas.resx">
       <DependentUpon>FrmEstadisticaVentas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEstadistica\Frmtrazapromedio.resx">
+      <DependentUpon>Frmtrazapromedio.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEstadistica\MDIEstadisticas.resx">
       <DependentUpon>MDIEstadisticas.vb</DependentUpon>
