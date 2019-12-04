@@ -23,10 +23,11 @@ Partial Class FrmCierreDeCaja
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmCierreDeCaja))
-        Me.dgvGrilla = New System.Windows.Forms.DataGridView()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.chkFechaDesde = New System.Windows.Forms.CheckBox()
+        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.dtpFechaDesde = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lblFechacierre = New System.Windows.Forms.Label()
@@ -35,36 +36,12 @@ Partial Class FrmCierreDeCaja
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnSalirr = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnBuscar = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.dgvgrilla = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        CType(Me.dgvgrilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'dgvGrilla
-        '
-        Me.dgvGrilla.AllowDrop = True
-        Me.dgvGrilla.AllowUserToAddRows = False
-        Me.dgvGrilla.AllowUserToDeleteRows = False
-        Me.dgvGrilla.AllowUserToResizeColumns = False
-        Me.dgvGrilla.AllowUserToResizeRows = False
-        Me.dgvGrilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvGrilla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.dgvGrilla.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
-        Me.dgvGrilla.Dock = System.Windows.Forms.DockStyle.Left
-        Me.dgvGrilla.Location = New System.Drawing.Point(0, 0)
-        Me.dgvGrilla.MultiSelect = False
-        Me.dgvGrilla.Name = "dgvGrilla"
-        Me.dgvGrilla.ReadOnly = True
-        Me.dgvGrilla.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.dgvGrilla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.dgvGrilla.RowHeadersVisible = False
-        Me.dgvGrilla.RowHeadersWidth = 56
-        Me.dgvGrilla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvGrilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvGrilla.Size = New System.Drawing.Size(491, 455)
-        Me.dgvGrilla.TabIndex = 68
         '
         'Label1
         '
@@ -105,6 +82,23 @@ Partial Class FrmCierreDeCaja
         Me.chkFechaDesde.TabIndex = 7
         Me.chkFechaDesde.Text = "Habilitar fecha desde"
         Me.chkFechaDesde.UseVisualStyleBackColor = True
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
+        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnBuscar.FlatAppearance.BorderSize = 0
+        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
+        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnBuscar.Location = New System.Drawing.Point(497, 13)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(69, 81)
+        Me.btnBuscar.TabIndex = 72
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnBuscar.UseVisualStyleBackColor = False
         '
         'dtpFechaDesde
         '
@@ -199,32 +193,32 @@ Partial Class FrmCierreDeCaja
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'btnBuscar
-        '
-        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
-        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnBuscar.FlatAppearance.BorderSize = 0
-        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
-        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnBuscar.Location = New System.Drawing.Point(497, 13)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(69, 81)
-        Me.btnBuscar.TabIndex = 72
-        Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnBuscar.UseVisualStyleBackColor = False
-        '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.dgvGrilla)
+        Me.Panel1.Controls.Add(Me.dgvgrilla)
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.btnSalirr)
         Me.Panel1.Location = New System.Drawing.Point(17, 146)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(579, 455)
         Me.Panel1.TabIndex = 73
+        '
+        'dgvgrilla
+        '
+        Me.dgvgrilla.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvgrilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvgrilla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.dgvgrilla.EnableHeadersVisualStyles = False
+        Me.dgvgrilla.Location = New System.Drawing.Point(3, 3)
+        Me.dgvgrilla.MultiSelect = False
+        Me.dgvgrilla.Name = "dgvgrilla"
+        Me.dgvgrilla.ReadOnly = True
+        Me.dgvgrilla.RowHeadersVisible = False
+        Me.dgvgrilla.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.dgvgrilla.RowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvgrilla.Size = New System.Drawing.Size(488, 449)
+        Me.dgvgrilla.TabIndex = 72
         '
         'FrmCierreDeCaja
         '
@@ -241,16 +235,14 @@ Partial Class FrmCierreDeCaja
         Me.Name = "FrmCierreDeCaja"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Cierre de caja"
-        CType(Me.dgvGrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
+        CType(Me.dgvgrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents dgvGrilla As Windows.Forms.DataGridView
     Friend WithEvents btnSalirr As Windows.Forms.Button
     Friend WithEvents Label1 As Windows.Forms.Label
     Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
@@ -259,9 +251,10 @@ Partial Class FrmCierreDeCaja
     Friend WithEvents lblUsuario As Windows.Forms.Label
     Friend WithEvents Label2 As Windows.Forms.Label
     Friend WithEvents Button1 As Windows.Forms.Button
-	Friend WithEvents dtpFechaDesde As Windows.Forms.DateTimePicker
-	Friend WithEvents Label5 As Windows.Forms.Label
-	Friend WithEvents chkFechaDesde As Windows.Forms.CheckBox
-	Friend WithEvents btnBuscar As Windows.Forms.Button
+    Friend WithEvents dtpFechaDesde As Windows.Forms.DateTimePicker
+    Friend WithEvents Label5 As Windows.Forms.Label
+    Friend WithEvents chkFechaDesde As Windows.Forms.CheckBox
+    Friend WithEvents btnBuscar As Windows.Forms.Button
     Friend WithEvents Panel1 As Windows.Forms.Panel
+    Friend WithEvents dgvgrilla As Windows.Forms.DataGridView
 End Class

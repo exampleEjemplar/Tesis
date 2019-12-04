@@ -62,7 +62,6 @@ Partial Class MDIPrincipal
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Button9 = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -89,13 +88,12 @@ Partial Class MDIPrincipal
         Me.FlowLayoutPanel1.Controls.Add(Me.Button6)
         Me.FlowLayoutPanel1.Controls.Add(Me.Button8)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnManualDeUsuario)
-        Me.FlowLayoutPanel1.Controls.Add(Me.Button9)
         Me.FlowLayoutPanel1.Controls.Add(Me.Button3)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 94)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(150, 694)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(150, 643)
         Me.FlowLayoutPanel1.TabIndex = 32
         '
         'Button1
@@ -360,10 +358,10 @@ Partial Class MDIPrincipal
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(3, 633)
+        Me.Button3.Location = New System.Drawing.Point(3, 591)
         Me.Button3.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(147, 40)
+        Me.Button3.Size = New System.Drawing.Size(147, 41)
         Me.Button3.TabIndex = 31
         Me.Button3.Text = "SALIR"
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -551,7 +549,7 @@ Partial Class MDIPrincipal
         Me.Panel4.BackColor = System.Drawing.Color.Transparent
         Me.Panel4.Location = New System.Drawing.Point(153, 675)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(869, 74)
+        Me.Panel4.Size = New System.Drawing.Size(869, 51)
         Me.Panel4.TabIndex = 41
         '
         'Panel5
@@ -562,31 +560,13 @@ Partial Class MDIPrincipal
         Me.Panel5.Size = New System.Drawing.Size(869, 135)
         Me.Panel5.TabIndex = 42
         '
-        'Button9
-        '
-        Me.Button9.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button9.FlatAppearance.BorderSize = 0
-        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Image = CType(resources.GetObject("Button9.Image"), System.Drawing.Image)
-        Me.Button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button9.Location = New System.Drawing.Point(3, 591)
-        Me.Button9.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(147, 40)
-        Me.Button9.TabIndex = 39
-        Me.Button9.Text = "Otros PDF"
-        Me.Button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button9.UseVisualStyleBackColor = False
-        '
         'MDIPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1028, 788)
+        Me.ClientSize = New System.Drawing.Size(1028, 737)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel2)
@@ -653,7 +633,6 @@ Partial Class MDIPrincipal
     Friend WithEvents Panel3 As Windows.Forms.Panel
     Friend WithEvents Panel4 As Windows.Forms.Panel
     Friend WithEvents PictureBox1 As Windows.Forms.PictureBox
-	Friend WithEvents btnManualDeUsuario As Windows.Forms.Button
+    Friend WithEvents btnManualDeUsuario As Windows.Forms.Button
     Friend WithEvents Panel5 As Windows.Forms.Panel
-    Friend WithEvents Button9 As Windows.Forms.Button
 End Class

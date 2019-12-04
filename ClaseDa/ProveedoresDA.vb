@@ -282,6 +282,28 @@ Public Class ProveedoresDA
         Return ds1
     End Function
 
+    Public Function GeneraGraficoSERVICIO(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        helpersDa.ChequearConexion(db)
+
+        Dim sqlStr As String
+        ds1 = New DataSet
+        sqlStr = "select p.nombre as nombre, count(c.NumeroDocumento) as Cantidad from Proveedores c " &
+                        "inner join Ciudades ciu on c.CiudadId = Ciu.Id " &
+                        "inner Join Provincias p on ciu.ProvinciaID = p.Id " &
+                        "where proveeservicios= 'S' and FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "'" &
+                        "group by p.nombre"
+
+        Try
+            da = New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds1)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDa.ChequearConexion(db, "close")
+        End Try
+        helpersDa.ChequearConexion(db, "close")
+        Return ds1
+    End Function
+
 End Class
 
 

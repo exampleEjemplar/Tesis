@@ -99,7 +99,7 @@ Public Class FrmCierreDeCaja
                                 .Id = fila(0).ToString(),
                                 .Tipo = tipo,
                                 .Fecha = fila(1),
-                                .Movimiento = If(tipo = "Venta", fila(2), (fila(2) * -1)),
+                                .Movimiento = If(tipo = "Venta", fila(2), fila(2) * -1),
                                 .Usuario = usuario
                 })
                 If Not usuarios.Contains(usuario) Then
@@ -118,9 +118,11 @@ Public Class FrmCierreDeCaja
             dgvGrilla.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 		dgvGrilla.Columns("Id").Visible = False
             dgvGrilla.Columns("UsuarioId").Visible = False
-            dgvGrilla.Columns(2).DefaultCellStyle.Format = "C2"
-            dgvGrilla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            dgvGrilla.Columns("Movimiento").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+
+            dgvgrilla.Columns("Movimiento").DefaultCellStyle.Format = "C2"
+            dgvgrilla.Columns("Movimiento").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            dgvgrilla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+
             txtMontoFinal = (totalIngresos - totalEgresos)
 
 

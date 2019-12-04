@@ -45,16 +45,16 @@
 
 	Private _Movimiento As String
 
-	Public Property Movimiento As String
-		Get
-			Return _Movimiento
-		End Get
-		Set(ByVal value As String)
-			_Movimiento = CStr(value)
-		End Set
-	End Property
+    Public Property Movimiento As Double
+        Get
+            Return _Movimiento
+        End Get
+        Set(ByVal value As Double)
+            _Movimiento = CDbl(value)
+        End Set
+    End Property
 
-	Private _Usuario As String
+    Private _Usuario As String
 
 	Public Property Usuario As String
 		Get

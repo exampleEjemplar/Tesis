@@ -14,7 +14,7 @@ Public Class FrmEstadisticaProveedor
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         RadioButton4.Enabled = True
-        RadioButton3.Enabled = True
+        'RadioButton3.Enabled = True
         RadioButton2.Enabled = True
         RadioButton1.Enabled = True
 
@@ -48,7 +48,6 @@ Public Class FrmEstadisticaProveedor
         gbFiltro.Visible = False
         Chart1.Visible = False
         Chart2.Visible = False
-        Chart3.Visible = False
         Chart4.Visible = False
         dtpdesde.Enabled = True
         dtphasta.Enabled = True
@@ -69,29 +68,15 @@ Public Class FrmEstadisticaProveedor
 
 
 
-    Private Sub RadioButton3_Click(sender As Object, e As EventArgs) Handles RadioButton3.Click
-        Chart4.Visible = False
-        Chart1.Visible = False
-        Chart2.Visible = False
-        Chart3.Visible = True
-        GeneraGraficoPorPago()
-        dtpdesde.Enabled = False
-        dtphasta.Enabled = False
-        RadioButton4.Enabled = False
-        RadioButton3.Enabled = False
-        RadioButton1.Enabled = False
-        RadioButton2.Enabled = False
 
-        Button1.Enabled = False
-    End Sub
 
     Private Sub RadioButton2_Click(sender As Object, e As EventArgs) Handles RadioButton2.Click
         Chart4.Visible = False
         Chart2.Visible = True
         Chart1.Visible = False
-        Chart3.Visible = False
+        'Chart3.Visible = False
         RadioButton4.Enabled = False
-        RadioButton3.Enabled = False
+        'RadioButton3.Enabled = False
         RadioButton2.Enabled = False
         RadioButton1.Enabled = False
         Button1.Enabled = False
@@ -102,14 +87,14 @@ Public Class FrmEstadisticaProveedor
 
     Private Sub RadioButton1_Click(sender As Object, e As EventArgs) Handles RadioButton1.Click
         Chart4.Visible = False
-        Chart3.Visible = False
+        'Chart3.Visible = False
         Chart2.Visible = False
         Chart1.Visible = True
         GeneraGraficoProveedorPorCantidadProducto()
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
         RadioButton4.Enabled = False
-        RadioButton3.Enabled = False
+        'RadioButton3.Enabled = False
         RadioButton2.Enabled = False
         RadioButton1.Enabled = False
         Button1.Enabled = False
@@ -117,14 +102,14 @@ Public Class FrmEstadisticaProveedor
 
     Private Sub RadioButton4_Click(sender As Object, e As EventArgs) Handles RadioButton4.Click
         Chart1.Visible = False
-        Chart3.Visible = False
+        ' Chart3.Visible = False
         Chart2.Visible = False
         Chart4.Visible = True
         GeneraGraficoprovincia()
         dtpdesde.Enabled = False
         dtphasta.Enabled = False
         RadioButton4.Enabled = False
-        RadioButton3.Enabled = False
+        'RadioButton3.Enabled = False
         RadioButton2.Enabled = False
         RadioButton1.Enabled = False
         Button1.Enabled = False
@@ -181,23 +166,7 @@ Public Class FrmEstadisticaProveedor
     End Sub
 
 
-    Public Sub GeneraGraficoPorPago()
-        Try
-            Dim ds1 As DataSet
-            ds1 = Proveedormetodo.GeneraGraficoPorPago(fechadesde, fechahasta)
-            Chart3.DataSource = ds1.Tables(0)
-            Dim Series1 As Series = Chart3.Series("Series2")
-            Series1.Name = "Clientes"
-            Chart3.Series(Series1.Name).XValueMember = "nombre"
-            Chart3.Series(Series1.Name).YValueMembers = "total"
 
-            Chart3.Size = New System.Drawing.Size(668, 372)
-
-        Catch ex As Exception
-            'MessageBox.Show(ex.Message)
-        End Try
-
-    End Sub
 
     Public Sub GeneraGraficoprovincia()
         Try

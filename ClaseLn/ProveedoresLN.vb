@@ -53,5 +53,9 @@ Public Class ProveedoresLN
         Return objProveedoresAD.GeneraGrafico(fechadesde, fechahasta)
     End Function
 
+    Public Function GeneraGraficoSERVICIO(ByVal fechadesde As String, ByVal fechahasta As String) As DataSet
+        Return objProveedoresAD.GeneraGraficoSERVICIO(fechadesde, fechahasta)
+    End Function
+
 End Class
 
