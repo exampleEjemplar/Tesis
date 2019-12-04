@@ -198,13 +198,13 @@ Public Class FrmGestionStock
 		Dim selectedRow As DataGridViewRow = Nothing
 		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
 			selectedRow = dgvGrilla.Rows(e.RowIndex)
+			If selectedRow.Cells("Stock Actual").Value = 0 Then
+				MsgBox("El producto no cuenta con movimientos", MsgBoxStyle.OkOnly, "Error")
+				Return
+			End If
+			productoId = selectedRow.Cells("id").Value
+			FrmConsultaMovimientoStock.ShowDialog()
 		End If
-		If selectedRow.Cells("Stock Actual").Value = 0 Then
-			MsgBox("El producto no cuenta con movimientos", MsgBoxStyle.OkOnly, "Error")
-			Return
-		End If
-		productoId = selectedRow.Cells("id").Value
-		FrmConsultaMovimientoStock.ShowDialog()
 	End Sub
 
 	'Llena el combobox proveedores
