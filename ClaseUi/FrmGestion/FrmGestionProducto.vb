@@ -704,57 +704,12 @@ Public Class FrmGestionProducto
 			Return
 		End If
 		pro.Id = tbCodigo.Text
-
-		'pro.EsServicio = proveedoresLN.ConsultaModificacion(cmbProveedor.SelectedValue).Tables(0).Rows(0)(22).ToString()
-
-		'If rdpropios.Checked Then
-
-		'	Dim ms As New IO.MemoryStream()
-		'	PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
-		'	pro.nombreprducto = TbNombreProducto.Text
-		'	pro.CodBarra = tbCodBarra.Text
-		'	pro.foto = ms.GetBuffer
-		'	pro.precio = TbPrecio.Text
-		'	pro.utilidad = TbUtilidad.Text
-		'	pro.materialid = CmbMaterial.SelectedValue
-		'	pro.peso = 1
-		'	pro.tamaño = TbTamaño.Text
-		'	pro.color = TbColor.Text
-		'	pro.proveedorId = cmbProveedor.SelectedValue
-		'	pro.stockmin = TbStockmin.Text
-		'	pro.stockmax = TbStockMax.Text
-		'	pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
-		'	pro.Unidad = cmbUnidad.SelectedValue
-		'	pro.categoriaId = CmbCategoria.SelectedValue
-		'	pro.StockODeTercero = 0
 		productometodo.modificarproductos(pro)
 		cereacampos()
 		bloquearcampos()
 		btnBuscar.Enabled = True
 		btnmodificar.Enabled = True
 		btnNuevo.Enabled = True
-		'Else
-
-		'	pro.Id = tbCodigo.Text
-		'	Dim ms As New IO.MemoryStream()
-		'	PBfoto.Image.Save(ms, PBfoto.Image.RawFormat)
-		'	pro.nombreprducto = TbNombreProducto.Text
-		'	pro.CodBarra = tbCodBarra.Text
-		'	pro.foto = ms.GetBuffer
-		'	pro.precio = TbPrecio.Text
-		'	pro.utilidad = TbUtilidad.Text
-		'	pro.materialid = CmbMaterial.SelectedValue
-		'	pro.peso = 1
-		'	pro.tamaño = TbTamaño.Text
-		'	pro.color = TbColor.Text
-		'	pro.proveedorId = cmbProveedor.SelectedValue
-		'	pro.stockmin = TbStockmin.Text
-		'	pro.stockmax = TbStockMax.Text
-		'	pro.TipodeProductoId = CmbTipoprodcuto.SelectedValue
-		'	pro.Unidad = cmbUnidad.SelectedValue
-		'	pro.categoriaId = CmbCategoria.SelectedValue
-		'	pro.StockODeTercero = 1
-
 		btnGuardar.Visible = True
 		btnguardarmodificacion.Visible = False
 		btnmodificar.Enabled = False

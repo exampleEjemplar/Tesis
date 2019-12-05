@@ -203,7 +203,7 @@ Public Class HelpersDA
 		ChequearConexion(db)
 		Dim sqlStr As String
 		ds = New DataSet
-		sqlStr = "select Id,Nombre +' '+ Apellido as Nombre from Clientes Order By Nombre  "
+		sqlStr = "select Id,Apellido +', '+ Nombre as Nombre from Clientes Order By Apellido  "
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
@@ -220,16 +220,14 @@ Public Class HelpersDA
 
 		ChequearConexion(db)
 		Dim sqlStr As String
-		Dim text As String
+		Dim text As String = " where id != 4 "
 		ds = New DataSet
 		If proveeServicios = "True" Then
-			text = "where proveeservicios = 'S'"
+			text += "and proveeservicios = 'S'"
 		ElseIf proveeServicios = "False" Then
-			text = "where proveeservicios = 'N'"
-		Else
-			text = ""
+			text += "and proveeservicios = 'N'"
 		End If
-		sqlStr = "select Id,Nombre +' '+ Apellido as Nombre from Proveedores " + text + " Order By Nombre"
+		sqlStr = "select Id,Apellido +', '+ Nombre as Nombre from Proveedores " + text + " Order By apellido"
 		Try
 			Dim da As New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds)
