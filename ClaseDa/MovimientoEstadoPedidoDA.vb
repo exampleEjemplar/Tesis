@@ -32,4 +32,19 @@ Public Class MovimientoEstadoPedidoDA
         Return ds
     End Function
 
+    Public Function CargarMovimientosPorProveedor(ByVal idpedido As Integer) As DataSet
+        helpersDA.ChequearConexion(db)
+        Dim ds = New DataSet
+        Dim sqlStr = "select * from movimientoEstadospedidos where pedidoid=" & idpedido
+        Try
+            Dim da As New SqlDataAdapter(sqlStr, db)
+            da.Fill(ds)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDA.ChequearConexion(db, "close")
+        End Try
+        helpersDA.ChequearConexion(db, "close")
+        Return ds
+    End Function
+
 End Class
