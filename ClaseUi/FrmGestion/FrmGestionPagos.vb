@@ -172,21 +172,22 @@ Public Class FrmGestionPagos
 		Dim dsa1 As DataSet
 		dsa1 = pagosLN.CargarGrillaPagos(parametros, OrderBy, cboOrden.SelectedItem) 'Si parametros esta vacio, busca todos las compras en la bd
 		dgvProveedores.DataSource = dsa1.Tables(0)
-		If primerOrder Then
-			primerOrder = False
-			For i = 0 To dsa1.Tables(0).Columns.Count - 1
-				If dsa1.Tables(0).Columns(i).ColumnName = "Id" Then
-					Continue For
-				End If
-				If dsa1.Tables(0).Columns(i).ColumnName = "Fecha" Then
-					chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName, CheckState.Checked)
-					Continue For
-				End If
-				chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName)
-			Next
-			chbListaParaOrdenar.SetItemChecked(0, True)
-		End If
-		dgvProveedores.Columns("Id").Visible = False
+        If primerOrder Then
+            primerOrder = False
+            For i = 0 To dsa1.Tables(0).Columns.Count - 1
+                If dsa1.Tables(0).Columns(i).ColumnName = "Id" Then
+                    Continue For
+                End If
+                If dsa1.Tables(0).Columns(i).ColumnName = "Fecha" Then
+                    chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName, CheckState.Checked)
+                    Continue For
+                End If
+                chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName)
+            Next
+            chbListaParaOrdenar.SetItemChecked(0, True)
+        End If
+        dgvProveedores.Columns("fecha").DefaultCellStyle.Format = "dd-MM-yyyy"
+        dgvProveedores.Columns("Id").Visible = False
         dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         dgvProveedores.Columns("Total").DefaultCellStyle.Format = "c2"
         dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill

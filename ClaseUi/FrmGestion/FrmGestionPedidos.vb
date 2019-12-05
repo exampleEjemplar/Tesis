@@ -219,8 +219,10 @@ Public Class FrmGestionPedidos
 				.Estado = estado
 			})
 		Next
-		dgvProveedores.DataSource = listaDePedidos
-		dgvProveedores.ColumnHeadersHeight = 50
+        dgvProveedores.DataSource = listaDePedidos
+        dgvProveedores.Columns("Fecha").DefaultCellStyle.Format = "dd/MM/yyyy"
+        dgvProveedores.Columns("FechaVencimientoSeña").DefaultCellStyle.Format = "dd/MM/yyyy"
+        dgvProveedores.ColumnHeadersHeight = 50
 		dgvProveedores.Columns("Id").Visible = False
 		dgvProveedores.Columns("ClienteId").Visible = False
 		dgvProveedores.Columns("EstaVencido").HeaderText = "Vencido?"

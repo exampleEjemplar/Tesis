@@ -229,12 +229,14 @@ Public Class FrmGestionReparaciones
         dgvProveedores.Columns("FechaVencimientoSeña").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
         dgvProveedores.Columns("Cliente").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
 		dgvProveedores.Columns("Fecha").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-		dgvProveedores.Columns("Fecha").HeaderText = "Fecha del pedido"
-		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        dgvProveedores.Columns("Fecha").HeaderText = "Fecha del pedido"
+        dgvProveedores.Columns("Fecha").DefaultCellStyle.Format = "dd-MM-yyyy"
+        dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         dgvProveedores.Columns("Total").DefaultCellStyle.Format = "c2"
         dgvProveedores.Columns("estado").HeaderText = "Estado"
-		dgvProveedores.Columns("FechaVencimientoSeña").HeaderText = "Fecha de entrega"
-		dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        dgvProveedores.Columns("FechaVencimientoSeña").HeaderText = "Fecha de entrega"
+        dgvProveedores.Columns("FechaVencimientoSeña").DefaultCellStyle.Format = "dd-MM-yyyy"
+        dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
 		dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 		dgvProveedores.ReadOnly = True
 		If dsa1.Tables(0).Rows.Count() = 0 And type = "" Then

@@ -565,8 +565,10 @@ Public Class FrmGestionCliente
 			chbListaParaOrdenar.SetItemChecked(6, True)
 		End If
 		Dgvclientes.DataSource = dsa1.Tables(0)
-		Dgvclientes.Columns("Id").Visible = False
-		Dgvclientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        Dgvclientes.Columns("Id").Visible = False
+        Dgvclientes.Columns(5).DefaultCellStyle.Format = "dd/MM/yyyy"
+        Dgvclientes.Columns(6).DefaultCellStyle.Format = "dd/MM/yyyy"
+        Dgvclientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
 		Dgvclientes.AutoResizeColumns()
 		Return dsa1
 	End Function

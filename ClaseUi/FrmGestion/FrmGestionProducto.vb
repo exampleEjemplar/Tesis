@@ -372,10 +372,11 @@ Public Class FrmGestionProducto
             DataGridView1.Columns(4).HeaderText = "Tipo de Producto"
             DataGridView1.Columns(5).HeaderText = "Material de Producto"
 			DataGridView1.Columns(6).HeaderText = "Precio Público"
-			For i = 7 To 21
-				DataGridView1.Columns(i).Visible = False
-			Next
-			DataGridView1.Columns("problema").Visible = False
+            For i = 7 To 21
+                DataGridView1.Columns(i).Visible = False
+            Next
+            DataGridView1.Columns(23).DefaultCellStyle.Format = "dd/MM/yyyy"
+            DataGridView1.Columns("problema").Visible = False
 			DataGridView1.Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 			DataGridView1.Columns(0).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 			DataGridView1.Columns(2).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
