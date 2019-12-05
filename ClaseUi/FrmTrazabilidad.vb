@@ -110,6 +110,16 @@ Public Class FrmTrazabilidad
 				_Id = CStr(value)
 			End Set
 		End Property
+		Private _ProveedorNombre As String
+
+		Public Property ProveedorNombre As String
+			Get
+				Return _ProveedorNombre
+			End Get
+			Set(ByVal value As String)
+				_ProveedorNombre = CStr(value)
+			End Set
+		End Property
 		Private _PedidoId As String
 
 		Public Property PedidoId As String

@@ -90,20 +90,18 @@ Public Class FrmPedidoDeReposicion
 
 		dgvProveedores.AllowUserToAddRows = False
 		CalcularTotales()
-		For index = 0 To listaDeNombres.Count - 1
-			Dim cell8 = dgvProveedores.Rows(index).Cells(10)
+		'For index = 0 To listaDeNombres.Count - 1
+		For i = 0 To agrupado.Count - 1
+			Dim cell8 = dgvProveedores.Rows(i).Cells(10)
 			cell8.Value = True
-			For i = 0 To agrupado.Count - 1
 
-				If agrupado(i).Key = dgvProveedores.Rows(index).Cells(3).Value Then
-					Dim cell11 = dgvProveedores.Rows(index).Cells(11)
-					cell11.Value = agrupado(i).Where(Function(x) x.HacerPedido = True).Sum(Function(x) x.PrecioProducto * x.AComprar).ToString("C2")
-					For Each productosProveedor As ProductosConStock In agrupado(i)
-						productosProveedor.HacerPedido = True
-					Next
-				End If
+			Dim cell11 = dgvProveedores.Rows(i).Cells(11)
+			cell11.Value = agrupado(i).Where(Function(x) x.HacerPedido = True).Sum(Function(x) x.PrecioProducto * x.AComprar).ToString("C2")
+			For Each productosProveedor As ProductosConStock In agrupado(i)
+				productosProveedor.HacerPedido = True
 			Next
 		Next
+		'Next
 
 		For Each column As DataGridViewColumn In dgvProveedores.Columns
 			column.SortMode = DataGridViewColumnSortMode.NotSortable
@@ -115,7 +113,8 @@ Public Class FrmPedidoDeReposicion
 		dgvProveedores.Columns.Add(CheckBoxColumn)
 		Dim totalColumn As New DataGridViewTextBoxColumn()
 		dgvProveedores.Columns.Add(totalColumn)
-
+		CheckBoxColumn.Name = "ChkBox"
+		totalColumn.Name = "TotalProveedor"
 		CheckBoxColumn.HeaderText = "Generar"
 		CheckBoxColumn.Width = 50
 		totalColumn.HeaderText = "Total Proveedor"
@@ -257,7 +256,16 @@ Public Class FrmPedidoDeReposicion
 
 	Private Sub btnRegenerar_Click(sender As Object, e As EventArgs) Handles btnRegenerar.Click
 		If MsgBox("Está a punto de recalcular todo el pedido perdiendo su configuración en caso de haberla cambiado. Desea continuar?", MsgBoxStyle.YesNo, "Stock") = MsgBoxResult.Yes Then
-			DgvProveedoresSet(False)
+
+			For i = 0 To agrupado.Count - 1
+				For Each productosProveedor As ProductosConStock In agrupado(i)
+					productosProveedor.HacerPedido = True
+					productosProveedor.AComprar = CalcularSegunBase(productosProveedor.StockMinimo, productosProveedor.StockMaximo, productosProveedor.StockActual)
+				Next
+				Dim cell11 = dgvProveedores.Rows(i).Cells(11)
+				cell11.Value = agrupado(i).Where(Function(x) x.HacerPedido = True).Sum(Function(x) x.PrecioProducto * x.AComprar).ToString("C2")
+			Next
+
 			CalcularTotales()
 		End If
 	End Sub
