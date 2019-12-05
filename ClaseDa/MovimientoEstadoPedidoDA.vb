@@ -17,34 +17,34 @@ Public Class MovimientoEstadoPedidoDA
 		com.Connection = db
 	End Sub
 
-    Public Function CargarMovimientosEstado(ByVal idpedido As Integer) As DataSet
-        helpersDA.ChequearConexion(db)
-        Dim ds = New DataSet
-        Dim sqlStr = "select * from movimientoEstadospedidos where pedidoid=" & idpedido
-        Try
-            Dim da As New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds)
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            helpersDA.ChequearConexion(db, "close")
-        End Try
-        helpersDA.ChequearConexion(db, "close")
-        Return ds
-    End Function
+	Public Function CargarMovimientosEstado(ByVal idpedido As Integer) As DataSet
+		helpersDA.ChequearConexion(db)
+		Dim ds = New DataSet
+		Dim sqlStr = "select * from movimientoEstadospedidos where pedidoid=" & idpedido
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDA.ChequearConexion(db, "close")
+		End Try
+		helpersDA.ChequearConexion(db, "close")
+		Return ds
+	End Function
 
-    Public Function CargarMovimientosPorProveedor(ByVal idpedido As Integer) As DataSet
-        helpersDA.ChequearConexion(db)
-        Dim ds = New DataSet
-        Dim sqlStr = "select * from movimientoEstadospedidos where pedidoid=" & idpedido
-        Try
-            Dim da As New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds)
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            helpersDA.ChequearConexion(db, "close")
-        End Try
-        helpersDA.ChequearConexion(db, "close")
-        Return ds
-    End Function
+	Public Function CargarMovimientosAgrupadoPorProveedor() As DataSet
+		helpersDA.ChequearConexion(db)
+		Dim ds = New DataSet
+		Dim sqlStr = "select prov.id, mep.EstadoId, mep.Fecha,p.id,mep.activo from MovimientoEstadosPedidos mep inner join pedidos p on p.id = mep.PedidoId inner join DetallePedidos dp on dp.PedidoId = p.id inner join Productos prod on prod.id = dp.ProductoId inner join Proveedores prov on prov.id = prod.ProveedorId where mep.EstadoId in (2,3) and p.EsReparacion = 'N' and prod.EsServicio = 'N' group by prov.id, mep.EstadoId, mep.Fecha,p.id,mep.activo "
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDA.ChequearConexion(db, "close")
+		End Try
+		helpersDA.ChequearConexion(db, "close")
+		Return ds
+	End Function
 
 End Class
