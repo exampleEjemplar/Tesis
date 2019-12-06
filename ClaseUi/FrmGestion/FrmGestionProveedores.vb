@@ -552,35 +552,37 @@ Public Class FrmGestionProveedores
 		cboOrden.SelectedItem = "desc"
 	End Sub
 
-	'Carga DataGridView con datos
-	Public Function DgvProveedoresSet(ByVal parametros As Dictionary(Of String, String)) As DataSet
-		Dim dsa1 As DataSet
-		dsa1 = proveedorMetodo.CargaGrillaProveedores(parametros, OrderBy, cboOrden.SelectedItem) 'Si parametros esta vacio, busca todos los proveedores en la bd
-		If dsa1.Tables(0).Rows.Count() <> 0 Then
-			ProveedorId = dsa1.Tables(0).Rows(0)(13)
-		End If
-		If primerOrder Then
-			primerOrder = False
-			For i = 0 To dsa1.Tables(0).Columns.Count - 1
-				If dsa1.Tables(0).Columns(i).ColumnName = "id" Then
-					Continue For
-				End If
-				If dsa1.Tables(0).Columns(i).ColumnName = "Fecha de Alta" Then
-					chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName, CheckState.Checked)
-					Continue For
-				End If
-				chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName)
-			Next
-			chbListaParaOrdenar.SetItemChecked(6, True)
-		End If
-		Dgvproveedores.DataSource = dsa1.Tables(0)
-		Dgvproveedores.Columns("Id").Visible = False
-		Dgvproveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-		Dgvproveedores.AutoResizeColumns()
-		Return dsa1
-	End Function
+    'Carga DataGridView con datos
+    Public Function DgvProveedoresSet(ByVal parametros As Dictionary(Of String, String)) As DataSet
+        Dim dsa1 As DataSet
+        dsa1 = proveedorMetodo.CargaGrillaProveedores(parametros, OrderBy, cboOrden.SelectedItem) 'Si parametros esta vacio, busca todos los proveedores en la bd
+        If dsa1.Tables(0).Rows.Count() <> 0 Then
+            ProveedorId = dsa1.Tables(0).Rows(0)(13)
+        End If
+        If primerOrder Then
+            primerOrder = False
+            For i = 0 To dsa1.Tables(0).Columns.Count - 1
+                If dsa1.Tables(0).Columns(i).ColumnName = "id" Then
+                    Continue For
+                End If
+                If dsa1.Tables(0).Columns(i).ColumnName = "Fecha de Alta" Then
+                    chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName, CheckState.Checked)
+                    Continue For
+                End If
+                chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName)
+            Next
+            chbListaParaOrdenar.SetItemChecked(6, True)
+        End If
+        Dgvproveedores.DataSource = dsa1.Tables(0)
+        Dgvproveedores.Columns("Id").Visible = False
+        Dgvproveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        Dgvproveedores.Columns(6).DefaultCellStyle.Format = "dd/MM/yyyy"
+        Dgvproveedores.Columns(5).DefaultCellStyle.Format = "dd/MM/yyyy"
+        Dgvproveedores.AutoResizeColumns()
+        Return dsa1
+    End Function
 
-	Private Sub chbListaParaOrdenar_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chbListaParaOrdenar.ItemCheck
+    Private Sub chbListaParaOrdenar_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chbListaParaOrdenar.ItemCheck
 		If Not String.IsNullOrEmpty(chbListaParaOrdenar.SelectedItem) Then
 
 			Dim count = OrderBy.Where(Function(x) Not x.Item2 = "").Count()
@@ -769,5 +771,7 @@ helpersUI.TextValidator("Numero de identificacion", tbNroDoc.Text) = False Then
 		End Get
 	End Property
 
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
 
+    End Sub
 End Class

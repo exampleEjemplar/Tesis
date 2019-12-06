@@ -68,27 +68,27 @@
 
 	Private _Total As String
 
-	Public Property Total As String
-		Get
-			Return _Total
-		End Get
-		Set(ByVal value As String)
-			_Total = CStr(value)
-		End Set
-	End Property
+    Public Property Total As Double
+        Get
+            Return _Total
+        End Get
+        Set(ByVal value As Double)
+            _Total = CDbl(value)
+        End Set
+    End Property
 
-	Private _Seña As String
+    Private _Seña As String
 
-	Public Property Seña As String
-		Get
-			Return _Seña
-		End Get
-		Set(ByVal value As String)
-			_Seña = CStr(value)
-		End Set
-	End Property
+    Public Property Seña As Double
+        Get
+            Return _Seña
+        End Get
+        Set(ByVal value As Double)
+            _Seña = CDbl(value)
+        End Set
+    End Property
 
-	Private _Estado As String
+    Private _Estado As String
 
 	Public Property Estado As String
 		Get

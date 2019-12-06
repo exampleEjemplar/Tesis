@@ -62,8 +62,8 @@ Public Class FrmTrazapromedio
 			Series1 = Chart5.Series("Series2")
 
 			Series1.Name = "Ventas"
-			Chart5.Series(Series1.Name).XValueMember = "Item1"
-			Chart5.Series(Series1.Name).YValueMembers = "Item2"
+            Chart5.Series(Series1.Name).XValueMember = "Estado"
+            Chart5.Series(Series1.Name).YValueMembers = "Item2"
 			Chart5.Series(Series1.Name).LabelFormat = " {0} "
 			Chart5.Size = New System.Drawing.Size(668, 372)
 

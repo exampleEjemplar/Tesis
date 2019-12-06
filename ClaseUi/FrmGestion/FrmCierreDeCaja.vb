@@ -31,8 +31,8 @@ Public Class FrmCierreDeCaja
         Dim usuario = usuarioLn.CargarUnUsuario(loginLN.ChequearEnSesion())
 		lblUsuario.Text = usuario.Tables(0).Rows(0)(0).ToString()
 		Dim fecha As String = Today + " - " + TimeOfDay
-		lblFechacierre.Text = fecha
-		Search("Load")
+        lblFechacierre.Text = fecha
+        Search("Load")
 
 
 
@@ -118,7 +118,7 @@ Public Class FrmCierreDeCaja
             dgvGrilla.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 		dgvGrilla.Columns("Id").Visible = False
             dgvGrilla.Columns("UsuarioId").Visible = False
-
+            dgvgrilla.Columns("fecha").DefaultCellStyle.Format = "dd-MM-yyyy"
             dgvgrilla.Columns("Movimiento").DefaultCellStyle.Format = "C2"
             dgvgrilla.Columns("Movimiento").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
             dgvgrilla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
