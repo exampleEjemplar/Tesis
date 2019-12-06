@@ -62,7 +62,7 @@ Public Class FrmTrazapromedio
 			Series1 = Chart5.Series("Series2")
 
 			Series1.Name = "Ventas"
-            Chart5.Series(Series1.Name).XValueMember = "Estado"
+            Chart5.Series(Series1.Name).XValueMember = "item1"
             Chart5.Series(Series1.Name).YValueMembers = "Item2"
 			Chart5.Series(Series1.Name).LabelFormat = " {0} "
 			Chart5.Size = New System.Drawing.Size(668, 372)
@@ -81,4 +81,8 @@ Public Class FrmTrazapromedio
 		Me.Close()
 
 	End Sub
+
+    Private Sub Chart5_Click(sender As Object, e As EventArgs) Handles Chart5.Click
+
+    End Sub
 End Class

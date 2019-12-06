@@ -91,14 +91,14 @@ Partial Class FrmTrazapromedio
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnSalir.UseVisualStyleBackColor = False
         '
-        'Frmtrazapromedio
+        'FrmTrazapromedio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(826, 499)
         Me.Controls.Add(Me.Chart5)
         Me.Controls.Add(Me.btnSalir)
-        Me.Name = "Frmtrazapromedio"
+        Me.Name = "FrmTrazapromedio"
         Me.Text = "Frmtrazapromedio"
         CType(Me.Chart5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
