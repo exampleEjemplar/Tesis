@@ -179,23 +179,24 @@ Public Class FrmArmadoPedido
 			Return
 		End If
 
+		If SeñaStuff() = False Then
+			Return
+		End If
+
 		Dim listaDeVentas = New List(Of TipoDeVentasNE)
 		For Each item As KeyValuePair(Of Integer, Integer) In DiccionarioDeStringYCantidad
 			Dim product = ObtainProductInformation(item.Key)
+			Dim cantidadParaPedido = Math.Round(item.Value / 100 * If(chkSeñaManual.Checked, Double.Parse(txtSeña.Text.Replace(".", ",")) * 100 / total, Double.Parse(cboPorcentaje.SelectedItem)), 2)
 			Dim venta = New TipoDeVentasNE With {
-				.Cantidad = item.Value,
-				.ProductoId = item.Key,
-				.Precio = product.precio
+			.Cantidad = cantidadParaPedido,
+			.ProductoId = item.Key,
+			.Precio = product.precio
 			}
 			listaDeVentas.Add(venta)
 			FrmComprobanteVenta.ListaVentas.Add(venta)
 		Next
 
-		If SeñaStuff() = False Then
-			Return
-		End If
-
-		pedidosLN.Registrar(listaDeVentas, cboCliente.SelectedValue, If(chkSeñaManual.Checked, Double.Parse(txtSeña.Text), Double.Parse(lblSeña.Text)))
+		pedidosLN.Registrar(listaDeVentas, cboCliente.SelectedValue, total, If(chkSeñaManual.Checked, Double.Parse(txtSeña.Text), Double.Parse(lblSeña.Text)))
 		MsgBox("Pedido realizado con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
 		modificado = True
@@ -205,19 +206,19 @@ Public Class FrmArmadoPedido
 
 	End Sub
 
-    Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
-        If MsgBox("Desea limpiar la lista de ventas?", MsgBoxStyle.YesNo, "Ventas") = MsgBoxResult.Yes Then
-            ListView1.Clear()
-            total = 0.0
-            lblTotal.Text = total.ToString("0.00")
-            lblRestaCobrar.Text = "0.00"
-            txtSeña.Text = ""
-            porcentajeSeña = 0.00
-            lblSeña.Text = "0.00"
-        End If
-    End Sub
+	Private Sub BtnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+		If MsgBox("Desea limpiar la lista de ventas?", MsgBoxStyle.YesNo, "Ventas") = MsgBoxResult.Yes Then
+			ListView1.Clear()
+			total = 0.0
+			lblTotal.Text = total.ToString("0.00")
+			lblRestaCobrar.Text = "0.00"
+			txtSeña.Text = ""
+			porcentajeSeña = 0.00
+			lblSeña.Text = "0.00"
+		End If
+	End Sub
 
-    Private Sub BtnQuitarItem_Click(sender As Object, e As EventArgs) Handles btnQuitarItem.Click
+	Private Sub BtnQuitarItem_Click(sender As Object, e As EventArgs) Handles btnQuitarItem.Click
 		QuitarItem("")
 	End Sub
 
@@ -452,12 +453,12 @@ Public Class FrmArmadoPedido
 			lstProdDispo.Items.Add(ds2.Tables(0).Rows(i).Item(1).ToString(), ik)
 			listita.Add(listaViewItem)
 		Next
-        If cboOrden.SelectedItem = "asc" Then
-            lstProdDispo.Sorting = SortOrder.Ascending
-        Else
-            lstProdDispo.Sorting = SortOrder.Descending
-        End If
-        lstProdDispo.LargeImageList = ImageList
+		If cboOrden.SelectedItem = "asc" Then
+			lstProdDispo.Sorting = SortOrder.Ascending
+		Else
+			lstProdDispo.Sorting = SortOrder.Descending
+		End If
+		lstProdDispo.LargeImageList = ImageList
 		gboFiltros.Enabled = True
 	End Sub
 

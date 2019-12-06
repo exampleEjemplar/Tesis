@@ -208,7 +208,7 @@ CREATE TABLE DetalleVentas(
 Id INT IDENTITY PRIMARY KEY,
 VentaId INT,
 ProductoId INT,
-Cantidad INT,
+Cantidad FLOAT,
 Precio FLOAT,
 SubTotal FLOAT,
 IVA FLOAT,

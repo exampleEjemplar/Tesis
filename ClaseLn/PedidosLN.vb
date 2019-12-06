@@ -19,8 +19,8 @@ Public Class PedidosLN
 		Return pedidosDA.CargarGrillaPedidos(parametros, orderby, ascOrDesc)
 	End Function
 
-	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer, Optional seña As Double = 0.0)
-		pedidosDA.Registrar(listaDeProductosId, clienteId, seña)
+	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer, totalReal As Double, Optional seña As Double = 0.0)
+		pedidosDA.Registrar(listaDeProductosId, clienteId, totalReal, seña)
 	End Sub
 
 	Public Function ObtenerUltimoPedido()

@@ -120,14 +120,14 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnBuscar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAF3SURBVFhHYxgFowAb6DrsmdR92OsqEP8B4v8UYpAZV7sOeSVAjccPuo94J6MZQDVMlCOACq+h
-        a6QW7jnsfQVqDW4AVAgP9p23J/6/8GwLRRhkBsw8kNlQa3ADJMVgAz7+eEkRBpmBbCbUGtwAWfGQdcC7
-        b0/hbLo7YP7+jv8NK5P+v/7yGMynqwPm7Wv9H9qtD8aNq1L+f/j+nHoOeP7hDopl6Bjkc5jlILziyESw
-        OFUc8ODNlf/Zszz/z9rdiGIpDOOyHIQpdsB7YDAWzguAGz5nTzPRloMwVULg9L09/2MmWMAtgYXEggP4
-        LQdhqjgAhNEdUbYojKDlIEw1B4AwuiMIWQ7CVHUACO+4sPR/WA/C8tl7mjDUIGOqOwCE152aBbTc4H/n
-        hlys8siYJg4A4atPT2AVR8c0cwCxeEg6YMAbJKDGKLImauLLUGtwA1DDEYtGquCew16xUGvwA5AjQA1I
-        oCaqNMtBZgGb+nFQ40fBKEACDAwAFDHed4D+vKkAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAXdJREFUWEdj
+        GAWjABvoOuyZ1H3Y6yoQ/wHi/xRikBlXuw55JUCNxw+6j3gnoxlANUyUI4AKr6FrpBbuOex9BWoNbgBU
+        CA/2nbcn/r/wbAtFGGQGzDyQ2VBrcAMkxWADPv54SREGmYFsJtQa3ABZ8ZB1wLtvT+Fsujtg/v6O/w0r
+        k/6//vIYzKerA+bta/0f2q0Pxo2rUv5/+P6ceg54/uEOimXoGORzmOUgvOLIRLA4VRzw4M2V/9mzPP/P
+        2t2IYikM47IchCl2wHtgMBbOC4AbPmdPM9GWgzBVQuD0vT3/YyZYwC2BhcSCA/gtB2GqOACE0R1RtiiM
+        oOUgTDUHgDC6IwhZDsJUdQAI77iw9H9YD8Ly2XuaMNQgY6o7AITXnZoFtNzgf+eGXKzyyJgmDgDhq09P
+        YBVHxzRzALF4SDpgwBskoMYosiZq4stQa3ADUMMRi0aq4J7DXrFQa/ADkCNADUigJqo0y0FmAZv6cVDj
+        R8EoQAIMDAAUMd53gP68qQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="ttpAdicionar.Text" xml:space="preserve">
