@@ -12,7 +12,18 @@ Public Class FrmModificarPrecioProducto
 	Private listaDeProductos As List(Of Tuple(Of Integer, Boolean, ProductosNE))
 
 	Private Sub FrmModificarPrecioProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		Cargar()
+		'Cargar()
+		DgvSet()
+		LlenarDgvEnBaseALista()
+	End Sub
+
+	Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+		Dim selectedRow As DataGridViewRow = Nothing
+		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+			selectedRow = DataGridView1.Rows(e.RowIndex)
+			selectedRow.Cells(1).Value = If(selectedRow.Cells(1).Value, False, True)
+
+		End If
 	End Sub
 
 	Private Sub CheckedListBox1_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles CheckedListBox1.ItemCheck
@@ -24,6 +35,47 @@ Public Class FrmModificarPrecioProducto
 			listaDeProductos.RemoveAll(Function(s) s.Item1 = e.Index)
 			listaDeProductos.Add(New Tuple(Of Integer, Boolean, ProductosNE)(e.Index, True, producto))
 		End If
+
+	End Sub
+
+	Public Sub DgvSet()
+		listaDeProductos = New List(Of Tuple(Of Integer, Boolean, ProductosNE))
+		Dim parametros = New Dictionary(Of String, String)
+		parametros.Add("EsReparacion", "N")
+		Dim productos = helpersLN.CargarTodosProductos(parametros, New List(Of Tuple(Of Integer, String, Integer)), "desc", "").Tables(0)
+		For i As Integer = 0 To productos.Rows.Count - 1
+			Dim stringProducto = productos.Rows(i)(1)
+			For y As Integer = productos.Rows(i)(1).length To 40
+				stringProducto += " "
+			Next
+
+			Dim producto = New ProductosNE With {
+			.Id = productos.Rows(i)(0),
+			.nombreprducto = productos.Rows(i)(1),
+			.proveedorId = productos.Rows(i)(5),
+			.FechaAlta = productos.Rows(i)(6),
+			.categoriaId = productos.Rows(i)(7),
+			.precio = productos.Rows(i)(3)
+			}
+			' p.Id,p.Nombre,p.Foto,p.Precio,prov.Nombre as Proveedor, prov.id , fechaalta
+			listaDeProductos.Add(New Tuple(Of Integer, Boolean, ProductosNE)(listaDeProductos.Count, False, producto))
+		Next
+	End Sub
+
+	Public Sub LlenarDgvEnBaseALista()
+
+		Dim listaAdaptada = New List(Of Tuple(Of String, Boolean, String))
+		For Each producto As Tuple(Of Integer, Boolean, ProductosNE) In listaDeProductos
+			listaAdaptada.Add(New Tuple(Of String, Boolean, String)(producto.Item3.nombreprducto, True, Convert.ToDecimal(producto.Item3.precio).ToString("C2")))
+		Next
+		DataGridView1.DataSource = listaAdaptada
+		DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+		DataGridView1.Columns("Item1").HeaderText = "Nombre"
+		DataGridView1.Columns("Item2").HeaderText = "Modificar?"
+		DataGridView1.Columns("Item2").Width = 75
+		DataGridView1.Columns("Item3").HeaderText = "Precio Actual"
+		DataGridView1.Columns("Item3").HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+		DataGridView1.Columns("Item3").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
 
 	End Sub
 
@@ -124,6 +176,7 @@ Public Class FrmModificarPrecioProducto
 	End Sub
 
 	Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+		Dispose()
 		Me.Close()
 	End Sub
 
@@ -164,9 +217,9 @@ Public Class FrmModificarPrecioProducto
 					listaDeTuplas.RemoveAll(Function(x) x.Item3.proveedorId <> item.Value)
 				Case "Categoria"
 					listaDeTuplas.RemoveAll(Function(x) x.Item3.categoriaId <> item.Value)
-                Case "Nombre"
-                    listaDeTuplas.RemoveAll(Function(x) Not x.Item3.nombreprducto.ToLower().Contains(item.Value.ToLower()))
-                Case "FechaDesde"
+				Case "Nombre"
+					listaDeTuplas.RemoveAll(Function(x) Not x.Item3.nombreprducto.ToLower().Contains(item.Value.ToLower()))
+				Case "FechaDesde"
 					Dim fechadesde = Date.ParseExact(item.Value, "dd/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
 					listaDeTuplas.RemoveAll(Function(x) x.Item3.FechaAlta < fechadesde)
 					If parametros.Keys.Contains("FechaHasta") Then

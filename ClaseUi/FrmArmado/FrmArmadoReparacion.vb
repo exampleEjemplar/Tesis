@@ -179,8 +179,8 @@ Public Class FrmArmadoReparacion
             FrmComprobanteVenta.ListaVentas.Add(venta)
         Next
 
-        pedidosLN.Registrar(listaDeVentas, cboCliente.SelectedValue)
-        MsgBox("Pedido de reparacion realizado con éxito", MsgBoxStyle.OkOnly, "Exito")
+		pedidosLN.Registrar(listaDeVentas, cboCliente.SelectedValue, 0)
+		MsgBox("Pedido de reparacion realizado con éxito", MsgBoxStyle.OkOnly, "Exito")
         Cargar()
         modificado = True
 

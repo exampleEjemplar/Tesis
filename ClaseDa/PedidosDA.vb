@@ -80,19 +80,25 @@ Public Class PedidosDA
 		Return ds1
 	End Function
 
-	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer, Optional seña As Double = 0.0)
+	Public Sub Registrar(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer, totalReal As Double, Optional seña As Double = 0.0)
 		Dim total As Double
 		For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId
 			total += (ventaDetalle.Precio * ventaDetalle.Cantidad)
 		Next
 		total = Math.Round(total, 2)
 
+		Dim señaPorcentaje As Integer = 0
+		If Not seña = 0.0 Then
+			señaPorcentaje = seña * 100 / totalReal
+		End If
+
 		helpersDa.ChequearConexion(db)
 		Try
-			Dim totalizado = total.ToString("0.00").Replace(",", ".")
+			Dim totalizado = totalReal.ToString("0.00").Replace(",", ".")
 			If Not seña = 0.0 Then
+
 				Dim señalizado = seña.ToString("0.00").Replace(",", ".")
-				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'N', " + If(totalizado = señalizado, "60", "30") + ")", db)
+				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalReal.ToString("0.00").Replace(",", ".") & ",2)," + LoginDa.ChequearEnSesion() + ", 'N', " + If(totalReal.ToString("0.00").Replace(",", ".") = señalizado, "60", "30") + ")", db)
 				insert.CommandType = CommandType.Text
 				insert.ExecuteNonQuery()
 			Else
@@ -105,11 +111,16 @@ Public Class PedidosDA
 			insertEstado.ExecuteNonQuery()
 			For Each ventaDetalle As TipoDeVentasNE In listaDeProductosId
 				Dim parcial = (ventaDetalle.Precio * ventaDetalle.Cantidad).ToString().Replace(",", ".")
-
-				Dim insert2 As New SqlCommand("Declare @ventaID int SELECT @ventaID = MAX(Id) FROM pedidos insert into DetallePedidos VALUES(@ventaID," & ventaDetalle.ProductoId & "," & ventaDetalle.Cantidad & "," & parcial & "," & parcial & ",NULL)", db)
+				Dim str = ""
+				If Not seña = 0.0 Then
+					totalReal = (100 * ventaDetalle.Cantidad / señaPorcentaje) * ventaDetalle.Precio
+					str = totalReal.ToString("0.00").Replace(",", ".")
+				Else
+					str = "NULL"
+				End If
+				Dim insert2 As New SqlCommand("Declare @ventaID int SELECT @ventaID = MAX(Id) FROM pedidos insert into DetallePedidos VALUES(@ventaID," & ventaDetalle.ProductoId & "," & ventaDetalle.Cantidad.ToString().Replace(",", ".") & "," & ventaDetalle.Precio.ToString().Replace(",", ".") & "," & parcial & "," + str + ")", db)
 				insert2.ExecuteNonQuery()
 
-				'movimientoStockDA.Registrar(ventaDetalle.ProductoId, ventaDetalle.Cantidad * -1)
 			Next
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
