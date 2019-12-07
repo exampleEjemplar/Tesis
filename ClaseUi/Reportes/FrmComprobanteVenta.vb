@@ -41,7 +41,7 @@ Public Class FrmComprobanteVenta
 				CompVentasNE.Producto = dsProducto.Tables(0).Rows(i)(1).ToString
 				CompVentasNE.PrecioUnit = dsProducto.Tables(0).Rows(i).Item(2).ToString
 				CompVentasNE.UnidadPeso = dsProducto.Tables(0).Rows(i).Item(3).ToString
-				CompVentasNE.Cantidad = dsProducto.Tables(0).Rows(i).Item(4).ToString
+				CompVentasNE.Cantidad = Convert.ToDouble(dsProducto.Tables(0).Rows(i).Item(4))
 
 				ListaDeCompVentasNE.Add(CompVentasNE)
 			Next

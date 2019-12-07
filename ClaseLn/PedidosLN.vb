@@ -7,6 +7,11 @@ Public Class PedidosLN
 	Public Sub New()
 		pedidosDA = New PedidosDA
 	End Sub
+
+	Public Function CargarDetallesPedidos(pedidoId As String)
+		Return pedidosDA.CargarDetallesPedidos(pedidoId)
+	End Function
+
 	Public Sub ActualizarPedido(ped As VentasNE)
 		pedidosDA.ActualizarPedido(ped)
 	End Sub

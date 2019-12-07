@@ -201,6 +201,9 @@ Public Class FrmArmadoPedido
 		Cargar()
 		modificado = True
 
+		FrmGestionVentas.idVenta = 0
+		FrmComprobanteVenta.ShowDialog()
+
 		ListView1.Clear()
 		LlenarCboClientes()
 

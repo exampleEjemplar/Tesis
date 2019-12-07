@@ -8,6 +8,11 @@ Public Class VentasLN
 		ventasDA = New VentasDA
 	End Sub
 
+
+	Public Sub RegistrarDesdePedido(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer)
+		ventasDA.RegistrarDesdePedido(listaDeProductosId, clienteId)
+	End Sub
+
 	Public Function Anular(id As Integer)
 		Return ventasDA.Anular(id)
 	End Function

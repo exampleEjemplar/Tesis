@@ -101,6 +101,11 @@ Public Class PedidosDA
 				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalReal.ToString("0.00").Replace(",", ".") & ",2)," + LoginDa.ChequearEnSesion() + ", 'N', " + If(totalReal.ToString("0.00").Replace(",", ".") = señalizado, "60", "30") + ")", db)
 				insert.CommandType = CommandType.Text
 				insert.ExecuteNonQuery()
+
+				Dim insertVentas As New SqlCommand("insert into ventas Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2)," + LoginDa.ChequearEnSesion() + ",1)", db)
+				insertVentas.CommandType = CommandType.Text
+				insertVentas.ExecuteNonQuery()
+
 			Else
 				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", 0 ,round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'S', " + listaDeProductosId.FirstOrDefault().Dias.ToString() + ")", db)
 				insert.CommandType = CommandType.Text
@@ -115,13 +120,22 @@ Public Class PedidosDA
 				If Not seña = 0.0 Then
 					totalReal = (100 * ventaDetalle.Cantidad / señaPorcentaje) * ventaDetalle.Precio
 					str = totalReal.ToString("0.00").Replace(",", ".")
+
+					Dim insertDetalleVentas As New SqlCommand("Declare @ventaID int SELECT @ventaID = MAX(Id) FROM ventas insert into Detalleventas VALUES(@ventaID," & ventaDetalle.ProductoId & "," & ventaDetalle.Cantidad.ToString().Replace(",", ".") & "," & ventaDetalle.Precio.ToString().Replace(",", ".") & "," & parcial & ", NULL)", db)
+					insertDetalleVentas.ExecuteNonQuery()
+
 				Else
 					str = "NULL"
 				End If
-				Dim insert2 As New SqlCommand("Declare @ventaID int SELECT @ventaID = MAX(Id) FROM pedidos insert into DetallePedidos VALUES(@ventaID," & ventaDetalle.ProductoId & "," & ventaDetalle.Cantidad.ToString().Replace(",", ".") & "," & ventaDetalle.Precio.ToString().Replace(",", ".") & "," & parcial & "," + str + ")", db)
+				Dim insert2 As New SqlCommand("Declare @ventaID int Select @ventaID = MAX(Id) FROM pedidos insert into DetallePedidos VALUES(@ventaID," & ventaDetalle.ProductoId & "," & ventaDetalle.Cantidad.ToString().Replace(",", ".") & "," & ventaDetalle.Precio.ToString().Replace(",", ".") & "," & parcial & "," + str + ")", db)
+
+				If Not seña = 0.0 Then
+				End If
+
 				insert2.ExecuteNonQuery()
 
 			Next
+
 		Catch ex As Exception
 			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
 			helpersDa.ChequearConexion(db, "close")
@@ -131,7 +145,7 @@ Public Class PedidosDA
 
 	Public Function ObtenerUltimoPedido()
 		helpersDa.ChequearConexion(db)
-		Dim da As New SqlDataAdapter("Select Max(id) as [Id] from pedidos", db)
+		Dim da As New SqlDataAdapter("Select Max(id) As [Id] from pedidos", db)
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)
@@ -225,23 +239,44 @@ Public Class PedidosDA
         helpersDa.ChequearConexion(db, "close")
     End Sub
 
-    Public Function Cargarcombopedido()
+	Public Function Cargarcombopedido()
 
-        helpersDa.ChequearConexion(db)
+		helpersDa.ChequearConexion(db)
 
-        Dim sqlStr As String
-        ds1 = New DataSet
-        sqlStr = "select pedidoid from MovimientoEstadosPedidos group by pedidoid"
-        Try
-            Dim da As New SqlDataAdapter(sqlStr, db)
-            da.Fill(ds1)
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            helpersDa.ChequearConexion(db, "close")
-        End Try
-        helpersDa.ChequearConexion(db, "close")
-        Return ds1
+		Dim sqlStr As String
+		ds1 = New DataSet
+		sqlStr = "select pedidoid from MovimientoEstadosPedidos group by pedidoid"
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
+		End Try
+		helpersDa.ChequearConexion(db, "close")
+		Return ds1
 
-    End Function
+	End Function
+
+	Public Function CargarDetallesPedidos(id As String)
+
+		helpersDa.ChequearConexion(db)
+
+		Dim sqlStr As String
+		ds1 = New DataSet
+		sqlStr = "select * from detallepedidos where pedidoId = " + id
+		Try
+			Dim da As New SqlDataAdapter(sqlStr, db)
+			da.Fill(ds1)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
+		End Try
+		helpersDa.ChequearConexion(db, "close")
+		Return ds1
+
+	End Function
+
+
 
 End Class

@@ -272,13 +272,13 @@ Public Class ComprobanteVentasNE
 		End Set
 	End Property
 
-	Private _Cantidad As String
+	Private _Cantidad As Double
 
-	Public Property Cantidad As String
+	Public Property Cantidad As Double
 		Get
 			Return _Cantidad
 		End Get
-		Set(ByVal value As String)
+		Set(ByVal value As Double)
 			_Cantidad = CStr(value)
 		End Set
 	End Property

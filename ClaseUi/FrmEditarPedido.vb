@@ -66,18 +66,27 @@ Public Class FrmEditarPedido
 						.Estado = listadoEstados.FirstOrDefault(Function(x) x.Item2 = cboEstado.SelectedItem).Item1.ToString()
 					})
 		If finalizar Then
-			Dim costo = Convert.ToDouble(lblCosto.Text)
-			Dim listaDeVentas = New List(Of TipoDeVentasNE)
-			listaDeVentas.Add(New TipoDeVentasNE With {
-					.Id = idPedido,
-					.Cantidad = 1,
-					.Precio = costo,
-					.ProductoId = idProducto,
-					.SubTotal = costo
-				})
 
-			ventasLN.Registrar(listaDeVentas, idCliente)
+			Dim detallepedidos = pedidosLN.CargarDetallesPedidos(idPedido).Tables(0)
+
+			Dim listaDeVentas = New List(Of TipoDeVentasNE)
+			For i = 0 To detallepedidos.Rows.Count() - 1
+				Dim cantidadRestante As Decimal = Math.Round(detallepedidos.Rows(i)(6) * detallepedidos.Rows(i)(3) / detallepedidos.Rows(i)(5), 2)
+				Dim precio = detallepedidos.Rows(i)(4)
+				Dim venta = New TipoDeVentasNE With {
+					.Id = idPedido,
+					.Cantidad = cantidadRestante,
+					.Precio = precio,
+					.ProductoId = detallepedidos.Rows(i)(2),
+					.SubTotal = Math.Round(cantidadRestante * precio, 2)
+				}
+				listaDeVentas.Add(venta)
+				FrmComprobanteVenta.ListaVentas.Add(venta)
+			Next
+
+			ventasLN.RegistrarDesdePedido(listaDeVentas, idCliente)
 			MsgBox("Pedido modificado" + If(finalizar, ". Su pedido se ha transformado en una venta", ""), MsgBoxStyle.OkOnly, "Pedido")
+			FrmGestionVentas.idVenta = 0
 			FrmComprobanteVenta.ShowDialog()
 		Else
 			MsgBox("Pedido modificado", MsgBoxStyle.OkOnly, "Pedido")
@@ -107,12 +116,12 @@ Public Class FrmEditarPedido
 		End If
 	End Sub
 
-    Private Sub btnSalir_Click_1(sender As Object, e As EventArgs) Handles btnSalir.Click
-        modificado = True
-        Close()
-    End Sub
+	Private Sub btnSalir_Click_1(sender As Object, e As EventArgs) Handles btnSalir.Click
+		modificado = True
+		Close()
+	End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnEstadistica.Click
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnEstadistica.Click
 		FrmTrazabilidad.idpedido = idPedido
 		FrmTrazabilidad.ShowDialog()
 	End Sub
