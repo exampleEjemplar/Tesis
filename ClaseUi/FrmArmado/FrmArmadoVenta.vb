@@ -16,7 +16,6 @@ Public Class FrmArmadoVenta
 	Private selectedProducto As ListViewItem
 	Public productoLN As New ProductoLN
 	Dim total As Double
-	Public modificado = False
 	Public primerOrder As Boolean = True
 	Public OrderBy As New List(Of Tuple(Of Integer, String, Integer)) 'Index, nombrevista, nombre base, prioridad
 
@@ -25,7 +24,6 @@ Public Class FrmArmadoVenta
 
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Cargar()
-		modificado = False
 	End Sub
 
 	Public Sub LlenarCboOrden()
@@ -211,8 +209,8 @@ Public Class FrmArmadoVenta
 		ventasLN.Registrar(listaDeVentas, cboCliente.SelectedValue)
 		MsgBox("Venta realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
-        modificado = True
-        FrmGestionVentas.idVenta = 0
+		FrmGestionVentas.recargar = True
+		FrmGestionVentas.idVenta = 0
         FrmComprobanteVenta.ShowDialog()
 
 

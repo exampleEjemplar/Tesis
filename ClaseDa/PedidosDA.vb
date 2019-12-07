@@ -6,9 +6,9 @@ Public Class PedidosDA
 	Private com As New SqlCommand
 	Private da As SqlDataAdapter
 	Private ds1 As DataSet
-    Private LoginDa As New MetodoLoginDA
-    Private movimientoStockDA As New MovimientoStockDA
-    Private metodoProductoDA As New MetodoProductoDA
+	Private LoginDa As New MetodoLoginDA
+	Private movimientoStockDA As New MovimientoStockDA
+	Private metodoProductoDA As New MetodoProductoDA
 
 	Public Sub New()
 		Dim objcon As New ConexionDA
@@ -96,15 +96,15 @@ Public Class PedidosDA
 		Try
 			Dim totalizado = totalReal.ToString("0.00").Replace(",", ".")
 			If Not seña = 0.0 Then
-
 				Dim señalizado = seña.ToString("0.00").Replace(",", ".")
-				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalReal.ToString("0.00").Replace(",", ".") & ",2)," + LoginDa.ChequearEnSesion() + ", 'N', " + If(totalReal.ToString("0.00").Replace(",", ".") = señalizado, "60", "30") + ")", db)
-				insert.CommandType = CommandType.Text
-				insert.ExecuteNonQuery()
 
 				Dim insertVentas As New SqlCommand("insert into ventas Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2)," + LoginDa.ChequearEnSesion() + ",1)", db)
 				insertVentas.CommandType = CommandType.Text
 				insertVentas.ExecuteNonQuery()
+
+				Dim insert As New SqlCommand("Declare @ventaID int SELECT @ventaID = MAX(Id) FROM ventas insert into pedidos Values (GETDATE()," & clienteId & ", round(" & señalizado & ",2),round(" & totalReal.ToString("0.00").Replace(",", ".") & ",2)," + LoginDa.ChequearEnSesion() + ", 'N', " + If(totalReal.ToString("0.00").Replace(",", ".") = señalizado, "60", "30") + ", @ventaID)", db)
+				insert.CommandType = CommandType.Text
+				insert.ExecuteNonQuery()
 
 			Else
 				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", 0 ,round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'S', " + listaDeProductosId.FirstOrDefault().Dias.ToString() + ")", db)
@@ -216,28 +216,28 @@ Public Class PedidosDA
 		Return ds
 	End Function
 
-    Public Sub ActualizarPedido(ped As VentasNE)
-        helpersDa.ChequearConexion(db)
+	Public Sub ActualizarPedido(ped As VentasNE)
+		helpersDa.ChequearConexion(db)
 
-        Dim da As New SqlDataAdapter("update movimientoEstadosPedidos set activo = 0 where pedidoId = " + ped.Id.ToString(), db)
-        Dim ds As New DataSet
-        Try
-            da.Fill(ds)
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            helpersDa.ChequearConexion(db, "close")
-        End Try
-        'Dim update As New SqlCommand("update pedidos set estado = " + ped.Estado + " where id = " + ped.Id.ToString(), db)
-        Dim update As New SqlCommand("insert into movimientoEstadosPedidos VALUES(" + ped.Id.ToString() + " , " + ped.Estado + ",getdate(),1)", db)
-        update.CommandType = CommandType.Text
-        Try
-            update.ExecuteNonQuery()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            helpersDa.ChequearConexion(db, "close")
-        End Try
-        helpersDa.ChequearConexion(db, "close")
-    End Sub
+		Dim da As New SqlDataAdapter("update movimientoEstadosPedidos set activo = 0 where pedidoId = " + ped.Id.ToString(), db)
+		Dim ds As New DataSet
+		Try
+			da.Fill(ds)
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
+		End Try
+		'Dim update As New SqlCommand("update pedidos set estado = " + ped.Estado + " where id = " + ped.Id.ToString(), db)
+		Dim update As New SqlCommand("insert into movimientoEstadosPedidos VALUES(" + ped.Id.ToString() + " , " + ped.Estado + ",getdate(),1)", db)
+		update.CommandType = CommandType.Text
+		Try
+			update.ExecuteNonQuery()
+		Catch ex As Exception
+			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+			helpersDa.ChequearConexion(db, "close")
+		End Try
+		helpersDa.ChequearConexion(db, "close")
+	End Sub
 
 	Public Function Cargarcombopedido()
 

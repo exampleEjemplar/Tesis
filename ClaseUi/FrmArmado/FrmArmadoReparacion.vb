@@ -15,8 +15,7 @@ Public Class FrmArmadoReparacion
     Private listita As List(Of ListViewItem)
     Private selectedProducto As ListViewItem
     Dim product As New ProductoLN
-    Dim total As Double
-	Public modificado = False
+	Dim total As Double
 	Public primerOrder As Boolean = True
 	Public OrderBy As New List(Of Tuple(Of Integer, String, Integer)) 'Index, nombrevista, nombre base, prioridad
 
@@ -26,7 +25,6 @@ Public Class FrmArmadoReparacion
 
 	Private Sub FrmGestionVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Cargar()
-		modificado = False
 	End Sub
 
 	Public Sub LlenarCboOrden()
@@ -182,12 +180,12 @@ Public Class FrmArmadoReparacion
 		pedidosLN.Registrar(listaDeVentas, cboCliente.SelectedValue, 0)
 		MsgBox("Pedido de reparacion realizado con éxito", MsgBoxStyle.OkOnly, "Exito")
         Cargar()
-        modificado = True
+		FrmGestionReparaciones.recargar = True
 
-        'FrmComprobanteVenta.ShowDialog()
+		'FrmComprobanteVenta.ShowDialog()
 
 
-        ListView1.Clear()
+		ListView1.Clear()
         LlenarCboClientes()
 
     End Sub

@@ -25,11 +25,14 @@ Public Class VentasDA
 	Public Sub RegistrarDesdePedido(listaDeProductosId As List(Of TipoDeVentasNE), clienteId As Integer)
 		helpersDa.ChequearConexion(db)
 		Try
-			Dim insertVentas As New SqlCommand("insert into ventas Values (GETDATE()," + clienteId.ToString() + "," + listaDeProductosId.Sum(Function(x) x.Precio).ToString("0.00").Replace(",", ".") & ", " & LoginDa.ChequearEnSesion().ToString() & ",1)", db)
+			Dim insertVentas As New SqlCommand("insert into ventas Values (GETDATE()," + clienteId.ToString() + "," + listaDeProductosId.Sum(Function(x) x.SubTotal).ToString("0.00").Replace(",", ".") & ", " & LoginDa.ChequearEnSesion().ToString() & ",1)", db)
 			insertVentas.ExecuteNonQuery()
+			Dim update As New SqlCommand("Declare @ventaId int SELECT @ventaId = ventaId FROM Pedidos where id =" + listaDeProductosId(0).Id.ToString() + " update ventas set  estado = 2 where id = @ventaId", db)
+			update.ExecuteNonQuery()
 			For i = 0 To listaDeProductosId.Count - 1
 				Dim insert2 As New SqlCommand("insert into detallepedidos Values (" + listaDeProductosId(i).Id.ToString() + "," & listaDeProductosId(i).ProductoId.ToString() & ", " & listaDeProductosId(i).Cantidad.ToString() & "," + listaDeProductosId(i).Precio.ToString().Replace(",", ".") + "," + listaDeProductosId(i).SubTotal.ToString().Replace(",", ".") + ",NULL)", db)
 				insert2.ExecuteNonQuery()
+
 
 				Dim insertdetalleventas As New SqlCommand("Declare @ventaID int SELECT @ventaID = MAX(Id) FROM ventas  insert into detalleventas Values (@ventaId," & listaDeProductosId(i).ProductoId.ToString() & ", " & listaDeProductosId(i).Cantidad.ToString() & "," + listaDeProductosId(i).Precio.ToString().Replace(",", ".") + "," + listaDeProductosId(i).SubTotal.ToString().Replace(",", ".") + ",NULL)", db)
 				insertdetalleventas.ExecuteNonQuery()

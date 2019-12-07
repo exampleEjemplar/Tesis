@@ -7,7 +7,6 @@ Public Class FrmEditarReparacion
 	Private helpersUI As New HelpersUI
 	Private ventasLN As New VentasLN
 	Private idReparacion As Integer
-	Public modificado As Boolean = False
 	Private listadoEstados As New List(Of Tuple(Of Integer, String))
 	Public idProducto As Integer
 	Public idCliente As Integer
@@ -82,7 +81,7 @@ Public Class FrmEditarReparacion
 		Else
 			MsgBox("Reparación modificada", MsgBoxStyle.OkOnly, "Reparacion")
 		End If
-		modificado = True
+		FrmGestionReparaciones.recargar = True
 		Cargar()
 	End Sub
 

@@ -110,12 +110,12 @@ Public Class FrmGestionServicio
 		FrmGestionProveedores.ShowDialog()
 	End Sub
 
-	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-		If FrmGestionProveedores.modificado Then
-            LlenarCboProveedores("")
-            FrmArmadoCompra.modificado = False
-		End If
-	End Sub
+	'Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+	'	If FrmGestionProveedores.modificado Then
+	'           LlenarCboProveedores("")
+	'           FrmArmadoCompra.modificado = False
+	'	End If
+	'End Sub
 
 	Private Sub btnguardarmodificacion_Click(sender As Object, e As EventArgs) Handles btnguardarmodificacion.Click
 		If Not ValidarDatos() Then

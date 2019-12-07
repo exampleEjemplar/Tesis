@@ -16,7 +16,6 @@ Public Class FrmArmadoPago
 	Private selectedProducto As ListViewItem
 	Dim product As New ProductoLN
 	Dim total As Double
-	Public modificado = False
 	Public primerOrder As Boolean = True
 	Public OrderBy As New List(Of Tuple(Of Integer, String, Integer)) 'Index, nombrevista, nombre base, prioridad
 
@@ -26,7 +25,6 @@ Public Class FrmArmadoPago
 	Private Sub FrmArmadoCompra_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Cargar()
 		LlenarCboProveedores()
-		modificado = False
 	End Sub
 
 	'Te lleva al frm de gestion de producto.
@@ -118,7 +116,7 @@ Public Class FrmArmadoPago
 		LlenarCboProveedores()
 		'Imprimimos el comprobante
 		'FrmComprobanteVenta.ShowDialog()
-		modificado = True
+		FrmGestionPagos.recargar = True
 
 
 		'ListView1.Clear()

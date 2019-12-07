@@ -7,6 +7,7 @@ Public Class FrmGestionPagos
 	Private pagosLN As New PagosLN
 	Public idCompra As Integer
 	Public primerOrder As Boolean = True
+	Public recargar As Boolean = False
 	Public OrderBy As New List(Of Tuple(Of Integer, String, Integer)) 'Index, nombrevista, nombre base, prioridad
 
 #Region "Eventos"
@@ -28,9 +29,9 @@ Public Class FrmGestionPagos
 	End Sub
 
 	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-		If FrmArmadoPago.modificado Then
+		If recargar Then
 			Busqueda()
-			FrmArmadoPago.modificado = False
+			recargar = False
 		End If
 	End Sub
 

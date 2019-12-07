@@ -7,6 +7,7 @@ Public Class FrmGestionPedidos
 	Private pedidosLN As New PedidosLN
 	Private helpersUI As New HelpersUI
 	Public idPedido As Integer = 0
+	Public recargar As Boolean
 	Public primerOrder As Boolean = True
 	Public OrderBy As New List(Of Tuple(Of Integer, String, Integer)) 'Index, nombrevista, nombre base, prioridad
 
@@ -150,15 +151,11 @@ Public Class FrmGestionPedidos
 	End Sub
 
 	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-        If FrmArmadoPedido.modificado Then
-            Busqueda()
-            FrmArmadoPedido.modificado = False
-        End If
-        If FrmEditarPedido.modificado Then
-            Busqueda()
-            FrmArmadoPedido.modificado = False
-        End If
-    End Sub
+		If recargar Then
+			Busqueda()
+			recargar = False
+		End If
+	End Sub
 #End Region
 
 #Region "Metodos"

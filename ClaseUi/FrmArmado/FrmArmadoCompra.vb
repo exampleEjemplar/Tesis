@@ -16,7 +16,6 @@ Public Class FrmArmadoCompra
 	Private selectedProducto As ListViewItem
 	Dim product As New ProductoLN
 	Dim total As Double
-	Public modificado = False
 	Public primerOrder As Boolean = True
 	Public OrderBy As New List(Of Tuple(Of Integer, String, Integer)) 'Index, nombrevista, nombre base, prioridad
 
@@ -25,7 +24,6 @@ Public Class FrmArmadoCompra
 
 	Private Sub FrmArmadoCompra_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Cargar()
-		modificado = False
 	End Sub
 
 	Public Sub LlenarCboOrden()
@@ -66,9 +64,9 @@ Public Class FrmArmadoCompra
 	End Sub
 
 	Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        primerOrder = True
-        Dispose()
-        Me.Close()
+		primerOrder = True
+		Dispose()
+		Me.Close()
 	End Sub
 
 	'Carga todos los datos del proveedor seleccionado y carga el LVI segun ese proveedor
@@ -181,10 +179,10 @@ Public Class FrmArmadoCompra
 		comprasLn.Registrar(listaDeCompras, cboProveedor.SelectedValue, CargarDatosComprobante())
 		MsgBox("Compra realizada con éxito", MsgBoxStyle.OkOnly, "Exito")
 		Cargar()
-        'Imprimimos el comprobante
-        FrmGestionCompras.idCompra = 0
-        FrmComprobanteCompra.ShowDialog()
-		modificado = True
+		'Imprimimos el comprobante
+		FrmGestionCompras.idCompra = 0
+		FrmComprobanteCompra.ShowDialog()
+		FrmGestionCompras.recargar = True
 
 
 		ListView1.Clear()
@@ -197,9 +195,9 @@ Public Class FrmArmadoCompra
 		If MsgBox("Desea limpiar la lista de compras?", MsgBoxStyle.YesNo, "Compras") = MsgBoxResult.Yes Then
 			ListView1.Clear()
 			total = 0.0
-            lblTotal.Text = total.ToString("0.00")
-            selectedProducto = Nothing
-        End If
+			lblTotal.Text = total.ToString("0.00")
+			selectedProducto = Nothing
+		End If
 	End Sub
 
 	'Quita el producto seleccionado y recalcula el total de la compra
@@ -207,9 +205,9 @@ Public Class FrmArmadoCompra
 		If selectedProducto IsNot Nothing Then
 			ListView1.Items.Remove(selectedProducto)
 			total -= selectedProducto.Tag(3)
-            lblTotal.Text = total.ToString("0.00")
-            selectedProducto = Nothing
-        End If
+			lblTotal.Text = total.ToString("0.00")
+			selectedProducto = Nothing
+		End If
 	End Sub
 
 	Private Sub ListView1_ItemSelectionChanged(sender As Object, e As ListViewItemSelectionChangedEventArgs) Handles ListView1.ItemSelectionChanged
@@ -413,13 +411,13 @@ Public Class FrmArmadoCompra
 		Next
 
 
-        If cboOrden.SelectedItem = "asc" Then
-            lstProdDispo.Sorting = SortOrder.Ascending
-        Else
-            lstProdDispo.Sorting = SortOrder.Descending
-        End If
+		If cboOrden.SelectedItem = "asc" Then
+			lstProdDispo.Sorting = SortOrder.Ascending
+		Else
+			lstProdDispo.Sorting = SortOrder.Descending
+		End If
 
-        lstProdDispo.LargeImageList = ImageList
+		lstProdDispo.LargeImageList = ImageList
 		gboFiltros.Enabled = True
 	End Sub
 

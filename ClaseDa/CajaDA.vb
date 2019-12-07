@@ -153,9 +153,9 @@ Public Class CajaDA
 		helpersDA.ChequearConexion(db)
 		Dim sqlStr As String
         ds1 = New DataSet
-        sqlStr = "update compras set estado = 0 where usuarioID = " & idusuario & "update ventas set estado = 0 where usuarioID = " & idusuario
+		sqlStr = "update compras set estado = 0 where usuarioID = " & idusuario & " and estado != 2 update ventas set estado = 0 where usuarioID = " & idusuario & " and estado != 2"
 
-        Try
+		Try
 
             da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)

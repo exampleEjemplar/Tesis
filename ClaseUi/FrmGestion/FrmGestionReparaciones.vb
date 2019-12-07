@@ -9,6 +9,7 @@ Public Class FrmGestionReparaciones
 	Private helperUI As New HelpersUI
 	Private pedidosLN As New PedidosLN
 	Public idReparacion As Integer = 0
+	Public recargar As Boolean
 	Public primerOrder As Boolean = True
 	Public OrderBy As New List(Of Tuple(Of Integer, String, Integer)) 'Index, nombrevista, nombre base, prioridad
 	Public Sub New()
@@ -81,13 +82,9 @@ Public Class FrmGestionReparaciones
 	End Sub
 
 	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-		If FrmArmadoReparacion.modificado Then
+		If recargar Then
 			Busqueda()
-			FrmArmadoReparacion.modificado = False
-		End If
-		If FrmEditarReparacion.modificado Then
-			Busqueda()
-			FrmEditarReparacion.modificado = False
+			recargar = False
 		End If
 	End Sub
 #End Region

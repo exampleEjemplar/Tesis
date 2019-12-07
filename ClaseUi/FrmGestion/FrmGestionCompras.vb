@@ -7,6 +7,7 @@ Public Class FrmGestionCompras
 	Private helpersLN As New HelpersLN
 	Private comprasLN As New ComprasLN
 	Public idCompra As Integer
+	Public recargar As Boolean
 	Public filaSeleccionada As Integer
 	Public primerOrder As Boolean = True
 	Public OrderBy As New List(Of Tuple(Of Integer, String, Integer)) 'Index, nombrevista, nombre base, prioridad
@@ -31,9 +32,9 @@ Public Class FrmGestionCompras
 	End Sub
 
 	Private Sub FrmGestionArmado_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-		If FrmArmadoCompra.modificado Then
+		If recargar Then
 			Busqueda()
-			FrmArmadoCompra.modificado = False
+			recargar = False
 		End If
 	End Sub
 
