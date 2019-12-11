@@ -36,10 +36,6 @@ Partial Class FrmTrazapromedio
         Me.Chart5.BorderlineColor = System.Drawing.Color.Black
         Me.Chart5.BorderlineWidth = 2
         ChartArea1.Area3DStyle.Enable3D = True
-        ChartArea1.Area3DStyle.Inclination = 10
-        ChartArea1.Area3DStyle.IsClustered = True
-        ChartArea1.Area3DStyle.IsRightAngleAxes = False
-        ChartArea1.Area3DStyle.Rotation = 20
         ChartArea1.AxisX.Title = "Estados"
         ChartArea1.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         ChartArea1.AxisY.Title = "Demora "
@@ -57,12 +53,13 @@ Partial Class FrmTrazapromedio
         Series1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Series1.ChartArea = "ChartArea1"
         Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
-        Series1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series1.IsValueShownAsLabel = True
         Series1.IsVisibleInLegend = False
+        Series1.LabelForeColor = System.Drawing.Color.White
         Series1.Legend = "Legend1"
         Series1.Name = "Series2"
-        Series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
+        Series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
         Series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Double]
         Series1.YValuesPerPoint = 2
         Series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
@@ -98,8 +95,11 @@ Partial Class FrmTrazapromedio
         Me.ClientSize = New System.Drawing.Size(826, 499)
         Me.Controls.Add(Me.Chart5)
         Me.Controls.Add(Me.btnSalir)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmTrazapromedio"
-        Me.Text = "Frmtrazapromedio"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Trazabilidad Promedio de Pedidos"
         CType(Me.Chart5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

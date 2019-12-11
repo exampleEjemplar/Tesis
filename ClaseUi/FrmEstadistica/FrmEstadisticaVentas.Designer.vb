@@ -94,8 +94,10 @@ Partial Class FrmEstadisticaVentas
         Series1.BorderWidth = 2
         Series1.ChartArea = "ChartArea1"
         Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
-        Series1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series1.IsValueShownAsLabel = True
+        Series1.LabelBackColor = System.Drawing.Color.Transparent
+        Series1.LabelBorderColor = System.Drawing.Color.Transparent
         Series1.Legend = "Legend1"
         Series1.Name = "Series2"
         Series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel
@@ -294,6 +296,8 @@ Partial Class FrmEstadisticaVentas
         Series2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series2.IsValueShownAsLabel = True
         Series2.IsVisibleInLegend = False
+        Series2.LabelBackColor = System.Drawing.Color.White
+        Series2.LabelBorderColor = System.Drawing.Color.White
         Series2.Legend = "Legend1"
         Series2.LegendText = "Ventas"
         Series2.Name = "Series2"
@@ -333,6 +337,8 @@ Partial Class FrmEstadisticaVentas
         Series3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series3.IsValueShownAsLabel = True
         Series3.IsVisibleInLegend = False
+        Series3.LabelBackColor = System.Drawing.Color.White
+        Series3.LabelBorderColor = System.Drawing.Color.White
         Series3.Legend = "Legend1"
         Series3.LegendText = "Ventas"
         Series3.Name = "Series2"
@@ -387,9 +393,11 @@ Partial Class FrmEstadisticaVentas
         Series4.ChartArea = "ChartArea1"
         Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
         Series4.Color = System.Drawing.Color.Red
-        Series4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series4.IsValueShownAsLabel = True
         Series4.IsVisibleInLegend = False
+        Series4.LabelBackColor = System.Drawing.Color.White
+        Series4.LabelBorderColor = System.Drawing.Color.White
         Series4.LabelForeColor = System.Drawing.Color.MediumBlue
         Series4.Legend = "Legend1"
         Series4.LegendText = "$"
@@ -430,6 +438,8 @@ Partial Class FrmEstadisticaVentas
         Series5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series5.IsValueShownAsLabel = True
         Series5.IsVisibleInLegend = False
+        Series5.LabelBackColor = System.Drawing.Color.White
+        Series5.LabelBorderColor = System.Drawing.Color.White
         Series5.Legend = "Legend1"
         Series5.LegendText = "$"
         Series5.Name = "Series2"

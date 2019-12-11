@@ -105,9 +105,11 @@ Partial Class FrmEstadisticaStock
         Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
         Series1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Series1.ChartArea = "ChartArea1"
-        Series1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series1.IsValueShownAsLabel = True
         Series1.IsVisibleInLegend = False
+        Series1.LabelBackColor = System.Drawing.Color.White
+        Series1.LabelBorderColor = System.Drawing.Color.White
         Series1.Legend = "Legend1"
         Series1.Name = "Series2"
         Series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent
@@ -185,14 +187,16 @@ Partial Class FrmEstadisticaStock
         Legend2.IsTextAutoFit = False
         Legend2.Name = "Legend1"
         Me.Chart2.Legends.Add(Legend2)
-        Me.Chart2.Location = New System.Drawing.Point(38, 246)
+        Me.Chart2.Location = New System.Drawing.Point(38, 235)
         Me.Chart2.Name = "Chart2"
         Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
         Series2.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Series2.ChartArea = "ChartArea1"
-        Series2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series2.IsValueShownAsLabel = True
         Series2.IsVisibleInLegend = False
+        Series2.LabelBackColor = System.Drawing.Color.White
+        Series2.LabelBorderColor = System.Drawing.Color.White
         Series2.Legend = "Legend1"
         Series2.Name = "Series2"
         Series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent

@@ -161,7 +161,7 @@ Public Class PedidosDA
 
 	Public Function ObtenerUnPedido(id As Integer)
 		helpersDa.ChequearConexion(db)
-		Dim da As New SqlDataAdapter("Select p.*, c.Nombre + ' ' + c.apellido as 'Nombre', prod.*, c.id, cast(p.total as decimal(10,2)), mep.estadoID,+  prov.nombre + ' '+ prov.Apellido from pedidos p  inner join clientes c on c.id = p.clienteId inner join DetallePedidos dp on dp.PedidoId = p.Id inner join productos prod on prod.Id = dp.ProductoId inner join movimientoestadospedidos mep on mep.pedidoId = p.id inner join proveedores prov on prov.id = prod.ProveedorId where mep.activo = 1 and p.id =" + id.ToString(), db)
+		Dim da As New SqlDataAdapter("Select p.*, c.Nombre + ' ' + c.apellido as 'Nombre', prod.*, c.id, cast(p.total as decimal(10,2)), mep.estadoID,+  prov.nombre + ' '+ prov.Apellido from pedidos p  inner join clientes c on c.id = p.clienteId inner join DetallePedidos dp on dp.PedidoId = p.Id inner join productos prod on prod.Id = dp.ProductoId inner join MovimientoEstadosPedidos mep on mep.pedidoId = p.id inner join proveedores prov on prov.id = prod.ProveedorId where mep.activo = 1 and p.id =" + id.ToString(), db)
 		Dim ds As New DataSet
 		Try
 			da.Fill(ds)

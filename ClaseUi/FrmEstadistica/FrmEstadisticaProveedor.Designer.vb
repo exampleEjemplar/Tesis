@@ -227,9 +227,10 @@ Partial Class FrmEstadisticaProveedor
         Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
         Series1.ChartArea = "ChartArea1"
         Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
-        Series1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series1.IsValueShownAsLabel = True
         Series1.IsVisibleInLegend = False
+        Series1.LabelForeColor = System.Drawing.Color.White
         Series1.Legend = "Legend1"
         Series1.Name = "Series2"
         Series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
@@ -267,7 +268,7 @@ Partial Class FrmEstadisticaProveedor
         Series2.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Series2.ChartArea = "ChartArea1"
         Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
-        Series2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series2.IsValueShownAsLabel = True
         Series2.LabelForeColor = System.Drawing.Color.White
         Series2.Legend = "Legend1"
@@ -304,7 +305,7 @@ Partial Class FrmEstadisticaProveedor
         Me.Chart4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
         Series3.ChartArea = "ChartArea1"
         Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
-        Series3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series3.IsValueShownAsLabel = True
         Series3.IsVisibleInLegend = False
         Series3.LabelForeColor = System.Drawing.Color.White

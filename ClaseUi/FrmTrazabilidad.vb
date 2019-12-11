@@ -23,8 +23,8 @@ Public Class FrmTrazabilidad
 		Dim totalCosto As Decimal = 0
 		For i = 0 To pedidoInfo.Count - 1
 			listaProductos.Add(pedidoInfo(i)(11))
-			totalCosto += pedidoInfo(i)(13)
-		Next
+            totalCosto += pedidoInfo(i)(14)
+        Next
 		lblCliente.Text = pedidoInfo(0)(8)
 		lblPrecio.Text = totalCosto.ToString("C2")
 		lblPrecioVenta.Text = Convert.ToDecimal(pedidoInfo(0)(4)).ToString("C2")
