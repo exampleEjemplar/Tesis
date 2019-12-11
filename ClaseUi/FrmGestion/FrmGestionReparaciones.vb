@@ -73,8 +73,8 @@ Public Class FrmGestionReparaciones
 			selectedRow = dgvProveedores.Rows(e.RowIndex)
 		End If
 		Try
-			idReparacion = selectedRow.Cells("id").Value
-			FrmEditarReparacion.ShowDialog()
+            idReparacion = selectedRow.Cells("Id").Value
+            FrmEditarReparacion.ShowDialog()
 		Catch ex As Exception
 			MessageBox.Show(ex.Message)
 		End Try

@@ -312,4 +312,8 @@ Public Class MDIPrincipal
         Panel1.Visible = False
         Panel2.Visible = False
     End Sub
+
+    Private Sub btnManualDeUsuario_Click(sender As Object, e As EventArgs) Handles btnManualDeUsuario.Click
+        FrmAyuda.ShowDialog()
+    End Sub
 End Class

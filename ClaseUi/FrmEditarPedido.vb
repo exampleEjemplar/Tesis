@@ -106,11 +106,12 @@ Public Class FrmEditarPedido
 		lblProducto.Text = pedido(12).ToString()
 		idProducto = pedido(10)
 		idCliente = pedido(31)
-		If estado.Item1 = 4 Or estado.Item1 = 0 Then
-			cboEstado.Enabled = False
-			btnguardarmodificacion.Enabled = False
-		Else
-			cboEstado.Enabled = True
+
+        If estado.Item1 = 4 Or estado.Item1 = 0 Then
+            cboEstado.Enabled = False
+            btnguardarmodificacion.Enabled = False
+        Else
+            cboEstado.Enabled = True
 			btnguardarmodificacion.Enabled = True
 		End If
 	End Sub

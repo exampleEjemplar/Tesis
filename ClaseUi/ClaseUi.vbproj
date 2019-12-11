@@ -149,6 +149,12 @@
     <Compile Include="FrmArmado\FrmPedidoDeReposicion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmAyuda.Designer.vb">
+      <DependentUpon>FrmAyuda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAyuda.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmConsultaCotizaciones.Designer.vb">
       <DependentUpon>FrmConsultaCotizaciones.vb</DependentUpon>
     </Compile>
@@ -496,6 +502,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmArmado\FrmPedidoDeReposicion.resx">
       <DependentUpon>FrmPedidoDeReposicion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAyuda.resx">
+      <DependentUpon>FrmAyuda.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCatalogo.resx">
       <DependentUpon>FrmCatalogo.vb</DependentUpon>
@@ -851,6 +860,24 @@
   <ItemGroup>
     <WebReferences Include="Web References\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

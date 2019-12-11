@@ -97,6 +97,7 @@ Public Class FrmEditarReparacion
 		lblProducto.Text = pedido(11).ToString()
         idProducto = pedido(10)
         idCliente = pedido(31)
+
         If estado.Item1 = 4 Or estado.Item1 = 0 Then
 			cboEstado.Enabled = False
 			btnguardarmodificacion.Enabled = False
