@@ -107,7 +107,7 @@ Public Class PedidosDA
 				insert.ExecuteNonQuery()
 
 			Else
-				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", 0 ,round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'S', " + listaDeProductosId.FirstOrDefault().Dias.ToString() + ")", db)
+				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", 0 ,round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'S', " + listaDeProductosId.FirstOrDefault().Dias.ToString() + ",NULL)", db)
 				insert.CommandType = CommandType.Text
 				insert.ExecuteNonQuery()
 			End If
