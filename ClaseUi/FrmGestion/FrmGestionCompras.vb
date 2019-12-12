@@ -139,12 +139,12 @@ Public Class FrmGestionCompras
 		Dim selectedRow As DataGridViewRow = Nothing
 		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
 			selectedRow = dgvProveedores.Rows(e.RowIndex)
-		End If
-		Try
 			idCompra = selectedRow.Cells("id").Value
 			If Not comprasLN.ObtenerUnaCompra(idCompra).Tables(0).Rows(0)(6) = 2 Then
 				FrmComprobanteCompra.ShowDialog()
 			End If
+		End If
+		Try
 		Catch ex As Exception
 			MessageBox.Show(ex.Message)
 		End Try

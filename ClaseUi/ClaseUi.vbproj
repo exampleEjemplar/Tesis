@@ -330,6 +330,12 @@
     <Compile Include="FrmGestion\FrmGestionPagos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmGestion\FrmGestionPedidoDeReposicion.Designer.vb">
+      <DependentUpon>FrmGestionPedidoDeReposicion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestion\FrmGestionPedidoDeReposicion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmGestion\FrmGestionPedidos.Designer.vb">
       <DependentUpon>FrmGestionPedidos.vb</DependentUpon>
     </Compile>
@@ -611,6 +617,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionPagos.resx">
       <DependentUpon>FrmGestionPagos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestion\FrmGestionPedidoDeReposicion.resx">
+      <DependentUpon>FrmGestionPedidoDeReposicion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestion\FrmGestionPedidos.resx">
       <DependentUpon>FrmGestionPedidos.vb</DependentUpon>
