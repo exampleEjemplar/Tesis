@@ -435,7 +435,7 @@ Partial Class MDIPrincipal
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(119, 101)
+        Me.MenuStrip1.Size = New System.Drawing.Size(119, 120)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -461,7 +461,7 @@ Partial Class MDIPrincipal
         '
         Me.ProductosToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight
         Me.ProductosToolStripMenuItem.Name = "ProductosToolStripMenuItem"
-        Me.ProductosToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.ProductosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ProductosToolStripMenuItem.Text = "Productos"
         Me.ProductosToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ProductosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
@@ -470,7 +470,7 @@ Partial Class MDIPrincipal
         '
         Me.ServiciosToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight
         Me.ServiciosToolStripMenuItem.Name = "ServiciosToolStripMenuItem"
-        Me.ServiciosToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.ServiciosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ServiciosToolStripMenuItem.Text = "Servicios"
         Me.ServiciosToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ServiciosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage

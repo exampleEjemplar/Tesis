@@ -13,43 +13,44 @@ Public Class LogIn
 
 
 #Region "Eventos"
-	Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles pictureBox1.Click
-		Try
-			Dim user = loginMetodo.usuarioRegistrado(txtUsuario.Text).Tables(0)
-			If user.Rows.Count > 0 Then
-				If user.Rows(0)(4).ToString() <> "S" Then
-					MessageBox.Show("Usuario Inactivo", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-					Return
-				End If
-				Dim contra As String = loginMetodo.contrasena(txtUsuario.Text)
-				If contra.Equals(txtContrasena.Text) = True Then
-					loginMetodo.rolUsuario = loginMetodo.ConsultarRolUsuario(txtUsuario.Text)
-					loginMetodo.usr_id = loginMetodo.ConsultarIDUsuario(txtUsuario.Text)
-					loginMetodo.EnSesion(loginMetodo.usr_id)
-					nivelusr = loginMetodo.rolUsuario
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles pictureBox1.Click
+        Try
+            Dim user = loginMetodo.usuarioRegistrado(txtUsuario.Text).Tables(0)
+            If user.Rows.Count > 0 Then
+                If user.Rows(0)(4).ToString() <> "S" Then
+                    MessageBox.Show("Usuario Inactivo", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Return
+                End If
+                Dim contra As String = loginMetodo.contrasena(txtUsuario.Text)
+                If contra.Equals(txtContrasena.Text) = True Then
+                    loginMetodo.rolUsuario = loginMetodo.ConsultarRolUsuario(txtUsuario.Text)
+                    loginMetodo.usr_id = loginMetodo.ConsultarIDUsuario(txtUsuario.Text)
+                    loginMetodo.EnSesion(loginMetodo.usr_id)
+                    nivelusr = loginMetodo.rolUsuario
 
-					With MDIPrincipal
-					End With
+                    With MDIPrincipal
+                    End With
                     MDIPrincipal.ShowDialog()
                     Me.Close()
 
-				Else
+                Else
 
-					MessageBox.Show("Contraseña Inválida", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    MessageBox.Show("Contraseña Inválida", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     'Me.ShowDialog()
                 End If
-			Else
+            Else
 
 
-				MessageBox.Show("El usuario no se encuentra registrado", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                MessageBox.Show("El usuario no se encuentra registrado", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 'Me.ShowDialog()
 
             End If
-		Catch ex As Exception
-			MsgBox(ex.ToString)
-		End Try
-	End Sub
-	Private Sub Btncerrar_Click(sender As Object, e As EventArgs) Handles btncerrar.Click
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub Btncerrar_Click(sender As Object, e As EventArgs) Handles btncerrar.Click
 		If MessageBox.Show("Estas seguro que desea Salir", "AVISO ", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
 			Me.Close()
 		End If

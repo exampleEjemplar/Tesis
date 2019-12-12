@@ -45,35 +45,98 @@ Public Class HelpersUI
 	Public Function ValidarOperacion(ByVal frm As String)
 		Dim userId = loginLN.ChequearEnSesion()
 		Dim rolUsuario = loginLN.ConsultarRolUsuario("", userId)
-		If rolUsuario = 1 Then
-			Return True
-		End If
-		Select Case frm
-			Case "FrmGestionCompras"
-				If rolUsuario = 2 Then
-					Return True
-				End If
-			Case "FrmGestionVentas"
-				If rolUsuario = 2 Then
-					Return True
-				End If
-			Case "FrmGestionPagos"
-				If rolUsuario = 2 Then
-					Return True
-				End If
-			Case "FrmArmadoVenta"
-				If rolUsuario = 2 Then
-					Return True
-				End If
-			Case "FrmArmadoCompra"
-				If rolUsuario = 2 Then
-					Return True
-				End If
-			Case "FrmArmadoPago"
-				If rolUsuario = 2 Then
-					Return True
-				End If
-			Case Else
+        If rolUsuario = 1 Then
+            Return True
+        End If
+        Select Case frm
+            Case "FrmGestionCliente"
+                If rolUsuario = 2 Then
+                    Return True
+                End If
+
+
+            Case "FrmGestionVentas"
+                If rolUsuario = 2 Then
+                    Return True
+                End If
+
+            Case "FrmCatalogo"
+                If rolUsuario = 2 Then
+                    Return True
+                End If
+
+
+            Case "FrmGestionProducto"
+                If rolUsuario = 2 Then
+                    Return True
+                End If
+
+
+            Case "FrmGestionPedidos"
+                If rolUsuario = 2 Then
+                    Return True
+                End If
+
+            Case "FrmGestionReparaciones"
+                If rolUsuario = 2 Then
+                    Return True
+                End If
+
+            Case "FrmCierreDeCaja"
+                If rolUsuario = 2 Or rolUsuario = 3 Then
+                    Return True
+                End If
+
+
+            Case "FrmhistorialCierreCaja"
+                If rolUsuario = 3 Then
+                    Return True
+                End If
+
+            Case "FrmGestionProveedores"
+                If rolUsuario = 3 Then
+                    Return True
+                End If
+
+            Case "FrmGestionCompras"
+                If rolUsuario = 3 Then
+                    Return True
+                End If
+
+            Case "FrmGestionStock"
+                If rolUsuario = 3 Then
+                    Return True
+                End If
+
+            Case "FrmGestionPagos"
+                If rolUsuario = 3 Then
+                    Return True
+                End If
+
+            Case "FrmEstadisticaCompras"
+                If rolUsuario = 3 Then
+                    Return True
+                End If
+
+
+            Case "FrmEstadisticaProveedor"
+                If rolUsuario = 3 Then
+                    Return True
+                End If
+            Case "FrmEstadisticaProveedorServicio"
+                If rolUsuario = 3 Then
+                    Return True
+                End If
+            Case "FrmEstadisticaStock"
+                If rolUsuario = 3 Then
+                    Return True
+                End If
+            Case "FrmEstadisticaVentas"
+                If rolUsuario = 3 Then
+                    Return True
+                End If
+
+            Case Else
 				Return False
 		End Select
 		Return False

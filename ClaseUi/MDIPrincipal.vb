@@ -123,38 +123,77 @@ Public Class MDIPrincipal
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        FrmGestionCliente.ShowDialog()
+
+        If helpersUi.ValidarOperacion(NameOf(FrmGestionCliente)) Then
+            FrmGestionCliente.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        FrmGestionProveedores.ShowDialog()
+
+        If helpersUi.ValidarOperacion(NameOf(FrmGestionProveedores)) Then
+            FrmGestionProveedores.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
     End Sub
 
     Private Sub btnArticulos_Click(sender As Object, e As EventArgs) Handles btnArticulos.Click
-        FrmGestionProducto.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmGestionProducto)) Then
+            FrmGestionProducto.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
 
     End Sub
 
     Private Sub ClientesToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        FrmEstadisticacliente.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmEstadisticacliente)) Then
+            FrmEstadisticacliente.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
 
 
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        FrmCatalogo.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmCatalogo)) Then
+            FrmCatalogo.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
 
     End Sub
 
     Private Sub GestionDeUsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        FrmGestionUsuario.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmGestionUsuario)) Then
+            FrmGestionUsuario.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
+
+
     End Sub
 
     Private Sub btnVentas_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
         If helpersUi.ValidarOperacion(NameOf(FrmGestionVentas)) Then
             FrmGestionVentas.ShowDialog()
         Else
-            MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
         End If
 
     End Sub
@@ -163,20 +202,40 @@ Public Class MDIPrincipal
         If helpersUi.ValidarOperacion(NameOf(FrmGestionCompras)) Then
             FrmGestionCompras.ShowDialog()
         Else
-            MsgBox("Usted no tiene el rol para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
         End If
     End Sub
 
     Private Sub btnCaja_Click(sender As Object, e As EventArgs)
-        FrmGestionCaja.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmGestionCaja)) Then
+            FrmGestionCaja.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
     End Sub
 
     Private Sub StockToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        FrmGestionStock.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmGestionStock)) Then
+            FrmGestionStock.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
+
     End Sub
 
     Private Sub btnPedidos_Click(sender As Object, e As EventArgs) Handles btnPedidos.Click
-        FrmGestionPedidos.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmGestionPedidos)) Then
+            FrmGestionPedidos.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
+
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -193,7 +252,15 @@ Public Class MDIPrincipal
     End Sub
 
     Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles btnReparaciones.Click
-        FrmGestionReparaciones.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmGestionReparaciones)) Then
+            FrmGestionReparaciones.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
+
+
     End Sub
 
     Private Const CP_NOCLOSE_BUTTON As Integer = &H200
@@ -205,33 +272,48 @@ Public Class MDIPrincipal
         End Get
     End Property
 
-    Private Sub Button5_Click_2(sender As Object, e As EventArgs) Handles Button5.Click
-
-
-    End Sub
 
     Private Sub btnServicios_Click(sender As Object, e As EventArgs) Handles btnServicios.Click
-        FrmGestionPagos.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmGestionPagos)) Then
+            FrmGestionPagos.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        FrmGestionUsuario.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmGestionUsuario)) Then
+            FrmGestionUsuario.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        FrmGestionStock.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmGestionStock)) Then
+            FrmGestionStock.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
+
     End Sub
 
 
     Private Sub Button8_MouseHover(sender As Object, e As EventArgs) Handles Button8.MouseHover
-		Panel1.Visible = True
-	End Sub
+        Panel1.Visible = True
+    End Sub
 
-	Private Sub Button8_MouseLeave(sender As Object, e As EventArgs) Handles Panel1.MouseLeave
-		Panel1.Visible = False
-	End Sub
+    Private Sub Button8_MouseLeave(sender As Object, e As EventArgs) Handles Panel1.MouseLeave
+        Panel1.Visible = False
+    End Sub
 
-	Private Sub MenuStrip1_MouseHover(sender As Object, e As EventArgs) Handles MenuStrip1.MouseHover
+    Private Sub MenuStrip1_MouseHover(sender As Object, e As EventArgs) Handles MenuStrip1.MouseHover
         Panel1.Visible = True
     End Sub
 
@@ -240,40 +322,87 @@ Public Class MDIPrincipal
     End Sub
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
-        FrmEstadisticacliente.ShowDialog()
+
+        If helpersUi.ValidarOperacion(NameOf(FrmEstadisticacliente)) Then
+            FrmEstadisticacliente.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
 
     End Sub
 
     Private Sub ProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProductosToolStripMenuItem.Click
-        FrmEstadisticaProveedor.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmEstadisticaProveedor)) Then
+            FrmEstadisticaProveedor.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
 
     End Sub
 
     Private Sub ServiciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ServiciosToolStripMenuItem.Click
-        FrmEstadisticaProveedorServicio.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmEstadisticaProveedorServicio)) Then
+            FrmEstadisticaProveedorServicio.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
 
     End Sub
 
     Private Sub EstadisticasDeComprasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadisticasDeComprasToolStripMenuItem.Click
-        FrmEstadisticaCompras.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmEstadisticaCompras)) Then
+            FrmEstadisticaCompras.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
 
     End Sub
 
     Private Sub EstadisticasDeVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadisticasDeVentasToolStripMenuItem.Click
-        FrmEstadisticaVentas.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmEstadisticaVentas)) Then
+            FrmEstadisticaVentas.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
     End Sub
 
     Private Sub EstadísitcasDeStockToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EstadísitcasDeStockToolStripMenuItem.Click
-        FrmEstadisticaStock.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmEstadisticaStock)) Then
+            FrmEstadisticaStock.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
 
     End Sub
 
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
-        FrmCierreDeCaja.ShowDialog()
+
+        If helpersUi.ValidarOperacion(NameOf(FrmCierreDeCaja)) Then
+            FrmCierreDeCaja.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
     End Sub
 
     Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
-        FrmhistorialCierreCaja.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmhistorialCierreCaja)) Then
+            FrmhistorialCierreCaja.ShowDialog()
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
+
+
 
     End Sub
 
@@ -316,4 +445,6 @@ Public Class MDIPrincipal
     Private Sub btnManualDeUsuario_Click(sender As Object, e As EventArgs) Handles btnManualDeUsuario.Click
         FrmAyuda.ShowDialog()
     End Sub
+
+
 End Class
