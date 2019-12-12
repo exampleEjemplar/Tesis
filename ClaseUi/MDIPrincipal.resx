@@ -506,15 +506,14 @@
   </data>
   <data name="Button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAGWSURBVEhLYxgFgw44LvsW7LT0610i8fSGhv9MUK2UAaelXxKABv4nhPN3//gfvfE7iD2PKpYT
-        a3Hd4Z//r7z7+z92EwmWTzr5S3/iqV+7seH2Yz+v1hz48R+Gc3cCDV6G3eKHX/+RZnn/6e8OE079/E8I
-        z7v46/+cC7/+F+3BtBxmMUmWE2vxkiu//9/6+BfsAHTL84BxvP3BbzhecfPXf8+VILnvdlBrMAEpFoN8
-        hMtybNhl8WcHqDWYgFSLSbGcKhYvuvzr/7X3f+H4/Ou//6ef+/U/au2n/7Zz38Gx3fwP1LUYF3buvvZf
-        NPUAHCuUnqOPxTHrBsjHfjMf/VerufzfevZbuIUkW9x44Mt/ybJLBHHR1g/UtbjnxA+woYRw55FvcIup
-        EtQgA0MXPMWKk1e9gluGjKmSuFoOfftv3n0HK/ad/RjDUhAeTVxkWUxO4orfDK6JsGKaJi6qWExO4krd
-        +v2q49Kvu7HixV/0odZgAkoTV/+pXwlQo0gDA2bxhDO/zIEG3CUbn/4ZDDVqFAwWwMAAAG5tJZlSOwlf
-        AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAZZJREFUSEtj
+        GAWDDjgu+xbstPTrXSLx9IaG/0xQrZQBp6VfEoAG/ieE83f/+B+98TuIPY8qlhNrcd3hn/+vvPv7P3YT
+        CZZPOvlLf+KpX7ux4fZjP6/WHPjxH4ZzdwINXobd4odf/5Fmef/p7w4TTv38TwjPu/jr/5wLv/4X7cG0
+        HGYxSZYTa/GSK7//3/r4F+wAdMvzgHG8/cFvOF5x89d/z5Ugue92UGswASkWg3yEy3Js2GXxZweoNZiA
+        VItJsZwqFi+6/Ov/tfd/4fj867//p5/79T9q7af/tnPfwbHd/A/UtRgXdu6+9l809QAcK5Seo4/FMesG
+        yMd+Mx/9V6u5/N969lu4hSRb3Hjgy3/JsksEcdHWD9S1uOfED7ChhHDnkW9wi6kS1CADQxc8xYqTV72C
+        W4aMqZK4Wg59+2/efQcr9p39GMNSEB5NXGRZTE7iit8MromwYpomLqpYTE7iSt36/arj0q+7seLFX/Sh
+        1mACShNX/6lfCVCjSAMDZvGEM7/MgQbcJRuf/hkMNWoUDBbAwAAAbm0lmVI7CV8AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="Button9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -548,12 +547,6 @@
   </metadata>
   <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>826, 17</value>
-  </metadata>
-  <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>826, 17</value>
-  </metadata>
-  <metadata name="MenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>371, 23</value>
   </metadata>
   <metadata name="MenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>371, 23</value>

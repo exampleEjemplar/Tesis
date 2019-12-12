@@ -26,24 +26,8 @@ Partial Class MDIPrincipal
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MDIPrincipal))
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.btnVentas = New System.Windows.Forms.Button()
-        Me.btnCompras = New System.Windows.Forms.Button()
-        Me.btnArticulos = New System.Windows.Forms.Button()
-        Me.btnPedidos = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.btnReparaciones = New System.Windows.Forms.Button()
-        Me.btnServicios = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.btnManualDeUsuario = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblUsuario = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -57,19 +41,35 @@ Partial Class MDIPrincipal
         Me.EstadísitcasDeStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Button9 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.MenuStrip2 = New System.Windows.Forms.MenuStrip()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnCompras = New System.Windows.Forms.Button()
+        Me.btnVentas = New System.Windows.Forms.Button()
+        Me.btnArticulos = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.btnReparaciones = New System.Windows.Forms.Button()
+        Me.btnPedidos = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.btnServicios = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.btnManualDeUsuario = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.MenuStrip2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FlowLayoutPanel1
@@ -97,6 +97,190 @@ Partial Class MDIPrincipal
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(153, 643)
         Me.FlowLayoutPanel1.TabIndex = 32
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(131, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(188, Byte), Integer))
+        Me.TableLayoutPanel1.ColumnCount = 3
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.lblUsuario, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.PictureBox1, 0, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1028, 94)
+        Me.TableLayoutPanel1.TabIndex = 34
+        '
+        'lblUsuario
+        '
+        Me.lblUsuario.AutoSize = True
+        Me.lblUsuario.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUsuario.Location = New System.Drawing.Point(884, 0)
+        Me.lblUsuario.Name = "lblUsuario"
+        Me.lblUsuario.Size = New System.Drawing.Size(141, 94)
+        Me.lblUsuario.TabIndex = 1
+        Me.lblUsuario.Text = "Usuario"
+        Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ContextMenuStrip2
+        '
+        Me.ContextMenuStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(61, 4)
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.Panel1.Controls.Add(Me.MenuStrip1)
+        Me.Panel1.Location = New System.Drawing.Point(153, 513)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(119, 102)
+        Me.Panel1.TabIndex = 36
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.EstadisticaProveedoresToolStripMenuItem, Me.EstadisticasDeComprasToolStripMenuItem, Me.EstadísitcasDeStockToolStripMenuItem, Me.EstadisticasDeVentasToolStripMenuItem})
+        Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(119, 101)
+        Me.MenuStrip1.TabIndex = 0
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(112, 19)
+        Me.ToolStripMenuItem1.Text = "Clientes"
+        Me.ToolStripMenuItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'EstadisticaProveedoresToolStripMenuItem
+        '
+        Me.EstadisticaProveedoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductosToolStripMenuItem, Me.ServiciosToolStripMenuItem})
+        Me.EstadisticaProveedoresToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EstadisticaProveedoresToolStripMenuItem.Name = "EstadisticaProveedoresToolStripMenuItem"
+        Me.EstadisticaProveedoresToolStripMenuItem.Size = New System.Drawing.Size(112, 19)
+        Me.EstadisticaProveedoresToolStripMenuItem.Text = "Proveedores"
+        Me.EstadisticaProveedoresToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.EstadisticaProveedoresToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        '
+        'ProductosToolStripMenuItem
+        '
+        Me.ProductosToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.ProductosToolStripMenuItem.Name = "ProductosToolStripMenuItem"
+        Me.ProductosToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.ProductosToolStripMenuItem.Text = "Productos"
+        Me.ProductosToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ProductosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        '
+        'ServiciosToolStripMenuItem
+        '
+        Me.ServiciosToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.ServiciosToolStripMenuItem.Name = "ServiciosToolStripMenuItem"
+        Me.ServiciosToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.ServiciosToolStripMenuItem.Text = "Servicios"
+        Me.ServiciosToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ServiciosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        '
+        'EstadisticasDeComprasToolStripMenuItem
+        '
+        Me.EstadisticasDeComprasToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EstadisticasDeComprasToolStripMenuItem.Name = "EstadisticasDeComprasToolStripMenuItem"
+        Me.EstadisticasDeComprasToolStripMenuItem.Size = New System.Drawing.Size(112, 19)
+        Me.EstadisticasDeComprasToolStripMenuItem.Text = "Compras"
+        Me.EstadisticasDeComprasToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'EstadisticasDeVentasToolStripMenuItem
+        '
+        Me.EstadisticasDeVentasToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EstadisticasDeVentasToolStripMenuItem.Name = "EstadisticasDeVentasToolStripMenuItem"
+        Me.EstadisticasDeVentasToolStripMenuItem.Size = New System.Drawing.Size(112, 19)
+        Me.EstadisticasDeVentasToolStripMenuItem.Text = "Ventas"
+        Me.EstadisticasDeVentasToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'EstadísitcasDeStockToolStripMenuItem
+        '
+        Me.EstadísitcasDeStockToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EstadísitcasDeStockToolStripMenuItem.Name = "EstadísitcasDeStockToolStripMenuItem"
+        Me.EstadísitcasDeStockToolStripMenuItem.Size = New System.Drawing.Size(112, 19)
+        Me.EstadísitcasDeStockToolStripMenuItem.Text = "Stock"
+        Me.EstadísitcasDeStockToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.Transparent
+        Me.Panel4.Location = New System.Drawing.Point(153, 632)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(869, 105)
+        Me.Panel4.TabIndex = 41
+        '
+        'Panel5
+        '
+        Me.Panel5.BackColor = System.Drawing.Color.Transparent
+        Me.Panel5.Location = New System.Drawing.Point(363, 448)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(659, 182)
+        Me.Panel5.TabIndex = 42
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.MenuStrip2)
+        Me.Panel2.Location = New System.Drawing.Point(153, 457)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(204, 40)
+        Me.Panel2.TabIndex = 38
+        '
+        'MenuStrip2
+        '
+        Me.MenuStrip2.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.MenuStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.ToolStripMenuItem3})
+        Me.MenuStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow
+        Me.MenuStrip2.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip2.Name = "MenuStrip2"
+        Me.MenuStrip2.Size = New System.Drawing.Size(204, 44)
+        Me.MenuStrip2.TabIndex = 1
+        Me.MenuStrip2.Text = "MenuStrip2"
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(197, 19)
+        Me.ToolStripMenuItem2.Text = "Cerrar Caja"
+        Me.ToolStripMenuItem2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(197, 19)
+        Me.ToolStripMenuItem3.Text = "Historial de Cierres de Caja"
+        Me.ToolStripMenuItem3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ToolStripMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.Transparent
+        Me.Panel3.Location = New System.Drawing.Point(159, 97)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(866, 354)
+        Me.Panel3.TabIndex = 40
         '
         'Button1
         '
@@ -134,6 +318,24 @@ Partial Class MDIPrincipal
         Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button2.UseVisualStyleBackColor = False
         '
+        'btnCompras
+        '
+        Me.btnCompras.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.btnCompras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnCompras.FlatAppearance.BorderSize = 0
+        Me.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCompras.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCompras.Image = CType(resources.GetObject("btnCompras.Image"), System.Drawing.Image)
+        Me.btnCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCompras.Location = New System.Drawing.Point(3, 83)
+        Me.btnCompras.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
+        Me.btnCompras.Name = "btnCompras"
+        Me.btnCompras.Size = New System.Drawing.Size(147, 38)
+        Me.btnCompras.TabIndex = 17
+        Me.btnCompras.Text = "Compras"
+        Me.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnCompras.UseVisualStyleBackColor = False
+        '
         'btnVentas
         '
         Me.btnVentas.BackColor = System.Drawing.Color.LightSteelBlue
@@ -153,24 +355,6 @@ Partial Class MDIPrincipal
         Me.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnVentas.UseVisualStyleBackColor = False
         '
-        'btnCompras
-        '
-        Me.btnCompras.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.btnCompras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCompras.FlatAppearance.BorderSize = 0
-        Me.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCompras.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCompras.Image = CType(resources.GetObject("btnCompras.Image"), System.Drawing.Image)
-        Me.btnCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCompras.Location = New System.Drawing.Point(3, 83)
-        Me.btnCompras.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
-        Me.btnCompras.Name = "btnCompras"
-        Me.btnCompras.Size = New System.Drawing.Size(147, 38)
-        Me.btnCompras.TabIndex = 17
-        Me.btnCompras.Text = "Compras"
-        Me.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCompras.UseVisualStyleBackColor = False
-        '
         'btnArticulos
         '
         Me.btnArticulos.BackColor = System.Drawing.Color.LightSteelBlue
@@ -188,42 +372,6 @@ Partial Class MDIPrincipal
         Me.btnArticulos.Text = "Articulos"
         Me.btnArticulos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnArticulos.UseVisualStyleBackColor = False
-        '
-        'btnPedidos
-        '
-        Me.btnPedidos.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.btnPedidos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnPedidos.FlatAppearance.BorderSize = 0
-        Me.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPedidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPedidos.Image = CType(resources.GetObject("btnPedidos.Image"), System.Drawing.Image)
-        Me.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPedidos.Location = New System.Drawing.Point(3, 323)
-        Me.btnPedidos.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
-        Me.btnPedidos.Name = "btnPedidos"
-        Me.btnPedidos.Size = New System.Drawing.Size(147, 38)
-        Me.btnPedidos.TabIndex = 20
-        Me.btnPedidos.Text = "Pedidos"
-        Me.btnPedidos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnPedidos.UseVisualStyleBackColor = False
-        '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
-        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(3, 363)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(147, 38)
-        Me.Button5.TabIndex = 33
-        Me.Button5.Text = "Cierre Caja"
-        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button5.UseVisualStyleBackColor = False
         '
         'Button7
         '
@@ -279,6 +427,42 @@ Partial Class MDIPrincipal
         Me.btnReparaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnReparaciones.UseVisualStyleBackColor = False
         '
+        'btnPedidos
+        '
+        Me.btnPedidos.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.btnPedidos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnPedidos.FlatAppearance.BorderSize = 0
+        Me.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPedidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPedidos.Image = CType(resources.GetObject("btnPedidos.Image"), System.Drawing.Image)
+        Me.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnPedidos.Location = New System.Drawing.Point(3, 323)
+        Me.btnPedidos.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
+        Me.btnPedidos.Name = "btnPedidos"
+        Me.btnPedidos.Size = New System.Drawing.Size(147, 38)
+        Me.btnPedidos.TabIndex = 20
+        Me.btnPedidos.Text = "Pedidos"
+        Me.btnPedidos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnPedidos.UseVisualStyleBackColor = False
+        '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button5.Location = New System.Drawing.Point(3, 363)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(147, 38)
+        Me.Button5.TabIndex = 33
+        Me.Button5.Text = "Cierre Caja"
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button5.UseVisualStyleBackColor = False
+        '
         'btnServicios
         '
         Me.btnServicios.BackColor = System.Drawing.Color.LightSteelBlue
@@ -297,24 +481,6 @@ Partial Class MDIPrincipal
         Me.btnServicios.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnServicios.UseVisualStyleBackColor = False
         '
-        'Button6
-        '
-        Me.Button6.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button6.FlatAppearance.BorderSize = 0
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
-        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.Location = New System.Drawing.Point(3, 483)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(147, 38)
-        Me.Button6.TabIndex = 35
-        Me.Button6.Text = "Usuarios"
-        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button6.UseVisualStyleBackColor = False
-        '
         'Button8
         '
         Me.Button8.BackColor = System.Drawing.Color.LightSteelBlue
@@ -332,6 +498,24 @@ Partial Class MDIPrincipal
         Me.Button8.Text = "Estadisticas "
         Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button8.UseVisualStyleBackColor = False
+        '
+        'Button6
+        '
+        Me.Button6.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button6.FlatAppearance.BorderSize = 0
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button6.Location = New System.Drawing.Point(3, 483)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(3, 0, 3, 2)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(147, 38)
+        Me.Button6.TabIndex = 35
+        Me.Button6.Text = "Usuarios"
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button6.UseVisualStyleBackColor = False
         '
         'btnManualDeUsuario
         '
@@ -369,154 +553,6 @@ Partial Class MDIPrincipal
         Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button3.UseVisualStyleBackColor = False
         '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(131, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(188, Byte), Integer))
-        Me.TableLayoutPanel1.ColumnCount = 3
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.lblUsuario, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.PictureBox1, 0, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1028, 94)
-        Me.TableLayoutPanel1.TabIndex = 34
-        '
-        'lblUsuario
-        '
-        Me.lblUsuario.AutoSize = True
-        Me.lblUsuario.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUsuario.Location = New System.Drawing.Point(884, 0)
-        Me.lblUsuario.Name = "lblUsuario"
-        Me.lblUsuario.Size = New System.Drawing.Size(141, 94)
-        Me.lblUsuario.TabIndex = 1
-        Me.lblUsuario.Text = "Usuario"
-        Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.ClaseUi.My.Resources.Resources.LogoCrizolPSPequeño
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(150, 88)
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
-        '
-        'ContextMenuStrip2
-        '
-        Me.ContextMenuStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
-        Me.ContextMenuStrip2.Size = New System.Drawing.Size(61, 4)
-        '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.Panel1.Controls.Add(Me.MenuStrip1)
-        Me.Panel1.Location = New System.Drawing.Point(156, 519)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(119, 102)
-        Me.Panel1.TabIndex = 36
-        '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.EstadisticaProveedoresToolStripMenuItem, Me.EstadisticasDeComprasToolStripMenuItem, Me.EstadísitcasDeStockToolStripMenuItem, Me.EstadisticasDeVentasToolStripMenuItem})
-        Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(119, 101)
-        Me.MenuStrip1.TabIndex = 0
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(112, 19)
-        Me.ToolStripMenuItem1.Text = "Clientes"
-        Me.ToolStripMenuItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'EstadisticaProveedoresToolStripMenuItem
-        '
-        Me.EstadisticaProveedoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductosToolStripMenuItem, Me.ServiciosToolStripMenuItem})
-        Me.EstadisticaProveedoresToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EstadisticaProveedoresToolStripMenuItem.Name = "EstadisticaProveedoresToolStripMenuItem"
-        Me.EstadisticaProveedoresToolStripMenuItem.Size = New System.Drawing.Size(112, 19)
-        Me.EstadisticaProveedoresToolStripMenuItem.Text = "Proveedores"
-        Me.EstadisticaProveedoresToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.EstadisticaProveedoresToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        '
-        'ProductosToolStripMenuItem
-        '
-        Me.ProductosToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.ProductosToolStripMenuItem.Name = "ProductosToolStripMenuItem"
-        Me.ProductosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ProductosToolStripMenuItem.Text = "Productos"
-        Me.ProductosToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ProductosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        '
-        'ServiciosToolStripMenuItem
-        '
-        Me.ServiciosToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.ServiciosToolStripMenuItem.Name = "ServiciosToolStripMenuItem"
-        Me.ServiciosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ServiciosToolStripMenuItem.Text = "Servicios"
-        Me.ServiciosToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ServiciosToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        '
-        'EstadisticasDeComprasToolStripMenuItem
-        '
-        Me.EstadisticasDeComprasToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EstadisticasDeComprasToolStripMenuItem.Name = "EstadisticasDeComprasToolStripMenuItem"
-        Me.EstadisticasDeComprasToolStripMenuItem.Size = New System.Drawing.Size(112, 19)
-        Me.EstadisticasDeComprasToolStripMenuItem.Text = "Compras"
-        Me.EstadisticasDeComprasToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'EstadisticasDeVentasToolStripMenuItem
-        '
-        Me.EstadisticasDeVentasToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EstadisticasDeVentasToolStripMenuItem.Name = "EstadisticasDeVentasToolStripMenuItem"
-        Me.EstadisticasDeVentasToolStripMenuItem.Size = New System.Drawing.Size(112, 19)
-        Me.EstadisticasDeVentasToolStripMenuItem.Text = "Ventas"
-        Me.EstadisticasDeVentasToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'EstadísitcasDeStockToolStripMenuItem
-        '
-        Me.EstadísitcasDeStockToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EstadísitcasDeStockToolStripMenuItem.Name = "EstadísitcasDeStockToolStripMenuItem"
-        Me.EstadísitcasDeStockToolStripMenuItem.Size = New System.Drawing.Size(112, 19)
-        Me.EstadísitcasDeStockToolStripMenuItem.Text = "Stock"
-        Me.EstadísitcasDeStockToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Panel4
-        '
-        Me.Panel4.BackColor = System.Drawing.Color.Transparent
-        Me.Panel4.Location = New System.Drawing.Point(153, 632)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(869, 105)
-        Me.Panel4.TabIndex = 41
-        '
-        'Panel5
-        '
-        Me.Panel5.BackColor = System.Drawing.Color.Transparent
-        Me.Panel5.Location = New System.Drawing.Point(363, 448)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(659, 182)
-        Me.Panel5.TabIndex = 42
-        '
         'Button9
         '
         Me.Button9.BackColor = System.Drawing.Color.LightSteelBlue
@@ -535,50 +571,14 @@ Partial Class MDIPrincipal
         Me.Button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button9.UseVisualStyleBackColor = False
         '
-        'Panel2
+        'PictureBox1
         '
-        Me.Panel2.Controls.Add(Me.MenuStrip2)
-        Me.Panel2.Location = New System.Drawing.Point(156, 457)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(204, 40)
-        Me.Panel2.TabIndex = 38
-        '
-        'MenuStrip2
-        '
-        Me.MenuStrip2.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.MenuStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.ToolStripMenuItem3})
-        Me.MenuStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow
-        Me.MenuStrip2.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip2.Name = "MenuStrip2"
-        Me.MenuStrip2.Size = New System.Drawing.Size(204, 44)
-        Me.MenuStrip2.TabIndex = 1
-        Me.MenuStrip2.Text = "MenuStrip2"
-        '
-        'ToolStripMenuItem2
-        '
-        Me.ToolStripMenuItem2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(197, 19)
-        Me.ToolStripMenuItem2.Text = "Cerrar Caja"
-        Me.ToolStripMenuItem2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'ToolStripMenuItem3
-        '
-        Me.ToolStripMenuItem3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(197, 19)
-        Me.ToolStripMenuItem3.Text = "Historial de Cierres de Caja"
-        Me.ToolStripMenuItem3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ToolStripMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.Transparent
-        Me.Panel3.Location = New System.Drawing.Point(159, 97)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(866, 354)
-        Me.Panel3.TabIndex = 40
+        Me.PictureBox1.Image = Global.ClaseUi.My.Resources.Resources.LogoCrizolPSPequeño
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(150, 88)
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
         '
         'MDIPrincipal
         '
@@ -606,7 +606,6 @@ Partial Class MDIPrincipal
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
@@ -615,6 +614,7 @@ Partial Class MDIPrincipal
         Me.Panel2.PerformLayout()
         Me.MenuStrip2.ResumeLayout(False)
         Me.MenuStrip2.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
