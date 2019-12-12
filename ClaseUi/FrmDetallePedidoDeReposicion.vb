@@ -15,11 +15,18 @@ Public Class FrmDetallePedidoDeReposicion
 
 		dgvProductos.Columns("Nombre").HeaderText = "Producto"
 		dgvProductos.Columns("StockMinimo").HeaderText = "Stock Mínimo"
+		dgvProductos.Columns("StockMinimo").Width = 50
 		dgvProductos.Columns("StockMaximo").HeaderText = "Stock Máximo"
+		dgvProductos.Columns("StockMaximo").Width = 50
 		dgvProductos.Columns("StockActual").HeaderText = "Stock Actual"
+		dgvProductos.Columns("StockActual").Width = 50
 		dgvProductos.Columns("ProveedorNombre").HeaderText = "Proveedor"
 		dgvProductos.Columns("AComprar").HeaderText = "A Comprar"
+		dgvProductos.Columns("AComprar").Width = 50
 		dgvProductos.Columns("HacerPedido").HeaderText = "Pedir este producto"
+		dgvProductos.Columns("PrecioProducto").HeaderText = "Precio del producto"
+		dgvProductos.Columns("PrecioProducto").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+		dgvProductos.Columns("PrecioProducto").DefaultCellStyle.Format = "c2"
 		lblBase.Text = base
 	End Sub
 
