@@ -218,6 +218,7 @@ Partial Class FrmEstadisticacliente
         Me.Chart1.BorderlineColor = System.Drawing.Color.Black
         Me.Chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart1.BorderlineWidth = 2
+        ChartArea1.Area3DStyle.Enable3D = True
         ChartArea1.AxisX.Title = "Usuarios"
         ChartArea1.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         ChartArea1.AxisY.Title = "Cantidad de clientes"
@@ -236,8 +237,9 @@ Partial Class FrmEstadisticacliente
         Series1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series1.IsValueShownAsLabel = True
         Series1.IsVisibleInLegend = False
-        Series1.LabelBackColor = System.Drawing.Color.White
-        Series1.LabelBorderColor = System.Drawing.Color.White
+        Series1.LabelBackColor = System.Drawing.Color.Transparent
+        Series1.LabelBorderColor = System.Drawing.Color.Transparent
+        Series1.LabelForeColor = System.Drawing.Color.White
         Series1.Legend = "Legend1"
         Series1.Name = "Series2"
         Series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
@@ -329,6 +331,7 @@ Partial Class FrmEstadisticacliente
         Me.Chart4.BorderlineColor = System.Drawing.Color.Black
         Me.Chart4.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart4.BorderlineWidth = 2
+        ChartArea3.Area3DStyle.Enable3D = True
         ChartArea3.AxisX.Title = "Mes"
         ChartArea3.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         ChartArea3.AxisY.Title = "Cantidad"
@@ -348,8 +351,9 @@ Partial Class FrmEstadisticacliente
         Series3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series3.IsValueShownAsLabel = True
         Series3.IsVisibleInLegend = False
-        Series3.LabelBackColor = System.Drawing.Color.White
-        Series3.LabelBorderColor = System.Drawing.Color.White
+        Series3.LabelBackColor = System.Drawing.Color.Transparent
+        Series3.LabelBorderColor = System.Drawing.Color.Transparent
+        Series3.LabelForeColor = System.Drawing.Color.White
         Series3.Legend = "Legend1"
         Series3.Name = "Series2"
         Series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel
@@ -369,6 +373,7 @@ Partial Class FrmEstadisticacliente
         Me.Chart3.BorderlineColor = System.Drawing.Color.Black
         Me.Chart3.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart3.BorderlineWidth = 2
+        ChartArea4.Area3DStyle.Enable3D = True
         ChartArea4.AxisX.Title = "Provincia"
         ChartArea4.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         ChartArea4.AxisY.Title = "Cantidad"
@@ -387,8 +392,9 @@ Partial Class FrmEstadisticacliente
         Series4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series4.IsValueShownAsLabel = True
         Series4.IsVisibleInLegend = False
-        Series4.LabelBackColor = System.Drawing.Color.White
-        Series4.LabelBorderColor = System.Drawing.Color.White
+        Series4.LabelBackColor = System.Drawing.Color.Transparent
+        Series4.LabelBorderColor = System.Drawing.Color.Transparent
+        Series4.LabelForeColor = System.Drawing.Color.White
         Series4.Legend = "Legend1"
         Series4.Name = "Series2"
         Series4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel
@@ -421,7 +427,7 @@ Partial Class FrmEstadisticacliente
         Legend5.IsTextAutoFit = False
         Legend5.Name = "Legend1"
         Me.Chart5.Legends.Add(Legend5)
-        Me.Chart5.Location = New System.Drawing.Point(12, 239)
+        Me.Chart5.Location = New System.Drawing.Point(12, 229)
         Me.Chart5.Name = "Chart5"
         Me.Chart5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
         Series5.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))

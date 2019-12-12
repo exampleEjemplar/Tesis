@@ -23,12 +23,23 @@ Partial Class FrmGestionVentas
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGestionVentas))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.cboOrden = New System.Windows.Forms.ComboBox()
+        Me.chbListaParaOrdenar = New System.Windows.Forms.CheckedListBox()
+        Me.lbldesde = New System.Windows.Forms.Label()
+        Me.lblHasta = New System.Windows.Forms.Label()
+        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.rbtFechaExacta = New System.Windows.Forms.CheckBox()
+        Me.rbtEntreFechas = New System.Windows.Forms.CheckBox()
+        Me.dtpFechaHasta = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFechaDesde = New System.Windows.Forms.DateTimePicker()
+        Me.cboCliente = New System.Windows.Forms.ComboBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.lblFechaExacta = New System.Windows.Forms.Label()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -36,17 +47,6 @@ Partial Class FrmGestionVentas
         Me.lblPrioridad3 = New System.Windows.Forms.Label()
         Me.lblPrioridad1 = New System.Windows.Forms.Label()
         Me.lblPrioridad2 = New System.Windows.Forms.Label()
-        Me.chbListaParaOrdenar = New System.Windows.Forms.CheckedListBox()
-        Me.lbldesde = New System.Windows.Forms.Label()
-        Me.lblHasta = New System.Windows.Forms.Label()
-        Me.rbtFechaExacta = New System.Windows.Forms.CheckBox()
-        Me.rbtEntreFechas = New System.Windows.Forms.CheckBox()
-        Me.dtpFechaHasta = New System.Windows.Forms.DateTimePicker()
-        Me.dtpFechaDesde = New System.Windows.Forms.DateTimePicker()
-        Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.cboCliente = New System.Windows.Forms.ComboBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.lblFechaExacta = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvProveedores = New System.Windows.Forms.DataGridView()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -90,9 +90,9 @@ Partial Class FrmGestionVentas
         Me.GroupBox7.Controls.Add(Me.chbListaParaOrdenar)
         Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
         Me.GroupBox7.Location = New System.Drawing.Point(253, -1)
-        Me.GroupBox7.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox7.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox7.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox7.Size = New System.Drawing.Size(153, 119)
         Me.GroupBox7.TabIndex = 52
         Me.GroupBox7.TabStop = False
@@ -120,6 +120,126 @@ Partial Class FrmGestionVentas
         Me.cboOrden.Size = New System.Drawing.Size(50, 21)
         Me.cboOrden.TabIndex = 78
         '
+        'chbListaParaOrdenar
+        '
+        Me.chbListaParaOrdenar.FormattingEnabled = True
+        Me.chbListaParaOrdenar.Location = New System.Drawing.Point(4, 17)
+        Me.chbListaParaOrdenar.Margin = New System.Windows.Forms.Padding(2)
+        Me.chbListaParaOrdenar.Name = "chbListaParaOrdenar"
+        Me.chbListaParaOrdenar.Size = New System.Drawing.Size(139, 68)
+        Me.chbListaParaOrdenar.TabIndex = 0
+        '
+        'lbldesde
+        '
+        Me.lbldesde.AutoSize = True
+        Me.lbldesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbldesde.Location = New System.Drawing.Point(7, 75)
+        Me.lbldesde.Name = "lbldesde"
+        Me.lbldesde.Size = New System.Drawing.Size(43, 13)
+        Me.lbldesde.TabIndex = 41
+        Me.lbldesde.Text = "Desde"
+        '
+        'lblHasta
+        '
+        Me.lblHasta.AutoSize = True
+        Me.lblHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblHasta.Location = New System.Drawing.Point(142, 76)
+        Me.lblHasta.Name = "lblHasta"
+        Me.lblHasta.Size = New System.Drawing.Size(40, 13)
+        Me.lblHasta.TabIndex = 40
+        Me.lblHasta.Text = "Hasta"
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
+        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnBuscar.FlatAppearance.BorderSize = 0
+        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
+        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnBuscar.Location = New System.Drawing.Point(517, 19)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(69, 81)
+        Me.btnBuscar.TabIndex = 5
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnBuscar.UseVisualStyleBackColor = False
+        '
+        'rbtFechaExacta
+        '
+        Me.rbtFechaExacta.AutoSize = True
+        Me.rbtFechaExacta.Location = New System.Drawing.Point(10, 45)
+        Me.rbtFechaExacta.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbtFechaExacta.Name = "rbtFechaExacta"
+        Me.rbtFechaExacta.Size = New System.Drawing.Size(103, 17)
+        Me.rbtFechaExacta.TabIndex = 39
+        Me.rbtFechaExacta.Text = "Fecha exacta"
+        Me.rbtFechaExacta.UseVisualStyleBackColor = True
+        '
+        'rbtEntreFechas
+        '
+        Me.rbtEntreFechas.AutoSize = True
+        Me.rbtEntreFechas.Location = New System.Drawing.Point(117, 45)
+        Me.rbtEntreFechas.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbtEntreFechas.Name = "rbtEntreFechas"
+        Me.rbtEntreFechas.Size = New System.Drawing.Size(98, 17)
+        Me.rbtEntreFechas.TabIndex = 38
+        Me.rbtEntreFechas.Text = "Entre fechas"
+        Me.rbtEntreFechas.UseVisualStyleBackColor = True
+        '
+        'dtpFechaHasta
+        '
+        Me.dtpFechaHasta.CustomFormat = "dd/MM/yyyy"
+        Me.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFechaHasta.Location = New System.Drawing.Point(145, 93)
+        Me.dtpFechaHasta.Name = "dtpFechaHasta"
+        Me.dtpFechaHasta.Size = New System.Drawing.Size(100, 20)
+        Me.dtpFechaHasta.TabIndex = 37
+        Me.dtpFechaHasta.Value = New Date(2019, 7, 23, 0, 1, 0, 0)
+        '
+        'dtpFechaDesde
+        '
+        Me.dtpFechaDesde.CustomFormat = "dd/MM/yyyy"
+        Me.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFechaDesde.Location = New System.Drawing.Point(10, 93)
+        Me.dtpFechaDesde.Name = "dtpFechaDesde"
+        Me.dtpFechaDesde.Size = New System.Drawing.Size(97, 20)
+        Me.dtpFechaDesde.TabIndex = 22
+        Me.dtpFechaDesde.Value = New Date(2019, 7, 23, 0, 0, 0, 0)
+        Me.dtpFechaDesde.Visible = False
+        '
+        'cboCliente
+        '
+        Me.cboCliente.AccessibleDescription = ""
+        Me.cboCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCliente.FormattingEnabled = True
+        Me.cboCliente.Items.AddRange(New Object() {"Física", "Jurídica"})
+        Me.cboCliente.Location = New System.Drawing.Point(59, 16)
+        Me.cboCliente.Name = "cboCliente"
+        Me.cboCliente.Size = New System.Drawing.Size(186, 21)
+        Me.cboCliente.TabIndex = 0
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(7, 19)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(46, 13)
+        Me.Label17.TabIndex = 21
+        Me.Label17.Text = "Cliente"
+        '
+        'lblFechaExacta
+        '
+        Me.lblFechaExacta.AutoSize = True
+        Me.lblFechaExacta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFechaExacta.Location = New System.Drawing.Point(7, 75)
+        Me.lblFechaExacta.Name = "lblFechaExacta"
+        Me.lblFechaExacta.Size = New System.Drawing.Size(138, 13)
+        Me.lblFechaExacta.TabIndex = 21
+        Me.lblFechaExacta.Text = "Fecha de Comprobante"
+        '
         'GroupBox8
         '
         Me.GroupBox8.Controls.Add(Me.Label18)
@@ -130,9 +250,9 @@ Partial Class FrmGestionVentas
         Me.GroupBox8.Controls.Add(Me.lblPrioridad2)
         Me.GroupBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
         Me.GroupBox8.Location = New System.Drawing.Point(422, 29)
-        Me.GroupBox8.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox8.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox8.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox8.Size = New System.Drawing.Size(84, 119)
         Me.GroupBox8.TabIndex = 46
         Me.GroupBox8.TabStop = False
@@ -198,126 +318,6 @@ Partial Class FrmGestionVentas
         Me.lblPrioridad2.TabIndex = 21
         Me.lblPrioridad2.Text = "Prioridad 2"
         '
-        'chbListaParaOrdenar
-        '
-        Me.chbListaParaOrdenar.FormattingEnabled = True
-        Me.chbListaParaOrdenar.Location = New System.Drawing.Point(4, 17)
-        Me.chbListaParaOrdenar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.chbListaParaOrdenar.Name = "chbListaParaOrdenar"
-        Me.chbListaParaOrdenar.Size = New System.Drawing.Size(139, 68)
-        Me.chbListaParaOrdenar.TabIndex = 0
-        '
-        'lbldesde
-        '
-        Me.lbldesde.AutoSize = True
-        Me.lbldesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbldesde.Location = New System.Drawing.Point(7, 75)
-        Me.lbldesde.Name = "lbldesde"
-        Me.lbldesde.Size = New System.Drawing.Size(43, 13)
-        Me.lbldesde.TabIndex = 41
-        Me.lbldesde.Text = "Desde"
-        '
-        'lblHasta
-        '
-        Me.lblHasta.AutoSize = True
-        Me.lblHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHasta.Location = New System.Drawing.Point(142, 76)
-        Me.lblHasta.Name = "lblHasta"
-        Me.lblHasta.Size = New System.Drawing.Size(40, 13)
-        Me.lblHasta.TabIndex = 40
-        Me.lblHasta.Text = "Hasta"
-        '
-        'rbtFechaExacta
-        '
-        Me.rbtFechaExacta.AutoSize = True
-        Me.rbtFechaExacta.Location = New System.Drawing.Point(10, 45)
-        Me.rbtFechaExacta.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.rbtFechaExacta.Name = "rbtFechaExacta"
-        Me.rbtFechaExacta.Size = New System.Drawing.Size(103, 17)
-        Me.rbtFechaExacta.TabIndex = 39
-        Me.rbtFechaExacta.Text = "Fecha exacta"
-        Me.rbtFechaExacta.UseVisualStyleBackColor = True
-        '
-        'rbtEntreFechas
-        '
-        Me.rbtEntreFechas.AutoSize = True
-        Me.rbtEntreFechas.Location = New System.Drawing.Point(117, 45)
-        Me.rbtEntreFechas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.rbtEntreFechas.Name = "rbtEntreFechas"
-        Me.rbtEntreFechas.Size = New System.Drawing.Size(98, 17)
-        Me.rbtEntreFechas.TabIndex = 38
-        Me.rbtEntreFechas.Text = "Entre fechas"
-        Me.rbtEntreFechas.UseVisualStyleBackColor = True
-        '
-        'dtpFechaHasta
-        '
-        Me.dtpFechaHasta.CustomFormat = "dd/MM/yyyy"
-        Me.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFechaHasta.Location = New System.Drawing.Point(145, 93)
-        Me.dtpFechaHasta.Name = "dtpFechaHasta"
-        Me.dtpFechaHasta.Size = New System.Drawing.Size(100, 20)
-        Me.dtpFechaHasta.TabIndex = 37
-        Me.dtpFechaHasta.Value = New Date(2019, 7, 23, 0, 1, 0, 0)
-        '
-        'dtpFechaDesde
-        '
-        Me.dtpFechaDesde.CustomFormat = "dd/MM/yyyy"
-        Me.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFechaDesde.Location = New System.Drawing.Point(10, 93)
-        Me.dtpFechaDesde.Name = "dtpFechaDesde"
-        Me.dtpFechaDesde.Size = New System.Drawing.Size(97, 20)
-        Me.dtpFechaDesde.TabIndex = 22
-        Me.dtpFechaDesde.Value = New Date(2019, 7, 23, 0, 0, 0, 0)
-        Me.dtpFechaDesde.Visible = False
-        '
-        'btnBuscar
-        '
-        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
-        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnBuscar.FlatAppearance.BorderSize = 0
-        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
-        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnBuscar.Location = New System.Drawing.Point(517, 19)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(69, 81)
-        Me.btnBuscar.TabIndex = 5
-        Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnBuscar.UseVisualStyleBackColor = False
-        '
-        'cboCliente
-        '
-        Me.cboCliente.AccessibleDescription = ""
-        Me.cboCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboCliente.FormattingEnabled = True
-        Me.cboCliente.Items.AddRange(New Object() {"Física", "Jurídica"})
-        Me.cboCliente.Location = New System.Drawing.Point(59, 16)
-        Me.cboCliente.Name = "cboCliente"
-        Me.cboCliente.Size = New System.Drawing.Size(186, 21)
-        Me.cboCliente.TabIndex = 0
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(7, 19)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(46, 13)
-        Me.Label17.TabIndex = 21
-        Me.Label17.Text = "Cliente"
-        '
-        'lblFechaExacta
-        '
-        Me.lblFechaExacta.AutoSize = True
-        Me.lblFechaExacta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaExacta.Location = New System.Drawing.Point(7, 75)
-        Me.lblFechaExacta.Name = "lblFechaExacta"
-        Me.lblFechaExacta.Size = New System.Drawing.Size(138, 13)
-        Me.lblFechaExacta.TabIndex = 21
-        Me.lblFechaExacta.Text = "Fecha de Comprobante"
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -337,22 +337,22 @@ Partial Class FrmGestionVentas
         Me.dgvProveedores.AllowUserToResizeRows = False
         Me.dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvProveedores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvProveedores.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvProveedores.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvProveedores.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvProveedores.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgvProveedores.Dock = System.Windows.Forms.DockStyle.Left
         Me.dgvProveedores.EnableHeadersVisualStyles = False
         Me.dgvProveedores.Location = New System.Drawing.Point(0, 0)
@@ -463,8 +463,7 @@ Partial Class FrmGestionVentas
         '
         'FrmGestionVentas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(614, 613)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
@@ -472,7 +471,7 @@ Partial Class FrmGestionVentas
         Me.Controls.Add(Me.GroupBox5)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmGestionVentas"
