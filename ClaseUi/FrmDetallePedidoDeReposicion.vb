@@ -6,11 +6,9 @@ Public Class FrmDetallePedidoDeReposicion
 	Public index As Integer
 
 	Private Sub FrmDetallePedidoDeReposicion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		txtBusNombreProducto.Text = ""
 		GroupBox1.Visible = False
 		Dim listaDeProductos = agrupado.ToList()
-		'For Each producto As ProductosConStock In listaDeProductos
-		'	producto.AComprar = CalcularSegunBase(producto.StockMinimo, producto.StockMaximo, producto.StockActual)
-		'Next
 		dgvProductos.DataSource = listaDeProductos
 		dgvProductos.Columns("id").Visible = False
 		dgvProductos.Columns("ProveedorId").Visible = False
@@ -75,14 +73,6 @@ Public Class FrmDetallePedidoDeReposicion
 		Else
 			cell.Value = True
 		End If
-		'For i = 0 To agrupado.Count - 1
-		'	If agrupado(i).Key = dgvProveedores.Rows(i).Cells(3).Value Then
-		'		For Each productosProveedor As ProductosConStock In agrupado(i)
-		'			productosProveedor.HacerPedido = cell.Value
-		'		Next
-		'		Exit For
-		'	End If
-		'Next
 
 	End Sub
 
@@ -135,4 +125,33 @@ Public Class FrmDetallePedidoDeReposicion
 		End Get
 	End Property
 
+	Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+		Buscar()
+	End Sub
+
+	Public Sub Limpiar()
+		For i = 0 To agrupado.Count - 1
+			dgvProductos.Rows(i).Visible = True
+		Next
+	End Sub
+
+	Public Sub Buscar()
+		If Not String.IsNullOrWhiteSpace(txtBusNombreProducto.Text) Then
+			For i = 0 To agrupado.Count - 1
+				dgvProductos.CurrentCell = Nothing
+				If Not agrupado(i).Nombre.ToLower().Contains(txtBusNombreProducto.Text.ToLower()) Then
+					dgvProductos.Rows(i).Visible = False
+				Else
+					dgvProductos.Rows(i).Visible = True
+				End If
+			Next
+		Else
+			MsgBox("El texto de búsqueda está vacío", MsgBoxStyle.Critical, "Stock")
+		End If
+	End Sub
+
+	Private Sub btnLimpiarFiltros_Click(sender As Object, e As EventArgs) Handles btnLimpiarFiltros.Click
+		Limpiar()
+		txtBusNombreProducto.Text = ""
+	End Sub
 End Class

@@ -43,8 +43,14 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.btnGuardarProveedor = New System.Windows.Forms.Button()
 		Me.btnCancelarProveedor = New System.Windows.Forms.Button()
+		Me.Label8 = New System.Windows.Forms.Label()
+		Me.btnBuscar = New System.Windows.Forms.Button()
+		Me.txtBusNombreProducto = New System.Windows.Forms.TextBox()
+		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+		Me.btnLimpiarFiltros = New System.Windows.Forms.Button()
 		CType(Me.dgvProductos, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox1.SuspendLayout()
+		Me.GroupBox2.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'dgvProductos
@@ -58,7 +64,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.dgvProductos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
 		Me.dgvProductos.ColumnHeadersHeight = 45
 		Me.dgvProductos.EnableHeadersVisualStyles = False
-		Me.dgvProductos.Location = New System.Drawing.Point(13, 247)
+		Me.dgvProductos.Location = New System.Drawing.Point(7, 341)
 		Me.dgvProductos.Margin = New System.Windows.Forms.Padding(4)
 		Me.dgvProductos.MultiSelect = False
 		Me.dgvProductos.Name = "dgvProductos"
@@ -69,7 +75,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.dgvProductos.RowHeadersWidth = 56
 		Me.dgvProductos.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
 		Me.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.dgvProductos.Size = New System.Drawing.Size(774, 245)
+		Me.dgvProductos.Size = New System.Drawing.Size(774, 286)
 		Me.dgvProductos.TabIndex = 38
 		'
 		'Label32
@@ -289,7 +295,7 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.btnGuardarProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnGuardarProveedor.Image = Global.ClaseUi.My.Resources.Resources.icons8_save_62
 		Me.btnGuardarProveedor.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnGuardarProveedor.Location = New System.Drawing.Point(795, 247)
+		Me.btnGuardarProveedor.Location = New System.Drawing.Point(689, 635)
 		Me.btnGuardarProveedor.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnGuardarProveedor.Name = "btnGuardarProveedor"
 		Me.btnGuardarProveedor.Size = New System.Drawing.Size(92, 106)
@@ -307,20 +313,82 @@ Partial Class FrmDetallePedidoDeReposicion
 		Me.btnCancelarProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnCancelarProveedor.Image = Global.ClaseUi.My.Resources.Resources.icons8_delete_62
 		Me.btnCancelarProveedor.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnCancelarProveedor.Location = New System.Drawing.Point(795, 372)
+		Me.btnCancelarProveedor.Location = New System.Drawing.Point(589, 635)
 		Me.btnCancelarProveedor.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnCancelarProveedor.Name = "btnCancelarProveedor"
-		Me.btnCancelarProveedor.Size = New System.Drawing.Size(92, 110)
+		Me.btnCancelarProveedor.Size = New System.Drawing.Size(92, 106)
 		Me.btnCancelarProveedor.TabIndex = 77
 		Me.btnCancelarProveedor.Text = "Cancelar Cambios"
 		Me.btnCancelarProveedor.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 		Me.btnCancelarProveedor.UseVisualStyleBackColor = False
 		'
+		'Label8
+		'
+		Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label8.Location = New System.Drawing.Point(6, 28)
+		Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+		Me.Label8.Name = "Label8"
+		Me.Label8.Size = New System.Drawing.Size(79, 36)
+		Me.Label8.TabIndex = 78
+		Me.Label8.Text = "Nombre producto"
+		'
+		'btnBuscar
+		'
+		Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
+		Me.btnBuscar.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_search_48
+		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnBuscar.FlatAppearance.BorderSize = 0
+		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnBuscar.Location = New System.Drawing.Point(694, 11)
+		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnBuscar.Name = "btnBuscar"
+		Me.btnBuscar.Size = New System.Drawing.Size(75, 73)
+		Me.btnBuscar.TabIndex = 80
+		Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnBuscar.UseVisualStyleBackColor = False
+		'
+		'txtBusNombreProducto
+		'
+		Me.txtBusNombreProducto.Location = New System.Drawing.Point(106, 36)
+		Me.txtBusNombreProducto.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+		Me.txtBusNombreProducto.Name = "txtBusNombreProducto"
+		Me.txtBusNombreProducto.Size = New System.Drawing.Size(237, 22)
+		Me.txtBusNombreProducto.TabIndex = 79
+		'
+		'GroupBox2
+		'
+		Me.GroupBox2.Controls.Add(Me.btnLimpiarFiltros)
+		Me.GroupBox2.Controls.Add(Me.btnBuscar)
+		Me.GroupBox2.Controls.Add(Me.Label8)
+		Me.GroupBox2.Controls.Add(Me.txtBusNombreProducto)
+		Me.GroupBox2.Location = New System.Drawing.Point(12, 246)
+		Me.GroupBox2.Name = "GroupBox2"
+		Me.GroupBox2.Size = New System.Drawing.Size(775, 88)
+		Me.GroupBox2.TabIndex = 78
+		Me.GroupBox2.TabStop = False
+		Me.GroupBox2.Text = "Producto"
+		'
+		'btnLimpiarFiltros
+		'
+		Me.btnLimpiarFiltros.BackColor = System.Drawing.SystemColors.Control
+		Me.btnLimpiarFiltros.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_clear_filters_40
+		Me.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
+		Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(614, 15)
+		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
+		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(72, 69)
+		Me.btnLimpiarFiltros.TabIndex = 81
+		Me.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnLimpiarFiltros.UseVisualStyleBackColor = False
+		'
 		'FrmDetallePedidoDeReposicion
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(910, 505)
+		Me.ClientSize = New System.Drawing.Size(799, 754)
+		Me.Controls.Add(Me.GroupBox2)
 		Me.Controls.Add(Me.btnCancelarProveedor)
 		Me.Controls.Add(Me.btnGuardarProveedor)
 		Me.Controls.Add(Me.lblBase)
@@ -337,6 +405,8 @@ Partial Class FrmDetallePedidoDeReposicion
 		CType(Me.dgvProductos, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox1.ResumeLayout(False)
 		Me.GroupBox1.PerformLayout()
+		Me.GroupBox2.ResumeLayout(False)
+		Me.GroupBox2.PerformLayout()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -362,4 +432,9 @@ Partial Class FrmDetallePedidoDeReposicion
 	Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
 	Friend WithEvents btnGuardarProveedor As Windows.Forms.Button
 	Friend WithEvents btnCancelarProveedor As Windows.Forms.Button
+	Friend WithEvents Label8 As Windows.Forms.Label
+	Friend WithEvents btnBuscar As Windows.Forms.Button
+	Friend WithEvents txtBusNombreProducto As Windows.Forms.TextBox
+	Friend WithEvents GroupBox2 As Windows.Forms.GroupBox
+	Friend WithEvents btnLimpiarFiltros As Windows.Forms.Button
 End Class
