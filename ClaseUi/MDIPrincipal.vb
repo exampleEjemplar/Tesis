@@ -239,7 +239,14 @@ Public Class MDIPrincipal
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        FrmDoc.ShowDialog()
+        If helpersUi.ValidarOperacion(NameOf(FrmDoc)) Then
+            FrmDoc.ShowDialog()
+
+        Else
+            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+        End If
+
+
 
 
 
