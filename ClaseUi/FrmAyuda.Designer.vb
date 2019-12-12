@@ -60,6 +60,7 @@ Partial Class FrmAyuda
         Me.ClientSize = New System.Drawing.Size(909, 749)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.AxAcroPDF1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmAyuda"
