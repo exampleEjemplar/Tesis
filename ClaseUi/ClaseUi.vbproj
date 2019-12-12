@@ -216,6 +216,12 @@
     <Compile Include="FrmDetallePedidoDeReposicion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmDoc.Designer.vb">
+      <DependentUpon>FrmDoc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDoc.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmEditarPedido.Designer.vb">
       <DependentUpon>FrmEditarPedido.vb</DependentUpon>
     </Compile>
@@ -566,6 +572,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleProductoCatalogo.resx">
       <DependentUpon>FrmDetalleProductoCatalogo.Vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDoc.resx">
+      <DependentUpon>FrmDoc.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEditarPedido.resx">
       <DependentUpon>FrmEditarPedido.vb</DependentUpon>
