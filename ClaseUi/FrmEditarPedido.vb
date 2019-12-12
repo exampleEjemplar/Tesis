@@ -17,6 +17,14 @@ Public Class FrmEditarPedido
 		Cargar()
 	End Sub
 
+	Public Sub HabilitarBotonEstadistica()
+		If Not cboEstado.SelectedItem = "Entregado al cliente" Then
+			btnEstadistica.Enabled = False
+		Else
+			btnEstadistica.Enabled = True
+		End If
+	End Sub
+
 	Private Function LlenarCboEstado(pedido As DataRow)
 		Try
 			Dim listaDeEstados = New List(Of Tuple(Of Integer, String))
@@ -82,7 +90,6 @@ Public Class FrmEditarPedido
 				listaDeVentas.Add(venta)
 				FrmComprobanteVenta.ListaVentas.Add(venta)
 			Next
-
 			ventasLN.RegistrarDesdePedido(listaDeVentas, idCliente)
 			MsgBox("Pedido modificado" + If(finalizar, ". Su pedido se ha transformado en una venta", ""), MsgBoxStyle.OkOnly, "Pedido")
 			FrmGestionVentas.idVenta = 0
@@ -98,6 +105,7 @@ Public Class FrmEditarPedido
 		idPedido = FrmGestionPedidos.idPedido
 		Dim pedido = pedidosLN.ObtenerUnPedido(idPedido).Tables(0).Rows(0)
 		LlenarCboEstado(pedido)
+		HabilitarBotonEstadistica()
 		lblCliente.Text = pedido(9).ToString()
 		Dim fecha = CType(pedido(1), Date)
 		lblFechaPedido.Text = fecha.ToString()

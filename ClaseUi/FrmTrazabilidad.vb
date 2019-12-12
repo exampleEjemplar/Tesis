@@ -22,13 +22,13 @@ Public Class FrmTrazabilidad
 		Dim listaProductos = New List(Of String)
 		Dim totalCosto As Decimal = 0
 		For i = 0 To pedidoInfo.Count - 1
-			listaProductos.Add(pedidoInfo(i)(11))
-            totalCosto += pedidoInfo(i)(14)
-        Next
-		lblCliente.Text = pedidoInfo(0)(8)
+			listaProductos.Add(pedidoInfo(i)(12))
+			totalCosto += pedidoInfo(i)(15)
+		Next
+		lblCliente.Text = pedidoInfo(0)(9)
 		lblPrecio.Text = totalCosto.ToString("C2")
 		lblPrecioVenta.Text = Convert.ToDecimal(pedidoInfo(0)(4)).ToString("C2")
-		lblProveedor.Text = pedidoInfo(0)(33)
+		lblProveedor.Text = pedidoInfo(0)(34)
 		cboProductos.DataSource = listaProductos
 
 		Dim registros = New List(Of MovimientoEstadoPedidoEstadistica)

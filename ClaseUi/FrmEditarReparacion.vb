@@ -27,7 +27,7 @@ Public Class FrmEditarReparacion
 				Dim description = helpersUI.GetEnumDescription(enumItem)
 				listaDeEstados.Add(New Tuple(Of Integer, String)(count, description))
 				dataSource.Add(description)
-				If pedido(32) = count Then
+				If pedido(33) = count Then
 					estado = New Tuple(Of Integer, String)(count, description)
 				End If
 				count = count + 1
@@ -85,20 +85,29 @@ Public Class FrmEditarReparacion
 		Cargar()
 	End Sub
 
+	Public Sub HabilitarBotonEstadistica()
+		If Not cboEstado.SelectedItem = "Entregado al cliente" Then
+			btnEstadistica.Enabled = False
+		Else
+			btnEstadistica.Enabled = True
+		End If
+	End Sub
+
 	Sub Cargar()
 		idReparacion = FrmGestionReparaciones.idReparacion
 		Dim pedido = pedidosLN.ObtenerUnPedido(idReparacion).Tables(0).Rows(0)
 		LlenarCboEstado(pedido)
-		lblCliente.Text = pedido(8).ToString()
+		HabilitarBotonEstadistica()
+		lblCliente.Text = pedido(9).ToString()
 		Dim fecha = CType(pedido(1), Date)
 		lblFechaPedido.Text = fecha.ToString()
 		lblFechaPactada.Text = fecha.AddDays(pedido(7))
 		lblCosto.Text = Convert.ToDecimal(pedido(4)).ToString("0.00")
-		lblProducto.Text = pedido(11).ToString()
-        idProducto = pedido(10)
-        idCliente = pedido(31)
+		lblProducto.Text = pedido(12).ToString()
+		idProducto = pedido(10)
+		idCliente = pedido(31)
 
-        If estado.Item1 = 4 Or estado.Item1 = 0 Then
+		If estado.Item1 = 4 Or estado.Item1 = 0 Then
 			cboEstado.Enabled = False
 			btnguardarmodificacion.Enabled = False
 		Else
