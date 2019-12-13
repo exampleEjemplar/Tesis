@@ -270,6 +270,7 @@ Public Class FrmArmadoVenta
 		If MsgBox("Desea limpiar la búsqueda?", MsgBoxStyle.YesNo, "Búsqueda") = MsgBoxResult.No Then
 			Return
 		End If
+		txtBusNombreProducto.Text = ""
 		cboBusProveedor.SelectedValue = 0
 		cboBusProveedor.SelectedItem = Nothing
 		rbtEntreFechas.Checked = False
@@ -359,6 +360,7 @@ Public Class FrmArmadoVenta
 		End If
 		lstProdDispo.Clear()
 		lstProdDispo.Scrollable = True
+		lstProdDispo.Sorting = SortOrder.None
 		If ds2.Tables(0).Rows.Count = 0 Then
 			MsgBox("No se encontró ningún producto bajo los parámetros solicitados", MsgBoxStyle.OkOnly, "Productos")
 			Return
@@ -389,23 +391,18 @@ Public Class FrmArmadoVenta
 
 			End If
 #End Region
+			lstProdDispo.Sorting = SortOrder.None
 			listaViewItem.Text = ds2.Tables(0).Rows(i).Item(1).ToString()
 			listaViewItem.Tag = ds2.Tables(0).Rows(i)
 			listaViewItem.ImageIndex = ik
 			lstProdDispo.Items.Add(ds2.Tables(0).Rows(i).Item(1).ToString(), ik)
 			listita.Add(listaViewItem)
 		Next
-
+		gboFiltros.Enabled = True
 		lstProdDispo.LargeImageList = ImageList
-        gboFiltros.Enabled = True
-        If cboOrden.SelectedItem = "asc" Then
-            lstProdDispo.Sorting = SortOrder.Ascending
-        Else
-            lstProdDispo.Sorting = SortOrder.Descending
-        End If
-    End Sub
+	End Sub
 
-    Private Sub chbListaParaOrdenar_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chbListaParaOrdenar.ItemCheck
+	Private Sub chbListaParaOrdenar_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chbListaParaOrdenar.ItemCheck
 		If Not String.IsNullOrEmpty(chbListaParaOrdenar.SelectedItem) Then
 
 			Dim count = OrderBy.Where(Function(x) Not x.Item2 = "").Count()
@@ -451,7 +448,7 @@ Public Class FrmArmadoVenta
 		OrderBy.Add(New Tuple(Of Integer, String, Integer)(1, "'Fecha de Alta'", 1))
 		OrderBy.Add(New Tuple(Of Integer, String, Integer)(2, "", 2))
 		OrderBy.Add(New Tuple(Of Integer, String, Integer)(3, "", 3))
-		lblPrioridad1.Visible = False
+		lblPrioridad1.Text = OrderBy.FirstOrDefault(Function(x) x.Item1 = 1).Item2.Replace("'", "")
 		lblPrioridad2.Visible = False
 		lblPrioridad3.Visible = False
 	End Sub

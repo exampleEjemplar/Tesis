@@ -112,4 +112,19 @@ Public Class FrmGestionPedidoDeReposicion
 		MsgBox("Pedido Anulado", MsgBoxStyle.OkOnly, "Pedido de reposición")
 		recargar = True
 	End Sub
+
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+		Buscar()
+	End Sub
+
+	Private Sub btnLimpiarFiltros_Click(sender As Object, e As EventArgs) Handles btnLimpiarFiltros.Click
+		dtpFechaHasta.Visible = False
+		dtpFechaDesde.Visible = False
+		lblFechaExacta.Visible = False
+		lblHasta.Visible = False
+		lbldesde.Visible = False
+		rbtEntreFechas.Checked = False
+		rbtFechaExacta.Checked = False
+		Buscar()
+	End Sub
 End Class

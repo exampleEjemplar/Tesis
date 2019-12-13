@@ -32,9 +32,10 @@ Partial Class FrmGestionPedidoDeReposicion
 		Me.btnNuevo = New System.Windows.Forms.Button()
 		Me.lbldesde = New System.Windows.Forms.Label()
 		Me.Label1 = New System.Windows.Forms.Label()
-		Me.btnBuscar = New System.Windows.Forms.Button()
 		Me.lblHasta = New System.Windows.Forms.Label()
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+		Me.btnLimpiarFiltros = New System.Windows.Forms.Button()
+		Me.Button1 = New System.Windows.Forms.Button()
 		Me.rbtFechaExacta = New System.Windows.Forms.CheckBox()
 		Me.rbtEntreFechas = New System.Windows.Forms.CheckBox()
 		Me.dtpFechaHasta = New System.Windows.Forms.DateTimePicker()
@@ -171,23 +172,6 @@ Partial Class FrmGestionPedidoDeReposicion
 		Me.Label1.TabIndex = 55
 		Me.Label1.Text = "Gestión pedidos de reposición"
 		'
-		'btnBuscar
-		'
-		Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
-		Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.btnBuscar.FlatAppearance.BorderSize = 0
-		Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
-		Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-		Me.btnBuscar.Location = New System.Drawing.Point(689, 30)
-		Me.btnBuscar.Margin = New System.Windows.Forms.Padding(4)
-		Me.btnBuscar.Name = "btnBuscar"
-		Me.btnBuscar.Size = New System.Drawing.Size(92, 100)
-		Me.btnBuscar.TabIndex = 5
-		Me.btnBuscar.Text = "Buscar"
-		Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-		Me.btnBuscar.UseVisualStyleBackColor = False
-		'
 		'lblHasta
 		'
 		Me.lblHasta.AutoSize = True
@@ -201,8 +185,9 @@ Partial Class FrmGestionPedidoDeReposicion
 		'
 		'GroupBox5
 		'
+		Me.GroupBox5.Controls.Add(Me.btnLimpiarFiltros)
+		Me.GroupBox5.Controls.Add(Me.Button1)
 		Me.GroupBox5.Controls.Add(Me.lbldesde)
-		Me.GroupBox5.Controls.Add(Me.btnBuscar)
 		Me.GroupBox5.Controls.Add(Me.lblHasta)
 		Me.GroupBox5.Controls.Add(Me.rbtFechaExacta)
 		Me.GroupBox5.Controls.Add(Me.rbtEntreFechas)
@@ -218,6 +203,36 @@ Partial Class FrmGestionPedidoDeReposicion
 		Me.GroupBox5.TabIndex = 56
 		Me.GroupBox5.TabStop = False
 		Me.GroupBox5.Text = "Búsqueda"
+		'
+		'btnLimpiarFiltros
+		'
+		Me.btnLimpiarFiltros.BackColor = System.Drawing.SystemColors.Control
+		Me.btnLimpiarFiltros.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_clear_filters_40
+		Me.btnLimpiarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
+		Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnLimpiarFiltros.Location = New System.Drawing.Point(709, 81)
+		Me.btnLimpiarFiltros.Margin = New System.Windows.Forms.Padding(4)
+		Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
+		Me.btnLimpiarFiltros.Size = New System.Drawing.Size(72, 69)
+		Me.btnLimpiarFiltros.TabIndex = 83
+		Me.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.btnLimpiarFiltros.UseVisualStyleBackColor = False
+		'
+		'Button1
+		'
+		Me.Button1.BackColor = System.Drawing.SystemColors.Control
+		Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_search_48
+		Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.Button1.FlatAppearance.BorderSize = 0
+		Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.Button1.Location = New System.Drawing.Point(709, 10)
+		Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+		Me.Button1.Name = "Button1"
+		Me.Button1.Size = New System.Drawing.Size(72, 69)
+		Me.Button1.TabIndex = 82
+		Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		Me.Button1.UseVisualStyleBackColor = False
 		'
 		'rbtFechaExacta
 		'
@@ -306,7 +321,6 @@ Partial Class FrmGestionPedidoDeReposicion
 	Friend WithEvents btnNuevo As Windows.Forms.Button
 	Friend WithEvents lbldesde As Windows.Forms.Label
 	Friend WithEvents Label1 As Windows.Forms.Label
-	Friend WithEvents btnBuscar As Windows.Forms.Button
 	Friend WithEvents lblHasta As Windows.Forms.Label
 	Friend WithEvents GroupBox5 As Windows.Forms.GroupBox
 	Friend WithEvents rbtFechaExacta As Windows.Forms.CheckBox
@@ -314,4 +328,6 @@ Partial Class FrmGestionPedidoDeReposicion
 	Friend WithEvents dtpFechaHasta As Windows.Forms.DateTimePicker
 	Friend WithEvents dtpFechaDesde As Windows.Forms.DateTimePicker
 	Friend WithEvents lblFechaExacta As Windows.Forms.Label
+	Friend WithEvents btnLimpiarFiltros As Windows.Forms.Button
+	Friend WithEvents Button1 As Windows.Forms.Button
 End Class

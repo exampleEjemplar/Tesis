@@ -239,18 +239,18 @@ Public Class MDIPrincipal
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        If helpersUi.ValidarOperacion(NameOf(FrmDoc)) Then
-            FrmDoc.ShowDialog()
+		'If helpersUi.ValidarOperacion(NameOf(FrmDoc)) Then
+		'    FrmDoc.ShowDialog()
 
-        Else
-            MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
-        End If
-
-
+		'Else
+		'    MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+		'End If
 
 
 
-    End Sub
+
+
+	End Sub
 
     Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles btnReparaciones.Click
         If helpersUi.ValidarOperacion(NameOf(FrmGestionReparaciones)) Then
@@ -444,8 +444,8 @@ Public Class MDIPrincipal
     End Sub
 
     Private Sub btnManualDeUsuario_Click(sender As Object, e As EventArgs) Handles btnManualDeUsuario.Click
-        FrmAyuda.ShowDialog()
-    End Sub
+		'FrmAyuda.ShowDialog()
+	End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         Dim cierre = cajaln.ControlCierreCaja.Tables(0)

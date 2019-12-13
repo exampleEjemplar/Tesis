@@ -107,25 +107,25 @@ Public Class FrmGestionVentas
 		dgvProveedores.DataSource = dsa1.Tables(0)
 		dgvProveedores.Columns("Id").Visible = False
 		dgvProveedores.Columns("estado").Visible = False
-        If primerOrder Then
-            primerOrder = False
-            For i = 0 To dsa1.Tables(0).Columns.Count - 1
-                If dsa1.Tables(0).Columns(i).ColumnName = "Id" Or dsa1.Tables(0).Columns(i).ColumnName = "estado" Then
-                    Continue For
-                End If
-                If dsa1.Tables(0).Columns(i).ColumnName = "Fecha" Then
-                    chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName, CheckState.Checked)
-                    Continue For
-                End If
-                chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName)
-            Next
-            chbListaParaOrdenar.SetItemChecked(0, True)
-        End If
-        dgvProveedores.Columns("Fecha").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-        dgvProveedores.Columns("Nombre").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
-        dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        dgvProveedores.Columns("Total").DefaultCellStyle.Format = "c2"
-        dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+		If primerOrder Then
+			primerOrder = False
+			For i = 0 To dsa1.Tables(0).Columns.Count - 1
+				If dsa1.Tables(0).Columns(i).ColumnName = "Id" Or dsa1.Tables(0).Columns(i).ColumnName = "estado" Then
+					Continue For
+				End If
+				If dsa1.Tables(0).Columns(i).ColumnName = "Fecha" Then
+					chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName, CheckState.Checked)
+					Continue For
+				End If
+				chbListaParaOrdenar.Items.Add(dsa1.Tables(0).Columns(i).ColumnName)
+			Next
+			chbListaParaOrdenar.SetItemChecked(0, True)
+		End If
+		dgvProveedores.Columns("Fecha").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+		dgvProveedores.Columns("Nombre").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+		dgvProveedores.Columns("Total").DefaultCellStyle.Format = "c2"
+		dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 		If dsa1.Tables(0).Rows.Count() = 0 And type = "" Then
 			MsgBox("La busqueda no arrojo resultados", MsgBoxStyle.OkOnly, "Ventas")
 		End If
@@ -206,9 +206,7 @@ Public Class FrmGestionVentas
 		End If
 	End Sub
 
-	Private Sub BtnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-		Busqueda()
-	End Sub
+
 
 	Private Sub RbtEntreFechas_CheckedChanged(sender As Object, e As EventArgs) Handles rbtEntreFechas.CheckedChanged, rbtFechaExacta.CheckedChanged
 
@@ -291,5 +289,22 @@ Public Class FrmGestionVentas
 	End Sub
 	Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvProveedores.CellClick
 		filaSeleccionada = dgvProveedores.CurrentRow.Index
+	End Sub
+
+	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+		Busqueda()
+	End Sub
+
+	Private Sub btnLimpiarFiltros_Click(sender As Object, e As EventArgs) Handles btnLimpiarFiltros.Click
+		LlenarCboClientes()
+		dtpFechaHasta.Visible = False
+		dtpFechaDesde.Visible = False
+		lblFechaExacta.Visible = False
+		lblHasta.Visible = False
+		lbldesde.Visible = False
+		Busqueda()
+		rbtEntreFechas.Checked = False
+		rbtFechaExacta.Checked = False
+
 	End Sub
 End Class
