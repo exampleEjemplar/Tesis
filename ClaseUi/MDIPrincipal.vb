@@ -239,12 +239,12 @@ Public Class MDIPrincipal
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-		'If helpersUi.ValidarOperacion(NameOf(FrmDoc)) Then
-		'    FrmDoc.ShowDialog()
+		If helpersUi.ValidarOperacion(NameOf(FrmDoc)) Then
+			FrmDoc.ShowDialog()
 
-		'Else
-		'    MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
-		'End If
+		Else
+			MsgBox("Usted no tiene autorización para realizar esta operación", MsgBoxStyle.OkOnly, "Roles")
+		End If
 
 
 
@@ -444,7 +444,7 @@ Public Class MDIPrincipal
     End Sub
 
     Private Sub btnManualDeUsuario_Click(sender As Object, e As EventArgs) Handles btnManualDeUsuario.Click
-		'FrmAyuda.ShowDialog()
+		FrmAyuda.ShowDialog()
 	End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
