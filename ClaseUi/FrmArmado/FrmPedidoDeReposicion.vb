@@ -188,12 +188,12 @@ Public Class FrmPedidoDeReposicion
 	End Sub
 
 	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+		Dim listaDeListas = New List(Of List(Of TipoDeComprasNE))
 		If MsgBox("Está seguro que desea hacer la cotización?, Se cotizará mercadería por un total de " + lblTotal.Text, MsgBoxStyle.YesNo, "Confirmar") = MsgBoxResult.No Then
 			Return
 		End If
 		Dim compras = 0
 		Try
-			Dim listaDeListas = New List(Of List(Of TipoDeComprasNE))
 			For i = 0 To agrupado.Count - 1
 				Dim listaDeCompras = New List(Of TipoDeComprasNE)
 				If agrupado(i).All(Function(x) x.AComprar = 0) Then
@@ -220,11 +220,9 @@ Public Class FrmPedidoDeReposicion
 				'	nroComprobante = Helpersui.AgregarNumerosComprobante(ultimaCompra.Rows(0).Item(0) + 1)
 				'End If
 				'comprasLN.Registrar(listaDeCompras, agrupado(i).FirstOrDefault().ProveedorId, nroComprobante)
-				'compras += 1
+				compras += 1
 				listaDeListas.Add(listaDeCompras)
 			Next
-			pedidoDeReposicionLN.RegistrarConjuntoPedidoDeReposición(listaDeListas)
-			Close()
 		Catch ex As Exception
 			MessageBox.Show(ex.Message)
 			MsgBox("Ha ocurrido un error. Por favor intentelo mas tarde", MsgBoxStyle.Critical, "Stock")
@@ -233,16 +231,17 @@ Public Class FrmPedidoDeReposicion
 			Close()
 			Return
 		End Try
-		MsgBox("Se ha agregado la cotización del pedido de reposición. Para acceder a este, por favor ingrese en el menú de gestión de pedidos de reposición", MsgBoxStyle.OkOnly, "Stock")
-		FrmGestionPedidoDeReposicion.recargar = True
-		'If compras > 0 Then
-		'	MsgBox("Se han realizado " + compras.ToString() + " compra/s. En caso de dudas revisar la gestión de compras!", MsgBoxStyle.OkOnly, "Stock")
-		'	FrmGestionStock.recargar = True
-		'	Dispose()
-		'	Close()
-		'Else
-		'	MsgBox("No había ningún producto para comprar. Revise la configuración del pedido de reposición", MsgBoxStyle.OkOnly, "Stock")
-		'End If
+		If compras > 0 Then
+			pedidoDeReposicionLN.RegistrarConjuntoPedidoDeReposición(listaDeListas)
+			MsgBox("Se ha agregado la cotización del pedido de reposición. Para acceder a este, por favor ingrese en el menú de gestión de pedidos de reposición", MsgBoxStyle.OkOnly, "Stock")
+			FrmGestionPedidoDeReposicion.recargar = True
+			'MsgBox("Se han realizado " + compras.ToString() + " compra/s. En caso de dudas revisar la gestión de compras!", MsgBoxStyle.OkOnly, "Stock")
+			'FrmGestionStock.recargar = True
+			Dispose()
+			Close()
+		Else
+			MsgBox("No había ningún producto para comprar. Revise la configuración del pedido de reposición", MsgBoxStyle.OkOnly, "Stock")
+		End If
 	End Sub
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSalirrr.Click
