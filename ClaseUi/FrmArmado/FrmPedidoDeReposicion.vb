@@ -234,6 +234,7 @@ Public Class FrmPedidoDeReposicion
 			Return
 		End Try
 		MsgBox("Se ha agregado la cotización del pedido de reposición. Para acceder a este, por favor ingrese en el menú de gestión de pedidos de reposición", MsgBoxStyle.OkOnly, "Stock")
+		FrmGestionPedidoDeReposicion.recargar = True
 		'If compras > 0 Then
 		'	MsgBox("Se han realizado " + compras.ToString() + " compra/s. En caso de dudas revisar la gestión de compras!", MsgBoxStyle.OkOnly, "Stock")
 		'	FrmGestionStock.recargar = True

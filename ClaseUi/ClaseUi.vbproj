@@ -192,6 +192,12 @@
     <Compile Include="FrmAyuda.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmConfirmacionPedidoDeReposicion.Designer.vb">
+      <DependentUpon>FrmConfirmacionPedidoDeReposicion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfirmacionPedidoDeReposicion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmConsultaCotizaciones.Designer.vb">
       <DependentUpon>FrmConsultaCotizaciones.vb</DependentUpon>
     </Compile>
@@ -557,6 +563,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCatalogo.resx">
       <DependentUpon>FrmCatalogo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfirmacionPedidoDeReposicion.resx">
+      <DependentUpon>FrmConfirmacionPedidoDeReposicion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaCotizaciones.resx">
       <DependentUpon>FrmConsultaCotizaciones.vb</DependentUpon>

@@ -5,11 +5,19 @@ Public Class FrmGestionPedidoDeReposicion
 	Private PedidoDeReposicionLN As New PedidoDeReposicionLN
 	Private fecha1 As Date? = Nothing
 	Private fecha2 As Date? = Nothing
-
+	Public recargar As Boolean = False
+	Public filaSeleccionada As Integer?
 
 
 	Private Sub FrmGestionPedidoDeReposicion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Cargar()
+	End Sub
+
+	Private Sub AssaasddasdadsActivated(sender As Object, e As EventArgs) Handles MyBase.Activated
+		If recargar Then
+			Cargar()
+			recargar = False
+		End If
 	End Sub
 
 	Public Sub Buscar()
@@ -28,19 +36,25 @@ Public Class FrmGestionPedidoDeReposicion
 		dgvProveedores.Columns("Total").DefaultCellStyle.Format = "c2"
 		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
 		dgvProveedores.Columns("Fecha").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+		dgvProveedores.Columns("Estado").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 		dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 	End Sub
 
 	Public Sub Cargar()
 		Buscar()
-		btnEliminar.Enabled = False
+		dtpFechaHasta.Visible = False
+		dtpFechaDesde.Visible = False
+		lblFechaExacta.Visible = False
+		lblHasta.Visible = False
+		lbldesde.Visible = False
 	End Sub
 
 	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles dgvProveedores.CellMouseDoubleClick
 		Dim selectedRow As DataGridViewRow = Nothing
 		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
 			selectedRow = dgvProveedores.Rows(e.RowIndex)
-
+			FrmConfirmacionPedidoDeReposicion.idpedido = selectedRow.Cells("id").Value
+			FrmConfirmacionPedidoDeReposicion.ShowDialog()
 		End If
 
 	End Sub
@@ -76,5 +90,26 @@ Public Class FrmGestionPedidoDeReposicion
 
 	Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
 		Close()
+	End Sub
+
+	Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvProveedores.CellClick
+		filaSeleccionada = dgvProveedores.CurrentRow.Index
+	End Sub
+
+	Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+		If Not filaSeleccionada.HasValue Then
+			MsgBox("Debe seleccionar un pedido de reposición", MsgBoxStyle.Critical, "Pedido de reposición")
+			Return
+		End If
+		If Not dgvProveedores.Item("Estado", filaSeleccionada.Value).Value = "Activo" Then
+			MsgBox("El pedido de reposición no puede ser anulado", MsgBoxStyle.Critical, "Pedido de reposición")
+			Return
+		End If
+		If MsgBox("Está seguro que desea anular el pedido de reposición?", MsgBoxStyle.YesNo, "Pedido de reposición") = MsgBoxResult.No Then
+			Return
+		End If
+		PedidoDeReposicionLN.CambiarEstado(dgvProveedores.Item("Id", filaSeleccionada.Value).Value, 0)
+		MsgBox("Pedido Anulado", MsgBoxStyle.OkOnly, "Pedido de reposición")
+		recargar = True
 	End Sub
 End Class

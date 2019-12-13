@@ -16,4 +16,12 @@ Public Class PedidoDeReposicionLN
 		Return PedidoDeReposicionDA.CargarPedidos(fecha1, fecha2)
 	End Function
 
+	Function CargarPedido(id As Integer)
+		Return PedidoDeReposicionDA.CargarPedido(id)
+	End Function
+
+	Public Sub CambiarEstado(idpedido As Integer, nuevoEstado As Integer)
+		PedidoDeReposicionDA.CambiarEstado(idpedido, nuevoEstado)
+	End Sub
+
 End Class
