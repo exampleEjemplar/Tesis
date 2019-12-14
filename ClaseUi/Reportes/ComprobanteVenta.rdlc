@@ -520,138 +520,16 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.90917in</Height>
+        <Height>1.88846in</Height>
         <Style />
       </Body>
       <Width>6.59in</Width>
       <Page>
         <PageHeader>
-          <Height>5.91175cm</Height>
+          <Height>6.17633cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Rectangle Name="Rectangle3">
-              <ReportItems>
-                <Textbox Name="txtInfoOrg">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>JOYERIA CRIZOL</Value>
-                          <Style>
-                            <FontSize>16pt</FontSize>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value />
-                          <Style>
-                            <FontSize>12pt</FontSize>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>Razon Social: </Value>
-                          <Style>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                        <TextRun>
-                          <Value>Joyería Crizol</Value>
-                          <Style />
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value />
-                          <Style>
-                            <FontSize>11pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value />
-                          <Style>
-                            <FontSize>11pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>Domicilio: </Value>
-                          <Style>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                        <TextRun>
-                          <Value>Velez Sarsfield 68 - Centro, Córdoba </Value>
-                          <Style />
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <Top>0.03528cm</Top>
-                  <Left>0.0635cm</Left>
-                  <Height>3.12806cm</Height>
-                  <Width>7.69317cm</Width>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>4pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-              </ReportItems>
-              <KeepTogether>true</KeepTogether>
-              <Top>1.06685cm</Top>
-              <Left>0.29141cm</Left>
-              <Height>3.16334cm</Height>
-              <Width>7.82723cm</Width>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                  <Width>1.5pt</Width>
-                </Border>
-              </Style>
-            </Rectangle>
             <Rectangle Name="Rectangle2">
               <ReportItems>
                 <Textbox Name="Textbox3">
@@ -694,7 +572,6 @@
               <Left>0.29141cm</Left>
               <Height>0.86703cm</Height>
               <Width>16.08593cm</Width>
-              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -849,7 +726,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>1.06274cm</Top>
-                  <Left>0.03175cm</Left>
+                  <Left>0.0635cm</Left>
                   <Height>0.60413cm</Height>
                   <Width>3.43256cm</Width>
                   <ZIndex>4</ZIndex>
@@ -881,9 +758,9 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>1.06214cm</Top>
-                  <Left>3.49959cm</Left>
+                  <Left>3.56309cm</Left>
                   <Height>0.60473cm</Height>
-                  <Width>4.55576cm</Width>
+                  <Width>3.86784cm</Width>
                   <ZIndex>5</ZIndex>
                   <Style>
                     <Border>
@@ -913,9 +790,9 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>1.95202cm</Top>
-                  <Left>0.03175cm</Left>
+                  <Left>0.0635cm</Left>
                   <Height>0.60413cm</Height>
-                  <Width>1.02926cm</Width>
+                  <Width>1.2762cm</Width>
                   <ZIndex>6</ZIndex>
                   <Style>
                     <Border>
@@ -945,9 +822,9 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>1.95731cm</Top>
-                  <Left>1.06101cm</Left>
+                  <Left>1.37851cm</Left>
                   <Height>0.59884cm</Height>
-                  <Width>2.4033cm</Width>
+                  <Width>2.80018cm</Width>
                   <ZIndex>7</ZIndex>
                   <Style>
                     <Border>
@@ -963,9 +840,9 @@
               <KeepTogether>true</KeepTogether>
               <Top>1.10213cm</Top>
               <Left>8.11864cm</Left>
-              <Height>3.09905cm</Height>
+              <Height>3.12806cm</Height>
               <Width>8.2587cm</Width>
-              <ZIndex>2</ZIndex>
+              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -989,15 +866,15 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Center</TextAlign>
+                        <TextAlign>Left</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0.07762cm</Top>
+                  <Top>0.10937cm</Top>
                   <Left>0.127cm</Left>
                   <Height>0.65536cm</Height>
-                  <Width>1.88223cm</Width>
+                  <Width>1.58237cm</Width>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -1061,8 +938,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0.87762cm</Top>
-                  <Left>0.0635cm</Left>
+                  <Top>0.94112cm</Top>
+                  <Left>0.02822cm</Left>
                   <Height>0.65536cm</Height>
                   <Width>3.57919cm</Width>
                   <ZIndex>2</ZIndex>
@@ -1096,7 +973,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.94112cm</Top>
-                  <Left>6.40674cm</Left>
+                  <Left>6.53374cm</Left>
                   <Height>0.65536cm</Height>
                   <Width>1.9035cm</Width>
                   <ZIndex>3</ZIndex>
@@ -1130,9 +1007,9 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.94112cm</Top>
-                  <Left>8.31024cm</Left>
+                  <Left>8.48663cm</Left>
                   <Height>0.65536cm</Height>
-                  <Width>7.57234cm</Width>
+                  <Width>7.39595cm</Width>
                   <ZIndex>4</ZIndex>
                   <Style>
                     <Border>
@@ -1197,10 +1074,10 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0.87883cm</Top>
-                  <Left>3.67797cm</Left>
+                  <Top>0.94112cm</Top>
+                  <Left>3.67444cm</Left>
                   <Height>0.65536cm</Height>
-                  <Width>2.46942cm</Width>
+                  <Width>1.86088cm</Width>
                   <ZIndex>6</ZIndex>
                   <Style>
                     <Border>
@@ -1231,10 +1108,10 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                  <Top>0.08589cm</Top>
-                  <Left>2.00923cm</Left>
+                  <Top>0.10937cm</Top>
+                  <Left>1.8152cm</Left>
                   <Height>0.65536cm</Height>
-                  <Width>4.13816cm</Width>
+                  <Width>2.8417cm</Width>
                   <ZIndex>7</ZIndex>
                   <Style>
                     <Border>
@@ -1250,9 +1127,9 @@
               <KeepTogether>true</KeepTogether>
               <Top>4.23292cm</Top>
               <Left>0.29141cm</Left>
-              <Height>1.67883cm</Height>
+              <Height>1.93459cm</Height>
               <Width>16.08593cm</Width>
-              <ZIndex>3</ZIndex>
+              <ZIndex>2</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -1260,6 +1137,102 @@
                 </Border>
               </Style>
             </Rectangle>
+            <Textbox Name="txtInfoOrg">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>JOYERIA CRIZOL</Value>
+                      <Style>
+                        <FontSize>16pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value />
+                      <Style>
+                        <FontSize>12pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Razon Social: </Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>Joyería Crizol</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value />
+                      <Style>
+                        <FontSize>11pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Domicilio: </Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>Velez Sarsfield 68 - Centro, Córdoba </Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>1.09676cm</Top>
+              <Left>0.29141cm</Left>
+              <Height>3.13343cm</Height>
+              <Width>7.79195cm</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                  <Width>1.5pt</Width>
+                </Border>
+                <PaddingLeft>4pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>
