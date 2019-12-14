@@ -219,10 +219,10 @@ Public Class ComprasDA
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = "select sum(total) AS 'Total', MONTH(fecha) as Mes from compras " &
-							"where Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-							"group by MONTH(Fecha)"
-		Try
+        sqlStr = "select sum(total) AS 'Total', MONTH(fecha) as Mes from compras " &
+                            "where Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' and Estado=0 " &
+                            "group by MONTH(Fecha)"
+        Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
 			helpersDa.ChequearConexion(db,"close")
@@ -240,7 +240,7 @@ Public Class ComprasDA
 		Dim sqlStr As String
 		ds1 = New DataSet
         sqlStr = "select cast (round ( count(c.total) * 100.00/ sum(count(c.total)) over(),2) as numeric(10,2)) total, t.Nombre as nombre from compras c inner Join Detallecompras dc on c.id=dc.CompraId inner Join Productos p on dc.ProductoId=p.id  inner Join TipoProductos t on p.TipoProductoID=t.id " &
-                 "where c.Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+                 "where c.Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' and Estado=0  " &
                  "group by  t.Nombre"
 
         Try
@@ -260,7 +260,7 @@ Public Class ComprasDA
         Dim sqlStr As String
         ds1 = New DataSet
         sqlStr = "select sum(c.total) as Total, mat.nombre from detallecompras dc inner join compras c on dc.CompraId = c.Id inner join Productos p on dc.ProductoId=p.id inner join Materiales mat on p.MaterialId=mat.id " &
-"where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+"where FechaAlta BETWEEN '" & fechadesde & "' and '" & fechahasta & "' and Estado=0  " &
 "group by mat.nombre"
 
         Try
@@ -279,11 +279,11 @@ Public Class ComprasDA
 
 		Dim sqlStr As String
 		ds1 = New DataSet
-		sqlStr = " Select sum(c.Total) As Total, p.Nombre +' '+ p.apellido As Proveedor from compras c inner Join Proveedores p on c.ProveedorId=p.id  " &
-					"where Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
-					"group by p.Nombre +' '+ p.apellido"
+        sqlStr = " Select sum(c.Total) As Total, p.Nombre +' '+ p.apellido As Proveedor from compras c inner Join Proveedores p on c.ProveedorId=p.id  " &
+                    "where Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' and Estado=0  " &
+                    "group by p.Nombre +' '+ p.apellido"
 
-		Try
+        Try
 			da = New SqlDataAdapter(sqlStr, db)
 			da.Fill(ds1)
 		Catch ex As Exception
@@ -301,7 +301,7 @@ Public Class ComprasDA
         Dim sqlStr As String
         ds1 = New DataSet
         sqlStr = " select sum(total) as total, u.UserName as nombre from compras c inner join usuarios u on c.usuarioid=u.id " &
-                    "where c.Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' " &
+                    "where c.Fecha BETWEEN '" & fechadesde & "' and '" & fechahasta & "' and Estado=0 " &
                     "group by u.username"
 
         Try
