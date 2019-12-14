@@ -13,11 +13,11 @@ Public Class VentasLN
 		ventasDA.RegistrarDesdePedido(listaDeProductosId, clienteId)
 	End Sub
 
-	Public Function Anular(id As Integer)
-		Return ventasDA.Anular(id)
-	End Function
+    Public Sub Anular(id As Integer)
+        ventasDA.Anular(id)
+    End Sub
 
-	Public Function CargarGrillaVentas(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc as string)
+    Public Function CargarGrillaVentas(ByVal parametros As Dictionary(Of String, String), orderby As List(Of Tuple(Of Integer, String, Integer)), ascOrDesc as string)
 		Return ventasDA.CargarGrillaVentas(parametros, orderby, ascOrDesc)
 	End Function
 

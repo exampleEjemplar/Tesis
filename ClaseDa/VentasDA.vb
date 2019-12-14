@@ -44,23 +44,30 @@ Public Class VentasDA
 		helpersDa.ChequearConexion(db, "close")
 	End Sub
 
-	Public Function Anular(id As Integer)
-		helpersDa.ChequearConexion(db)
-		Dim sqlStr As String
-		sqlStr = "update ventas set estado = 2 where id = " + id.ToString()
-		ds1 = New DataSet
-		Try
-			da = New SqlDataAdapter(sqlStr, db)
-			da.Fill(ds1)
-		Catch ex As Exception
-			MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-			helpersDa.ChequearConexion(db, "close")
-		End Try
-		helpersDa.ChequearConexion(db, "close")
-		Return ds1
-	End Function
+    Public Sub Anular(id As Integer)
+        helpersDa.ChequearConexion(db)
 
-	Public Function ObtenerUnaVenta(id As Integer)
+        Try
+            Dim updateVentas As New SqlCommand("update ventas set estado = 2 where id = " + id.ToString(), db)
+            updateVentas.ExecuteNonQuery()
+
+            Dim ds As DataSet = Nothing
+            da = New SqlDataAdapter("SELECT * FROM detalleVentas WHERE ventaId = " + id.ToString(), db)
+            da.Fill(ds)
+
+            For i = 0 To ds.Tables(0).Rows.Count - 1
+                Dim insertMovimientoStock As New SqlCommand("insert into MovimientosStock VALUES(" + (ds.Tables(0).Rows(i)(2) * -1).ToString() + "," + ds.Tables(0).Rows(i)(1).ToString() + ",GETDATE())", db)
+                insertMovimientoStock.ExecuteNonQuery()
+            Next
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            helpersDa.ChequearConexion(db, "close")
+        End Try
+        helpersDa.ChequearConexion(db, "close")
+    End Sub
+
+    Public Function ObtenerUnaVenta(id As Integer)
 		helpersDa.ChequearConexion(db)
 		Dim sqlStr As String
 		sqlStr = "SELECT * FROM ventas WHERE Id = " + id.ToString()

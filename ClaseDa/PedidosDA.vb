@@ -107,8 +107,8 @@ Public Class PedidosDA
 				insert.ExecuteNonQuery()
 
 			Else
-				Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", 0 ,round(" & totalizado & ",2)," + LoginDa.ChequearEnSesion() + ", 'S', " + listaDeProductosId.FirstOrDefault().Dias.ToString() + ",NULL)", db)
-				insert.CommandType = CommandType.Text
+                Dim insert As New SqlCommand("insert into pedidos Values (GETDATE()," & clienteId & ", 0 ,round(" & total & ",2)," + LoginDa.ChequearEnSesion() + ", 'S', " + listaDeProductosId.FirstOrDefault().Dias.ToString() + ",NULL)", db)
+                insert.CommandType = CommandType.Text
 				insert.ExecuteNonQuery()
 			End If
 			Dim insertEstado As New SqlCommand("Declare @ventaID int SELECT @ventaID = MAX(Id) FROM pedidos insert into movimientoEstadosPedidos VALUES(@ventaID , 1 ,getdate(),1)", db)
