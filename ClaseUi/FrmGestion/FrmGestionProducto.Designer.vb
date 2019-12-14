@@ -139,9 +139,9 @@ Partial Class FrmGestionProducto
         Me.GroupBox7.Controls.Add(Me.chbListaParaOrdenar)
         Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
         Me.GroupBox7.Location = New System.Drawing.Point(245, 10)
-        Me.GroupBox7.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox7.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox7.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox7.Size = New System.Drawing.Size(186, 120)
         Me.GroupBox7.TabIndex = 46
         Me.GroupBox7.TabStop = False
@@ -173,7 +173,7 @@ Partial Class FrmGestionProducto
         '
         Me.chbListaParaOrdenar.FormattingEnabled = True
         Me.chbListaParaOrdenar.Location = New System.Drawing.Point(4, 17)
-        Me.chbListaParaOrdenar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chbListaParaOrdenar.Margin = New System.Windows.Forms.Padding(2)
         Me.chbListaParaOrdenar.Name = "chbListaParaOrdenar"
         Me.chbListaParaOrdenar.Size = New System.Drawing.Size(175, 68)
         Me.chbListaParaOrdenar.TabIndex = 0
@@ -206,9 +206,9 @@ Partial Class FrmGestionProducto
         Me.GroupBox8.Controls.Add(Me.lblPrioridad2)
         Me.GroupBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
         Me.GroupBox8.Location = New System.Drawing.Point(435, 10)
-        Me.GroupBox8.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox8.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox8.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox8.Size = New System.Drawing.Size(95, 120)
         Me.GroupBox8.TabIndex = 46
         Me.GroupBox8.TabStop = False
@@ -1047,6 +1047,7 @@ Partial Class FrmGestionProducto
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnGuardar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmGestionProducto"

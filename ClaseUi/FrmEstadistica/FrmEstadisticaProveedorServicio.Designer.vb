@@ -22,18 +22,19 @@ Partial Class FrmEstadisticaProveedorServicio
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Title3 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea16 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend16 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series16 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title16 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmEstadisticaProveedorServicio))
+        Dim ChartArea17 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend17 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series17 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title17 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea18 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend18 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series18 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title18 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.Chart4 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
@@ -49,6 +50,7 @@ Partial Class FrmEstadisticaProveedorServicio
         Me.dtpdesde = New System.Windows.Forms.DateTimePicker()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.Chart4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.gbFiltro.SuspendLayout()
@@ -61,50 +63,51 @@ Partial Class FrmEstadisticaProveedorServicio
         Me.Chart4.BorderlineColor = System.Drawing.Color.Black
         Me.Chart4.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart4.BorderlineWidth = 2
-        ChartArea1.Area3DStyle.Enable3D = True
-        ChartArea1.AxisX.Title = "Nombre Proveedor"
-        ChartArea1.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea1.AxisY.Title = "Cantidad de Productos"
-        ChartArea1.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart4.ChartAreas.Add(ChartArea1)
-        Legend1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Legend1.IsTextAutoFit = False
-        Legend1.Name = "Legend1"
-        Me.Chart4.Legends.Add(Legend1)
-        Me.Chart4.Location = New System.Drawing.Point(12, 210)
+        ChartArea16.Area3DStyle.Enable3D = True
+        ChartArea16.AxisX.Title = "Nombre Proveedor"
+        ChartArea16.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea16.AxisY.Title = "Cantidad de Productos"
+        ChartArea16.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea16.Name = "ChartArea1"
+        Me.Chart4.ChartAreas.Add(ChartArea16)
+        Legend16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Legend16.IsTextAutoFit = False
+        Legend16.Name = "Legend1"
+        Me.Chart4.Legends.Add(Legend16)
+        Me.Chart4.Location = New System.Drawing.Point(32, 246)
         Me.Chart4.Name = "Chart4"
         Me.Chart4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
-        Series1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Series1.IsValueShownAsLabel = True
-        Series1.IsVisibleInLegend = False
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series2"
-        Series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
-        Series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Me.Chart4.Series.Add(Series1)
-        Me.Chart4.Size = New System.Drawing.Size(668, 372)
+        Series16.ChartArea = "ChartArea1"
+        Series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
+        Series16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series16.IsValueShownAsLabel = True
+        Series16.IsVisibleInLegend = False
+        Series16.Legend = "Legend1"
+        Series16.Name = "Series2"
+        Series16.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
+        Series16.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Series16.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Me.Chart4.Series.Add(Series16)
+        Me.Chart4.Size = New System.Drawing.Size(680, 367)
         Me.Chart4.TabIndex = 31
         Me.Chart4.Text = "Chart1"
-        Title1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title1.Name = "Title1"
-        Title1.Text = "Por Provincia de Procedencia"
-        Me.Chart4.Titles.Add(Title1)
+        Title16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title16.Name = "Title1"
+        Title16.Text = "Por Provincia de Procedencia"
+        Me.Chart4.Titles.Add(Title16)
         '
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.SystemColors.Control
-        Me.Button2.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_clear_filters_60
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(705, 275)
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button2.Location = New System.Drawing.Point(718, 431)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(80, 116)
+        Me.Button2.Size = New System.Drawing.Size(80, 88)
         Me.Button2.TabIndex = 30
         Me.Button2.Tag = ""
         Me.Button2.Text = "Borrar Búsqueda"
@@ -114,14 +117,15 @@ Partial Class FrmEstadisticaProveedorServicio
         'btnSalir
         '
         Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
-        Me.btnSalir.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
         Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnSalir.FlatAppearance.BorderSize = 0
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Location = New System.Drawing.Point(705, 417)
+        Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
+        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSalir.Location = New System.Drawing.Point(718, 525)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(80, 89)
+        Me.btnSalir.Size = New System.Drawing.Size(80, 88)
         Me.btnSalir.TabIndex = 28
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -136,24 +140,25 @@ Partial Class FrmEstadisticaProveedorServicio
         Me.GroupBox1.Controls.Add(Me.dtphasta)
         Me.GroupBox1.Controls.Add(Me.dtpdesde)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(32, 48)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(668, 192)
+        Me.GroupBox1.Size = New System.Drawing.Size(680, 187)
         Me.GroupBox1.TabIndex = 32
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Estadísticas de Proveedores"
+        Me.GroupBox1.Text = "Búsqueda"
         '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.Control
-        Me.Button1.BackgroundImage = Global.ClaseUi.My.Resources.Resources.icons8_search_48
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(526, 10)
+        Me.Button1.Image = Global.ClaseUi.My.Resources.Resources.icons8_search_48
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(590, 14)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(114, 74)
+        Me.Button1.Size = New System.Drawing.Size(74, 74)
         Me.Button1.TabIndex = 17
         Me.Button1.Tag = ""
         Me.Button1.Text = "Buscar"
@@ -168,10 +173,10 @@ Partial Class FrmEstadisticaProveedorServicio
         Me.gbFiltro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbFiltro.Location = New System.Drawing.Point(6, 90)
         Me.gbFiltro.Name = "gbFiltro"
-        Me.gbFiltro.Size = New System.Drawing.Size(656, 96)
+        Me.gbFiltro.Size = New System.Drawing.Size(668, 90)
         Me.gbFiltro.TabIndex = 7
         Me.gbFiltro.TabStop = False
-        Me.gbFiltro.Text = "Búsqueda"
+        Me.gbFiltro.Text = "Tipo de Gráfico"
         '
         'RadioButton3
         '
@@ -189,7 +194,7 @@ Partial Class FrmEstadisticaProveedorServicio
         '
         Me.RadioButton4.AutoSize = True
         Me.RadioButton4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton4.Location = New System.Drawing.Point(440, 40)
+        Me.RadioButton4.Location = New System.Drawing.Point(450, 40)
         Me.RadioButton4.Name = "RadioButton4"
         Me.RadioButton4.Size = New System.Drawing.Size(194, 17)
         Me.RadioButton4.TabIndex = 4
@@ -201,7 +206,7 @@ Partial Class FrmEstadisticaProveedorServicio
         '
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton2.Location = New System.Drawing.Point(240, 40)
+        Me.RadioButton2.Location = New System.Drawing.Point(250, 40)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(108, 17)
         Me.RadioButton2.TabIndex = 1
@@ -230,16 +235,18 @@ Partial Class FrmEstadisticaProveedorServicio
         '
         'dtphasta
         '
-        Me.dtphasta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtphasta.Location = New System.Drawing.Point(335, 37)
+        Me.dtphasta.CustomFormat = "dd/MM/yyyy"
+        Me.dtphasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtphasta.Location = New System.Drawing.Point(335, 40)
         Me.dtphasta.Name = "dtphasta"
         Me.dtphasta.Size = New System.Drawing.Size(142, 20)
         Me.dtphasta.TabIndex = 4
         '
         'dtpdesde
         '
+        Me.dtpdesde.CustomFormat = "dd/MM/yyyy"
         Me.dtpdesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpdesde.Location = New System.Drawing.Point(122, 37)
+        Me.dtpdesde.Location = New System.Drawing.Point(122, 40)
         Me.dtpdesde.Name = "dtpdesde"
         Me.dtpdesde.Size = New System.Drawing.Size(142, 20)
         Me.dtpdesde.TabIndex = 3
@@ -248,97 +255,110 @@ Partial Class FrmEstadisticaProveedorServicio
         '
         Me.Chart2.BorderlineColor = System.Drawing.Color.Black
         Me.Chart2.BorderlineWidth = 2
-        ChartArea2.Area3DStyle.Enable3D = True
-        ChartArea2.Area3DStyle.Inclination = 40
-        ChartArea2.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic
-        ChartArea2.AxisX.Title = "Personería"
-        ChartArea2.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far
-        ChartArea2.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea2.AxisY.Title = "Cantidad Registrados"
-        ChartArea2.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea2)
-        Legend2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Legend2.HeaderSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.ThickLine
-        Legend2.IsTextAutoFit = False
-        Legend2.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend2)
-        Me.Chart2.Location = New System.Drawing.Point(-3, 210)
+        ChartArea17.Area3DStyle.Enable3D = True
+        ChartArea17.Area3DStyle.Inclination = 40
+        ChartArea17.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic
+        ChartArea17.AxisX.Title = "Personería"
+        ChartArea17.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far
+        ChartArea17.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea17.AxisY.Title = "Cantidad Registrados"
+        ChartArea17.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea17.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea17)
+        Legend17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Legend17.HeaderSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.ThickLine
+        Legend17.IsTextAutoFit = False
+        Legend17.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend17)
+        Me.Chart2.Location = New System.Drawing.Point(32, 246)
         Me.Chart2.Name = "Chart2"
         Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry
-        Series2.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Series2.ChartArea = "ChartArea1"
-        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
-        Series2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Series2.IsValueShownAsLabel = True
-        Series2.LabelForeColor = System.Drawing.Color.White
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series2"
-        Series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Me.Chart2.Series.Add(Series2)
-        Me.Chart2.Size = New System.Drawing.Size(683, 372)
+        Series17.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Series17.ChartArea = "ChartArea1"
+        Series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
+        Series17.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series17.IsValueShownAsLabel = True
+        Series17.LabelForeColor = System.Drawing.Color.White
+        Series17.Legend = "Legend1"
+        Series17.Name = "Series2"
+        Series17.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Series17.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Me.Chart2.Series.Add(Series17)
+        Me.Chart2.Size = New System.Drawing.Size(680, 367)
         Me.Chart2.TabIndex = 33
         Me.Chart2.Text = "Chart2"
-        Title2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title2.Name = "Title1"
-        Title2.Text = "Proveedores Registrados Por Pesonería "
-        Me.Chart2.Titles.Add(Title2)
+        Title17.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title17.Name = "Title1"
+        Title17.Text = "Proveedores Registrados Por Pesonería "
+        Me.Chart2.Titles.Add(Title17)
         '
         'Chart3
         '
         Me.Chart3.BorderlineColor = System.Drawing.Color.Black
         Me.Chart3.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid
         Me.Chart3.BorderlineWidth = 2
-        ChartArea3.Area3DStyle.Enable3D = True
-        ChartArea3.AxisX.Title = "Proveedor"
-        ChartArea3.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far
-        ChartArea3.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea3.AxisY.Title = "Total Pagos Realizados"
-        ChartArea3.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ChartArea3.Name = "ChartArea1"
-        Me.Chart3.ChartAreas.Add(ChartArea3)
-        Legend3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Legend3.IsTextAutoFit = False
-        Legend3.Name = "Legend1"
-        Me.Chart3.Legends.Add(Legend3)
-        Me.Chart3.Location = New System.Drawing.Point(12, 210)
+        ChartArea18.Area3DStyle.Enable3D = True
+        ChartArea18.AxisX.Title = "Proveedor"
+        ChartArea18.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far
+        ChartArea18.AxisX.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea18.AxisY.Title = "Total Pagos Realizados"
+        ChartArea18.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        ChartArea18.Name = "ChartArea1"
+        Me.Chart3.ChartAreas.Add(ChartArea18)
+        Legend18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Legend18.IsTextAutoFit = False
+        Legend18.Name = "Legend1"
+        Me.Chart3.Legends.Add(Legend18)
+        Me.Chart3.Location = New System.Drawing.Point(32, 241)
         Me.Chart3.Name = "Chart3"
         Me.Chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
-        Series3.ChartArea = "ChartArea1"
-        Series3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Series3.IsValueShownAsLabel = True
-        Series3.IsVisibleInLegend = False
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series2"
-        Series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
-        Series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
-        Me.Chart3.Series.Add(Series3)
-        Me.Chart3.Size = New System.Drawing.Size(668, 372)
+        Series18.ChartArea = "ChartArea1"
+        Series18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series18.IsValueShownAsLabel = True
+        Series18.IsVisibleInLegend = False
+        Series18.Legend = "Legend1"
+        Series18.Name = "Series2"
+        Series18.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright
+        Series18.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Series18.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32
+        Me.Chart3.Series.Add(Series18)
+        Me.Chart3.Size = New System.Drawing.Size(680, 372)
         Me.Chart3.TabIndex = 34
         Me.Chart3.Text = "Chart3"
-        Title3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Title3.Name = "Title1"
-        Title3.Text = "Pagos Realizados a Proveedores de servicio"
-        Me.Chart3.Titles.Add(Title3)
+        Title18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Title18.Name = "Title1"
+        Title18.Text = "Pagos Realizados a Proveedores de servicio"
+        Me.Chart3.Titles.Add(Title18)
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(173, 9)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(450, 25)
+        Me.Label3.TabIndex = 37
+        Me.Label3.Text = "Estadísticas de Proveedores de Servicios"
         '
         'FrmEstadisticaProveedorServicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 592)
+        Me.ClientSize = New System.Drawing.Size(810, 625)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Chart3)
         Me.Controls.Add(Me.Chart2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Chart4)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnSalir)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmEstadisticaProveedorServicio"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Estadistica Proveedor Servicio"
+        Me.Text = "Estadisticas Proveedor de Servicios"
         CType(Me.Chart4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -347,6 +367,7 @@ Partial Class FrmEstadisticaProveedorServicio
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -365,4 +386,5 @@ Partial Class FrmEstadisticaProveedorServicio
     Friend WithEvents Chart2 As Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents RadioButton3 As Windows.Forms.RadioButton
     Friend WithEvents Chart3 As Windows.Forms.DataVisualization.Charting.Chart
+    Friend WithEvents Label3 As Windows.Forms.Label
 End Class
