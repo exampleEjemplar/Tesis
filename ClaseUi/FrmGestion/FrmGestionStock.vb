@@ -89,7 +89,7 @@ Public Class FrmGestionStock
 	End Sub
 
 	Public Sub InicializarOrderBy()
-		chbListaParaOrdenar.Items.Clear()
+		'chbListaParaOrdenar.Items.Clear()
 		OrderBy = New List(Of Tuple(Of Integer, String, Integer))
 		OrderBy.Add(New Tuple(Of Integer, String, Integer)(1, "'Nombre'", 1))
 		OrderBy.Add(New Tuple(Of Integer, String, Integer)(2, "", 2))
