@@ -52,8 +52,12 @@ Public Class FrmGestionPedidoDeReposicion
 	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles dgvProveedores.CellMouseDoubleClick
 		Dim selectedRow As DataGridViewRow = Nothing
 		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-			selectedRow = dgvProveedores.Rows(e.RowIndex)
-			FrmConfirmacionPedidoDeReposicion.idpedido = selectedRow.Cells("id").Value
+            selectedRow = dgvProveedores.Rows(e.RowIndex)
+            If Not selectedRow.Cells("Estado").Value = "Activo" Then
+                MsgBox("El pedido no puede ser asentado", MsgBoxStyle.Critical, "Pedido de reposición")
+                Return
+            End If
+            FrmConfirmacionPedidoDeReposicion.idpedido = selectedRow.Cells("id").Value
 			FrmConfirmacionPedidoDeReposicion.ShowDialog()
 		End If
 

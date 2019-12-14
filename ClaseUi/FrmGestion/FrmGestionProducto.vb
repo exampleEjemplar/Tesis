@@ -828,6 +828,5 @@ Public Class FrmGestionProducto
 
     Private Sub btnProveedor_Click(sender As Object, e As EventArgs) Handles btnProveedor.Click
         FrmGestionProveedores.ShowDialog()
-
     End Sub
 End Class

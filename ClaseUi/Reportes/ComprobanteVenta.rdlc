@@ -397,7 +397,10 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!PrecioUnit.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>'$'0.00;('$'0.00)</Format>
+                                    <rd:FormatSymbolCulture>es-AR</rd:FormatSymbolCulture>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -437,7 +440,10 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Sum(Fields!PrecioUnit.Value)*(Fields!Cantidad.Value)</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>'$'0.00;('$'0.00)</Format>
+                                    <rd:FormatSymbolCulture>es-AR</rd:FormatSymbolCulture>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1254,7 +1260,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Importe Total: $</Value>
+                          <Value>Importe Total: </Value>
                           <Style>
                             <FontWeight>Bold</FontWeight>
                           </Style>
@@ -1290,6 +1296,8 @@
                           <Value>=Fields!Total.Value</Value>
                           <Style>
                             <FontWeight>Bold</FontWeight>
+                            <Format>'$'0.00;('$'0.00)</Format>
+                            <rd:FormatSymbolCulture>es-AR</rd:FormatSymbolCulture>
                           </Style>
                         </TextRun>
                       </TextRuns>

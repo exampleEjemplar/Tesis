@@ -418,15 +418,8 @@ Public Class MDIPrincipal
     Private Sub Button5_MouseLeave(sender As Object, e As EventArgs) Handles Panel2.MouseLeave
         Panel2.Visible = False
     End Sub
-    Private Sub MenuStrip2_MouseLeave(sender As Object, e As EventArgs) Handles MenuStrip2.MouseLeave
-        Panel2.Visible = False
-    End Sub
 
-    Private Sub FlowLayoutPanel1_MouseLeave(sender As Object, e As EventArgs) Handles FlowLayoutPanel1.MouseLeave
-        Panel1.Visible = False
-        Panel2.Visible = False
 
-    End Sub
 
     Private Sub Panel3_MouseHover(sender As Object, e As EventArgs) Handles Panel3.MouseHover
         Panel1.Visible = False
