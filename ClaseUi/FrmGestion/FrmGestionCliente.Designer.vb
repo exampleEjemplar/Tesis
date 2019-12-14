@@ -35,19 +35,19 @@ Partial Class FrmGestionCliente
         Me.lblPrioridad3 = New System.Windows.Forms.Label()
         Me.lblPrioridad1 = New System.Windows.Forms.Label()
         Me.lblPrioridad2 = New System.Windows.Forms.Label()
-        Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.cboBusTipoPersona = New System.Windows.Forms.ComboBox()
         Me.txtBusApellido = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.lblBusApellido = New System.Windows.Forms.Label()
         Me.txtBusNombre = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.lblBusNombre = New System.Windows.Forms.Label()
         Me.txtBusDocNro = New System.Windows.Forms.TextBox()
         Me.cboBusTipoDNI = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
+        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.btnValidarDNI1 = New System.Windows.Forms.Button()
@@ -264,42 +264,6 @@ Partial Class FrmGestionCliente
         Me.lblPrioridad2.TabIndex = 21
         Me.lblPrioridad2.Text = "Prioridad 2"
         '
-        'btnBuscar
-        '
-        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
-        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnBuscar.FlatAppearance.BorderSize = 0
-        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
-        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnBuscar.Location = New System.Drawing.Point(557, 3)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(69, 80)
-        Me.btnBuscar.TabIndex = 33
-        Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnBuscar.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.SystemColors.Control
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(556, 93)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(69, 85)
-        Me.Button1.TabIndex = 44
-        Me.Button1.Text = "Listar"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button1.UseVisualStyleBackColor = False
-        '
         'cboBusTipoPersona
         '
         Me.cboBusTipoPersona.AccessibleDescription = ""
@@ -350,24 +314,6 @@ Partial Class FrmGestionCliente
         Me.txtBusNombre.Size = New System.Drawing.Size(162, 20)
         Me.txtBusNombre.TabIndex = 31
         '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.SystemColors.Control
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(548, 180)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(85, 80)
-        Me.Button2.TabIndex = 30
-        Me.Button2.Text = "Estadísticas"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button2.UseVisualStyleBackColor = False
-        '
         'lblBusNombre
         '
         Me.lblBusNombre.AutoSize = True
@@ -417,6 +363,60 @@ Partial Class FrmGestionCliente
         Me.Label16.Size = New System.Drawing.Size(113, 13)
         Me.Label16.TabIndex = 21
         Me.Label16.Text = "Tipo Identificación"
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.BackColor = System.Drawing.SystemColors.Control
+        Me.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnBuscar.FlatAppearance.BorderSize = 0
+        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
+        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnBuscar.Location = New System.Drawing.Point(557, 3)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(69, 80)
+        Me.btnBuscar.TabIndex = 33
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnBuscar.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.SystemColors.Control
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.Location = New System.Drawing.Point(556, 93)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(69, 85)
+        Me.Button1.TabIndex = 44
+        Me.Button1.Text = "Listar"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.SystemColors.Control
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button2.Location = New System.Drawing.Point(548, 180)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(85, 80)
+        Me.Button2.TabIndex = 30
+        Me.Button2.Text = "Estadísticas"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
@@ -1047,6 +1047,7 @@ Partial Class FrmGestionCliente
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
