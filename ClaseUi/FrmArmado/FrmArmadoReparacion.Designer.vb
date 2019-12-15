@@ -116,7 +116,7 @@ Partial Class FrmArmadoReparacion
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnNuevo.Location = New System.Drawing.Point(491, 494)
+        Me.btnNuevo.Location = New System.Drawing.Point(488, 503)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(69, 85)
         Me.btnNuevo.TabIndex = 67
@@ -132,7 +132,7 @@ Partial Class FrmArmadoReparacion
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(566, 494)
+        Me.btnSalir.Location = New System.Drawing.Point(564, 503)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(69, 85)
         Me.btnSalir.TabIndex = 66
@@ -152,10 +152,10 @@ Partial Class FrmArmadoReparacion
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.lstProdDispo)
-        Me.GroupBox3.Location = New System.Drawing.Point(11, 335)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox3.Location = New System.Drawing.Point(11, 342)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox3.Size = New System.Drawing.Size(362, 248)
         Me.GroupBox3.TabIndex = 64
         Me.GroupBox3.TabStop = False
@@ -168,7 +168,7 @@ Partial Class FrmArmadoReparacion
         Me.lstProdDispo.GridLines = True
         Me.lstProdDispo.HideSelection = False
         Me.lstProdDispo.Location = New System.Drawing.Point(2, 15)
-        Me.lstProdDispo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.lstProdDispo.Margin = New System.Windows.Forms.Padding(2)
         Me.lstProdDispo.Name = "lstProdDispo"
         Me.lstProdDispo.Size = New System.Drawing.Size(358, 231)
         Me.lstProdDispo.Sorting = System.Windows.Forms.SortOrder.Ascending
@@ -182,10 +182,10 @@ Partial Class FrmArmadoReparacion
         Me.btnAgregarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnAgregarCliente.FlatAppearance.BorderSize = 0
         Me.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarCliente.Image = Global.ClaseUi.My.Resources.Resources.icons8_add_354
-        Me.btnAgregarCliente.Location = New System.Drawing.Point(499, 26)
+        Me.btnAgregarCliente.Image = CType(resources.GetObject("btnAgregarCliente.Image"), System.Drawing.Image)
+        Me.btnAgregarCliente.Location = New System.Drawing.Point(499, 31)
         Me.btnAgregarCliente.Name = "btnAgregarCliente"
-        Me.btnAgregarCliente.Size = New System.Drawing.Size(40, 40)
+        Me.btnAgregarCliente.Size = New System.Drawing.Size(30, 30)
         Me.btnAgregarCliente.TabIndex = 70
         Me.btnAgregarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnAgregarCliente.UseVisualStyleBackColor = False
@@ -226,9 +226,9 @@ Partial Class FrmArmadoReparacion
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Location = New System.Drawing.Point(388, 81)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(248, 121)
         Me.GroupBox2.TabIndex = 65
         Me.GroupBox2.TabStop = False
@@ -329,15 +329,15 @@ Partial Class FrmArmadoReparacion
         Me.Panel1.Controls.Add(Me.txtDevolucion)
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.gboTotales)
-        Me.Panel1.Location = New System.Drawing.Point(11, 584)
+        Me.Panel1.Location = New System.Drawing.Point(11, 591)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(472, 70)
+        Me.Panel1.Size = New System.Drawing.Size(472, 63)
         Me.Panel1.TabIndex = 71
         '
         'txtDevolucion
         '
         Me.txtDevolucion.Location = New System.Drawing.Point(138, 25)
-        Me.txtDevolucion.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtDevolucion.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDevolucion.Name = "txtDevolucion"
         Me.txtDevolucion.Size = New System.Drawing.Size(42, 20)
         Me.txtDevolucion.TabIndex = 54
@@ -357,10 +357,10 @@ Partial Class FrmArmadoReparacion
         Me.gboTotales.Controls.Add(Me.Label11)
         Me.gboTotales.Controls.Add(Me.lblTotal)
         Me.gboTotales.Location = New System.Drawing.Point(220, 3)
-        Me.gboTotales.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.gboTotales.Margin = New System.Windows.Forms.Padding(2)
         Me.gboTotales.Name = "gboTotales"
-        Me.gboTotales.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.gboTotales.Size = New System.Drawing.Size(250, 65)
+        Me.gboTotales.Padding = New System.Windows.Forms.Padding(2)
+        Me.gboTotales.Size = New System.Drawing.Size(250, 57)
         Me.gboTotales.TabIndex = 48
         Me.gboTotales.TabStop = False
         Me.gboTotales.Text = "Totales"
@@ -402,7 +402,7 @@ Partial Class FrmArmadoReparacion
         Me.btnQuitarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnQuitarItem.Image = CType(resources.GetObject("btnQuitarItem.Image"), System.Drawing.Image)
         Me.btnQuitarItem.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnQuitarItem.Location = New System.Drawing.Point(567, 407)
+        Me.btnQuitarItem.Location = New System.Drawing.Point(488, 416)
         Me.btnQuitarItem.Name = "btnQuitarItem"
         Me.btnQuitarItem.Size = New System.Drawing.Size(69, 81)
         Me.btnQuitarItem.TabIndex = 58
@@ -416,31 +416,29 @@ Partial Class FrmArmadoReparacion
         Me.btnAgregarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnAgregarProducto.FlatAppearance.BorderSize = 0
         Me.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarProducto.Image = Global.ClaseUi.My.Resources.Resources.icons8_add_354
-        Me.btnAgregarProducto.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAgregarProducto.Location = New System.Drawing.Point(221, 23)
+        Me.btnAgregarProducto.Image = CType(resources.GetObject("btnAgregarProducto.Image"), System.Drawing.Image)
+        Me.btnAgregarProducto.Location = New System.Drawing.Point(233, 39)
         Me.btnAgregarProducto.Name = "btnAgregarProducto"
-        Me.btnAgregarProducto.Size = New System.Drawing.Size(36, 36)
+        Me.btnAgregarProducto.Size = New System.Drawing.Size(30, 30)
         Me.btnAgregarProducto.TabIndex = 69
         Me.btnAgregarProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnAgregarProducto.UseVisualStyleBackColor = False
         '
         'gboFiltros
         '
-        Me.gboFiltros.Controls.Add(Me.Label15)
-        Me.gboFiltros.Controls.Add(Me.cboOrden)
         Me.gboFiltros.Controls.Add(Me.GroupBox5)
         Me.gboFiltros.Controls.Add(Me.chkSoloCliente)
+        Me.gboFiltros.Controls.Add(Me.GroupBox6)
         Me.gboFiltros.Controls.Add(Me.btnLimpiarFiltros)
         Me.gboFiltros.Controls.Add(Me.btnBuscar)
         Me.gboFiltros.Controls.Add(Me.txtBusNombreProducto)
         Me.gboFiltros.Controls.Add(Me.Label8)
         Me.gboFiltros.Controls.Add(Me.btnAgregarProducto)
         Me.gboFiltros.Location = New System.Drawing.Point(13, 206)
-        Me.gboFiltros.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.gboFiltros.Margin = New System.Windows.Forms.Padding(2)
         Me.gboFiltros.Name = "gboFiltros"
-        Me.gboFiltros.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.gboFiltros.Size = New System.Drawing.Size(622, 125)
+        Me.gboFiltros.Padding = New System.Windows.Forms.Padding(2)
+        Me.gboFiltros.Size = New System.Drawing.Size(622, 132)
         Me.gboFiltros.TabIndex = 63
         Me.gboFiltros.TabStop = False
         Me.gboFiltros.Text = "Búsqueda"
@@ -449,7 +447,7 @@ Partial Class FrmArmadoReparacion
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(523, 102)
+        Me.Label15.Location = New System.Drawing.Point(13, 106)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(41, 13)
         Me.Label15.TabIndex = 26
@@ -462,21 +460,22 @@ Partial Class FrmArmadoReparacion
         Me.cboOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboOrden.FormattingEnabled = True
         Me.cboOrden.Items.AddRange(New Object() {"Física", "Jurídica"})
-        Me.cboOrden.Location = New System.Drawing.Point(568, 100)
+        Me.cboOrden.Location = New System.Drawing.Point(58, 104)
         Me.cboOrden.Name = "cboOrden"
         Me.cboOrden.Size = New System.Drawing.Size(50, 21)
         Me.cboOrden.TabIndex = 72
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.GroupBox6)
+        Me.GroupBox5.Controls.Add(Me.Label15)
+        Me.GroupBox5.Controls.Add(Me.cboOrden)
         Me.GroupBox5.Controls.Add(Me.chbListaParaOrdenar)
         Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox5.Location = New System.Drawing.Point(272, 0)
-        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox5.Location = New System.Drawing.Point(285, 1)
+        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox5.Size = New System.Drawing.Size(248, 124)
+        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox5.Size = New System.Drawing.Size(148, 127)
         Me.GroupBox5.TabIndex = 84
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Ordenar por"
@@ -490,11 +489,11 @@ Partial Class FrmArmadoReparacion
         Me.GroupBox6.Controls.Add(Me.lblPrioridad1)
         Me.GroupBox6.Controls.Add(Me.lblPrioridad2)
         Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox6.Location = New System.Drawing.Point(157, 1)
-        Me.GroupBox6.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox6.Location = New System.Drawing.Point(437, 1)
+        Me.GroupBox6.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox6.Size = New System.Drawing.Size(92, 124)
+        Me.GroupBox6.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox6.Size = New System.Drawing.Size(125, 127)
         Me.GroupBox6.TabIndex = 46
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Prioridad"
@@ -532,30 +531,30 @@ Partial Class FrmArmadoReparacion
         'lblPrioridad3
         '
         Me.lblPrioridad3.AutoSize = True
-        Me.lblPrioridad3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrioridad3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrioridad3.Location = New System.Drawing.Point(5, 106)
         Me.lblPrioridad3.Name = "lblPrioridad3"
-        Me.lblPrioridad3.Size = New System.Drawing.Size(68, 13)
+        Me.lblPrioridad3.Size = New System.Drawing.Size(57, 13)
         Me.lblPrioridad3.TabIndex = 22
         Me.lblPrioridad3.Text = "Prioridad 3"
         '
         'lblPrioridad1
         '
         Me.lblPrioridad1.AutoSize = True
-        Me.lblPrioridad1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrioridad1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrioridad1.Location = New System.Drawing.Point(5, 34)
         Me.lblPrioridad1.Name = "lblPrioridad1"
-        Me.lblPrioridad1.Size = New System.Drawing.Size(68, 13)
+        Me.lblPrioridad1.Size = New System.Drawing.Size(57, 13)
         Me.lblPrioridad1.TabIndex = 20
         Me.lblPrioridad1.Text = "Prioridad 1"
         '
         'lblPrioridad2
         '
         Me.lblPrioridad2.AutoSize = True
-        Me.lblPrioridad2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrioridad2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrioridad2.Location = New System.Drawing.Point(5, 70)
         Me.lblPrioridad2.Name = "lblPrioridad2"
-        Me.lblPrioridad2.Size = New System.Drawing.Size(68, 13)
+        Me.lblPrioridad2.Size = New System.Drawing.Size(57, 13)
         Me.lblPrioridad2.TabIndex = 21
         Me.lblPrioridad2.Text = "Prioridad 2"
         '
@@ -563,15 +562,15 @@ Partial Class FrmArmadoReparacion
         '
         Me.chbListaParaOrdenar.FormattingEnabled = True
         Me.chbListaParaOrdenar.Location = New System.Drawing.Point(4, 17)
-        Me.chbListaParaOrdenar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chbListaParaOrdenar.Margin = New System.Windows.Forms.Padding(2)
         Me.chbListaParaOrdenar.Name = "chbListaParaOrdenar"
-        Me.chbListaParaOrdenar.Size = New System.Drawing.Size(149, 84)
+        Me.chbListaParaOrdenar.Size = New System.Drawing.Size(136, 84)
         Me.chbListaParaOrdenar.TabIndex = 0
         '
         'chkSoloCliente
         '
         Me.chkSoloCliente.AutoSize = True
-        Me.chkSoloCliente.Location = New System.Drawing.Point(9, 71)
+        Me.chkSoloCliente.Location = New System.Drawing.Point(9, 70)
         Me.chkSoloCliente.Name = "chkSoloCliente"
         Me.chkSoloCliente.Size = New System.Drawing.Size(221, 17)
         Me.chkSoloCliente.TabIndex = 42
@@ -585,13 +584,13 @@ Partial Class FrmArmadoReparacion
         Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
         Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLimpiarFiltros.Image = CType(resources.GetObject("btnLimpiarFiltros.Image"), System.Drawing.Image)
-        Me.btnLimpiarFiltros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLimpiarFiltros.Location = New System.Drawing.Point(525, 52)
+        Me.btnLimpiarFiltros.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnLimpiarFiltros.Location = New System.Drawing.Point(567, 67)
         Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
-        Me.btnLimpiarFiltros.Size = New System.Drawing.Size(92, 34)
+        Me.btnLimpiarFiltros.Size = New System.Drawing.Size(50, 53)
         Me.btnLimpiarFiltros.TabIndex = 38
         Me.btnLimpiarFiltros.Text = "Limpiar"
-        Me.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnLimpiarFiltros.UseVisualStyleBackColor = False
         '
         'btnBuscar
@@ -601,30 +600,30 @@ Partial Class FrmArmadoReparacion
         Me.btnBuscar.FlatAppearance.BorderSize = 0
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
-        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnBuscar.Location = New System.Drawing.Point(525, 8)
+        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnBuscar.Location = New System.Drawing.Point(567, 13)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(92, 34)
+        Me.btnBuscar.Size = New System.Drawing.Size(50, 53)
         Me.btnBuscar.TabIndex = 38
         Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnBuscar.UseVisualStyleBackColor = False
         '
         'txtBusNombreProducto
         '
-        Me.txtBusNombreProducto.Location = New System.Drawing.Point(9, 32)
-        Me.txtBusNombreProducto.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtBusNombreProducto.Location = New System.Drawing.Point(9, 45)
+        Me.txtBusNombreProducto.Margin = New System.Windows.Forms.Padding(2)
         Me.txtBusNombreProducto.Name = "txtBusNombreProducto"
-        Me.txtBusNombreProducto.Size = New System.Drawing.Size(211, 20)
+        Me.txtBusNombreProducto.Size = New System.Drawing.Size(219, 20)
         Me.txtBusNombreProducto.TabIndex = 41
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(6, 17)
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(5, 26)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(104, 13)
+        Me.Label8.Size = New System.Drawing.Size(128, 16)
         Me.Label8.TabIndex = 40
         Me.Label8.Text = "Nombre producto"
         '
@@ -636,22 +635,22 @@ Partial Class FrmArmadoReparacion
         Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(491, 414)
+        Me.btnLimpiar.Location = New System.Drawing.Point(564, 423)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(69, 74)
         Me.btnLimpiar.TabIndex = 57
-        Me.btnLimpiar.Text = "Limpiar Compra"
+        Me.btnLimpiar.Text = "Limpiar Todo"
         Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnLimpiar.UseVisualStyleBackColor = False
         '
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.ListView1)
-        Me.GroupBox4.Location = New System.Drawing.Point(375, 335)
-        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox4.Location = New System.Drawing.Point(375, 342)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox4.Size = New System.Drawing.Size(108, 246)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox4.Size = New System.Drawing.Size(108, 248)
         Me.GroupBox4.TabIndex = 56
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Productos"
@@ -663,9 +662,9 @@ Partial Class FrmArmadoReparacion
         Me.ListView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!)
         Me.ListView1.HideSelection = False
         Me.ListView1.Location = New System.Drawing.Point(2, 15)
-        Me.ListView1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ListView1.Margin = New System.Windows.Forms.Padding(2)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(104, 229)
+        Me.ListView1.Size = New System.Drawing.Size(104, 231)
         Me.ListView1.TabIndex = 1
         Me.ListView1.TileSize = New System.Drawing.Size(120, 25)
         Me.ListView1.UseCompatibleStateImageBehavior = False
@@ -701,9 +700,9 @@ Partial Class FrmArmadoReparacion
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.lblNombre)
         Me.GroupBox1.Location = New System.Drawing.Point(13, 81)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(371, 121)
         Me.GroupBox1.TabIndex = 62
         Me.GroupBox1.TabStop = False
@@ -741,7 +740,7 @@ Partial Class FrmArmadoReparacion
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmArmadoReparacion"
@@ -757,6 +756,7 @@ Partial Class FrmArmadoReparacion
         Me.gboFiltros.ResumeLayout(False)
         Me.gboFiltros.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)

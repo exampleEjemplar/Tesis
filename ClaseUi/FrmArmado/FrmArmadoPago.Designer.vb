@@ -120,7 +120,7 @@ Partial Class FrmArmadoPago
         Me.btnQuitarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnQuitarItem.Image = CType(resources.GetObject("btnQuitarItem.Image"), System.Drawing.Image)
         Me.btnQuitarItem.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnQuitarItem.Location = New System.Drawing.Point(76, 49)
+        Me.btnQuitarItem.Location = New System.Drawing.Point(5, 49)
         Me.btnQuitarItem.Name = "btnQuitarItem"
         Me.btnQuitarItem.Size = New System.Drawing.Size(69, 85)
         Me.btnQuitarItem.TabIndex = 37
@@ -136,7 +136,7 @@ Partial Class FrmArmadoPago
         Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(1, 60)
+        Me.btnLimpiar.Location = New System.Drawing.Point(75, 60)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(69, 74)
         Me.btnLimpiar.TabIndex = 36
@@ -485,7 +485,7 @@ Partial Class FrmArmadoPago
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnNuevo.Location = New System.Drawing.Point(1, 140)
+        Me.btnNuevo.Location = New System.Drawing.Point(5, 140)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(69, 85)
         Me.btnNuevo.TabIndex = 35

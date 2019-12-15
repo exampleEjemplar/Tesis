@@ -116,9 +116,9 @@ Partial Class FrmArmadoPedido
         Me.btnQuitarItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnQuitarItem.FlatAppearance.BorderSize = 0
         Me.btnQuitarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnQuitarItem.Location = New System.Drawing.Point(489, 383)
+        Me.btnQuitarItem.Location = New System.Drawing.Point(495, 404)
         Me.btnQuitarItem.Name = "btnQuitarItem"
-        Me.btnQuitarItem.Size = New System.Drawing.Size(70, 97)
+        Me.btnQuitarItem.Size = New System.Drawing.Size(69, 85)
         Me.btnQuitarItem.TabIndex = 37
         Me.btnQuitarItem.Text = "Quitar item"
         Me.btnQuitarItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -573,9 +573,9 @@ Partial Class FrmArmadoPedido
         Me.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnNuevo.FlatAppearance.BorderSize = 0
         Me.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevo.Location = New System.Drawing.Point(570, 383)
+        Me.btnNuevo.Location = New System.Drawing.Point(495, 495)
         Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(67, 97)
+        Me.btnNuevo.Size = New System.Drawing.Size(69, 85)
         Me.btnNuevo.TabIndex = 50
         Me.btnNuevo.Text = "Finalizar"
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -814,11 +814,11 @@ Partial Class FrmArmadoPedido
         Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(491, 495)
+        Me.btnLimpiar.Location = New System.Drawing.Point(570, 415)
         Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(69, 87)
+        Me.btnLimpiar.Size = New System.Drawing.Size(69, 74)
         Me.btnLimpiar.TabIndex = 54
-        Me.btnLimpiar.Text = "Limpiar Compra"
+        Me.btnLimpiar.Text = "Limpiar Todo"
         Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnLimpiar.UseVisualStyleBackColor = False
         '
@@ -832,7 +832,7 @@ Partial Class FrmArmadoPedido
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnSalir.Location = New System.Drawing.Point(570, 495)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(69, 87)
+        Me.btnSalir.Size = New System.Drawing.Size(69, 85)
         Me.btnSalir.TabIndex = 55
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
