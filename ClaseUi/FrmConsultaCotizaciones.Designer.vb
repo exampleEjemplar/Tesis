@@ -23,6 +23,7 @@ Partial Class FrmConsultaCotizaciones
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmConsultaCotizaciones))
         Me.dgvCotizaciones = New System.Windows.Forms.DataGridView()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.txtMaterial = New System.Windows.Forms.TextBox()
@@ -102,6 +103,7 @@ Partial Class FrmConsultaCotizaciones
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.dgvCotizaciones)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False

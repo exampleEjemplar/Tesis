@@ -23,8 +23,8 @@ Partial Class FrmCatalogo
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmCatalogo))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.CH3 = New System.Windows.Forms.CheckBox()
         Me.CH2 = New System.Windows.Forms.CheckBox()
@@ -199,7 +199,7 @@ Partial Class FrmCatalogo
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(844, 100)
+        Me.btnSalir.Location = New System.Drawing.Point(844, 88)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(69, 81)
         Me.btnSalir.TabIndex = 43
@@ -227,14 +227,14 @@ Partial Class FrmCatalogo
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.DataGridView1.ColumnHeadersHeight = 45
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView1.EnableHeadersVisualStyles = False
         Me.DataGridView1.Location = New System.Drawing.Point(21, 187)
         Me.DataGridView1.MultiSelect = False
@@ -244,9 +244,9 @@ Partial Class FrmCatalogo
         Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 68
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(903, 410)
@@ -260,9 +260,9 @@ Partial Class FrmCatalogo
         Me.GroupBox7.Controls.Add(Me.GroupBox8)
         Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
         Me.GroupBox7.Location = New System.Drawing.Point(478, 42)
-        Me.GroupBox7.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox7.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox7.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox7.Size = New System.Drawing.Size(351, 139)
         Me.GroupBox7.TabIndex = 47
         Me.GroupBox7.TabStop = False
@@ -294,7 +294,7 @@ Partial Class FrmCatalogo
         '
         Me.chbListaParaOrdenar.FormattingEnabled = True
         Me.chbListaParaOrdenar.Location = New System.Drawing.Point(4, 17)
-        Me.chbListaParaOrdenar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chbListaParaOrdenar.Margin = New System.Windows.Forms.Padding(2)
         Me.chbListaParaOrdenar.Name = "chbListaParaOrdenar"
         Me.chbListaParaOrdenar.Size = New System.Drawing.Size(162, 84)
         Me.chbListaParaOrdenar.TabIndex = 0
@@ -309,10 +309,10 @@ Partial Class FrmCatalogo
         Me.GroupBox8.Controls.Add(Me.lblPrioridad2)
         Me.GroupBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
         Me.GroupBox8.Location = New System.Drawing.Point(170, 17)
-        Me.GroupBox8.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox8.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox8.Size = New System.Drawing.Size(177, 111)
+        Me.GroupBox8.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox8.Size = New System.Drawing.Size(177, 122)
         Me.GroupBox8.TabIndex = 46
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Prioridad"
@@ -321,7 +321,7 @@ Partial Class FrmCatalogo
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(5, 76)
+        Me.Label18.Location = New System.Drawing.Point(5, 83)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(68, 13)
         Me.Label18.TabIndex = 25
@@ -341,7 +341,7 @@ Partial Class FrmCatalogo
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(5, 46)
+        Me.Label3.Location = New System.Drawing.Point(5, 51)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(68, 13)
         Me.Label3.TabIndex = 24
@@ -350,30 +350,30 @@ Partial Class FrmCatalogo
         'lblPrioridad3
         '
         Me.lblPrioridad3.AutoSize = True
-        Me.lblPrioridad3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrioridad3.Location = New System.Drawing.Point(91, 76)
+        Me.lblPrioridad3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrioridad3.Location = New System.Drawing.Point(6, 101)
         Me.lblPrioridad3.Name = "lblPrioridad3"
-        Me.lblPrioridad3.Size = New System.Drawing.Size(68, 13)
+        Me.lblPrioridad3.Size = New System.Drawing.Size(57, 13)
         Me.lblPrioridad3.TabIndex = 22
         Me.lblPrioridad3.Text = "Prioridad 3"
         '
         'lblPrioridad1
         '
         Me.lblPrioridad1.AutoSize = True
-        Me.lblPrioridad1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrioridad1.Location = New System.Drawing.Point(91, 17)
+        Me.lblPrioridad1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrioridad1.Location = New System.Drawing.Point(6, 34)
         Me.lblPrioridad1.Name = "lblPrioridad1"
-        Me.lblPrioridad1.Size = New System.Drawing.Size(68, 13)
+        Me.lblPrioridad1.Size = New System.Drawing.Size(57, 13)
         Me.lblPrioridad1.TabIndex = 20
         Me.lblPrioridad1.Text = "Prioridad 1"
         '
         'lblPrioridad2
         '
         Me.lblPrioridad2.AutoSize = True
-        Me.lblPrioridad2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrioridad2.Location = New System.Drawing.Point(91, 46)
+        Me.lblPrioridad2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrioridad2.Location = New System.Drawing.Point(5, 67)
         Me.lblPrioridad2.Name = "lblPrioridad2"
-        Me.lblPrioridad2.Size = New System.Drawing.Size(68, 13)
+        Me.lblPrioridad2.Size = New System.Drawing.Size(57, 13)
         Me.lblPrioridad2.TabIndex = 21
         Me.lblPrioridad2.Text = "Prioridad 2"
         '

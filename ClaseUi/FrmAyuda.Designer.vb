@@ -58,6 +58,7 @@ Partial Class FrmAyuda
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.AxAcroPDF1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmAyuda"
@@ -65,7 +66,8 @@ Partial Class FrmAyuda
         Me.Text = "Ayuda"
         CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-   End Sub
+
+    End Sub
     Friend WithEvents AxAcroPDF1 As AxAcroPDFLib.AxAcroPDF
     Friend WithEvents btnSalir As Windows.Forms.Button
 End Class
