@@ -30,10 +30,10 @@ Public Class FrmConsultaMovimientoStock
 
 		dgvCotizaciones.DataSource = examples
 		dgvCotizaciones.Columns("Id").Visible = False
-		dgvCotizaciones.Columns("Proveedor").Visible = False
-		dgvCotizaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-		dgvCotizaciones.AutoResizeColumns()
-		txtProducto.Text = ds.Tables(0).Rows(0)(2).ToString()
+        dgvCotizaciones.Columns("Proveedor").Visible = False
+        dgvCotizaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgvCotizaciones.AutoResizeColumns()
+        txtProducto.Text = ds.Tables(0).Rows(0)(2).ToString()
 		txtProveedor.Text = ds.Tables(0).Rows(0)(4).ToString()
 		txtCantidadMov.Text = ds.Tables(0).Rows.Count.ToString()
 		txtStockActual.Text = parcial

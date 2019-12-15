@@ -239,13 +239,13 @@ Public Class FrmGestionVentas
 	End Sub
 
 	Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-		Frmlistadodeventas.Show()
+        Frmlistadodeventas.ShowDialog()
 
-	End Sub
+    End Sub
 
 	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-		FrmEstadisticaVentas.Show()
-	End Sub
+        FrmEstadisticaVentas.ShowDialog()
+    End Sub
 
 #End Region
 	Private Const CP_NOCLOSE_BUTTON As Integer = &H200

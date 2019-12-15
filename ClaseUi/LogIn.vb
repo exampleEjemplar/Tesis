@@ -5,10 +5,10 @@ Imports ClaseLn
 Imports ClaseNe
 
 Public Class LogIn
-	Public nivelusr As Integer
-	Private helpersUI As New HelpersUI
+    Public nivelusr As Integer
+    Private helpersUI As New HelpersUI
 
-	Dim loginMetodo As New LoginLN
+    Dim loginMetodo As New LoginLN
 
 
 
@@ -21,8 +21,8 @@ Public Class LogIn
                     MessageBox.Show("Usuario Inactivo", "Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Return
                 End If
-                Dim contra As String = loginMetodo.contrasena(txtUsuario.Text)
-                If contra.Equals(txtContrasena.Text) = True Then
+                Dim contra As Boolean = loginMetodo.contrasena(txtUsuario.Text, txtContrasena.Text)
+                If contra Then
                     loginMetodo.rolUsuario = loginMetodo.ConsultarRolUsuario(txtUsuario.Text)
                     loginMetodo.usr_id = loginMetodo.ConsultarIDUsuario(txtUsuario.Text)
                     loginMetodo.EnSesion(loginMetodo.usr_id)
@@ -51,31 +51,31 @@ Public Class LogIn
     End Sub
 
     Private Sub Btncerrar_Click(sender As Object, e As EventArgs) Handles btncerrar.Click
-		If MessageBox.Show("Estas seguro que desea Salir", "AVISO ", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
-			Me.Close()
-		End If
-	End Sub
+        If MessageBox.Show("Estas seguro que desea Salir", "AVISO ", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
+            Me.Close()
+        End If
+    End Sub
 #End Region
 #Region "Metodos"
 
-	Private Sub LogIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		txtUsuario.Text = ""
-		txtContrasena.Text = ""
-		'Mostrar Fecha y Hora
-		lblFecha.Text = DateTime.Now.ToLongDateString()
-	End Sub
+    Private Sub LogIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtUsuario.Text = ""
+        txtContrasena.Text = ""
+        'Mostrar Fecha y Hora
+        lblFecha.Text = DateTime.Now.ToLongDateString()
+    End Sub
 
 
 
-	Private Sub PictureBox1_MouseHover(sender As Object, e As EventArgs) Handles pictureBox1.MouseHover
-		pictureBox1.Size = New Size(100, 92)
-		'pictureBox1.BackgroundImageLayout = ImageLayout.Stretch
-	End Sub
+    Private Sub PictureBox1_MouseHover(sender As Object, e As EventArgs) Handles pictureBox1.MouseHover
+        pictureBox1.Size = New Size(100, 92)
+        'pictureBox1.BackgroundImageLayout = ImageLayout.Stretch
+    End Sub
 
-	Private Sub PictureBox1_MouseLeave(sender As Object, e As EventArgs) Handles pictureBox1.MouseLeave
-		pictureBox1.Size = New Size(90, 85)
-		'pictureBox1.BackgroundImageLayout = ImageLayout.Zoom
-	End Sub
+    Private Sub PictureBox1_MouseLeave(sender As Object, e As EventArgs) Handles pictureBox1.MouseLeave
+        pictureBox1.Size = New Size(90, 85)
+        'pictureBox1.BackgroundImageLayout = ImageLayout.Zoom
+    End Sub
 
     Private Sub panel1_Paint(sender As Object, e As PaintEventArgs) Handles panel1.Paint
 

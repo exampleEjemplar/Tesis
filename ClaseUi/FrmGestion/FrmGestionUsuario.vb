@@ -35,21 +35,26 @@ Public Class FrmGestionUsuario
 		End If
 		'Si es un nuevo cliente lo agrega
 		If UsuarioId = 0 Then
-			UsuariosMetodo.GrabarUsuarios(usu)
-			MsgBox("Usuario agregado con exito!", MsgBoxStyle.OkOnly, "Exito")
-		Else
-			'Si es uno ya creado lo actualiza
-			usu.Id = UsuarioId
+            If UsuariosMetodo.GrabarUsuarios(usu) Then
+                MsgBox("Usuario agregado con exito!", MsgBoxStyle.OkOnly, "Exito")
+                Limpiar()
+                Block()
+                DgvUSuariosSet(New Dictionary(Of String, String))
+                Cambiando = False
+            End If
+        Else
+            'Si es uno ya creado lo actualiza
+            usu.Id = UsuarioId
 			UsuariosMetodo.ActualizarUsuarios(usu)
 			MsgBox("Usuario actualizado con exito!", MsgBoxStyle.OkOnly, "Exito")
-		End If
-		Limpiar()
-		Block()
-		DgvUSuariosSet(New Dictionary(Of String, String))
-		Cambiando = False
-	End Sub
+            Limpiar()
+            Block()
+            DgvUSuariosSet(New Dictionary(Of String, String))
+            Cambiando = False
+        End If
+    End Sub
 
-	Public Sub Limpiar()
+    Public Sub Limpiar()
 		txtUserName.Text = ""
 		txtContrasena.Text = ""
 		txtRepetirContrasena.Text = ""

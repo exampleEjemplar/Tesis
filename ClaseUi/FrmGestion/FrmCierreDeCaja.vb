@@ -16,8 +16,8 @@ Public Class FrmCierreDeCaja
 	Public movCajaId As Tuple(Of Integer, String)
 	Private helpersUi As New HelpersUI
 	Private loginLN As New LoginLN
-	Private usuarioLn As New UsuariosLN
-	Public txtMontoFinal As Double
+    Private usuarioLn As New UsuariosLN
+    Public txtMontoFinal As Double
 
 
 

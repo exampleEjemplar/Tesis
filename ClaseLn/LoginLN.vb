@@ -20,11 +20,11 @@ Public Class LoginLN
 		Return objloginAD.UsuarioRegistrado(nombreUsuario)
 	End Function
 
-	Function contrasena(ByVal nombreUsuario As String) As String
-        Return objloginAD.Contrasena(nombreUsuario)
+    Function contrasena(ByVal nombreUsuario As String, contraIngresada As String) As Boolean
+        Return objloginAD.Contrasena(nombreUsuario, contraIngresada)
     End Function
 
-	Function ConsultarRolUsuario(ByVal nombreUsuario As String, Optional ByVal userId As Integer = 0) As Integer
+    Function ConsultarRolUsuario(ByVal nombreUsuario As String, Optional ByVal userId As Integer = 0) As Integer
 		Return objloginAD.ConsultarRolUsuario(nombreUsuario, userId)
 	End Function
 

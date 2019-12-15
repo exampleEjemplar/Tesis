@@ -25,9 +25,9 @@ Public Class UsuariosLN
         Return usuariosDA.CargarGrillaUsuario(parametros)
     End Function
 
-    Public Sub GrabarUsuarios(ByVal usu As UsuariosNE)
-        usuariosDA.grabarUsuarios(usu)
-    End Sub
+    Public Function GrabarUsuarios(ByVal usu As UsuariosNE)
+        Return usuariosDA.GrabarUsuarios(usu)
+    End Function
 
     Public Sub ActualizarUsuarios(ByVal usu As UsuariosNE)
         usuariosDA.ActualizarUsuarios(usu)
