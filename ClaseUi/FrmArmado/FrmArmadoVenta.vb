@@ -183,7 +183,7 @@ Public Class FrmArmadoVenta
 					Return
 				End If
 				If consultaStock.Rows(0).Item(2) - item.Value < consultaStock.Rows(0).Item(4) Then
-					If MsgBox("Si vende esta cantidad de producto, contará con menos cantidad que el stock mínimo permitido, desea continuar?", MsgBoxStyle.YesNo, "Producto") = MsgBoxResult.No Then
+					If MsgBox("Si vende esta cantidad del producto '" + consultaStock.Rows(0).Item(1) + "', contará con menos cantidad que el stock mínimo permitido, desea continuar?", MsgBoxStyle.YesNo, "Producto") = MsgBoxResult.No Then
 						FrmComprobanteVenta.ListaVentas = New List(Of TipoDeVentasNE)
 						Return
 					End If

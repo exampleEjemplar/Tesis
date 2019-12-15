@@ -20,7 +20,7 @@ Public Class FrmGestionPedidoDeReposicion
 		End If
 	End Sub
 
-	Public Sub Buscar()
+	Public Function Buscar() As Integer
 		If rbtFechaExacta.Checked Then
 			fecha1 = dtpFechaDesde.Value
 			fecha2 = Nothing
@@ -31,14 +31,16 @@ Public Class FrmGestionPedidoDeReposicion
 			fecha1 = Nothing
 			fecha2 = Nothing
 		End If
-		dgvProveedores.DataSource = PedidoDeReposicionLN.CargarPedidos(fecha1, fecha2).Tables(0)
+		Dim dt As DataTable = PedidoDeReposicionLN.CargarPedidos(fecha1, fecha2).Tables(0)
+		dgvProveedores.DataSource = dt
 		dgvProveedores.Columns("id").Visible = False
 		dgvProveedores.Columns("Total").DefaultCellStyle.Format = "c2"
 		dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
 		dgvProveedores.Columns("Fecha").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 		dgvProveedores.Columns("Estado").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 		dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-	End Sub
+		Return dt.Rows.Count
+	End Function
 
 	Public Sub Cargar()
 		Buscar()
@@ -52,12 +54,12 @@ Public Class FrmGestionPedidoDeReposicion
 	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles dgvProveedores.CellMouseDoubleClick
 		Dim selectedRow As DataGridViewRow = Nothing
 		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-            selectedRow = dgvProveedores.Rows(e.RowIndex)
-            If Not selectedRow.Cells("Estado").Value = "Activo" Then
-                MsgBox("El pedido no puede ser asentado", MsgBoxStyle.Critical, "Pedido de reposición")
-                Return
-            End If
-            FrmConfirmacionPedidoDeReposicion.idpedido = selectedRow.Cells("id").Value
+			selectedRow = dgvProveedores.Rows(e.RowIndex)
+			If Not selectedRow.Cells("Estado").Value = "Activo" Then
+				MsgBox("El pedido no puede ser asentado", MsgBoxStyle.Critical, "Pedido de reposición")
+				Return
+			End If
+			FrmConfirmacionPedidoDeReposicion.idpedido = selectedRow.Cells("id").Value
 			FrmConfirmacionPedidoDeReposicion.ShowDialog()
 		End If
 
@@ -89,10 +91,12 @@ Public Class FrmGestionPedidoDeReposicion
 	End Sub
 
 	Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+		Limpiar()
 		FrmPedidoDeReposicion.ShowDialog()
 	End Sub
 
 	Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+		Limpiar()
 		Close()
 	End Sub
 
@@ -118,10 +122,18 @@ Public Class FrmGestionPedidoDeReposicion
 	End Sub
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-		Buscar()
+		If Buscar() = 0 Then
+			MsgBox("Np se encontró ningún registro con esos parámetros", MsgBoxStyle.OkOnly, "Pedido de reposición")
+		End If
+
 	End Sub
 
 	Private Sub btnLimpiarFiltros_Click(sender As Object, e As EventArgs) Handles btnLimpiarFiltros.Click
+		Limpiar()
+		Buscar()
+	End Sub
+
+	Public Sub Limpiar()
 		dtpFechaHasta.Visible = False
 		dtpFechaDesde.Visible = False
 		lblFechaExacta.Visible = False
@@ -129,6 +141,5 @@ Public Class FrmGestionPedidoDeReposicion
 		lbldesde.Visible = False
 		rbtEntreFechas.Checked = False
 		rbtFechaExacta.Checked = False
-		Buscar()
 	End Sub
 End Class
