@@ -68,14 +68,18 @@ Public Class FrmConfirmacionPedidoDeReposicion
 		End If
 		Dim compras = 0
 		Try
-			For i = 0 To ds.Rows.Count - 1
+			Dim lista = ds.AsEnumerable.GroupBy(Function(x) x(6))
+
+			For i = 0 To lista.Count - 1
 				Dim listaDeCompras = New List(Of TipoDeComprasNE)
-				listaDeCompras.Add(New TipoDeComprasNE With {
-				.Cantidad = ds.Rows(i)(11),
-				.ProductoId = ds.Rows(i)(10),
-				.Precio = ds.Rows(i)(12),
-				.ProveedorId = ds.Rows(i)(6)
-			})
+				For Each datarow As DataRow In lista(i)
+					listaDeCompras.Add(New TipoDeComprasNE With {
+				.Cantidad = datarow(11),
+				.ProductoId = datarow(10),
+				.Precio = datarow(12),
+				.ProveedorId = datarow(6)
+				})
+				Next
 				Dim nroComprobante = ""
 				Dim ultimaCompra = comprasLN.ObtenerUltimaCompra.Tables(0)
 				If ultimaCompra.Rows.Count = 0 Then

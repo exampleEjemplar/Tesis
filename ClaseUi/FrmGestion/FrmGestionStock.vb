@@ -129,12 +129,12 @@ Public Class FrmGestionStock
 		dgvGrilla.DataSource = ds.Tables(0)
 		dgvGrilla.Columns("Id").Visible = False
 		dgvGrilla.Columns("id1").Visible = False
-        dgvGrilla.Columns("Precio producto").DefaultCellStyle.Format = "c2"
-        dgvGrilla.Columns("Precio producto").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        dgvGrilla.Columns("Stock Actual").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        dgvGrilla.Columns("Stock Minimo").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        dgvGrilla.Columns("Stock Maximo").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        If ds.Tables(0).Rows.Count = 0 Then
+		dgvGrilla.Columns("Precio producto").DefaultCellStyle.Format = "c2"
+		dgvGrilla.Columns("Precio producto").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+		dgvGrilla.Columns("Stock Actual").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+		dgvGrilla.Columns("Stock Minimo").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+		dgvGrilla.Columns("Stock Maximo").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+		If ds.Tables(0).Rows.Count = 0 Then
 			MsgBox("No se obtuvieron movimientos de stock para la busqueda", MsgBoxStyle.OkOnly, "Movimiento Stock")
 		End If
 	End Sub

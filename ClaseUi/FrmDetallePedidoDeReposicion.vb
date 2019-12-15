@@ -15,14 +15,10 @@ Public Class FrmDetallePedidoDeReposicion
 
 		dgvProductos.Columns("Nombre").HeaderText = "Producto"
 		dgvProductos.Columns("StockMinimo").HeaderText = "Stock Mínimo"
-		dgvProductos.Columns("StockMinimo").Width = 50
 		dgvProductos.Columns("StockMaximo").HeaderText = "Stock Máximo"
-		dgvProductos.Columns("StockMaximo").Width = 50
 		dgvProductos.Columns("StockActual").HeaderText = "Stock Actual"
-		dgvProductos.Columns("StockActual").Width = 50
 		dgvProductos.Columns("ProveedorNombre").HeaderText = "Proveedor"
 		dgvProductos.Columns("AComprar").HeaderText = "A Comprar"
-		dgvProductos.Columns("AComprar").Width = 50
 		dgvProductos.Columns("HacerPedido").HeaderText = "Pedir este producto"
 		dgvProductos.Columns("PrecioProducto").HeaderText = "Precio del producto"
 		dgvProductos.Columns("PrecioProducto").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
@@ -46,20 +42,23 @@ Public Class FrmDetallePedidoDeReposicion
 	End Function
 
 	Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgvProductos.CellMouseDoubleClick
-		Dim selectedRow As DataGridViewRow = Nothing
-		If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-			selectedRow = dgvProductos.Rows(e.RowIndex)
-		End If
-		lblProveedor.Text = selectedRow.Cells("ProveedorNombre").Value
-		lblProducto.Text = selectedRow.Cells("Nombre").Value
-		lblAComprar.Text = selectedRow.Cells("AComprar").Value
-		lblMaximo.Text = selectedRow.Cells("StockMaximo").Value
-		lblStockMinimo.Text = selectedRow.Cells("StockMinimo").Value
-		txtForzado.Text = selectedRow.Cells("AComprar").Value
-		index = selectedRow.Cells("id").RowIndex
-		GroupBox1.Visible = True
-		btnGuardarProveedor.Enabled = False
-		btnCancelarProveedor.Enabled = False
+		Try
+			Dim selectedRow As DataGridViewRow = Nothing
+			If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+				selectedRow = dgvProductos.Rows(e.RowIndex)
+			End If
+			lblProveedor.Text = selectedRow.Cells("ProveedorNombre").Value
+			lblProducto.Text = selectedRow.Cells("Nombre").Value
+			lblAComprar.Text = selectedRow.Cells("AComprar").Value
+			lblMaximo.Text = selectedRow.Cells("StockMaximo").Value
+			lblStockMinimo.Text = selectedRow.Cells("StockMinimo").Value
+			txtForzado.Text = selectedRow.Cells("AComprar").Value
+			index = selectedRow.Cells("id").RowIndex
+			GroupBox1.Visible = True
+			btnGuardarProveedor.Enabled = False
+			btnCancelarProveedor.Enabled = False
+		Catch
+		End Try
 	End Sub
 
 	Private Sub btncancelar_Click(sender As Object, e As EventArgs) Handles btncancelar.Click
@@ -69,18 +68,20 @@ Public Class FrmDetallePedidoDeReposicion
 	End Sub
 
 	Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProductos.CellContentClick
-		Dim cell As DataGridViewCheckBoxCell = Nothing
-		If dgvProductos.Columns(0).HeaderText = "Pedir este producto" Then
-			cell = dgvProductos.Rows(e.RowIndex).Cells(0)
-		Else
-			cell = dgvProductos.Rows(e.RowIndex).Cells(8)
-		End If
-		If cell.Value = True Then
-			cell.Value = False
-		Else
-			cell.Value = True
-		End If
-
+		Try
+			Dim cell As DataGridViewCheckBoxCell = Nothing
+			If dgvProductos.Columns(0).HeaderText = "Pedir este producto" Then
+				cell = dgvProductos.Rows(e.RowIndex).Cells(0)
+			Else
+				cell = dgvProductos.Rows(e.RowIndex).Cells(8)
+			End If
+			If cell.Value = True Then
+				cell.Value = False
+			Else
+				cell.Value = True
+			End If
+		Catch
+		End Try
 	End Sub
 
 	Private Sub btnguardarmodificacion_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
