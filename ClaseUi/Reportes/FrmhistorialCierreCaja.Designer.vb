@@ -24,7 +24,7 @@ Partial Class FrmhistorialCierreCaja
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmhistorialCierreCaja))
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.SP_HistorioCierredeCajaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSetReportes = New ClaseUi.DataSetReportes()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -71,7 +71,7 @@ Partial Class FrmhistorialCierreCaja
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 53)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(615, 131)
+        Me.GroupBox1.Size = New System.Drawing.Size(694, 118)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Búsqueda"
@@ -85,7 +85,7 @@ Partial Class FrmhistorialCierreCaja
         Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Image = Global.ClaseUi.My.Resources.Resources.icons8_cancel_62
         Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnLimpiar.Location = New System.Drawing.Point(465, 19)
+        Me.btnLimpiar.Location = New System.Drawing.Point(544, 19)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(69, 85)
         Me.btnLimpiar.TabIndex = 59
@@ -96,15 +96,15 @@ Partial Class FrmhistorialCierreCaja
         'cbocliente
         '
         Me.cbocliente.FormattingEnabled = True
-        Me.cbocliente.Location = New System.Drawing.Point(106, 98)
+        Me.cbocliente.Location = New System.Drawing.Point(106, 67)
         Me.cbocliente.Name = "cbocliente"
-        Me.cbocliente.Size = New System.Drawing.Size(121, 21)
+        Me.cbocliente.Size = New System.Drawing.Size(164, 21)
         Me.cbocliente.TabIndex = 58
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(39, 101)
+        Me.Label1.Location = New System.Drawing.Point(39, 70)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(61, 13)
         Me.Label1.TabIndex = 57
@@ -118,7 +118,7 @@ Partial Class FrmhistorialCierreCaja
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(540, 19)
+        Me.btnSalir.Location = New System.Drawing.Point(619, 19)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(69, 85)
         Me.btnSalir.TabIndex = 56
@@ -129,7 +129,7 @@ Partial Class FrmhistorialCierreCaja
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(42, 71)
+        Me.CheckBox1.Location = New System.Drawing.Point(276, 69)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(133, 17)
         Me.CheckBox1.TabIndex = 39
@@ -151,7 +151,7 @@ Partial Class FrmhistorialCierreCaja
         Me.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpDesde.Location = New System.Drawing.Point(88, 35)
         Me.dtpDesde.Name = "dtpDesde"
-        Me.dtpDesde.Size = New System.Drawing.Size(106, 20)
+        Me.dtpDesde.Size = New System.Drawing.Size(120, 20)
         Me.dtpDesde.TabIndex = 36
         '
         'btnBuscar
@@ -162,7 +162,7 @@ Partial Class FrmhistorialCierreCaja
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
         Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnBuscar.Location = New System.Drawing.Point(393, 28)
+        Me.btnBuscar.Location = New System.Drawing.Point(472, 28)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(69, 76)
         Me.btnBuscar.TabIndex = 35
@@ -192,7 +192,7 @@ Partial Class FrmhistorialCierreCaja
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(147, 25)
+        Me.Label4.Location = New System.Drawing.Point(210, 9)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(309, 25)
         Me.Label4.TabIndex = 57
@@ -200,14 +200,15 @@ Partial Class FrmhistorialCierreCaja
         '
         'ReportViewer1
         '
-        ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.SP_HistorioCierredeCajaBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Bottom
+        ReportDataSource3.Name = "DataSet1"
+        ReportDataSource3.Value = Me.SP_HistorioCierredeCajaBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "ClaseUi.HistoricoCierredeCaja.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(-1, 190)
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 177)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(637, 411)
+        Me.ReportViewer1.Size = New System.Drawing.Size(718, 436)
         Me.ReportViewer1.TabIndex = 58
         '
         'SP_HistorioCierredeCajaTableAdapter
@@ -218,10 +219,11 @@ Partial Class FrmhistorialCierreCaja
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(639, 613)
+        Me.ClientSize = New System.Drawing.Size(718, 613)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmhistorialCierreCaja"

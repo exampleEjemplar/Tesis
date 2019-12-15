@@ -24,6 +24,7 @@ Partial Class InformeCierredeCaja
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(InformeCierredeCaja))
         Me.SP_CierredeCaja1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSetReportes = New ClaseUi.DataSetReportes()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
@@ -56,7 +57,7 @@ Partial Class InformeCierredeCaja
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(614, 513)
+        Me.ReportViewer1.Size = New System.Drawing.Size(718, 513)
         Me.ReportViewer1.TabIndex = 0
         '
         'SP_CierredeCaja1TableAdapter
@@ -69,7 +70,7 @@ Partial Class InformeCierredeCaja
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel1.Location = New System.Drawing.Point(0, 100)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(614, 513)
+        Me.Panel1.Size = New System.Drawing.Size(718, 513)
         Me.Panel1.TabIndex = 69
         '
         'Label4
@@ -90,7 +91,7 @@ Partial Class InformeCierredeCaja
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(533, 9)
+        Me.btnSalir.Location = New System.Drawing.Point(637, 12)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(69, 85)
         Me.btnSalir.TabIndex = 71
@@ -102,11 +103,12 @@ Partial Class InformeCierredeCaja
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(614, 613)
+        Me.ClientSize = New System.Drawing.Size(718, 613)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "InformeCierredeCaja"

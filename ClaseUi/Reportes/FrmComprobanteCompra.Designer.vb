@@ -48,16 +48,16 @@ Partial Class FrmComprobanteCompra
         Me.rpCompras.Location = New System.Drawing.Point(0, 0)
         Me.rpCompras.Name = "rpCompras"
         Me.rpCompras.ServerReport.BearerToken = Nothing
-        Me.rpCompras.Size = New System.Drawing.Size(614, 513)
+        Me.rpCompras.Size = New System.Drawing.Size(718, 510)
         Me.rpCompras.TabIndex = 0
         '
         'lblTitulo
         '
         Me.lblTitulo.AutoSize = True
-        Me.lblTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitulo.Location = New System.Drawing.Point(203, 9)
+        Me.lblTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitulo.Location = New System.Drawing.Point(258, 12)
         Me.lblTitulo.Name = "lblTitulo"
-        Me.lblTitulo.Size = New System.Drawing.Size(201, 24)
+        Me.lblTitulo.Size = New System.Drawing.Size(220, 24)
         Me.lblTitulo.TabIndex = 6
         Me.lblTitulo.Text = "Comprobante de Pago"
         Me.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -66,9 +66,9 @@ Partial Class FrmComprobanteCompra
         '
         Me.Panel1.Controls.Add(Me.rpCompras)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 100)
+        Me.Panel1.Location = New System.Drawing.Point(0, 103)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(614, 513)
+        Me.Panel1.Size = New System.Drawing.Size(718, 510)
         Me.Panel1.TabIndex = 5
         '
         'btnSalir
@@ -78,7 +78,7 @@ Partial Class FrmComprobanteCompra
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(533, 9)
+        Me.btnSalir.Location = New System.Drawing.Point(637, 12)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(69, 85)
         Me.btnSalir.TabIndex = 7
@@ -90,13 +90,13 @@ Partial Class FrmComprobanteCompra
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(614, 613)
+        Me.ClientSize = New System.Drawing.Size(718, 613)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.lblTitulo)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmComprobanteCompra"

@@ -23,6 +23,7 @@ Partial Class FrmCierreCaja
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmCierreCaja))
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -38,7 +39,7 @@ Partial Class FrmCierreCaja
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 103)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(614, 510)
+        Me.ReportViewer1.Size = New System.Drawing.Size(718, 510)
         Me.ReportViewer1.TabIndex = 1
         '
         'btnSalir
@@ -49,7 +50,7 @@ Partial Class FrmCierreCaja
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(533, 12)
+        Me.btnSalir.Location = New System.Drawing.Point(637, 12)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(69, 85)
         Me.btnSalir.TabIndex = 72
@@ -71,11 +72,12 @@ Partial Class FrmCierreCaja
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(614, 613)
+        Me.ClientSize = New System.Drawing.Size(718, 613)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.ReportViewer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmCierreCaja"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Listado Movimientos de Caja"

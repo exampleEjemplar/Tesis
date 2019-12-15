@@ -48,7 +48,7 @@ Partial Class FrmComprobanteVenta
         Me.rpVentas.Location = New System.Drawing.Point(0, 0)
         Me.rpVentas.Name = "rpVentas"
         Me.rpVentas.ServerReport.BearerToken = Nothing
-        Me.rpVentas.Size = New System.Drawing.Size(657, 510)
+        Me.rpVentas.Size = New System.Drawing.Size(718, 510)
         Me.rpVentas.TabIndex = 0
         '
         'Panel1
@@ -57,16 +57,16 @@ Partial Class FrmComprobanteVenta
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel1.Location = New System.Drawing.Point(0, 103)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(657, 510)
+        Me.Panel1.Size = New System.Drawing.Size(718, 510)
         Me.Panel1.TabIndex = 1
         '
         'lblTitulo
         '
         Me.lblTitulo.AutoSize = True
-        Me.lblTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitulo.Location = New System.Drawing.Point(225, 12)
+        Me.lblTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitulo.Location = New System.Drawing.Point(254, 12)
         Me.lblTitulo.Name = "lblTitulo"
-        Me.lblTitulo.Size = New System.Drawing.Size(209, 24)
+        Me.lblTitulo.Size = New System.Drawing.Size(229, 24)
         Me.lblTitulo.TabIndex = 2
         Me.lblTitulo.Text = "Comprobante de Cobro"
         Me.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -78,7 +78,7 @@ Partial Class FrmComprobanteVenta
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(576, 12)
+        Me.btnSalir.Location = New System.Drawing.Point(637, 12)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(69, 85)
         Me.btnSalir.TabIndex = 4
@@ -91,8 +91,7 @@ Partial Class FrmComprobanteVenta
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(657, 613)
-        Me.ControlBox = False
+        Me.ClientSize = New System.Drawing.Size(718, 613)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.lblTitulo)
         Me.Controls.Add(Me.Panel1)

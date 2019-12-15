@@ -24,7 +24,7 @@ Partial Class ListadodeProveedores
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ListadodeProveedores))
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.SP_ListadodeProveedoresPorfechaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSetReportes = New ClaseUi.DataSetReportes()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -67,7 +67,7 @@ Partial Class ListadodeProveedores
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 37)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(590, 114)
+        Me.GroupBox1.Size = New System.Drawing.Size(694, 114)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = " Búsqueda Listado de Proveedores"
@@ -80,7 +80,7 @@ Partial Class ListadodeProveedores
         Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSalir.Image = Global.ClaseUi.My.Resources.Resources.icons8_shutdown_62
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(515, 19)
+        Me.btnSalir.Location = New System.Drawing.Point(619, 22)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(69, 85)
         Me.btnSalir.TabIndex = 56
@@ -91,7 +91,7 @@ Partial Class ListadodeProveedores
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(42, 71)
+        Me.CheckBox1.Location = New System.Drawing.Point(42, 72)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(133, 17)
         Me.CheckBox1.TabIndex = 39
@@ -102,9 +102,9 @@ Partial Class ListadodeProveedores
         '
         Me.dtpHasta.CustomFormat = "dd/MM/yyyy"
         Me.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpHasta.Location = New System.Drawing.Point(246, 32)
+        Me.dtpHasta.Location = New System.Drawing.Point(260, 32)
         Me.dtpHasta.Name = "dtpHasta"
-        Me.dtpHasta.Size = New System.Drawing.Size(106, 20)
+        Me.dtpHasta.Size = New System.Drawing.Size(120, 20)
         Me.dtpHasta.TabIndex = 37
         '
         'dtpDesde
@@ -113,7 +113,7 @@ Partial Class ListadodeProveedores
         Me.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpDesde.Location = New System.Drawing.Point(88, 32)
         Me.dtpDesde.Name = "dtpDesde"
-        Me.dtpDesde.Size = New System.Drawing.Size(106, 20)
+        Me.dtpDesde.Size = New System.Drawing.Size(120, 20)
         Me.dtpDesde.TabIndex = 36
         '
         'btnBuscar
@@ -124,7 +124,7 @@ Partial Class ListadodeProveedores
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
         Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnBuscar.Location = New System.Drawing.Point(440, 28)
+        Me.btnBuscar.Location = New System.Drawing.Point(544, 31)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(69, 76)
         Me.btnBuscar.TabIndex = 35
@@ -144,7 +144,7 @@ Partial Class ListadodeProveedores
         'lblHasta
         '
         Me.lblHasta.AutoSize = True
-        Me.lblHasta.Location = New System.Drawing.Point(200, 36)
+        Me.lblHasta.Location = New System.Drawing.Point(214, 36)
         Me.lblHasta.Name = "lblHasta"
         Me.lblHasta.Size = New System.Drawing.Size(40, 13)
         Me.lblHasta.TabIndex = 3
@@ -153,14 +153,14 @@ Partial Class ListadodeProveedores
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource2.Name = "DataSet1"
-        ReportDataSource2.Value = Me.SP_ListadodeProveedoresPorfechaBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource5.Name = "DataSet1"
+        ReportDataSource5.Value = Me.SP_ListadodeProveedoresPorfechaBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "ClaseUi.ListadoProveedoresPorFecha.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(614, 456)
+        Me.ReportViewer1.Size = New System.Drawing.Size(718, 456)
         Me.ReportViewer1.TabIndex = 5
         '
         'SP_ListadodeProveedoresPorfechaTableAdapter
@@ -171,7 +171,7 @@ Partial Class ListadodeProveedores
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(182, 9)
+        Me.Label4.Location = New System.Drawing.Point(240, 9)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(262, 25)
         Me.Label4.TabIndex = 9
@@ -183,18 +183,19 @@ Partial Class ListadodeProveedores
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel1.Location = New System.Drawing.Point(0, 157)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(614, 456)
+        Me.Panel1.Size = New System.Drawing.Size(718, 456)
         Me.Panel1.TabIndex = 10
         '
         'ListadodeProveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(614, 613)
+        Me.ClientSize = New System.Drawing.Size(718, 613)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ListadodeProveedores"
