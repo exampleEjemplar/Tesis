@@ -105,10 +105,9 @@ Partial Class FrmArmadoPago
         Me.btnNuevoServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevoServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevoServicio.Image = CType(resources.GetObject("btnNuevoServicio.Image"), System.Drawing.Image)
-        Me.btnNuevoServicio.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnNuevoServicio.Location = New System.Drawing.Point(246, 8)
+        Me.btnNuevoServicio.Location = New System.Drawing.Point(249, 29)
         Me.btnNuevoServicio.Name = "btnNuevoServicio"
-        Me.btnNuevoServicio.Size = New System.Drawing.Size(33, 37)
+        Me.btnNuevoServicio.Size = New System.Drawing.Size(30, 30)
         Me.btnNuevoServicio.TabIndex = 81
         Me.btnNuevoServicio.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNuevoServicio.UseVisualStyleBackColor = False
@@ -149,6 +148,7 @@ Partial Class FrmArmadoPago
         '
         Me.gboFiltros.Controls.Add(Me.GroupBox3)
         Me.gboFiltros.Controls.Add(Me.btnNuevoServicio)
+        Me.gboFiltros.Controls.Add(Me.GroupBox4)
         Me.gboFiltros.Controls.Add(Me.btnLimpiarFiltros)
         Me.gboFiltros.Controls.Add(Me.btnBuscar)
         Me.gboFiltros.Controls.Add(Me.lblDesde)
@@ -161,9 +161,9 @@ Partial Class FrmArmadoPago
         Me.gboFiltros.Controls.Add(Me.txtBusNombreProducto)
         Me.gboFiltros.Controls.Add(Me.Label5)
         Me.gboFiltros.Location = New System.Drawing.Point(9, 200)
-        Me.gboFiltros.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.gboFiltros.Margin = New System.Windows.Forms.Padding(2)
         Me.gboFiltros.Name = "gboFiltros"
-        Me.gboFiltros.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.gboFiltros.Padding = New System.Windows.Forms.Padding(2)
         Me.gboFiltros.Size = New System.Drawing.Size(624, 145)
         Me.gboFiltros.TabIndex = 74
         Me.gboFiltros.TabStop = False
@@ -173,14 +173,13 @@ Partial Class FrmArmadoPago
         '
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Controls.Add(Me.cboOrden)
-        Me.GroupBox3.Controls.Add(Me.GroupBox4)
         Me.GroupBox3.Controls.Add(Me.chbListaParaOrdenar)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox3.Location = New System.Drawing.Point(298, 8)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox3.Location = New System.Drawing.Point(287, 9)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox3.Size = New System.Drawing.Size(224, 136)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox3.Size = New System.Drawing.Size(144, 132)
         Me.GroupBox3.TabIndex = 82
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Ordenar por"
@@ -189,7 +188,7 @@ Partial Class FrmArmadoPago
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(3, 118)
+        Me.Label7.Location = New System.Drawing.Point(5, 108)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(41, 13)
         Me.Label7.TabIndex = 77
@@ -202,7 +201,7 @@ Partial Class FrmArmadoPago
         Me.cboOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboOrden.FormattingEnabled = True
         Me.cboOrden.Items.AddRange(New Object() {"Física", "Jurídica"})
-        Me.cboOrden.Location = New System.Drawing.Point(49, 115)
+        Me.cboOrden.Location = New System.Drawing.Point(51, 105)
         Me.cboOrden.Name = "cboOrden"
         Me.cboOrden.Size = New System.Drawing.Size(50, 21)
         Me.cboOrden.TabIndex = 78
@@ -216,11 +215,11 @@ Partial Class FrmArmadoPago
         Me.GroupBox4.Controls.Add(Me.lblPrioridad1)
         Me.GroupBox4.Controls.Add(Me.lblPrioridad2)
         Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox4.Location = New System.Drawing.Point(137, 0)
-        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox4.Location = New System.Drawing.Point(435, 10)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.GroupBox4.Size = New System.Drawing.Size(82, 124)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox4.Size = New System.Drawing.Size(130, 131)
         Me.GroupBox4.TabIndex = 46
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Prioridad"
@@ -258,30 +257,30 @@ Partial Class FrmArmadoPago
         'lblPrioridad3
         '
         Me.lblPrioridad3.AutoSize = True
-        Me.lblPrioridad3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrioridad3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrioridad3.Location = New System.Drawing.Point(5, 106)
         Me.lblPrioridad3.Name = "lblPrioridad3"
-        Me.lblPrioridad3.Size = New System.Drawing.Size(68, 13)
+        Me.lblPrioridad3.Size = New System.Drawing.Size(57, 13)
         Me.lblPrioridad3.TabIndex = 22
         Me.lblPrioridad3.Text = "Prioridad 3"
         '
         'lblPrioridad1
         '
         Me.lblPrioridad1.AutoSize = True
-        Me.lblPrioridad1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrioridad1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrioridad1.Location = New System.Drawing.Point(5, 34)
         Me.lblPrioridad1.Name = "lblPrioridad1"
-        Me.lblPrioridad1.Size = New System.Drawing.Size(68, 13)
+        Me.lblPrioridad1.Size = New System.Drawing.Size(57, 13)
         Me.lblPrioridad1.TabIndex = 20
         Me.lblPrioridad1.Text = "Prioridad 1"
         '
         'lblPrioridad2
         '
         Me.lblPrioridad2.AutoSize = True
-        Me.lblPrioridad2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrioridad2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrioridad2.Location = New System.Drawing.Point(5, 70)
         Me.lblPrioridad2.Name = "lblPrioridad2"
-        Me.lblPrioridad2.Size = New System.Drawing.Size(68, 13)
+        Me.lblPrioridad2.Size = New System.Drawing.Size(57, 13)
         Me.lblPrioridad2.TabIndex = 21
         Me.lblPrioridad2.Text = "Prioridad 2"
         '
@@ -289,9 +288,9 @@ Partial Class FrmArmadoPago
         '
         Me.chbListaParaOrdenar.FormattingEnabled = True
         Me.chbListaParaOrdenar.Location = New System.Drawing.Point(4, 17)
-        Me.chbListaParaOrdenar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chbListaParaOrdenar.Margin = New System.Windows.Forms.Padding(2)
         Me.chbListaParaOrdenar.Name = "chbListaParaOrdenar"
-        Me.chbListaParaOrdenar.Size = New System.Drawing.Size(129, 84)
+        Me.chbListaParaOrdenar.Size = New System.Drawing.Size(136, 84)
         Me.chbListaParaOrdenar.TabIndex = 0
         '
         'btnLimpiarFiltros
@@ -301,13 +300,13 @@ Partial Class FrmArmadoPago
         Me.btnLimpiarFiltros.FlatAppearance.BorderSize = 0
         Me.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLimpiarFiltros.Image = CType(resources.GetObject("btnLimpiarFiltros.Image"), System.Drawing.Image)
-        Me.btnLimpiarFiltros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLimpiarFiltros.Location = New System.Drawing.Point(526, 58)
+        Me.btnLimpiarFiltros.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnLimpiarFiltros.Location = New System.Drawing.Point(570, 75)
         Me.btnLimpiarFiltros.Name = "btnLimpiarFiltros"
-        Me.btnLimpiarFiltros.Size = New System.Drawing.Size(92, 34)
+        Me.btnLimpiarFiltros.Size = New System.Drawing.Size(50, 53)
         Me.btnLimpiarFiltros.TabIndex = 38
         Me.btnLimpiarFiltros.Text = "Limpiar"
-        Me.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnLimpiarFiltros.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnLimpiarFiltros.UseVisualStyleBackColor = False
         '
         'btnBuscar
@@ -317,20 +316,20 @@ Partial Class FrmArmadoPago
         Me.btnBuscar.FlatAppearance.BorderSize = 0
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
-        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnBuscar.Location = New System.Drawing.Point(526, 20)
+        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnBuscar.Location = New System.Drawing.Point(570, 16)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(92, 34)
+        Me.btnBuscar.Size = New System.Drawing.Size(50, 53)
         Me.btnBuscar.TabIndex = 38
         Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnBuscar.UseVisualStyleBackColor = False
         '
         'lblDesde
         '
         Me.lblDesde.AutoSize = True
         Me.lblDesde.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDesde.Location = New System.Drawing.Point(6, 89)
+        Me.lblDesde.Location = New System.Drawing.Point(6, 101)
         Me.lblDesde.Name = "lblDesde"
         Me.lblDesde.Size = New System.Drawing.Size(43, 13)
         Me.lblDesde.TabIndex = 52
@@ -339,8 +338,8 @@ Partial Class FrmArmadoPago
         'rbtEntreFechas
         '
         Me.rbtEntreFechas.AutoSize = True
-        Me.rbtEntreFechas.Location = New System.Drawing.Point(113, 63)
-        Me.rbtEntreFechas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbtEntreFechas.Location = New System.Drawing.Point(129, 81)
+        Me.rbtEntreFechas.Margin = New System.Windows.Forms.Padding(2)
         Me.rbtEntreFechas.Name = "rbtEntreFechas"
         Me.rbtEntreFechas.Size = New System.Drawing.Size(86, 17)
         Me.rbtEntreFechas.TabIndex = 49
@@ -351,7 +350,7 @@ Partial Class FrmArmadoPago
         '
         Me.lblHasta.AutoSize = True
         Me.lblHasta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHasta.Location = New System.Drawing.Point(154, 89)
+        Me.lblHasta.Location = New System.Drawing.Point(128, 101)
         Me.lblHasta.Name = "lblHasta"
         Me.lblHasta.Size = New System.Drawing.Size(40, 13)
         Me.lblHasta.TabIndex = 51
@@ -360,8 +359,8 @@ Partial Class FrmArmadoPago
         'rbtFechaExacta
         '
         Me.rbtFechaExacta.AutoSize = True
-        Me.rbtFechaExacta.Location = New System.Drawing.Point(9, 63)
-        Me.rbtFechaExacta.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.rbtFechaExacta.Location = New System.Drawing.Point(9, 81)
+        Me.rbtFechaExacta.Margin = New System.Windows.Forms.Padding(2)
         Me.rbtFechaExacta.Name = "rbtFechaExacta"
         Me.rbtFechaExacta.Size = New System.Drawing.Size(91, 17)
         Me.rbtFechaExacta.TabIndex = 50
@@ -372,7 +371,7 @@ Partial Class FrmArmadoPago
         '
         Me.dtpFechaHasta.CustomFormat = "dd/MM/yyyy"
         Me.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFechaHasta.Location = New System.Drawing.Point(198, 85)
+        Me.dtpFechaHasta.Location = New System.Drawing.Point(131, 117)
         Me.dtpFechaHasta.Name = "dtpFechaHasta"
         Me.dtpFechaHasta.Size = New System.Drawing.Size(84, 20)
         Me.dtpFechaHasta.TabIndex = 48
@@ -382,7 +381,7 @@ Partial Class FrmArmadoPago
         '
         Me.dtpFechaDesde.CustomFormat = "dd/MM/yyyy"
         Me.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFechaDesde.Location = New System.Drawing.Point(55, 85)
+        Me.dtpFechaDesde.Location = New System.Drawing.Point(9, 117)
         Me.dtpFechaDesde.Name = "dtpFechaDesde"
         Me.dtpFechaDesde.Size = New System.Drawing.Size(86, 20)
         Me.dtpFechaDesde.TabIndex = 47
@@ -392,7 +391,7 @@ Partial Class FrmArmadoPago
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(6, 41)
+        Me.Label4.Location = New System.Drawing.Point(5, 59)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(180, 16)
         Me.Label4.TabIndex = 46
@@ -400,19 +399,19 @@ Partial Class FrmArmadoPago
         '
         'txtBusNombreProducto
         '
-        Me.txtBusNombreProducto.Location = New System.Drawing.Point(113, 16)
-        Me.txtBusNombreProducto.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtBusNombreProducto.Location = New System.Drawing.Point(8, 35)
+        Me.txtBusNombreProducto.Margin = New System.Windows.Forms.Padding(2)
         Me.txtBusNombreProducto.Name = "txtBusNombreProducto"
-        Me.txtBusNombreProducto.Size = New System.Drawing.Size(131, 20)
+        Me.txtBusNombreProducto.Size = New System.Drawing.Size(236, 20)
         Me.txtBusNombreProducto.TabIndex = 41
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(6, 20)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(6, 16)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(98, 13)
+        Me.Label5.Size = New System.Drawing.Size(122, 16)
         Me.Label5.TabIndex = 40
         Me.Label5.Text = "Nombre servicio"
         '
@@ -421,9 +420,9 @@ Partial Class FrmArmadoPago
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.lblTotal)
         Me.GroupBox2.Location = New System.Drawing.Point(9, 603)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(470, 63)
         Me.GroupBox2.TabIndex = 78
         Me.GroupBox2.TabStop = False
@@ -455,9 +454,9 @@ Partial Class FrmArmadoPago
         Me.GroupBox6.Controls.Add(Me.btnSalir)
         Me.GroupBox6.Controls.Add(Me.btnNuevo)
         Me.GroupBox6.Location = New System.Drawing.Point(484, 353)
-        Me.GroupBox6.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox6.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox6.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox6.Size = New System.Drawing.Size(151, 248)
         Me.GroupBox6.TabIndex = 75
         Me.GroupBox6.TabStop = False
@@ -511,9 +510,9 @@ Partial Class FrmArmadoPago
         Me.btnNuevoProveedor.FlatAppearance.BorderSize = 0
         Me.btnNuevoProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevoProveedor.Image = CType(resources.GetObject("btnNuevoProveedor.Image"), System.Drawing.Image)
-        Me.btnNuevoProveedor.Location = New System.Drawing.Point(511, 23)
+        Me.btnNuevoProveedor.Location = New System.Drawing.Point(508, 27)
         Me.btnNuevoProveedor.Name = "btnNuevoProveedor"
-        Me.btnNuevoProveedor.Size = New System.Drawing.Size(40, 40)
+        Me.btnNuevoProveedor.Size = New System.Drawing.Size(30, 30)
         Me.btnNuevoProveedor.TabIndex = 82
         Me.btnNuevoProveedor.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnNuevoProveedor.UseVisualStyleBackColor = False
@@ -522,9 +521,9 @@ Partial Class FrmArmadoPago
         '
         Me.GroupBox7.Controls.Add(Me.ListView1)
         Me.GroupBox7.Location = New System.Drawing.Point(373, 353)
-        Me.GroupBox7.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox7.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox7.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox7.Size = New System.Drawing.Size(108, 248)
         Me.GroupBox7.TabIndex = 79
         Me.GroupBox7.TabStop = False
@@ -537,7 +536,7 @@ Partial Class FrmArmadoPago
         Me.ListView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!)
         Me.ListView1.HideSelection = False
         Me.ListView1.Location = New System.Drawing.Point(2, 15)
-        Me.ListView1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ListView1.Margin = New System.Windows.Forms.Padding(2)
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(104, 231)
         Me.ListView1.TabIndex = 1
@@ -571,9 +570,9 @@ Partial Class FrmArmadoPago
         '
         Me.GroupBox8.Controls.Add(Me.lstProdDispo)
         Me.GroupBox8.Location = New System.Drawing.Point(9, 353)
-        Me.GroupBox8.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox8.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox8.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox8.Size = New System.Drawing.Size(362, 248)
         Me.GroupBox8.TabIndex = 76
         Me.GroupBox8.TabStop = False
@@ -586,7 +585,7 @@ Partial Class FrmArmadoPago
         Me.lstProdDispo.GridLines = True
         Me.lstProdDispo.HideSelection = False
         Me.lstProdDispo.Location = New System.Drawing.Point(2, 15)
-        Me.lstProdDispo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.lstProdDispo.Margin = New System.Windows.Forms.Padding(2)
         Me.lstProdDispo.Name = "lstProdDispo"
         Me.lstProdDispo.Size = New System.Drawing.Size(358, 231)
         Me.lstProdDispo.Sorting = System.Windows.Forms.SortOrder.Ascending
@@ -674,9 +673,9 @@ Partial Class FrmArmadoPago
         Me.GroupBox9.Controls.Add(Me.Label21)
         Me.GroupBox9.Controls.Add(Me.Label22)
         Me.GroupBox9.Location = New System.Drawing.Point(394, 74)
-        Me.GroupBox9.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox9.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox9.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox9.Size = New System.Drawing.Size(239, 122)
         Me.GroupBox9.TabIndex = 77
         Me.GroupBox9.TabStop = False
@@ -762,9 +761,9 @@ Partial Class FrmArmadoPago
         Me.GroupBox1.Controls.Add(Me.Label14)
         Me.GroupBox1.Controls.Add(Me.lblNombre)
         Me.GroupBox1.Location = New System.Drawing.Point(9, 75)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(382, 121)
         Me.GroupBox1.TabIndex = 73
         Me.GroupBox1.TabStop = False
@@ -804,7 +803,7 @@ Partial Class FrmArmadoPago
         Me.Controls.Add(Me.Label23)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmArmadoPago"
