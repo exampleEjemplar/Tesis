@@ -194,6 +194,7 @@ Public Class FrmGestionCompras
 		End If
 		dgvProveedores.Columns("Id").Visible = False
         dgvProveedores.Columns("estado").Visible = False
+        dgvProveedores.Columns("Fecha").DefaultCellStyle.Format = "dd-MM-yyyy HH:mm:ss"
         dgvProveedores.Columns("Fecha").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
         dgvProveedores.Columns("Nombre").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
         dgvProveedores.Columns("Total").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight

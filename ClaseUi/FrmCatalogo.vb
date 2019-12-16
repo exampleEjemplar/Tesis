@@ -347,10 +347,10 @@ Public Class FrmCatalogo
 
 		FrmDetalleProductoCatalogo.PBFOTO.Image = imgImagen
 		FrmDetalleProductoCatalogo.TBNOMBREPROD.Text = (DataGridView1.Item(2, DataGridView1.CurrentRow.Index).Value)
-		FrmDetalleProductoCatalogo.TBPRECIO.Text = (DataGridView1.Item(6, DataGridView1.CurrentRow.Index).Value)
+        FrmDetalleProductoCatalogo.TBPRECIO.Text = (DataGridView1.Item(5, DataGridView1.CurrentRow.Index).Value)
 
 
-	End Sub
+    End Sub
 
 	Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
 

@@ -7,7 +7,7 @@
     <ProjectGuid>{F120D771-ED61-4734-A4E4-1ADD51E7BB00}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ClaseUi</RootNamespace>
-    <AssemblyName>ClaseUi</AssemblyName>
+    <AssemblyName>Crizol Sys</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -35,7 +35,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>ClaseUi.xml</DocumentationFile>
+    <DocumentationFile>Crizol Sys.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -44,7 +44,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>ClaseUi.xml</DocumentationFile>
+    <DocumentationFile>Crizol Sys.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -75,7 +75,7 @@
     <ManifestKeyFile>ClaseUi_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>false</GenerateManifests>
+    <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>

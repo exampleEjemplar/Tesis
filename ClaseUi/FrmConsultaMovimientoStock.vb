@@ -50,6 +50,7 @@ Public Class FrmConsultaMovimientoStock
         dgvCotizaciones.DataSource = examples
         dgvCotizaciones.Columns("Id").Visible = False
         dgvCotizaciones.Columns("Proveedor").Visible = False
+        dgvCotizaciones.Columns("Fecha").DefaultCellStyle.Format = "dd-MM-yyyy HH:mm:ss"
         dgvCotizaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgvCotizaciones.AutoResizeColumns()
         txtProducto.Text = ds.Tables(0).Rows(0)(2).ToString()

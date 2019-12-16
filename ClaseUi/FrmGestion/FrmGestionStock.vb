@@ -129,8 +129,8 @@ Public Class FrmGestionStock
 		dgvGrilla.DataSource = ds.Tables(0)
 		dgvGrilla.Columns("Id").Visible = False
 		dgvGrilla.Columns("id1").Visible = False
-		dgvGrilla.Columns("Precio producto").DefaultCellStyle.Format = "c2"
-		dgvGrilla.Columns("Precio producto").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        dgvGrilla.Columns("Precio producto").DefaultCellStyle.Format = "c2"
+        dgvGrilla.Columns("Precio producto").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
 		dgvGrilla.Columns("Stock Actual").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
 		dgvGrilla.Columns("Stock Minimo").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
 		dgvGrilla.Columns("Stock Maximo").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ttpAdicionar.Text" xml:space="preserve">
+    <value>En este campo, el numero que ingrese será lo que se adicione o incremente al precio existente de los productos. Ej. Si seleccionó un producto con un precio de $100 e introduce 5, el nuevo precio será de $105</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnBuscar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -129,9 +132,6 @@
         YBVHxzRzALF4SDpgwBskoMYosiZq4stQa3ADUMMRi0aq4J7DXrFQa/ADkCNADUigJqo0y0FmAZv6cVDj
         R8EoQAIMDAAUMd53gP68qQAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="ttpAdicionar.Text" xml:space="preserve">
-    <value>En este campo, el numero que ingrese será lo que se adicione o incremente al precio existente de los productos. Ej. Si seleccionó un producto con $100 de precio e introduce 25, el nuevo precio será de $125</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
