@@ -169,19 +169,19 @@ Public Class CajaDA
 
 
 
-	Public Function ControlCierreCaja() As DataSet
-		helpersDA.ChequearConexion(db)
-		enunciado = New SqlCommand("select * from COMPRAs c WHERE c.estado=1 union all select fecha, '','',total,'','','' from ventas v WHERE v.estado=1 ", db)
-		Dim ds As New DataSet
-		Try
-			Dim da = New SqlDataAdapter(enunciado)
-			da.Fill(ds)
-		Catch ex As Exception
-			MsgBox(ex.ToString)
-			helpersDA.ChequearConexion(db,"close")
-		End Try
-		helpersDA.ChequearConexion(db,"close")
-		Return ds
-	End Function
+    Public Function ControlCierreCaja(usuarioid As Integer) As DataSet
+        helpersDA.ChequearConexion(db)
+        enunciado = New SqlCommand("select * from COMPRAs c WHERE c.estado=1 and usuarioId =" + usuarioid.ToString() + " union all select fecha, '','',total,'','','' from ventas v WHERE v.estado=1 and usuarioId =" + usuarioid.ToString(), db)
+        Dim ds As New DataSet
+        Try
+            Dim da = New SqlDataAdapter(enunciado)
+            da.Fill(ds)
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            helpersDA.ChequearConexion(db, "close")
+        End Try
+        helpersDA.ChequearConexion(db, "close")
+        Return ds
+    End Function
 
 End Class

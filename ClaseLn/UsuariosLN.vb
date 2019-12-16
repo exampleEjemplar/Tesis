@@ -29,9 +29,9 @@ Public Class UsuariosLN
         Return usuariosDA.GrabarUsuarios(usu)
     End Function
 
-    Public Sub ActualizarUsuarios(ByVal usu As UsuariosNE)
-        usuariosDA.ActualizarUsuarios(usu)
-    End Sub
+    Public Function ActualizarUsuarios(ByVal usu As UsuariosNE) As Boolean
+        Return usuariosDA.ActualizarUsuarios(usu)
+    End Function
 
     Public Function CargarRoles() As DataSet
         Return usuariosDA.CargarRoles()

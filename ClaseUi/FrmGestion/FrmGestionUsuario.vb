@@ -45,12 +45,15 @@ Public Class FrmGestionUsuario
         Else
             'Si es uno ya creado lo actualiza
             usu.Id = UsuarioId
-			UsuariosMetodo.ActualizarUsuarios(usu)
-			MsgBox("Usuario actualizado con exito!", MsgBoxStyle.OkOnly, "Exito")
-            Limpiar()
-            Block()
-            DgvUSuariosSet(New Dictionary(Of String, String))
-            Cambiando = False
+            If UsuariosMetodo.ActualizarUsuarios(usu) Then
+                MsgBox("Usuario actualizado con exito!", MsgBoxStyle.OkOnly, "Exito")
+                Limpiar()
+                Block()
+                DgvUSuariosSet(New Dictionary(Of String, String))
+
+                Cambiando = False
+            End If
+
         End If
     End Sub
 
@@ -63,6 +66,8 @@ Public Class FrmGestionUsuario
 	End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Me.Dispose()
+
         Me.Close()
     End Sub
 
@@ -74,9 +79,10 @@ Public Class FrmGestionUsuario
 		For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
 			txtUserName.Text = ds.Tables(0).Rows(i)(0).ToString()
 			txtContrasena.Text = (ds.Tables(0).Rows(i)(1).ToString())
-			txtRepetirContrasena.Text = (ds.Tables(0).Rows(i)(1).ToString())
-			LlenarCboRoles(ds.Tables(0).Rows(i)(2).ToString())
-			If (ds.Tables(0).Rows(i)(3).ToString()) = "S" Then
+            txtRepetirContrasena.Text = (ds.Tables(0).Rows(i)(1).ToString())
+            cboRol.SelectedValue = ds.Tables(0).Rows(i)(2).ToString()
+            ' LlenarCboRoles(ds.Tables(0).Rows(i)(2).ToString())
+            If (ds.Tables(0).Rows(i)(3).ToString()) = "S" Then
 				cboActivoSN.SelectionStart = 0
 				cboActivoSN.SelectedItem = "Si"
 			Else
@@ -214,13 +220,13 @@ Public Class FrmGestionUsuario
 			cboRol.DataSource = ds1.Tables(0)
 			cboRol.DisplayMember = "descripcion"
 			cboRol.ValueMember = "id"
-			cboRol.SelectionStart = (ds1.Tables(0).Rows(0)("id"))
-		Else
+            cboRol.SelectedValue = (ds1.Tables(0).Rows(0)("id"))
+        Else
 			cboBusRol.DataSource = ds1.Tables(0)
 			cboBusRol.DisplayMember = "descripcion"
 			cboBusRol.ValueMember = "id"
-			cboBusRol.SelectionStart = (ds1.Tables(0).Rows(0)("id"))
-		End If
+            cboBusRol.SelectedValue = (ds1.Tables(0).Rows(0)("id"))
+        End If
 	End Sub
 
 	'Carga DataGridView con datos
@@ -255,6 +261,10 @@ Public Class FrmGestionUsuario
 			MsgBox("La búsqueda no arrojo resultados", MsgBoxStyle.Critical, "Error")
 		End If
 	End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
+    End Sub
 
 #End Region
 

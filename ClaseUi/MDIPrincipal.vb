@@ -441,7 +441,7 @@ Public Class MDIPrincipal
 	End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        Dim cierre = cajaln.ControlCierreCaja.Tables(0)
+        Dim cierre = cajaln.ControlCierreCaja(loginLN.ChequearEnSesion).Tables(0)
         If cierre.Rows.Count > 0 Then
             MsgBox("Para salir del sistema, debe realizar Cierre de Caja", MsgBoxStyle.OkOnly, "Cierre de Caja")
         Else
@@ -451,4 +451,6 @@ Public Class MDIPrincipal
         End If
 
     End Sub
+
+
 End Class

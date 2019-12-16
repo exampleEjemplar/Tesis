@@ -111,11 +111,25 @@ Public Class UsuariosDA
         helpersDA.ChequearConexion(db, "close")
         Return True
     End Function
-
-    Public Sub ActualizarUsuarios(ByVal usu As UsuariosNE)
+    Public Function ActualizarUsuarios(ByVal usu As UsuariosNE) As Boolean
         helpersDA.ChequearConexion(db)
         Try
-            Dim insert As New SqlCommand("update usuarios set contrasena = '" & usu.Contrasena & "',rolid = " & usu.RolId & ", activosn = '" & usu.ActivoSN & "' where id = " & usu.Id, db)
+            Dim strPwd = ""
+            For i = 0 To usu.Contrasena.Count() - 1
+                ds1 = New DataSet
+                da = New SqlDataAdapter("Select * from PwdHash where Char = '" + usu.Contrasena(i) + "'", db)
+                da.Fill(ds1)
+                If ds1.Tables(0).Rows.Count = 0 Then
+                    MsgBox("Caracter no válido", MsgBoxStyle.Critical, "Error")
+                    Return False
+                End If
+                For index = 0 To ds1.Tables(0).Rows.Count - 1
+                    If usu.Contrasena(i).ToString() = ds1.Tables(0).Rows(index)(1) Then
+                        strPwd += ds1.Tables(0).Rows(index)(2)
+                    End If
+                Next
+            Next
+            Dim insert As New SqlCommand("update usuarios set contrasena = '" & strPwd & "',rolid = " & usu.RolId & ", activosn = '" & usu.ActivoSN & "' where id = " & usu.Id, db)
             insert.CommandType = CommandType.Text
             insert.ExecuteNonQuery()
         Catch ex As Exception
@@ -123,7 +137,8 @@ Public Class UsuariosDA
             helpersDA.ChequearConexion(db, "close")
         End Try
         helpersDA.ChequearConexion(db, "close")
-    End Sub
+        Return True
+    End Function
 
     Public Function CargarRoles() As DataSet
         helpersDA.ChequearConexion(db)

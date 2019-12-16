@@ -132,7 +132,7 @@ Public Class FrmCierreDeCaja
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        Dim cierre = cajaLN.ControlCierreCaja.Tables(0)
+        Dim cierre = cajaLN.ControlCierreCaja(loginLN.ChequearEnSesion).Tables(0)
         If cierre.Rows.Count > 0 Then
 
             If MessageBox.Show("¿Desea Realizar Cierre de Caja?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then

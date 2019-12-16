@@ -24,8 +24,8 @@ Public Class CajaLN
 
     End Sub
 
-    Public Function ControlCierreCaja() As DataSet
-        Return cajaDA.ControlCierreCaja()
+    Public Function ControlCierreCaja(ByVal usuarioid As Integer) As DataSet
+        Return cajaDA.ControlCierreCaja(usuarioid)
 
     End Function
 
