@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol11;Integrated"& _ 
-            " Security=True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol0212;Integrat"& _ 
+            "ed Security=True")>  _
         Public ReadOnly Property JoyeriaCrisol11ConnectionString() As String
             Get
                 Return CType(Me("JoyeriaCrisol11ConnectionString"),String)
@@ -68,8 +68,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-PDNSPVO\LOCAL;Initial Catalog=JoyeriaCrisol2;Integrated Secur"& _ 
-            "ity=True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol0212;Integrat"& _ 
+            "ed Security=True")>  _
         Public ReadOnly Property JoyeriaCrisol2ConnectionString() As String
             Get
                 Return CType(Me("JoyeriaCrisol2ConnectionString"),String)
@@ -79,8 +79,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=EQUIPO007608\SQLEXPRESS;Initial Catalog=JoyeriaCrisol;Integrated Secu"& _ 
-            "rity=True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol0212;Integrat"& _ 
+            "ed Security=True")>  _
         Public ReadOnly Property JoyeriaCrisolConnectionString() As String
             Get
                 Return CType(Me("JoyeriaCrisolConnectionString"),String)
@@ -90,8 +90,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-PDNSPVO\LOCAL;Initial Catalog=JoyeriaCrisol12;Integrated Secu"& _ 
-            "rity=True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol0212;Integrat"& _ 
+            "ed Security=True")>  _
         Public ReadOnly Property JoyeriaCrisol12() As String
             Get
                 Return CType(Me("JoyeriaCrisol12"),String)

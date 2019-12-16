@@ -5,34 +5,34 @@
     <Setting Name="JoyeriaCrisol11ConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol11;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol0212;Integrated Security=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol11;Integrated Security=True</Value>
+      <Value Profile="(Default)">Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol0212;Integrated Security=True</Value>
     </Setting>
     <Setting Name="JoyeriaCrisol2ConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=DESKTOP-PDNSPVO\LOCAL;Initial Catalog=JoyeriaCrisol2;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol0212;Integrated Security=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=DESKTOP-PDNSPVO\LOCAL;Initial Catalog=JoyeriaCrisol2;Integrated Security=True</Value>
+      <Value Profile="(Default)">Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol0212;Integrated Security=True</Value>
     </Setting>
     <Setting Name="JoyeriaCrisolConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=EQUIPO007608\SQLEXPRESS;Initial Catalog=JoyeriaCrisol;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol0212;Integrated Security=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=EQUIPO007608\SQLEXPRESS;Initial Catalog=JoyeriaCrisol;Integrated Security=True</Value>
+      <Value Profile="(Default)">Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol0212;Integrated Security=True</Value>
     </Setting>
     <Setting Name="JoyeriaCrisol12" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=DESKTOP-PDNSPVO\LOCAL;Initial Catalog=JoyeriaCrisol12;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol0212;Integrated Security=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=DESKTOP-PDNSPVO\LOCAL;Initial Catalog=JoyeriaCrisol12;Integrated Security=True</Value>
+      <Value Profile="(Default)">Data Source=DESKTOP-J1N9KFO\SQLEXPRESS;Initial Catalog=JoyeriaCrisol0212;Integrated Security=True</Value>
     </Setting>
     <Setting Name="JoyeriaCrisolTableAdapter" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
